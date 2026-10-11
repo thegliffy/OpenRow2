@@ -1,1 +1,16 @@
 FUN_04030340	IUnknownImp::QueryInterface
+FUN_040ac560	Direct3DSurface9Imp::GetContainer
+FUN_040f1530	DirectInputImp::GetDeviceStatus
+FUN_040f3680	DirectInputGamepadDeviceImp::GetProperty
+FUN_040fb910	DirectSound3DBuffer8Imp::QueryInterface
+FUN_040fe880	DirectSoundBuffer8Imp::QueryInterface
+FUN_04100420	DirectSoundPrimaryBuffer8Imp::QueryInterface
+FUN_04188f10	AudioCaptureClientImp::QueryInterface
+FUN_041893f0	AudioClientImp::QueryInterface
+FUN_041894a0	AudioClientImp::GetService
+FUN_0418a520	AudioRenderClientImp::QueryInterface
+FUN_0418c670	MMDeviceCollectionImp::QueryInterface
+FUN_0418cde0	MMDeviceEnumeratorImp::QueryInterface
+FUN_0418d170	MMDeviceImp::QueryInterface
+FUN_0418d5a0	MMEndpointImp::QueryInterface
+FUN_0418e1e0	PropertyStoreImp::QueryInterface
