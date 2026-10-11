@@ -51,7 +51,10 @@ def parse(path):
     names_buf = data[off:off + align(names_size)]
     off += align(names_size)
     ext_buf = data[off:off + align(ext_size)]
-    base = off  # data section start
+    # gibbed ReadAligned consumes the extension pool, then skips to the
+    # next 2048-byte boundary. Data offsets are relative to that position.
+    off += align(ext_size)
+    base = off
 
     entries = []
     seq = base

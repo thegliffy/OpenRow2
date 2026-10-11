@@ -1,0 +1,65 @@
+entry	name	signatures
+04017fd0	readSymbolicLink	eON_FileSystem::checkPathExists | eON_FileSystem::init
+0402e220	eON_MapOfBits::FindSetRange	eON_MapOfBits::FindSetRange | eON_MapOfBits::IsRangeSet
+0402e370	eON_MapOfBits::FindClearRange	eON_MapOfBits::FindClearRange | eON_MapOfBits::IsRangeClear
+0402ecf0	eON_SystemInfo::queryCPUForInfo	eON_SystemInfo::init | eON_SystemInfo::queryCPUForInfo
+0402fee0	eON_TrackingManager::Create	eON_TrackingManager::Create | eON_TrackingManager::GetIndentString
+04030040	eON_TrackingManager::Delete	eON_TrackingManager::Delete | eON_TrackingManager::GetIndentString
+04059000	TextureType::GetType	ShaderData::IdentifyInstruction | TextureType::GetType | eON_ShaderData::DetermineUsedRegisters
+040709f0	Direct3DDevice9Imp::SetCursorProperties	Direct3DDevice9Imp::MultithreadedGuard_Enter | Direct3DDevice9Imp::SetCursorProperties
+04072ae0	d3d9device_CreateVertexDeclaration	Direct3DDevice9Imp::MultithreadedGuard_Enter | eON_ListElement::AddToList
+04073780	Direct3DStateBlock9Imp::SetSamplerState	Direct3DDevice9Imp::MultithreadedGuard_Enter | Direct3DStateBlock9Imp::SetSamplerState
+04074f90	Direct3DDevice9Imp::GetTransform	Direct3DDevice9Imp::GetTransform | Direct3DDevice9Imp::MultithreadedGuard_Enter
+04075ca0	Direct3DDevice9Imp::ColorFill	Direct3DDevice9Imp::ColorFill | Direct3DDevice9Imp::MultithreadedGuard_Enter
+04077000	Direct3DDevice9Imp::GetRenderTargetData	Direct3DDevice9Imp::GetRenderTargetData | Direct3DDevice9Imp::MultithreadedGuard_Enter
+04077590	Direct3DDevice9Imp::CreateDepthStencilSurface	Direct3DDevice9Imp::CreateDepthStencilSurface | Direct3DDevice9Imp::MultithreadedGuard_Enter
+040777e0	Direct3DDevice9Imp::CreateRenderTarget	Direct3DDevice9Imp::CreateRenderTarget | Direct3DDevice9Imp::MultithreadedGuard_Enter
+04078450	Direct3DDevice9Imp::GetBackBuffer	Direct3DDevice9Imp::GetBackBuffer | Direct3DDevice9Imp::MultithreadedGuard_Enter
+04078620	Direct3DDevice9Imp::Present	Direct3DDevice9Imp::MultithreadedGuard_Enter | Direct3DDevice9Imp::Present
+04079270	d3d9device_SetDepthStencilSurface	Direct3DDevice9Imp::MultithreadedGuard_Enter | Direct3DDevice9Imp::UpdateViewportAndScissorDimensions_D3D9
+040794b0	SetRenderTarget	Direct3DDevice9Imp::MultithreadedGuard_Enter | Direct3DDevice9Imp::UpdateViewportAndScissorDimensions_D3D9
+04080760	direct3ddevice9imp_04080760	Direct3DDevice9Imp::ExecuteOutOfBoundsCommand | Direct3DDevice9Imp::FlushUntilCommand
+04080890	Direct3DDevice9Imp::OpenGLThreadRunloop	Direct3DDevice9Imp::ExecuteOutOfBoundsCommand | Direct3DDevice9Imp::FlushUntilCommand | Direct3DDevice9Imp::OpenGLThreadRunloop
+04081470	glDrawArrays	OpenGLContextCache::EnableAlphaTest | OpenGLContextCache::EnableTwoSideStencilTest | OpenGLContextCache::UpdateClipPlaneEnable
+04082f20	Direct3DDevice9Imp::OpenGLSide_CopyRects_ScreenSurfaceToTexture	Direct3DBaseTexture9Imp::GetOpenGLTexture | Direct3DDevice9Imp::OpenGLSide_CopyRects_ScreenSurfaceToTexture
+04083a10	Direct3DDevice9Imp::OpenGLSide_StretchRect_SimpleTexture2Texture	Direct3DBaseTexture9Imp::GetOpenGLTexture | Direct3DDevice9Imp::OpenGLSide_StretchRect_SimpleTexture2Texture
+04083ea0	Direct3DDevice9Imp::OpenGLSide_StretchRect_Texture2TextureOrRenderbuffer	Direct3DBaseTexture9Imp::GetOpenGLTexture | Direct3DDevice9Imp::OpenGLSide_StretchRect_Texture2TextureOrRenderbuffer
+04084810	Direct3DDevice9Imp::OpenGLSide_StretchRect_SimpleRenderbuffer2Texture	Direct3DBaseTexture9Imp::GetOpenGLTexture | Direct3DDevice9Imp::OpenGLSide_StretchRect_SimpleRenderbuffer2Texture
+04085b60	Direct3DDevice9Imp::OpenGLSide_Clear	Direct3DBaseTexture9Imp::GetOpenGLTexture | Direct3DDevice9Imp::OpenGLSide_Clear
+04086840	Direct3DDevice9Imp::SetTransform	Direct3DDevice9Imp::MultithreadedGuard_Enter | Direct3DDevice9Imp::SetTransform
+0408cc90	OpenGLContextCache::PointAttenuation	OpenGLContextCache::EnableTwoSideStencilTest | OpenGLContextCache::PointAttenuation
+0408da20	Direct3DDevice9Imp::MakeSureTexturesForDrawAreCurrent	Direct3DBaseTexture9Imp::GetOpenGLTexture | Direct3DDevice9Imp::MakeSureTexturesForDrawAreCurrent
+0408ef80	Direct3DDevice9Imp::SetupTexturesForDraw	Direct3DBaseTexture9Imp::GetOpenGLTexture | Direct3DDevice9Imp::SetupTexturesForDraw
+040906e0	Direct3DDevice9Imp::DrawIndexedPrimitive	Direct3DDevice9Imp::DrawIndexedPrimitive | Direct3DDevice9Imp::MultithreadedGuard_Enter | Direct3DDevice9Imp::ValidateStreamSourcesForDraw
+04090a70	Direct3DDevice9Imp::DrawPrimitive	Direct3DDevice9Imp::DrawPrimitive | Direct3DDevice9Imp::MultithreadedGuard_Enter | Direct3DDevice9Imp::ValidateStreamSourcesForDraw
+04091490	OpenGLContextCache::LightDirection	OpenGLContextCache::LightAmbient | OpenGLContextCache::LightAttenuationConstant | OpenGLContextCache::LightAttenuationLinear | OpenGLContextCache::LightAttenuationQuadratic | OpenGLContextCache::LightDiffuse | OpenGLContextCache::LightDirection | OpenGLContextCache::LightFalloff | OpenGLContextCache::LightPhi | OpenGLContextCache::LightPosition | OpenGLContextCache::LightSpecular | OpenGLContextCache::glMatrixMode
+04091f80	OpenGLContextCache::MaterialShininess	OpenGLContextCache::MaterialAmbient | OpenGLContextCache::MaterialDiffuse | OpenGLContextCache::MaterialEmission | OpenGLContextCache::MaterialShininess | OpenGLContextCache::MaterialSpecular
+04093810	OpenGLContextCache::UpdateTextureMatrices	Direct3DDevice9Imp::UpdateOpenGLContextStateForDraw | OpenGLContextCache::EnableAlphaTest | OpenGLContextCache::EnablePointSprite | OpenGLContextCache::FogColor | OpenGLContextCache::FogDensity | OpenGLContextCache::FogEnd | OpenGLContextCache::FogStart | OpenGLContextCache::PointSizeMax | OpenGLContextCache::PointSizeMin | OpenGLContextCache::UpdateClipPlaneEnable | OpenGLContextCache::UpdateTextureMatrices | OpenGLContextCache::glMatrixMode | OpenGLContextCache::glShadeModel
+0409aff0	Direct3DDevice9::Initialize	Direct3DDevice9::Initialize | Direct3DDevice9Imp::Initialize | Direct3DDevice9Imp::MultithreadedGuard_Enter | Direct3DDevice9Imp::MultithreadedGuard_Leave
+0409d1c0	Direct3DDevice9Imp::GRTD_Delete	Direct3DDevice9Imp::GRTD_Delete | eONFence::~eONFence
+0409d7f0	Direct3DDevice9Imp::OpenGLSide_Present	Direct3DBaseTexture9Imp::GetOpenGLTexture | Direct3DDevice9Imp::OpenGLSide_Present
+0409f240	Direct3DDevice9Imp::Reset	Direct3DDevice9Imp::MultithreadedGuard_Enter | Direct3DDevice9Imp::Reset
+040a05a0	Direct3DDevice9Imp::OpenGLSide_DrawIndexedPrimitive	Direct3DDevice9Imp::OpenGLSide_DrawIndexedPrimitive | Direct3DDevice9Imp::PrepareVertexArraysForInstancedDraw
+040a4ea0	d3dstructs_040a4ea0	eONFence::Clear | eONFence::~eONFence
+040a8290	Direct3DDevice9Imp::StateBlock_GetTextureStageState	ChunkedDataBuffer::AddChunk | Direct3DDevice9Imp::StateBlock_GetTextureStageState
+040add60	Direct3DSurface9Imp::GetDepthBits	Direct3DSurface9Imp::GetDepthBits | Direct3DSurface9Imp::IsDepth
+040ae280	Direct3DSurface9Imp::TransferToOpenGLThroughDrawPixels	Direct3DSurface9Imp::IsDepth | Direct3DSurface9Imp::IsStencil | Direct3DSurface9Imp::TransferToOpenGLThroughDrawPixels
+040aee30	Direct3DSurface9Imp::OpenGLSide_SyncSurface	Direct3DBaseTexture9Imp::GetOpenGLTexture | Direct3DSurface9Imp::OpenGLSide_SyncSurface | Direct3DSurface9Imp::TransferFromOpenGLThroughReadPixels
+040af280	Direct3DSurface9Imp::OpenGLSide_GetSurfaceIntoPBO	Direct3DBaseTexture9Imp::GetOpenGLTexture | Direct3DSurface9Imp::OpenGLSide_GetSurfaceIntoPBO
+040af4e0	direct3dbasetexture9imp_040af4e0	Direct3DBaseTexture9Imp::GetOpenGLTexture | Direct3DSurface9Imp::UploadOpenGLObjectData
+040afa40	Direct3DSurface9Imp::CopyOpenGLObjectData	Direct3DBaseTexture9Imp::GetOpenGLTexture | Direct3DSurface9Imp::CopyOpenGLObjectData
+040afd70	Direct3DSurface9Imp::TransferBetweenOpenGLTexturesInDifferentSurfaces	Direct3DBaseTexture9Imp::GetOpenGLTexture | Direct3DSurface9Imp::MainOpenGLObjectDataUpdated | Direct3DSurface9Imp::TransferBetweenOpenGLTexturesInDifferentSurfaces
+040b0120	Direct3DSurface9Imp::OpenGLSide_TransferToOpenGLTextureInDifferentSurface	Direct3DBaseTexture9Imp::GetOpenGLTexture | Direct3DSurface9Imp::MainOpenGLObjectDataUpdated | Direct3DSurface9Imp::OpenGLSide_TransferToOpenGLTextureInDifferentSurface
+040b5940	direct3dbasetexture9imp_040b5940	Direct3DBaseTexture9Imp::GetOpenGLTexture | Direct3DVolume9Imp::UploadOpenGLObjectData
+040b7ab0	Direct3DVolume9Imp::OpenGLSide_SyncVolume	Direct3DBaseTexture9Imp::GetOpenGLTexture | Direct3DVolume9Imp::OpenGLSide_SyncVolume
+040b7c40	direct3dbasetexture9imp_040b7c40	Direct3DBaseTexture9Imp::GetOpenGLTexture | Direct3DVolume9Imp::UploadOpenGLObjectData
+040c5690	FramebufferCache::GetFramebufferHash	Direct3DBaseTexture9Imp::GetOpenGLTexture | FramebufferCache::GetFramebufferHash
+040eede0	eON_UniformBufferStreamed::UpdateToNewBuffer	eONFence::~eONFence | eON_UniformBufferStreamed::UpdateToNewBuffer
+04109ad0	XAudio2SourceVoiceImp::CopyPcm	XAudio2SourceVoiceImp::CopyPcm | XAudio2SourceVoiceImp::ResizePcm | XAudio2SourceVoiceImp::UpdateBuffers
+0410d640	XAudio2VoiceImp::SetOutputVoices	XAudio2VoiceImp::GetAudioGraphMutex | XAudio2VoiceImp::SetOutputVoices
+0410d930	XAudio2VoiceImp::SetEffectChain	XAudio2VoiceImp::DeleteEffectChain | XAudio2VoiceImp::SetEffectChain
+0410e3f0	XAudio2VoiceImp::Process	XAudio2VoiceImp::AddToMix | XAudio2VoiceImp::Process
+041c73a0	FUN_041c73a0	TiXmlBase::GetChar | TiXmlBase::StringEqual
+041c7910	FUN_041c7910	TiXmlBase::GetChar | TiXmlBase::StringEqual
+041c8330	TiXmlDocument::Parse	TiXmlBase::StringEqual | TiXmlDocument::Parse
+042d36f0	elfutils-inl_042d36f0	google_breakpad::FindElfSection | google_breakpad::FindElfSectionByName
