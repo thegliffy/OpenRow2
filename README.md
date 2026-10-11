@@ -57,4 +57,4 @@ The batch machine has converged: remaining unnamed functions have ambiguous (sha
 
 ## License
 
-No game binaries or assets are committed — you need your own legal copy of Saints Row 2. The original KairiFey/OpenRow2 repo carries no license, so nothing was copied from it; this repo starts fresh (license TBD by the owner).
+MIT — covers this project's own contributions (tooling, analysis, naming data). No game binaries or assets are committed; you need your own legal copy of Saints Row 2. Nothing was copied from the original KairiFey/OpenRow2 repo (it carries no license).
