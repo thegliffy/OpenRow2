@@ -7,7 +7,7 @@ import ghidra.app.script.GhidraScript;
 import ghidra.program.model.address.Address;
 import ghidra.program.model.listing.*;
 import ghidra.program.model.symbol.SourceType;
-import ghidra.program.model.lang.*;
+import ghidra.program.model.scalar.Scalar;
 
 import java.io.*;
 import java.util.*;
@@ -24,7 +24,9 @@ public class ApplySeeds extends GhidraScript {
             while ((line = br.readLine()) != null) {
                 String[] p = line.split(",", 3);
                 if (p.length >= 2) {
-                    seeds.put(Long.parseLong(p[0].trim(), 16), p[1].trim().replaceAll("^\"|\"$", ""));
+                    String h = p[0].trim();
+                    if (h.startsWith("0x")) h = h.substring(2);
+                    seeds.put(Long.parseLong(h, 16), p[1].trim().replaceAll("^\"|\"$", ""));
                 }
             }
         }
