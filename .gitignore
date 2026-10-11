@@ -9,3 +9,8 @@ bin/
 
 # Vendored RE tooling (own licenses, not part of this repo's history)
 vendor/
+
+# Local model scratch (the checked batch file is committed)
+agent/proposals/
+agent/done.tsv
+__pycache__/

@@ -56,6 +56,12 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 4. A later pass may add a class qualifier. It must not replace a signature-derived name with a shorter string found in the same function.
 5. Re-apply `names_batch7.tsv` on the local Ghidra project. `seeds/functions.csv` already contains those qualified names.
 
+## Local model
+
+`AGENTS.md` is the work loop. `python3 tools/llm_work.py next` prints one unnamed function and the strings it references. `check` allows a name only when that function alone has one assert message of the form `Class::Method` plus the text around it. `accept` appends a passing row to `tools/names_batch_llm.tsv` (`current<TAB>proposed`) for `ApplyNames` after batches 2–7. `ask` sends the packet to a local OpenAI-compatible server (`OPENROW_LLM_URL`, default `http://127.0.0.1:18280/v1`) and stops at the checker.
+
+`python3 tools/test_llm_work.py` runs the checker against the seeds.
+
 ## Next
 
 - Split the 64 functions in `seeds/ambiguous_signatures.tsv`, then keep the signature that belongs to each piece.
