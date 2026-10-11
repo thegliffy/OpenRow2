@@ -1,4 +1,5 @@
 FUN_04030340	IUnknownImp::QueryInterface
+FUN_040a5140	Direct3DQuery9Imp::GetData
 FUN_040ac560	Direct3DSurface9Imp::GetContainer
 FUN_040f1530	DirectInputImp::GetDeviceStatus
 FUN_040f3680	DirectInputGamepadDeviceImp::GetProperty
@@ -14,3 +15,7 @@ FUN_0418cde0	MMDeviceEnumeratorImp::QueryInterface
 FUN_0418d170	MMDeviceImp::QueryInterface
 FUN_0418d5a0	MMEndpointImp::QueryInterface
 FUN_0418e1e0	PropertyStoreImp::QueryInterface
+FUN_041c2670	TiXmlText::Print
+FUN_042d24d0	google_breakpad::MinidumpFileWriter::Allocate
+FUN_042d25a0	google_breakpad::MinidumpFileWriter::Copy
+FUN_042d2890	google_breakpad::UntypedMDRVA::Allocate
