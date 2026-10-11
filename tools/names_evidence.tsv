@@ -1,0 +1,10 @@
+FUN_042a6240	zstream_reset
+FUN_042aec80	zstream_shutdown
+FUN_042b5da0	zstream_init
+FUN_042b5f80	zstream_inflate_buffer
+FUN_042b60c0	zstream_decompress
+FUN_042b6560	zstream_inflate_stream
+FUN_042ba340	zstream_decompress_image
+FUN_042c03b0	file_write_contents
+FUN_040e93c0	shader_pch_write
+FUN_041c1740	tinyxml_TiXmlElement_Print
