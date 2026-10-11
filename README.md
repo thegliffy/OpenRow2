@@ -10,9 +10,16 @@ Decompilation of the **Saints Row 2** PC (Steam) executable — continuation of 
 ## Status
 
 - [x] Repo created
-- [ ] Ghidra project import of `SR2.exe` (Steam version, needs owner-supplied binary — not committed, see License)
-- [ ] Full auto-analysis + symbol seeding from community RE (gibbed/Gibbed.SaintsRow2, SR2 modding tools)
+- [x] Ghidra 12.1.4 installed headless (Java 21) — ready for import
+- [x] Symbol-seed pipeline: `tools/volition_hash.py` (Volition rot-left-6 string hash, ported from gibbed's StringHelpers) — wordlist → hash→string CSV for naming decompiled functions
+- [ ] `SR2.exe` import (Steam version, needs owner-supplied binary — not committed, see License)
+- [ ] Full auto-analysis + apply seed symbol map
 - [ ] First documented subsystem (TBD: RW core / VPP / PEG)
+
+## Tooling
+
+- `tools/volition_hash.py` — reimplements the engine's string hash so extracted wordlists (xtbl keys, lestrings, asset paths) become Ghidra symbol seeds. `python3 tools/volition_hash.py seed wordlist.txt seeds.csv`
+- `vendor/` — reference RE tooling, cloned not committed: [gibbed/Gibbed.SaintsRow2](https://github.com/gibbed/Gibbed.SaintsRow2) (zlib-style license) and the [saintsrowmods2](https://github.com/saintsrowmods2/SaintsRow2Tools) fork (PegTool, StringHashTool, save editor). Format knowledge for VPP/PEG/VINT/xtbl lives here.
 
 ## Layout (planned)
 

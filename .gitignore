@@ -1,0 +1,11 @@
+# Ghidra project files
+*.gpr
+*.rep
+ghidra_projects/
+
+# Game binary — owner-supplied, not redistributable
+*.exe
+bin/
+
+# Vendored RE tooling (own licenses, not part of this repo's history)
+vendor/
