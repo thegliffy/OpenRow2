@@ -1,0 +1,41 @@
+=== 0403abc0 FUN_0403abc0 ===
+
+void FUN_0403abc0(undefined4 param_1,undefined4 param_2,undefined4 param_3)
+
+{
+  void *pvVar1;
+  
+  if (DAT_04415c44 == (void *)0x0) {
+    pvVar1 = operator_new(0x1ec);
+                    /* try { // try from 0403ac21 to 0403ac25 has its CatchHandler @ 0403ac4b */
+    AES(pvVar1);
+    DAT_04415c44 = pvVar1;
+    FUN_04031570(pvVar1,0x80,0x80);
+  }
+  FUN_04035ac0(DAT_04415c44,&DAT_04408c70);
+  Decrypt(DAT_04415c44,param_1,param_2,param_3,1);
+  return;
+}
+
+
+
+=== 0403ab00 FUN_0403ab00 ===
+
+void FUN_0403ab00(void)
+
+{
+  void *pvVar1;
+  
+  if (DAT_04415c44 == (void *)0x0) {
+    pvVar1 = operator_new(0x1ec);
+                    /* try { // try from 0403ab41 to 0403ab45 has its CatchHandler @ 0403ab6b */
+    AES(pvVar1);
+    DAT_04415c44 = pvVar1;
+    FUN_04031570(pvVar1,0x80,0x80);
+  }
+  FUN_04035ac0(DAT_04415c44,&DAT_04408c70);
+  return;
+}
+
+
+
