@@ -41,8 +41,10 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 - `tools/DecompileList.java` — batch-decompile function lists.
 - `tools/names_batch*.tsv` — rename batches. `ApplyNames` matches the function's current name, so re-apply in order. `names_batch7.tsv` qualifies 249 short names to `Class::Method`.
 - `seeds/` — verified seeds (53,969), string refs (16,692), function map, PLT call edges (14,318), and `ambiguous_signatures.tsv` (64 functions that reference more than one signature).
-- `seeds/win_rdata_sourcepaths.txt` — 70 `__FILE__` paths recovered from the SecuROM-packed Windows exe's plaintext `.rdata`. The path list is real.
-- `seeds/rejected/win_string_module_map.csv` — do not use. It assigned every string up to the next path to that `.cpp`. `color_pool.cpp` received 2,194 strings, including melee finisher names and weapon anim names, and 29 of the 70 paths received none.
+- `tools/win_rdata_paths.py` — list `__FILE__` markers in the Windows exe. `.text` is encrypted (byte entropy 8.0), so a path is a file offset plus its two neighboring strings, not a range of owned strings.
+- `seeds/win_rdata_paths.csv` — 71 markers from `SR2_pc.exe`. `.\geom\color_pool.cpp` sits between `Color_Entry` and `.rig_pc`. The next path is not the end of that file's strings.
+- `seeds/win_rdata_sourcepaths.txt` — the same 71 paths, one per line.
+- `seeds/rejected/win_string_module_map.csv` — do not use. It treated the span until the next path as that `.cpp`. `color_pool.cpp` was given 2,194 strings, including melee finisher names and weapon anim names.
 - `decomp/` — raw decompilation output (evidence for applied names).
 - `vendor/` — reference RE tooling, cloned not committed: [gibbed/Gibbed.SaintsRow2](https://github.com/gibbed/Gibbed.SaintsRow2) (zlib-style license) and the [saintsrowmods2](https://github.com/saintsrowmods2/SaintsRow2Tools) fork (PegTool, StringHashTool, save editor).
 
@@ -59,7 +61,7 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 - Split the 64 functions in `seeds/ambiguous_signatures.tsv`, then keep the signature that belongs to each piece.
 - Check the D3D9 device pointer array itself. The names follow `IDirect3DDevice9` order and line up with the 17 methods already named from asserts. The weak stretch is the run after `DrawIndexedPrimitive` (through `CreateQuery`) and the 10 slots before `SetCursorProperties`, which have no later anchor.
 - Read `vpfs_*` → `zstream_decompress`. The VPFS payload is not plain zlib.
-- Windows exe: match individual `.rdata` strings to Linux functions. Leave the rejected adjacency map alone.
+- Windows exe: match one `.rdata` string at a time to a Linux function that references it. `win_rdata_paths.csv` is the path list. Leave the rejected adjacency map alone.
 
 ## License
 
