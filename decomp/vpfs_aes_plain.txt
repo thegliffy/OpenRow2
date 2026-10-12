@@ -1,0 +1,78 @@
+VPFS AES plaintext
+
+saintsrow2.vpfs. Key is the 16 bytes at DAT_04408c70 (file offset 0x408c70):
+e79a76b0a9343de28fe9b6eaa21d8d48
+AES-128. FUN_04031570(ctx, 0x80, 0x80) sets Nk = 4 and Nb = 4. The round count
+in the table at 0x42e2bc0 for that pair is 10.
+
+Header is 0x20 bytes, magic 0x53465056 ("VPFS"). From the stores in FUN_040491e0
+(0404954a):
+
+  +0x00  magic
+  +0x04  1          -> DAT_04468a84  (version; the extra-file loop runs only if this is > 1)
+  +0x08  0x01688fea
+  +0x0c  0x520      -> DAT_04468a88  directory byte count
+  +0x10  0x3eb      -> DAT_04468a8c
+  +0x14  0x2e       -> DAT_04418044
+  +0x18  0xa        -> DAT_04468a90  stride, in 16-byte blocks
+  +0x1c  0
+
+Directory
+
+Seek is the instruction at 040495c9: lea 0x20(%edx,%edi,1) with edx = the dword
+at +0x08 and edi = the dword at +0x14.
+
+  0x01688fea + 0x2e + 0x20 = 0x1689038
+
+Read 0x520 bytes there (through EOF, 0x1689558). FUN_0403abc0 calls
+AES::Decrypt with mode 1. Mode 0 is raw blocks. Mode 1 is CBC with a zero IV:
+the first block is XORed with zeros, and each later block is XORed with the
+previous ciphertext block (0403a800).
+
+AES-128-CBC, IV 0, yields 16 null-terminated names:
+
+  binkw32.dll
+  d3dx9_39.dll
+  dfengine.dll
+  gameuxinstallhelper.dll
+  goggame-1430740458.dll
+  language_setup.exe
+  microsoft.vc80.crt
+  microsoft.vc80.crt.manifest
+  msvcm80.dll
+  msvcp80.dll
+  msvcr80.dll
+  msvcrt.dll
+  sr2_pc.exe
+  unins000.exe
+  x3daudio1_4.dll
+  xactengine3_2.dll
+
+Each name is preceded by a FILETIME-shaped 8 bytes and the dword 0x20
+(FILE_ATTRIBUTE_ARCHIVE). ECB does not produce these names. There is no zlib
+wrapper on this buffer.
+
+File body
+
+The payload starts at file offset 0x20. FUN_0403ab90 is one AES block
+(FUN_04036430), not CBC. VPFS_ArchiveRead (0403e707) decrypts 16 bytes, then
+advances by DAT_04468a90 << 4. Stride 10 means one encrypted block every 160
+bytes. The bytes in between are plaintext.
+
+The block at 0x20 decrypts to the standard DOS stub prefix 4D 5A 90 00 03 00
+00 00 04 00 00 00 FF FF 00 00. The next plaintext bytes are B8 00 00 00 ... and
+"This program cannot be run in DOS mode." With those stride blocks decrypted,
+e_lfanew is 0xF0, the signature is PE, machine 0x14c, 13 sections:
+
+  .text  BINKY12  BINKY16  BINKP8  BINK16  BINK32  BINK
+  .rdata  .data  BINKBSS  BINKDATA  .rsrc  .reloc
+
+That is the first directory entry, binkw32.dll. The same 16 ciphertext bytes
+(f91893dbfe15468a9d77d84e4856505d) sit at the start of the other embedded PEs
+and decrypt to the same MZ prefix. Fourteen "This program cannot be run in DOS
+mode." stubs sit in the payload; the other two directory names are the VC80
+CRT directory and its manifest, not PEs.
+
+The scripts tools/vpfs_decode_proof.py, vpfs_modes.py, vpfs_bruteforce.py, and
+vpfs_scan_full.py still look for a zlib stream after AES. This file does not
+have one.
