@@ -1,0 +1,45 @@
+Breakpad crash writers
+
+Six functions still named FUN_ reference a pretty-function string containing {anonymous}. The braces keep those names out of the checker, so they stay FUN_. decomp/anonymous_funs_note.txt is the short list. This note is what each body does.
+
+Constructor assert
+
+- 0400939e, 46 bytes, does not return. It calls __assert_fail with condition "fd_ != -1 || minidump_path", file src/client/linux/minidump_writer/minidump_writer.cc, line 0x8c, and pretty function {anonymous}::MinidumpWriter::MinidumpWriter(const char*, int, const google_breakpad::ExceptionHandler::CrashContext*, const MappingList&, const AppMemoryList&, google_breakpad::LinuxDumper*).
+
+Three minidump entry points
+
+042d0710 (1152 bytes), 042d0e50 (1248 bytes), and 042d1330 (848 bytes) each inline that constructor. The bodies differ.
+
+After FUN_042d2330 builds the writer object, all three do the same thing:
+
+- If the stored fd is -1 and the path pointer is null, call FUN_0400939e.
+- If the fd is not -1 and the path pointer is set, call __assert_fail at minidump_writer.cc line 0x8d. The condition string these three reference is "fd_ == -1 || !minidump_path".
+- Make a virtual call at offset 8. A false result returns 0.
+- If the fd is -1, call google_breakpad::MinidumpFileWriter::Open. Otherwise call google_breakpad::MinidumpFileWriter::SetFile.
+- Make a virtual call at offset 0x10. A true result then calls FUN_042ce600.
+- If the fd is -1, call FUN_042d2420.
+- Make a virtual call at offset 0x14, then call FUN_042d24a0.
+
+- 042d0710 is __regparm2 and takes eight arguments. FUN_042cc800 builds the dumper from one argument. Two arguments are saved as list pointers. The context pointer may be null, and then no context is copied. A non-null context is accepted only when the following integer is 0x250. The copy takes word 0, word 3, word 0x20, and the spans that start at word 0x21 and word 0x78. Any other size returns 0. The dumper is destroyed with FUN_042c9eb0. The call catalog records two callers, 042d0b90 and 042d0c90, each 256 bytes. Each also calls operator.delete twice.
+
+- 042d0e50 takes three arguments. The first is stored as the path, the second is passed to FUN_042cc800, and the third is stored next to an fd of -1. It has no 0x250 test. It builds two empty circular lists and frees their nodes with operator.delete. It destroys the dumper with FUN_042c9eb0.
+
+- 042d1330 takes four arguments. The first is stored as the path, and the fd is set to -1. The fourth argument is an existing object: the function reads offsets 0x14, 0x1c, and 0x20, and it does not call FUN_042cc800. It does not free list nodes, and it does not call FUN_042c9eb0.
+
+Microdump writer
+
+- 042c84d0, 5712 bytes, references src/client/linux/microdump_writer/microdump_writer.cc. It takes four arguments. FUN_042cc800 builds a dumper from the first. The second is the context pointer and the third is its size. A null context skips the copy. A non-null context is accepted only when the size is 0x250, and the copy uses the same five fields as 042d0710. Any other size jumps to the epilogue with result 0. FUN_042ca160 must return true, and a virtual call at offset 0x10 must return true, before a banner is written.
+
+The begin banner "-----BEGIN BREAKPAD MICRODUMP-----" is passed to FUN_042d4380 and then FUN_042c8480. If uname succeeds, the same pair writes one more line. The pieces of that line, in order, are the string "O " at 0439c861, a stack buffer whose first byte is 0x4c, the bytes at 0439c865 (a space, then a quotation mark), utsname.machine, the bytes at 0439c864 (a quotation mark, a space, and a quotation mark), utsname.release, the bytes at 0439c865 again, utsname.version, and the quotation mark at 0439c866. The function also references "-----END BREAKPAD MICRODUMP-----" and the alphabet 0123456789ABCDEF repeated three times.
+
+Three __assert_fail calls name that microdump file:
+
+- Line 0xa5, condition "false", pretty function bool {anonymous}::MicrodumpWriter::DumpThreadStack(uint32_t, uintptr_t, int, uint8_t**).
+- Line 0xd5, condition "ucontext_", pretty function bool {anonymous}::MicrodumpWriter::DumpCrashingThread().
+- Line 0xd6, condition "!dumper_->IsPostMortem()", with that same DumpCrashingThread pretty function.
+
+The body calls google_breakpad::LinuxDumper::ElfFileIdentifierForMapping twice and FUN_042c9f50 twice. FUN_042c9f50 calls FUN_042c9b20. The call catalog records one caller, 042c7200 (160 bytes, body 142), which also calls FUN_042d0dd0 and FUN_042d0e10.
+
+Elf file soname
+
+- 042c9b20, 560 bytes, __regparm2. decomp/mappinginfo_note.txt already identifies it as the anonymous helper ElfFileSoName. The body compares the bytes at the mapping pointer plus 0xd with "/dev/" for 5 bytes, using FUN_042d43f0. On a match, FUN_042d4380 takes the length, and a length above 0xfe calls __assert_fail with condition "false", file src/client/linux/minidump_writer/linux_dumper.cc, line 0xca, and pretty function bool google_breakpad::{anonymous}::ElfFileSoName(const google_breakpad::MappingInfo&, char*, size_t). Otherwise __memcpy_chk copies the name, bounded by the size argument. The function also references the section names .dynamic and .dynstr. The call catalog records the caller 042c9f50.

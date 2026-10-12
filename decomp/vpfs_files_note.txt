@@ -1,0 +1,33 @@
+VPFS extracted files
+
+The fifteen files stay in /tmp/openrow-vpfs and were not committed. Every PE is machine 0x14c. microsoft.vc80.crt is a directory record, not one of these files.
+
+binkw32.dll is 171008 bytes, a Windows GUI DLL, export name binkw32.dll. FileDescription is RAD Video Tools, FileVersion is 1.9e, ProductName is Bink and Smacker, and CompanyName is RAD Game Tools, Inc.
+
+d3dx9_39.dll is 3851784 bytes, a Windows GUI DLL, export name d3dx9_39.dll. FileDescription is empty. FileVersion is 9.24.949.2307, ProductName is Microsoft® DirectX for Windows®, CompanyName is Microsoft Corporation, and OriginalFilename is D3DX9D.dll.
+
+dfengine.dll is 676464 bytes, a Windows GUI DLL, export name DfEngine.dll. FileDescription is DFEngine Dynamic Link Library, FileVersion is 3.5.372.6, ProductName is DFEngine Dynamic Link Library, CompanyName is DoubleFusion, and OriginalFilename is DFEngine.dll.
+
+gameuxinstallhelper.dll is 96264 bytes, a Windows console DLL, export name GameuxInstallHelper.dll. FileDescription is Game Explorer Install Helper DLL, FileVersion is 1.00.000.0000, ProductName is Game Explorer Install Helper DLL, CompanyName is Microsoft Corporation, and OriginalFilename is GameuxInstallHelper.DLL.
+
+goggame-1430740458.dll is 297552 bytes, a Windows GUI DLL, export name GDF_GOGgame.dll. The file contains no FileDescription, FileVersion, ProductName, or CompanyName string.
+
+language_setup.exe is 2968376 bytes, a Windows GUI executable. Its sections are UPX0, UPX1, and .rsrc, so the body is UPX-packed. It was not decompressed. The file contains no FileDescription, FileVersion, ProductName, or CompanyName string.
+
+microsoft.vc80.crt.manifest is 1869 bytes of UTF-8 XML. Its assemblyIdentity name is Microsoft.VC80.CRT and its version is 8.0.50727.762.
+
+msvcm80.dll is 479232 bytes, a Windows GUI DLL, export name msvcm80.dll. FileDescription is Microsoft® C Runtime Library, FileVersion is 8.00.50727.762, ProductName is Microsoft® Visual Studio® 2005, CompanyName is Microsoft Corporation, and OriginalFilename is MSVCM80.DLL.
+
+msvcp80.dll is 548864 bytes, a Windows GUI DLL, export name MSVCP80.dll. FileDescription is Microsoft® C++ Runtime Library, FileVersion is 8.00.50727.762, ProductName is Microsoft® Visual Studio® 2005, CompanyName is Microsoft Corporation, and OriginalFilename is MSVCP80.DLL.
+
+msvcr80.dll is 626688 bytes, a Windows GUI DLL, export name MSVCR80.dll. FileDescription is Microsoft® C Runtime Library, FileVersion is 8.00.50727.762, ProductName is Microsoft® Visual Studio® 2005, CompanyName is Microsoft Corporation, and OriginalFilename is MSVCR80.DLL.
+
+msvcrt.dll is 266293 bytes, a Windows GUI DLL, export name MSVCRT.dll. FileDescription is Microsoft (R) C Runtime Library, FileVersion is 6.00.8397.0, ProductName is Microsoft (R) Visual C++, CompanyName is Microsoft Corporation, and OriginalFilename is MSVCRT.DLL.
+
+sr2_pc.exe is 12136448 bytes, a Windows GUI executable, with no export table. The file contains no FileDescription, FileVersion, ProductName, or CompanyName string.
+
+unins000.exe is 1245264 bytes, a Windows GUI executable, with no export table. The version resource in the file says FileDescription Shell Folder Service, FileVersion 5.50.4807.2300, ProductName Microsoft(R) Windows (R) 2000 Operating System, CompanyName Microsoft Corporation, and OriginalFilename shfolder.dll.
+
+x3daudio1_4.dll is 25608 bytes, a Windows console DLL, export name X3DAudio1_4.dll. FileDescription is X3DAudio, FileVersion is 9.23 (DXSDK_JUN08.080530-1349), ProductVersion is 9.23.1350.0, ProductName is Microsoft® DirectX for Windows®, CompanyName is Microsoft Corporation, and OriginalFilename is X3DAudio1_4.dll.
+
+xactengine3_2.dll is 238088 bytes, a Windows GUI DLL, export name XactEngine3_2.dll. FileDescription is XACT Engine API, FileVersion is 9.24 (DXSDK_AUG08.080731-0600), ProductVersion is 9.24.1400.0, ProductName is Microsoft® DirectX for Windows®, CompanyName is Microsoft Corporation, and OriginalFilename is XactEngine3_2.dll.

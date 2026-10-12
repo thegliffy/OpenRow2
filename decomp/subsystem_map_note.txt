@@ -1,0 +1,101 @@
+Output of tools/subsystem_map.py: a navigation map of functions
+grouped by the C library or graphics calls they make. A bucket is a name
+prefix in that script, not a Class::Method name. No names were invented.
+
+=== subsystem call-volume map ===
+alloc: 1006 functions, callees=['calloc', 'free', 'freeaddrinfo', 'freeifaddrs', 'malloc', 'operator.delete', 'operator.delete[]', 'operator.new']
+memory: 630 functions, callees=['memcmp', 'memcpy', 'memmove', 'memset']
+string: 414 functions, callees=['snprintf', 'sprintf', 'strcat', 'strchr', 'strcmp', 'strcpy', 'strlen', 'strncmp']
+threads: 381 functions, callees=['pthread_attr_destroy', 'pthread_attr_getstack', 'pthread_attr_init', 'pthread_attr_setdetachstate', 'pthread_attr_setstacksize', 'pthread_cancel', 'pthread_cond_broadcast', 'pthread_cond_destroy']
+render: 271 functions, callees=['glAlphaFunc', 'glBindTexture', 'glClear', 'glClearColor', 'glClearStencil', 'glClipPlane', 'glColorMask', 'glCopyTexSubImage2D']
+audio: 69 functions, callees=['alBufferData', 'alBufferSubDataSOFT', 'alBufferSubSamplesSOFT', 'alDeferUpdatesSOFT', 'alDeleteBuffers', 'alDeleteSources', 'alDistanceModel', 'alDopplerFactor']
+fileio: 65 functions, callees=['fclose', 'fflush', 'fopen', 'fopen64', 'fread', 'fseek', 'fseeko64', 'ftell']
+filesystem: 58 functions, callees=['access', 'close', 'closedir', 'mkdir', 'open64', 'opendir', 'read', 'readdir64']
+network: 40 functions, callees=['bind', 'connect', 'gethostbyaddr', 'gethostbyname', 'inet_addr', 'inet_aton', 'inet_ntoa', 'listen']
+inflate: 11 functions, callees=['inflate', 'inflateEnd', 'inflateInit_', 'inflateReset']
+
+=== top anchors (functions calling ONLY one subsystem, >=3 calls) ===
+
+render (139 anchors):
+  041a5dd0 FUN_041a5dd0 (390 calls)
+  0419cb30 FUN_0419cb30 (214 calls)
+  04197880 FUN_04197880 (93 calls)
+  04198d00 FUN_04198d00 (93 calls)
+  041a2e50 FUN_041a2e50 (71 calls)
+  041a10d0 FUN_041a10d0 (64 calls)
+  0419b790 FUN_0419b790 (62 calls)
+  0419a530 FUN_0419a530 (60 calls)
+  04198140 FUN_04198140 (55 calls)
+  041a02f0 FUN_041a02f0 (49 calls)
+
+alloc (130 anchors):
+  0404b260 FUN_0404b260 (72 calls)
+  04154090 FUN_04154090 (37 calls)
+  0403adc0 FUN_0403adc0 (36 calls)
+  0407a460 FUN_0407a460 (34 calls)
+  04015ba0 FUN_04015ba0 (23 calls)
+  04122920 FUN_04122920 (20 calls)
+  0410ef40 FUN_0410ef40 (18 calls)
+  04016a90 FUN_04016a90 (12 calls)
+  0400d550 FUN_0400d550 (11 calls)
+  0404f270 FUN_0404f270 (10 calls)
+
+threads (99 anchors):
+  0416de60 FUN_0416de60 (11 calls)
+  041496e0 FUN_041496e0 (9 calls)
+  0413e320 FUN_0413e320 (8 calls)
+  04045da0 FUN_04045da0 (7 calls)
+  0413fc80 FUN_0413fc80 (7 calls)
+  04148f50 FUN_04148f50 (7 calls)
+  0414fe20 FUN_0414fe20 (7 calls)
+  0416dd40 FUN_0416dd40 (7 calls)
+  04189f80 FUN_04189f80 (7 calls)
+  0409ca90 FUN_0409ca90 (6 calls)
+
+memory (49 anchors):
+  0408da20 FUN_0408da20 (18 calls)
+  0404e5c0 FUN_0404e5c0 (9 calls)
+  040e4900 FUN_040e4900 (9 calls)
+  040f2000 FUN_040f2000 (8 calls)
+  042422f0 FUN_042422f0 (8 calls)
+  04242500 FUN_04242500 (8 calls)
+  0404e1d0 FUN_0404e1d0 (7 calls)
+  040c5690 FUN_040c5690 (7 calls)
+  04177050 FUN_04177050 (6 calls)
+  0421c380 FUN_0421c380 (6 calls)
+
+string (49 anchors):
+  04066610 FUN_04066610 (34 calls)
+  040de9a0 FUN_040de9a0 (22 calls)
+  0413b0b0 FUN_0413b0b0 (22 calls)
+  04051590 FUN_04051590 (20 calls)
+  0403ed10 FUN_0403ed10 (18 calls)
+  0403e320 FUN_0403e320 (16 calls)
+  041cae02 FUN_041cae02 (13 calls)
+  04052550 FUN_04052550 (12 calls)
+  040b3370 FUN_040b3370 (11 calls)
+  0416a440 FUN_0416a440 (11 calls)
+
+audio (10 anchors):
+  040f90a0 FUN_040f90a0 (13 calls)
+  0418b3b0 FUN_0418b3b0 (9 calls)
+  040f99b0 FUN_040f99b0 (6 calls)
+  040f9fb0 FUN_040f9fb0 (6 calls)
+  0400dd30 FUN_0400dd30 (5 calls)
+  0418b520 FUN_0418b520 (5 calls)
+  040f8c60 FUN_040f8c60 (4 calls)
+  040fa210 FUN_040fa210 (4 calls)
+  0418b250 FUN_0418b250 (4 calls)
+  0400ddd0 FUN_0400ddd0 (3 calls)
+
+filesystem (5 anchors):
+  0404b060 FUN_0404b060 (10 calls)
+  0401a1e0 FUN_0401a1e0 (5 calls)
+  04017920 FUN_04017920 (3 calls)
+  04113fc0 FUN_04113fc0 (3 calls)
+  04114cb0 FUN_04114cb0 (3 calls)
+
+fileio (3 anchors):
+  042c03b0 FUN_042c03b0 (5 calls)
+  040e93c0 FUN_040e93c0 (3 calls)
+  041c1740 FUN_041c1740 (3 calls)
