@@ -1,0 +1,17 @@
+Naming checker audit (tools/llm_work.py queue -> 0 functions), 2026-10-12.
+
+Counts over FUN_ entries (7108 total), using the checker's own functions:
+- Entries whose own strings contain at least one raw SIG_RE Class::Method match: 41
+- Accepted by signatures_in(): 29
+- Dropped by the STL class rule: 12
+- Dropped by _message() (text around the signature shorter than 8 chars): 0
+- Of the 29 accepted, unique_signature() drops:
+    - signature shared with another function: 18
+    - function has more than one signature: 7
+- Entries passing unique_signature(): 4 (040a3ce0, 041c16b0, 041c4a90, 042d28f0)
+- Those 4 are already recorded in agent/done.tsv, so candidates() skips them.
+
+The queue is empty for that reason: every candidate is dropped by the
+uniqueness, multi-signature, message-length, or STL rules, and the only four
+that pass those rules were already processed and sit in agent/done.tsv.
+No checker bug was found; no code was changed.
