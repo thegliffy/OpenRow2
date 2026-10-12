@@ -1,0 +1,14 @@
+=== FUN_04035ac0 @ 04035ac0
+  caller: FUN_0403ab00 @ 0403ab1b
+  caller: FUN_0403abc0 @ 0403abdb
+=== FUN_04031620 @ 04031620
+  caller: FUN_0403a990 @ 0403a9ab
+  caller: FUN_0403aa50 @ 0403aa6b
+=== FUN_0403a990 @ 0403a990
+=== FUN_0403aa50 @ 0403aa50
+=== FUN_0403ab00 @ 0403ab00
+  caller: FUN_04048720 @ 04048aa7
+  caller: FUN_040491e0 @ 04049572
+=== FUN_0403abc0 @ 0403abc0
+  caller: FUN_04048720 @ 04048d9a
+  caller: FUN_040491e0 @ 040498ac
