@@ -2786,7 +2786,7 @@ Trying to write to render target %u (supported %u)!,eON_ShaderData::InputRegiste
 "Unsupported asm opcode in ShaderData::IdentifyInstruction() !!!. Opcode %#x, shader version %#x",TextureType::GetType,04059000
 "Unsupported asm opcode in ShaderData::IdentifyInstruction() !!!. Opcode %#x, shader version %#x",FUN_040580b0,040580b0
 "Unsupported asm opcode in ShaderData::IdentifyInstruction() !!!. Opcode %#x, shader version %#x",FUN_04052100,04052100
-"Unsupported asm opcode in ShaderData::IdentifyInstruction() !!!. Opcode %#x, shader version %#x",FUN_04057880,04057880
+"Unsupported asm opcode in ShaderData::IdentifyInstruction() !!!. Opcode %#x, shader version %#x",ShaderData::IdentifyInstruction,04057880
 "Unsupported asm opcode in ShaderData::IdentifyInstruction() !!!. Opcode %#x, shader version %#x",FUN_04055f10,04055f10
 Unrecognized instruction when producing GLSL code\n,FUN_0405ac10,0405ac10
 Unrecognized instruction when producing GLSL code\n,FUN_04052100,04052100
@@ -5177,9 +5177,9 @@ UINT Direct3DPixelShader9Imp::GetGLSLFragmentShaderIndex(const FragmentShaderCom
 /home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3dquery9imp.cpp,Direct3DQuery9Imp::TestQuery,040a5b60
 /home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3dquery9imp.cpp,Direct3DQuery9Imp::TestQuery,040a5b60
 /home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3dquery9imp.cpp,d3dstructs_040a4ea0,040a4ea0
-Invalid arguments to Direct3DQuery9Imp::GetData! Memory leak may occur.,FUN_040a5140,040a5140
-"Occlusion query returning fake result - Direc3DDevice9 already deleted, or game waited several frames before asking for answer",FUN_040a5140,040a5140
-Query type %u wanted in GetData()!,FUN_040a5140,040a5140
+Invalid arguments to Direct3DQuery9Imp::GetData! Memory leak may occur.,Direct3DQuery9Imp::GetData,040a5140
+"Occlusion query returning fake result - Direc3DDevice9 already deleted, or game waited several frames before asking for answer",Direct3DQuery9Imp::GetData,040a5140
+Query type %u wanted in GetData()!,Direct3DQuery9Imp::GetData,040a5140
 Query type %u wanted in Issue()!,FUN_040a5620,040a5620
 Query type %u wanted in TestQuery()!,Direct3DQuery9Imp::TestQuery,040a5b60
 !( FenceARB || FenceAPPLE ),direct3dquery9imp_040a5cc0,040a5cc0
@@ -9615,15 +9615,15 @@ DirectInputImp::GetDeviceStatus called with guid = %s,DirectInputImp::GetDeviceS
 /home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/dinput8/directinputdevice8imp.cpp,DirectInputDeviceImp::GetImageInfo,040f1f10
 /home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/dinput8/directinputdevice8imp.cpp,DirectInputDeviceImp::SetActionMap,040f1f50
 /home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/dinput8/directinputdevice8imp.cpp,DirectInputDeviceImp::BuildActionMap,040f1f90
-"DirectInputDevice::QueryInterface, getting IID_IDirectInputDevice7W interface",FUN_040f2000,040f2000
-Asked DirectInputDevice7W object for DirectInputDevice7A representation!,FUN_040f2000,040f2000
-"DirectInputDevice::QueryInterface, getting IID_IDirectInputDevice7A interface",FUN_040f2000,040f2000
-Asked DirectInputDevice7A object for DirectInputDevice7W representation!,FUN_040f2000,040f2000
-"DirectInputDevice::QueryInterface, getting IID_IDirectInputDevice8W interface",FUN_040f2000,040f2000
-Asked DirectInputDevice8W object for DirectInputDevice8A representation!,FUN_040f2000,040f2000
-"DirectInputDevice::QueryInterface, getting IID_IDirectInputDevice8A interface",FUN_040f2000,040f2000
-Asked DirectInputDevice8A object for DirectInputDevice8W representation!,FUN_040f2000,040f2000
-Unhandled - DirectInputDeviceImp::QueryInterface called with iid = %s,FUN_040f2000,040f2000
+"DirectInputDevice::QueryInterface, getting IID_IDirectInputDevice7W interface",DirectInputDeviceImp::QueryInterface,040f2000
+Asked DirectInputDevice7W object for DirectInputDevice7A representation!,DirectInputDeviceImp::QueryInterface,040f2000
+"DirectInputDevice::QueryInterface, getting IID_IDirectInputDevice7A interface",DirectInputDeviceImp::QueryInterface,040f2000
+Asked DirectInputDevice7A object for DirectInputDevice7W representation!,DirectInputDeviceImp::QueryInterface,040f2000
+"DirectInputDevice::QueryInterface, getting IID_IDirectInputDevice8W interface",DirectInputDeviceImp::QueryInterface,040f2000
+Asked DirectInputDevice8W object for DirectInputDevice8A representation!,DirectInputDeviceImp::QueryInterface,040f2000
+"DirectInputDevice::QueryInterface, getting IID_IDirectInputDevice8A interface",DirectInputDeviceImp::QueryInterface,040f2000
+Asked DirectInputDevice8A object for DirectInputDevice8W representation!,DirectInputDeviceImp::QueryInterface,040f2000
+Unhandled - DirectInputDeviceImp::QueryInterface called with iid = %s,DirectInputDeviceImp::QueryInterface,040f2000
 DirectInputDeviceImp,FUN_040f2250,040f2250
 "virtual HRESULT DirectInputDeviceImp::BuildActionMap(LPVOID, LPCVOID, DWORD)",DirectInputDeviceImp::BuildActionMap,040f1f90
 "virtual HRESULT DirectInputDeviceImp::SetActionMap(LPVOID, LPCVOID, DWORD)",DirectInputDeviceImp::SetActionMap,040f1f50
@@ -15560,12 +15560,12 @@ encoding=,FUN_041c1be0,041c1be0
 standalone=%s ,FUN_041c1be0,041c1be0
 standalone=,FUN_041c1be0,041c1be0
 !Find( addMe->Name() ),FUN_041c2150,041c2150
-!Find( addMe->Name() ),FUN_041c5ba0,041c5ba0
-<![CDATA[%s]]>\n,FUN_041c2670,041c2670
+!Find( addMe->Name() ),TiXmlAttributeSet::Add,041c5ba0
+<![CDATA[%s]]>\n,TiXmlText::Print,041c2670
 firstChild == beforeThis,TiXmlNode::InsertBeforeChild,041c2e60
 lastChild == afterThis,TiXmlNode::InsertAfterChild,041c2fa0
-previous->parent == this,FUN_041c3320,041c3320
-previous->parent == this,FUN_041c3380,041c3380
+previous->parent == this,TiXmlNode::IterateChildren,041c3320
+previous->parent == this,TiXmlNode::IterateChildren,041c3380
 p < (buf+length),TiXmlDocument::LoadFile,041c4320
 q <= (buf+length),TiXmlDocument::LoadFile,041c4320
 q <= (buf+length),TiXmlDocument::LoadFile,041c4320
@@ -15574,18 +15574,18 @@ sentinel.next == &sentinel,TiXmlAttributeSet::~TiXmlAttributeSet,041c5740
 sentinel.prev == &sentinel,TiXmlAttributeSet::~TiXmlAttributeSet,041c5740
 /home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxml.cpp,FUN_041c34b0,041c34b0
 /home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxml.cpp,TiXmlNode::RemoveChild,041c31f0
-/home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxml.cpp,FUN_041c3320,041c3320
-/home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxml.cpp,FUN_041c3380,041c3380
+/home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxml.cpp,TiXmlNode::IterateChildren,041c3320
+/home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxml.cpp,TiXmlNode::IterateChildren,041c3380
 /home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxml.cpp,TiXmlNode::InsertBeforeChild,041c2e60
 /home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxml.cpp,TiXmlNode::InsertAfterChild,041c2fa0
 /home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxml.cpp,TiXmlNode::LinkEndChild,041c2bb0
 /home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxml.cpp,TiXmlNode::LinkEndChild,041c2bb0
-/home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxml.cpp,FUN_041c2670,041c2670
+/home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxml.cpp,TiXmlText::Print,041c2670
 /home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxml.cpp,FUN_041c2150,041c2150
 /home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxml.cpp,FUN_041c16b0,041c16b0
 /home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxml.cpp,tinyxml_TiXmlElement_Print,041c1740
 /home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxml.cpp,FUN_041c5c20,041c5c20
-/home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxml.cpp,FUN_041c5ba0,041c5ba0
+/home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxml.cpp,TiXmlAttributeSet::Add,041c5ba0
 /home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxml.cpp,TiXmlAttributeSet::~TiXmlAttributeSet,041c5740
 /home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxml.cpp,TiXmlAttributeSet::~TiXmlAttributeSet,041c5740
 /home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxml.cpp,FUN_041c4a90,041c4a90
@@ -15616,12 +15616,12 @@ TiXmlNode* TiXmlNode::LinkEndChild(TiXmlNode*),TiXmlNode::LinkEndChild,041c2bb0
 "TiXmlNode* TiXmlNode::InsertBeforeChild(TiXmlNode*, const TiXmlNode&)",TiXmlNode::InsertBeforeChild,041c2e60
 "TiXmlNode* TiXmlNode::InsertAfterChild(TiXmlNode*, const TiXmlNode&)",TiXmlNode::InsertAfterChild,041c2fa0
 bool TiXmlNode::RemoveChild(TiXmlNode*),TiXmlNode::RemoveChild,041c31f0
-const TiXmlNode* TiXmlNode::IterateChildren(const TiXmlNode*) const,FUN_041c3320,041c3320
-"const TiXmlNode* TiXmlNode::IterateChildren(const char*, const TiXmlNode*) const",FUN_041c3380,041c3380
+const TiXmlNode* TiXmlNode::IterateChildren(const TiXmlNode*) const,TiXmlNode::IterateChildren,041c3320
+"const TiXmlNode* TiXmlNode::IterateChildren(const char*, const TiXmlNode*) const",TiXmlNode::IterateChildren,041c3380
 void TiXmlAttributeSet::Remove(TiXmlAttribute*),FUN_041c34b0,041c34b0
 void TiXmlAttributeSet::Remove(TiXmlAttribute*),FUN_041c5c20,041c5c20
 void TiXmlAttributeSet::Add(TiXmlAttribute*),FUN_041c2150,041c2150
-void TiXmlAttributeSet::Add(TiXmlAttribute*),FUN_041c5ba0,041c5ba0
+void TiXmlAttributeSet::Add(TiXmlAttribute*),TiXmlAttributeSet::Add,041c5ba0
 "virtual void TiXmlElement::Print(FILE*, int) const",tinyxml_TiXmlElement_Print,041c1740
 "bool TiXmlDocument::LoadFile(FILE*, TiXmlEncoding)",TiXmlDocument::LoadFile,041c4320
 "bool TiXmlDocument::LoadFile(FILE*, TiXmlEncoding)",TiXmlDocument::LoadFile,041c4320
@@ -15629,7 +15629,7 @@ void TiXmlAttributeSet::Add(TiXmlAttribute*),FUN_041c5ba0,041c5ba0
 "bool TiXmlDocument::LoadFile(FILE*, TiXmlEncoding)",TiXmlDocument::LoadFile,041c4320
 "virtual void TiXmlDocument::Print(FILE*, int) const",FUN_041c4a90,041c4a90
 "virtual void TiXmlComment::Print(FILE*, int) const",FUN_041c16b0,041c16b0
-"virtual void TiXmlText::Print(FILE*, int) const",FUN_041c2670,041c2670
+"virtual void TiXmlText::Print(FILE*, int) const",TiXmlText::Print,041c2670
 TiXmlAttributeSet::~TiXmlAttributeSet(),TiXmlAttributeSet::~TiXmlAttributeSet,041c5740
 TiXmlAttributeSet::~TiXmlAttributeSet(),TiXmlAttributeSet::~TiXmlAttributeSet,041c5740
 /home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxmlparser.cpp,tinyxmlparser_041c90c0,041c90c0
@@ -16363,28 +16363,28 @@ google_breakpad::MinidumpDescriptor::MinidumpDescriptor(const string&),minidump_
 google_breakpad::MinidumpDescriptor::MinidumpDescriptor(const string&),minidump_descriptor_042c7bd0,042c7bd0
 google_breakpad::MinidumpDescriptor::MinidumpDescriptor(const string&),minidump_descriptor_042c7690,042c7690
 google_breakpad::MinidumpDescriptor::MinidumpDescriptor(const string&),minidump_descriptor_042c7690,042c7690
-src/client/linux/handler/minidump_descriptor.cc,FUN_042c8060,042c8060
-src/client/linux/handler/minidump_descriptor.cc,FUN_042c8060,042c8060
+src/client/linux/handler/minidump_descriptor.cc,google_breakpad::MinidumpDescriptor::MinidumpDescriptor,042c8060
+src/client/linux/handler/minidump_descriptor.cc,google_breakpad::MinidumpDescriptor::MinidumpDescriptor,042c8060
 src/client/linux/handler/minidump_descriptor.cc,google_breakpad::MinidumpDescriptor::UpdatePath,042c80e0
 src/client/linux/handler/minidump_descriptor.cc,google_breakpad::MinidumpDescriptor::UpdatePath,042c80e0
 src/client/linux/handler/minidump_descriptor.cc,google_breakpad::MinidumpDescriptor::UpdatePath,042c80e0
 src/client/linux/handler/minidump_descriptor.cc,google_breakpad::MinidumpDescriptor::UpdatePath,042c80e0
-src/client/linux/handler/minidump_descriptor.cc,FUN_042c83e0,042c83e0
-src/client/linux/handler/minidump_descriptor.cc,FUN_042c83e0,042c83e0
+src/client/linux/handler/minidump_descriptor.cc,google_breakpad::MinidumpDescriptor::operator,042c83e0
+src/client/linux/handler/minidump_descriptor.cc,google_breakpad::MinidumpDescriptor::operator,042c83e0
 mode_ == kWriteMinidumpToFile && !directory_.empty(),google_breakpad::MinidumpDescriptor::UpdatePath,042c80e0
 mode_ == kWriteMinidumpToFile && !directory_.empty(),google_breakpad::MinidumpDescriptor::UpdatePath,042c80e0
-descriptor.path_.empty(),FUN_042c8060,042c8060
-descriptor.path_.empty(),FUN_042c8060,042c8060
-descriptor.path_.empty(),FUN_042c83e0,042c83e0
-descriptor.path_.empty(),FUN_042c83e0,042c83e0
+descriptor.path_.empty(),google_breakpad::MinidumpDescriptor::MinidumpDescriptor,042c8060
+descriptor.path_.empty(),google_breakpad::MinidumpDescriptor::MinidumpDescriptor,042c8060
+descriptor.path_.empty(),google_breakpad::MinidumpDescriptor::operator,042c83e0
+descriptor.path_.empty(),google_breakpad::MinidumpDescriptor::operator,042c83e0
 void google_breakpad::MinidumpDescriptor::UpdatePath(),google_breakpad::MinidumpDescriptor::UpdatePath,042c80e0
 void google_breakpad::MinidumpDescriptor::UpdatePath(),google_breakpad::MinidumpDescriptor::UpdatePath,042c80e0
 void google_breakpad::MinidumpDescriptor::UpdatePath(),google_breakpad::MinidumpDescriptor::UpdatePath,042c80e0
 void google_breakpad::MinidumpDescriptor::UpdatePath(),google_breakpad::MinidumpDescriptor::UpdatePath,042c80e0
-google_breakpad::MinidumpDescriptor& google_breakpad::MinidumpDescriptor::operator=(const google_breakpad::MinidumpDescriptor&),FUN_042c83e0,042c83e0
-google_breakpad::MinidumpDescriptor& google_breakpad::MinidumpDescriptor::operator=(const google_breakpad::MinidumpDescriptor&),FUN_042c83e0,042c83e0
-google_breakpad::MinidumpDescriptor::MinidumpDescriptor(const google_breakpad::MinidumpDescriptor&),FUN_042c8060,042c8060
-google_breakpad::MinidumpDescriptor::MinidumpDescriptor(const google_breakpad::MinidumpDescriptor&),FUN_042c8060,042c8060
+google_breakpad::MinidumpDescriptor& google_breakpad::MinidumpDescriptor::operator=(const google_breakpad::MinidumpDescriptor&),google_breakpad::MinidumpDescriptor::operator,042c83e0
+google_breakpad::MinidumpDescriptor& google_breakpad::MinidumpDescriptor::operator=(const google_breakpad::MinidumpDescriptor&),google_breakpad::MinidumpDescriptor::operator,042c83e0
+google_breakpad::MinidumpDescriptor::MinidumpDescriptor(const google_breakpad::MinidumpDescriptor&),google_breakpad::MinidumpDescriptor::MinidumpDescriptor,042c8060
+google_breakpad::MinidumpDescriptor::MinidumpDescriptor(const google_breakpad::MinidumpDescriptor&),google_breakpad::MinidumpDescriptor::MinidumpDescriptor,042c8060
 -----BEGIN BREAKPAD MICRODUMP-----,FUN_042c84d0,042c84d0
 -----BEGIN BREAKPAD MICRODUMP-----,FUN_042c84d0,042c84d0
 -----BEGIN BREAKPAD MICRODUMP-----,FUN_042c84d0,042c84d0
@@ -16507,12 +16507,12 @@ const char* google_breakpad::ProcCpuInfoReader::GetValueAndLen(size_t*),google_b
 "{anonymous}::MinidumpWriter::MinidumpWriter(const char*, int, const google_breakpad::ExceptionHandler::CrashContext*, const MappingList&, const AppMemoryList&, google_breakpad::LinuxDumper*)",FUN_042d0e50,042d0e50
 "{anonymous}::MinidumpWriter::MinidumpWriter(const char*, int, const google_breakpad::ExceptionHandler::CrashContext*, const MappingList&, const AppMemoryList&, google_breakpad::LinuxDumper*)",FUN_042d0710,042d0710
 "{anonymous}::MinidumpWriter::MinidumpWriter(const char*, int, const google_breakpad::ExceptionHandler::CrashContext*, const MappingList&, const AppMemoryList&, google_breakpad::LinuxDumper*)",FUN_042d0710,042d0710
-src/client/minidump_file_writer.cc,FUN_042d2d30,042d2d30
-src/client/minidump_file_writer.cc,FUN_042d2d30,042d2d30
-src/client/minidump_file_writer.cc,FUN_042d2d30,042d2d30
-src/client/minidump_file_writer.cc,FUN_042d2d30,042d2d30
-src/client/minidump_file_writer.cc,FUN_042d2890,042d2890
-src/client/minidump_file_writer.cc,FUN_042d2890,042d2890
+src/client/minidump_file_writer.cc,google_breakpad::MinidumpFileWriter::WriteStringCore,042d2d30
+src/client/minidump_file_writer.cc,google_breakpad::MinidumpFileWriter::WriteStringCore,042d2d30
+src/client/minidump_file_writer.cc,google_breakpad::MinidumpFileWriter::WriteStringCore,042d2d30
+src/client/minidump_file_writer.cc,google_breakpad::MinidumpFileWriter::WriteStringCore,042d2d30
+src/client/minidump_file_writer.cc,google_breakpad::UntypedMDRVA::Allocate,042d2890
+src/client/minidump_file_writer.cc,google_breakpad::UntypedMDRVA::Allocate,042d2890
 src/client/minidump_file_writer.cc,FUN_042d28f0,042d28f0
 src/client/minidump_file_writer.cc,FUN_042d28f0,042d28f0
 src/client/minidump_file_writer.cc,FUN_042d28f0,042d28f0
@@ -16523,20 +16523,20 @@ src/client/minidump_file_writer.cc,google_breakpad::MinidumpFileWriter::WriteMem
 src/client/minidump_file_writer.cc,google_breakpad::MinidumpFileWriter::WriteMemory,042d29a0
 src/client/minidump_file_writer.cc,google_breakpad::MinidumpFileWriter::WriteMemory,042d29a0
 src/client/minidump_file_writer.cc,google_breakpad::MinidumpFileWriter::WriteMemory,042d29a0
-src/client/minidump_file_writer.cc,FUN_042d2b40,042d2b40
-src/client/minidump_file_writer.cc,FUN_042d2b40,042d2b40
-src/client/minidump_file_writer.cc,FUN_042d2b40,042d2b40
-src/client/minidump_file_writer.cc,FUN_042d2b40,042d2b40
-src/client/minidump_file_writer.cc,FUN_042d24d0,042d24d0
-src/client/minidump_file_writer.cc,FUN_042d24d0,042d24d0
-src/client/minidump_file_writer.cc,FUN_042d24d0,042d24d0
-src/client/minidump_file_writer.cc,FUN_042d24d0,042d24d0
-src/client/minidump_file_writer.cc,FUN_042d25a0,042d25a0
-src/client/minidump_file_writer.cc,FUN_042d25a0,042d25a0
-src/client/minidump_file_writer.cc,FUN_042d25a0,042d25a0
-src/client/minidump_file_writer.cc,FUN_042d25a0,042d25a0
-src/client/minidump_file_writer.cc,FUN_042d25a0,042d25a0
-src/client/minidump_file_writer.cc,FUN_042d25a0,042d25a0
+src/client/minidump_file_writer.cc,google_breakpad::MinidumpFileWriter::WriteStringCore,042d2b40
+src/client/minidump_file_writer.cc,google_breakpad::MinidumpFileWriter::WriteStringCore,042d2b40
+src/client/minidump_file_writer.cc,google_breakpad::MinidumpFileWriter::WriteStringCore,042d2b40
+src/client/minidump_file_writer.cc,google_breakpad::MinidumpFileWriter::WriteStringCore,042d2b40
+src/client/minidump_file_writer.cc,google_breakpad::MinidumpFileWriter::Allocate,042d24d0
+src/client/minidump_file_writer.cc,google_breakpad::MinidumpFileWriter::Allocate,042d24d0
+src/client/minidump_file_writer.cc,google_breakpad::MinidumpFileWriter::Allocate,042d24d0
+src/client/minidump_file_writer.cc,google_breakpad::MinidumpFileWriter::Allocate,042d24d0
+src/client/minidump_file_writer.cc,google_breakpad::MinidumpFileWriter::Copy,042d25a0
+src/client/minidump_file_writer.cc,google_breakpad::MinidumpFileWriter::Copy,042d25a0
+src/client/minidump_file_writer.cc,google_breakpad::MinidumpFileWriter::Copy,042d25a0
+src/client/minidump_file_writer.cc,google_breakpad::MinidumpFileWriter::Copy,042d25a0
+src/client/minidump_file_writer.cc,google_breakpad::MinidumpFileWriter::Copy,042d25a0
+src/client/minidump_file_writer.cc,google_breakpad::MinidumpFileWriter::Copy,042d25a0
 src/client/minidump_file_writer.cc,google_breakpad::MinidumpFileWriter::Open,042d2350
 src/client/minidump_file_writer.cc,google_breakpad::MinidumpFileWriter::Open,042d2350
 src/client/minidump_file_writer.cc,google_breakpad::MinidumpFileWriter::SetFile,042d23d0
@@ -16547,44 +16547,44 @@ file_ == -1,google_breakpad::MinidumpFileWriter::Open,042d2350
 file_ == -1,google_breakpad::MinidumpFileWriter::Open,042d2350
 file_ == -1,google_breakpad::MinidumpFileWriter::SetFile,042d23d0
 file_ == -1,google_breakpad::MinidumpFileWriter::SetFile,042d23d0
-file_ != -1,FUN_042d24d0,042d24d0
-file_ != -1,FUN_042d24d0,042d24d0
-file_ != -1,FUN_042d25a0,042d25a0
-file_ != -1,FUN_042d25a0,042d25a0
-size_ == 0,FUN_042d2890,042d2890
-size_ == 0,FUN_042d2890,042d2890
+file_ != -1,google_breakpad::MinidumpFileWriter::Allocate,042d24d0
+file_ != -1,google_breakpad::MinidumpFileWriter::Allocate,042d24d0
+file_ != -1,google_breakpad::MinidumpFileWriter::Copy,042d25a0
+file_ != -1,google_breakpad::MinidumpFileWriter::Copy,042d25a0
+size_ == 0,google_breakpad::UntypedMDRVA::Allocate,042d2890
+size_ == 0,google_breakpad::UntypedMDRVA::Allocate,042d2890
 "bool google_breakpad::UntypedMDRVA::Copy(MDRVA, const void*, size_t)",FUN_042d28f0,042d28f0
 "bool google_breakpad::UntypedMDRVA::Copy(MDRVA, const void*, size_t)",FUN_042d28f0,042d28f0
 "bool google_breakpad::UntypedMDRVA::Copy(MDRVA, const void*, size_t)",FUN_042d28f0,042d28f0
 "bool google_breakpad::UntypedMDRVA::Copy(MDRVA, const void*, size_t)",FUN_042d28f0,042d28f0
 "bool google_breakpad::UntypedMDRVA::Copy(MDRVA, const void*, size_t)",FUN_042d28f0,042d28f0
 "bool google_breakpad::UntypedMDRVA::Copy(MDRVA, const void*, size_t)",FUN_042d28f0,042d28f0
-bool google_breakpad::UntypedMDRVA::Allocate(size_t),FUN_042d2890,042d2890
-bool google_breakpad::UntypedMDRVA::Allocate(size_t),FUN_042d2890,042d2890
-"bool google_breakpad::MinidumpFileWriter::Copy(MDRVA, const void*, ssize_t)",FUN_042d25a0,042d25a0
-"bool google_breakpad::MinidumpFileWriter::Copy(MDRVA, const void*, ssize_t)",FUN_042d25a0,042d25a0
-"bool google_breakpad::MinidumpFileWriter::Copy(MDRVA, const void*, ssize_t)",FUN_042d25a0,042d25a0
-"bool google_breakpad::MinidumpFileWriter::Copy(MDRVA, const void*, ssize_t)",FUN_042d25a0,042d25a0
-"bool google_breakpad::MinidumpFileWriter::Copy(MDRVA, const void*, ssize_t)",FUN_042d25a0,042d25a0
-"bool google_breakpad::MinidumpFileWriter::Copy(MDRVA, const void*, ssize_t)",FUN_042d25a0,042d25a0
-MDRVA google_breakpad::MinidumpFileWriter::Allocate(size_t),FUN_042d24d0,042d24d0
-MDRVA google_breakpad::MinidumpFileWriter::Allocate(size_t),FUN_042d24d0,042d24d0
-MDRVA google_breakpad::MinidumpFileWriter::Allocate(size_t),FUN_042d24d0,042d24d0
-MDRVA google_breakpad::MinidumpFileWriter::Allocate(size_t),FUN_042d24d0,042d24d0
+bool google_breakpad::UntypedMDRVA::Allocate(size_t),google_breakpad::UntypedMDRVA::Allocate,042d2890
+bool google_breakpad::UntypedMDRVA::Allocate(size_t),google_breakpad::UntypedMDRVA::Allocate,042d2890
+"bool google_breakpad::MinidumpFileWriter::Copy(MDRVA, const void*, ssize_t)",google_breakpad::MinidumpFileWriter::Copy,042d25a0
+"bool google_breakpad::MinidumpFileWriter::Copy(MDRVA, const void*, ssize_t)",google_breakpad::MinidumpFileWriter::Copy,042d25a0
+"bool google_breakpad::MinidumpFileWriter::Copy(MDRVA, const void*, ssize_t)",google_breakpad::MinidumpFileWriter::Copy,042d25a0
+"bool google_breakpad::MinidumpFileWriter::Copy(MDRVA, const void*, ssize_t)",google_breakpad::MinidumpFileWriter::Copy,042d25a0
+"bool google_breakpad::MinidumpFileWriter::Copy(MDRVA, const void*, ssize_t)",google_breakpad::MinidumpFileWriter::Copy,042d25a0
+"bool google_breakpad::MinidumpFileWriter::Copy(MDRVA, const void*, ssize_t)",google_breakpad::MinidumpFileWriter::Copy,042d25a0
+MDRVA google_breakpad::MinidumpFileWriter::Allocate(size_t),google_breakpad::MinidumpFileWriter::Allocate,042d24d0
+MDRVA google_breakpad::MinidumpFileWriter::Allocate(size_t),google_breakpad::MinidumpFileWriter::Allocate,042d24d0
+MDRVA google_breakpad::MinidumpFileWriter::Allocate(size_t),google_breakpad::MinidumpFileWriter::Allocate,042d24d0
+MDRVA google_breakpad::MinidumpFileWriter::Allocate(size_t),google_breakpad::MinidumpFileWriter::Allocate,042d24d0
 "bool google_breakpad::MinidumpFileWriter::WriteMemory(const void*, size_t, MDMemoryDescriptor*)",google_breakpad::MinidumpFileWriter::WriteMemory,042d29a0
 "bool google_breakpad::MinidumpFileWriter::WriteMemory(const void*, size_t, MDMemoryDescriptor*)",google_breakpad::MinidumpFileWriter::WriteMemory,042d29a0
 "bool google_breakpad::MinidumpFileWriter::WriteMemory(const void*, size_t, MDMemoryDescriptor*)",google_breakpad::MinidumpFileWriter::WriteMemory,042d29a0
 "bool google_breakpad::MinidumpFileWriter::WriteMemory(const void*, size_t, MDMemoryDescriptor*)",google_breakpad::MinidumpFileWriter::WriteMemory,042d29a0
-"bool google_breakpad::MinidumpFileWriter::WriteStringCore(const CharType*, unsigned int, MDLocationDescriptor*) [with CharType = char]",FUN_042d2d30,042d2d30
-"bool google_breakpad::MinidumpFileWriter::WriteStringCore(const CharType*, unsigned int, MDLocationDescriptor*) [with CharType = char]",FUN_042d2d30,042d2d30
-"bool google_breakpad::MinidumpFileWriter::WriteStringCore(const CharType*, unsigned int, MDLocationDescriptor*) [with CharType = char]",FUN_042d2d30,042d2d30
-"bool google_breakpad::MinidumpFileWriter::WriteStringCore(const CharType*, unsigned int, MDLocationDescriptor*) [with CharType = char]",FUN_042d2d30,042d2d30
+"bool google_breakpad::MinidumpFileWriter::WriteStringCore(const CharType*, unsigned int, MDLocationDescriptor*) [with CharType = char]",google_breakpad::MinidumpFileWriter::WriteStringCore,042d2d30
+"bool google_breakpad::MinidumpFileWriter::WriteStringCore(const CharType*, unsigned int, MDLocationDescriptor*) [with CharType = char]",google_breakpad::MinidumpFileWriter::WriteStringCore,042d2d30
+"bool google_breakpad::MinidumpFileWriter::WriteStringCore(const CharType*, unsigned int, MDLocationDescriptor*) [with CharType = char]",google_breakpad::MinidumpFileWriter::WriteStringCore,042d2d30
+"bool google_breakpad::MinidumpFileWriter::WriteStringCore(const CharType*, unsigned int, MDLocationDescriptor*) [with CharType = char]",google_breakpad::MinidumpFileWriter::WriteStringCore,042d2d30
 "bool google_breakpad::TypedMDRVA<MDType>::AllocateObjectAndArray(size_t, size_t) [with MDType = MDString; size_t = unsigned int]",minidump_file_writer-inl_04009668,04009668
 "bool google_breakpad::TypedMDRVA<MDType>::AllocateObjectAndArray(size_t, size_t) [with MDType = MDString; size_t = unsigned int]",minidump_file_writer-inl_04009668,04009668
-"bool google_breakpad::MinidumpFileWriter::WriteStringCore(const CharType*, unsigned int, MDLocationDescriptor*) [with CharType = wchar_t]",FUN_042d2b40,042d2b40
-"bool google_breakpad::MinidumpFileWriter::WriteStringCore(const CharType*, unsigned int, MDLocationDescriptor*) [with CharType = wchar_t]",FUN_042d2b40,042d2b40
-"bool google_breakpad::MinidumpFileWriter::WriteStringCore(const CharType*, unsigned int, MDLocationDescriptor*) [with CharType = wchar_t]",FUN_042d2b40,042d2b40
-"bool google_breakpad::MinidumpFileWriter::WriteStringCore(const CharType*, unsigned int, MDLocationDescriptor*) [with CharType = wchar_t]",FUN_042d2b40,042d2b40
+"bool google_breakpad::MinidumpFileWriter::WriteStringCore(const CharType*, unsigned int, MDLocationDescriptor*) [with CharType = wchar_t]",google_breakpad::MinidumpFileWriter::WriteStringCore,042d2b40
+"bool google_breakpad::MinidumpFileWriter::WriteStringCore(const CharType*, unsigned int, MDLocationDescriptor*) [with CharType = wchar_t]",google_breakpad::MinidumpFileWriter::WriteStringCore,042d2b40
+"bool google_breakpad::MinidumpFileWriter::WriteStringCore(const CharType*, unsigned int, MDLocationDescriptor*) [with CharType = wchar_t]",google_breakpad::MinidumpFileWriter::WriteStringCore,042d2b40
+"bool google_breakpad::MinidumpFileWriter::WriteStringCore(const CharType*, unsigned int, MDLocationDescriptor*) [with CharType = wchar_t]",google_breakpad::MinidumpFileWriter::WriteStringCore,042d2b40
 "bool google_breakpad::TypedMDRVA<MDType>::CopyIndexAfterObject(unsigned int, const void*, size_t) [with MDType = MDString; size_t = unsigned int]",minidump_file_writer-inl_0400963c,0400963c
 "bool google_breakpad::TypedMDRVA<MDType>::CopyIndexAfterObject(unsigned int, const void*, size_t) [with MDType = MDString; size_t = unsigned int]",minidump_file_writer-inl_0400963c,0400963c
 void google_breakpad::MinidumpFileWriter::SetFile(int),google_breakpad::MinidumpFileWriter::SetFile,042d23d0

@@ -1,0 +1,1123 @@
+##### 0400939e
+entry: 0400939e
+current_name: FUN_0400939e
+ambiguous: no
+
+strings:
+1. src/client/linux/minidump_writer/minidump_writer.cc
+2. src/client/linux/minidump_writer/minidump_writer.cc
+3. fd_ != -1 || minidump_path
+4. fd_ != -1 || minidump_path
+5. {anonymous}::MinidumpWriter::MinidumpWriter(const char*, int, const google_breakpad::ExceptionHandler::CrashContext*, const MappingList&, const AppMemoryList&, google_breakpad::LinuxDumper*)
+6. {anonymous}::MinidumpWriter::MinidumpWriter(const char*, int, const google_breakpad::ExceptionHandler::CrashContext*, const MappingList&, const AppMemoryList&, google_breakpad::LinuxDumper*)
+
+plt calls:
+- __assert_fail
+
+Loop protection is off: a shared signature from your own strings may be proposed.
+Rules for one name:
+- Propose a name only when this function's own strings contain exactly one Class::Method and that same string is a message about that method (the text around the signature is at least a short sentence, not the bare name).
+- That signature must not appear in any other function's strings. A shared error string names the callee, not this function. Uniqueness is checked after you reply, so do not SKIP because you cannot see the other functions.
+- proposed_name is that Class::Method, unchanged. kind is assert_signature.
+- evidence is copied exactly from one string listed in this packet.
+- Reply SKIP when the strings do not meet that bar.
+- Do not rename a function that already has a Class::Method name.
+- Do not use a source path, a neighboring string, or the span until the next path as a name.
+- Do not publish one signature for a function whose body references more than one.
+
+Reply with one line, or the single word SKIP:
+entry	current_name	proposed_name	kind	evidence
+##### 04018ba0
+entry: 04018ba0
+current_name: FUN_04018ba0
+ambiguous: no
+
+strings:
+1. eON_FileSystem::checkPathExists() failed for path %s, (%u) %s\n
+2. DataChanges/
+
+plt calls:
+- __cxa_guard_acquire
+- __xstat64
+- __errno_location
+- strerror
+- fprintf
+- __cxa_guard_acquire
+- string
+- append
+- __cxa_guard_release
+- __cxa_atexit
+- __cxa_guard_release
+- __cxa_atexit
+
+Loop protection is off: a shared signature from your own strings may be proposed.
+Rules for one name:
+- Propose a name only when this function's own strings contain exactly one Class::Method and that same string is a message about that method (the text around the signature is at least a short sentence, not the bare name).
+- That signature must not appear in any other function's strings. A shared error string names the callee, not this function. Uniqueness is checked after you reply, so do not SKIP because you cannot see the other functions.
+- proposed_name is that Class::Method, unchanged. kind is assert_signature.
+- evidence is copied exactly from one string listed in this packet.
+- Reply SKIP when the strings do not meet that bar.
+- Do not rename a function that already has a Class::Method name.
+- Do not use a source path, a neighboring string, or the span until the next path as a name.
+- Do not publish one signature for a function whose body references more than one.
+
+Reply with one line, or the single word SKIP:
+entry	current_name	proposed_name	kind	evidence
+##### 04019130
+entry: 04019130
+current_name: FUN_04019130
+ambiguous: no
+
+strings:
+1. eON_FileSystem::checkPathExists() failed for path %s, (%u) %s\n
+2. Requested Windows System32 path, investigate why!
+3. System32/
+
+plt calls:
+- __cxa_guard_acquire
+- __xstat64
+- __errno_location
+- strerror
+- fprintf
+- __cxa_guard_acquire
+- string
+- append
+- __cxa_guard_release
+- __cxa_atexit
+- __cxa_guard_release
+- __cxa_atexit
+
+Loop protection is off: a shared signature from your own strings may be proposed.
+Rules for one name:
+- Propose a name only when this function's own strings contain exactly one Class::Method and that same string is a message about that method (the text around the signature is at least a short sentence, not the bare name).
+- That signature must not appear in any other function's strings. A shared error string names the callee, not this function. Uniqueness is checked after you reply, so do not SKIP because you cannot see the other functions.
+- proposed_name is that Class::Method, unchanged. kind is assert_signature.
+- evidence is copied exactly from one string listed in this packet.
+- Reply SKIP when the strings do not meet that bar.
+- Do not rename a function that already has a Class::Method name.
+- Do not use a source path, a neighboring string, or the span until the next path as a name.
+- Do not publish one signature for a function whose body references more than one.
+
+Reply with one line, or the single word SKIP:
+entry	current_name	proposed_name	kind	evidence
+##### 04019310
+entry: 04019310
+current_name: FUN_04019310
+ambiguous: no
+
+strings:
+1. eON_FileSystem::checkPathExists() failed for path %s, (%u) %s\n
+2. GameDocuments/
+
+plt calls:
+- __cxa_guard_acquire
+- __xstat64
+- __errno_location
+- strerror
+- fprintf
+- __cxa_guard_acquire
+- string
+- append
+- __cxa_guard_release
+- __cxa_atexit
+- __cxa_guard_release
+- __cxa_atexit
+
+Loop protection is off: a shared signature from your own strings may be proposed.
+Rules for one name:
+- Propose a name only when this function's own strings contain exactly one Class::Method and that same string is a message about that method (the text around the signature is at least a short sentence, not the bare name).
+- That signature must not appear in any other function's strings. A shared error string names the callee, not this function. Uniqueness is checked after you reply, so do not SKIP because you cannot see the other functions.
+- proposed_name is that Class::Method, unchanged. kind is assert_signature.
+- evidence is copied exactly from one string listed in this packet.
+- Reply SKIP when the strings do not meet that bar.
+- Do not rename a function that already has a Class::Method name.
+- Do not use a source path, a neighboring string, or the span until the next path as a name.
+- Do not publish one signature for a function whose body references more than one.
+
+Reply with one line, or the single word SKIP:
+entry	current_name	proposed_name	kind	evidence
+##### 040194d0
+entry: 040194d0
+current_name: FUN_040194d0
+ambiguous: no
+
+strings:
+1. eON_FileSystem::checkPathExists() failed for path %s, (%u) %s\n
+2. AppData/
+
+plt calls:
+- __cxa_guard_acquire
+- __xstat64
+- __errno_location
+- strerror
+- fprintf
+- __cxa_guard_acquire
+- string
+- append
+- __cxa_guard_release
+- __cxa_atexit
+- __cxa_guard_release
+- __cxa_atexit
+
+Loop protection is off: a shared signature from your own strings may be proposed.
+Rules for one name:
+- Propose a name only when this function's own strings contain exactly one Class::Method and that same string is a message about that method (the text around the signature is at least a short sentence, not the bare name).
+- That signature must not appear in any other function's strings. A shared error string names the callee, not this function. Uniqueness is checked after you reply, so do not SKIP because you cannot see the other functions.
+- proposed_name is that Class::Method, unchanged. kind is assert_signature.
+- evidence is copied exactly from one string listed in this packet.
+- Reply SKIP when the strings do not meet that bar.
+- Do not rename a function that already has a Class::Method name.
+- Do not use a source path, a neighboring string, or the span until the next path as a name.
+- Do not publish one signature for a function whose body references more than one.
+
+Reply with one line, or the single word SKIP:
+entry	current_name	proposed_name	kind	evidence
+##### 04019690
+entry: 04019690
+current_name: FUN_04019690
+ambiguous: no
+
+strings:
+1. eON_FileSystem::checkPathExists() failed for path %s, (%u) %s\n
+2. AppDataLocal/
+
+plt calls:
+- __cxa_guard_acquire
+- __xstat64
+- __errno_location
+- strerror
+- fprintf
+- __cxa_guard_acquire
+- string
+- append
+- __cxa_guard_release
+- __cxa_atexit
+- __cxa_guard_release
+- __cxa_atexit
+
+Loop protection is off: a shared signature from your own strings may be proposed.
+Rules for one name:
+- Propose a name only when this function's own strings contain exactly one Class::Method and that same string is a message about that method (the text around the signature is at least a short sentence, not the bare name).
+- That signature must not appear in any other function's strings. A shared error string names the callee, not this function. Uniqueness is checked after you reply, so do not SKIP because you cannot see the other functions.
+- proposed_name is that Class::Method, unchanged. kind is assert_signature.
+- evidence is copied exactly from one string listed in this packet.
+- Reply SKIP when the strings do not meet that bar.
+- Do not rename a function that already has a Class::Method name.
+- Do not use a source path, a neighboring string, or the span until the next path as a name.
+- Do not publish one signature for a function whose body references more than one.
+
+Reply with one line, or the single word SKIP:
+entry	current_name	proposed_name	kind	evidence
+##### 04019850
+entry: 04019850
+current_name: FUN_04019850
+ambiguous: no
+
+strings:
+1. eON_FileSystem::checkPathExists() failed for path %s, (%u) %s\n
+2. AppDataShared/
+
+plt calls:
+- __cxa_guard_acquire
+- __xstat64
+- __errno_location
+- strerror
+- fprintf
+- __cxa_guard_acquire
+- string
+- append
+- __cxa_guard_release
+- __cxa_atexit
+- __cxa_guard_release
+- __cxa_atexit
+
+Loop protection is off: a shared signature from your own strings may be proposed.
+Rules for one name:
+- Propose a name only when this function's own strings contain exactly one Class::Method and that same string is a message about that method (the text around the signature is at least a short sentence, not the bare name).
+- That signature must not appear in any other function's strings. A shared error string names the callee, not this function. Uniqueness is checked after you reply, so do not SKIP because you cannot see the other functions.
+- proposed_name is that Class::Method, unchanged. kind is assert_signature.
+- evidence is copied exactly from one string listed in this packet.
+- Reply SKIP when the strings do not meet that bar.
+- Do not rename a function that already has a Class::Method name.
+- Do not use a source path, a neighboring string, or the span until the next path as a name.
+- Do not publish one signature for a function whose body references more than one.
+
+Reply with one line, or the single word SKIP:
+entry	current_name	proposed_name	kind	evidence
+##### 04019a10
+entry: 04019a10
+current_name: FUN_04019a10
+ambiguous: no
+
+strings:
+1. eON_FileSystem::checkPathExists() failed for path %s, (%u) %s\n
+2. SavedGames/
+
+plt calls:
+- __cxa_guard_acquire
+- __xstat64
+- __errno_location
+- strerror
+- fprintf
+- __cxa_guard_acquire
+- string
+- append
+- __cxa_guard_release
+- __cxa_atexit
+- __cxa_guard_release
+- __cxa_atexit
+
+Loop protection is off: a shared signature from your own strings may be proposed.
+Rules for one name:
+- Propose a name only when this function's own strings contain exactly one Class::Method and that same string is a message about that method (the text around the signature is at least a short sentence, not the bare name).
+- That signature must not appear in any other function's strings. A shared error string names the callee, not this function. Uniqueness is checked after you reply, so do not SKIP because you cannot see the other functions.
+- proposed_name is that Class::Method, unchanged. kind is assert_signature.
+- evidence is copied exactly from one string listed in this packet.
+- Reply SKIP when the strings do not meet that bar.
+- Do not rename a function that already has a Class::Method name.
+- Do not use a source path, a neighboring string, or the span until the next path as a name.
+- Do not publish one signature for a function whose body references more than one.
+
+Reply with one line, or the single word SKIP:
+entry	current_name	proposed_name	kind	evidence
+##### 04019bd0
+entry: 04019bd0
+current_name: FUN_04019bd0
+ambiguous: no
+
+strings:
+1. eON_FileSystem::checkPathExists() failed for path %s, (%u) %s\n
+2. Screenshots/
+
+plt calls:
+- __cxa_guard_acquire
+- __xstat64
+- __errno_location
+- strerror
+- fprintf
+- __cxa_guard_acquire
+- string
+- append
+- __cxa_guard_release
+- __cxa_atexit
+- __cxa_guard_release
+- __cxa_atexit
+
+Loop protection is off: a shared signature from your own strings may be proposed.
+Rules for one name:
+- Propose a name only when this function's own strings contain exactly one Class::Method and that same string is a message about that method (the text around the signature is at least a short sentence, not the bare name).
+- That signature must not appear in any other function's strings. A shared error string names the callee, not this function. Uniqueness is checked after you reply, so do not SKIP because you cannot see the other functions.
+- proposed_name is that Class::Method, unchanged. kind is assert_signature.
+- evidence is copied exactly from one string listed in this packet.
+- Reply SKIP when the strings do not meet that bar.
+- Do not rename a function that already has a Class::Method name.
+- Do not use a source path, a neighboring string, or the span until the next path as a name.
+- Do not publish one signature for a function whose body references more than one.
+
+Reply with one line, or the single word SKIP:
+entry	current_name	proposed_name	kind	evidence
+##### 04019d90
+entry: 04019d90
+current_name: FUN_04019d90
+ambiguous: no
+
+strings:
+1. eON_FileSystem::checkPathExists() failed for path %s, (%u) %s\n
+
+plt calls:
+- __cxa_guard_acquire
+- __xstat64
+- __errno_location
+- strerror
+- fprintf
+- __cxa_guard_acquire
+- string
+- append
+- __cxa_guard_release
+- __cxa_atexit
+- __cxa_guard_release
+- __cxa_atexit
+
+Loop protection is off: a shared signature from your own strings may be proposed.
+Rules for one name:
+- Propose a name only when this function's own strings contain exactly one Class::Method and that same string is a message about that method (the text around the signature is at least a short sentence, not the bare name).
+- That signature must not appear in any other function's strings. A shared error string names the callee, not this function. Uniqueness is checked after you reply, so do not SKIP because you cannot see the other functions.
+- proposed_name is that Class::Method, unchanged. kind is assert_signature.
+- evidence is copied exactly from one string listed in this packet.
+- Reply SKIP when the strings do not meet that bar.
+- Do not rename a function that already has a Class::Method name.
+- Do not use a source path, a neighboring string, or the span until the next path as a name.
+- Do not publish one signature for a function whose body references more than one.
+
+Reply with one line, or the single word SKIP:
+entry	current_name	proposed_name	kind	evidence
+##### 04019f50
+entry: 04019f50
+current_name: FUN_04019f50
+ambiguous: no
+
+strings:
+1. eON_FileSystem::checkPathExists() failed for path %s, (%u) %s\n
+
+plt calls:
+- __cxa_guard_acquire
+- __xstat64
+- __errno_location
+- strerror
+- fprintf
+- __cxa_guard_release
+- __cxa_atexit
+
+Loop protection is off: a shared signature from your own strings may be proposed.
+Rules for one name:
+- Propose a name only when this function's own strings contain exactly one Class::Method and that same string is a message about that method (the text around the signature is at least a short sentence, not the bare name).
+- That signature must not appear in any other function's strings. A shared error string names the callee, not this function. Uniqueness is checked after you reply, so do not SKIP because you cannot see the other functions.
+- proposed_name is that Class::Method, unchanged. kind is assert_signature.
+- evidence is copied exactly from one string listed in this packet.
+- Reply SKIP when the strings do not meet that bar.
+- Do not rename a function that already has a Class::Method name.
+- Do not use a source path, a neighboring string, or the span until the next path as a name.
+- Do not publish one signature for a function whose body references more than one.
+
+Reply with one line, or the single word SKIP:
+entry	current_name	proposed_name	kind	evidence
+##### 04052100
+entry: 04052100
+current_name: FUN_04052100
+ambiguous: no
+
+strings:
+1. Unsupported asm opcode in ShaderData::IdentifyInstruction() !!!. Opcode %#x, shader version %#x
+2. Unrecognized instruction when producing GLSL code\n
+3. Can't convert this instruction to GLSL!!!
+4. %s%s = clamp(%s%s, 0.0, 1.0);\n
+5. _centroid modifier not supported atm, add it please.
+
+plt calls:
+(none)
+
+Loop protection is off: a shared signature from your own strings may be proposed.
+Rules for one name:
+- Propose a name only when this function's own strings contain exactly one Class::Method and that same string is a message about that method (the text around the signature is at least a short sentence, not the bare name).
+- That signature must not appear in any other function's strings. A shared error string names the callee, not this function. Uniqueness is checked after you reply, so do not SKIP because you cannot see the other functions.
+- proposed_name is that Class::Method, unchanged. kind is assert_signature.
+- evidence is copied exactly from one string listed in this packet.
+- Reply SKIP when the strings do not meet that bar.
+- Do not rename a function that already has a Class::Method name.
+- Do not use a source path, a neighboring string, or the span until the next path as a name.
+- Do not publish one signature for a function whose body references more than one.
+
+Reply with one line, or the single word SKIP:
+entry	current_name	proposed_name	kind	evidence
+##### 04055f10
+entry: 04055f10
+current_name: FUN_04055f10
+ambiguous: no
+
+strings:
+1. Unsupported asm opcode in ShaderData::IdentifyInstruction() !!!. Opcode %#x, shader version %#x
+2. Unrecognized instruction in convert_matmul!!
+
+plt calls:
+(none)
+
+Loop protection is off: a shared signature from your own strings may be proposed.
+Rules for one name:
+- Propose a name only when this function's own strings contain exactly one Class::Method and that same string is a message about that method (the text around the signature is at least a short sentence, not the bare name).
+- That signature must not appear in any other function's strings. A shared error string names the callee, not this function. Uniqueness is checked after you reply, so do not SKIP because you cannot see the other functions.
+- proposed_name is that Class::Method, unchanged. kind is assert_signature.
+- evidence is copied exactly from one string listed in this packet.
+- Reply SKIP when the strings do not meet that bar.
+- Do not rename a function that already has a Class::Method name.
+- Do not use a source path, a neighboring string, or the span until the next path as a name.
+- Do not publish one signature for a function whose body references more than one.
+
+Reply with one line, or the single word SKIP:
+entry	current_name	proposed_name	kind	evidence
+##### 04057880
+entry: 04057880
+current_name: FUN_04057880
+ambiguous: no
+
+strings:
+1. Unsupported asm opcode in ShaderData::IdentifyInstruction() !!!. Opcode %#x, shader version %#x
+
+plt calls:
+(none)
+
+Loop protection is off: a shared signature from your own strings may be proposed.
+Rules for one name:
+- Propose a name only when this function's own strings contain exactly one Class::Method and that same string is a message about that method (the text around the signature is at least a short sentence, not the bare name).
+- That signature must not appear in any other function's strings. A shared error string names the callee, not this function. Uniqueness is checked after you reply, so do not SKIP because you cannot see the other functions.
+- proposed_name is that Class::Method, unchanged. kind is assert_signature.
+- evidence is copied exactly from one string listed in this packet.
+- Reply SKIP when the strings do not meet that bar.
+- Do not rename a function that already has a Class::Method name.
+- Do not use a source path, a neighboring string, or the span until the next path as a name.
+- Do not publish one signature for a function whose body references more than one.
+
+Reply with one line, or the single word SKIP:
+entry	current_name	proposed_name	kind	evidence
+##### 040580b0
+entry: 040580b0
+current_name: FUN_040580b0
+ambiguous: no
+
+strings:
+1. Preparsing bytecode...\n
+2. _volume
+3. _unknown!(%x)
+4. _weight
+5. _psize
+6. _tangent
+7. _binormal
+8. _tessfactor
+9. _sample
+10. _position%d
+11. _positiont%d
+12. _normal%d
+13. _texcoord%d
+14. _specular%d
+15. _unknown!(%x)%d
+16. defi i%u = %d, %d, %d, %d
+17. defb b%u = %s
+18. _unknown(%x)
+19. Unsupported asm opcode in ShaderData::IdentifyInstruction() !!!. Opcode %#x, shader version %#x
+20. Shader empty; use fixed function pipeline.\n
+21. Shader is %s shader version %d.%d\n
+22. Unrecognized instruction when parsing bytecode\n
+23. Unsupported register type for constant offset calculation! : %d
+24. def c%u = %.9f, %.9f, %.9f, %.9f
+25. ===== Decoded bytecode ===========
+26. ==================================
+
+plt calls:
+- free
+- free
+- free
+- free
+- bzero
+- bzero
+- malloc
+- memcpy
+
+Loop protection is off: a shared signature from your own strings may be proposed.
+Rules for one name:
+- Propose a name only when this function's own strings contain exactly one Class::Method and that same string is a message about that method (the text around the signature is at least a short sentence, not the bare name).
+- That signature must not appear in any other function's strings. A shared error string names the callee, not this function. Uniqueness is checked after you reply, so do not SKIP because you cannot see the other functions.
+- proposed_name is that Class::Method, unchanged. kind is assert_signature.
+- evidence is copied exactly from one string listed in this packet.
+- Reply SKIP when the strings do not meet that bar.
+- Do not rename a function that already has a Class::Method name.
+- Do not use a source path, a neighboring string, or the span until the next path as a name.
+- Do not publish one signature for a function whose body references more than one.
+
+Reply with one line, or the single word SKIP:
+entry	current_name	proposed_name	kind	evidence
+##### 0405ac10
+entry: 0405ac10
+current_name: FUN_0405ac10
+ambiguous: no
+
+strings:
+1. Unsupported asm opcode in ShaderData::IdentifyInstruction() !!!. Opcode %#x, shader version %#x
+2. Unrecognized instruction when producing GLSL code\n
+3. Can't convert this instruction to GLSL!!!
+4. %s%s = clamp(%s%s, 0.0, 1.0);\n
+5. _centroid modifier not supported atm, add it please.
+
+plt calls:
+(none)
+
+Loop protection is off: a shared signature from your own strings may be proposed.
+Rules for one name:
+- Propose a name only when this function's own strings contain exactly one Class::Method and that same string is a message about that method (the text around the signature is at least a short sentence, not the bare name).
+- That signature must not appear in any other function's strings. A shared error string names the callee, not this function. Uniqueness is checked after you reply, so do not SKIP because you cannot see the other functions.
+- proposed_name is that Class::Method, unchanged. kind is assert_signature.
+- evidence is copied exactly from one string listed in this packet.
+- Reply SKIP when the strings do not meet that bar.
+- Do not rename a function that already has a Class::Method name.
+- Do not use a source path, a neighboring string, or the span until the next path as a name.
+- Do not publish one signature for a function whose body references more than one.
+
+Reply with one line, or the single word SKIP:
+entry	current_name	proposed_name	kind	evidence
+##### 040f2000
+entry: 040f2000
+current_name: FUN_040f2000
+ambiguous: no
+
+strings:
+1. DirectInputDevice::QueryInterface, getting IID_IDirectInputDevice7W interface
+2. Asked DirectInputDevice7W object for DirectInputDevice7A representation!
+3. DirectInputDevice::QueryInterface, getting IID_IDirectInputDevice7A interface
+4. Asked DirectInputDevice7A object for DirectInputDevice7W representation!
+5. DirectInputDevice::QueryInterface, getting IID_IDirectInputDevice8W interface
+6. Asked DirectInputDevice8W object for DirectInputDevice8A representation!
+7. DirectInputDevice::QueryInterface, getting IID_IDirectInputDevice8A interface
+8. Asked DirectInputDevice8A object for DirectInputDevice8W representation!
+9. Unhandled - DirectInputDeviceImp::QueryInterface called with iid = %s
+
+plt calls:
+- memcmp
+- memcmp
+- memcmp
+- memcmp
+- memcmp
+- memcmp
+- memcmp
+- memcmp
+
+Loop protection is off: a shared signature from your own strings may be proposed.
+Rules for one name:
+- Propose a name only when this function's own strings contain exactly one Class::Method and that same string is a message about that method (the text around the signature is at least a short sentence, not the bare name).
+- That signature must not appear in any other function's strings. A shared error string names the callee, not this function. Uniqueness is checked after you reply, so do not SKIP because you cannot see the other functions.
+- proposed_name is that Class::Method, unchanged. kind is assert_signature.
+- evidence is copied exactly from one string listed in this packet.
+- Reply SKIP when the strings do not meet that bar.
+- Do not rename a function that already has a Class::Method name.
+- Do not use a source path, a neighboring string, or the span until the next path as a name.
+- Do not publish one signature for a function whose body references more than one.
+
+Reply with one line, or the single word SKIP:
+entry	current_name	proposed_name	kind	evidence
+##### 041c2150
+entry: 041c2150
+current_name: FUN_041c2150
+ambiguous: no
+
+strings:
+1. !Find( addMe->Name() )
+2. /home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxml.cpp
+3. void TiXmlAttributeSet::Add(TiXmlAttribute*)
+
+plt calls:
+- operator.new
+- strcmp
+- strlen
+
+Loop protection is off: a shared signature from your own strings may be proposed.
+Rules for one name:
+- Propose a name only when this function's own strings contain exactly one Class::Method and that same string is a message about that method (the text around the signature is at least a short sentence, not the bare name).
+- That signature must not appear in any other function's strings. A shared error string names the callee, not this function. Uniqueness is checked after you reply, so do not SKIP because you cannot see the other functions.
+- proposed_name is that Class::Method, unchanged. kind is assert_signature.
+- evidence is copied exactly from one string listed in this packet.
+- Reply SKIP when the strings do not meet that bar.
+- Do not rename a function that already has a Class::Method name.
+- Do not use a source path, a neighboring string, or the span until the next path as a name.
+- Do not publish one signature for a function whose body references more than one.
+
+Reply with one line, or the single word SKIP:
+entry	current_name	proposed_name	kind	evidence
+##### 041c3320
+entry: 041c3320
+current_name: FUN_041c3320
+ambiguous: no
+
+strings:
+1. previous->parent == this
+2. /home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxml.cpp
+3. const TiXmlNode* TiXmlNode::IterateChildren(const TiXmlNode*) const
+
+plt calls:
+(none)
+
+Loop protection is off: a shared signature from your own strings may be proposed.
+Rules for one name:
+- Propose a name only when this function's own strings contain exactly one Class::Method and that same string is a message about that method (the text around the signature is at least a short sentence, not the bare name).
+- That signature must not appear in any other function's strings. A shared error string names the callee, not this function. Uniqueness is checked after you reply, so do not SKIP because you cannot see the other functions.
+- proposed_name is that Class::Method, unchanged. kind is assert_signature.
+- evidence is copied exactly from one string listed in this packet.
+- Reply SKIP when the strings do not meet that bar.
+- Do not rename a function that already has a Class::Method name.
+- Do not use a source path, a neighboring string, or the span until the next path as a name.
+- Do not publish one signature for a function whose body references more than one.
+
+Reply with one line, or the single word SKIP:
+entry	current_name	proposed_name	kind	evidence
+##### 041c3380
+entry: 041c3380
+current_name: FUN_041c3380
+ambiguous: no
+
+strings:
+1. previous->parent == this
+2. /home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxml.cpp
+3. const TiXmlNode* TiXmlNode::IterateChildren(const char*, const TiXmlNode*) const
+
+plt calls:
+- strcmp
+- strcmp
+
+Loop protection is off: a shared signature from your own strings may be proposed.
+Rules for one name:
+- Propose a name only when this function's own strings contain exactly one Class::Method and that same string is a message about that method (the text around the signature is at least a short sentence, not the bare name).
+- That signature must not appear in any other function's strings. A shared error string names the callee, not this function. Uniqueness is checked after you reply, so do not SKIP because you cannot see the other functions.
+- proposed_name is that Class::Method, unchanged. kind is assert_signature.
+- evidence is copied exactly from one string listed in this packet.
+- Reply SKIP when the strings do not meet that bar.
+- Do not rename a function that already has a Class::Method name.
+- Do not use a source path, a neighboring string, or the span until the next path as a name.
+- Do not publish one signature for a function whose body references more than one.
+
+Reply with one line, or the single word SKIP:
+entry	current_name	proposed_name	kind	evidence
+##### 041c34b0
+entry: 041c34b0
+current_name: FUN_041c34b0
+ambiguous: no
+
+strings:
+1. /home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxml.cpp
+2. void TiXmlAttributeSet::Remove(TiXmlAttribute*)
+
+plt calls:
+- strcmp
+
+Loop protection is off: a shared signature from your own strings may be proposed.
+Rules for one name:
+- Propose a name only when this function's own strings contain exactly one Class::Method and that same string is a message about that method (the text around the signature is at least a short sentence, not the bare name).
+- That signature must not appear in any other function's strings. A shared error string names the callee, not this function. Uniqueness is checked after you reply, so do not SKIP because you cannot see the other functions.
+- proposed_name is that Class::Method, unchanged. kind is assert_signature.
+- evidence is copied exactly from one string listed in this packet.
+- Reply SKIP when the strings do not meet that bar.
+- Do not rename a function that already has a Class::Method name.
+- Do not use a source path, a neighboring string, or the span until the next path as a name.
+- Do not publish one signature for a function whose body references more than one.
+
+Reply with one line, or the single word SKIP:
+entry	current_name	proposed_name	kind	evidence
+##### 041c5ba0
+entry: 041c5ba0
+current_name: FUN_041c5ba0
+ambiguous: no
+
+strings:
+1. !Find( addMe->Name() )
+2. /home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxml.cpp
+3. void TiXmlAttributeSet::Add(TiXmlAttribute*)
+
+plt calls:
+- strcmp
+
+Loop protection is off: a shared signature from your own strings may be proposed.
+Rules for one name:
+- Propose a name only when this function's own strings contain exactly one Class::Method and that same string is a message about that method (the text around the signature is at least a short sentence, not the bare name).
+- That signature must not appear in any other function's strings. A shared error string names the callee, not this function. Uniqueness is checked after you reply, so do not SKIP because you cannot see the other functions.
+- proposed_name is that Class::Method, unchanged. kind is assert_signature.
+- evidence is copied exactly from one string listed in this packet.
+- Reply SKIP when the strings do not meet that bar.
+- Do not rename a function that already has a Class::Method name.
+- Do not use a source path, a neighboring string, or the span until the next path as a name.
+- Do not publish one signature for a function whose body references more than one.
+
+Reply with one line, or the single word SKIP:
+entry	current_name	proposed_name	kind	evidence
+##### 041c5c20
+entry: 041c5c20
+current_name: FUN_041c5c20
+ambiguous: no
+
+strings:
+1. /home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxml.cpp
+2. void TiXmlAttributeSet::Remove(TiXmlAttribute*)
+
+plt calls:
+(none)
+
+Loop protection is off: a shared signature from your own strings may be proposed.
+Rules for one name:
+- Propose a name only when this function's own strings contain exactly one Class::Method and that same string is a message about that method (the text around the signature is at least a short sentence, not the bare name).
+- That signature must not appear in any other function's strings. A shared error string names the callee, not this function. Uniqueness is checked after you reply, so do not SKIP because you cannot see the other functions.
+- proposed_name is that Class::Method, unchanged. kind is assert_signature.
+- evidence is copied exactly from one string listed in this packet.
+- Reply SKIP when the strings do not meet that bar.
+- Do not rename a function that already has a Class::Method name.
+- Do not use a source path, a neighboring string, or the span until the next path as a name.
+- Do not publish one signature for a function whose body references more than one.
+
+Reply with one line, or the single word SKIP:
+entry	current_name	proposed_name	kind	evidence
+##### 041c73a0
+entry: 041c73a0
+current_name: FUN_041c73a0
+ambiguous: yes
+
+strings:
+1. /home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxmlparser.cpp
+2. /home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxmlparser.cpp
+3. /home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxmlparser.cpp
+4. /home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxmlparser.cpp
+5. /home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxml.h
+6. /home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxml.h
+7. *length >= 0 && *length < 5
+8. *length >= 0 && *length < 5
+9. static bool TiXmlBase::StringEqual(const char*, const char*, bool, TiXmlEncoding)
+10. static bool TiXmlBase::StringEqual(const char*, const char*, bool, TiXmlEncoding)
+11. static bool TiXmlBase::StringEqual(const char*, const char*, bool, TiXmlEncoding)
+12. static bool TiXmlBase::StringEqual(const char*, const char*, bool, TiXmlEncoding)
+13. static const char* TiXmlBase::GetChar(const char*, char*, int*, TiXmlEncoding)
+14. static const char* TiXmlBase::GetChar(const char*, char*, int*, TiXmlEncoding)
+
+plt calls:
+- strlen
+- __ctype_b_loc
+
+Loop protection is off: a shared signature from your own strings may be proposed.
+Rules for one name:
+- Propose a name only when this function's own strings contain exactly one Class::Method and that same string is a message about that method (the text around the signature is at least a short sentence, not the bare name).
+- That signature must not appear in any other function's strings. A shared error string names the callee, not this function. Uniqueness is checked after you reply, so do not SKIP because you cannot see the other functions.
+- proposed_name is that Class::Method, unchanged. kind is assert_signature.
+- evidence is copied exactly from one string listed in this packet.
+- Reply SKIP when the strings do not meet that bar.
+- Do not rename a function that already has a Class::Method name.
+- Do not use a source path, a neighboring string, or the span until the next path as a name.
+- Do not publish one signature for a function whose body references more than one.
+
+Reply with one line, or the single word SKIP:
+entry	current_name	proposed_name	kind	evidence
+##### 041c7910
+entry: 041c7910
+current_name: FUN_041c7910
+ambiguous: yes
+
+strings:
+1. /home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxmlparser.cpp
+2. /home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxmlparser.cpp
+3. /home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxmlparser.cpp
+4. /home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxmlparser.cpp
+5. /home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxml.h
+6. /home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxml.h
+7. *length >= 0 && *length < 5
+8. *length >= 0 && *length < 5
+9. static bool TiXmlBase::StringEqual(const char*, const char*, bool, TiXmlEncoding)
+10. static bool TiXmlBase::StringEqual(const char*, const char*, bool, TiXmlEncoding)
+11. static bool TiXmlBase::StringEqual(const char*, const char*, bool, TiXmlEncoding)
+12. static bool TiXmlBase::StringEqual(const char*, const char*, bool, TiXmlEncoding)
+13. static const char* TiXmlBase::GetChar(const char*, char*, int*, TiXmlEncoding)
+14. static const char* TiXmlBase::GetChar(const char*, char*, int*, TiXmlEncoding)
+
+plt calls:
+- strlen
+- __ctype_b_loc
+
+Loop protection is off: a shared signature from your own strings may be proposed.
+Rules for one name:
+- Propose a name only when this function's own strings contain exactly one Class::Method and that same string is a message about that method (the text around the signature is at least a short sentence, not the bare name).
+- That signature must not appear in any other function's strings. A shared error string names the callee, not this function. Uniqueness is checked after you reply, so do not SKIP because you cannot see the other functions.
+- proposed_name is that Class::Method, unchanged. kind is assert_signature.
+- evidence is copied exactly from one string listed in this packet.
+- Reply SKIP when the strings do not meet that bar.
+- Do not rename a function that already has a Class::Method name.
+- Do not use a source path, a neighboring string, or the span until the next path as a name.
+- Do not publish one signature for a function whose body references more than one.
+
+Reply with one line, or the single word SKIP:
+entry	current_name	proposed_name	kind	evidence
+##### 042c8060
+entry: 042c8060
+current_name: FUN_042c8060
+ambiguous: no
+
+strings:
+1. src/client/linux/handler/minidump_descriptor.cc
+2. src/client/linux/handler/minidump_descriptor.cc
+3. descriptor.path_.empty()
+4. descriptor.path_.empty()
+5. google_breakpad::MinidumpDescriptor::MinidumpDescriptor(const google_breakpad::MinidumpDescriptor&)
+6. google_breakpad::MinidumpDescriptor::MinidumpDescriptor(const google_breakpad::MinidumpDescriptor&)
+
+plt calls:
+- string
+- __assert_fail
+
+Loop protection is off: a shared signature from your own strings may be proposed.
+Rules for one name:
+- Propose a name only when this function's own strings contain exactly one Class::Method and that same string is a message about that method (the text around the signature is at least a short sentence, not the bare name).
+- That signature must not appear in any other function's strings. A shared error string names the callee, not this function. Uniqueness is checked after you reply, so do not SKIP because you cannot see the other functions.
+- proposed_name is that Class::Method, unchanged. kind is assert_signature.
+- evidence is copied exactly from one string listed in this packet.
+- Reply SKIP when the strings do not meet that bar.
+- Do not rename a function that already has a Class::Method name.
+- Do not use a source path, a neighboring string, or the span until the next path as a name.
+- Do not publish one signature for a function whose body references more than one.
+
+Reply with one line, or the single word SKIP:
+entry	current_name	proposed_name	kind	evidence
+##### 042c83e0
+entry: 042c83e0
+current_name: FUN_042c83e0
+ambiguous: no
+
+strings:
+1. src/client/linux/handler/minidump_descriptor.cc
+2. src/client/linux/handler/minidump_descriptor.cc
+3. descriptor.path_.empty()
+4. descriptor.path_.empty()
+5. google_breakpad::MinidumpDescriptor& google_breakpad::MinidumpDescriptor::operator=(const google_breakpad::MinidumpDescriptor&)
+6. google_breakpad::MinidumpDescriptor& google_breakpad::MinidumpDescriptor::operator=(const google_breakpad::MinidumpDescriptor&)
+
+plt calls:
+- assign
+- _M_mutate
+- __assert_fail
+
+Loop protection is off: a shared signature from your own strings may be proposed.
+Rules for one name:
+- Propose a name only when this function's own strings contain exactly one Class::Method and that same string is a message about that method (the text around the signature is at least a short sentence, not the bare name).
+- That signature must not appear in any other function's strings. A shared error string names the callee, not this function. Uniqueness is checked after you reply, so do not SKIP because you cannot see the other functions.
+- proposed_name is that Class::Method, unchanged. kind is assert_signature.
+- evidence is copied exactly from one string listed in this packet.
+- Reply SKIP when the strings do not meet that bar.
+- Do not rename a function that already has a Class::Method name.
+- Do not use a source path, a neighboring string, or the span until the next path as a name.
+- Do not publish one signature for a function whose body references more than one.
+
+Reply with one line, or the single word SKIP:
+entry	current_name	proposed_name	kind	evidence
+##### 042c84d0
+entry: 042c84d0
+current_name: FUN_042c84d0
+ambiguous: no
+
+strings:
+1. -----BEGIN BREAKPAD MICRODUMP-----
+2. -----BEGIN BREAKPAD MICRODUMP-----
+3. -----BEGIN BREAKPAD MICRODUMP-----
+4. src/client/linux/microdump_writer/microdump_writer.cc
+5. src/client/linux/microdump_writer/microdump_writer.cc
+6. src/client/linux/microdump_writer/microdump_writer.cc
+7. src/client/linux/microdump_writer/microdump_writer.cc
+8. src/client/linux/microdump_writer/microdump_writer.cc
+9. src/client/linux/microdump_writer/microdump_writer.cc
+10. -----END BREAKPAD MICRODUMP-----
+11. -----END BREAKPAD MICRODUMP-----
+12. -----END BREAKPAD MICRODUMP-----
+13. ucontext_
+14. ucontext_
+15. !dumper_->IsPostMortem()
+16. !dumper_->IsPostMortem()
+17. 0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF
+18. 0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF
+19. 0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF
+20. 0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF
+21. 0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF
+22. 0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF
+23. bool {anonymous}::MicrodumpWriter::DumpThreadStack(uint32_t, uintptr_t, int, uint8_t**)
+24. bool {anonymous}::MicrodumpWriter::DumpThreadStack(uint32_t, uintptr_t, int, uint8_t**)
+25. bool {anonymous}::MicrodumpWriter::DumpCrashingThread()
+26. bool {anonymous}::MicrodumpWriter::DumpCrashingThread()
+27. bool {anonymous}::MicrodumpWriter::DumpCrashingThread()
+28. bool {anonymous}::MicrodumpWriter::DumpCrashingThread()
+
+plt calls:
+- uname
+- __errno_location
+- strstr
+- __assert_fail
+- __assert_fail
+- __assert_fail
+
+Loop protection is off: a shared signature from your own strings may be proposed.
+Rules for one name:
+- Propose a name only when this function's own strings contain exactly one Class::Method and that same string is a message about that method (the text around the signature is at least a short sentence, not the bare name).
+- That signature must not appear in any other function's strings. A shared error string names the callee, not this function. Uniqueness is checked after you reply, so do not SKIP because you cannot see the other functions.
+- proposed_name is that Class::Method, unchanged. kind is assert_signature.
+- evidence is copied exactly from one string listed in this packet.
+- Reply SKIP when the strings do not meet that bar.
+- Do not rename a function that already has a Class::Method name.
+- Do not use a source path, a neighboring string, or the span until the next path as a name.
+- Do not publish one signature for a function whose body references more than one.
+
+Reply with one line, or the single word SKIP:
+entry	current_name	proposed_name	kind	evidence
+##### 042c9b20
+entry: 042c9b20
+current_name: FUN_042c9b20
+ambiguous: no
+
+strings:
+1. src/client/linux/minidump_writer/linux_dumper.cc
+2. src/client/linux/minidump_writer/linux_dumper.cc
+3. .dynamic
+4. .dynamic
+5. .dynstr
+6. .dynstr
+7. bool google_breakpad::{anonymous}::ElfFileSoName(const google_breakpad::MappingInfo&, char*, size_t)
+8. bool google_breakpad::{anonymous}::ElfFileSoName(const google_breakpad::MappingInfo&, char*, size_t)
+
+plt calls:
+- __memcpy_chk
+- __assert_fail
+
+Loop protection is off: a shared signature from your own strings may be proposed.
+Rules for one name:
+- Propose a name only when this function's own strings contain exactly one Class::Method and that same string is a message about that method (the text around the signature is at least a short sentence, not the bare name).
+- That signature must not appear in any other function's strings. A shared error string names the callee, not this function. Uniqueness is checked after you reply, so do not SKIP because you cannot see the other functions.
+- proposed_name is that Class::Method, unchanged. kind is assert_signature.
+- evidence is copied exactly from one string listed in this packet.
+- Reply SKIP when the strings do not meet that bar.
+- Do not rename a function that already has a Class::Method name.
+- Do not use a source path, a neighboring string, or the span until the next path as a name.
+- Do not publish one signature for a function whose body references more than one.
+
+Reply with one line, or the single word SKIP:
+entry	current_name	proposed_name	kind	evidence
+##### 042d0710
+entry: 042d0710
+current_name: FUN_042d0710
+ambiguous: no
+
+strings:
+1. src/client/linux/minidump_writer/minidump_writer.cc
+2. src/client/linux/minidump_writer/minidump_writer.cc
+3. fd_ == -1 || !minidump_path
+4. fd_ == -1 || !minidump_path
+5. {anonymous}::MinidumpWriter::MinidumpWriter(const char*, int, const google_breakpad::ExceptionHandler::CrashContext*, const MappingList&, const AppMemoryList&, google_breakpad::LinuxDumper*)
+6. {anonymous}::MinidumpWriter::MinidumpWriter(const char*, int, const google_breakpad::ExceptionHandler::CrashContext*, const MappingList&, const AppMemoryList&, google_breakpad::LinuxDumper*)
+
+plt calls:
+- __errno_location
+- __assert_fail
+
+Loop protection is off: a shared signature from your own strings may be proposed.
+Rules for one name:
+- Propose a name only when this function's own strings contain exactly one Class::Method and that same string is a message about that method (the text around the signature is at least a short sentence, not the bare name).
+- That signature must not appear in any other function's strings. A shared error string names the callee, not this function. Uniqueness is checked after you reply, so do not SKIP because you cannot see the other functions.
+- proposed_name is that Class::Method, unchanged. kind is assert_signature.
+- evidence is copied exactly from one string listed in this packet.
+- Reply SKIP when the strings do not meet that bar.
+- Do not rename a function that already has a Class::Method name.
+- Do not use a source path, a neighboring string, or the span until the next path as a name.
+- Do not publish one signature for a function whose body references more than one.
+
+Reply with one line, or the single word SKIP:
+entry	current_name	proposed_name	kind	evidence
+##### 042d0e50
+entry: 042d0e50
+current_name: FUN_042d0e50
+ambiguous: no
+
+strings:
+1. src/client/linux/minidump_writer/minidump_writer.cc
+2. src/client/linux/minidump_writer/minidump_writer.cc
+3. fd_ == -1 || !minidump_path
+4. fd_ == -1 || !minidump_path
+5. {anonymous}::MinidumpWriter::MinidumpWriter(const char*, int, const google_breakpad::ExceptionHandler::CrashContext*, const MappingList&, const AppMemoryList&, google_breakpad::LinuxDumper*)
+6. {anonymous}::MinidumpWriter::MinidumpWriter(const char*, int, const google_breakpad::ExceptionHandler::CrashContext*, const MappingList&, const AppMemoryList&, google_breakpad::LinuxDumper*)
+
+plt calls:
+- operator.delete
+- operator.delete
+- __errno_location
+- __assert_fail
+
+Loop protection is off: a shared signature from your own strings may be proposed.
+Rules for one name:
+- Propose a name only when this function's own strings contain exactly one Class::Method and that same string is a message about that method (the text around the signature is at least a short sentence, not the bare name).
+- That signature must not appear in any other function's strings. A shared error string names the callee, not this function. Uniqueness is checked after you reply, so do not SKIP because you cannot see the other functions.
+- proposed_name is that Class::Method, unchanged. kind is assert_signature.
+- evidence is copied exactly from one string listed in this packet.
+- Reply SKIP when the strings do not meet that bar.
+- Do not rename a function that already has a Class::Method name.
+- Do not use a source path, a neighboring string, or the span until the next path as a name.
+- Do not publish one signature for a function whose body references more than one.
+
+Reply with one line, or the single word SKIP:
+entry	current_name	proposed_name	kind	evidence
+##### 042d1330
+entry: 042d1330
+current_name: FUN_042d1330
+ambiguous: no
+
+strings:
+1. src/client/linux/minidump_writer/minidump_writer.cc
+2. src/client/linux/minidump_writer/minidump_writer.cc
+3. fd_ == -1 || !minidump_path
+4. fd_ == -1 || !minidump_path
+5. {anonymous}::MinidumpWriter::MinidumpWriter(const char*, int, const google_breakpad::ExceptionHandler::CrashContext*, const MappingList&, const AppMemoryList&, google_breakpad::LinuxDumper*)
+6. {anonymous}::MinidumpWriter::MinidumpWriter(const char*, int, const google_breakpad::ExceptionHandler::CrashContext*, const MappingList&, const AppMemoryList&, google_breakpad::LinuxDumper*)
+
+plt calls:
+- __errno_location
+- __assert_fail
+
+Loop protection is off: a shared signature from your own strings may be proposed.
+Rules for one name:
+- Propose a name only when this function's own strings contain exactly one Class::Method and that same string is a message about that method (the text around the signature is at least a short sentence, not the bare name).
+- That signature must not appear in any other function's strings. A shared error string names the callee, not this function. Uniqueness is checked after you reply, so do not SKIP because you cannot see the other functions.
+- proposed_name is that Class::Method, unchanged. kind is assert_signature.
+- evidence is copied exactly from one string listed in this packet.
+- Reply SKIP when the strings do not meet that bar.
+- Do not rename a function that already has a Class::Method name.
+- Do not use a source path, a neighboring string, or the span until the next path as a name.
+- Do not publish one signature for a function whose body references more than one.
+
+Reply with one line, or the single word SKIP:
+entry	current_name	proposed_name	kind	evidence
+##### 042d2b40
+entry: 042d2b40
+current_name: FUN_042d2b40
+ambiguous: no
+
+strings:
+1. src/client/minidump_file_writer.cc
+2. src/client/minidump_file_writer.cc
+3. src/client/minidump_file_writer.cc
+4. src/client/minidump_file_writer.cc
+5. bool google_breakpad::MinidumpFileWriter::WriteStringCore(const CharType*, unsigned int, MDLocationDescriptor*) [with CharType = wchar_t]
+6. bool google_breakpad::MinidumpFileWriter::WriteStringCore(const CharType*, unsigned int, MDLocationDescriptor*) [with CharType = wchar_t]
+7. bool google_breakpad::MinidumpFileWriter::WriteStringCore(const CharType*, unsigned int, MDLocationDescriptor*) [with CharType = wchar_t]
+8. bool google_breakpad::MinidumpFileWriter::WriteStringCore(const CharType*, unsigned int, MDLocationDescriptor*) [with CharType = wchar_t]
+
+plt calls:
+- __assert_fail
+- __assert_fail
+- _Unwind_Resume
+
+Loop protection is off: a shared signature from your own strings may be proposed.
+Rules for one name:
+- Propose a name only when this function's own strings contain exactly one Class::Method and that same string is a message about that method (the text around the signature is at least a short sentence, not the bare name).
+- That signature must not appear in any other function's strings. A shared error string names the callee, not this function. Uniqueness is checked after you reply, so do not SKIP because you cannot see the other functions.
+- proposed_name is that Class::Method, unchanged. kind is assert_signature.
+- evidence is copied exactly from one string listed in this packet.
+- Reply SKIP when the strings do not meet that bar.
+- Do not rename a function that already has a Class::Method name.
+- Do not use a source path, a neighboring string, or the span until the next path as a name.
+- Do not publish one signature for a function whose body references more than one.
+
+Reply with one line, or the single word SKIP:
+entry	current_name	proposed_name	kind	evidence
+##### 042d2d30
+entry: 042d2d30
+current_name: FUN_042d2d30
+ambiguous: no
+
+strings:
+1. src/client/minidump_file_writer.cc
+2. src/client/minidump_file_writer.cc
+3. src/client/minidump_file_writer.cc
+4. src/client/minidump_file_writer.cc
+5. bool google_breakpad::MinidumpFileWriter::WriteStringCore(const CharType*, unsigned int, MDLocationDescriptor*) [with CharType = char]
+6. bool google_breakpad::MinidumpFileWriter::WriteStringCore(const CharType*, unsigned int, MDLocationDescriptor*) [with CharType = char]
+7. bool google_breakpad::MinidumpFileWriter::WriteStringCore(const CharType*, unsigned int, MDLocationDescriptor*) [with CharType = char]
+8. bool google_breakpad::MinidumpFileWriter::WriteStringCore(const CharType*, unsigned int, MDLocationDescriptor*) [with CharType = char]
+
+plt calls:
+- __assert_fail
+- __assert_fail
+- _Unwind_Resume
+
+Loop protection is off: a shared signature from your own strings may be proposed.
+Rules for one name:
+- Propose a name only when this function's own strings contain exactly one Class::Method and that same string is a message about that method (the text around the signature is at least a short sentence, not the bare name).
+- That signature must not appear in any other function's strings. A shared error string names the callee, not this function. Uniqueness is checked after you reply, so do not SKIP because you cannot see the other functions.
+- proposed_name is that Class::Method, unchanged. kind is assert_signature.
+- evidence is copied exactly from one string listed in this packet.
+- Reply SKIP when the strings do not meet that bar.
+- Do not rename a function that already has a Class::Method name.
+- Do not use a source path, a neighboring string, or the span until the next path as a name.
+- Do not publish one signature for a function whose body references more than one.
+
+Reply with one line, or the single word SKIP:
+entry	current_name	proposed_name	kind	evidence

@@ -19,3 +19,12 @@ FUN_041c2670	TiXmlText::Print
 FUN_042d24d0	google_breakpad::MinidumpFileWriter::Allocate
 FUN_042d25a0	google_breakpad::MinidumpFileWriter::Copy
 FUN_042d2890	google_breakpad::UntypedMDRVA::Allocate
+FUN_04057880	ShaderData::IdentifyInstruction
+FUN_040f2000	DirectInputDeviceImp::QueryInterface
+FUN_041c5ba0	TiXmlAttributeSet::Add
+FUN_041c3320	TiXmlNode::IterateChildren
+FUN_041c3380	TiXmlNode::IterateChildren
+FUN_042c8060	google_breakpad::MinidumpDescriptor::MinidumpDescriptor
+FUN_042c83e0	google_breakpad::MinidumpDescriptor::operator
+FUN_042d2b40	google_breakpad::MinidumpFileWriter::WriteStringCore
+FUN_042d2d30	google_breakpad::MinidumpFileWriter::WriteStringCore

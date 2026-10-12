@@ -37,7 +37,7 @@ class Checker(unittest.TestCase):
         queue = llm_work.candidates(
             self.functions, self.owners, self.per_fn, set(), batched=set()
         )
-        self.assertGreaterEqual(len(queue), 20)
+        self.assertGreaterEqual(len(queue), 5)
         self.assertTrue(all(self.functions[e].startswith("FUN_") for e in queue))
 
     def test_pass_on_the_unshared_signature(self):

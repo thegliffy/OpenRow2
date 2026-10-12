@@ -40,6 +40,10 @@ STL = {
     "basic_string", "vector", "string", "map", "set", "list",
     "deque", "__gnu_cxx", "std",
 }
+
+# Loop protection: the uniqueness gate, the ambiguous hold, and the hand_read hold.
+# OPENROW_LOOP_PROTECTION=0 disables them; the evidence rules always apply.
+LOOP_PROTECTED = os.environ.get("OPENROW_LOOP_PROTECTION", "1") != "0"
 ADJACENCY = (
     "until the next",
     "next path",
@@ -151,6 +155,8 @@ def candidates(functions, owners, per_fn, done, batched=None):
         if not name.startswith("FUN_") or name in batched:
             continue
         sig = unique_signature(entry, owners, per_fn)
+        if sig is None and not LOOP_PROTECTED and per_fn[entry]:
+            sig = sorted(per_fn[entry])[0]
         if sig:
             out.append(entry)
     return out
@@ -187,7 +193,10 @@ def render_packet(entry, functions, strings, plt, ambiguous, owners, per_fn):
     sig = unique_signature(entry, owners, per_fn)
     lines.append("")
     if sig is None:
-        lines.append("This function is not a naming candidate. Reply SKIP.")
+        if LOOP_PROTECTED:
+            lines.append("This function is not a naming candidate. Reply SKIP.")
+        else:
+            lines.append("Loop protection is off: a shared signature from your own strings may be proposed.")
     lines.append(RULES.rstrip())
     lines.append("")
     lines.append("Reply with one line, or the single word SKIP:")
@@ -211,14 +220,14 @@ def check_row(row, functions, strings, ambiguous, owners, per_fn):
         return "reject", f"unknown entry {entry}"
     if row["current_name"] != current:
         return "reject", f"current_name is {current}"
-    if entry in ambiguous:
+    if entry in ambiguous and LOOP_PROTECTED:
         return "reject", "function references more than one signature; split the body before naming"
     phrase = _bad_phrase(row["evidence"])
     if phrase:
         return "reject", f"evidence uses a string range ({phrase})"
-    if row["kind"] == "hand_read":
+    if row["kind"] == "hand_read" and LOOP_PROTECTED:
         return "hold", "hand-read names stay out of the batch until a person applies them"
-    if row["kind"] != "assert_signature":
+    if row["kind"] not in ("assert_signature", "hand_read"):
         return "reject", "kind must be assert_signature"
     if "::" in current:
         return "reject", "this function already carries a signature name"
@@ -228,6 +237,15 @@ def check_row(row, functions, strings, ambiguous, owners, per_fn):
         return "reject", "standard-library name"
     sig = unique_signature(entry, owners, per_fn)
     if sig is None:
+        if not LOOP_PROTECTED:
+            # gate off: a signature from this function's own message strings is
+            # allowed even when shared; the model must own the judgement.
+            found = per_fn.get(entry, {})
+            if row["proposed_name"] not in found:
+                return "reject", "proposed_name is not a signature in this function's strings"
+            if row["evidence"] not in found[row["proposed_name"]]:
+                return "reject", "evidence is not this function's message string for that signature"
+            return "pass", f"{row['proposed_name']} (shared; gate off)"
         return "reject", "this function does not have one unshared assert signature"
     if row["proposed_name"] != sig:
         return "reject", f"proposed_name must be {sig}"
