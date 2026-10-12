@@ -1,0 +1,13 @@
+Next 10 largest FUN_ entries with no string reference
+Continued from decomp/largest_fun_calls_note325.txt. No Class::Method names were invented.
+
+- 04069690, 48 bytes. 1 outgoing call: Direct3DDevice9Imp::DrawPrimitive x1. Instruction mix: MOV 9, RET 1, CALL 1, ADD 1, SUB 1.
+- 04069700, 48 bytes (body 34). 1 outgoing call: d3d9device_SetNPatchMode x1. Instruction mix: MOV 5, RET 1, CALL 1, ADD 1, SUB 1.
+- 04069730, 48 bytes (body 34). 1 outgoing call: d3d9device_SetNPatchMode x1. Instruction mix: MOV 5, RET 1, CALL 1, ADD 1, SUB 1.
+- 040697a0, 48 bytes (body 34). 1 outgoing call: d3d9device_SetSoftwareVertexProcessing x1. Instruction mix: MOV 5, RET 1, CALL 1, ADD 1, SUB 1.
+- 040697d0, 48 bytes (body 34). 1 outgoing call: d3d9device_SetSoftwareVertexProcessing x1. Instruction mix: MOV 5, RET 1, CALL 1, ADD 1, SUB 1.
+- 04069800, 48 bytes (body 34). 1 outgoing call: d3d9device_GetScissorRect x1. Instruction mix: MOV 5, RET 1, CALL 1, ADD 1, SUB 1.
+- 04069830, 48 bytes (body 34). 1 outgoing call: d3d9device_GetScissorRect x1. Instruction mix: MOV 5, RET 1, CALL 1, ADD 1, SUB 1.
+- 04069860, 48 bytes (body 34). 1 outgoing call: d3d9device_SetScissorRect x1. Instruction mix: MOV 5, RET 1, CALL 1, ADD 1, SUB 1.
+- 04069890, 48 bytes (body 34). 1 outgoing call: d3d9device_SetScissorRect x1. Instruction mix: MOV 5, RET 1, CALL 1, ADD 1, SUB 1.
+- 040698c0, 48 bytes (body 34). 1 outgoing call: d3d9device_GetCurrentTexturePalette x1. Instruction mix: MOV 5, RET 1, CALL 1, ADD 1, SUB 1.

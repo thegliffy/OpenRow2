@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries with no string reference
+Continued from decomp/largest_fun_calls_note270.txt.
+No Class::Method names were invented; every callee name below is exactly as Ghidra reports it.
+
+- 041cca07, 65 bytes. 1 outgoing call: freex1. Instruction mix: MOV 4, PUSH 4, SUB 3, JZ 2, ADD 2.
+- 041d7779, 65 bytes. 0 outgoing calls. Instruction mix: MOV 13, MOVZX 2, RET 1, SUB 1, CMP 1.
+- 041ec3b0, 65 bytes. 0 outgoing calls. Instruction mix: MOV 5, CMP 5, JMP 3, JZ 2, JNZ 2.
+- 041f42df, 65 bytes. 0 outgoing calls. Instruction mix: MOV 11, ADD 2, SUB 2, CMP 2, JMP 2.
+- 041fd391, 65 bytes. 1 outgoing call: FUN_041fd34dx1. Instruction mix: MOV 6, PUSH 4, SUB 2, TEST 2, RET 1.
+- 04202a15, 65 bytes. 0 outgoing calls. Instruction mix: MOV 9, PUSH 7, SUB 3, ADD 2, CALL 2.
+- 04009bc0, 64 bytes (body 56). 1 outgoing call: __cxa_atexitx1. Instruction mix: MOV 6, RET 1, CALL 1, SUB 1, LEAVE 1.
+- 0400a140, 64 bytes (body 56). 1 outgoing call: __cxa_atexitx1. Instruction mix: MOV 6, RET 1, CALL 1, SUB 1, LEAVE 1.
+- 0400a9f0, 64 bytes. 1 outgoing call: pthread_mutex_initx1. Instruction mix: MOV 10, RET 1, CALL 1, ADD 1, SUB 1.
+- 0400b310, 64 bytes (body 49). 1 outgoing call: FUN_041723d0x1. Instruction mix: MOV 6, RET 1, JZ 1, CALL 1, SUB 1.

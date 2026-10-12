@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries with no string reference
+Continued from decomp/largest_fun_calls_note331.txt.
+No Class::Method names were invented; every callee below is exactly as FunMix printed it.
+
+- 0406a290, 48 bytes (body 34). 1 outgoing call: d3d9device_GetViewport x1. Instruction mix: MOV 5, RET 1, CALL 1, ADD 1, SUB 1.
+- 0406a2c0, 48 bytes (body 34). 1 outgoing call: d3d9device_SetViewport x1. Instruction mix: MOV 5, RET 1, CALL 1, ADD 1, SUB 1.
+- 0406a2f0, 48 bytes (body 34). 1 outgoing call: d3d9device_SetViewport x1. Instruction mix: MOV 5, RET 1, CALL 1, ADD 1, SUB 1.
+- 0406a320, 48 bytes (body 41). 1 outgoing call: d3d9device_MultiplyTransform x1. Instruction mix: MOV 7, RET 1, CALL 1, ADD 1, SUB 1.
+- 0406a350, 48 bytes (body 41). 1 outgoing call: d3d9device_MultiplyTransform x1. Instruction mix: MOV 7, RET 1, CALL 1, ADD 1, SUB 1.
+- 0406a380, 48 bytes (body 41). 1 outgoing call: Direct3DDevice9Imp::GetTransform x1. Instruction mix: MOV 7, RET 1, CALL 1, ADD 1, SUB 1.
+- 0406a3b0, 48 bytes (body 41). 1 outgoing call: Direct3DDevice9Imp::GetTransform x1. Instruction mix: MOV 7, RET 1, CALL 1, ADD 1, SUB 1.
+- 0406a3e0, 48 bytes (body 41). 1 outgoing call: Direct3DDevice9Imp::SetTransform x1. Instruction mix: MOV 7, RET 1, CALL 1, ADD 1, SUB 1.
+- 0406a410, 48 bytes (body 41). 1 outgoing call: Direct3DDevice9Imp::SetTransform x1. Instruction mix: MOV 7, RET 1, CALL 1, ADD 1, SUB 1.
+- 0406a560, 48 bytes (body 34). 1 outgoing call: d3d9device_GetDepthStencilSurface x1. Instruction mix: MOV 5, RET 1, CALL 1, ADD 1, SUB 1.

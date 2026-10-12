@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries with no string reference
+Continued from decomp/largest_fun_calls_note290.txt.
+No Class::Method names were invented.
+
+- 0415c590, 64 bytes (body 48). No outgoing calls. Instruction mix: MOV 6, RET 2, POP 2, XOR 2, JZ 1.
+- 0415d620, 64 bytes (body 63). 1 outgoing call: Synchronisation_WaitForMultipleObjects x1. Instruction mix: MOV 8, RET 1, CALL 1, SUB 1, AND 1.
+- 0415d660, 64 bytes (body 62). 1 outgoing call: Synchronisation_WaitForMultipleObjects x1. Instruction mix: MOV 9, RET 1, CALL 1, SUB 1, AND 1.
+- 0415d6a0, 64 bytes (body 61). 1 outgoing call: Synchronisation_WaitForMultipleObjects x1. Instruction mix: MOV 11, RET 1, CALL 1, SUB 1, AND 1.
+- 0415d6e0, 64 bytes (body 60). 1 outgoing call: Synchronisation_WaitForMultipleObjects x1. Instruction mix: MOV 12, RET 1, CALL 1, SUB 1, AND 1.
+- 0415d720, 64 bytes. 1 outgoing call: Synchronisation_WaitForMultipleObjects x1. Instruction mix: MOV 8, RET 1, CALL 1, SUB 1, AND 1.
+- 04160890, 64 bytes (body 59). No outgoing calls. Instruction mix: MOV 14, PUSH 2, RET 1, CALL 1, SUB 1.
+- 04160ae0, 64 bytes (body 49). No outgoing calls. Instruction mix: MOV 12, POP 2, TEST 2, PUSH 2, RET 1.
+- 04164870, 64 bytes (body 50). No outgoing calls. Instruction mix: MOV 3, MOVSD 3, UCOMISD 2, JNC 2, RET 1.
+- 04164b80, 64 bytes (body 51). No outgoing calls. Instruction mix: MOV 2, AND 2, UCOMISD 2, RET 1, NOT 1.

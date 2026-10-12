@@ -1,0 +1,13 @@
+Next 10 largest FUN_ entries with no string reference
+Continued from decomp/largest_fun_calls_note324.txt. No Class::Method names were invented.
+
+- 04069230, 48 bytes (body 34). 1 outgoing call: d3d9device_GetFVF x1. Instruction mix: MOV 5, RET 1, CALL 1, ADD 1, SUB 1.
+- 04069260, 48 bytes (body 34). 1 outgoing call: d3d9device_SetFVF x1. Instruction mix: MOV 5, RET 1, CALL 1, ADD 1, SUB 1.
+- 04069290, 48 bytes (body 34). 1 outgoing call: d3d9device_SetFVF x1. Instruction mix: MOV 5, RET 1, CALL 1, ADD 1, SUB 1.
+- 040692c0, 48 bytes (body 34). 1 outgoing call: d3d9device_GetVertexDeclaration x1. Instruction mix: MOV 5, RET 1, CALL 1, ADD 1, SUB 1.
+- 040692f0, 48 bytes (body 34). 1 outgoing call: d3d9device_GetVertexDeclaration x1. Instruction mix: MOV 5, RET 1, CALL 1, ADD 1, SUB 1.
+- 04069320, 48 bytes (body 34). 1 outgoing call: d3d9device_SetVertexDeclaration x1. Instruction mix: MOV 5, RET 1, CALL 1, ADD 1, SUB 1.
+- 04069350, 48 bytes (body 34). 1 outgoing call: d3d9device_SetVertexDeclaration x1. Instruction mix: MOV 5, RET 1, CALL 1, ADD 1, SUB 1.
+- 04069380, 48 bytes (body 41). 1 outgoing call: d3d9device_CreateVertexDeclaration x1. Instruction mix: MOV 7, RET 1, CALL 1, ADD 1, SUB 1.
+- 040693b0, 48 bytes (body 41). 1 outgoing call: d3d9device_CreateVertexDeclaration x1. Instruction mix: MOV 7, RET 1, CALL 1, ADD 1, SUB 1.
+- 04069660, 48 bytes. 1 outgoing call: Direct3DDevice9Imp::DrawPrimitive x1. Instruction mix: MOV 9, RET 1, CALL 1, ADD 1, SUB 1.

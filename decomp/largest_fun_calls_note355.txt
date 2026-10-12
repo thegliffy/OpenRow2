@@ -1,0 +1,13 @@
+Next 10 largest FUN_ entries with no string reference
+Continued from decomp/largest_fun_calls_note354.txt. No Class::Method names were invented; every callee below is exactly what FunMix printed.
+
+- 040fd6c0, 48 bytes (body 34). 1 outgoing call: FUN_041001c0 x1. Instruction mix: MOV 5, RET 1, CALL 1, ADD 1, SUB 1.
+- 040fd6f0, 48 bytes. 1 outgoing call: FUN_04100720 x1. Instruction mix: MOV 9, RET 1, CALL 1, ADD 1, SUB 1.
+- 040fd720, 48 bytes (body 41). 1 outgoing call: FUN_04100250 x1. Instruction mix: MOV 7, RET 1, CALL 1, ADD 1, SUB 1.
+- 040fd750, 48 bytes (body 34). 1 outgoing call: FUN_04100370 x1. Instruction mix: MOV 5, RET 1, CALL 1, ADD 1, SUB 1.
+- 040fd780, 48 bytes (body 41). 1 outgoing call: DirectSoundPrimaryBuffer8Imp::QueryInterface x1. Instruction mix: MOV 7, RET 1, CALL 1, ADD 1, SUB 1.
+- 040fd810, 48 bytes (body 41). 1 outgoing call: FUN_040fcb00 x1. Instruction mix: MOV 7, RET 1, CALL 1, ADD 1, SUB 1.
+- 040fd8d0, 48 bytes (body 41). 1 outgoing call: FUN_040fcc30 x1. Instruction mix: MOV 7, RET 1, CALL 1, ADD 1, SUB 1.
+- 040fd900, 48 bytes (body 41). 1 outgoing call: FUN_040fccb0 x1. Instruction mix: MOV 7, RET 1, CALL 1, ADD 1, SUB 1.
+- 040fd930, 48 bytes (body 41). 1 outgoing call: FUN_040fc5e0 x1. Instruction mix: MOV 7, RET 1, CALL 1, ADD 1, SUB 1.
+- 040fd960, 48 bytes (body 34). 1 outgoing call: FUN_040fc310 x1. Instruction mix: MOV 5, RET 1, CALL 1, ADD 1, SUB 1.

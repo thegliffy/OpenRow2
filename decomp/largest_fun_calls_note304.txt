@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries with no string reference
+Continued from decomp/largest_fun_calls_note303.txt.
+No Class::Method names were invented.
+
+- 042d1a50, 64 bytes (body 49). 2 outgoing calls: __i686.get_pc_thunk.b x1, google_breakpad::MinidumpFileWriter::Copy x1. Instruction mix: PUSH 5, ADD 3, CALL 2, RET 1, POP 1.
+- 042d1a90, 64 bytes (body 55). 2 outgoing calls: __i686.get_pc_thunk.b x1, google_breakpad::MinidumpFileWriter::Copy x1. Instruction mix: PUSH 5, ADD 3, CALL 2, RET 1, POP 1.
+- 042d1ad0, 64 bytes (body 49). 2 outgoing calls: __i686.get_pc_thunk.b x1, google_breakpad::MinidumpFileWriter::Copy x1. Instruction mix: PUSH 5, ADD 3, CALL 2, RET 1, POP 1.
+- 042d1b10, 64 bytes (body 49). 2 outgoing calls: __i686.get_pc_thunk.b x1, google_breakpad::MinidumpFileWriter::Copy x1. Instruction mix: PUSH 5, ADD 3, CALL 2, RET 1, POP 1.
+- 042d1b50, 64 bytes (body 49). 2 outgoing calls: __i686.get_pc_thunk.b x1, google_breakpad::MinidumpFileWriter::Copy x1. Instruction mix: PUSH 5, ADD 3, CALL 2, RET 1, POP 1.
+- 042d2b00, 64 bytes (body 49). 2 outgoing calls: __i686.get_pc_thunk.b x1, google_breakpad::MinidumpFileWriter::Copy x1. Instruction mix: PUSH 5, ADD 3, CALL 2, RET 1, POP 1.
+- 042d4580, 64 bytes (body 56). No outgoing calls. Instruction mix: MOV 7, TEST 3, JNZ 3, POP 2, JZ 2.
+- 042d45f0, 64 bytes (body 41). No outgoing calls. Instruction mix: MOV 3, CMP 3, RET 2, POP 2, ADD 2.
+- 042d46a0, 64 bytes (body 56). No outgoing calls. Instruction mix: LEA 5, MOV 4, POP 2, CMP 2, MOVSX 2.
+- 042d4ad0, 64 bytes (body 51). 2 outgoing calls: FUN_042d48d0 x1, __i686.get_pc_thunk.b x1. Instruction mix: PUSH 4, MOV 3, ADD 2, CALL 2, RET 1.

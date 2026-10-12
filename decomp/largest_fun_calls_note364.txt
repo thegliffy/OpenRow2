@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries with no string reference
+Continued from decomp/largest_fun_calls_note363.txt.
+No Class::Method names were invented.
+
+- 04101250, 48 bytes (body 37). 1 outgoing call: FUN_04030320 x1. Instruction mix: MOV 5, POP 2, PUSH 2, ADD 1, CALL 1.
+- 041012b0, 48 bytes (body 38). No outgoing calls. Instruction mix: MOV 6, SAR 2, RET 1, POP 1, SUB 1.
+- 04102240, 48 bytes (body 41). 1 outgoing call: FUN_04105b90 x1. Instruction mix: MOV 7, RET 1, CALL 1, ADD 1, SUB 1.
+- 04102270, 48 bytes (body 34). 1 outgoing call: FUN_04105b80 x1. Instruction mix: MOV 5, RET 1, CALL 1, ADD 1, SUB 1.
+- 041022a0, 48 bytes (body 34). 1 outgoing call: FUN_04105ff0 x1. Instruction mix: MOV 5, RET 1, CALL 1, ADD 1, SUB 1.
+- 04102400, 48 bytes (body 34). 1 outgoing call: FUN_04106b30 x1. Instruction mix: MOV 5, RET 1, CALL 1, ADD 1, SUB 1.
+- 04102430, 48 bytes (body 34). 1 outgoing call: FUN_04106ad0 x1. Instruction mix: MOV 5, RET 1, CALL 1, ADD 1, SUB 1.
+- 04102460, 48 bytes (body 41). 1 outgoing call: FUN_04105cb0 x1. Instruction mix: MOV 7, RET 1, CALL 1, ADD 1, SUB 1.
+- 04102490, 48 bytes (body 41). 1 outgoing call: FUN_041060a0 x1. Instruction mix: MOV 7, RET 1, CALL 1, ADD 1, SUB 1.
+- 041024c0, 48 bytes (body 34). 1 outgoing call: FUN_04105b30 x1. Instruction mix: MOV 5, RET 1, CALL 1, ADD 1, SUB 1.

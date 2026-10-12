@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries with no string reference
+Continued from decomp/largest_fun_calls_note345.txt.
+No Class::Method names were invented.
+
+- 040a2b00, 48 bytes (body 40). 1 outgoing call: d3dstructs_040a4ea0 x1. Instruction mix: MOV 5, POP 2, PUSH 2, ADD 1, CALL 1.
+- 040a2b30, 48 bytes (body 40). 1 outgoing call: FUN_040a3a90 x1. Instruction mix: MOV 5, POP 2, PUSH 2, ADD 1, CALL 1.
+- 040a2b60, 48 bytes (body 40). 1 outgoing call: FUN_040b4c90 x1. Instruction mix: MOV 5, POP 2, PUSH 2, ADD 1, CALL 1.
+- 040a2b90, 48 bytes (body 40). 1 outgoing call: FUN_040a43c0 x1. Instruction mix: MOV 5, POP 2, PUSH 2, ADD 1, CALL 1.
+- 040a2bc0, 48 bytes (body 40). 1 outgoing call: FUN_040b1520 x1. Instruction mix: MOV 5, POP 2, PUSH 2, ADD 1, CALL 1.
+- 040a3040, 48 bytes (body 34). 1 outgoing call: FUN_040a2eb0 x1. Instruction mix: MOV 5, RET 1, CALL 1, ADD 1, SUB 1.
+- 040a6820, 48 bytes (body 37). 1 outgoing call: FUN_04030320 x1. Instruction mix: MOV 5, POP 2, PUSH 2, ADD 1, CALL 1.
+- 040ac4d0, 48 bytes (body 45). No outgoing calls. Instruction mix: MOV 4, RET 1, POP 1, JZ 1, SUB 1.
+- 040b0b30, 48 bytes (body 42). 1 outgoing call: Direct3DSurface9Imp::CopyOpenGLObjectData x1. Instruction mix: MOV 7, RET 1, CALL 1, SUB 1, LEAVE 1.
+- 040b0e20, 48 bytes (body 47). 1 outgoing call: operator.delete x1. Instruction mix: MOV 6, POP 2, PUSH 2, JZ 1, ADD 1.

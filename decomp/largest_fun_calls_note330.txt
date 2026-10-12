@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries with no string reference
+Continued from decomp/largest_fun_calls_note329.txt.
+No Class::Method names were invented.
+
+- 04069ed0, 48 bytes (body 41). 1 outgoing call: d3d9device_GetRenderState x1. Instruction mix: MOV 7, RET 1, CALL 1, ADD 1, SUB 1.
+- 04069f00, 48 bytes (body 41). 1 outgoing call: d3d9device_SetRenderState x1. Instruction mix: MOV 7, RET 1, CALL 1, ADD 1, SUB 1.
+- 04069f30, 48 bytes (body 41). 1 outgoing call: d3d9device_SetRenderState x1. Instruction mix: MOV 7, RET 1, CALL 1, ADD 1, SUB 1.
+- 04069f60, 48 bytes (body 41). 1 outgoing call: d3d9device_GetClipPlane x1. Instruction mix: MOV 7, RET 1, CALL 1, ADD 1, SUB 1.
+- 04069f90, 48 bytes (body 41). 1 outgoing call: d3d9device_GetClipPlane x1. Instruction mix: MOV 7, RET 1, CALL 1, ADD 1, SUB 1.
+- 04069fc0, 48 bytes (body 41). 1 outgoing call: d3d9device_SetClipPlane x1. Instruction mix: MOV 7, RET 1, CALL 1, ADD 1, SUB 1.
+- 04069ff0, 48 bytes (body 41). 1 outgoing call: d3d9device_SetClipPlane x1. Instruction mix: MOV 7, RET 1, CALL 1, ADD 1, SUB 1.
+- 0406a020, 48 bytes (body 41). 1 outgoing call: d3d9device_GetLightEnable x1. Instruction mix: MOV 7, RET 1, CALL 1, ADD 1, SUB 1.
+- 0406a050, 48 bytes (body 41). 1 outgoing call: d3d9device_GetLightEnable x1. Instruction mix: MOV 7, RET 1, CALL 1, ADD 1, SUB 1.
+- 0406a080, 48 bytes (body 41). 1 outgoing call: d3d9device_LightEnable x1. Instruction mix: MOV 7, RET 1, CALL 1, ADD 1, SUB 1.

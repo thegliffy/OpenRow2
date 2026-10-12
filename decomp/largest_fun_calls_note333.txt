@@ -1,0 +1,13 @@
+Next 10 largest FUN_ entries with no string reference
+Continued from decomp/largest_fun_calls_note332.txt. No Class::Method names were invented.
+
+- 0406a590, 48 bytes (body 34). 1 outgoing call: d3d9device_GetDepthStencilSurface x1. Instruction mix: MOV 5, RET 1, CALL 1, ADD 1, SUB 1.
+- 0406a5c0, 48 bytes (body 34). 1 outgoing call: d3d9device_SetDepthStencilSurface x1. Instruction mix: MOV 5, RET 1, CALL 1, ADD 1, SUB 1.
+- 0406a5f0, 48 bytes (body 34). 1 outgoing call: d3d9device_SetDepthStencilSurface x1. Instruction mix: MOV 5, RET 1, CALL 1, ADD 1, SUB 1.
+- 0406a620, 48 bytes (body 41). 1 outgoing call: GetRenderTarget x1. Instruction mix: MOV 7, RET 1, CALL 1, ADD 1, SUB 1.
+- 0406a650, 48 bytes (body 41). 1 outgoing call: GetRenderTarget x1. Instruction mix: MOV 7, RET 1, CALL 1, ADD 1, SUB 1.
+- 0406a680, 48 bytes (body 41). 1 outgoing call: SetRenderTarget x1. Instruction mix: MOV 7, RET 1, CALL 1, ADD 1, SUB 1.
+- 0406a6b0, 48 bytes (body 41). 1 outgoing call: SetRenderTarget x1. Instruction mix: MOV 7, RET 1, CALL 1, ADD 1, SUB 1.
+- 0406a780, 48 bytes. 1 outgoing call: Direct3DDevice9Imp::ColorFill x1. Instruction mix: MOV 9, RET 1, CALL 1, ADD 1, SUB 1.
+- 0406a7b0, 48 bytes. 1 outgoing call: Direct3DDevice9Imp::ColorFill x1. Instruction mix: MOV 9, RET 1, CALL 1, ADD 1, SUB 1.
+- 0406a860, 48 bytes (body 41). 1 outgoing call: GetFrontBufferData x1. Instruction mix: MOV 7, RET 1, CALL 1, ADD 1, SUB 1.

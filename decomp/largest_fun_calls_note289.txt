@@ -1,0 +1,13 @@
+Next 10 largest FUN_ entries with no string reference
+Continued from decomp/largest_fun_calls_note288.txt. No Class::Method names were invented.
+
+- 04133790, 64 bytes (body 54). 1 outgoing call: FUN_041334d0 x1. Instruction mix: MOV 8, PUSH 3, SUB 2, LEA 2, RET 1.
+- 041392f0, 64 bytes (body 49). 1 outgoing call: LeaveCriticalSection x1. Instruction mix: MOV 4, RET 2, JZ 2, SUB 2, LEAVE 2.
+- 04139c80, 64 bytes (body 55). 1 outgoing call: GetComputerNameExA x1. Instruction mix: MOV 7, PUSH 3, SUB 2, LEA 2, RET 1.
+- 04139cc0, 64 bytes (body 55). 1 outgoing call: eON_GetComputerNameExW x1. Instruction mix: MOV 7, PUSH 3, SUB 2, LEA 2, RET 1.
+- 0413a3a0, 64 bytes (body 52). 1 outgoing call: FUN_04139330 x1. Instruction mix: MOV 11, RET 1, CALL 1, SUB 1, AND 1.
+- 0413e9d0, 64 bytes (body 62). 1 outgoing call: eON_VirtualFreeEx x1. Instruction mix: MOV 9, PUSH 3, SUB 2, LEA 2, RET 1.
+- 041451a0, 64 bytes (body 53). 1 outgoing call: FUN_04144668 x1. Instruction mix: MOV 8, SUB 2, LEA 2, PUSH 2, CALL 1.
+- 04145320, 64 bytes (body 49). No outgoing calls. Instruction mix: MOV 5, PUSH 3, SUB 2, LEA 2, RET 1.
+- 0414afd0, 64 bytes (body 54). 3 outgoing calls: OpenObjectByName x1, pthread_mutex_lock x1, pthread_mutex_unlock x1. Instruction mix: MOV 7, CALL 3, POP 2, PUSH 2, RET 1.
+- 0414b680, 64 bytes (body 54). 3 outgoing calls: OpenObjectByName x1, pthread_mutex_lock x1, pthread_mutex_unlock x1. Instruction mix: MOV 7, CALL 3, POP 2, PUSH 2, RET 1.

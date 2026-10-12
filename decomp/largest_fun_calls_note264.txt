@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries with no string reference
+Continued from decomp/largest_fun_calls_note263.txt.
+No Class::Method names were invented; callees are listed exactly as Ghidra reports them.
+
+- 041f0fe9, 78 bytes. No outgoing calls. Instruction mix: MOV 14, MOVZX 5, LEA 2, RET 1, SUB 1.
+- 04202011, 78 bytes. 2 outgoing calls: FUN_042018b3 x1, __stack_chk_fail x1. Instruction mix: MOV 11, PUSH 4, CALL 2, SUB 2, XOR 2.
+- 042020a7, 78 bytes. 2 outgoing calls: FUN_042018b3 x1, __stack_chk_fail x1. Instruction mix: MOV 11, PUSH 4, CALL 2, SUB 2, XOR 2.
+- 042050b6, 78 bytes (body 77). 2 outgoing calls: FUN_04204cde x2, FUN_04206aba x1. Instruction mix: PUSH 10, SUB 5, MOV 4, ADD 3, CALL 3.
+- 041ef740, 77 bytes. 2 outgoing calls: FUN_041cca07 x1, FUN_041ce5fc x1. Instruction mix: MOV 11, SUB 3, PUSH 3, ADD 2, CALL 2.
+- 041f7163, 77 bytes. No outgoing calls. Instruction mix: MOV 11, MOVZX 2, SUB 2, TEST 2, LEA 2.
+- 041fcfb8, 77 bytes. 1 outgoing call: strcmp x1. Instruction mix: MOV 7, ADD 4, PUSH 3, SUB 2, JMP 2.
+- 041fe6b4, 77 bytes. 3 outgoing calls: FUN_041cc4ff x1, FUN_041cc59c x1, FUN_041cc77d x1. Instruction mix: CALL 4, SUB 4, PUSH 4, ADD 3, TEST 3.
+- 040092a2, 76 bytes (body 75). 2 outgoing calls: __errno_location x1, __i686.get_pc_thunk.b x1. Instruction mix: MOV 9, POP 5, PUSH 5, ADD 2, CALL 2.
+- 041cc920, 76 bytes. 1 outgoing call: malloc x1. Instruction mix: MOV 6, PUSH 4, SUB 3, JZ 2, ADD 2.

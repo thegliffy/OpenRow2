@@ -1,0 +1,33 @@
+VPFS extract check
+
+tools/vpfs_extract.py decrypted bin/saintsrow2.vpfs with the AES path in
+decomp/vpfs_aes_plain.txt. The directory table is decomp/vpfs_dir_records.tsv.
+Extracted files were written to /tmp/openrow-vpfs and are not committed.
+
+Every file is a PE32 (machine 0x14c) except the VC80 manifest, which is UTF-8
+XML. Section names:
+
+  binkw32.dll                 .text, BINKY12, BINKY16, BINKP8, BINK16, BINK32, BINK, .rdata, .data, BINKBSS, BINKDATA, .rsrc, .reloc
+  d3dx9_39.dll                .text, .data, .rsrc, .reloc
+  dfengine.dll                .text, .rdata, .data, .rsrc, .reloc
+  gameuxinstallhelper.dll     .text, .data, .rsrc, .reloc
+  goggame-1430740458.dll      .text, .rdata, .data, .rsrc, .reloc
+  language_setup.exe          UPX0, UPX1, .rsrc
+  msvcm80.dll                 .text, .rdata, .data, .rsrc, .reloc
+  msvcp80.dll                 .text, .rdata, .data, .rsrc, .reloc
+  msvcr80.dll                 .text, .rdata, .data, .rsrc, .reloc
+  msvcrt.dll                  .text, .rdata, .data, .rsrc, .reloc
+  sr2_pc.exe                  .text, .rdata, .data, .tls, .rsrc, .reloc
+  unins000.exe                .text, .itext, .data, .bss, .idata, .tls, .rdata, .rsrc
+  x3daudio1_4.dll             .text, .data, .rsrc, .reloc
+  xactengine3_2.dll           .text, .data, .rsrc, .reloc
+
+microsoft.vc80.crt is a directory record, not a file. unins000.exe begins
+with the bytes MZP and still has a PE signature.
+
+All 71 paths in seeds/win_rdata_sourcepaths.txt occur in the extracted
+sr2_pc.exe. They are still absent from the Linux binary. A 400-byte window
+around each path contains no assert signature that seeds/string_refs.csv
+already records, and the Windows .rdata section shares no Class::Method
+signature with the Linux string table. Do not build an adjacency map from
+these paths.

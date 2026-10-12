@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries with no string reference
+Continued from decomp/largest_fun_calls_note343.txt.
+No Class::Method names were invented.
+
+- 040a2540, 48 bytes (body 41). 1 outgoing call: direct3dtexture9imp_040b0fe0 x1. Instruction mix: MOV 7, RET 1, CALL 1, ADD 1, SUB 1.
+- 040a25b0, 48 bytes (body 41). 1 outgoing call: FUN_040b0e50 x1. Instruction mix: MOV 7, RET 1, CALL 1, ADD 1, SUB 1.
+- 040a25e0, 48 bytes (body 41). 1 outgoing call: Direct3DCubeTexture9Imp::AddDirtyRect x1. Instruction mix: MOV 7, RET 1, CALL 1, ADD 1, SUB 1.
+- 040a2610, 48 bytes (body 41). 1 outgoing call: direct3dcubetexture9imp_0406ed60 x1. Instruction mix: MOV 7, RET 1, CALL 1, ADD 1, SUB 1.
+- 040a2680, 48 bytes. 1 outgoing call: Direct3DCubeTexture9Imp::GetCubeMapSurface x1. Instruction mix: MOV 9, RET 1, CALL 1, ADD 1, SUB 1.
+- 040a26b0, 48 bytes (body 41). 1 outgoing call: direct3dcubetexture9imp_0406ee50 x1. Instruction mix: MOV 7, RET 1, CALL 1, ADD 1, SUB 1.
+- 040a2720, 48 bytes (body 41). 1 outgoing call: FUN_0406bdd0 x1. Instruction mix: MOV 7, RET 1, CALL 1, ADD 1, SUB 1.
+- 040a2750, 48 bytes (body 41). 1 outgoing call: FUN_040a41d0 x1. Instruction mix: MOV 7, RET 1, CALL 1, ADD 1, SUB 1.
+- 040a2780, 48 bytes (body 34). 1 outgoing call: FUN_040a4260 x1. Instruction mix: MOV 5, RET 1, CALL 1, ADD 1, SUB 1.
+- 040a27b0, 48 bytes (body 41). 1 outgoing call: FUN_040a4140 x1. Instruction mix: MOV 7, RET 1, CALL 1, ADD 1, SUB 1.

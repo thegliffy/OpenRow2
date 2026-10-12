@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries with no string reference
+Continued from decomp/largest_fun_calls_note339.txt.
+No Class::Method names were invented.
+
+- 040a1840, 48 bytes. 1 outgoing call: Direct3DQuery9Imp::GetData x1. Instruction mix: MOV 9, RET 1, CALL 1, ADD 1, SUB 1.
+- 040a1870, 48 bytes (body 34). 1 outgoing call: FUN_040a5620 x1. Instruction mix: MOV 5, RET 1, CALL 1, ADD 1, SUB 1.
+- 040a18e0, 48 bytes (body 34). 1 outgoing call: FUN_040a5070 x1. Instruction mix: MOV 5, RET 1, CALL 1, ADD 1, SUB 1.
+- 040a1970, 48 bytes (body 34). 1 outgoing call: FUN_040a68a0 x1. Instruction mix: MOV 5, RET 1, CALL 1, ADD 1, SUB 1.
+- 040a19a0, 48 bytes (body 41). 1 outgoing call: FUN_040b2f00 x1. Instruction mix: MOV 7, RET 1, CALL 1, ADD 1, SUB 1.
+- 040a19d0, 48 bytes (body 34). 1 outgoing call: FUN_040b3050 x1. Instruction mix: MOV 5, RET 1, CALL 1, ADD 1, SUB 1.
+- 040a1a20, 48 bytes (body 34). 1 outgoing call: FUN_040b8e00 x1. Instruction mix: MOV 5, RET 1, CALL 1, ADD 1, SUB 1.
+- 040a1a50, 48 bytes (body 34). 1 outgoing call: FUN_040b84f0 x1. Instruction mix: MOV 5, RET 1, CALL 1, ADD 1, SUB 1.
+- 040a1ac0, 48 bytes (body 41). 1 outgoing call: FUN_040b83c0 x1. Instruction mix: MOV 7, RET 1, CALL 1, ADD 1, SUB 1.
+- 040a1af0, 48 bytes (body 41). 1 outgoing call: FUN_040b8330 x1. Instruction mix: MOV 7, RET 1, CALL 1, ADD 1, SUB 1.

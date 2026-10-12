@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries with no string reference
+Continued from decomp/largest_fun_calls_note350.txt.
+No Class::Method names were invented; every callee below is exactly what FunMix printed.
+
+- 040f1b40, 48 bytes (body 34). No outgoing calls. Instruction mix: MOV 7, RET 1, CALL 1, SUB 1, AND 1.
+- 040f1b70, 48 bytes. No outgoing calls. Instruction mix: MOV 11, RET 1, CALL 1, SUB 1, AND 1.
+- 040f1ba0, 48 bytes (body 34). No outgoing calls. Instruction mix: MOV 7, RET 1, CALL 1, SUB 1, AND 1.
+- 040f1cb0, 48 bytes. No outgoing calls. Instruction mix: MOV 11, RET 1, CALL 1, SUB 1, AND 1.
+- 040f1d20, 48 bytes (body 37). No outgoing calls. Instruction mix: MOV 7, RET 1, CALL 1, SUB 1, AND 1.
+- 040f1fd0, 48 bytes (body 37). 1 outgoing call: FUN_04030320 x1. Instruction mix: MOV 5, POP 2, PUSH 2, ADD 1, CALL 1.
+- 040f22d0, 48 bytes. No outgoing calls. Instruction mix: MOV 11, RET 1, CALL 1, SUB 1, AND 1.
+- 040f2300, 48 bytes (body 34). No outgoing calls. Instruction mix: MOV 7, RET 1, CALL 1, SUB 1, AND 1.
+- 040f2330, 48 bytes (body 41). No outgoing calls. Instruction mix: MOV 9, RET 1, CALL 1, SUB 1, AND 1.
+- 040f2360, 48 bytes (body 41). No outgoing calls. Instruction mix: MOV 9, RET 1, CALL 1, SUB 1, AND 1.

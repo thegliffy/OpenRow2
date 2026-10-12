@@ -1,0 +1,13 @@
+Next 10 largest FUN_ entries with no string reference
+Continued from decomp/largest_fun_calls_note318.txt. No Class::Method names were invented.
+
+- 04068510, 48 bytes (body 34). 1 outgoing call: FUN_04065920 x1. Instruction mix: MOV 5, RET 1, CALL 1, ADD 1, SUB 1.
+- 04068540, 48 bytes (body 34). 1 outgoing call: FUN_04065910 x1. Instruction mix: MOV 5, RET 1, CALL 1, ADD 1, SUB 1.
+- 04068570, 48 bytes (body 34). 1 outgoing call: FUN_04065900 x1. Instruction mix: MOV 5, RET 1, CALL 1, ADD 1, SUB 1.
+- 040685a0, 48 bytes (body 41). 1 outgoing call: FUN_040658f0 x1. Instruction mix: MOV 7, RET 1, CALL 1, ADD 1, SUB 1.
+- 040685d0, 48 bytes (body 34). 1 outgoing call: FUN_040658e0 x1. Instruction mix: MOV 5, RET 1, CALL 1, ADD 1, SUB 1.
+- 04068600, 48 bytes (body 34). 1 outgoing call: FUN_040658d0 x1. Instruction mix: MOV 5, RET 1, CALL 1, ADD 1, SUB 1.
+- 04068630, 48 bytes (body 34). 1 outgoing call: FUN_040658c0 x1. Instruction mix: MOV 5, RET 1, CALL 1, ADD 1, SUB 1.
+- 04068740, 48 bytes (body 41). 1 outgoing call: d3d9device_CreateQuery x1. Instruction mix: MOV 7, RET 1, CALL 1, ADD 1, SUB 1.
+- 04068770, 48 bytes (body 41). 1 outgoing call: d3d9device_CreateQuery x1. Instruction mix: MOV 7, RET 1, CALL 1, ADD 1, SUB 1.
+- 040687a0, 48 bytes (body 34). 1 outgoing call: d3d9device_DeletePatch x1. Instruction mix: MOV 5, RET 1, CALL 1, ADD 1, SUB 1.

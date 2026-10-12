@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries with no string reference
+Continued from decomp/largest_fun_calls_note351.txt.
+No Class::Method names were invented; every callee below is exactly what FunMix printed.
+
+- 040f2390, 48 bytes (body 41). No outgoing calls. Instruction mix: MOV 9, RET 1, CALL 1, SUB 1, AND 1.
+- 040f23e0, 48 bytes (body 34). No outgoing calls. Instruction mix: MOV 7, RET 1, CALL 1, SUB 1, AND 1.
+- 040f2450, 48 bytes (body 34). No outgoing calls. Instruction mix: MOV 7, RET 1, CALL 1, SUB 1, AND 1.
+- 040f2540, 48 bytes (body 37). 1 outgoing call: FUN_04030320 x1. Instruction mix: MOV 5, POP 2, PUSH 2, ADD 1, CALL 1.
+- 040f25b0, 48 bytes (body 44). No outgoing calls. Instruction mix: MOV 7, SUB 2, RET 1, JZ 1, CALL 1.
+- 040f4940, 48 bytes (body 37). 1 outgoing call: FUN_04030320 x1. Instruction mix: MOV 5, POP 2, PUSH 2, ADD 1, CALL 1.
+- 040f49b0, 48 bytes (body 44). No outgoing calls. Instruction mix: MOV 7, SUB 2, RET 1, JZ 1, CALL 1.
+- 040f85d0, 48 bytes (body 34). 1 outgoing call: MouseDeltas_RegisterForMouseDelta x1. Instruction mix: MOV 5, POP 2, PUSH 2, RET 1, ADD 1.
+- 040fa0c0, 48 bytes (body 47). 1 outgoing call: alGetSourcei x1. Instruction mix: MOV 6, RET 1, CALL 1, SUB 1, CMP 1.
+- 040fa140, 48 bytes (body 37). 1 outgoing call: alSourcei x1. Instruction mix: MOV 7, RET 1, CALL 1, SUB 1, LEAVE 1.

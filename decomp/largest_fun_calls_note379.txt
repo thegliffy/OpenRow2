@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries with no string reference
+Continued from decomp/largest_fun_calls_note378.txt.
+No Class::Method names were invented; all callee names are exactly as printed by FunMix.
+
+- 041562d0, 48 bytes (body 44). 1 outgoing call: FUN_0415cec0 x1. Instruction mix: MOV 3, PUSH 3, SUB 2, LEA 2, RET 1.
+- 04156300, 48 bytes (body 44). 1 outgoing call: FUN_0415cec0 x1. Instruction mix: MOV 3, PUSH 3, SUB 2, LEA 2, RET 1.
+- 04156330, 48 bytes (body 44). 1 outgoing call: FUN_0415cec0 x1. Instruction mix: MOV 3, PUSH 3, SUB 2, LEA 2, RET 1.
+- 04156360, 48 bytes (body 44). 1 outgoing call: FUN_0415cec0 x1. Instruction mix: MOV 3, PUSH 3, SUB 2, LEA 2, RET 1.
+- 04156390, 48 bytes (body 44). 1 outgoing call: FUN_0415cec0 x1. Instruction mix: MOV 3, PUSH 3, SUB 2, LEA 2, RET 1.
+- 041563c0, 48 bytes (body 44). 1 outgoing call: FUN_0415cec0 x1. Instruction mix: MOV 3, PUSH 3, SUB 2, LEA 2, RET 1.
+- 041563f0, 48 bytes (body 44). 1 outgoing call: FUN_0415cec0 x1. Instruction mix: MOV 3, PUSH 3, SUB 2, LEA 2, RET 1.
+- 041566f0, 48 bytes (body 42). 1 outgoing call: bzero x1. Instruction mix: MOV 6, PUSH 2, RET 1, CALL 1, SUB 1.
+- 04156720, 48 bytes (body 42). 1 outgoing call: bzero x1. Instruction mix: MOV 6, PUSH 2, RET 1, CALL 1, SUB 1.
+- 04156920, 48 bytes (body 29). 1 outgoing call: getpidx x1. Instruction mix: RET 2, LEAVE 2, JZ 1, CALL 1, MOV 1.

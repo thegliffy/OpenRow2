@@ -1,0 +1,13 @@
+Next 10 largest FUN_ entries with no string reference
+Continued from decomp/largest_fun_calls_note311.txt. No Class::Method names were invented.
+
+- 041cc663, 49 bytes. 5 outgoing calls: FUN_041cc4b1 x1, FUN_041cc4d8 x1, FUN_041cc700 x1, FUN_041ccaf1 x1, FUN_041cdff0 x1. Instruction mix: CALL 5, SUB 3, PUSH 3, ADD 2, RET 1.
+- 041cc77d, 49 bytes. 1 outgoing call: FUN_041cc46b x1. Instruction mix: MOV 7, PUSH 3, SUB 2, RET 1, ADD 1.
+- 041cdf8e, 49 bytes. No outgoing calls. Instruction mix: MOV 13, RET 1, POP 1, PUSH 1.
+- 041ce189, 49 bytes. No outgoing calls. Instruction mix: MOV 9, RET 1, POP 1, JZ 1, TEST 1.
+- 041d3788, 49 bytes. 2 outgoing calls: FUN_041cc7c7 x1, FUN_041d1fca x1. Instruction mix: PUSH 5, SUB 3, MOV 3, ADD 2, CALL 2.
+- 041d4d99, 49 bytes. 2 outgoing calls: FUN_041cc7c7 x1, FUN_041d4a81 x1. Instruction mix: PUSH 5, SUB 3, MOV 3, ADD 2, CALL 2.
+- 041ec02e, 49 bytes. No outgoing calls. Instruction mix: MOV 9, CMP 2, RET 1, MOVZX 1, ADD 1.
+- 04009780, 48 bytes. 1 outgoing call: __cxa_atexit x1. Instruction mix: MOV 5, RET 1, CALL 1, SUB 1, LEAVE 1.
+- 04009b60, 48 bytes. 1 outgoing call: __cxa_atexit x1. Instruction mix: MOV 5, RET 1, CALL 1, SUB 1, LEAVE 1.
+- 04009b90, 48 bytes. 2 outgoing calls: Init x1, __cxa_atexit x1. Instruction mix: MOV 5, CALL 2, RET 1, SUB 1, LEAVE 1.

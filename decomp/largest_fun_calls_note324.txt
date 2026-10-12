@@ -1,0 +1,13 @@
+Next 10 largest FUN_ entries with no string reference
+Continued from decomp/largest_fun_calls_note323.txt. No Class::Method names were invented.
+
+- 04069050, 48 bytes. 1 outgoing call: d3d9device_GetVertexShaderConstantF x1. Instruction mix: MOV 9, RET 1, CALL 1, ADD 1, SUB 1.
+- 04069080, 48 bytes. 1 outgoing call: d3d9device_SetVertexShaderConstantF x1. Instruction mix: MOV 9, RET 1, CALL 1, ADD 1, SUB 1.
+- 040690b0, 48 bytes. 1 outgoing call: d3d9device_SetVertexShaderConstantF x1. Instruction mix: MOV 9, RET 1, CALL 1, ADD 1, SUB 1.
+- 040690e0, 48 bytes (body 34). 1 outgoing call: d3d9device_GetVertexShader x1. Instruction mix: MOV 5, RET 1, CALL 1, ADD 1, SUB 1.
+- 04069110, 48 bytes (body 34). 1 outgoing call: d3d9device_GetVertexShader x1. Instruction mix: MOV 5, RET 1, CALL 1, ADD 1, SUB 1.
+- 04069140, 48 bytes (body 34). 1 outgoing call: d3d9device_SetVertexShader x1. Instruction mix: MOV 5, RET 1, CALL 1, ADD 1, SUB 1.
+- 04069170, 48 bytes (body 34). 1 outgoing call: d3d9device_SetVertexShader x1. Instruction mix: MOV 5, RET 1, CALL 1, ADD 1, SUB 1.
+- 040691a0, 48 bytes (body 41). 1 outgoing call: d3d9device_CreateVertexShader x1. Instruction mix: MOV 7, RET 1, CALL 1, ADD 1, SUB 1.
+- 040691d0, 48 bytes (body 41). 1 outgoing call: d3d9device_CreateVertexShader x1. Instruction mix: MOV 7, RET 1, CALL 1, ADD 1, SUB 1.
+- 04069200, 48 bytes (body 34). 1 outgoing call: d3d9device_GetFVF x1. Instruction mix: MOV 5, RET 1, CALL 1, ADD 1, SUB 1.

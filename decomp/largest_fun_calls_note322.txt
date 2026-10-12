@@ -1,0 +1,13 @@
+Next 10 largest FUN_ entries with no string reference
+Continued from decomp/largest_fun_calls_note321.txt. No Class::Method names were invented.
+
+- 04068b90, 48 bytes (body 34). 1 outgoing call: d3d9device_SetPixelShader x1. Instruction mix: MOV 5, RET 1, CALL 1, ADD 1, SUB 1.
+- 04068bc0, 48 bytes (body 41). 1 outgoing call: d3d9device_CreatePixelShader x1. Instruction mix: MOV 7, RET 1, CALL 1, ADD 1, SUB 1.
+- 04068bf0, 48 bytes (body 41). 1 outgoing call: d3d9device_CreatePixelShader x1. Instruction mix: MOV 7, RET 1, CALL 1, ADD 1, SUB 1.
+- 04068c20, 48 bytes (body 34). 1 outgoing call: d3d9device_GetIndices x1. Instruction mix: MOV 5, RET 1, CALL 1, ADD 1, SUB 1.
+- 04068c50, 48 bytes (body 34). 1 outgoing call: d3d9device_GetIndices x1. Instruction mix: MOV 5, RET 1, CALL 1, ADD 1, SUB 1.
+- 04068c80, 48 bytes (body 34). 1 outgoing call: d3d9device_SetIndices x1. Instruction mix: MOV 5, RET 1, CALL 1, ADD 1, SUB 1.
+- 04068cb0, 48 bytes (body 34). 1 outgoing call: d3d9device_SetIndices x1. Instruction mix: MOV 5, RET 1, CALL 1, ADD 1, SUB 1.
+- 04068ce0, 48 bytes (body 41). 1 outgoing call: d3d9device_GetStreamSourceFreq x1. Instruction mix: MOV 7, RET 1, CALL 1, ADD 1, SUB 1.
+- 04068d10, 48 bytes (body 41). 1 outgoing call: d3d9device_GetStreamSourceFreq x1. Instruction mix: MOV 7, RET 1, CALL 1, ADD 1, SUB 1.
+- 04068d40, 48 bytes (body 41). 1 outgoing call: d3d9device_SetStreamSourceFreq x1. Instruction mix: MOV 7, RET 1, CALL 1, ADD 1, SUB 1.

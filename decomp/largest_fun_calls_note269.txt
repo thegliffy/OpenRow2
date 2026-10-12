@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries with no string reference
+Continued from decomp/largest_fun_calls_note268.txt.
+No Class::Method names were invented.
+
+- 041e0399, 69 bytes. No outgoing calls. Instruction mix: MOV 9, CMP 4, JA 2, RET 1, ADD 1.
+- 041e03de, 69 bytes. No outgoing calls. Instruction mix: MOV 11, MOVZX 5, RET 1, ADD 1, SUB 1.
+- 041fd308, 69 bytes. No outgoing calls. Instruction mix: MOV 9, ADD 2, CMP 2, JMP 2, RET 1.
+- 042008c2, 69 bytes. No outgoing calls. Instruction mix: MOV 7, MOVZX 5, JNZ 2, JMP 2, RET 1.
+- 04200907, 69 bytes. No outgoing calls. Instruction mix: MOV 7, MOVZX 5, JNZ 2, JMP 2, RET 1.
+- 04201018, 69 bytes. 3 outgoing calls: FUN_041cca07 x1, FUN_04200f27 x1, FUN_04201217 x1. Instruction mix: SUB 4, PUSH 4, ADD 3, CALL 3, JZ 2.
+- 041cef1b, 68 bytes. No outgoing calls. Instruction mix: MOV 17, JZ 2, CMP 2, RET 1, POP 1.
+- 041fd34d, 68 bytes. No outgoing calls. Instruction mix: MOV 8, PUSH 4, JZ 2, SUB 2, CMP 2.
+- 041fe550, 68 bytes (body 67). 3 outgoing calls: FUN_041d1fe2 x1, FUN_041fe30e x1, FUN_041fe38c x1. Instruction mix: MOV 6, PUSH 5, SUB 4, ADD 3, CALL 3.
+- 04206422, 68 bytes. 3 outgoing calls: FUN_04204dcc x2, memcmp x1. Instruction mix: PUSH 8, ADD 4, MOV 4, POP 3, CALL 3.

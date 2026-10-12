@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries with no string reference
+Continued from decomp/largest_fun_calls_note304.txt.
+No Class::Method names were invented; every callee below is exactly what FunMix printed.
+
+- 042d5760, 64 bytes (body 49). 1 outgoing call: __i686.get_pc_thunk.bx x1. Instruction mix: POP 2, ADD 2, RET 1, MOVZX 1, CALL 1.
+- 041c9c76, 63 bytes. 1 outgoing call: FUN_041c9c16 x1. Instruction mix: MOV 7, PUSH 3, RET 1, ADD 1, CALL 1.
+- 041c9cb5, 63 bytes. 1 outgoing call: FUN_041c9c16 x1. Instruction mix: MOV 7, PUSH 3, RET 1, ADD 1, CALL 1.
+- 041dd991, 63 bytes. 2 outgoing calls: FUN_041dc4db x1, FUN_041dd38a x1. Instruction mix: MOV 5, PUSH 5, JMP 3, JZ 2, ADD 2.
+- 041f836c, 63 bytes. 2 outgoing calls: __stack_chk_fail x1, strtoul x1. Instruction mix: MOV 6, PUSH 4, CALL 2, SUB 2, XOR 2.
+- 041fe9b1, 63 bytes. 3 outgoing calls: FUN_041cca07 x2, FUN_04201018 x1. Instruction mix: MOV 7, SUB 4, PUSH 4, ADD 3, CALL 3.
+- 041445aa, 62 bytes (body 61). No outgoing calls. Instruction mix: PUSH 8, MOV 5, POP 2, RET 1, CALL 1.
+- 041d580e, 62 bytes. No outgoing calls. Instruction mix: MOV 12, MOVZX 2, ADD 2, RET 1, JZ 1.
+- 041fd005, 62 bytes. No outgoing calls. Instruction mix: MOV 8, ADD 2, CMP 2, JMP 2, RET 1.
+- 042051e0, 62 bytes. 3 outgoing calls: FUN_04204e1e x1, FUN_042075a0 x1, FUN_04207bf0 x1. Instruction mix: PUSH 9, SUB 4, ADD 3, CALL 3, RET 1.

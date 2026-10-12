@@ -1,0 +1,13 @@
+Next 10 largest FUN_ entries with no string reference
+Continued from decomp/largest_fun_calls_note307.txt.
+
+- 041ccaf1, 57 bytes. No outgoing calls. Instruction mix: MOV 7, RET 1, POP 1, PUSH 1.
+- 041df42c, 57 bytes. 1 outgoing call: FUN_041cca07 x1. Instruction mix: MOV 8, SUB 2, TEST 2, PUSH 2, RET 1.
+- 041f1a7c, 57 bytes. 1 outgoing call: FUN_041cca07 x1. Instruction mix: MOV 8, SUB 2, TEST 2, PUSH 2, RET 1.
+- 0420531e, 57 bytes. 2 outgoing calls: FUN_04204e7a x1, FUN_042051a0 x1. Instruction mix: MOV 4, SUB 3, PUSH 3, ADD 2, CALL 2.
+- 0400920c, 56 bytes. 2 outgoing calls: __errno_location x1, __i686.get_pc_thunk.bx x1. Instruction mix: MOV 7, POP 4, PUSH 4, CALL 2, RET 1.
+- 042022aa, 56 bytes. 2 outgoing calls: FUN_041f71b0 x1, FUN_041f7e80 x1. Instruction mix: MOV 4, PUSH 4, SUB 3, ADD 2, CALL 2.
+- 042022e2, 56 bytes. 2 outgoing calls: FUN_041f7ef8 x1, strlen x1. Instruction mix: MOV 4, PUSH 4, SUB 3, ADD 2, CALL 2.
+- 0420231a, 56 bytes. 2 outgoing calls: FUN_041f7f6b x1, strlen x1. Instruction mix: MOV 4, PUSH 4, SUB 3, ADD 2, CALL 2.
+- 04204ba8, 56 bytes. 1 outgoing call: strlen x1. Instruction mix: MOV 9, SUB 2, PUSH 2, RET 1, JZ 1.
+- 04205404, 56 bytes (body 55). 2 outgoing calls: FUN_0420c363 x1, FUN_0420c3fc x1. Instruction mix: MOV 5, SUB 3, PUSH 3, ADD 2, CALL 2.

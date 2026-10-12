@@ -1,0 +1,13 @@
+Next 10 largest FUN_ entries with no string reference
+Continued from decomp/largest_fun_calls_note320.txt. No Class::Method names were invented.
+
+- 040689b0, 48 bytes. 1 outgoing call: d3d9device_GetPixelShaderConstantI x1. Instruction mix: MOV 9, RET 1, CALL 1, ADD 1, SUB 1.
+- 040689e0, 48 bytes. 1 outgoing call: d3d9device_SetPixelShaderConstantI x1. Instruction mix: MOV 9, RET 1, CALL 1, ADD 1, SUB 1.
+- 04068a10, 48 bytes. 1 outgoing call: d3d9device_SetPixelShaderConstantI x1. Instruction mix: MOV 9, RET 1, CALL 1, ADD 1, SUB 1.
+- 04068a40, 48 bytes. 1 outgoing call: d3d9device_GetPixelShaderConstantF x1. Instruction mix: MOV 9, RET 1, CALL 1, ADD 1, SUB 1.
+- 04068a70, 48 bytes. 1 outgoing call: d3d9device_GetPixelShaderConstantF x1. Instruction mix: MOV 9, RET 1, CALL 1, ADD 1, SUB 1.
+- 04068aa0, 48 bytes. 1 outgoing call: d3d9device_SetPixelShaderConstantF x1. Instruction mix: MOV 9, RET 1, CALL 1, ADD 1, SUB 1.
+- 04068ad0, 48 bytes. 1 outgoing call: d3d9device_SetPixelShaderConstantF x1. Instruction mix: MOV 9, RET 1, CALL 1, ADD 1, SUB 1.
+- 04068b00, 48 bytes (body 34). 1 outgoing call: d3d9device_GetPixelShader x1. Instruction mix: MOV 5, RET 1, CALL 1, ADD 1, SUB 1.
+- 04068b30, 48 bytes (body 34). 1 outgoing call: d3d9device_GetPixelShader x1. Instruction mix: MOV 5, RET 1, CALL 1, ADD 1, SUB 1.
+- 04068b60, 48 bytes (body 34). 1 outgoing call: d3d9device_SetPixelShader x1. Instruction mix: MOV 5, RET 1, CALL 1, ADD 1, SUB 1.

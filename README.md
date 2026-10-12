@@ -78,13 +78,12 @@ Closed, do not restart:
 - String-reference catalog of unnamed `FUN_` bodies: `decomp/largest_fun_strings_note.txt` through `note94.txt` (937 functions).
 - D3D9 and COM slots that already have an anchor. Do not name an unanchored slot to fill a gap.
 
-Do this next:
+Closed, continued:
 
-- Show one decrypted VPFS directory and one decrypted file body as structured data, using the AES path the binary actually runs. `FUN_040491e0` decrypts the directory with `FUN_0403abc0`. `VPFS_ArchiveRead` (`0403e5a0`) decrypts file bodies in 16-byte blocks through `FUN_0403ab90` into `FUN_04036430`, the same block function `AES::Decrypt` uses. Key bytes are at `DAT_04408c70`. The schedule is `FUN_04031570(ctx, 0x80, 0x80)`. There is no `inflate` on either path (`decomp/vpfs_zstream_note.txt`). `tools/vpfs_decode_proof.py`, `tools/vpfs_modes.py`, `tools/vpfs_bruteforce.py`, and `tools/vpfs_scan_full.py` still search for a zlib stream after AES. Match the decompile instead of extending that search.
+- VPFS decrypt and extract. `tools/vpfs_extract.py` follows the AES path (`decomp/vpfs_aes_plain.txt`) and writes `decomp/vpfs_dir_records.tsv`. The 15 files check out as PE32 or the VC80 manifest (`decomp/vpfs_extract_check.txt`). `language_setup.exe` is UPX. Extracted files stay out of the tree. The `tools/vpfs_*.py` probes other than `vpfs_extract.py` still search for zlib or import `Crypto`. Do not extend them.
+- Call catalog of unnamed `FUN_` bodies: `decomp/largest_fun_calls_note.txt` through `note386.txt` (3,860 functions). Notes 385–386 are compare-leaves with no outgoing calls, so the catalog is stopped. An instruction mix is not a `Class::Method` name. Scoreboard stays 2,113 / 9,221 named (22.9%).
 
-Optional, and it does not move the scoreboard:
-
-- The call catalog, `decomp/largest_fun_calls_note.txt` through `note258.txt` (2,580 functions), records outgoing callees of unnamed `FUN_` bodies. Continue it only while a batch still hits named callees. Stop when a batch is only compare-leaves. An instruction mix is not a `Class::Method` name.
+The extracted `sr2_pc.exe` contains the 71 Windows paths. That does not add a Linux assert the checker can name. Leave `seeds/rejected/win_string_module_map.csv` unused.
 
 ## License
 

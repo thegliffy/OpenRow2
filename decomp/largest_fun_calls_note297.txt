@@ -1,0 +1,16 @@
+Next 10 largest FUN_ entries with no string reference
+
+Continued from decomp/largest_fun_calls_note296.txt.
+
+No Class::Method names were invented.
+
+- 041c4f50, 64 bytes (body 51). 1 outgoing call: sscanf x1. Instruction mix: MOV 7, ADD 2, RET 1, MOVZX 1, CALL 1.
+- 041c4f90, 64 bytes (body 51). 1 outgoing call: sscanf x1. Instruction mix: MOV 7, ADD 2, RET 1, MOVZX 1, CALL 1.
+- 041c5700, 64 bytes (body 62). No outgoing calls. Instruction mix: MOV 11, RET 1, POP 1, PUSH 1.
+- 041c5ef0, 64 bytes (body 57). No outgoing calls. Instruction mix: MOV 8, TEST 4, JZ 3, POP 2, XOR 2.
+- 041c99d0, 64 bytes (body 51). 1 outgoing call: operator.delete[] x1. Instruction mix: MOV 6, POP 2, JZ 2, PUSH 2, ADD 1.
+- 041c9a60, 64 bytes (body 59). 2 outgoing calls: FUN_041c2330 x1, operator.delete[] x1. Instruction mix: MOV 7, POP 2, JZ 2, CALL 2, PUSH 2.
+- 041d6c0d, 64 bytes. 1 outgoing call: FUN_04202f40 x1. Instruction mix: MOV 4, CMP 4, PUSH 4, SUB 2, JNZ 2.
+- 041d71f1, 64 bytes. 1 outgoing call: FUN_042030a4 x1. Instruction mix: MOV 4, CMP 4, PUSH 4, SUB 2, JNZ 2.
+- 041f80c0, 64 bytes. 1 outgoing call: FUN_041f804c x1. Instruction mix: MOV 10, MOVZX 2, PUSH 2, RET 1, ADD 1.
+- 041f8100, 64 bytes. 1 outgoing call: FUN_041f8024 x1. Instruction mix: MOV 10, MOVZX 2, PUSH 2, RET 1, ADD 1.

@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries with no string reference
+Continued from decomp/largest_fun_calls_note313.txt.
+No Class::Method names were invented.
+
+- 04020010, 48 bytes (body 34). 1 outgoing call: SDL_DestroyWindow x1. Instruction mix: MOV 5, POP 2, PUSH 2, RET 1, ADD 1.
+- 04022340, 48 bytes (body 33). No outgoing calls. Instruction mix: MOV 4, TEST 3, JZ 2, SETZ 2, RET 1.
+- 04022380, 48 bytes (body 34). No outgoing calls. Instruction mix: MOV 8, POP 2, JZ 2, TEST 2, PUSH 2.
+- 04023a50, 48 bytes (body 34). 1 outgoing call: SDL_DestroyWindow x1. Instruction mix: MOV 5, POP 2, PUSH 2, RET 1, ADD 1.
+- 04024760, 48 bytes (body 42). No outgoing calls. Instruction mix: MOV 7, POP 2, RET 1, JNZ 1, CMP 1.
+- 04025f60, 48 bytes (body 31). No outgoing calls. Instruction mix: MOV 5, POP 2, RET 1, SUB 1, JA 1.
+- 04026280, 48 bytes (body 34). No outgoing calls. Instruction mix: MOV 7, POP 1, TEST 1, JMP 1, CMOVZ 1.
+- 04026b20, 48 bytes (body 38). 1 outgoing call: SDL_DestroyWindow x1. Instruction mix: MOV 5, POP 2, PUSH 2, RET 1, JZ 1.
+- 04026e70, 48 bytes (body 37). 1 outgoing call: FUN_0404ee40 x1. Instruction mix: MOV 5, POP 2, PUSH 2, RET 1, ADD 1.
+- 04026ea0, 48 bytes (body 38). 1 outgoing call: SDL_DestroyWindow x1. Instruction mix: MOV 5, POP 2, PUSH 2, RET 1, JZ 1.

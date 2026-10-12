@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries with no string reference
+Continued from decomp/largest_fun_calls_note336.txt.
+No Class::Method names were invented; every callee name below is exactly what FunMix printed.
+
+- 0406b4d0, 48 bytes (body 34). 1 outgoing call: d3d9device_GetDeviceCaps x1. Instruction mix: MOV 5, RET 1, CALL 1, ADD 1, SUB 1.
+- 0406b500, 48 bytes (body 34). 1 outgoing call: d3d9device_GetDirect3D x1. Instruction mix: MOV 5, RET 1, CALL 1, ADD 1, SUB 1.
+- 0406b530, 48 bytes (body 34). 1 outgoing call: d3d9device_GetDirect3D x1. Instruction mix: MOV 5, RET 1, CALL 1, ADD 1, SUB 1.
+- 0406b620, 48 bytes (body 41). 1 outgoing call: d3d9device_QueryInterface x1. Instruction mix: MOV 7, RET 1, CALL 1, ADD 1, SUB 1.
+- 0406b650, 48 bytes (body 41). 1 outgoing call: d3d9device_QueryInterface x1. Instruction mix: MOV 7, RET 1, CALL 1, ADD 1, SUB 1.
+- 0406b680, 48 bytes (body 40). 1 outgoing call: direct3ddevice9imp_0409bd10 x1. Instruction mix: MOV 5, POP 2, PUSH 2, ADD 1, CALL 1.
+- 0406cf90, 48 bytes (body 35). 1 outgoing call: Direct3DDevice9Imp::DeleteTextureInOpenGL x1. Instruction mix: MOV 6, RET 1, JZ 1, CALL 1, ADD 1.
+- 0406d810, 48 bytes (body 35). No outgoing calls. Instruction mix: MOV 8, RET 1, CALL 1, SUB 1, LEAVE 1.
+- 0406f350, 48 bytes (body 34). 1 outgoing call: FUN_040a5ec0 x1. Instruction mix: MOV 5, RET 1, CALL 1, ADD 1, SUB 1.
+- 0406f3c0, 48 bytes. 1 outgoing call: FUN_040a62f0 x1. Instruction mix: MOV 9, RET 1, CALL 1, ADD 1, SUB 1.

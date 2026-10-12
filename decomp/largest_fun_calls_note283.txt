@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries with no string reference
+Continued from decomp/largest_fun_calls_note282.txt.
+No Class::Method names were invented.
+
+- 040fd430, 64 bytes (body 55). 1 outgoing call: FUN_04100320 x1. Instruction mix: MOV 11, RET 1, CALL 1, ADD 1, SUB 1.
+- 040fd7d0, 64 bytes (body 55). 1 outgoing call: FUN_040fca50 x1. Instruction mix: MOV 11, RET 1, CALL 1, ADD 1, SUB 1.
+- 040fd840, 64 bytes (body 55). 1 outgoing call: FUN_040fcb80 x1. Instruction mix: MOV 11, RET 1, CALL 1, ADD 1, SUB 1.
+- 040fdab0, 64 bytes (body 55). 1 outgoing call: DirectSoundBuffer8Imp::GetObjectInPath x1. Instruction mix: MOV 11, RET 1, CALL 1, ADD 1, SUB 1.
+- 040fdb70, 64 bytes (body 55). 1 outgoing call: DirectSoundBuffer8Imp::Unlock x1. Instruction mix: MOV 11, RET 1, CALL 1, ADD 1, SUB 1.
+- 040fdf80, 64 bytes (body 51). No outgoing calls. Instruction mix: MOV 7, SUB 2, RET 1, JZ 1, CALL 1.
+- 040fdfc0, 64 bytes (body 51). No outgoing calls. Instruction mix: MOV 7, SUB 2, RET 1, JZ 1, CALL 1.
+- 040fe000, 64 bytes (body 51). No outgoing calls. Instruction mix: MOV 7, SUB 2, RET 1, JZ 1, CALL 1.
+- 040fefd0, 64 bytes (body 55). 1 outgoing call: DirectSound3DBuffer8Imp::SetVelocity x1. Instruction mix: MOV 11, RET 1, CALL 1, ADD 1, SUB 1.
+- 040ff010, 64 bytes (body 55). 1 outgoing call: DirectSound3DBuffer8Imp::SetPosition x1. Instruction mix: MOV 11, RET 1, CALL 1, ADD 1, SUB 1.

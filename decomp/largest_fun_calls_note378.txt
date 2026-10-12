@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries with no string reference
+Continued from decomp/largest_fun_calls_note377.txt.
+No Class::Method names were invented; every callee below is exactly what FunMix printed.
+
+- 0414c280, 48 bytes (body 42). 2 outgoing calls: pthread_mutex_lock x1, pthread_mutex_unlock x1. Instruction mix: MOV 5, CALL 2, RET 1, SUB 1, LEAVE 1.
+- 0414d860, 48 bytes (body 44). No outgoing calls. Instruction mix: MOV 9, RET 1, POP 1, PUSH 1.
+- 0414dea0, 48 bytes (body 44). 1 outgoing call: FUN_0415cec0 x1. Instruction mix: MOV 3, PUSH 3, SUB 2, LEA 2, RET 1.
+- 0414ded0, 48 bytes (body 44). 1 outgoing call: FUN_0415cec0 x1. Instruction mix: MOV 3, PUSH 3, SUB 2, LEA 2, RET 1.
+- 0414df00, 48 bytes (body 44). 1 outgoing call: FUN_0415cec0 x1. Instruction mix: MOV 3, PUSH 3, SUB 2, LEA 2, RET 1.
+- 0414df30, 48 bytes (body 44). 1 outgoing call: FUN_0415cec0 x1. Instruction mix: MOV 3, PUSH 3, SUB 2, LEA 2, RET 1.
+- 04155b60, 48 bytes. 1 outgoing call: FUN_04155a90 x1. Instruction mix: MOV 5, PUSH 3, SUB 2, LEA 2, RET 1.
+- 04156240, 48 bytes (body 44). 1 outgoing call: FUN_0415cec0 x1. Instruction mix: MOV 3, PUSH 3, SUB 2, LEA 2, RET 1.
+- 04156270, 48 bytes (body 44). 1 outgoing call: FUN_0415cec0 x1. Instruction mix: MOV 3, PUSH 3, SUB 2, LEA 2, RET 1.
+- 041562a0, 48 bytes (body 44). 1 outgoing call: FUN_0415cec0 x1. Instruction mix: MOV 3, PUSH 3, SUB 2, LEA 2, RET 1.

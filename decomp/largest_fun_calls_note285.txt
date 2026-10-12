@@ -1,0 +1,16 @@
+Next 10 largest FUN_ entries with no string reference
+
+Continued from decomp/largest_fun_calls_note284.txt.
+
+No Class::Method names were invented; every callee below is exactly what FunMix printed.
+
+- 04100b10, 64 bytes (body 54). 1 outgoing call: FUN_04100950 x1. Instruction mix: MOV 8, PUSH 3, SUB 2, LEA 2, RET 1.
+- 04100cf0, 64 bytes (body 54). 1 outgoing call: FUN_04100c10 x1. Instruction mix: MOV 8, PUSH 3, SUB 2, LEA 2, RET 1.
+- 04101110, 64 bytes (body 51). No outgoing calls. Instruction mix: MOV 7, SUB 2, RET 1, JZ 1, CALL 1.
+- 04101150, 64 bytes (body 51). No outgoing calls. Instruction mix: MOV 7, SUB 2, RET 1, JZ 1, CALL 1.
+- 041012e0, 64 bytes (body 43). 1 outgoing call: snd_pcm_close x1. Instruction mix: MOV 6, POP 2, PUSH 2, RET 1, JZ 1.
+- 04101370, 64 bytes (body 50). 1 outgoing call: snd_pcm_close x1. Instruction mix: MOV 7, POP 2, PUSH 2, JZ 1, ADD 1.
+- 04102540, 64 bytes (body 51). No outgoing calls. Instruction mix: MOV 7, SUB 2, RET 1, JZ 1, CALL 1.
+- 04103bb0, 64 bytes (body 62). No outgoing calls. Instruction mix: MOV 11, POP 2, PUSH 2, RET 1, SHL 1.
+- 04105940, 64 bytes (body 52). 1 outgoing call: free x1. Instruction mix: MOV 5, POP 3, PUSH 3, JZ 2, ADD 2.
+- 04107560, 64 bytes (body 55). 1 outgoing call: XAudio2VoiceImp::GetOutputMatrix x1. Instruction mix: MOV 11, RET 1, CALL 1, ADD 1, SUB 1.

@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries with no string reference
+Continued from decomp/largest_fun_calls_note274.txt.
+No Class::Method names were invented; callee names are copied exactly as Ghidra reported them.
+
+- 04057910, 64 bytes (body 63). No outgoing calls. Instruction mix: MOV 15, RET 1, POP 1, JZ 1, ADD 1.
+- 04065ac0, 64 bytes (body 63). No outgoing calls. Instruction mix: MOV 14, RET 1, CALL 1, SUB 1, LEAVE 1.
+- 04068660, 64 bytes (body 62). 1 outgoing call: FUN_040658b0 x1. Instruction mix: MOV 13, RET 1, CALL 1, ADD 1, SUB 1.
+- 04068700, 64 bytes (body 55). 1 outgoing call: FUN_04065890 x1. Instruction mix: MOV 11, RET 1, CALL 1, ADD 1, SUB 1.
+- 04068da0, 64 bytes (body 55). 1 outgoing call: d3d9device_GetStreamSource x1. Instruction mix: MOV 11, RET 1, CALL 1, ADD 1, SUB 1.
+- 04068de0, 64 bytes (body 55). 1 outgoing call: d3d9device_GetStreamSource x1. Instruction mix: MOV 11, RET 1, CALL 1, ADD 1, SUB 1.
+- 04068e20, 64 bytes (body 55). 1 outgoing call: d3d9device_SetStreamSource x1. Instruction mix: MOV 11, RET 1, CALL 1, ADD 1, SUB 1.
+- 04068e60, 64 bytes (body 55). 1 outgoing call: d3d9device_SetStreamSource x1. Instruction mix: MOV 11, RET 1, CALL 1, ADD 1, SUB 1.
+- 04069540, 64 bytes (body 55). 1 outgoing call: d3d9device_DrawPrimitiveUP x1. Instruction mix: MOV 11, RET 1, CALL 1, ADD 1, SUB 1.
+- 04069580, 64 bytes (body 55). 1 outgoing call: d3d9device_DrawPrimitiveUP x1. Instruction mix: MOV 11, RET 1, CALL 1, ADD 1, SUB 1.

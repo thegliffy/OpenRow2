@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries with no string reference
+Continued from decomp/largest_fun_calls_note264.txt.
+No Class::Method names were invented; every callee name below is exactly as reported.
+
+- 041dc6c2, 76 bytes. 0 outgoing calls. Instruction mix: MOV 11, CMP 3, JNZ 2, AND 2, RET 1.
+- 041dd571, 76 bytes. 0 outgoing calls. Instruction mix: MOV 11, CMP 3, JNZ 2, AND 2, RET 1.
+- 041f8074, 76 bytes. 0 outgoing calls. Instruction mix: MOVZX 8, CMP 6, JBE 5, MOV 4, SUB 2.
+- 0420109d, 76 bytes. 1 outgoing call: FUN_042008c2 x1. Instruction mix: MOV 12, SUB 3, PUSH 3, JZ 2, TEST 2.
+- 0420134b, 76 bytes. 1 outgoing call: FUN_04201277 x1. Instruction mix: MOV 9, PUSH 8, SUB 2, RET 1, ADD 1.
+- 0420270b, 76 bytes. 0 outgoing calls. Instruction mix: MOV 11, PUSH 3, JZ 2, SUB 2, TEST 2.
+- 0420690e, 76 bytes. 3 outgoing calls: FUN_041f72a9 x1, FUN_04204d30 x1, FUN_04204dcc x1. Instruction mix: PUSH 9, ADD 5, MOV 5, SUB 4, CALL 3.
+- 0420887c, 76 bytes. 3 outgoing calls: FUN_04204e1e x1, FUN_04204e8a x1, FUN_04207c70 x1. Instruction mix: PUSH 9, MOV 8, SUB 4, ADD 3, CALL 3.
+- 041f7037, 75 bytes. 1 outgoing call: FUN_041f6b83 x1. Instruction mix: PUSH 7, MOV 4, CMP 4, JZ 2, SUB 2.
+- 041d26d5, 74 bytes. 1 outgoing call: FUN_041d2556 x1. Instruction mix: MOV 10, TEST 3, JZ 2, SUB 2, JNZ 2.

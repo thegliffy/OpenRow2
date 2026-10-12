@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries with no string reference
+Continued from decomp/largest_fun_calls_note367.txt.
+No Class::Method names were invented.
+
+- 04107c00, 48 bytes (body 41). 1 outgoing call: FUN_0410b280 x1. Instruction mix: MOV 7, RET 1, CALL 1, ADD 1, SUB 1.
+- 04107c30, 48 bytes (body 41). 1 outgoing call: FUN_0410b2e0 x1. Instruction mix: MOV 7, RET 1, CALL 1, ADD 1, SUB 1.
+- 04107c60, 48 bytes (body 41). 1 outgoing call: FUN_0410b2e0 x1. Instruction mix: MOV 7, RET 1, CALL 1, ADD 1, SUB 1.
+- 04107c90, 48 bytes (body 41). 1 outgoing call: FUN_0410b2e0 x1. Instruction mix: MOV 7, RET 1, CALL 1, ADD 1, SUB 1.
+- 04107cc0, 48 bytes (body 34). 1 outgoing call: XAudio2VoiceImp::SetEffectChain x1. Instruction mix: MOV 5, RET 1, CALL 1, ADD 1, SUB 1.
+- 04107cf0, 48 bytes (body 34). 1 outgoing call: XAudio2VoiceImp::SetEffectChain x1. Instruction mix: MOV 5, RET 1, CALL 1, ADD 1, SUB 1.
+- 04107d20, 48 bytes (body 34). 1 outgoing call: XAudio2VoiceImp::SetEffectChain x1. Instruction mix: MOV 5, RET 1, CALL 1, ADD 1, SUB 1.
+- 04107d50, 48 bytes (body 34). 1 outgoing call: XAudio2VoiceImp::SetOutputVoices x1. Instruction mix: MOV 5, RET 1, CALL 1, ADD 1, SUB 1.
+- 04107d80, 48 bytes (body 34). 1 outgoing call: XAudio2VoiceImp::SetOutputVoices x1. Instruction mix: MOV 5, RET 1, CALL 1, ADD 1, SUB 1.
+- 04107db0, 48 bytes (body 34). 1 outgoing call: XAudio2VoiceImp::GetVoiceDetails x1. Instruction mix: MOV 5, RET 1, CALL 1, ADD 1, SUB 1.

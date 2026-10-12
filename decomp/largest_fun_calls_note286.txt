@@ -1,0 +1,16 @@
+Next 10 largest FUN_ entries with no string reference
+
+Continued from decomp/largest_fun_calls_note285.txt.
+
+No Class::Method names were invented; every callee below is exactly what FunMix printed.
+
+- 041075a0, 64 bytes (body 55). 1 outgoing call: XAudio2VoiceImp::GetOutputMatrix x1. Instruction mix: MOV 11, RET 1, CALL 1, ADD 1, SUB 1.
+- 041075e0, 64 bytes (body 62). 1 outgoing call: FUN_0410df00 x1. Instruction mix: MOV 13, RET 1, CALL 1, ADD 1, SUB 1.
+- 04107620, 64 bytes (body 62). 1 outgoing call: FUN_0410df00 x1. Instruction mix: MOV 13, RET 1, CALL 1, ADD 1, SUB 1.
+- 04107a50, 64 bytes (body 55). 1 outgoing call: FUN_0410b220 x1. Instruction mix: MOV 11, RET 1, CALL 1, ADD 1, SUB 1.
+- 04107a90, 64 bytes (body 55). 1 outgoing call: FUN_0410b220 x1. Instruction mix: MOV 11, RET 1, CALL 1, ADD 1, SUB 1.
+- 04107ad0, 64 bytes (body 55). 1 outgoing call: FUN_0410b220 x1. Instruction mix: MOV 11, RET 1, CALL 1, ADD 1, SUB 1.
+- 04108040, 64 bytes (body 55). 1 outgoing call: FUN_04108c30 x1. Instruction mix: MOV 11, RET 1, CALL 1, ADD 1, SUB 1.
+- 04108080, 64 bytes (body 62). 1 outgoing call: FUN_04108c50 x1. Instruction mix: MOV 13, RET 1, CALL 1, ADD 1, SUB 1.
+- 04114d60, 64 bytes (body 63). No outgoing calls. Instruction mix: MOV 7, POP 4, PUSH 4, MOVZX 2, ADD 2.
+- 04118ec0, 64 bytes (body 63). 1 outgoing call: FUN_04118b60 x1. Instruction mix: MOV 8, PUSH 3, SUB 2, LEA 2, RET 1.

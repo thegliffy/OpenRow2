@@ -1,0 +1,13 @@
+Next 10 largest FUN_ entries with no string reference
+Continued from decomp/largest_fun_calls_note327.txt. No Class::Method names were invented.
+
+- 04069ad0, 48 bytes. 1 outgoing call: Direct3DStateBlock9Imp::SetSamplerState x1. Instruction mix: MOV 9, RET 1, CALL 1, ADD 1, SUB 1.
+- 04069b00, 48 bytes. 1 outgoing call: d3d9device_GetSamplerState x1. Instruction mix: MOV 9, RET 1, CALL 1, ADD 1, SUB 1.
+- 04069b30, 48 bytes. 1 outgoing call: d3d9device_GetSamplerState x1. Instruction mix: MOV 9, RET 1, CALL 1, ADD 1, SUB 1.
+- 04069b60, 48 bytes. 1 outgoing call: Direct3DStateBlock9Imp::SetTextureStageState x1. Instruction mix: MOV 9, RET 1, CALL 1, ADD 1, SUB 1.
+- 04069b90, 48 bytes. 1 outgoing call: Direct3DStateBlock9Imp::SetTextureStageState x1. Instruction mix: MOV 9, RET 1, CALL 1, ADD 1, SUB 1.
+- 04069bc0, 48 bytes. 1 outgoing call: d3d9device_GetTextureStageState x1. Instruction mix: MOV 9, RET 1, CALL 1, ADD 1, SUB 1.
+- 04069bf0, 48 bytes. 1 outgoing call: d3d9device_GetTextureStageState x1. Instruction mix: MOV 9, RET 1, CALL 1, ADD 1, SUB 1.
+- 04069c20, 48 bytes (body 41). 1 outgoing call: d3d9device_SetTexture x1. Instruction mix: MOV 7, RET 1, CALL 1, ADD 1, SUB 1.
+- 04069c50, 48 bytes (body 41). 1 outgoing call: d3d9device_SetTexture x1. Instruction mix: MOV 7, RET 1, CALL 1, ADD 1, SUB 1.
+- 04069c80, 48 bytes (body 41). 1 outgoing call: d3d9device_GetTexture x1. Instruction mix: MOV 7, RET 1, CALL 1, ADD 1, SUB 1.

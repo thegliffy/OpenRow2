@@ -1,0 +1,13 @@
+Next 10 largest FUN_ entries with no string reference
+Continued from decomp/largest_fun_calls_note333.txt. No Class::Method names were invented.
+
+- 0406a890, 48 bytes (body 41). 1 outgoing call: GetFrontBufferData x1. Instruction mix: MOV 7, RET 1, CALL 1, ADD 1, SUB 1.
+- 0406a8c0, 48 bytes (body 41). 1 outgoing call: Direct3DDevice9Imp::GetRenderTargetData x1. Instruction mix: MOV 7, RET 1, CALL 1, ADD 1, SUB 1.
+- 0406a8f0, 48 bytes (body 41). 1 outgoing call: Direct3DDevice9Imp::GetRenderTargetData x1. Instruction mix: MOV 7, RET 1, CALL 1, ADD 1, SUB 1.
+- 0406a920, 48 bytes (body 41). 1 outgoing call: d3d9device_UpdateTexture x1. Instruction mix: MOV 7, RET 1, CALL 1, ADD 1, SUB 1.
+- 0406a950, 48 bytes (body 41). 1 outgoing call: d3d9device_UpdateTexture x1. Instruction mix: MOV 7, RET 1, CALL 1, ADD 1, SUB 1.
+- 0406aee0, 48 bytes (body 41). 1 outgoing call: d3d9device_GetGammaRamp x1. Instruction mix: MOV 7, RET 1, CALL 1, ADD 1, SUB 1.
+- 0406af10, 48 bytes (body 41). 1 outgoing call: d3d9device_GetGammaRamp x1. Instruction mix: MOV 7, RET 1, CALL 1, ADD 1, SUB 1.
+- 0406af40, 48 bytes. 1 outgoing call: d3d9device_SetGammaRamp x1. Instruction mix: MOV 9, RET 1, CALL 1, ADD 1, SUB 1.
+- 0406af70, 48 bytes. 1 outgoing call: d3d9device_SetGammaRamp x1. Instruction mix: MOV 9, RET 1, CALL 1, ADD 1, SUB 1.
+- 0406afa0, 48 bytes (body 34). 1 outgoing call: d3d9device_SetDialogBoxMode x1. Instruction mix: MOV 5, RET 1, CALL 1, ADD 1, SUB 1.

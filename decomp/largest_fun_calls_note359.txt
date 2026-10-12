@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries with no string reference
+Continued from decomp/largest_fun_calls_note358.txt.
+No Class::Method names were invented; every callee name below is exactly as printed by FunMix.
+
+- 040ff080, 48 bytes (body 41). 1 outgoing call: DirectSound3DBuffer8Imp::SetMinDistance x1. Instruction mix: MOV 7, RET 1, CALL 1, ADD 1, SUB 1.
+- 040ff0b0, 48 bytes (body 41). 1 outgoing call: DirectSound3DBuffer8Imp::SetMaxDistance x1. Instruction mix: MOV 7, RET 1, CALL 1, ADD 1, SUB 1.
+- 040ff0e0, 48 bytes (body 41). 1 outgoing call: DirectSound3DBuffer8Imp::SetConeOutsideVolume x1. Instruction mix: MOV 7, RET 1, CALL 1, ADD 1, SUB 1.
+- 040ff150, 48 bytes. 1 outgoing call: DirectSound3DBuffer8Imp::SetConeAngles x1. Instruction mix: MOV 9, RET 1, CALL 1, ADD 1, SUB 1.
+- 040ff180, 48 bytes (body 41). 1 outgoing call: DirectSound3DBuffer8Imp::SetAllParameters x1. Instruction mix: MOV 7, RET 1, CALL 1, ADD 1, SUB 1.
+- 040ff1b0, 48 bytes (body 34). 1 outgoing call: DirectSound3DBuffer8Imp::GetVelocity x1. Instruction mix: MOV 5, RET 1, CALL 1, ADD 1, SUB 1.
+- 040ff1e0, 48 bytes (body 34). 1 outgoing call: DirectSound3DBuffer8Imp::GetPosition x1. Instruction mix: MOV 5, RET 1, CALL 1, ADD 1, SUB 1.
+- 040ff210, 48 bytes (body 34). 1 outgoing call: DirectSound3DBuffer8Imp::GetMode x1. Instruction mix: MOV 5, RET 1, CALL 1, ADD 1, SUB 1.
+- 040ff240, 48 bytes (body 34). 1 outgoing call: DirectSound3DBuffer8Imp::GetMinDistance x1. Instruction mix: MOV 5, RET 1, CALL 1, ADD 1, SUB 1.
+- 040ff270, 48 bytes (body 34). 1 outgoing call: DirectSound3DBuffer8Imp::GetMaxDistance x1. Instruction mix: MOV 5, RET 1, CALL 1, ADD 1, SUB 1.

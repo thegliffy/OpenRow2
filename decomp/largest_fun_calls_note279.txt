@@ -1,0 +1,13 @@
+Next 10 largest FUN_ entries with no string reference
+Continued from decomp/largest_fun_calls_note278.txt. No Class::Method names were invented.
+
+- 040a5b20, 64 bytes (body 50). Instruction mix: MOV 7, POP 2, CALL 2, PUSH 2, RET 1.
+- 040ac280, 64 bytes (body 61). 1 outgoing call: free x1. Instruction mix: MOV 6, POP 4, PUSH 4, ADD 3, LEA 2.
+- 040ac520, 64 bytes (body 54). 2 outgoing calls: direct3ddevice9imp_040803c0 x1, direct3ddevice9imp_04080490 x1. Instruction mix: MOV 6, ADD 3, POP 2, JZ 2, CALL 2.
+- 040ac760, 64 bytes (body 54). 2 outgoing calls: direct3ddevice9imp_040803c0 x1, direct3ddevice9imp_04080490 x1. Instruction mix: MOV 6, ADD 3, POP 2, JZ 2, CALL 2.
+- 040acc50, 64 bytes (body 62). Instruction mix: MOV 5, ADD 3, RET 1, POP 1, JNZ 1.
+- 040ad490, 64 bytes (body 47). Instruction mix: MOV 11, POP 2, TEST 2, JNZ 2, PUSH 2.
+- 040ad4d0, 64 bytes (body 47). Instruction mix: MOV 11, POP 2, TEST 2, JNZ 2, PUSH 2.
+- 040ad510, 64 bytes (body 51). Instruction mix: MOV 9, TEST 2, JNZ 2, RET 1, POP 1.
+- 040ade80, 64 bytes (body 46). Instruction mix: MOV 5, RET 2, POP 2, IMUL 2, ADD 1.
+- 040b0fa0, 64 bytes (body 55). 2 outgoing calls: FUN_0406bfc0 x1, operator.delete x1. Instruction mix: MOV 7, POP 2, CALL 2, PUSH 2, JZ 1.

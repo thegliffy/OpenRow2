@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries with no string reference
+Continued from decomp/largest_fun_calls_note347.txt.
+No Class::Method names were invented; every callee below is exactly what FunMix printed.
+
+- 040e0e30, 48 bytes (body 35). 1 outgoing call: vfprintf x1. Instruction mix: MOV 6, RET 1, CALL 1, SUB 1, LEAVE 1.
+- 040e28a0, 48 bytes (body 36). 1 outgoing call: glDeleteTextures x1. Instruction mix: MOV 4, RET 2, LEAVE 2, CALL 1, SUB 1.
+- 040e2a90, 48 bytes (body 36). 1 outgoing call: glDeleteTextures x1. Instruction mix: MOV 4, RET 2, LEAVE 2, CALL 1, SUB 1.
+- 040e2b20, 48 bytes (body 37). No outgoing calls. Instruction mix: MOV 4, RET 2, LEAVE 2, CALL 1, SUB 1.
+- 040f0180, 48 bytes (body 35). No outgoing calls. Instruction mix: MOV 6, SHL 2, POP 1, LEA 1, JMP 1.
+- 040f01b0, 48 bytes (body 38). No outgoing calls. Instruction mix: MOV 5, ADD 2, POP 1, SHL 1, LEA 1.
+- 040f02b0, 48 bytes (body 38). No outgoing calls. Instruction mix: MOV 6, SHL 2, POP 1, LEA 1, JMP 1.
+- 040f02e0, 48 bytes (body 38). No outgoing calls. Instruction mix: MOV 5, ADD 2, POP 1, SHL 1, LEA 1.
+- 040f0c70, 48 bytes. No outgoing calls. Instruction mix: MOV 11, RET 1, CALL 1, SUB 1, AND 1.
+- 040f0ce0, 48 bytes (body 34). No outgoing calls. Instruction mix: MOV 7, RET 1, CALL 1, SUB 1, AND 1.

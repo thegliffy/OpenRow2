@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries with no string reference
+Continued from decomp/largest_fun_calls_note334.txt.
+No Class::Method names were invented; every callee below is exactly as printed by FunMix.
+
+- 0406afd0, 48 bytes (body 34). 1 outgoing call: d3d9device_SetDialogBoxMode x1. Instruction mix: MOV 5, RET 1, CALL 1, ADD 1, SUB 1.
+- 0406b000, 48 bytes (body 41). 1 outgoing call: d3d9device_GetRasterStatus x1. Instruction mix: MOV 7, RET 1, CALL 1, ADD 1, SUB 1.
+- 0406b030, 48 bytes (body 41). 1 outgoing call: d3d9device_GetRasterStatus x1. Instruction mix: MOV 7, RET 1, CALL 1, ADD 1, SUB 1.
+- 0406b160, 48 bytes (body 34). 1 outgoing call: Direct3DDevice9Imp::Reset x1. Instruction mix: MOV 5, RET 1, CALL 1, ADD 1, SUB 1.
+- 0406b190, 48 bytes (body 34). 1 outgoing call: Direct3DDevice9Imp::Reset x1. Instruction mix: MOV 5, RET 1, CALL 1, ADD 1, SUB 1.
+- 0406b200, 48 bytes (body 41). 1 outgoing call: d3d9device_GetSwapChain x1. Instruction mix: MOV 7, RET 1, CALL 1, ADD 1, SUB 1.
+- 0406b230, 48 bytes (body 41). 1 outgoing call: d3d9device_GetSwapChain x1. Instruction mix: MOV 7, RET 1, CALL 1, ADD 1, SUB 1.
+- 0406b260, 48 bytes (body 41). 1 outgoing call: d3d9device_CreateAdditionalSwapChain x1. Instruction mix: MOV 7, RET 1, CALL 1, ADD 1, SUB 1.
+- 0406b290, 48 bytes (body 41). 1 outgoing call: d3d9device_CreateAdditionalSwapChain x1. Instruction mix: MOV 7, RET 1, CALL 1, ADD 1, SUB 1.
+- 0406b2c0, 48 bytes (body 34). 1 outgoing call: d3d9device_ShowCursor x1. Instruction mix: MOV 5, RET 1, CALL 1, ADD 1, SUB 1.

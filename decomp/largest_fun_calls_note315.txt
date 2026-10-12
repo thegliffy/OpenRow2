@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries with no string reference
+Continued from decomp/largest_fun_calls_note314.txt.
+No Class::Method names were invented; all callee names are exactly as printed by FunMix.
+
+- 040273c0, 48 bytes (body 37). 2 outgoing calls: SDL_GetKeyboardFocus x1, SDL_GetWindowData x1. Instruction mix: MOV 4, CALL 2, RET 1, JZ 1, SUB 1.
+- 0402ca50, 48 bytes (body 45). 1 outgoing call: pthread_mutex_lock x1. Instruction mix: MOV 5, POP 2, PUSH 2, ADD 1, CALL 1.
+- 0402cc50, 48 bytes (body 33). 1 outgoing call: FUN_0402ca90 x1. Instruction mix: MOV 6, RET 1, CALL 1, SUB 1, LEAVE 1.
+- 0402cd10, 48 bytes (body 33). 1 outgoing call: FUN_0402ca90 x1. Instruction mix: MOV 6, RET 1, CALL 1, SUB 1, LEAVE 1.
+- 0402cfa0, 48 bytes (body 33). 1 outgoing call: FUN_0402ca90 x1. Instruction mix: MOV 6, RET 1, CALL 1, SUB 1, LEAVE 1.
+- 0402d000, 48 bytes (body 45). 1 outgoing call: pthread_mutex_lock x1. Instruction mix: MOV 5, POP 2, PUSH 2, ADD 1, CALL 1.
+- 0402d100, 48 bytes (body 43). 1 outgoing call: FUN_0401eff0 x1. Instruction mix: MOV 9, RET 1, MOVZX 1, CALL 1, SUB 1.
+- 0402d1c0, 48 bytes (body 33). No outgoing calls. Instruction mix: MOV 4, RET 1, JZ 1, CALL 1, SUB 1.
+- 0402d6d0, 48 bytes (body 45). No outgoing calls. Instruction mix: MOV 11, RET 2, POP 2, JLE 1, TEST 1.
+- 0402ddf0, 48 bytes (body 42). 1 outgoing call: memset x1. Instruction mix: MOV 7, RET 1, CALL 1, ADD 1, SUB 1.

@@ -1,0 +1,13 @@
+Next 10 largest FUN_ entries with no string reference
+Continued from decomp/largest_fun_calls_note326.txt. No Class::Method names were invented.
+
+- 040698f0, 48 bytes (body 34). 1 outgoing call: d3d9device_GetCurrentTexturePalette x1. Instruction mix: MOV 5, RET 1, CALL 1, ADD 1, SUB 1.
+- 04069920, 48 bytes (body 34). 1 outgoing call: d3d9device_SetCurrentTexturePalette x1. Instruction mix: MOV 5, RET 1, CALL 1, ADD 1, SUB 1.
+- 04069950, 48 bytes (body 34). 1 outgoing call: d3d9device_SetCurrentTexturePalette x1. Instruction mix: MOV 5, RET 1, CALL 1, ADD 1, SUB 1.
+- 04069980, 48 bytes (body 41). 1 outgoing call: d3d9device_GetPaletteEntries x1. Instruction mix: MOV 7, RET 1, CALL 1, ADD 1, SUB 1.
+- 040699b0, 48 bytes (body 41). 1 outgoing call: d3d9device_GetPaletteEntries x1. Instruction mix: MOV 7, RET 1, CALL 1, ADD 1, SUB 1.
+- 040699e0, 48 bytes (body 41). 1 outgoing call: d3d9device_SetPaletteEntries x1. Instruction mix: MOV 7, RET 1, CALL 1, ADD 1, SUB 1.
+- 04069a10, 48 bytes (body 41). 1 outgoing call: d3d9device_SetPaletteEntries x1. Instruction mix: MOV 7, RET 1, CALL 1, ADD 1, SUB 1.
+- 04069a40, 48 bytes (body 34). 1 outgoing call: d3d9device_ValidateDevice x1. Instruction mix: MOV 5, RET 1, CALL 1, ADD 1, SUB 1.
+- 04069a70, 48 bytes (body 34). 1 outgoing call: d3d9device_ValidateDevice x1. Instruction mix: MOV 5, RET 1, CALL 1, ADD 1, SUB 1.
+- 04069aa0, 48 bytes. 1 outgoing call: Direct3DStateBlock9Imp::SetSamplerState x1. Instruction mix: MOV 9, RET 1, CALL 1, ADD 1, SUB 1.

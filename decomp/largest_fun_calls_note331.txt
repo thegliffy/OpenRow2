@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries with no string reference
+Continued from decomp/largest_fun_calls_note330.txt.
+No Class::Method names were invented; every callee below is exactly as FunMix printed it.
+
+- 0406a0b0, 48 bytes (body 41). 1 outgoing call: d3d9device_LightEnable x1. Instruction mix: MOV 7, RET 1, CALL 1, ADD 1, SUB 1.
+- 0406a0e0, 48 bytes (body 41). 1 outgoing call: d3d9device_GetLight x1. Instruction mix: MOV 7, RET 1, CALL 1, ADD 1, SUB 1.
+- 0406a110, 48 bytes (body 41). 1 outgoing call: d3d9device_GetLight x1. Instruction mix: MOV 7, RET 1, CALL 1, ADD 1, SUB 1.
+- 0406a140, 48 bytes (body 41). 1 outgoing call: d3d9device_SetLight x1. Instruction mix: MOV 7, RET 1, CALL 1, ADD 1, SUB 1.
+- 0406a170, 48 bytes (body 41). 1 outgoing call: d3d9device_SetLight x1. Instruction mix: MOV 7, RET 1, CALL 1, ADD 1, SUB 1.
+- 0406a1a0, 48 bytes (body 34). 1 outgoing call: d3d9device_GetMaterial x1. Instruction mix: MOV 5, RET 1, CALL 1, ADD 1, SUB 1.
+- 0406a1d0, 48 bytes (body 34). 1 outgoing call: d3d9device_GetMaterial x1. Instruction mix: MOV 5, RET 1, CALL 1, ADD 1, SUB 1.
+- 0406a200, 48 bytes (body 34). 1 outgoing call: d3d9device_SetMaterial x1. Instruction mix: MOV 5, RET 1, CALL 1, ADD 1, SUB 1.
+- 0406a230, 48 bytes (body 34). 1 outgoing call: d3d9device_SetMaterial x1. Instruction mix: MOV 5, RET 1, CALL 1, ADD 1, SUB 1.
+- 0406a260, 48 bytes (body 34). 1 outgoing call: d3d9device_GetViewport x1. Instruction mix: MOV 5, RET 1, CALL 1, ADD 1, SUB 1.

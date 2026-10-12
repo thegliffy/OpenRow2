@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries with no string reference
+Continued from decomp/largest_fun_calls_note272.txt.
+No Class::Method names were invented; every callee below is exactly as Ghidra reported it.
+
+- 04025e00, 64 bytes (body 59). No outgoing calls. Instruction mix: MOV 9, RET 1, CALL 1, SUB 1, LEAVE 1.
+- 04025ee0, 64 bytes (body 62). 1 outgoing call: FUN_0404d770 x1. Instruction mix: MOV 10, SUB 3, POP 2, CALL 2, PUSH 2.
+- 04025f20, 64 bytes (body 56). 1 outgoing call: FUN_0404d630 x1. Instruction mix: MOV 10, POP 2, CALL 2, PUSH 2, RET 1.
+- 040270c0, 64 bytes (body 54). 2 outgoing calls: FUN_0415c020 x1, ThreadBlocked x1. Instruction mix: MOV 5, POP 4, ADD 2, CALL 2, PUSH 2.
+- 040273f0, 64 bytes (body 57). No outgoing calls. Instruction mix: MOV 6, XOR 3, RET 2, POP 2, JZ 2.
+- 04027430, 64 bytes (body 57). 1 outgoing call: FUN_0417d560 x1. Instruction mix: MOV 10, SUB 3, RET 1, POP 1, JZ 1.
+- 0402f590, 64 bytes (body 50). 1 outgoing call: free x1. Instruction mix: MOV 7, POP 2, PUSH 2, RET 1, JZ 1.
+- 0402f880, 64 bytes (body 52). 1 outgoing call: FUN_0402f780 x1. Instruction mix: MOV 7, POP 4, PUSH 4, RET 1, ADD 1.
+- 0404c5f0, 64 bytes (body 55). 1 outgoing call: FUN_0404b260 x1. Instruction mix: MOV 6, POP 2, TEST 2, PUSH 2, RET 1.
+- 0404ee00, 64 bytes (body 55). 2 outgoing calls: FUN_0404f270 x1, free x1. Instruction mix: MOV 8, POP 2, ADD 2, CALL 2, PUSH 2.
