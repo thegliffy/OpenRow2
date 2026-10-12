@@ -9,7 +9,7 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 - The engine is **eON** — Volition's cross-platform engine (`Exit_eON`, `eON_FileSystem::*`, dev paths like `/home/peterm/Development/Projects/eon2-sr2/...` baked into asserts).
 - The PC port is not native: it's a full **Win32 emulation layer** (gdi32, registry, threads, winsock, XAudio2-on-OpenAL) with a **D3D9-on-OpenGL shim** whose vtables follow the documented D3D9 method order — plus a HLSL→GLSL translator (`D3DBytecodeToGLSLText`).
 - **VPFS is a writable overlay filesystem** with its own on-disk database (`vpfsdb`), not an archive: `VPFS_Open`, `VPFS_ArchiveRead`, `VPFS_FindInVirtualFilesystem`, `VPFS_CreateFolder`, `WriteDatabase`.
-- **zstream** (Volition's own name, from debug strings) is the decompression subsystem — the VPFS decode path, bundling zlib 1.2.3.4.
+- **zstream** (Volition's own name, from debug strings) is a zlib 1.2.3.4 wrapper. VPFS does not call it. The archive directory and the file bodies are AES blocks (`decomp/vpfs_zstream_note.txt`).
 - All 18 VPP package indexes parse (53,969 asset names) via a Python port of gibbed's reader. Entry bytes start after the aligned extension pool.
 
 ## Scoreboard
@@ -69,10 +69,22 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 ## Next
 
-- Split the 64 functions in `seeds/ambiguous_signatures.tsv`, then keep the signature that belongs to each piece.
-- Check the D3D9 device pointer array itself. The names follow `IDirect3DDevice9` order and line up with the 17 methods already named from asserts. The weak stretch is the run after `DrawIndexedPrimitive` (through `CreateQuery`) and the 10 slots before `SetCursorProperties`, which have no later anchor.
-- Read `vpfs_*` → `zstream_decompress`. The VPFS payload is not plain zlib.
-- Windows exe: match one `.rdata` string at a time to a Linux function that references it. `win_rdata_paths.csv` is the path list. Leave the rejected adjacency map alone.
+The assert-signature naming queue is empty (`python3 tools/llm_work.py queue` prints `0 functions`). A new name still has to be a `Class::Method` that one function alone takes from an assert. The checker is the authority. Do not hand-edit `tools/names_batch*.tsv`, and do not invent a name from a call mix.
+
+Closed, do not restart:
+
+- Ambiguous splits. The 64 functions in `seeds/ambiguous_signatures.tsv` were checked. `seeds/split_confirmed.tsv` has no real boundary. A split needs a call or a data reference from outside the function. A jump inside the same function does not count.
+- Windows `.rdata` paths. All 71 paths in `seeds/win_rdata_sourcepaths.txt` are absent from the Linux binary, filenames included (`decomp/win_rdata_match_note.txt`, `seeds/win_rdata_matches.tsv`). Leave `seeds/rejected/win_string_module_map.csv` unused.
+- String-reference catalog of unnamed `FUN_` bodies: `decomp/largest_fun_strings_note.txt` through `note94.txt` (937 functions).
+- D3D9 and COM slots that already have an anchor. Do not name an unanchored slot to fill a gap.
+
+Do this next:
+
+- Show one decrypted VPFS directory and one decrypted file body as structured data, using the AES path the binary actually runs. `FUN_040491e0` decrypts the directory with `FUN_0403abc0`. `VPFS_ArchiveRead` (`0403e5a0`) decrypts file bodies in 16-byte blocks through `FUN_0403ab90` into `FUN_04036430`, the same block function `AES::Decrypt` uses. Key bytes are at `DAT_04408c70`. The schedule is `FUN_04031570(ctx, 0x80, 0x80)`. There is no `inflate` on either path (`decomp/vpfs_zstream_note.txt`). `tools/vpfs_decode_proof.py`, `tools/vpfs_modes.py`, `tools/vpfs_bruteforce.py`, and `tools/vpfs_scan_full.py` still search for a zlib stream after AES. Match the decompile instead of extending that search.
+
+Optional, and it does not move the scoreboard:
+
+- The call catalog, `decomp/largest_fun_calls_note.txt` through `note258.txt` (2,580 functions), records outgoing callees of unnamed `FUN_` bodies. Continue it only while a batch still hits named callees. Stop when a batch is only compare-leaves. An instruction mix is not a `Class::Method` name.
 
 ## License
 
