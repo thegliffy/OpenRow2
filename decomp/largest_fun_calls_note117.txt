@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries with no string reference
+
+Continued from decomp/largest_fun_calls_note116.txt. Size is the declared gap to the next function (Ghidra body size in parentheses where it differs); instruction mix is the top 5 Ghidra mnemonics in the function body. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 040b1640, 224 bytes (body 186). 4 outgoing calls: FUN_040bbcc0 x1, RetainSharedMemoryRegion x1, direct3ddevice9imp_040803c0 x1, direct3ddevice9imp_04080490 x1. Instruction mix: MOV 23, ADD 8, SUB 5, CALL 4, TEST 4.
+- 040a5da0, 224 bytes (body 187). 3 outgoing calls: FUN_04080d80 x1, free x1, operator.delete x1. Instruction mix: MOV 23, ADD 7, JZ 6, CMP 5, CALL 4.
+- 040a3ba0, 224 bytes (body 182). 4 outgoing calls: FUN_040bbcc0 x1, RetainSharedMemoryRegion x1, direct3ddevice9imp_040803c0 x1, direct3ddevice9imp_04080490 x1. Instruction mix: MOV 22, ADD 8, SUB 5, CALL 4, TEST 4.
+- 04070010, 224 bytes (body 211). 2 outgoing calls: _Rb_tree_insert_and_rebalance x1, operator.new x1. Instruction mix: MOV 42, POP 4, PUSH 4, JZ 3, ADD 2.
+- 0406c370, 224 bytes (body 181). 4 outgoing calls: D3D9CommandQueue::CommandSubmitted x1, D3D9CommandQueue::GetNextCommandPointer x1, direct3ddevice9imp_040803c0 x1, direct3ddevice9imp_04080490 x1. Instruction mix: MOV 30, CALL 6, ADD 4, JZ 3, SUB 2.
+- 0404d970, 224 bytes (body 210). 3 outgoing calls: FUN_041723d0 x2, FUN_041810e0 x1. Instruction mix: MOV 24, ADD 6, POP 4, TEST 4, PUSH 4.
+- 0404ca70, 224 bytes (body 200). 6 outgoing calls: FUN_04183060 x1, FUN_04184670 x1, FUN_04184f90 x1, FUN_041852e0 x1, _M_unhook x1, operator.delete x1. Instruction mix: MOV 20, CALL 6, SUB 5, JMP 4, POP 3.
+- 0404c340, 224 bytes (body 209). 6 outgoing calls: memcpy x2, realloc x2, malloc x1, strlen x1. Instruction mix: MOV 38, CALL 6, LEA 5, POP 4, PUSH 4.
+- 0402e850, 224 bytes (body 205). 1 outgoing call: pthread_mutex_lock x1. Instruction mix: MOVSS 13, UCOMISS 8, MOV 6, JBE 4, JA 4.
+- 04026d90, 224 bytes (body 220). 5 outgoing calls: FUN_042a9490 x1, FUN_042af3e0 x1, FUN_042af580 x1, SDL_CreateRGBSurface x1, SDL_FreeSurface x1. Instruction mix: MOV 36, CALL 5, JZ 3, TEST 3, XOR 3.

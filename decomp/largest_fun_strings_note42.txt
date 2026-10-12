@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries that reference a string
+
+Skipped the 410 already listed in decomp/largest_fun_strings_note.txt through note41. Sizes are the gap to the next function. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 0418a8c0, 320 bytes, 2 strings: "Default audio device", "Game is asking for capture devices. As on Linux presently their support is not coded, we return no capture devices. This error will be reported only once per game launch.".
+- 04194100, 320 bytes. One string: "localhost".
+- 0419c960, 320 bytes, 13 strings. Includes: "glConvolutionFilter1DEXT", "glConvolutionFilter2DEXT", "glConvolutionParameterfEXT", "glConvolutionParameterfvEXT", "glConvolutionParameteriEXT".
+- 0419f650, 320 bytes, 13 strings. Includes: "glGetImageHandleNV", "glGetTextureHandleNV", "glGetTextureSamplerHandleNV", "glIsImageHandleResidentNV", "glIsTextureHandleResidentNV".
+- 041a07f0, 320 bytes, 13 strings. Includes: "glCombinerInputNV", "glCombinerOutputNV", "glCombinerParameterfNV", "glCombinerParameterfvNV", "glCombinerParameteriNV".
+- 041a0930, 320 bytes, 13 strings. Includes: "glGetBufferParameterui64vNV", "glGetIntegerui64vNV", "glIsBufferResidentNV", "glIsNamedBufferResidentNV", "glMakeBufferNonResidentNV".
+- 041a1b10, 320 bytes, 13 strings. Includes: "glClipPlanef", "glClipPlanex", "glGetClipPlanef", "glGetClipPlanex", "glGetFixedv".
+- 041d39d6, 318 bytes, 3 strings: "US-ASCII", "US-ASCII", "US-ASCII".
+- 04026970, 304 bytes. One string: "_NET_FRAME_EXTENTS".
+- 0404d040, 304 bytes. One string: "Unknown key code %u in keyDown!! Please add translation to the table in KeycodeToScanCode.".

@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries with no string reference
+
+Continued from decomp/largest_fun_calls_note32.txt. Size is the gap to the next function. Counts are Ghidra instructions in the function body. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 041da278, 673 bytes. Instruction mix: MOV 123, CMP 18, JMP 13, ADD 7, MOVZX 6.
+- 042ccc00, 672 bytes. 5 outgoing calls: FUN_042cd230 x1, FUN_042d5e70 x1, __errno_location x1, __i686.get_pc_thunk.bx x1, memmove x1. Instruction mix: MOV 80, PUSH 16, SUB 10, CMP 9, POP 9.
+- 0423f400, 672 bytes. 3 outgoing calls: FUN_0423f240 x2, memset x1. Instruction mix: MOV 106, CMP 13, SHRD 12, ADD 10, JZ 10.
+- 04235a00, 672 bytes. 2 outgoing calls: FUN_042346d0 x2. Instruction mix: MOV 109, CMP 22, LEA 20, JZ 16, POP 8.
+- 0418ee00, 672 bytes. 15 outgoing calls (8 listed): operator.delete x3, operator.new x3, memmove x2, FUN_04136760 x1, FUN_041466d0 x1, FUN_0415eaf0 x1, eON_CreateThread x1, pthread_mutex_lock x1. Instruction mix: MOV 96, CALL 15, SUB 8, LEA 7, TEST 7.
+- 04184050, 672 bytes. 14 outgoing calls: FUN_0415cec0 x6, FUN_0402d680 x4, FUN_0404ecd0 x4. Instruction mix: MOV 79, SUB 17, CALL 14, JZ 13, TEST 13.
+- 040b61c0, 672 bytes. 8 outgoing calls: memmove x2, direct3ddevice9imp_040803c0 x1, direct3ddevice9imp_04080490 x1, malloc x1, memcpy x1, operator.delete x1, operator.new x1. Instruction mix: MOV 103, JZ 11, CALL 10, TEST 10, JMP 8.
+- 04091ce0, 672 bytes. 1 outgoing call: cosf x1. Instruction mix: MOV 59, MOVSS 28, MULSS 21, ADDSS 18, LEA 7.
+- 041ff3a4, 669 bytes. 15 outgoing calls (8 listed): FUN_0420110b x2, FUN_041cac52 x1, FUN_041fe2eb x1, FUN_041fe908 x1, FUN_041fe985 x1, FUN_041feaad x1, FUN_041feb15 x1, FUN_041fed68 x1. Instruction mix: MOV 39, PUSH 28, CALL 15, ADD 14, SUB 13.
+- 04208584, 668 bytes. 16 outgoing calls (8 listed): FUN_04204e40 x3, FUN_042053af x2, FUN_04205dc2 x2, FUN_041cca07 x1, FUN_04204da8 x1, FUN_04204e1e x1, FUN_04204e8a x1, FUN_04205178 x1. Instruction mix: MOV 52, PUSH 27, SUB 17, ADD 16, CALL 16.

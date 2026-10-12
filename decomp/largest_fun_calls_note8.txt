@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries with no string reference
+
+Continued from decomp/largest_fun_calls_note7.txt. Size is the gap to the next function. Counts are Ghidra instructions in the function body. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 04220f20, 2112 bytes. 1 outgoing call: __stack_chk_fail x1. Instruction mix: MOV 141, MOVZX 132, ADD 58, LEA 41, CMP 36.
+- 04284720, 2080 bytes. 39 outgoing calls. Callees include FUN_0424b350 x15, FUN_0424c870 x10, FUN_0424afb0 x4, FUN_0424b160 x3, FUN_0424fb70 x3, FUN_0424b100 x2, FUN_0424b1b0 x1, FUN_0424ec50 x1. Instruction mix: MOV 192, LEA 67, TEST 41, CALL 39, JZ 19.
+- 041d8c39, 2056 bytes. No outgoing calls. Instruction mix: MOV 317, MOVZX 65, LEA 53, CMP 43, JZ 26.
+- 04243090, 2016 bytes. 20 outgoing calls: FUN_042438d0 x10, FUN_04243870 x9, FUN_04242760 x1. Instruction mix: MOV 257, CALL 55, TEST 44, JZ 30, JNZ 26.
+- 04219550, 2016 bytes. 14 outgoing calls: FUN_04218680 x9, memcmp x2, FUN_04218240 x1, FUN_04218ae0 x1, __stack_chk_fail x1. Instruction mix: MOV 209, MOVZX 48, XOR 39, SHR 32, SUB 24.
+- 04246240, 1984 bytes. 44 outgoing calls. Callees include FUN_0423bfa0 x24, FUN_0423bee0 x8, FUN_0423c880 x8, FUN_04242730 x2, FUN_0420ce20 x1, __stack_chk_fail x1. Instruction mix: MOV 188, CALL 44, LEA 42, ADD 36, TEST 29.
+- 0422ccf0, 1984 bytes. No outgoing calls. Instruction mix: MOV 217, MOVZX 126, XOR 121, OR 16, SHL 16.
+- 0400d550, 1984 bytes. 31 outgoing calls: _M_destroy x20, operator.delete x11. Instruction mix: MOV 221, LEA 58, TEST 57, JMP 45, JZ 34.
+- 0423fbf0, 1920 bytes. No outgoing calls. Instruction mix: MOV 127, XOR 108, AND 40, MOVZX 36, LEA 29.
+- 041ee2c2, 1905 bytes. 10 outgoing calls: FUN_041eb09c x2, FUN_041ec05f x2, memcpy x2, FUN_041eb084 x1, FUN_041eb090 x1, __stack_chk_fail x1, memset x1. Instruction mix: MOV 260, CMP 47, JMP 38, PUSH 38, MOVZX 26.

@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries that reference a string
+
+Skipped every address already listed in decomp/largest_fun_strings_note.txt through note58. Sizes are the gap to the next function. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 042bb990, 208 bytes, 2 strings. Includes: "Invalid sCAL height ignored", "Invalid sCAL width ignored".
+- 042bde20, 208 bytes. One string: "Writing zero-length unknown chunk".
+- 042d24d0, 208 bytes, 3 strings. Includes: "MDRVA google_breakpad::MinidumpFileWriter::Allocate(size_t)", "file_ != -1", "src/client/minidump_file_writer.cc".
+- 041ca0d3, 200 bytes, 4 strings. Includes: "CST6CDT", "EST5EDT", "MST7MDT", "PST8PDT".
+- 0400adb0, 192 bytes, 2 strings. Includes: "COT ERROR: Trying to add reference to a COM object %p with refcount = %d <= 0!'", "COT ERROR: Trying to create already existing COM object %p ('%s')'".
+- 0400ae70, 192 bytes, 2 strings. Includes: "COT ERROR: Trying to release (with info '%s') COM object %p that doesn't exist!'", "COT ERROR: Trying to release COM object %p with refcount = %d <= 0!'".
+- 0400b010, 192 bytes, 3 strings. Includes: "COT REPORT: Leaked COM object %p (ref count %d, info: '%s')", "COT REPORT: Total leaked objects: %d", "COT REPORT: no leaked COM objects remain in database.".
+- 0401f220, 192 bytes, 3 strings. Includes: "/bin/sh", "OpenURLInDefaultBrowser url is too long!", "unset LD_LIBRARY_PATH && /usr/bin/xdg-open".
+- 0402f8c0, 192 bytes, 5 strings. Includes: "D3D11LOG", "D3D9LOG", "D3DX9LOG", "DDRAWLOG", "DXGILOG".
+- 04046c50, 192 bytes, 2 strings. Includes: "VPFS_ConvertDiskFileToWriteableLocation() error - file is deleted", "VPFS_ConvertDiskFileToWriteableLocation() error - parent folder could not be created on disk".

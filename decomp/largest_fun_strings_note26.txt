@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries that reference a string
+
+Skipped the 220 already listed in decomp/largest_fun_strings_note.txt through note22. Sizes are the gap to the next function. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 0402cdb0, 496 bytes, 3 strings. Includes: "Couldn't open log file! %s\n", "Log system initialised", "eon.txt".
+- 040462a0, 496 bytes. One string: "Invalid handle given to VPFS_ReadEx()!!".
+- 04105630, 496 bytes. One string: "vector::_M_default_append".
+- 04144860, 496 bytes, 3 strings. Includes: "\tCalling handler at %p code=%x flags=%x", "\tHandler at %p returned %x", "\tNo exception record specified, creating STATUS_UNWIND record to %p".
+- 0417d8a0, 496 bytes, 3 strings. Includes: "(null)", "(null)", "(null)".
+- 041939c0, 496 bytes, 2 strings. Includes: "SOCKETS: ioctlsocket() - unhandled errno: (%u) %s", "SOCKETS: ioctlsocket() fcntl(%d, F_GETFL) failed (%u) %s".
+- 042b94e0, 496 bytes, 5 strings. Includes: "Saving unknown chunk:", "error in user chunk", "forcing save of an unhandled chunk; please call png_set_keep_unknown_chunks", "no space in chunk cache", "unhandled critical chunk".
+- 042bdef0, 496 bytes, 2 strings. Includes: "MNG features are not allowed in a PNG datastream", "profile matches sRGB but writing iCCP instead".
+- 042d2b40, 496 bytes, 8 strings. Includes: "bool google_breakpad::MinidumpFileWriter::WriteStringCore(const CharType*, unsigned int, MDLocationDescriptor*) [with CharType = wchar_t]", "bool google_breakpad::MinidumpFileWriter::WriteStringCore(const CharType*, unsigned int, MDLocationDescriptor*) [with CharType = wchar_t]", "bool google_breakpad::MinidumpFileWriter::WriteStringCore(const CharType*, unsigned int, MDLocationDescriptor*) [with CharType = wchar_t]", "bool google_breakpad::MinidumpFileWriter::WriteStringCore(const CharType*, unsigned int, MDLocationDescriptor*) [with CharType = wchar_t]", "src/client/minidump_file_writer.cc".
+- 04019130, 480 bytes, 3 strings. Includes: "Requested Windows System32 path, investigate why!", "System32/", "eON_FileSystem::checkPathExists() failed for path %s, (%u) %s\n".

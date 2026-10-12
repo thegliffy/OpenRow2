@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries with no string reference
+
+Continued from decomp/largest_fun_calls_note52.txt. Size is the gap to the next function. Counts are Ghidra instructions in the function body. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 040fbf80, 464 bytes. 3 outgoing calls: FUN_040fbe80 x1, FUN_040feea0 x1, memcmp x1. Instruction mix: MOV 73, CMP 9, POP 8, JNZ 6, JA 4.
+- 040f89b0, 464 bytes. 10 outgoing calls: strlen x10. Instruction mix: MOV 45, CALL 10, JZ 9, TEST 9, ADD 7.
+- 040effb0, 464 bytes. 10 outgoing calls: d3dstructs_040eec00 x10. Instruction mix: MOV 13, CALL 10, LEA 10, POP 2, ADD 2.
+- 040edcf0, 464 bytes. 5 outgoing calls: memcpy x3, operator.delete x1, operator.new x1. Instruction mix: MOV 86, SUB 9, SAR 7, JZ 6, TEST 6.
+- 04086670, 464 bytes. 3 outgoing calls: D3D9CommandQueue::CommandSubmitted x1, D3D9CommandQueue::GetNextCommandPointer x1, memcmp x1. Instruction mix: MOV 88, ADD 5, CMP 5, LEA 4, JMP 4.
+- 0406e360, 464 bytes. 5 outgoing calls: memcpy x3, operator.delete x1, operator.new x1. Instruction mix: MOV 86, SUB 9, SAR 7, JZ 6, TEST 6.
+- 0401eff0, 464 bytes. 10 outgoing calls (8 listed): SDL_SetWindowFullscreen x2, SDL_SetWindowPosition x2, SDL_GetWindowDisplayMode x1, SDL_PumpEvents x1, SDL_SetWindowDisplayMode x1, SDL_SetWindowSize x1, eON_Core::pumpRunLoopUntilEmpty x1, opengl_objects_04022160 x1. Instruction mix: MOV 66, CALL 10, JNZ 7, TEST 6, CMP 5.
+- 04203100, 461 bytes. No outgoing calls. Instruction mix: MOV 58, ADD 14, CMP 13, JMP 13, LEA 7.
+- 041d32fb, 461 bytes. 8 outgoing calls: FUN_041d1fd6 x2, FUN_041d271f x2, FUN_041cc920 x1, FUN_041ce5fc x1, memcpy x1, memset x1. Instruction mix: MOV 65, PUSH 16, ADD 9, CALL 9, SUB 9.
+- 041f8757, 459 bytes. No outgoing calls. Instruction mix: MOV 48, ADD 27, MOVZX 24, AND 8, JMP 7.

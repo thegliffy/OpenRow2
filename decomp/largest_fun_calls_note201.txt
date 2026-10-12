@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries with no string reference
+
+Continued from decomp/largest_fun_calls_note199.txt. Size is the declared gap to the next function (Ghidra body size in parentheses where it differs); instruction mix is the top 5 Ghidra mnemonics in the function body. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 040f0310, 112 bytes (body 99). 2 outgoing calls: memcmp x1, memcpy x1. Instruction mix: MOV 19, CALL 2, SHL 2, RET 1, POP 1.
+- 040f0380, 112 bytes (body 99). 2 outgoing calls: memcmp x1, memcpy x1. Instruction mix: MOV 20, CALL 2, RET 1, POP 1, JZ 1.
+- 040f0410, 112 bytes (body 101). 1 outgoing call: eON_UniformBufferStreamed::UpdateToNextBatch x1. Instruction mix: MOV 19, POP 2, LEA 2, RET 1, JZ 1.
+- 040f0480, 112 bytes (body 104). 1 outgoing call: eON_UniformBufferStreamed::UpdateToNextBatch x1. Instruction mix: MOV 19, POP 2, LEA 2, RET 1, JZ 1.
+- 040f0510, 112 bytes (body 104). 1 outgoing call: eON_UniformBufferStreamed::UpdateToNextBatch x1. Instruction mix: MOV 19, POP 2, LEA 2, RET 1, JZ 1.
+- 040f0580, 112 bytes (body 104). 1 outgoing call: eON_UniformBufferStreamed::UpdateToNextBatch x1. Instruction mix: MOV 19, POP 2, LEA 2, RET 1, JZ 1.
+- 040f05f0, 112 bytes (body 101). 1 outgoing call: eON_UniformBufferStreamed::UpdateToNextBatch x1. Instruction mix: MOV 19, POP 2, LEA 2, RET 1, JZ 1.
+- 040f0660, 112 bytes (body 101). 1 outgoing call: eON_UniformBufferStreamed::UpdateToNextBatch x1. Instruction mix: MOV 19, POP 2, LEA 2, RET 1, JZ 1.
+- 040f0760, 112 bytes (body 101). 1 outgoing call: eON_UniformBufferStreamed::UpdateToNextBatch x1. Instruction mix: MOV 19, POP 2, LEA 2, RET 1, JZ 1.
+- 040f8440, 112 bytes (body 98). 1 outgoing call: memcmp x1. Instruction mix: MOV 12, TEST 4, CMP 3, JZ 3, JMP 2.

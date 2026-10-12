@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries with no string reference
+
+Continued from decomp/largest_fun_calls_note39.txt. Size is the gap to the next function. Counts are Ghidra instructions in the function body. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 0420907f, 584 bytes. 7 outgoing calls: FUN_04208b66 x7. Instruction mix: MOV 48, CMP 23, PUSH 15, MOVZX 14, ADD 13.
+- 041fb0d3, 583 bytes. 1 outgoing call: FUN_041fb012 x1. Instruction mix: MOV 67, ADD 36, MOVZX 18, JMP 13, CMP 11.
+- 042d5b80, 576 bytes. 2 outgoing calls: FUN_042d5240 x1, __i686.get_pc_thunk.bx x1. Instruction mix: MOV 36, CMP 8, JMP 8, ADD 7, LEA 7.
+- 04220880, 576 bytes. No outgoing calls. Instruction mix: MOV 56, MOVZX 47, SUB 39, XOR 13, LEA 4.
+- 041c8680, 576 bytes. 14 outgoing calls (8 listed): FUN_041c6e60 x2, tinyxmlparser_041c90c0 x2, FUN_041c10b0 x1, FUN_041c2ab0 x1, FUN_041c3740 x1, FUN_041c64e0 x1, FUN_041c6930 x1, FUN_041c8110 x1. Instruction mix: MOV 77, CALL 15, JZ 10, TEST 9, POP 8.
+- 04179c80, 576 bytes. 12 outgoing calls (8 listed): pthread_mutex_unlock x3, pthread_mutex_lock x2, FUN_041724b0 x1, FUN_04179f00 x1, FUN_04181220 x1, MouseDeltas_GetLastMouseDelta x1, fabsf x1, floorf x1. Instruction mix: MOV 61, CALL 12, MOVSS 12, JZ 4, JMP 4.
+- 04172ad0, 576 bytes. 12 outgoing calls (8 listed): free x2, pthread_mutex_unlock x2, FUN_041466d0 x1, FUN_0415b3b0 x1, FUN_0415c900 x1, FUN_04174b40 x1, FUN_04183060 x1, FUN_04183140 x1. Instruction mix: MOV 79, CALL 12, SUB 11, JZ 10, TEST 9.
+- 04135670, 576 bytes. 10 outgoing calls: eON_MultiByteToWideChar x4, free x2, malloc x2, FUN_041353a0 x1, eON_WideCharToMultiByte x1. Instruction mix: MOV 70, CALL 10, TEST 9, SUB 7, JZ 7.
+- 04128f50, 576 bytes. 10 outgoing calls: free x4, FUN_04127160 x2, FUN_04127d10 x2, FUN_041276d0 x1, FUN_041278b0 x1. Instruction mix: MOV 74, TEST 12, CALL 10, XOR 9, CMP 8.
+- 041231e0, 576 bytes. 6 outgoing calls: malloc x2, FUN_041222a0 x1, eON_CreateDIBSection x1, free x1, memcpy x1. Instruction mix: MOV 87, JZ 9, LEA 8, TEST 7, CALL 6.

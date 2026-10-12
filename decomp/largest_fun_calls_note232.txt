@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries with no string reference
+
+Continued from decomp/largest_fun_calls_note231.txt. Size is the declared gap to the next function (Ghidra body size in parentheses where it differs); instruction mix is the top 5 Ghidra mnemonics in the function body. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 041c5d00, 96 bytes (body 79). 1 outgoing call: strcmp x1. Instruction mix: MOV 11, POP 8, PUSH 4, ADD 3, JNZ 2.
+- 041c5d80, 96 bytes (body 78). 1 outgoing call: strcmp x1. Instruction mix: MOV 12, POP 4, TEST 4, PUSH 4, JZ 2.
+- 041c5de0, 96 bytes (body 88). No outgoing calls. Instruction mix: MOV 14, POP 6, TEST 5, JZ 4, PUSH 3.
+- 041c6410, 96 bytes (body 94). 3 outgoing calls: operator.delete[] x3. Instruction mix: MOV 10, JZ 6, CALL 3, TEST 3, CMP 3.
+- 041c9920, 96 bytes (body 88). 1 outgoing call: __ctype_b_loc x1. Instruction mix: POP 8, MOV 7, PUSH 4, ADD 3, CMP 3.
+- 041c9c16, 96 bytes (body 96). No outgoing calls. Instruction mix: MOV 20, POP 4, PUSH 4, AND 2, XOR 2.
+- 041eb024, 96 bytes (body 96). No outgoing calls. Instruction mix: MOV 15, MOVZX 4, JNZ 4, CMP 4, JMP 3.
+- 04201217, 96 bytes (body 96). 1 outgoing call: munmap x1. Instruction mix: MOV 18, SUB 3, PUSH 3, JZ 2, RET 1.
+- 0420ea50, 96 bytes (body 72). No outgoing calls. Instruction mix: POP 9, MOV 8, JZ 3, TEST 3, PUSH 3.
+- 042169f0, 96 bytes (body 90). No outgoing calls. Instruction mix: MOV 12, POP 6, CMP 4, JZ 3, PUSH 3.

@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries that reference a string
+
+Skipped the 220 already listed in decomp/largest_fun_strings_note.txt through note22. Sizes are the gap to the next function. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 0423e5e0, 528 bytes. One string: "abcdefghbcdefghicdefghijdefghijkefghijklfghijklmghijklmnhijklmnoijklmnopjklmnopqklmnopqrlmnopqrsmnopqrstnopqrstu".
+- 042b8ff0, 528 bytes, 8 strings. Includes: "bad keyword", "bad keyword", "insufficient memory", "insufficient memory", "missing IHDR".
+- 042baec0, 528 bytes, 9 strings. Includes: "cHRM Red X", "cHRM Red X", "cHRM Red X", "cHRM Red Y", "cHRM Red Y".
+- 042c01a0, 528 bytes, 3 strings. Includes: "png_image_write_: out of memory", "png_image_write_to_stdio: incorrect PNG_IMAGE_VERSION", "png_image_write_to_stdio: invalid argument".
+- 04152fd0, 512 bytes, 5 strings. Includes: "ntdll.dll", "ntdll.dll", "ntdll.dll", "xactengine3_7.dll", "xactengine3_7.dll".
+- 041948f0, 512 bytes. One string: "SOCKETS: unknown send() error: %d".
+- 041c1be0, 512 bytes, 8 strings. Includes: "<?xml ", "<?xml ", "encoding=", "encoding=%s ", "standalone=".
+- 042a4fe0, 512 bytes. One string: "profile '".
+- 042bffa0, 512 bytes, 2 strings. Includes: "PNG_TRANSFORM_STRIP_FILLER: BEFORE+AFTER not supported", "no rows for png_write_image to write".
+- 0400a590, 496 bytes, 4 strings. Includes: "ERROR - eON failed to initialise!\n", "ERROR - eON failed to launch!\n", "saintsrow2.vpfs", "volition".

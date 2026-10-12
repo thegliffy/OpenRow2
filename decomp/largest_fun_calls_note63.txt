@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries with no string reference
+
+Continued from decomp/largest_fun_calls_note62.txt. Size is the gap to the next function; instruction mix is the top 5 Ghidra mnemonics in the function body. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 0400a850, 416 bytes. 5 outgoing calls: _Rb_tree_insert_and_rebalance x2, operator.new x2, _Rb_tree_decrement x1. Instruction mix: MOV 73, CMP 8, POP 8, JZ 7, TEST 6.
+- 041ce5fc, 415 bytes. 4 outgoing calls: FUN_041cca07 x2, FUN_041d271f x1, __stack_chk_fail x1. Instruction mix: MOV 60, PUSH 18, ADD 7, CALL 7, SUB 7.
+- 041f623a, 413 bytes. 5 outgoing calls: FUN_041f71b0 x2, FUN_041f5c05 x1, FUN_041f63f1 x1, FUN_041f64fe x1. Instruction mix: MOV 34, CMP 15, PUSH 12, ADD 11, JMP 11.
+- 041d3839, 413 bytes. 10 outgoing calls (only the first 8 are listed): FUN_041cc4b1 x1, FUN_041cc4d8 x1, FUN_041cc6c4 x1, FUN_041d1fd6 x1, FUN_041d239c x1, FUN_041d27ae x1, __stack_chk_fail x1, memcpy x1. Instruction mix: MOV 32, PUSH 17, ADD 11, CALL 10, SUB 9.
+- 04204084, 406 bytes. 3 outgoing calls: FUN_04203bfc x1, FUN_04203f08 x1, __stack_chk_fail x1. Instruction mix: MOV 70, PUSH 19, ADD 7, CMP 6, JMP 4.
+- 041d4ff7, 405 bytes. No outgoing calls. Instruction mix: MOV 33, MOVZX 25, JMP 19, CMP 15, JNZ 9.
+- 041ffb3c, 404 bytes. 6 outgoing calls: FUN_041fe2df x1, FUN_041fe2eb x1, FUN_041ff3a4 x1, FUN_041ff641 x1, FUN_041ff883 x1, __stack_chk_fail x1. Instruction mix: MOV 54, PUSH 18, JZ 11, JMP 10, ADD 7.
+- 042c7e70, 402 bytes. 6 outgoing calls: memmove x3, __i686.get_pc_thunk.bx x1, operator.delete x1, operator.new x1. Instruction mix: MOV 44, PUSH 15, SUB 14, ADD 9, TEST 7.
+- 042d3050, 400 bytes. 9 outgoing calls (only the first 8 are listed): operator.delete[] x2, operator.new[] x2, string x2, FUN_042d5570 x1, FUN_042d5e70 x1, __i686.get_pc_thunk.bx x1. Instruction mix: MOV 31, PUSH 18, SUB 10, ADD 10, CALL 9.
+- 042bf1f0, 400 bytes. 13 outgoing calls (only the first 8 are listed): FUN_042aa410 x9, FUN_042a5ce0 x1, FUN_042bd700 x1, FUN_042c1b30 x1, deflateEnd x1. Instruction mix: MOV 47, CALL 13, POP 4, TEST 3, JZ 2.

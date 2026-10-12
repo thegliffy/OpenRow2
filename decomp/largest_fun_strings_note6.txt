@@ -1,0 +1,15 @@
+Next 10 largest FUN_ entries that reference a string
+
+Skipped the 50 already listed in decomp/largest_fun_strings_note.txt through note5. Sizes are the gap to the next function. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 04089990, 1552 bytes, 18 strings. Unhandled D3D render states on the OpenGL core profile: D3DRS_SHADEMODE flat, maskable multisample bits, D3DRS_WRAP, D3DRS_LASTPIXEL, D3DRS_PATCHEDGESTYLE.
+- 04049e60, 1552 bytes. VPFS read failures: "Invalid handle given to VPFS_Read()!!" and "VPFS_ArchiveSeek() error in file read!".
+- 040e9c90, 1520 bytes. Precompiled shader save failures: cannot open the file, save failed, missing vertex shader, missing fragment shader.
+- 04067d80, 1504 bytes. CheckDeviceFormat returning D3DDERR_NOTAVAILABLE, plus "!unknown!" and "Unknown resource type: %d".
+- 042a6e60, 1488 bytes. One string: "ASCII conversion buffer too small".
+- 040de9a0, 1456 bytes. "uniformBuffer%d.txt" and "No valid OpenGL context in calling thread!".
+- 0402c440, 1456 bytes, 77 strings. GL internal-format names, from GL_RGBA8, GL_RGBA8I, and GL_RGBA8UI through GL_RGBA16.
+- 042b97d0, 1440 bytes. libpng row checks: "internal row logic error", "internal row width error", "internal row size calculation error", "invalid user transform pixel depth".
+- 041a10d0, 1440 bytes, 64 strings. NV program entry points: glAreProgramsResidentNV, glBindProgramNV, glDeleteProgramsNV, glExecuteProgramNV, glGenProgramsNV.
+- 040b3a60, 1440 bytes. One string: "WARNING!! Unsupported vertex element type %d".
+

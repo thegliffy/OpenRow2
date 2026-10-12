@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries that reference a string
+
+Skipped the 859 addresses already listed in decomp/largest_fun_strings_note.txt through note86. Sizes are the gap to the next function. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 04100180, 64 bytes. One string: "DirectSoundNotifyImp".
+- 040ff840, 64 bytes. One string: "DirectSoundCapture8Imp".
+- 040f2570, 64 bytes. One string: "DirectInputEffectImp".
+- 04080b90, 64 bytes, 2 strings: "E.d3d9.OpenGL", "OPENGL: OpenGL thread start".
+- 0402d030, 64 bytes. One string: "WARNING!!! Executing unimplemented code in Function %s, file %s, line %d, thread %x".
+- 04020cd0, 64 bytes. One string: "SetForcedOpenGLDisplay() - %u is an invalid display index, ignoring".
+- 0401eee0, 64 bytes. One string: "Attempt to bring main game window to front, when there's no main game window set!".
+- 0401ee80, 64 bytes. One string: "Pressed key (%u) doesn't have a DirectInput code assigned! Check it?".
+- 0401ee40, 64 bytes. One string: "Pressed key (%u) doesn't have Windows virtual key code assigned! Check it?".
+- 0400a810, 64 bytes. One string: "!!! ASSERTION FAILED !!!\n	'%s' in function %s\n	File %s, Line %u".

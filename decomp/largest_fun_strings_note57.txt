@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries that reference a string
+
+Skipped the ones already listed in decomp/largest_fun_strings_note.txt through note56.
+
+- 040f64c0, 208 bytes. One string: "Keys not up on DInput keyboard (%p): %s".
+- 040f6ae0, 208 bytes, 15 strings. Includes: "DIPROP_APPDATA", "DIPROP_AUTOCENTER", "DIPROP_AXISMODE", "DIPROP_BUFFERSIZE", "DIPROP_CALIBRATION".
+- 0412e300, 208 bytes. One string: "Tried to map view of file, existing only in VPFS archive!".
+- 04134e80, 208 bytes, 2 strings: "GetLongPathNameA( shortPath = '%s', longPath = %p, cchBuffer = %u )", "vcomp.dll".
+- 0416a1f0, 208 bytes. One string: "%08x-%04x-%04x-%02x%02x-%02x%02x%02x%02x%02x%02x".
+- 0416d9a0, 208 bytes. One string: "CLIPBOARD: Trying to change clipboard chain when there are no windows in it!".
+- 0418b930, 208 bytes, 2 strings: "DUMPING MEMORY handle: %p address: %p size: %u", "[%3d] value: %3d char: '%c'".
+- 0418ca30, 208 bytes. One string: "The game wants default audio for other role than console.".
+- 041901e0, 208 bytes. One string: "Couldn't start audio capture - out of memory?".
+- 04196690, 208 bytes, 4 strings: "SOCKETS: WSASocketA called with non-zero group argument. This is not presently supported in eON. Handle it.", "SOCKETS: WSASocketA called with non-zero lpProtocolInfo argument. This is not presently supported in eON. Handle it.", "SOCKETS: WSASocketA called with protocol number %d which on Windows means something else than on Mac! Watch out.", "SOCKETS: WSASocketA called with unsupported dwFlags argument. Handle it.".

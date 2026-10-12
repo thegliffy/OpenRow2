@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries that reference a string
+
+Skipped the 859 addresses already listed in decomp/largest_fun_strings_note.txt through note86. Sizes are the gap to the next function. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 041dd69c, 51 bytes, 3 strings: "UTF-16", "UTF-16,version=1", "UTF-16,version=2".
+- 042c6080, 48 bytes. One string: "Call to NULL write function".
+- 042af7a0, 48 bytes. One string: "Call to NULL read function".
+- 042ac900, 48 bytes. One string: "png_start_read_image/png_read_update_info: duplicate call".
+- 04146ac0, 48 bytes. One string: "eON_OpenMutexW for name %s".
+- 04139740, 48 bytes. One string: "kernel32_ThreadAttach".
+- 04139690, 48 bytes. One string: "kernel32_ProcessAttach".
+- 04134a40, 48 bytes. One string: "Checking application '%ls'".
+- 04134a10, 48 bytes. One string: "Checking application '%s'".
+- 04101280, 48 bytes. One string: "KsPropertySetImp".

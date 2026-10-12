@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries that reference a string
+
+Skipped the 699 already listed in decomp/largest_fun_strings_note.txt through note73. Sizes are the gap to the next function. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 042b1360, 128 bytes, 2 strings: "rgb to gray green coefficient", "rgb to gray red coefficient".
+- 042b6db0, 128 bytes, 2 strings: "out of place", "invalid".
+- 042c3080, 128 bytes. One string: "Unrecognized unit type for oFFs chunk".
+- 042c8060, 128 bytes, 6 strings: "src/client/linux/handler/minidump_descriptor.cc", "src/client/linux/handler/minidump_descriptor.cc", "descriptor.path_.empty()", "descriptor.path_.empty()", "google_breakpad::MinidumpDescriptor::MinidumpDescriptor(const google_breakpad::MinidumpDescriptor&)", "google_breakpad::MinidumpDescriptor::MinidumpDescriptor(const google_breakpad::MinidumpDescriptor&)".
+- 041cd736, 125 bytes, 2 strings: "0123456789abcdef", "0123456789abcdef".
+- 0402cd40, 112 bytes. One string: "Log system shutdown".
+- 04052830, 112 bytes. One string: "for( LoopTemp%d = 0; LoopTemp%d < %s; LoopTemp%d++ )\n{\n".
+- 040de930, 112 bytes. One string: "No valid OpenGL context in calling thread!.".
+- 040e5990, 112 bytes. One string: "PERFORMANCE WARNING: Implicit sync due to enlarging shader vector.".
+- 040ea6a0, 112 bytes. One string: "Shader precompilation start: unprepared shaders: %u, unlinked programs: %zu".

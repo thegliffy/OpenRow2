@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries that reference a string
+
+Skipped every address already listed in decomp/largest_fun_strings_note.txt through note58. Sizes are the gap to the next function. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 04182110, 192 bytes. One string: "HWND_BROADCAST not supported in SendMessageW(). Add it.".
+- 0418fcb0, 192 bytes. One string: "Couldn't stop audio capture - out of memory?".
+- 04198a30, 192 bytes, 7 strings. Includes: "glDisableVertexAttribAPPLE", "glEnableVertexAttribAPPLE", "glIsVertexAttribEnabledAPPLE", "glMapVertexAttrib1dAPPLE", "glMapVertexAttrib1fAPPLE".
+- 0419af70, 192 bytes, 7 strings. Includes: "glClientWaitSync", "glDeleteSync", "glFenceSync", "glGetInteger64v", "glGetSynciv".
+- 0419b030, 192 bytes, 7 strings. Includes: "glCompressedTexImage1DARB", "glCompressedTexImage2DARB", "glCompressedTexImage3DARB", "glCompressedTexSubImage1DARB", "glCompressedTexSubImage2DARB".
+- 0419b190, 192 bytes, 7 strings. Includes: "glBindTransformFeedback", "glDeleteTransformFeedbacks", "glDrawTransformFeedback", "glGenTransformFeedbacks", "glIsTransformFeedback".
+- 0419e9c0, 192 bytes, 7 strings. Includes: "glBeginTransformFeedbackEXT", "glBindBufferBaseEXT", "glBindBufferOffsetEXT", "glBindBufferRangeEXT", "glEndTransformFeedbackEXT".
+- 0419f880, 192 bytes, 7 strings. Includes: "glDeleteFencesNV", "glFinishFenceNV", "glGenFencesNV", "glGetFenceivNV", "glIsFenceNV".
+- 041a0230, 192 bytes, 7 strings. Includes: "glBeginOcclusionQueryNV", "glDeleteOcclusionQueriesNV", "glEndOcclusionQueryNV", "glGenOcclusionQueriesNV", "glGetOcclusionQueryivNV".
+- 041a0c20, 192 bytes, 7 strings. Includes: "glBindTransformFeedbackNV", "glDeleteTransformFeedbacksNV", "glDrawTransformFeedbackNV", "glGenTransformFeedbacksNV", "glIsTransformFeedbackNV".

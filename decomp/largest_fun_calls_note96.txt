@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries with no string reference
+
+Continued from decomp/largest_fun_calls_note95.txt. Size is the gap to the next function; instruction mix is the top 5 Ghidra mnemonics in the function body. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 040b69b0, 272 bytes. No outgoing calls. Instruction mix: MOV 35, POP 12, CMP 11, JBE 4, TEST 4.
+- 040b5390, 272 bytes. 3 outgoing calls: __throw_bad_alloc x1, operator.delete x1, operator.new x1. Instruction mix: MOV 40, ADD 8, LEA 7, CMP 6, POP 4.
+- 040a48c0, 272 bytes. 3 outgoing calls: __throw_bad_alloc x1, operator.delete x1, operator.new x1. Instruction mix: MOV 40, ADD 8, LEA 7, CMP 6, POP 4.
+- 0408a120, 272 bytes. 1 outgoing call: D3D9CommandQueue::GetNextCommandPointer x1. Instruction mix: MOV 37, POP 8, LEA 5, TEST 5, CALL 4.
+- 040662d0, 272 bytes. 5 outgoing calls: FUN_04022090 x2, FUN_040220a0 x1, FUN_04022370 x1, FUN_040223b0 x1. Instruction mix: MOV 22, CMP 8, JMP 7, CALL 5, POP 4.
+- 0404cda0, 272 bytes. 4 outgoing calls: _Rb_tree_insert_and_rebalance x1, memcmp x1, operator.new x1, string x1. Instruction mix: MOV 39, CALL 4, LEA 3, JZ 3, TEST 3.
+- 04049cf0, 272 bytes. 5 outgoing calls: strcpy x3, pthread_mutex_lock x1, pthread_mutex_unlock x1. Instruction mix: MOV 19, ADD 7, POP 6, CALL 5, LEA 5.
+- 040262b0, 272 bytes. 5 outgoing calls: FUN_04183060 x3, SDL_HideWindow x1, SDL_ShowWindow x1. Instruction mix: MOV 33, POP 8, CALL 6, SUB 6, PUSH 4.
+- 04025b80, 272 bytes. 4 outgoing calls: __divdi3 x1, __udivdi3 x1, clock_gettime x1, gettimeofday x1. Instruction mix: MOV 34, SUB 5, CALL 4, ADD 3, CMP 3.
+- 04010cc0, 272 bytes. 7 outgoing calls: eON_MultiByteToWideChar x2, free x2, malloc x1, memcpy x1, strlen x1. Instruction mix: MOV 44, CALL 7, SUB 4, RET 2, CMP 2.

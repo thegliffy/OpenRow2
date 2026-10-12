@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries that reference a string
+
+Skipped the 699 already listed in decomp/largest_fun_strings_note.txt through note70. Sizes are the gap to the next function. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 0419de50, 144 bytes, 5 strings: "glFogCoordPointerEXT", "glFogCoorddEXT", "glFogCoorddvEXT", "glFogCoordfEXT", "glFogCoordfvEXT".
+- 0419f390, 144 bytes, 5 strings: "glBufferRegionEnabled", "glDeleteBufferRegion", "glDrawBufferRegion", "glNewBufferRegion", "glReadBufferRegion".
+- 041a2510, 144 bytes, 5 strings: "glXBindVideoCaptureDeviceNV", "glXLockVideoCaptureDeviceNV", "glXQueryVideoCaptureDeviceNV", "glXEnumerateVideoCaptureDevicesNV", "glXReleaseVideoCaptureDeviceNV".
+- 041a2640, 144 bytes, 5 strings: "glXGetMscRateOML", "glXGetSyncValuesOML", "glXSwapBuffersMscOML", "glXWaitForMscOML", "glXWaitForSbcOML".
+- 041a2840, 144 bytes, 5 strings: "glXCreateGLXPbufferSGIX", "glXDestroyGLXPbufferSGIX", "glXGetSelectedEventSGIX", "glXQueryGLXPbufferSGIX", "glXSelectEventSGIX".
+- 041a28d0, 144 bytes, 5 strings: "glXBindChannelToWindowSGIX", "glXChannelRectSGIX", "glXChannelRectSyncSGIX", "glXQueryChannelDeltasSGIX", "glXQueryChannelRectSGIX".
+- 041c16b0, 144 bytes, 2 strings: "/home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxml.cpp", "virtual void TiXmlComment::Print(FILE*, int) const".
+- 041c3380, 144 bytes, 3 strings: "previous->parent == this", "/home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxml.cpp", "const TiXmlNode* TiXmlNode::IterateChildren(const char*, const TiXmlNode*) const".
+- 042a97a0, 144 bytes. One string: "libpng warning: %s".
+- 042aadf0, 144 bytes, 2 strings: "read beyond end of data", "invalid memory read".

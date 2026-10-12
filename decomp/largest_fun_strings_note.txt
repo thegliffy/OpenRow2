@@ -1,0 +1,15 @@
+Ten largest FUN_ entries that reference a string
+
+Sizes are the gap to the next function in seeds/functions.csv. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 041a5dd0, 81232 bytes, about 900 strings. OpenGL entry points: glGetStringi, glTexSubImage1D, glReadBuffer, glDrawBuffer, glGetTexImage, and the rest. This is a GL loader, not one method.
+- 041b9b20, 24896 bytes, about 80 strings. OpenGL extension names: texture_compression_FXT1, seamless_cubemap_per_texture, shader_atomic_counter_ops, framebuffer_multisample.
+- 042b2670, 13504 bytes. libpng row errors: png_do_rgb_to_gray found nongray pixel, png_do_encode_alpha: unexpected call, png_do_quantize returned rowbytes=0, NULL row buffer, Uninitialized row.
+- 041a2e50, 12096 bytes, about 130 strings. GLX entry points: glXGetCurrentDisplay, glXChooseFBConfig, glXCreateNewContext, glXCreatePbuffer, glXCreatePixmap, glXCreateWindow.
+- 04115780, 8160 bytes. A mixed table: Some Intel CPU, 4.09.00.0904, NVIDIA_PhysX_Help.mht, PhysXCore, KBDUK.DLL, United Kingdom, formatlibrary.pfl.
+- 042c84d0, 5712 bytes. The microdump writer, already described in decomp/anonymous_funs_note.txt.
+- 041bfc60, 5024 bytes. GLX context-creation extension names: create_context_profile, create_context_robustness, create_context_es2_profile, create_context_es_profile.
+- 04028510, 4928 bytes. The only referenced string is "Caps: %s".
+- 042aafc0, 4736 bytes. libpng color-map errors: invalid PNG color type, and the gray/rgb color-map "too few entries" messages.
+- 0419cb30, 4736 bytes, about 210 strings. More OpenGL entry points, starting at glBindMultiTextureEXT and glClientAttribDefaultEXT.
+

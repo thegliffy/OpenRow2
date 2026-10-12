@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries that reference a string
+
+Skipped the 619 already listed in decomp/largest_fun_strings_note.txt through note62. Sizes are the gap to the next function. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 040f0b10, 176 bytes, 2 strings: "DirectInputCreateA - requested DirectInput version 0x%x, which is not supported", "DirectInputCreateA - unhandled parameter value!".
+- 040f0bc0, 176 bytes, 2 strings: "DirectInputCreateW - requested DirectInput version 0x%x, which is not supported", "DirectInputCreateW - unhandled parameter value!".
+- 040f8b80, 176 bytes, 2 strings: "Cooperative level on mouse device for game window set to: %s", "Game wants mouse to be BACKGROUND, ie. receive input even when game window isn't in focus. Currently it doesn't work this way in eON.".
+- 040fd1f0, 176 bytes. One string: "DirectSound8Imp".
+- 041221f0, 176 bytes. One string: "Add DIB capability to SetBitmapBits".
+- 04122f20, 176 bytes. One string: "Can't assign unused DC! Maximum number of resources reached!".
+- 04123130, 176 bytes. One string: "Can't assign unused DC! Maximum number of resources reached!".
+- 04135bf0, 176 bytes. One string: "eON_GetDriveTypeA('%s')".
+- 04150630, 176 bytes. One string: "FreeLibrary called, trying to free module %p, not found in dll map!".
+- 0415e990, 176 bytes. One string: "Time zone bias: %d, standard bias: %d, daylight bias: %d".

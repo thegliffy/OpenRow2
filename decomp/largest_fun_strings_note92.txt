@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries that reference a string
+
+Skipped the 899 addresses already listed in decomp/largest_fun_strings_note.txt through note90. Sizes are the gap to the next function. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 04066c70, 32 bytes. One string: "!unknown!".
+- 04088400, 32 bytes. One string: "(unknown)".
+- 04088420, 32 bytes. One string: "(unknown)".
+- 04088440, 32 bytes. One string: "(unknown)".
+- 04088460, 32 bytes. One string: "(unknown)".
+- 0408a230, 32 bytes. One string: "(error)".
+- 0408ad40, 32 bytes. One string: "(error)".
+- 0408ad60, 32 bytes. One string: "(error)".
+- 0408d720, 32 bytes. One string: "!!!(unknown)!!!".
+- 040972b0, 32 bytes. One string: "!!!unknown!!!".

@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries with no string reference
+
+Continued from decomp/largest_fun_calls_note163.txt. Size is the declared gap to the next function (Ghidra body size in parentheses where it differs); instruction mix is the top 5 Ghidra mnemonics in the function body. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 040a41d0, 144 bytes (body 129). 3 outgoing calls: direct3ddevice9imp_040803c0 x1, direct3ddevice9imp_04080490 x1, memcpy x1. Instruction mix: MOV 27, JZ 3, CALL 3, TEST 3, ADD 2.
+- 040a4260, 144 bytes (body 108). 2 outgoing calls: direct3ddevice9imp_040803c0 x1, direct3ddevice9imp_04080490 x1. Instruction mix: MOV 15, POP 6, JZ 4, TEST 4, CALL 3.
+- 040a5070, 144 bytes (body 105). 2 outgoing calls: direct3ddevice9imp_040803c0 x1, direct3ddevice9imp_04080490 x1. Instruction mix: MOV 16, JZ 4, TEST 4, POP 3, CALL 3.
+- 040ac6d0, 144 bytes (body 128). 2 outgoing calls: direct3ddevice9imp_040803c0 x1, direct3ddevice9imp_04080490 x1. Instruction mix: MOV 25, POP 3, JZ 3, ADD 3, TEST 3.
+- 040b4000, 144 bytes (body 128). 4 outgoing calls: FUN_040b1a90 x1, FUN_040b3a60 x1, malloc x1, memcpy x1. Instruction mix: MOV 19, POP 4, CALL 4, PUSH 4, CMP 2.
+- 040b4ae0, 144 bytes (body 132). 2 outgoing calls: memcmp x2. Instruction mix: MOV 27, CALL 3, RET 2, POP 2, TEST 2.
+- 040b4b70, 144 bytes (body 129). 3 outgoing calls: direct3ddevice9imp_040803c0 x1, direct3ddevice9imp_04080490 x1, memcpy x1. Instruction mix: MOV 27, JZ 3, CALL 3, TEST 3, ADD 2.
+- 040b4c00, 144 bytes (body 108). 2 outgoing calls: direct3ddevice9imp_040803c0 x1, direct3ddevice9imp_04080490 x1. Instruction mix: MOV 15, POP 6, JZ 4, TEST 4, CALL 3.
+- 040b6920, 144 bytes (body 131). 1 outgoing call: malloc x1. Instruction mix: MOV 37, RET 1, POP 1, JZ 1, CALL 1.
+- 040b8330, 144 bytes (body 109). 2 outgoing calls: direct3ddevice9imp_040803c0 x1, direct3ddevice9imp_04080490 x1. Instruction mix: MOV 17, POP 3, CALL 3, PUSH 3, JZ 2.

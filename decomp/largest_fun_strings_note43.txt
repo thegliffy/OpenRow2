@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries that reference a string
+
+Skipped the 420 already listed in decomp/largest_fun_strings_note.txt through note42. Sizes are the gap to the next function. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 040553f0, 304 bytes, 2 strings: "%s%s = %s(", "( log2( abs( %s ) ) ) );\n".
+- 04055520, 304 bytes, 2 strings: "%s%s = %s(", "( inversesqrt( %s ) ) );\n".
+- 04055650, 304 bytes, 2 strings: "%s%s = %s(", "( 1.0 / %s ) );\n".
+- 040560f0, 304 bytes, 3 strings: "%s %c %s);\n", "%s%s = %s(", "Unhandled opcode in convert_math!".
+- 0409a0a0, 304 bytes, 3 strings: "    other surfaces (%u): %u bytes in memory", "    textures (%u): %u bytes in memory, %u bytes in OpenGL", "%s pool".
+- 040fed70, 304 bytes. One string: "DirectSoundBuffer8Imp".
+- 040ffdf0, 304 bytes. One string: "DirectSoundCaptureBuffer8 doesn't support effects on buffer presently. Add it?".
+- 04118780, 304 bytes, 3 strings: "RegEnumKeyExW wants key class name. Not supported by eON at the moment.", "RegEnumKeyExW wants last time the key was written.", "Warning! Non-zero lpReserved given to RegEnumKeyExW. Some problem?".
+- 04123510, 304 bytes. One string: "Width < 0 in bitmap!".
+- 04182c80, 304 bytes, 2 strings: "Desktop HWND supplied in SendMessageA().", "HWND_BROADCAST not supported in SendMessageA(). Add it.".

@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries with no string reference
+
+Continued from decomp/largest_fun_calls_note90.txt. Size is the gap to the next function; instruction mix is the top 5 Ghidra mnemonics in the function body. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 040e46b0, 288 bytes. 3 outgoing calls: _Rb_tree_insert_and_rebalance x1, memcmp x1, operator.new x1. Instruction mix: MOV 59, POP 4, PUSH 4, JZ 3, ADD 3.
+- 040c54e0, 288 bytes. 5 outgoing calls: _Rb_tree_increment x2, FUN_040c6dd0 x1, _Rb_tree_rebalance_for_erase x1, operator.delete x1. Instruction mix: MOV 26, CMP 13, JNZ 11, JZ 8, TEST 6.
+- 040c53c0, 288 bytes. 5 outgoing calls: _Rb_tree_increment x2, FUN_040c6dd0 x1, _Rb_tree_rebalance_for_erase x1, operator.delete x1. Instruction mix: MOV 23, CMP 19, JZ 10, JNZ 9, CALL 5.
+- 040bc490, 288 bytes. No outgoing calls. Instruction mix: MOV 43, POP 12, CMP 7, TEST 7, ADD 5.
+- 040b5f30, 288 bytes. 4 outgoing calls: direct3ddevice9imp_040803c0 x1, direct3ddevice9imp_04080490 x1, memcmp x1, memcpy x1. Instruction mix: MOV 37, JZ 7, ADD 6, JMP 6, TEST 6.
+- 040a62f0, 288 bytes. 4 outgoing calls: direct3ddevice9imp_040803c0 x1, direct3ddevice9imp_04080490 x1, memcmp x1, memcpy x1. Instruction mix: MOV 37, JZ 7, ADD 6, JMP 6, TEST 6.
+- 04087090, 288 bytes. No outgoing calls. Instruction mix: MOV 21, CVTSI2SS 8, MOVSS 7, MULSS 6, MOVZX 4.
+- 04085a40, 288 bytes. 6 outgoing calls: strlen x6. Instruction mix: MOV 28, CALL 6, POP 6, ADD 5, JZ 5.
+- 0404ebb0, 288 bytes. 6 outgoing calls: eON_WideCharToMultiByte x2, malloc x2, free x1, strcpy x1. Instruction mix: MOV 34, CALL 6, SUB 4, POP 4, PUSH 4.
+- 0401a590, 288 bytes. 2 outgoing calls: operator.delete x2. Instruction mix: MOV 35, JZ 9, POP 8, TEST 8, ADD 7.

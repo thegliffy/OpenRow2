@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries that reference a string
+
+Skipped every address already listed in decomp/largest_fun_strings_note.txt through note78. Sizes are the gap to the next function. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 042d2890, 96 bytes, 3 strings. Includes: "bool google_breakpad::UntypedMDRVA::Allocate(size_t)", "size_ == 0", "src/client/minidump_file_writer.cc".
+- 0401edf0, 80 bytes. One string: "Pressed key (%u) doesn't have Windows scancode assigned! Check it?".
+- 04026c30, 80 bytes. One string: "Saints Row 2".
+- 04027110, 80 bytes. One string: "Saints Row 2".
+- 04067200, 80 bytes. One string: "Direct3D9Imp".
+- 040bc200, 80 bytes. One string: "Valid region: %u-%u".
+- 040f36e0, 80 bytes. One string: "DirectInput 7/8 gamepad unacquired.".
+- 040f3730, 80 bytes. One string: "DirectInput 7/8 gamepad acquired.".
+- 040f55b0, 80 bytes. One string: "DirectInput 7/8 keyboard unacquired.".
+- 04100070, 80 bytes. One string: "DirectSoundCaptureBuffer8Imp".

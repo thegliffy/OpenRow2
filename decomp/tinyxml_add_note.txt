@@ -1,0 +1,8 @@
+TiXmlAttributeSet::Add pair
+
+041c2150 and 041c5ba0 both reference the assert "!Find( addMe->Name() )" and the signature string "void TiXmlAttributeSet::Add(TiXmlAttribute*)" at tinyxml.cpp line 0x5ef. They are not copies. The checker sees one shared signature, so neither was added to the name batch.
+
+- 041c5ba0 (128 bytes) is the list insert. It walks the circular attribute list, compares each existing name with the incoming attribute name, fires the assert on a duplicate, then links that existing node in.
+- 041c2150 (240 bytes) allocates a 0x24-byte object, plants the vtable at PTR_FUN_043629f8, walks the list comparing names with the fixed string at DAT_0451eeec, then copies the caller's char* into the new node with FUN_041c10b0. It builds a new attribute instead of linking one that already exists.
+
+121 of the 128 bytes they have in common still differ, and the sizes are not the same.

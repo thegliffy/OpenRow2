@@ -14,3 +14,7 @@ vendor/
 agent/proposals/
 agent/done.tsv
 __pycache__/
+
+# Scratch
+.hermes_top40.json
+agent/*.log

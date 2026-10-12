@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries with no string reference
+
+Continued from decomp/largest_fun_calls_note219.txt. Size is the declared gap to the next function (Ghidra body size in parentheses where it differs); instruction mix is the top 5 Ghidra mnemonics in the function body. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 0406c260, 96 bytes (body 87). 2 outgoing calls: direct3ddevice9imp_040803c0 x1, direct3ddevice9imp_04080490 x1. Instruction mix: MOV 18, RET 2, POP 2, JZ 2, CALL 2.
+- 0406d620, 96 bytes (body 85). 1 outgoing call: FUN_040c6ee0 x1. Instruction mix: MOV 15, CALL 2, RET 1, POP 1, JZ 1.
+- 0406ec60, 96 bytes (body 93). 1 outgoing call: operator.delete x1. Instruction mix: MOV 7, POP 4, SUB 4, PUSH 4, LEA 3.
+- 040805e0, 96 bytes (body 84). 2 outgoing calls: Direct3DSurface9Imp::TransferDataFromPBO x1, FUN_040a5960 x1. Instruction mix: MOV 11, POP 3, ADD 3, TEST 3, PUSH 3.
+- 04080640, 96 bytes (body 92). 3 outgoing calls: FUN_041466d0 x1, FUN_04146720 x1, FUN_0415d620 x1. Instruction mix: MOV 14, SUB 4, CALL 3, PUSH 2, RET 1.
+- 04080bd0, 96 bytes (body 92). 3 outgoing calls: operator.delete x2, Direct3DBaseTexture9Imp::EvictManagedResourcesGL x1. Instruction mix: MOV 13, CALL 4, POP 3, PUSH 3, JZ 2.
+- 04082420, 96 bytes (body 84). 1 outgoing call: Direct3DSurface9Imp::TransferBetweenOpenGLTexturesInDifferentSurfaces x1. Instruction mix: MOV 16, CALL 3, SUB 3, ADD 2, LEA 2.
+- 040a3b40, 96 bytes (body 85). 1 outgoing call: direct3ddevice9imp_0409a7c0 x1. Instruction mix: MOV 14, RET 2, JZ 2, CALL 2, SUB 2.
+- 040a3c80, 96 bytes (body 88). 2 outgoing calls: direct3ddevice9imp_040803c0 x1, direct3ddevice9imp_04080490 x1. Instruction mix: MOV 17, POP 3, ADD 3, PUSH 3, JZ 2.
+- 040a4e20, 96 bytes (body 85). 1 outgoing call: direct3ddevice9imp_0409a7c0 x1. Instruction mix: MOV 14, RET 2, JZ 2, CALL 2, SUB 2.

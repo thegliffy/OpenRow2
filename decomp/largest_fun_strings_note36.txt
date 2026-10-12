@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries that reference a string
+
+Skipped the 340 already listed in decomp/largest_fun_strings_note.txt through note34. Sizes are the gap to the next function. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 042c2310, 384 bytes, 4 strings: "ICC profile length invalid (not a multiple of 4)", "ICC profile too short", "No profile for iCCP chunk", "iCCP: invalid keyword".
+- 042c2950, 384 bytes, 3 strings: "Ignoring attempt to write 16-bit bKGD chunk when bit_depth is 8", "Ignoring attempt to write bKGD chunk out-of-range for bit_depth", "Invalid background palette index".
+- 04054a40, 368 bytes, 2 strings: "%s%s = %s(", "(dot( %s, %s ) + %s ));\n".
+- 04054bb0, 368 bytes, 4 strings: "%s%s = %s(", "cos(%s));\n", "sin(%s));\n", "vec2(cos(%s),sin(%s)));\n".
+- 0405cf60, 368 bytes, 14 strings. Includes: "%s: !unhandled!", "%s: D3DBLEND_BLENDFACTOR", "%s: D3DBLEND_BOTHINVSRCALPHA", "%s: D3DBLEND_BOTHSRCALPHA", "%s: D3DBLEND_DESTCOLOR".
+- 040ad5d0, 368 bytes, 1 string: "Direct3DSurface9Imp".
+- 040f6bb0, 368 bytes, 15 strings. Includes: "DIPROP_APPDATA", "DIPROP_AUTOCENTER", "DIPROP_CALIBRATION", "DIPROP_CALIBRATIONMODE", "DIPROP_CPOINTS".
+- 041468f0, 368 bytes, 1 string: "CreateMutexA() - specified lpMutexAttributes, not handled!".
+- 0417d3f0, 368 bytes, 1 string: "eON_GetUserObjectInformationW - unhandled flag %d".
+- 04195ea0, 368 bytes, 1 string: "SOCKETS: gethostbyaddr() - unknown error - %d.".

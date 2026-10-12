@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries with no string reference
+
+Continued from decomp/largest_fun_calls_note.txt. Size is the gap to the next function. Counts are Ghidra instructions in the function body. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 04036430, 17360 bytes. No outgoing calls. Instruction mix: MOV 1856, XOR 1058, MOVZX 677, SHR 520, AND 103. This is the leaf block routine already seen on the AES::Decrypt path.
+- 04031630, 17296 bytes. No outgoing calls. Instruction mix: MOV 1712, XOR 1057, MOVZX 555, SHR 520, AND 225. Same shape as 04036430.
+- 042550e0, 14384 bytes. No outgoing calls. Instruction mix: ADC 1568, MOV 931, ADD 785, MUL 784, LEA 12.
+- 0428a770, 10944 bytes. No outgoing calls. Instruction mix: ADC 1186, MOV 1104, ADD 597, MUL 528, XOR 121.
+- 04165920, 10736 bytes. 44 outgoing calls. Callees include FUN_041633b0 x8, __udivdi3 x8, __umoddi3 x8, FUN_041650f0 x7, FUN_04164190 x5. Instruction mix: MOV 707, JMP 301, XOR 222, CMP 120, MOVSD 106.
+- 04252870, 10352 bytes. No outgoing calls. Instruction mix: ADC 1152, MOV 709, ADD 577, MUL 576, TEST 13.
+- 04288550, 8736 bytes. No outgoing calls. Instruction mix: ADC 926, MOV 903, ADD 467, MUL 406, XOR 105.
+- 040630f0, 8512 bytes. 14 outgoing calls: bzero x13, FUN_04065230 x1. Instruction mix: MOV 852, LEA 18, CALL 14, ADD 3, POP 2.
+- 042ce600, 8464 bytes. 104 outgoing calls. Callees include google_breakpad::MinidumpFileWriter::Copy x14, google_breakpad::UntypedMDRVA::Allocate x13, FUN_042d1a10 x11, FUN_042d46e0 x8. Instruction mix: MOV 735, PUSH 317, ADD 125, CALL 113, LEA 113.
+- 0423a180, 7520 bytes. No outgoing calls. Instruction mix: MOV 1061, XOR 409, ROR 408, ADD 333, AND 192.

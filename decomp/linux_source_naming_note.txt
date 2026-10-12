@@ -1,0 +1,14 @@
+Linux source-path naming gap
+
+seeds/linux_source_refs.tsv has 127 paths. 125 of them point only at functions that already have names. Two paths still point at FUN_ entries, all TinyXML:
+
+- tinyxml.cpp: 041c34b0, 041c3320, 041c3380
+- tinyxml.h: 041c7910, 041c73a0
+
+The checker queue is empty. None of these five pass.
+
+041c34b0 has one signature, TiXmlAttributeSet::Remove, but that signature is also on 041c5c20. The checker requires the signature to belong to one function.
+041c3320 and 041c3380 are the two IterateChildren overloads. The checker strips the parameter list, so both collapse to TiXmlNode::IterateChildren and the name is shared.
+041c73a0 and 041c7910 are in seeds/ambiguous_signatures.tsv (TiXmlBase::GetChar and TiXmlBase::StringEqual). Their split check found only internal jumps, so they stay unnamed.
+
+24 other FUN_ entries have exactly one assert signature that is shared with another function. They are listed in seeds/shared_signature_funs.tsv. They also fail the unique-signature rule, so they were not added to tools/names_batch_llm.tsv.

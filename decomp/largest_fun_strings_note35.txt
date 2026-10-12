@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries that reference a string
+
+Skipped the 340 already listed in decomp/largest_fun_strings_note.txt through note34. Sizes are the gap to the next function. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 040e5a00, 384 bytes, 1 string: "PERFORMANCE WARNING: Implicit sync due to enlarging shader vector.".
+- 040e99c0, 384 bytes, 2 strings: "Opening of precompiled shader file to save emulated vertex program failed! Disabling precompiled shader usage.", "Saving of emulated vertex program failed! Deleting precompiled shader file and disabling precompiled shader usage.".
+- 04121e40, 384 bytes, 1 string: "ExtTextOutW - some options unimplemented!".
+- 04176610, 384 bytes, 2 strings: "Game asking for virtual key %#x, for which no SDL counterpart exists. Returning 'not pressed'.", "SDL returned too small keyboard for the value of the key we want to be in it. Internal SDL problem, but returning 'not pressed'.".
+- 0418f220, 384 bytes, 11 strings. Includes: "	avg bytes per sec: %u", "	bits per sample: %u", "	block align: %u", "	channel mask: %u", "	channels: %u".
+- 04198b80, 384 bytes, 16 strings. Includes: "glGetImageHandleARB", "glGetTextureHandleARB", "glGetTextureSamplerHandleARB", "glGetVertexAttribLui64vARB", "glIsImageHandleResidentARB".
+- 0419c160, 384 bytes, 16 strings. Includes: "glWindowPos2dARB", "glWindowPos2dvARB", "glWindowPos2fARB", "glWindowPos2fvARB", "glWindowPos2iARB".
+- 0424c090, 384 bytes, 1 string: "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz+/".
+- 042a67f0, 384 bytes, 2 strings: "ICC profile tag outside profile", "ICC profile tag start not a multiple of 4".
+- 042b8e70, 384 bytes, 3 strings: "Insufficient memory to process text chunk", "missing IHDR", "no space in chunk cache".

@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries with no string reference
+
+Continued from decomp/largest_fun_calls_note227.txt. Size is the declared gap to the next function (Ghidra body size in parentheses where it differs); instruction mix is the top 5 Ghidra mnemonics in the function body. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 0415dc00, 96 bytes (body 82). No outgoing calls. Instruction mix: MOV 17, ADC 2, ADD 2, IMUL 2, RET 1.
+- 0415dd70, 96 bytes (body 89). No outgoing calls. Instruction mix: MOV 18, SAR 3, ADC 2, ADD 2, SUB 2.
+- 0415ddd0, 96 bytes (body 90). 1 outgoing call: gettimeofday x1. Instruction mix: MOV 13, ADD 3, POP 2, ADC 2, IMUL 2.
+- 0415eb10, 96 bytes (body 90). 2 outgoing calls: FUN_04025ca0 x1, FUN_0415cec0 x1. Instruction mix: MOV 14, LEA 3, RET 2, POP 2, CALL 2.
+- 0415eb70, 96 bytes (body 90). 2 outgoing calls: FUN_04025c90 x1, FUN_0415cec0 x1. Instruction mix: MOV 14, LEA 3, RET 2, POP 2, CALL 2.
+- 0415f6f0, 96 bytes (body 88). 2 outgoing calls: EnterCriticalSection x1, FUN_0415c900 x1. Instruction mix: MOV 12, JZ 2, CALL 2, SUB 2, TEST 2.
+- 0415f750, 96 bytes (body 94). 2 outgoing calls: FUN_0415c900 x1, LeaveCriticalSection x1. Instruction mix: MOV 13, LEA 3, RET 2, POP 2, CALL 2.
+- 04161ad0, 96 bytes (body 84). 1 outgoing call: FUN_041617f0 x1. Instruction mix: PUSH 6, POP 5, MOV 5, LEA 4, XOR 3.
+- 04161c20, 96 bytes (body 87). 2 outgoing calls: FUN_0413a490 x1, HeapAlloc x1. Instruction mix: MOV 11, CALL 2, SUB 2, PUSH 2, RET 1.
+- 04162ed0, 96 bytes (body 89). 1 outgoing call: FUN_0415e8e0 x1. Instruction mix: MOV 13, TEST 4, JZ 3, SUB 2, LEA 2.

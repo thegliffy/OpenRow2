@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries that reference a string (note 15).
+
+Skipped the 140 already listed in decomp/largest_fun_strings_note.txt through note14. Sizes are the gap to the next function. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 042adcc0, 816 bytes. One string: "unknown interlace type".
+- 042c12c0, 816 bytes, 4 strings: " using zstream", "1.2.3.4", "deflateEnd failed (ignored)", "in use by IDAT".
+- 04194f00, 800 bytes. One string: "getsockopt( s = %d, level = %d, optname = %d ) returns -1, errno is %d".
+- 042a6970, 800 bytes, 16 strings. Includes: "Image height exceeds user limit in IHDR", "Image height is zero in IHDR", "Image width exceeds user limit in IHDR", "Image width is too large for this architecture", "Image width is zero in IHDR".
+- 042d3d30, 800 bytes. One string: ".note.gnu.build-id".
+- 04058cf0, 784 bytes, 2 strings: "Unrecognized pixel shader version: %#x", "Unrecognized vertex shader version: %#x".
+- 0405c930, 784 bytes, 7 strings. Includes: "%s = 0.0;\\n", "eON_VaryingFog", "gl_ClipDistance[%d] = dot( ClipPlanes[%d], gl_Position );\\n", "gl_FogFragCoord", "gl_Position.xy += gl_Position.ww * PositionFix.zw;\\n".
+- 0408a650, 784 bytes, 20 strings. Includes: "(error)", "GTRACE - SetTextureStageState: in stage %u setting ALPHAARG0 to %s", "GTRACE - SetTextureStageState: in stage %u setting ALPHAARG1 to %s", "GTRACE - SetTextureStageState: in stage %u setting ALPHAARG2 to %s", "GTRACE - SetTextureStageState: in stage %u setting ALPHAOP to %s".
+- 0415a5d0, 784 bytes, 2 strings: "getUserAndSystemTimes() not implemented on Linux for threads other than calling one!", "getrusage( RUSAGE_THREAD ) failed! errno = %u ( %#x )".
+- 04172530, 784 bytes, 5 strings: "Hardware event: uMsg = %u, wParamL = %u, wParamH = %u", "Keyboard event: wVk = %u, wScan = %u, dwFlags = %#x, time = %u, dwExtraInfo = %zu", "Make sure that disabling screensaver by simulating non-move mouse event from time to time works. This error will be reported only once per run.", "Mouse event: dx = %d, dy = %d, mouseData = %u, dwFlags = %#x, dwExtraInfo = %zu", "eON_SendInput returns events inserted into queue: %u".

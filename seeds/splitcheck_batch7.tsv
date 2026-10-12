@@ -1,0 +1,538 @@
+entry	boundary	sig	ref_type	ref_source	ref_source_function
+04072ae0	d3d9device_CreateVertexDeclaration	04072afc	NONE		
+04072ae0	d3d9device_CreateVertexDeclaration	04072b09	UNCONDITIONAL_JUMP	04072ca1	d3d9device_CreateVertexDeclaration
+04072ae0	d3d9device_CreateVertexDeclaration	04072b17	NONE		
+04072ae0	d3d9device_CreateVertexDeclaration	04072b25	DATA	044059aa	<none>
+04072ae0	d3d9device_CreateVertexDeclaration	04072b25	UNCONDITIONAL_JUMP	04072c44	d3d9device_CreateVertexDeclaration
+04072ae0	d3d9device_CreateVertexDeclaration	04072b2a	NONE		
+04072ae0	d3d9device_CreateVertexDeclaration	04072b30	CONDITIONAL_JUMP	04072c5d	d3d9device_CreateVertexDeclaration
+04072ae0	d3d9device_CreateVertexDeclaration	04072b30	UNCONDITIONAL_JUMP	04072c87	d3d9device_CreateVertexDeclaration
+04072ae0	d3d9device_CreateVertexDeclaration	04072b37	CONDITIONAL_JUMP	04072afa	d3d9device_CreateVertexDeclaration
+04072ae0	d3d9device_CreateVertexDeclaration	04072b3e	DATA	044059ae	<none>
+04072ae0	d3d9device_CreateVertexDeclaration	04072b43	NONE		
+04072ae0	d3d9device_CreateVertexDeclaration	04072b55	DATA	044059b3	<none>
+04072ae0	d3d9device_CreateVertexDeclaration	04072b5a	NONE		
+04072ae0	d3d9device_CreateVertexDeclaration	04072b6b	DATA	044059b8	<none>
+04072ae0	d3d9device_CreateVertexDeclaration	04072b70	NONE		
+04072ae0	d3d9device_CreateVertexDeclaration	04072b83	NONE		
+04072ae0	d3d9device_CreateVertexDeclaration	04072b8a	NONE		
+04072ae0	d3d9device_CreateVertexDeclaration	04072bae	CONDITIONAL_JUMP	04072b88	d3d9device_CreateVertexDeclaration
+04072ae0	d3d9device_CreateVertexDeclaration	04072bb5	NONE		
+04072ae0	d3d9device_CreateVertexDeclaration	04072bd9	CONDITIONAL_JUMP	04072bb3	d3d9device_CreateVertexDeclaration
+04072ae0	d3d9device_CreateVertexDeclaration	04072c05	NONE		
+04072ae0	d3d9device_CreateVertexDeclaration	04072c0b	DATA	044059be	<none>
+04072ae0	d3d9device_CreateVertexDeclaration	04072c10	NONE		
+04072ae0	d3d9device_CreateVertexDeclaration	04072c20	CONDITIONAL_JUMP	04072b1f	d3d9device_CreateVertexDeclaration
+04072ae0	d3d9device_CreateVertexDeclaration	04072c44	NONE		
+04072ae0	d3d9device_CreateVertexDeclaration	04072c50	CONDITIONAL_JUMP	04072b11	d3d9device_CreateVertexDeclaration
+04072ae0	d3d9device_CreateVertexDeclaration	04072c5b	NONE		
+04072ae0	d3d9device_CreateVertexDeclaration	04072c63	NONE		
+04072ae0	d3d9device_CreateVertexDeclaration	04072c87	NONE		
+04072ae0	d3d9device_CreateVertexDeclaration	04072c90	CONDITIONAL_JUMP	04072b03	d3d9device_CreateVertexDeclaration
+04072ae0	d3d9device_CreateVertexDeclaration	04072c9e	NONE		
+04075ca0	Direct3DDevice9Imp::ColorFill	04075cba	NONE		
+04075ca0	Direct3DDevice9Imp::ColorFill	04075cca	NONE		
+04075ca0	Direct3DDevice9Imp::ColorFill	04075cd7	UNCONDITIONAL_JUMP	04075de1	Direct3DDevice9Imp::ColorFill
+04075ca0	Direct3DDevice9Imp::ColorFill	04075ce5	NONE		
+04075ca0	Direct3DDevice9Imp::ColorFill	04075cef	DATA	04405b4f	<none>
+04075ca0	Direct3DDevice9Imp::ColorFill	04075cef	UNCONDITIONAL_JUMP	04075d7c	Direct3DDevice9Imp::ColorFill
+04075ca0	Direct3DDevice9Imp::ColorFill	04075cf4	NONE		
+04075ca0	Direct3DDevice9Imp::ColorFill	04075cfa	CONDITIONAL_JUMP	04075d99	Direct3DDevice9Imp::ColorFill
+04075ca0	Direct3DDevice9Imp::ColorFill	04075cfa	UNCONDITIONAL_JUMP	04075dc3	Direct3DDevice9Imp::ColorFill
+04075ca0	Direct3DDevice9Imp::ColorFill	04075d01	CONDITIONAL_JUMP	04075cc8	Direct3DDevice9Imp::ColorFill
+04075ca0	Direct3DDevice9Imp::ColorFill	04075d0d	NONE		
+04075ca0	Direct3DDevice9Imp::ColorFill	04075d13	DATA	04405b53	<none>
+04075ca0	Direct3DDevice9Imp::ColorFill	04075d18	NONE		
+04075ca0	Direct3DDevice9Imp::ColorFill	04075d20	CONDITIONAL_JUMP	04075dfa	Direct3DDevice9Imp::ColorFill
+04075ca0	Direct3DDevice9Imp::ColorFill	04075d34	NONE		
+04075ca0	Direct3DDevice9Imp::ColorFill	04075d40	UNCONDITIONAL_JUMP	0407618a	Direct3DDevice9Imp::ColorFill
+04075ca0	Direct3DDevice9Imp::ColorFill	04075d40	CONDITIONAL_JUMP	04075d0b	Direct3DDevice9Imp::ColorFill
+04075ca0	Direct3DDevice9Imp::ColorFill	04075d46	DATA	04405b58	<none>
+04075ca0	Direct3DDevice9Imp::ColorFill	04075d4b	UNCONDITIONAL_JUMP	04076495	Direct3DDevice9Imp::ColorFill
+04075ca0	Direct3DDevice9Imp::ColorFill	04075d58	CONDITIONAL_JUMP	04075ced	Direct3DDevice9Imp::ColorFill
+04075ca0	Direct3DDevice9Imp::ColorFill	04075d7c	NONE		
+04075ca0	Direct3DDevice9Imp::ColorFill	04075d88	CONDITIONAL_JUMP	04075cdf	Direct3DDevice9Imp::ColorFill
+04075ca0	Direct3DDevice9Imp::ColorFill	04075d96	NONE		
+04075ca0	Direct3DDevice9Imp::ColorFill	04075d9f	NONE		
+04075ca0	Direct3DDevice9Imp::ColorFill	04075dc3	NONE		
+04075ca0	Direct3DDevice9Imp::ColorFill	04075dd0	CONDITIONAL_JUMP	04075cd1	Direct3DDevice9Imp::ColorFill
+04075ca0	Direct3DDevice9Imp::ColorFill	04075dde	NONE		
+04075ca0	Direct3DDevice9Imp::ColorFill	04075df0	CONDITIONAL_JUMP	04075d1a	Direct3DDevice9Imp::ColorFill
+04075ca0	Direct3DDevice9Imp::ColorFill	04075df3	DATA	04405b5e	<none>
+04075ca0	Direct3DDevice9Imp::ColorFill	04075df8	NONE		
+04075ca0	Direct3DDevice9Imp::ColorFill	04075e00	NONE		
+04075ca0	Direct3DDevice9Imp::ColorFill	04075e3d	NONE		
+04075ca0	Direct3DDevice9Imp::ColorFill	04075e45	UNCONDITIONAL_JUMP	040761e4	Direct3DDevice9Imp::ColorFill
+04075ca0	Direct3DDevice9Imp::ColorFill	04075e5f	NONE		
+04075ca0	Direct3DDevice9Imp::ColorFill	04075e67	UNCONDITIONAL_JUMP	040761b4	Direct3DDevice9Imp::ColorFill
+04075ca0	Direct3DDevice9Imp::ColorFill	04075e81	NONE		
+04075ca0	Direct3DDevice9Imp::ColorFill	04075e89	UNCONDITIONAL_JUMP	04076244	Direct3DDevice9Imp::ColorFill
+04075ca0	Direct3DDevice9Imp::ColorFill	04075ea3	NONE		
+04075ca0	Direct3DDevice9Imp::ColorFill	04075eab	UNCONDITIONAL_JUMP	04076214	Direct3DDevice9Imp::ColorFill
+04075ca0	Direct3DDevice9Imp::ColorFill	04075ebd	NONE		
+04075ca0	Direct3DDevice9Imp::ColorFill	04075ec5	UNCONDITIONAL_JUMP	04076274	Direct3DDevice9Imp::ColorFill
+04075ca0	Direct3DDevice9Imp::ColorFill	04075ed7	NONE		
+04075ca0	Direct3DDevice9Imp::ColorFill	04075ee9	NONE		
+04075ca0	Direct3DDevice9Imp::ColorFill	04075eee	NONE		
+04075ca0	Direct3DDevice9Imp::ColorFill	04075f05	NONE		
+04075ca0	Direct3DDevice9Imp::ColorFill	04075f0d	CONDITIONAL_JUMP	04075eec	Direct3DDevice9Imp::ColorFill
+04075ca0	Direct3DDevice9Imp::ColorFill	04075f0d	UNCONDITIONAL_JUMP	04076484	Direct3DDevice9Imp::ColorFill
+04075ca0	Direct3DDevice9Imp::ColorFill	04075f14	NONE		
+04075ca0	Direct3DDevice9Imp::ColorFill	04075f2f	NONE		
+04075ca0	Direct3DDevice9Imp::ColorFill	04075f37	CONDITIONAL_JUMP	04075f12	Direct3DDevice9Imp::ColorFill
+04075ca0	Direct3DDevice9Imp::ColorFill	04075f37	UNCONDITIONAL_JUMP	04076454	Direct3DDevice9Imp::ColorFill
+04075ca0	Direct3DDevice9Imp::ColorFill	04075f3e	NONE		
+04075ca0	Direct3DDevice9Imp::ColorFill	04075f59	NONE		
+04075ca0	Direct3DDevice9Imp::ColorFill	04075f61	CONDITIONAL_JUMP	04075f3c	Direct3DDevice9Imp::ColorFill
+04075ca0	Direct3DDevice9Imp::ColorFill	04075f61	UNCONDITIONAL_JUMP	04076424	Direct3DDevice9Imp::ColorFill
+04075ca0	Direct3DDevice9Imp::ColorFill	04075f68	NONE		
+04075ca0	Direct3DDevice9Imp::ColorFill	04075f83	NONE		
+04075ca0	Direct3DDevice9Imp::ColorFill	04075f8b	CONDITIONAL_JUMP	04075f66	Direct3DDevice9Imp::ColorFill
+04075ca0	Direct3DDevice9Imp::ColorFill	04075f8b	UNCONDITIONAL_JUMP	040763f4	Direct3DDevice9Imp::ColorFill
+04075ca0	Direct3DDevice9Imp::ColorFill	04075f92	NONE		
+04075ca0	Direct3DDevice9Imp::ColorFill	04075fa5	NONE		
+04075ca0	Direct3DDevice9Imp::ColorFill	04075fad	CONDITIONAL_JUMP	04075f90	Direct3DDevice9Imp::ColorFill
+04075ca0	Direct3DDevice9Imp::ColorFill	04075fad	UNCONDITIONAL_JUMP	040763c4	Direct3DDevice9Imp::ColorFill
+04075ca0	Direct3DDevice9Imp::ColorFill	04075fb9	NONE		
+04075ca0	Direct3DDevice9Imp::ColorFill	04075fc8	CONDITIONAL_JUMP	04075fb7	Direct3DDevice9Imp::ColorFill
+04075ca0	Direct3DDevice9Imp::ColorFill	04075fc8	CONDITIONAL_JUMP	04076285	Direct3DDevice9Imp::ColorFill
+04075ca0	Direct3DDevice9Imp::ColorFill	04075fc8	CONDITIONAL_JUMP	04076294	Direct3DDevice9Imp::ColorFill
+04075ca0	Direct3DDevice9Imp::ColorFill	04075fc8	UNCONDITIONAL_JUMP	040762a8	Direct3DDevice9Imp::ColorFill
+04075ca0	Direct3DDevice9Imp::ColorFill	04075fda	NONE		
+04075ca0	Direct3DDevice9Imp::ColorFill	04075fec	NONE		
+04075ca0	Direct3DDevice9Imp::ColorFill	04076037	NONE		
+04075ca0	Direct3DDevice9Imp::ColorFill	04076040	NONE		
+04075ca0	Direct3DDevice9Imp::ColorFill	0407604f	NONE		
+04075ca0	Direct3DDevice9Imp::ColorFill	04076059	CONDITIONAL_JUMP	0407603e	Direct3DDevice9Imp::ColorFill
+04075ca0	Direct3DDevice9Imp::ColorFill	04076059	UNCONDITIONAL_JUMP	04076394	Direct3DDevice9Imp::ColorFill
+04075ca0	Direct3DDevice9Imp::ColorFill	04076060	NONE		
+04075ca0	Direct3DDevice9Imp::ColorFill	04076077	NONE		
+04075ca0	Direct3DDevice9Imp::ColorFill	04076081	CONDITIONAL_JUMP	0407605e	Direct3DDevice9Imp::ColorFill
+04075ca0	Direct3DDevice9Imp::ColorFill	04076081	UNCONDITIONAL_JUMP	04076364	Direct3DDevice9Imp::ColorFill
+04075ca0	Direct3DDevice9Imp::ColorFill	04076088	NONE		
+04075ca0	Direct3DDevice9Imp::ColorFill	0407609f	NONE		
+04075ca0	Direct3DDevice9Imp::ColorFill	040760a9	CONDITIONAL_JUMP	04076086	Direct3DDevice9Imp::ColorFill
+04075ca0	Direct3DDevice9Imp::ColorFill	040760a9	UNCONDITIONAL_JUMP	04076334	Direct3DDevice9Imp::ColorFill
+04075ca0	Direct3DDevice9Imp::ColorFill	040760b0	NONE		
+04075ca0	Direct3DDevice9Imp::ColorFill	040760c7	NONE		
+04075ca0	Direct3DDevice9Imp::ColorFill	040760d1	CONDITIONAL_JUMP	040760ae	Direct3DDevice9Imp::ColorFill
+04075ca0	Direct3DDevice9Imp::ColorFill	040760d1	UNCONDITIONAL_JUMP	04076304	Direct3DDevice9Imp::ColorFill
+04075ca0	Direct3DDevice9Imp::ColorFill	040760d8	NONE		
+04075ca0	Direct3DDevice9Imp::ColorFill	040760ef	NONE		
+04075ca0	Direct3DDevice9Imp::ColorFill	040760f9	CONDITIONAL_JUMP	040760d6	Direct3DDevice9Imp::ColorFill
+04075ca0	Direct3DDevice9Imp::ColorFill	040760f9	UNCONDITIONAL_JUMP	040762d4	Direct3DDevice9Imp::ColorFill
+04075ca0	Direct3DDevice9Imp::ColorFill	04076100	NONE		
+04075ca0	Direct3DDevice9Imp::ColorFill	04076108	NONE		
+04075ca0	Direct3DDevice9Imp::ColorFill	0407610b	CONDITIONAL_JUMP	040760fe	Direct3DDevice9Imp::ColorFill
+04075ca0	Direct3DDevice9Imp::ColorFill	04076112	NONE		
+04075ca0	Direct3DDevice9Imp::ColorFill	0407611d	NONE		
+04075ca0	Direct3DDevice9Imp::ColorFill	04076120	CONDITIONAL_JUMP	04076110	Direct3DDevice9Imp::ColorFill
+04075ca0	Direct3DDevice9Imp::ColorFill	04076127	NONE		
+04075ca0	Direct3DDevice9Imp::ColorFill	04076132	NONE		
+04075ca0	Direct3DDevice9Imp::ColorFill	04076135	CONDITIONAL_JUMP	04076125	Direct3DDevice9Imp::ColorFill
+04075ca0	Direct3DDevice9Imp::ColorFill	0407613c	NONE		
+04075ca0	Direct3DDevice9Imp::ColorFill	04076147	NONE		
+04075ca0	Direct3DDevice9Imp::ColorFill	0407614a	CONDITIONAL_JUMP	0407613a	Direct3DDevice9Imp::ColorFill
+04075ca0	Direct3DDevice9Imp::ColorFill	04076151	NONE		
+04075ca0	Direct3DDevice9Imp::ColorFill	04076159	NONE		
+04075ca0	Direct3DDevice9Imp::ColorFill	0407615c	CONDITIONAL_JUMP	0407614f	Direct3DDevice9Imp::ColorFill
+04075ca0	Direct3DDevice9Imp::ColorFill	0407616e	NONE		
+04075ca0	Direct3DDevice9Imp::ColorFill	04076180	NONE		
+04075ca0	Direct3DDevice9Imp::ColorFill	04076190	CONDITIONAL_JUMP	04075e61	Direct3DDevice9Imp::ColorFill
+04075ca0	Direct3DDevice9Imp::ColorFill	040761b4	NONE		
+04075ca0	Direct3DDevice9Imp::ColorFill	040761c0	CONDITIONAL_JUMP	04075e3f	Direct3DDevice9Imp::ColorFill
+04075ca0	Direct3DDevice9Imp::ColorFill	040761e4	NONE		
+04075ca0	Direct3DDevice9Imp::ColorFill	040761f0	CONDITIONAL_JUMP	04075ea5	Direct3DDevice9Imp::ColorFill
+04075ca0	Direct3DDevice9Imp::ColorFill	04076214	NONE		
+04075ca0	Direct3DDevice9Imp::ColorFill	04076220	CONDITIONAL_JUMP	04075e83	Direct3DDevice9Imp::ColorFill
+04075ca0	Direct3DDevice9Imp::ColorFill	04076244	NONE		
+04075ca0	Direct3DDevice9Imp::ColorFill	04076250	CONDITIONAL_JUMP	04075ebf	Direct3DDevice9Imp::ColorFill
+04075ca0	Direct3DDevice9Imp::ColorFill	04076274	NONE		
+04075ca0	Direct3DDevice9Imp::ColorFill	04076280	CONDITIONAL_JUMP	04075fc2	Direct3DDevice9Imp::ColorFill
+04075ca0	Direct3DDevice9Imp::ColorFill	0407628b	NONE		
+04075ca0	Direct3DDevice9Imp::ColorFill	0407629a	NONE		
+04075ca0	Direct3DDevice9Imp::ColorFill	040762b0	CONDITIONAL_JUMP	040760f3	Direct3DDevice9Imp::ColorFill
+04075ca0	Direct3DDevice9Imp::ColorFill	040762d4	NONE		
+04075ca0	Direct3DDevice9Imp::ColorFill	040762e0	CONDITIONAL_JUMP	040760cb	Direct3DDevice9Imp::ColorFill
+04075ca0	Direct3DDevice9Imp::ColorFill	04076304	NONE		
+04075ca0	Direct3DDevice9Imp::ColorFill	04076310	CONDITIONAL_JUMP	040760a3	Direct3DDevice9Imp::ColorFill
+04075ca0	Direct3DDevice9Imp::ColorFill	04076334	NONE		
+04075ca0	Direct3DDevice9Imp::ColorFill	04076340	CONDITIONAL_JUMP	0407607b	Direct3DDevice9Imp::ColorFill
+04075ca0	Direct3DDevice9Imp::ColorFill	04076364	NONE		
+04075ca0	Direct3DDevice9Imp::ColorFill	04076370	CONDITIONAL_JUMP	04076053	Direct3DDevice9Imp::ColorFill
+04075ca0	Direct3DDevice9Imp::ColorFill	04076394	NONE		
+04075ca0	Direct3DDevice9Imp::ColorFill	040763a0	CONDITIONAL_JUMP	04075fa7	Direct3DDevice9Imp::ColorFill
+04075ca0	Direct3DDevice9Imp::ColorFill	040763c4	NONE		
+04075ca0	Direct3DDevice9Imp::ColorFill	040763d0	CONDITIONAL_JUMP	04075f85	Direct3DDevice9Imp::ColorFill
+04075ca0	Direct3DDevice9Imp::ColorFill	040763f4	NONE		
+04075ca0	Direct3DDevice9Imp::ColorFill	04076400	CONDITIONAL_JUMP	04075f5b	Direct3DDevice9Imp::ColorFill
+04075ca0	Direct3DDevice9Imp::ColorFill	04076424	NONE		
+04075ca0	Direct3DDevice9Imp::ColorFill	04076430	CONDITIONAL_JUMP	04075f31	Direct3DDevice9Imp::ColorFill
+04075ca0	Direct3DDevice9Imp::ColorFill	04076454	NONE		
+04075ca0	Direct3DDevice9Imp::ColorFill	04076460	CONDITIONAL_JUMP	04075f07	Direct3DDevice9Imp::ColorFill
+04075ca0	Direct3DDevice9Imp::ColorFill	04076484	NONE		
+04075ca0	Direct3DDevice9Imp::ColorFill	04076490	CONDITIONAL_JUMP	04075cb4	Direct3DDevice9Imp::ColorFill
+040777e0	Direct3DDevice9Imp::CreateRenderTarget	040777f6	NONE		
+040777e0	Direct3DDevice9Imp::CreateRenderTarget	04077805	DATA	04405c0b	<none>
+040777e0	Direct3DDevice9Imp::CreateRenderTarget	0407780a	CONDITIONAL_JUMP	040777f4	Direct3DDevice9Imp::CreateRenderTarget
+040777e0	Direct3DDevice9Imp::CreateRenderTarget	0407781a	NONE		
+040777e0	Direct3DDevice9Imp::CreateRenderTarget	04077827	UNCONDITIONAL_JUMP	04077a21	Direct3DDevice9Imp::CreateRenderTarget
+040777e0	Direct3DDevice9Imp::CreateRenderTarget	04077835	NONE		
+040777e0	Direct3DDevice9Imp::CreateRenderTarget	04077843	UNCONDITIONAL_JUMP	04077954	Direct3DDevice9Imp::CreateRenderTarget
+040777e0	Direct3DDevice9Imp::CreateRenderTarget	04077848	NONE		
+040777e0	Direct3DDevice9Imp::CreateRenderTarget	0407784e	CONDITIONAL_JUMP	040779e1	Direct3DDevice9Imp::CreateRenderTarget
+040777e0	Direct3DDevice9Imp::CreateRenderTarget	0407784e	UNCONDITIONAL_JUMP	04077a0b	Direct3DDevice9Imp::CreateRenderTarget
+040777e0	Direct3DDevice9Imp::CreateRenderTarget	04077855	CONDITIONAL_JUMP	04077818	Direct3DDevice9Imp::CreateRenderTarget
+040777e0	Direct3DDevice9Imp::CreateRenderTarget	04077867	NONE		
+040777e0	Direct3DDevice9Imp::CreateRenderTarget	0407786f	NONE		
+040777e0	Direct3DDevice9Imp::CreateRenderTarget	0407787a	NONE		
+040777e0	Direct3DDevice9Imp::CreateRenderTarget	040778c2	DATA	04405c0f	<none>
+040777e0	Direct3DDevice9Imp::CreateRenderTarget	040778c5	NONE		
+040777e0	Direct3DDevice9Imp::CreateRenderTarget	040778cd	NONE		
+040777e0	Direct3DDevice9Imp::CreateRenderTarget	040778e7	NONE		
+040777e0	Direct3DDevice9Imp::CreateRenderTarget	040778f2	UNCONDITIONAL_JUMP	04077a54	Direct3DDevice9Imp::CreateRenderTarget
+040777e0	Direct3DDevice9Imp::CreateRenderTarget	0407790a	NONE		
+040777e0	Direct3DDevice9Imp::CreateRenderTarget	0407790d	UNCONDITIONAL_JUMP	040779c3	Direct3DDevice9Imp::CreateRenderTarget
+040777e0	Direct3DDevice9Imp::CreateRenderTarget	04077917	UNCONDITIONAL_JUMP	04077a65	Direct3DDevice9Imp::CreateRenderTarget
+040777e0	Direct3DDevice9Imp::CreateRenderTarget	0407791d	DATA	04405c15	<none>
+040777e0	Direct3DDevice9Imp::CreateRenderTarget	04077922	NONE		
+040777e0	Direct3DDevice9Imp::CreateRenderTarget	04077930	CONDITIONAL_JUMP	0407783d	Direct3DDevice9Imp::CreateRenderTarget
+040777e0	Direct3DDevice9Imp::CreateRenderTarget	04077954	NONE		
+040777e0	Direct3DDevice9Imp::CreateRenderTarget	04077960	CONDITIONAL_JUMP	04077861	Direct3DDevice9Imp::CreateRenderTarget
+040777e0	Direct3DDevice9Imp::CreateRenderTarget	04077967	DATA	04405c1a	<none>
+040777e0	Direct3DDevice9Imp::CreateRenderTarget	0407796c	NONE		
+040777e0	Direct3DDevice9Imp::CreateRenderTarget	04077981	DATA	04405c20	<none>
+040777e0	Direct3DDevice9Imp::CreateRenderTarget	04077986	NONE		
+040777e0	Direct3DDevice9Imp::CreateRenderTarget	040779be	DATA	04405c26	<none>
+040777e0	Direct3DDevice9Imp::CreateRenderTarget	040779c3	NONE		
+040777e0	Direct3DDevice9Imp::CreateRenderTarget	040779d0	CONDITIONAL_JUMP	0407782f	Direct3DDevice9Imp::CreateRenderTarget
+040777e0	Direct3DDevice9Imp::CreateRenderTarget	040779d9	DATA	04405c2c	<none>
+040777e0	Direct3DDevice9Imp::CreateRenderTarget	040779de	NONE		
+040777e0	Direct3DDevice9Imp::CreateRenderTarget	040779e7	NONE		
+040777e0	Direct3DDevice9Imp::CreateRenderTarget	04077a0b	NONE		
+040777e0	Direct3DDevice9Imp::CreateRenderTarget	04077a10	CONDITIONAL_JUMP	04077821	Direct3DDevice9Imp::CreateRenderTarget
+040777e0	Direct3DDevice9Imp::CreateRenderTarget	04077a1e	NONE		
+040777e0	Direct3DDevice9Imp::CreateRenderTarget	04077a30	CONDITIONAL_JUMP	040778ec	Direct3DDevice9Imp::CreateRenderTarget
+040777e0	Direct3DDevice9Imp::CreateRenderTarget	04077a4f	DATA	04405c31	<none>
+040777e0	Direct3DDevice9Imp::CreateRenderTarget	04077a54	NONE		
+040777e0	Direct3DDevice9Imp::CreateRenderTarget	04077a60	CONDITIONAL_JUMP	040778c7	Direct3DDevice9Imp::CreateRenderTarget
+040777e0	Direct3DDevice9Imp::CreateRenderTarget	04077a60	CONDITIONAL_JUMP	04077869	Direct3DDevice9Imp::CreateRenderTarget
+040777e0	Direct3DDevice9Imp::CreateRenderTarget	04077a60	CONDITIONAL_JUMP	04077874	Direct3DDevice9Imp::CreateRenderTarget
+04078450	Direct3DDevice9Imp::GetBackBuffer	0407846a	UNCONDITIONAL_JUMP	04078544	Direct3DDevice9Imp::GetBackBuffer
+04078450	Direct3DDevice9Imp::GetBackBuffer	04078472	NONE		
+04078450	Direct3DDevice9Imp::GetBackBuffer	04078482	NONE		
+04078450	Direct3DDevice9Imp::GetBackBuffer	0407848f	UNCONDITIONAL_JUMP	040785a1	Direct3DDevice9Imp::GetBackBuffer
+04078450	Direct3DDevice9Imp::GetBackBuffer	0407849d	NONE		
+04078450	Direct3DDevice9Imp::GetBackBuffer	040784a7	DATA	04405d07	<none>
+04078450	Direct3DDevice9Imp::GetBackBuffer	040784a7	UNCONDITIONAL_JUMP	04078514	Direct3DDevice9Imp::GetBackBuffer
+04078450	Direct3DDevice9Imp::GetBackBuffer	040784ac	NONE		
+04078450	Direct3DDevice9Imp::GetBackBuffer	040784b2	CONDITIONAL_JUMP	04078561	Direct3DDevice9Imp::GetBackBuffer
+04078450	Direct3DDevice9Imp::GetBackBuffer	040784b2	UNCONDITIONAL_JUMP	0407858b	Direct3DDevice9Imp::GetBackBuffer
+04078450	Direct3DDevice9Imp::GetBackBuffer	040784b9	CONDITIONAL_JUMP	04078480	Direct3DDevice9Imp::GetBackBuffer
+04078450	Direct3DDevice9Imp::GetBackBuffer	040784c7	UNCONDITIONAL_JUMP	040785da	Direct3DDevice9Imp::GetBackBuffer
+04078450	Direct3DDevice9Imp::GetBackBuffer	040784cc	DATA	04405d0b	<none>
+04078450	Direct3DDevice9Imp::GetBackBuffer	040784cf	NONE		
+04078450	Direct3DDevice9Imp::GetBackBuffer	040784e0	DATA	04405d10	<none>
+04078450	Direct3DDevice9Imp::GetBackBuffer	040784e5	NONE		
+04078450	Direct3DDevice9Imp::GetBackBuffer	040784e7	UNCONDITIONAL_JUMP	040785f8	Direct3DDevice9Imp::GetBackBuffer
+04078450	Direct3DDevice9Imp::GetBackBuffer	040784f0	CONDITIONAL_JUMP	040784a5	Direct3DDevice9Imp::GetBackBuffer
+04078450	Direct3DDevice9Imp::GetBackBuffer	04078514	NONE		
+04078450	Direct3DDevice9Imp::GetBackBuffer	04078520	CONDITIONAL_JUMP	04078464	Direct3DDevice9Imp::GetBackBuffer
+04078450	Direct3DDevice9Imp::GetBackBuffer	04078544	NONE		
+04078450	Direct3DDevice9Imp::GetBackBuffer	04078550	CONDITIONAL_JUMP	04078497	Direct3DDevice9Imp::GetBackBuffer
+04078450	Direct3DDevice9Imp::GetBackBuffer	0407855e	NONE		
+04078450	Direct3DDevice9Imp::GetBackBuffer	04078567	NONE		
+04078450	Direct3DDevice9Imp::GetBackBuffer	0407858b	NONE		
+04078450	Direct3DDevice9Imp::GetBackBuffer	04078590	CONDITIONAL_JUMP	04078489	Direct3DDevice9Imp::GetBackBuffer
+04078450	Direct3DDevice9Imp::GetBackBuffer	0407859e	NONE		
+04078450	Direct3DDevice9Imp::GetBackBuffer	040785b0	CONDITIONAL_JUMP	040784c1	Direct3DDevice9Imp::GetBackBuffer
+04078450	Direct3DDevice9Imp::GetBackBuffer	040785cf	DATA	04405d16	<none>
+04078450	Direct3DDevice9Imp::GetBackBuffer	040785d4	NONE		
+04078450	Direct3DDevice9Imp::GetBackBuffer	040785df	CONDITIONAL_JUMP	0407846c	Direct3DDevice9Imp::GetBackBuffer
+04078450	Direct3DDevice9Imp::GetBackBuffer	040785ee	DATA	04405d1c	<none>
+04078450	Direct3DDevice9Imp::GetBackBuffer	040785f3	NONE		
+04079270	d3d9device_SetDepthStencilSurface	0407928f	NONE		
+04079270	d3d9device_SetDepthStencilSurface	0407929c	UNCONDITIONAL_JUMP	040793f1	d3d9device_SetDepthStencilSurface
+04079270	d3d9device_SetDepthStencilSurface	040792aa	NONE		
+04079270	d3d9device_SetDepthStencilSurface	040792b8	DATA	04405da7	<none>
+04079270	d3d9device_SetDepthStencilSurface	040792b8	UNCONDITIONAL_JUMP	0407938c	d3d9device_SetDepthStencilSurface
+04079270	d3d9device_SetDepthStencilSurface	040792bd	NONE		
+04079270	d3d9device_SetDepthStencilSurface	040792c3	CONDITIONAL_JUMP	040793a9	d3d9device_SetDepthStencilSurface
+04079270	d3d9device_SetDepthStencilSurface	040792c3	UNCONDITIONAL_JUMP	040793d3	d3d9device_SetDepthStencilSurface
+04079270	d3d9device_SetDepthStencilSurface	040792ca	CONDITIONAL_JUMP	0407928d	d3d9device_SetDepthStencilSurface
+04079270	d3d9device_SetDepthStencilSurface	040792d4	NONE		
+04079270	d3d9device_SetDepthStencilSurface	040792d8	NONE		
+04079270	d3d9device_SetDepthStencilSurface	040792dd	DATA	04405dab	<none>
+04079270	d3d9device_SetDepthStencilSurface	040792e0	NONE		
+04079270	d3d9device_SetDepthStencilSurface	040792e3	CONDITIONAL_JUMP	040792d6	d3d9device_SetDepthStencilSurface
+04079270	d3d9device_SetDepthStencilSurface	040792ed	NONE		
+04079270	d3d9device_SetDepthStencilSurface	040792f5	NONE		
+04079270	d3d9device_SetDepthStencilSurface	04079306	NONE		
+04079270	d3d9device_SetDepthStencilSurface	04079313	NONE		
+04079270	d3d9device_SetDepthStencilSurface	04079320	CONDITIONAL_JUMP	040792eb	d3d9device_SetDepthStencilSurface
+04079270	d3d9device_SetDepthStencilSurface	04079320	CONDITIONAL_JUMP	04079311	d3d9device_SetDepthStencilSurface
+04079270	d3d9device_SetDepthStencilSurface	04079320	UNCONDITIONAL_JUMP	0407945c	d3d9device_SetDepthStencilSurface
+04079270	d3d9device_SetDepthStencilSurface	04079342	NONE		
+04079270	d3d9device_SetDepthStencilSurface	0407934c	CONDITIONAL_JUMP	040792d2	d3d9device_SetDepthStencilSurface
+04079270	d3d9device_SetDepthStencilSurface	04079352	DATA	04405db0	<none>
+04079270	d3d9device_SetDepthStencilSurface	04079357	NONE		
+04079270	d3d9device_SetDepthStencilSurface	04079368	CONDITIONAL_JUMP	040792b2	d3d9device_SetDepthStencilSurface
+04079270	d3d9device_SetDepthStencilSurface	0407938c	NONE		
+04079270	d3d9device_SetDepthStencilSurface	04079398	CONDITIONAL_JUMP	040792a4	d3d9device_SetDepthStencilSurface
+04079270	d3d9device_SetDepthStencilSurface	040793a6	NONE		
+04079270	d3d9device_SetDepthStencilSurface	040793af	NONE		
+04079270	d3d9device_SetDepthStencilSurface	040793d3	NONE		
+04079270	d3d9device_SetDepthStencilSurface	040793e0	CONDITIONAL_JUMP	04079296	d3d9device_SetDepthStencilSurface
+04079270	d3d9device_SetDepthStencilSurface	040793ee	NONE		
+04079270	d3d9device_SetDepthStencilSurface	04079400	CONDITIONAL_JUMP	0407931a	d3d9device_SetDepthStencilSurface
+04079270	d3d9device_SetDepthStencilSurface	04079439	UNCONDITIONAL_JUMP	0407948c	d3d9device_SetDepthStencilSurface
+04079270	d3d9device_SetDepthStencilSurface	04079468	CONDITIONAL_JUMP	04079437	d3d9device_SetDepthStencilSurface
+04079270	d3d9device_SetDepthStencilSurface	04079487	DATA	04405db6	<none>
+04079270	d3d9device_SetDepthStencilSurface	0407948c	NONE		
+04086840	Direct3DDevice9Imp::SetTransform	04086862	NONE		
+04086840	Direct3DDevice9Imp::SetTransform	0408686f	UNCONDITIONAL_JUMP	04086a61	Direct3DDevice9Imp::SetTransform
+04086840	Direct3DDevice9Imp::SetTransform	0408687d	NONE		
+04086840	Direct3DDevice9Imp::SetTransform	0408688b	DATA	04405ec5	<none>
+04086840	Direct3DDevice9Imp::SetTransform	0408688b	UNCONDITIONAL_JUMP	04086974	Direct3DDevice9Imp::SetTransform
+04086840	Direct3DDevice9Imp::SetTransform	04086890	NONE		
+04086840	Direct3DDevice9Imp::SetTransform	04086896	CONDITIONAL_JUMP	04086a19	Direct3DDevice9Imp::SetTransform
+04086840	Direct3DDevice9Imp::SetTransform	04086896	UNCONDITIONAL_JUMP	04086a43	Direct3DDevice9Imp::SetTransform
+04086840	Direct3DDevice9Imp::SetTransform	0408689d	CONDITIONAL_JUMP	04086860	Direct3DDevice9Imp::SetTransform
+04086840	Direct3DDevice9Imp::SetTransform	040868ae	NONE		
+04086840	Direct3DDevice9Imp::SetTransform	040868b8	NONE		
+04086840	Direct3DDevice9Imp::SetTransform	040868c0	CONDITIONAL_JUMP	040868d0	Direct3DDevice9Imp::SetTransform
+04086840	Direct3DDevice9Imp::SetTransform	040868cb	NONE		
+04086840	Direct3DDevice9Imp::SetTransform	040868cd	CONDITIONAL_JUMP	040868b6	Direct3DDevice9Imp::SetTransform
+04086840	Direct3DDevice9Imp::SetTransform	040868d2	NONE		
+04086840	Direct3DDevice9Imp::SetTransform	04086936	CONDITIONAL_JUMP	04086a84	Direct3DDevice9Imp::SetTransform
+04086840	Direct3DDevice9Imp::SetTransform	04086936	UNCONDITIONAL_JUMP	04086aa7	Direct3DDevice9Imp::SetTransform
+04086840	Direct3DDevice9Imp::SetTransform	04086936	UNCONDITIONAL_JUMP	040869ff	Direct3DDevice9Imp::SetTransform
+04086840	Direct3DDevice9Imp::SetTransform	04086936	UNCONDITIONAL_JUMP	04086b31	Direct3DDevice9Imp::SetTransform
+04086840	Direct3DDevice9Imp::SetTransform	04086941	NONE		
+04086840	Direct3DDevice9Imp::SetTransform	04086950	CONDITIONAL_JUMP	04086885	Direct3DDevice9Imp::SetTransform
+04086840	Direct3DDevice9Imp::SetTransform	04086974	NONE		
+04086840	Direct3DDevice9Imp::SetTransform	04086980	CONDITIONAL_JUMP	040868c5	Direct3DDevice9Imp::SetTransform
+04086840	Direct3DDevice9Imp::SetTransform	0408698f	NONE		
+04086840	Direct3DDevice9Imp::SetTransform	04086a08	CONDITIONAL_JUMP	04086877	Direct3DDevice9Imp::SetTransform
+04086840	Direct3DDevice9Imp::SetTransform	04086a16	NONE		
+04086840	Direct3DDevice9Imp::SetTransform	04086a1f	NONE		
+04086840	Direct3DDevice9Imp::SetTransform	04086a43	NONE		
+04086840	Direct3DDevice9Imp::SetTransform	04086a50	CONDITIONAL_JUMP	04086869	Direct3DDevice9Imp::SetTransform
+04086840	Direct3DDevice9Imp::SetTransform	04086a5e	NONE		
+04086840	Direct3DDevice9Imp::SetTransform	04086a70	CONDITIONAL_JUMP	040868a8	Direct3DDevice9Imp::SetTransform
+04086840	Direct3DDevice9Imp::SetTransform	04086a7b	DATA	04405eca	<none>
+04086840	Direct3DDevice9Imp::SetTransform	04086a80	NONE		
+04086840	Direct3DDevice9Imp::SetTransform	04086a8a	NONE		
+04086840	Direct3DDevice9Imp::SetTransform	04086aa2	NONE		
+04086840	Direct3DDevice9Imp::SetTransform	04086aac	UNCONDITIONAL_JUMP	040868b8	Direct3DDevice9Imp::SetTransform
+04086840	Direct3DDevice9Imp::SetTransform	04086ab8	NONE		
+04090a70	Direct3DDevice9Imp::DrawPrimitive	04090a8f	NONE		
+04090a70	Direct3DDevice9Imp::DrawPrimitive	04090a9c	UNCONDITIONAL_JUMP	04090d41	Direct3DDevice9Imp::DrawPrimitive
+04090a70	Direct3DDevice9Imp::DrawPrimitive	04090aaa	NONE		
+04090a70	Direct3DDevice9Imp::DrawPrimitive	04090ab8	DATA	04405f48	<none>
+04090a70	Direct3DDevice9Imp::DrawPrimitive	04090ab8	UNCONDITIONAL_JUMP	04090c44	Direct3DDevice9Imp::DrawPrimitive
+04090a70	Direct3DDevice9Imp::DrawPrimitive	04090abd	NONE		
+04090a70	Direct3DDevice9Imp::DrawPrimitive	04090ac3	CONDITIONAL_JUMP	04090d01	Direct3DDevice9Imp::DrawPrimitive
+04090a70	Direct3DDevice9Imp::DrawPrimitive	04090ac3	UNCONDITIONAL_JUMP	04090d2b	Direct3DDevice9Imp::DrawPrimitive
+04090a70	Direct3DDevice9Imp::DrawPrimitive	04090aca	CONDITIONAL_JUMP	04090a8d	Direct3DDevice9Imp::DrawPrimitive
+04090a70	Direct3DDevice9Imp::DrawPrimitive	04090ad9	NONE		
+04090a70	Direct3DDevice9Imp::DrawPrimitive	04090ae7	NONE		
+04090a70	Direct3DDevice9Imp::DrawPrimitive	04090afc	DATA	04405f4c	<none>
+04090a70	Direct3DDevice9Imp::DrawPrimitive	04090b01	NONE		
+04090a70	Direct3DDevice9Imp::DrawPrimitive	04090b1b	NONE		
+04090a70	Direct3DDevice9Imp::DrawPrimitive	04090b25	NONE		
+04090a70	Direct3DDevice9Imp::DrawPrimitive	04090b34	UNCONDITIONAL_JUMP	04090d5a	Direct3DDevice9Imp::DrawPrimitive
+04090a70	Direct3DDevice9Imp::DrawPrimitive	04090b38	NONE		
+04090a70	Direct3DDevice9Imp::DrawPrimitive	04090b5c	NONE		
+04090a70	Direct3DDevice9Imp::DrawPrimitive	04090b6b	CONDITIONAL_JUMP	04090b36	Direct3DDevice9Imp::DrawPrimitive
+04090a70	Direct3DDevice9Imp::DrawPrimitive	04090b70	NONE		
+04090a70	Direct3DDevice9Imp::DrawPrimitive	04090b94	NONE		
+04090a70	Direct3DDevice9Imp::DrawPrimitive	04090ba0	CONDITIONAL_JUMP	04090b15	Direct3DDevice9Imp::DrawPrimitive
+04090a70	Direct3DDevice9Imp::DrawPrimitive	04090ba0	CONDITIONAL_JUMP	04090b6e	Direct3DDevice9Imp::DrawPrimitive
+04090a70	Direct3DDevice9Imp::DrawPrimitive	04090ba8	UNCONDITIONAL_JUMP	04090b94	Direct3DDevice9Imp::DrawPrimitive
+04090a70	Direct3DDevice9Imp::DrawPrimitive	04090bbd	NONE		
+04090a70	Direct3DDevice9Imp::DrawPrimitive	04090bc5	NONE		
+04090a70	Direct3DDevice9Imp::DrawPrimitive	04090bc8	CONDITIONAL_JUMP	04090bea	Direct3DDevice9Imp::DrawPrimitive
+04090a70	Direct3DDevice9Imp::DrawPrimitive	04090bd3	NONE		
+04090a70	Direct3DDevice9Imp::DrawPrimitive	04090be6	NONE		
+04090a70	Direct3DDevice9Imp::DrawPrimitive	04090bec	CONDITIONAL_JUMP	04090bbb	Direct3DDevice9Imp::DrawPrimitive
+04090a70	Direct3DDevice9Imp::DrawPrimitive	04090bec	CONDITIONAL_JUMP	04090bc3	Direct3DDevice9Imp::DrawPrimitive
+04090a70	Direct3DDevice9Imp::DrawPrimitive	04090bec	CONDITIONAL_JUMP	04090be4	Direct3DDevice9Imp::DrawPrimitive
+04090a70	Direct3DDevice9Imp::DrawPrimitive	04090c04	UNCONDITIONAL_JUMP	04090ce4	Direct3DDevice9Imp::DrawPrimitive
+04090a70	Direct3DDevice9Imp::DrawPrimitive	04090c04	CONDITIONAL_JUMP	04090ae1	Direct3DDevice9Imp::DrawPrimitive
+04090a70	Direct3DDevice9Imp::DrawPrimitive	04090c09	CONDITIONAL_JUMP	04090c76	Direct3DDevice9Imp::DrawPrimitive
+04090a70	Direct3DDevice9Imp::DrawPrimitive	04090c09	UNCONDITIONAL_JUMP	04090cc8	Direct3DDevice9Imp::DrawPrimitive
+04090a70	Direct3DDevice9Imp::DrawPrimitive	04090c0f	DATA	04405f53	<none>
+04090a70	Direct3DDevice9Imp::DrawPrimitive	04090c14	NONE		
+04090a70	Direct3DDevice9Imp::DrawPrimitive	04090c20	CONDITIONAL_JUMP	04090ab2	Direct3DDevice9Imp::DrawPrimitive
+04090a70	Direct3DDevice9Imp::DrawPrimitive	04090c44	NONE		
+04090a70	Direct3DDevice9Imp::DrawPrimitive	04090c50	CONDITIONAL_JUMP	04090ba2	Direct3DDevice9Imp::DrawPrimitive
+04090a70	Direct3DDevice9Imp::DrawPrimitive	04090c50	CONDITIONAL_JUMP	04090bcd	Direct3DDevice9Imp::DrawPrimitive
+04090a70	Direct3DDevice9Imp::DrawPrimitive	04090c61	DATA	04405f58	<none>
+04090a70	Direct3DDevice9Imp::DrawPrimitive	04090c66	NONE		
+04090a70	Direct3DDevice9Imp::DrawPrimitive	04090c6a	NONE		
+04090a70	Direct3DDevice9Imp::DrawPrimitive	04090c72	NONE		
+04090a70	Direct3DDevice9Imp::DrawPrimitive	04090c78	NONE		
+04090a70	Direct3DDevice9Imp::DrawPrimitive	04090c9a	NONE		
+04090a70	Direct3DDevice9Imp::DrawPrimitive	04090cc6	CONDITIONAL_JUMP	04090ad3	Direct3DDevice9Imp::DrawPrimitive
+04090a70	Direct3DDevice9Imp::DrawPrimitive	04090cd0	CONDITIONAL_JUMP	04090c68	Direct3DDevice9Imp::DrawPrimitive
+04090a70	Direct3DDevice9Imp::DrawPrimitive	04090ce4	NONE		
+04090a70	Direct3DDevice9Imp::DrawPrimitive	04090cf0	CONDITIONAL_JUMP	04090aa4	Direct3DDevice9Imp::DrawPrimitive
+04090a70	Direct3DDevice9Imp::DrawPrimitive	04090cf9	DATA	04405f5f	<none>
+04090a70	Direct3DDevice9Imp::DrawPrimitive	04090cfe	NONE		
+04090a70	Direct3DDevice9Imp::DrawPrimitive	04090d07	NONE		
+04090a70	Direct3DDevice9Imp::DrawPrimitive	04090d2b	NONE		
+04090a70	Direct3DDevice9Imp::DrawPrimitive	04090d30	CONDITIONAL_JUMP	04090a96	Direct3DDevice9Imp::DrawPrimitive
+04090a70	Direct3DDevice9Imp::DrawPrimitive	04090d3e	NONE		
+04090a70	Direct3DDevice9Imp::DrawPrimitive	04090d50	CONDITIONAL_JUMP	04090b1f	Direct3DDevice9Imp::DrawPrimitive
+04091490	OpenGLContextCache::LightDirection	040914c5	NONE		
+04091490	OpenGLContextCache::LightDirection	040914de	NONE		
+04091490	OpenGLContextCache::LightDirection	040914e6	UNCONDITIONAL_JUMP	04091cd4	OpenGLContextCache::LightDirection
+04091490	OpenGLContextCache::LightDirection	040914f2	NONE		
+04091490	OpenGLContextCache::LightDirection	040914fc	CONDITIONAL_JUMP	040914dc	OpenGLContextCache::LightDirection
+04091490	OpenGLContextCache::LightDirection	04091501	NONE		
+04091490	OpenGLContextCache::LightDirection	0409150c	NONE		
+04091490	OpenGLContextCache::LightDirection	0409151d	NONE		
+04091490	OpenGLContextCache::LightDirection	04091530	CONDITIONAL_JUMP	0409197f	OpenGLContextCache::LightDirection
+04091490	OpenGLContextCache::LightDirection	0409154b	NONE		
+04091490	OpenGLContextCache::LightDirection	04091559	CONDITIONAL_JUMP	040919da	OpenGLContextCache::LightDirection
+04091490	OpenGLContextCache::LightDirection	0409157d	NONE		
+04091490	OpenGLContextCache::LightDirection	04091584	NONE		
+04091490	OpenGLContextCache::LightDirection	04091591	CONDITIONAL_JUMP	040919e7	OpenGLContextCache::LightDirection
+04091490	OpenGLContextCache::LightDirection	04091591	UNCONDITIONAL_JUMP	04091a17	OpenGLContextCache::LightDirection
+04091490	OpenGLContextCache::LightDirection	040915bc	CONDITIONAL_JUMP	04091582	OpenGLContextCache::LightDirection
+04091490	OpenGLContextCache::LightDirection	040915d4	UNCONDITIONAL_JUMP	04091522	OpenGLContextCache::LightDirection
+04091490	OpenGLContextCache::LightDirection	04091632	NONE		
+04091490	OpenGLContextCache::LightDirection	0409163c	NONE		
+04091490	OpenGLContextCache::LightDirection	04091649	UNCONDITIONAL_JUMP	04091aba	OpenGLContextCache::LightDirection
+04091490	OpenGLContextCache::LightDirection	04091663	NONE		
+04091490	OpenGLContextCache::LightDirection	04091690	CONDITIONAL_JUMP	0409163a	OpenGLContextCache::LightDirection
+04091490	OpenGLContextCache::LightDirection	040916bd	NONE		
+04091490	OpenGLContextCache::LightDirection	040916c7	NONE		
+04091490	OpenGLContextCache::LightDirection	040916d4	UNCONDITIONAL_JUMP	04091aea	OpenGLContextCache::LightDirection
+04091490	OpenGLContextCache::LightDirection	040916ee	NONE		
+04091490	OpenGLContextCache::LightDirection	04091718	CONDITIONAL_JUMP	040916c5	OpenGLContextCache::LightDirection
+04091490	OpenGLContextCache::LightDirection	04091745	NONE		
+04091490	OpenGLContextCache::LightDirection	0409174f	NONE		
+04091490	OpenGLContextCache::LightDirection	0409175c	UNCONDITIONAL_JUMP	04091b1a	OpenGLContextCache::LightDirection
+04091490	OpenGLContextCache::LightDirection	04091776	NONE		
+04091490	OpenGLContextCache::LightDirection	040917a0	CONDITIONAL_JUMP	0409174d	OpenGLContextCache::LightDirection
+04091490	OpenGLContextCache::LightDirection	040917b4	NONE		
+04091490	OpenGLContextCache::LightDirection	040917b6	CONDITIONAL_JUMP	040917b2	OpenGLContextCache::LightDirection
+04091490	OpenGLContextCache::LightDirection	040917c3	UNCONDITIONAL_JUMP	04091b54	OpenGLContextCache::LightDirection
+04091490	OpenGLContextCache::LightDirection	040917f5	NONE		
+04091490	OpenGLContextCache::LightDirection	0409180c	CONDITIONAL_JUMP	040917b4	OpenGLContextCache::LightDirection
+04091490	OpenGLContextCache::LightDirection	04091820	NONE		
+04091490	OpenGLContextCache::LightDirection	04091822	CONDITIONAL_JUMP	0409181e	OpenGLContextCache::LightDirection
+04091490	OpenGLContextCache::LightDirection	0409182f	UNCONDITIONAL_JUMP	04091b94	OpenGLContextCache::LightDirection
+04091490	OpenGLContextCache::LightDirection	0409184d	NONE		
+04091490	OpenGLContextCache::LightDirection	04091864	CONDITIONAL_JUMP	04091820	OpenGLContextCache::LightDirection
+04091490	OpenGLContextCache::LightDirection	04091878	NONE		
+04091490	OpenGLContextCache::LightDirection	0409187a	CONDITIONAL_JUMP	04091876	OpenGLContextCache::LightDirection
+04091490	OpenGLContextCache::LightDirection	04091887	UNCONDITIONAL_JUMP	04091bd4	OpenGLContextCache::LightDirection
+04091490	OpenGLContextCache::LightDirection	040918a5	NONE		
+04091490	OpenGLContextCache::LightDirection	040918bc	CONDITIONAL_JUMP	04091878	OpenGLContextCache::LightDirection
+04091490	OpenGLContextCache::LightDirection	040918d0	NONE		
+04091490	OpenGLContextCache::LightDirection	040918d2	CONDITIONAL_JUMP	040918ce	OpenGLContextCache::LightDirection
+04091490	OpenGLContextCache::LightDirection	040918df	UNCONDITIONAL_JUMP	04091c14	OpenGLContextCache::LightDirection
+04091490	OpenGLContextCache::LightDirection	040918fd	NONE		
+04091490	OpenGLContextCache::LightDirection	04091914	CONDITIONAL_JUMP	040918d0	OpenGLContextCache::LightDirection
+04091490	OpenGLContextCache::LightDirection	04091928	NONE		
+04091490	OpenGLContextCache::LightDirection	0409192a	CONDITIONAL_JUMP	04091926	OpenGLContextCache::LightDirection
+04091490	OpenGLContextCache::LightDirection	04091937	UNCONDITIONAL_JUMP	04091a84	OpenGLContextCache::LightDirection
+04091490	OpenGLContextCache::LightDirection	04091955	NONE		
+04091490	OpenGLContextCache::LightDirection	0409196c	CONDITIONAL_JUMP	04091928	OpenGLContextCache::LightDirection
+04091490	OpenGLContextCache::LightDirection	04091985	CONDITIONAL_JUMP	04091553	OpenGLContextCache::LightDirection
+04091490	OpenGLContextCache::LightDirection	04091992	UNCONDITIONAL_JUMP	04091a4a	OpenGLContextCache::LightDirection
+04091490	OpenGLContextCache::LightDirection	040919c1	NONE		
+04091490	OpenGLContextCache::LightDirection	040919e0	NONE		
+04091490	OpenGLContextCache::LightDirection	040919ed	CONDITIONAL_JUMP	0409158b	OpenGLContextCache::LightDirection
+04091490	OpenGLContextCache::LightDirection	04091a14	NONE		
+04091490	OpenGLContextCache::LightDirection	04091a20	CONDITIONAL_JUMP	0409198c	OpenGLContextCache::LightDirection
+04091490	OpenGLContextCache::LightDirection	04091a47	NONE		
+04091490	OpenGLContextCache::LightDirection	04091a50	CONDITIONAL_JUMP	04091931	OpenGLContextCache::LightDirection
+04091490	OpenGLContextCache::LightDirection	04091a7c	NONE		
+04091490	OpenGLContextCache::LightDirection	04091a90	CONDITIONAL_JUMP	04091643	OpenGLContextCache::LightDirection
+04091490	OpenGLContextCache::LightDirection	04091ab4	NONE		
+04091490	OpenGLContextCache::LightDirection	04091ac0	CONDITIONAL_JUMP	040916ce	OpenGLContextCache::LightDirection
+04091490	OpenGLContextCache::LightDirection	04091ae4	NONE		
+04091490	OpenGLContextCache::LightDirection	04091af0	CONDITIONAL_JUMP	04091756	OpenGLContextCache::LightDirection
+04091490	OpenGLContextCache::LightDirection	04091b14	NONE		
+04091490	OpenGLContextCache::LightDirection	04091b20	CONDITIONAL_JUMP	040917bd	OpenGLContextCache::LightDirection
+04091490	OpenGLContextCache::LightDirection	04091b4c	NONE		
+04091490	OpenGLContextCache::LightDirection	04091b60	CONDITIONAL_JUMP	04091829	OpenGLContextCache::LightDirection
+04091490	OpenGLContextCache::LightDirection	04091b8c	NONE		
+04091490	OpenGLContextCache::LightDirection	04091ba0	CONDITIONAL_JUMP	04091881	OpenGLContextCache::LightDirection
+04091490	OpenGLContextCache::LightDirection	04091bcc	NONE		
+04091490	OpenGLContextCache::LightDirection	04091be0	CONDITIONAL_JUMP	040918d9	OpenGLContextCache::LightDirection
+04091490	OpenGLContextCache::LightDirection	04091c0c	NONE		
+04091490	OpenGLContextCache::LightDirection	04091c20	CONDITIONAL_JUMP	04091517	OpenGLContextCache::LightDirection
+04091490	OpenGLContextCache::LightDirection	04091c20	CONDITIONAL_JUMP	040915ce	OpenGLContextCache::LightDirection
+04091490	OpenGLContextCache::LightDirection	04091c25	NONE		
+04091490	OpenGLContextCache::LightDirection	04091c2b	NONE		
+04091490	OpenGLContextCache::LightDirection	04091ca3	CONDITIONAL_JUMP	04091c29	OpenGLContextCache::LightDirection
+04091490	OpenGLContextCache::LightDirection	04091cb0	CONDITIONAL_JUMP	040914e0	OpenGLContextCache::LightDirection
+04091490	OpenGLContextCache::LightDirection	04091cd4	NONE		
+040add60	Direct3DSurface9Imp::GetDepthBits	040add7d	NONE		
+040add60	Direct3DSurface9Imp::GetDepthBits	040add7f	NONE		
+040add60	Direct3DSurface9Imp::GetDepthBits	040add87	NONE		
+040add60	Direct3DSurface9Imp::GetDepthBits	040add8f	CONDITIONAL_JUMP	040addd0	Direct3DSurface9Imp::GetDepthBits
+040add60	Direct3DSurface9Imp::GetDepthBits	040add97	CONDITIONAL_JUMP	040ade10	Direct3DSurface9Imp::GetDepthBits
+040add60	Direct3DSurface9Imp::GetDepthBits	040add9d	NONE		
+040add60	Direct3DSurface9Imp::GetDepthBits	040adda9	NONE		
+040add60	Direct3DSurface9Imp::GetDepthBits	040addb0	CONDITIONAL_JUMP	040add7b	Direct3DSurface9Imp::GetDepthBits
+040add60	Direct3DSurface9Imp::GetDepthBits	040addb0	CONDITIONAL_JUMP	040addc8	Direct3DSurface9Imp::GetDepthBits
+040add60	Direct3DSurface9Imp::GetDepthBits	040addb0	UNCONDITIONAL_JUMP	040ade75	Direct3DSurface9Imp::GetDepthBits
+040add60	Direct3DSurface9Imp::GetDepthBits	040addc0	CONDITIONAL_JUMP	040add7d	Direct3DSurface9Imp::GetDepthBits
+040add60	Direct3DSurface9Imp::GetDepthBits	040addca	NONE		
+040add60	Direct3DSurface9Imp::GetDepthBits	040addd2	CONDITIONAL_JUMP	040add8d	Direct3DSurface9Imp::GetDepthBits
+040add60	Direct3DSurface9Imp::GetDepthBits	040adde0	CONDITIONAL_JUMP	040add85	Direct3DSurface9Imp::GetDepthBits
+040add60	Direct3DSurface9Imp::GetDepthBits	040ade04	NONE		
+040add60	Direct3DSurface9Imp::GetDepthBits	040ade12	CONDITIONAL_JUMP	040add95	Direct3DSurface9Imp::GetDepthBits
+040add60	Direct3DSurface9Imp::GetDepthBits	040ade36	CONDITIONAL_JUMP	040adda3	Direct3DSurface9Imp::GetDepthBits
+040add60	Direct3DSurface9Imp::GetDepthBits	040ade36	CONDITIONAL_JUMP	040ade71	Direct3DSurface9Imp::GetDepthBits
+040add60	Direct3DSurface9Imp::GetDepthBits	040ade5a	NONE		
+040add60	Direct3DSurface9Imp::GetDepthBits	040ade68	CONDITIONAL_JUMP	040add97	Direct3DSurface9Imp::GetDepthBits
+040add60	Direct3DSurface9Imp::GetDepthBits	040ade73	NONE		
+040af4e0	direct3dbasetexture9imp_040af4e0	040af50c	NONE		
+040af4e0	direct3dbasetexture9imp_040af4e0	040af519	CONDITIONAL_JUMP	040af7c3	direct3dbasetexture9imp_040af4e0
+040af4e0	direct3dbasetexture9imp_040af4e0	040af519	UNCONDITIONAL_JUMP	040af7f4	direct3dbasetexture9imp_040af4e0
+040af4e0	direct3dbasetexture9imp_040af4e0	040af527	NONE		
+040af4e0	direct3dbasetexture9imp_040af4e0	040af535	NONE		
+040af4e0	direct3dbasetexture9imp_040af4e0	040af544	NONE		
+040af4e0	direct3dbasetexture9imp_040af4e0	040af556	UNCONDITIONAL_JUMP	040af69a	direct3dbasetexture9imp_040af4e0
+040af4e0	direct3dbasetexture9imp_040af4e0	040af565	UNCONDITIONAL_JUMP	040af8d4	direct3dbasetexture9imp_040af4e0
+040af4e0	direct3dbasetexture9imp_040af4e0	040af573	NONE		
+040af4e0	direct3dbasetexture9imp_040af4e0	040af57f	NONE		
+040af4e0	direct3dbasetexture9imp_040af4e0	040af58c	NONE		
+040af4e0	direct3dbasetexture9imp_040af4e0	040af59a	NONE		
+040af4e0	direct3dbasetexture9imp_040af4e0	040af5b2	CONDITIONAL_JUMP	040af598	direct3dbasetexture9imp_040af4e0
+040af4e0	direct3dbasetexture9imp_040af4e0	040af5bc	NONE		
+040af4e0	direct3dbasetexture9imp_040af4e0	040af5fb	NONE		
+040af4e0	direct3dbasetexture9imp_040af4e0	040af62c	UNCONDITIONAL_JUMP	040af78f	direct3dbasetexture9imp_040af4e0
+040af4e0	direct3dbasetexture9imp_040af4e0	040af644	UNCONDITIONAL_JUMP	040af8a8	direct3dbasetexture9imp_040af4e0
+040af4e0	direct3dbasetexture9imp_040af4e0	040af64e	UNCONDITIONAL_JUMP	040af718	direct3dbasetexture9imp_040af4e0
+040af4e0	direct3dbasetexture9imp_040af4e0	040af64e	UNCONDITIONAL_JUMP	040af744	direct3dbasetexture9imp_040af4e0
+040af4e0	direct3dbasetexture9imp_040af4e0	040af65e	NONE		
+040af4e0	direct3dbasetexture9imp_040af4e0	040af666	NONE		
+040af4e0	direct3dbasetexture9imp_040af4e0	040af670	CONDITIONAL_JUMP	040af550	direct3dbasetexture9imp_040af4e0
+040af4e0	direct3dbasetexture9imp_040af4e0	040af697	NONE		
+040af4e0	direct3dbasetexture9imp_040af4e0	040af6a0	CONDITIONAL_JUMP	040af521	direct3dbasetexture9imp_040af4e0
+040af4e0	direct3dbasetexture9imp_040af4e0	040af6c0	CONDITIONAL_JUMP	040af586	direct3dbasetexture9imp_040af4e0
+040af4e0	direct3dbasetexture9imp_040af4e0	040af718	NONE		
+040af4e0	direct3dbasetexture9imp_040af4e0	040af720	CONDITIONAL_JUMP	040af660	direct3dbasetexture9imp_040af4e0
+040af4e0	direct3dbasetexture9imp_040af4e0	040af730	CONDITIONAL_JUMP	040af648	direct3dbasetexture9imp_040af4e0
+040af4e0	direct3dbasetexture9imp_040af4e0	040af744	NONE		
+040af4e0	direct3dbasetexture9imp_040af4e0	040af750	CONDITIONAL_JUMP	040af5b6	direct3dbasetexture9imp_040af4e0
+040af4e0	direct3dbasetexture9imp_040af4e0	040af798	CONDITIONAL_JUMP	040af506	direct3dbasetexture9imp_040af4e0
+040af4e0	direct3dbasetexture9imp_040af4e0	040af7bc	NONE		
+040af4e0	direct3dbasetexture9imp_040af4e0	040af7c9	NONE		
+040af4e0	direct3dbasetexture9imp_040af4e0	040af7d0	CONDITIONAL_JUMP	040af513	direct3dbasetexture9imp_040af4e0
+040af4e0	direct3dbasetexture9imp_040af4e0	040af7f4	NONE		
+040af4e0	direct3dbasetexture9imp_040af4e0	040af800	CONDITIONAL_JUMP	040af52f	direct3dbasetexture9imp_040af4e0
+040af4e0	direct3dbasetexture9imp_040af4e0	040af830	CONDITIONAL_JUMP	040af5f5	direct3dbasetexture9imp_040af4e0
+040af4e0	direct3dbasetexture9imp_040af4e0	040af846	NONE		
+040af4e0	direct3dbasetexture9imp_040af4e0	040af894	NONE		
+040af4e0	direct3dbasetexture9imp_040af4e0	040af8a8	NONE		
+040af4e0	direct3dbasetexture9imp_040af4e0	040af8b0	CONDITIONAL_JUMP	040af55f	direct3dbasetexture9imp_040af4e0
+040af4e0	direct3dbasetexture9imp_040af4e0	040af8d4	NONE		

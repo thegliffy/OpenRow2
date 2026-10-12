@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries with no string reference
+
+Continued from decomp/largest_fun_calls_note26.txt. Size is the gap to the next function. Counts are Ghidra instructions in the function body. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 041ca2b0, 809 bytes. 15 outgoing calls (8 listed): fopen64 x2, fread x2, fseek x2, ftell x2, rewind x2, FUN_041cc920 x1, __stack_chk_fail x1, fclose x1. Instruction mix: MOV 81, PUSH 31, ADD 16, CALL 15, SUB 14.
+- 042ccf10, 800 bytes. 4 outgoing calls: FUN_042d5e70 x1, __errno_location x1, __i686.get_pc_thunk.bx x1, memcpy x1. Instruction mix: MOV 107, LEA 16, ADD 15, JZ 14, SUB 13.
+- 0422f510, 800 bytes. 21 outgoing calls (8 listed): FUN_0422f300 x9, FUN_0422f400 x9, memcmp x2, __stack_chk_fail x1. Instruction mix: MOV 88, LEA 33, CALL 21, JNZ 12, AND 10.
+- 0410bf10, 800 bytes. 12 outgoing calls (5 listed): operator.new x6, _Rb_tree_insert_and_rebalance x3, FUN_0410ba10 x1, _Rb_tree_decrement x1, _Rb_tree_increment x1. Instruction mix: MOV 145, CALL 12, JZ 11, CMP 9, TEST 9.
+- 040972d0, 800 bytes. 11 outgoing calls (3 listed): direct3dsurface9imp_040b0a40 x9, direct3dsurface9imp_040adca0 x1, direct3dsurface9imp_040add10 x1. Instruction mix: MOV 71, JZ 28, TEST 26, LEA 14, CALL 11.
+- 04090d80, 800 bytes. No outgoing calls. Instruction mix: JZ 32, MOV 25, CMP 24, ADD 21, JMP 21.
+- 04030850, 800 bytes. 20 outgoing calls (8 listed): __ostream_insert<char,std::char_traits<char>> x10, _M_widen_init x2, flush x2, put x2, _M_insert<unsigned long> x1, __throw_bad_cast x1, clear x1, strlen x1. Instruction mix: MOV 88, CALL 22, CMP 18, LEA 9, JZ 7.
+- 041f6631, 795 bytes. No outgoing calls. Instruction mix: MOV 80, CMP 23, MOVZX 23, JMP 22, ADD 21.
+- 041d8072, 792 bytes. No outgoing calls. Instruction mix: MOV 136, MOVZX 29, ADD 19, LEA 19, CMP 11.
+- 0422f990, 784 bytes. 4 outgoing calls: free x2, __memcpy_chk x1, malloc x1. Instruction mix: MOV 65, XOR 40, LEA 17, CMP 13, JZ 10.

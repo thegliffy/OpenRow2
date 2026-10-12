@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries that reference a string
+
+Skipped the 480 already listed in decomp/largest_fun_strings_note.txt through note48. Sizes are the gap to the next function. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 0419b680, 272 bytes, 11 strings. Includes: "glBindBufferARB", "glBufferDataARB", "glBufferSubDataARB", "glDeleteBuffersARB", "glGenBuffersARB".
+- 0419eb50, 272 bytes, 11 strings. Includes: "glGetVertexAttribLdvEXT", "glVertexArrayVertexAttribLOffsetEXT", "glVertexAttribL1dEXT", "glVertexAttribL1dvEXT", "glVertexAttribL2dEXT".
+- 041a0b10, 272 bytes, 11 strings. Includes: "glActiveVaryingNV", "glBeginTransformFeedbackNV", "glBindBufferBaseNV", "glBindBufferOffsetNV", "glBindBufferRangeNV".
+- 0424c540, 272 bytes. One string: "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz+/".
+- 042b00a0, 272 bytes. One string: "Can't discard critical data on CRC error".
+- 042bb880, 272 bytes, 2 strings. Includes: "Invalid sCAL height ignored", "Invalid sCAL width ignored".
+- 042c2b60, 272 bytes, 2 strings. Includes: "tEXt: invalid keyword", "tEXt: text too long".
+- 04014c80, 256 bytes, 6 strings. Includes: "--applog", "--appname", "--bpdump", "Failed to launch CrashReporter - (%u) %s\n", "Saints Row 2".
+- 0401fc10, 256 bytes. One string: "Linux has returned %u as the desktop mode - perhaps we could use it? Hiding it at the moment".
+- 0402fa30, 256 bytes, 5 strings. Includes: "D3D11LOG", "D3D9LOG", "D3DX9LOG", "DDRAWLOG", "DXGILOG".

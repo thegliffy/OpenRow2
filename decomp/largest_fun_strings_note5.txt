@@ -1,0 +1,15 @@
+Next 10 largest FUN_ entries that reference a string
+
+Skipped the 40 already listed in decomp/largest_fun_strings_note.txt through note4. Sizes are the gap to the next function. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 042ace80, 1792 bytes. libpng read limits: "png_read_image: unsupported transformation", "png_image_read: alpha channel lost", "unexpected alpha swap transformation", "png_read_image: invalid transformations".
+- 04123c90, 1792 bytes. One string: "FT_Load_Glyph failed to load font."
+- 040b3370, 1776 bytes, 9 strings. A vertex dump: "Unknown usage", "Vertex %u:", and the 2-float and 3-float tuple formats.
+- 0413c2b0, 1744 bytes, 7 strings. Heap page ranges: "MAPPED (handle %p, offset %llu)" and the committed-page and protection lines.
+- 040ef950, 1632 bytes, 11 strings. Shader constant buffers: mAsmVertexFloatStreamedBuffer, mAsmPixelFloatStreamedBuffer, and the int and bool variants.
+- 0400e4c0, 1632 bytes. One string: "Loading of RIFX cursors not implemented. Add it."
+- 0412f140, 1616 bytes. VPFS create-file warnings: unknown dwCreationDisposition, "vpfs_CreateFileA returns ERROR_INVALID_NAME", unsupported dwFlagsAndAttributes.
+- 0405dd20, 1616 bytes, 27 strings. The D3DFVF flexible-vertex-format names, from D3DFVF_XYZ and D3DFVF_XYZRHW through D3DFVF_XYZB3.
+- 042b74d0, 1584 bytes. PNG/zlib stream errors: "extra compressed data", "out of place", "missing IHDR", "too many profiles", "bad compression method". This is the function that calls zstream_inflate_stream.
+- 041cd8fe, 1556 bytes. One string: "*NULL*".
+

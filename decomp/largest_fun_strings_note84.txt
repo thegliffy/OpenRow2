@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries that reference a string
+
+Skipped every address already listed in decomp/largest_fun_strings_note.txt through note82. Sizes are the gap to the next function. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 0418c790, 80 bytes. One string: "MMDeviceCollectionImp".
+- 0418a6d0, 80 bytes. One string: "AudioRenderClientImp".
+- 04188c90, 80 bytes. One string: "GetFileVersionInfoExW() - dwFlags %08x, filename %p, dwHandle %08x, dwLen %u, lpData %p".
+- 04188c40, 80 bytes. One string: "GetFileVersionInfoExA() - dwFlags %08x, filename %s, dwHandle %08x, dwLen %u, lpData %p".
+- 04188b70, 80 bytes. One string: "GetFileVersionInfoExW() - dwFlags %08x, filename %p, dwHandle %08x, dwLen %u, lpData %p".
+- 04188b20, 80 bytes. One string: "GetFileVersionInfoExA() - dwFlags %08x, filename %s, dwHandle %08x, dwLen %u, lpData %p".
+- 04184e40, 80 bytes, 2 strings: "!!!(unknown)!!!", "SetClassLongPtrA( hWnd = %p, nIndex = %s, dwNewLong = %zd )".
+- 04184df0, 80 bytes, 2 strings: "!!!(unknown)!!!", "SetClassLongPtrA( hWnd = %p, nIndex = %s, dwNewLong = %zd )".
+- 04184da0, 80 bytes, 2 strings: "!!!(unknown)!!!", "SetClassLongPtrA( hWnd = %p, nIndex = %s, dwNewLong = %zd )".
+- 04184d50, 80 bytes, 2 strings: "!!!(unknown)!!!", "SetClassLongPtrA( hWnd = %p, nIndex = %s, dwNewLong = %zd )".

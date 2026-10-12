@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries that reference a string
+
+Skipped the 430 already listed in decomp/largest_fun_strings_note.txt through note43. Sizes are the gap to the next function. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 04184970, 304 bytes, 3 strings: "Desktop HWND supplied in SendMessageA().", "HWND_BROADCAST not supported in SendMessageA(). Add it.", "eON_GetDlgItem() didn't find control with id: %d in dialog: %p!".
+- 04191c40, 304 bytes, 19 strings. Includes: "(unknown option, check #defines on Win and Mac, or DONTLINER - handle it)", "SO_ACCEPTCONN", "SO_BROADCAST", "SO_DEBUG", "SO_DONTROUTE".
+- 04194440, 304 bytes. One string: "setsockopt( s = %d, level = %d, optname = %d ) returns -1, errno is %d".
+- 041947c0, 304 bytes, 2 strings: "SOCKETS: listen() returns EACCES, and there's no Windows error code for that!", "SOCKETS: unknown listen() error: %d".
+- 0419b450, 304 bytes, 12 strings. Includes: "glBindVertexBuffer", "glVertexArrayBindVertexBufferEXT", "glVertexArrayVertexAttribBindingEXT", "glVertexArrayVertexAttribFormatEXT", "glVertexArrayVertexAttribIFormatEXT".
+- 0419c430, 304 bytes, 12 strings. Includes: "glArrayObjectATI", "glFreeObjectBufferATI", "glGetArrayObjectfvATI", "glGetArrayObjectivATI", "glGetObjectBufferfvATI".
+- 0419f9e0, 304 bytes, 12 strings. Includes: "glProgramEnvParameterI4iNV", "glProgramEnvParameterI4ivNV", "glProgramEnvParameterI4uiNV", "glProgramEnvParameterI4uivNV", "glProgramEnvParametersI4ivNV".
+- 041a0fa0, 304 bytes, 12 strings. Includes: "glBufferAddressRangeNV", "glColorFormatNV", "glEdgeFlagFormatNV", "glFogCoordFormatNV", "glGetIntegerui64i_vNV".
+- 041a1670, 304 bytes, 12 strings. Includes: "glBeginVideoCaptureNV", "glBindVideoCaptureStreamBufferNV", "glBindVideoCaptureStreamTextureNV", "glEndVideoCaptureNV", "glGetVideoCaptureStreamdvNV".
+- 042b6830, 304 bytes. One string: "unknown chunk exceeds memory limits".

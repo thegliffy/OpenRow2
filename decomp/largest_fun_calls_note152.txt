@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries with no string reference
+
+Continued from decomp/largest_fun_calls_note151.txt. Size is the declared gap to the next function (Ghidra body size in parentheses where it differs); instruction mix is the top 5 Ghidra mnemonics in the function body. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 04098f40, 160 bytes (body 157). 1 outgoing call: D3D9CommandQueue::GetNextCommandPointer x1. Instruction mix: MOV 29, JZ 4, CALL 4, SUB 4, TEST 3.
+- 04099660, 160 bytes (body 157). 1 outgoing call: D3D9CommandQueue::GetNextCommandPointer x1. Instruction mix: MOV 29, JZ 4, CALL 4, SUB 4, TEST 3.
+- 0409a1d0, 160 bytes. 4 outgoing calls: FUN_0409a0a0 x4. Instruction mix: MOV 18, LEA 8, CALL 4, POP 2, PUSH 2.
+- 0409bc70, 160 bytes (body 146). 4 outgoing calls: Direct3DDevice9Imp::DeleteTextureInOpenGL x1, FUN_040a2eb0 x1, FUN_040c6dd0 x1, _Rb_tree_increment x1. Instruction mix: MOV 19, POP 4, CALL 4, PUSH 4, LEA 3.
+- 040b1520, 160 bytes (body 127). 3 outgoing calls: Direct3DDevice9Imp::VertexArrays_VertexBufferInvalidated x1, FUN_040ba930 x1, operator.delete x1. Instruction mix: MOV 15, SUB 5, POP 3, JZ 3, CALL 3.
+- 040b8450, 160 bytes (body 123). 2 outgoing calls: direct3ddevice9imp_040803c0 x1, direct3ddevice9imp_04080490 x1. Instruction mix: MOV 21, POP 3, CALL 3, PUSH 3, JZ 2.
+- 040ea600, 160 bytes (body 146). 1 outgoing call: free x1. Instruction mix: MOV 22, POP 4, PUSH 4, ADD 3, SUB 3.
+- 040ebee0, 160 bytes (body 146). 4 outgoing calls: FUN_040e94b0 x1, FUN_040ebe10 x1, fread x1, free x1. Instruction mix: MOV 28, CALL 4, LEA 3, JZ 2, CMP 2.
+- 040ec050, 160 bytes (body 146). 4 outgoing calls: FUN_040e94b0 x1, FUN_040ebf80 x1, fread x1, free x1. Instruction mix: MOV 28, CALL 4, LEA 3, JZ 2, CMP 2.
+- 040fa170, 160 bytes (body 144). 1 outgoing call: alSourcef x1. Instruction mix: MOV 7, MOVSS 6, CVTSI2SS 4, POP 4, RET 2.

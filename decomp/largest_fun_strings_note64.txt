@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries that reference a string
+
+Skipped the 619 already listed in decomp/largest_fun_strings_note.txt through note62. Sizes are the gap to the next function. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 04175ce0, 176 bytes. One string: "Application tries to install unhandled hook in SetWindowsHookExA. Write code to handle it. idHook %d %p %u".
+- 042a80e0, 176 bytes, 2 strings: "duplicate", "gamma value out of range".
+- 042a8a90, 176 bytes, 2 strings: "internal error checking chromaticities", "invalid chromaticities".
+- 042affa0, 176 bytes. One string: "gamma value".
+- 042b0fe0, 176 bytes, 2 strings: "invalid file gamma in png_set_gamma", "invalid screen gamma in png_set_gamma".
+- 042c33d0, 176 bytes. One string: "Can't write sCAL (buffer too small)".
+- 042c3480, 176 bytes. One string: "Unrecognized unit type for pHYs chunk".
+- 042d28f0, 176 bytes, 3 strings: "bool google_breakpad::UntypedMDRVA::Copy(MDRVA, const void*, size_t)", "pos + size <= position_ + size_", "src/client/minidump_file_writer.cc".
+- 0400ec30, 160 bytes. One string: "eON_Cursor %p doesn't have mask bitmap! You need to add the code that creates it in eON_Cursor's constructing method used by the game. Look for 'TO DO' in cursor.mm.".
+- 0400ff80, 160 bytes, 2 strings: "Gamepads: mapping provided on Linux is for platform '%s', not Linux!", "platform".

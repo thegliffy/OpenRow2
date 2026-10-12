@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries with no string reference
+
+Continued from decomp/largest_fun_calls_note67.txt. Size is the gap to the next function; instruction mix is the top 5 Ghidra mnemonics in the function body. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 04204568, 394 bytes. 2 outgoing calls: FUN_04204525 x2. Instruction mix: MOV 50, PUSH 25, ADD 18, CALL 6, SUB 6.
+- 04201730, 387 bytes. 3 outgoing calls: FUN_041cca07 x1, FUN_042013c3 x1, FUN_042015fd x1. Instruction mix: MOV 68, ADD 22, PUSH 8, SUB 7, SHL 6.
+- 04200da5, 386 bytes. 3 outgoing calls: FUN_042008c2 x2, FUN_04201018 x1. Instruction mix: MOV 58, MOVZX 16, JNZ 14, CMP 13, JMP 5.
+- 0421de90, 384 bytes. No outgoing calls. Instruction mix: MOV 46, XOR 38, BSWAP 12, ROL 7, ROR 7.
+- 0421d2c0, 384 bytes. No outgoing calls. Instruction mix: MOV 47, XOR 8, SHR 8, MOVZX 6, ADD 5.
+- 041c3a90, 384 bytes. 7 outgoing calls: tinyxmlparser_041c7820 x6, strcmp x1. Instruction mix: MOV 46, ADD 10, POP 8, CALL 7, TEST 7.
+- 0418bd40, 384 bytes. 5 outgoing calls: memmove x3, operator.delete x1, operator.new x1. Instruction mix: MOV 62, SUB 9, JZ 8, SAR 7, LEA 7.
+- 04178eb0, 384 bytes. 10 outgoing calls: pthread_mutex_unlock x3, pthread_mutex_lock x2, FUN_041724b0 x1, FUN_04179f00 x1, FUN_04181220 x1, MouseDeltas_GetLastMouseDelta x1, malloc x1. Instruction mix: MOV 49, CALL 10, JZ 5, LEA 4, TEST 4.
+- 041588c0, 384 bytes. 8 outgoing calls: eON_WideCharToMultiByte x4, free x2, malloc x2. Instruction mix: MOV 57, CALL 8, SUB 5, JZ 2, TEST 2.
+- 04157380, 384 bytes. 9 outgoing calls: calloc x2, eON_MultiByteToWideChar x2, strlen x2, free x1, malloc x1, strcpy x1. Instruction mix: MOV 45, CALL 9, TEST 8, LEA 7, ADD 6.

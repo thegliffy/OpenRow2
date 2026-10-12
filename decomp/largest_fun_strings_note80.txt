@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries that reference a string
+
+Skipped every address already listed in decomp/largest_fun_strings_note.txt through note78. Sizes are the gap to the next function. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 041c3320, 96 bytes, 3 strings. Includes: "/home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxml.cpp", "const TiXmlNode* TiXmlNode::IterateChildren(const TiXmlNode*) const", "previous->parent == this".
+- 042a5720, 96 bytes. One string: "Unknown freer parameter in png_data_freer".
+- 042a6070, 96 bytes. One string: "Ignoring invalid time value".
+- 042a8190, 96 bytes. One string: "fixed point overflow ignored".
+- 042af740, 96 bytes. One string: "Read Error".
+- 042af7d0, 96 bytes. One string: "Can't set both read_data_fn and write_data_fn in the same structure".
+- 042bfdc0, 96 bytes, 2 strings. Includes: "Only compression windows <= 32k supported by PNG", "Only compression windows >= 256 supported by PNG".
+- 042bfec0, 96 bytes, 2 strings. Includes: "Only compression windows <= 32k supported by PNG", "Only compression windows >= 256 supported by PNG".
+- 042c22b0, 96 bytes. One string: "Invalid sRGB rendering intent specified".
+- 042ca290, 96 bytes. One string: " (deleted)".

@@ -1,0 +1,12 @@
+Next 8 largest FUN_ entries that reference a string
+
+Skipped the 899 addresses already listed in decomp/largest_fun_strings_note.txt through note90. Sizes are the gap to the next function. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 04139770, 32 bytes. One string: "kernel32_ThreadDetach".
+- 04191ab0, 32 bytes. One string: "(warning - different socket domain on Windows than on Unix)".
+- 041d9441, 31 bytes. One string: "UTF-7,version=1".
+- 041dc739, 30 bytes, 2 strings: "UTF-16BE", "UTF-16BE,version=1".
+- 041dd5e8, 30 bytes, 2 strings: "UTF-16LE", "UTF-16LE,version=1".
+- 042a60d0, 16 bytes. One string: "\nlibpng version 1.6.16 - December 22, 2014\nCopyright (c) 1998-2014 Glenn Randers-Pehrson\nCopyright (c) 1996-1997 Andreas Dilger\nCopyright (c) 1995-1996 Guy Eric Schalnat, Group 42, Inc.\n".
+- 042a6100, 16 bytes. One string: " libpng version 1.6.16 - December 22, 2014\n\n".
+- 041f4eb7, 10 bytes. One string: "x11-compound-text".

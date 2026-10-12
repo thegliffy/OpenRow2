@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries that reference a string (note 16).
+
+Skipped the 140 already listed in decomp/largest_fun_strings_note.txt through note14. Sizes are the gap to the next function. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 0418c080, 784 bytes. One string: "Main volume".
+- 04199d80, 784 bytes, 34 strings. Includes: "glActiveTextureARB", "glClientActiveTextureARB", "glMultiTexCoord1dARB", "glMultiTexCoord1dvARB", "glMultiTexCoord1fARB".
+- 0419e230, 784 bytes, 34 strings. Includes: "glBindFragDataLocationEXT", "glGetFragDataLocationEXT", "glGetUniformuivEXT", "glGetVertexAttribIivEXT", "glGetVertexAttribIuivEXT".
+- 0419fb10, 784 bytes, 34 strings. Includes: "glGetUniformi64vNV", "glGetUniformui64vNV", "glProgramUniform1i64NV", "glProgramUniform1i64vNV", "glProgramUniform1ui64NV".
+- 042b2360, 784 bytes. One string: "Palette is NULL in indexed image".
+- 0400aab0, 768 bytes. One string: "COT ERROR: Trying to create already existing COM object %p ('%s')'".
+- 04010440, 768 bytes, 3 strings: "Gamepad mapping: invalid characters in gamepad GUID", "Gamepad mapping: no comma after gamepad GUID", "Gamepads: registered gamepad mapping for device GUID %02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x".
+- 04050b40, 768 bytes, 2 strings: "Unrecognized pixel shader version: %#x", "Unrecognized vertex shader version: %#x".
+- 0416b250, 768 bytes, 18 strings. Includes: "                                       file: %s", "                                  directory: %s", "                                  operation: %s", "                                 parameters: %s", "                               show command: !!!unknown!!!".
+- 041998b0, 768 bytes, 32 strings. Includes: "glBlendEquation", "glColorSubTable", "glColorTable", "glColorTableParameterfv", "glColorTableParameteriv".

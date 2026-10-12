@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries with no string reference
+
+Continued from decomp/largest_fun_calls_note243.txt. Size is the declared gap to the next function (Ghidra body size in parentheses where it differs); instruction mix is the top 5 Ghidra mnemonics in the function body. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 0406a440, 80 bytes (body 69). 1 outgoing call: d3d9device_Clear x1. Instruction mix: MOV 15, RET 1, CALL 1, ADD 1, SUB 1.
+- 0406a490, 80 bytes (body 69). 1 outgoing call: d3d9device_Clear x1. Instruction mix: MOV 15, RET 1, CALL 1, ADD 1, SUB 1.
+- 0406a6e0, 80 bytes (body 69). 1 outgoing call: Direct3DDevice9Imp::CreateOffscreenPlainSurface x1. Instruction mix: MOV 15, RET 1, CALL 1, ADD 1, SUB 1.
+- 0406a730, 80 bytes (body 69). 1 outgoing call: Direct3DDevice9Imp::CreateOffscreenPlainSurface x1. Instruction mix: MOV 15, RET 1, CALL 1, ADD 1, SUB 1.
+- 0406ab80, 80 bytes (body 69). 1 outgoing call: d3d9device_CreateIndexBuffer x1. Instruction mix: MOV 15, RET 1, CALL 1, ADD 1, SUB 1.
+- 0406abd0, 80 bytes (body 69). 1 outgoing call: d3d9device_CreateIndexBuffer x1. Instruction mix: MOV 15, RET 1, CALL 1, ADD 1, SUB 1.
+- 0406ac20, 80 bytes (body 69). 1 outgoing call: d3d9device_CreateVertexBuffer x1. Instruction mix: MOV 15, RET 1, CALL 1, ADD 1, SUB 1.
+- 0406ac70, 80 bytes (body 69). 1 outgoing call: d3d9device_CreateVertexBuffer x1. Instruction mix: MOV 15, RET 1, CALL 1, ADD 1, SUB 1.
+- 0406acc0, 80 bytes (body 76). 1 outgoing call: d3d9device_CreateCubeTexture x1. Instruction mix: MOV 17, RET 1, CALL 1, ADD 1, SUB 1.
+- 0406ad10, 80 bytes (body 76). 1 outgoing call: d3d9device_CreateCubeTexture x1. Instruction mix: MOV 17, RET 1, CALL 1, ADD 1, SUB 1.

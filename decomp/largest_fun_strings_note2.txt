@@ -1,0 +1,15 @@
+Next 10 largest FUN_ entries that reference a string
+
+Skipped the 10 already listed in decomp/largest_fun_strings_note.txt. Sizes are the gap to the next function. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 0402b440, 4096 bytes, 19 strings. A DDS surface dump: Size, Flags, DDSD_ALL, Width, Height, Pitch.
+- 0402a4e0, 3936 bytes, 15 strings. Another DDS dump, headed by "DDSURFACEDESC %p DATA", with the same Size/Flags/Width/Height fields.
+- 040279c0, 2896 bytes, 10 strings. A pixel-format dump between "PIXELFORMAT %p DATA" and "PIXELFORMAT %p END", including FourCC and RGBBitCount.
+- 04029850, 3216 bytes. The only string is "Caps2: %s", the caps field that follows those surface dumps.
+- 042b1400, 3936 bytes. libpng: "libpng does not support gamma+background+rgb_to_gray" and "invalid background gamma type".
+- 04024790, 3792 bytes. SDL text input: "SDL_TEXTINPUT - failed to convert '%s' to utf16 char, ignoring character input."
+- 04056820, 3456 bytes, 6 strings. A GLSL instruction emitter: "%s%s = %s(", the less-than mix form, and InstrHelpTemp.
+- 040580b0, 3136 bytes. The shader bytecode preparser, already described in decomp/identify_instruction_note.txt.
+- 0400bfd0, 3056 bytes. Strings are "--eon_", "basic_string::substr", and "ParentProcessId".
+- 0417a3d0, 2928 bytes. Icon bitmaps: "Unsupported bitmap bits per pixel: %u", "Failed to create XOR bitmap for icon", "Failed to create mask bitmap for icon".
+

@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries that reference a string
+
+Skipped the 450 already listed in decomp/largest_fun_strings_note.txt through note45. Sizes are the gap to the next function. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 040f8620, 288 bytes. One string: "DirectInput 7/8 mouse unacquired.".
+- 04100590, 288 bytes. One string: "Initializing primary sound buffer".
+- 04105820, 288 bytes. One string: "vector::_M_default_append".
+- 041181a0, 288 bytes, 2 strings: "Error! RegQueryValueExW() given lpData, but not lpcbData! See what PC does in this case and do the same.", "Warning! Non-zero lpReserved given to RegQueryValueExW. Some problem?".
+- 04144740, 288 bytes, 3 strings: "	Calling handler at %p code=%x flags=%x", "	Exception handled by one of the stack handlers.", "	Handler at %p returned %x".
+- 04146590, 288 bytes. One string: "CreateEvent() does not support lpEventAttributes".
+- 04152eb0, 288 bytes, 2 strings: "winpe_LoadFromFile() - VPFS_Read() returned an error", "winpe_LoadFromFile() - [VPFS] Failed to allocate %u bytes buffer to load '%s'!".
+- 0418f6c0, 288 bytes. One string: "WaveInDevice capture callback error: no buffers to render into! Sound data lost.".
+- 041c2670, 288 bytes, 3 strings: "/home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxml.cpp", "<![CDATA[%s]]>\n", "virtual void TiXmlText::Print(FILE*, int) const".
+- 042a7430, 288 bytes. One string: "ASCII conversion buffer too small".

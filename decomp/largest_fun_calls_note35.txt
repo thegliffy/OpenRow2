@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries with no string reference
+
+Continued from decomp/largest_fun_calls_note34.txt. Size is the gap to the next function. Counts are Ghidra instructions in the function body. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 041de8c1, 642 bytes. 2 outgoing calls: FUN_04202a56 x1, __stack_chk_fail x1. Instruction mix: MOV 113, CMP 12, PUSH 10, JMP 9, ADD 8.
+- 041dde11, 642 bytes. 2 outgoing calls: FUN_04202a56 x1, __stack_chk_fail x1. Instruction mix: MOV 113, CMP 12, PUSH 10, JMP 9, ADD 8.
+- 04246be0, 640 bytes. Instruction mix: MOV 61, MOVZX 58, ADD 37, LEA 13, JZ 8.
+- 0418e520, 640 bytes. 5 outgoing calls: memmove x3, operator.delete x1, operator.new x1. Instruction mix: MOV 117, SUB 9, LEA 8, POP 8, IMUL 8.
+- 0416c810, 640 bytes. 1 outgoing call: FUN_04183140 x1. Instruction mix: MOVZX 42, MOV 21, JZ 20, TEST 20, CMP 18.
+- 0416a440, 640 bytes. 22 outgoing calls: strncpy x11, strtoul x11. Instruction mix: MOV 91, CALL 22, LEA 11, POP 4, PUSH 4.
+- 0414f9e0, 640 bytes. 14 outgoing calls: FUN_0414f790 x5, memcmp x5, FUN_0414f880 x2, _Rb_tree_decrement x1, _Rb_tree_increment x1. Instruction mix: MOV 108, POP 16, CALL 14, TEST 13, CMP 7.
+- 0411a180, 640 bytes. 14 outgoing calls (8 listed): free x3, malloc x2, towlower x2, FUN_0415a040 x1, FUN_041c3580 x1, FUN_041c3660 x1, FUN_041c5820 x1, TiXmlNode::LinkEndChild x1. Instruction mix: MOV 74, CALL 14, LEA 11, MOVZX 9, ADD 8.
+- 040e5370, 640 bytes. 5 outgoing calls: memmove x3, operator.delete x1, operator.new x1. Instruction mix: MOV 117, SUB 9, LEA 8, POP 8, IMUL 8.
+- 0403e320, 640 bytes. 16 outgoing calls: strcpy x9, strlen x7. Instruction mix: MOV 79, ADD 32, CALL 17, TEST 16, JMP 14.

@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries with no string reference
+
+Continued from decomp/largest_fun_calls_note27.txt. Size is the gap to the next function. Counts are Ghidra instructions in the function body. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 0421c990, 784 bytes. No outgoing calls. Instruction mix: XOR 58, MOV 51, MOVZX 38, SHL 12, SHRD 6.
+- 041917a0, 784 bytes. 11 outgoing calls (5 listed): operator.new x6, _Rb_tree_insert_and_rebalance x2, FUN_04191600 x1, _Rb_tree_decrement x1, _Rb_tree_increment x1. Instruction mix: MOV 121, CALL 11, JZ 11, CMP 9, TEST 9.
+- 0415af30, 784 bytes. 11 outgoing calls (5 listed): operator.new x6, _Rb_tree_insert_and_rebalance x2, FUN_0415a8e0 x1, _Rb_tree_decrement x1, _Rb_tree_increment x1. Instruction mix: MOV 122, CALL 11, JZ 11, CMP 9, TEST 9.
+- 0415ac20, 784 bytes. 11 outgoing calls (5 listed): operator.new x6, _Rb_tree_insert_and_rebalance x2, FUN_0415aa80 x1, _Rb_tree_decrement x1, _Rb_tree_increment x1. Instruction mix: MOV 122, CALL 11, JZ 11, CMP 9, TEST 9.
+- 04145560, 784 bytes. 11 outgoing calls (5 listed): operator.new x6, _Rb_tree_insert_and_rebalance x2, FUN_041453c0 x1, _Rb_tree_decrement x1, _Rb_tree_increment x1. Instruction mix: MOV 123, CALL 11, JZ 11, CMP 9, TEST 9.
+- 040ea8a0, 784 bytes. 14 outgoing calls (3 listed): operator.delete x12, ShaderCache::ClearCaches x1, pthread_mutex_destroy x1. Instruction mix: MOV 105, TEST 17, JNZ 15, CALL 14, ADD 8.
+- 0405cc50, 784 bytes. 7 outgoing calls: _M_destroy x3, swap x2, operator.delete x1, operator.new x1. Instruction mix: MOV 111, LEA 17, CMP 13, TEST 13, ADD 12.
+- 04020660, 784 bytes. 11 outgoing calls (5 listed): operator.new x6, _Rb_tree_insert_and_rebalance x2, FUN_04020320 x1, _Rb_tree_decrement x1, _Rb_tree_increment x1. Instruction mix: MOV 123, CALL 11, JZ 11, CMP 9, TEST 9.
+- 04203bfc, 780 bytes. 4 outgoing calls: FUN_04203a88 x3, FUN_04203ade x1. Instruction mix: MOV 115, ADD 29, JMP 17, LEA 16, PUSH 13.
+- 041e832e, 774 bytes. 2 outgoing calls: FUN_041e4859 x1, __stack_chk_fail x1. Instruction mix: MOV 131, MOVZX 15, JMP 14, ADD 12, PUSH 12.

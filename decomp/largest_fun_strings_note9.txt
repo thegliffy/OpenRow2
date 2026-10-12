@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries that reference a string
+
+Skipped the 60 already listed in decomp/largest_fun_strings_note.txt through note6. Sizes are the gap to the next function. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 04248f80, 1248 bytes. One string: "test key 128bits".
+- 042d0e50, 1248 bytes, 6 strings. Includes: "fd_ == -1 || !minidump_path", "src/client/linux/minidump_writer/minidump_writer.cc", "{anonymous}::MinidumpWriter::MinidumpWriter(const char*, int, const google_breakpad::ExceptionHandler::CrashContext*, const MappingList&, const AppMemoryList&, google_breakpad::LinuxDumper*)".
+- 040f2a80, 1232 bytes, 14 strings. Includes: "DIPROP_AUTOCENTER %d %d %d", "DIPROP_AXISMODE %d %d", "DIPROP_BUFFERSIZE %d %d %d", "DIPROP_CALIBRATION %d %d", "DIPROP_CALIBRATIONMODE %d %d".
+- 042ae7b0, 1232 bytes, 3 strings: "Read palette index exceeding num_palette", "Too many IDATs found".
+- 041c7910, 1216 bytes, 14 strings. Includes: "*length >= 0 && *length < 5", "/home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxml.h", "/home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxmlparser.cpp", "static bool TiXmlBase::StringEqual(const char*, const char*, bool, TiXmlEncoding)", "static const char* TiXmlBase::GetChar(const char*, char*, int*, TiXmlEncoding)".
+- 04092950, 1200 bytes. One string: "Can't input value through glVertexAttrib - no function call available!".
+- 041344d0, 1184 bytes. One string: "Non-zero flags in ReplaceFileA, possibly unhandled!".
+- 042a8f60, 1184 bytes. One string: "gamma table being rebuilt".
+- 0405a780, 1168 bytes, 46 strings. Includes: "IN[%u]%s = %s%s;", "IN[%u]%s = vec4( 0.0, 0.0, 0.0, 0.0 )%s;", "IN[%u]%s = vec4(%s)%s;", "IN[%u]%s = vec4(%s, 0.0, 0.0, 0.0)%s;", "IN[%u]%s = vec4(0.0)%s;".
+- 040ec550, 1152 bytes, 3 strings: "Creation of precompiled header file failed! Deleting file, and disabling precompiled shaders!", "Precompiled shaders file has incorrect content. Deleting file, and disabling precompiled shaders!", "Precompiled shaders file has incorrect header. Replacing with a new empty file.".

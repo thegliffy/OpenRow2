@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries that reference a string
+
+Skipped the ones already listed in decomp/largest_fun_strings_note.txt through note54. Sizes are the gap to the next function. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 0400af30, 224 bytes, 2 strings: "COT ERROR: Trying to destroy (with info '%s') COM object %p that doesn't exist!'", "COT ERROR: Trying to destroy COM object %p with refcount %d != 0!'".
+- 0402d360, 224 bytes. One string: "Attempt to set main game window display mode, when there's no main game window! Deferring setting display mode until there is a window.".
+- 04043190, 224 bytes, 2 strings: "Invalid handle given to VPFS_Close()!!", "Invalid handle given to VPFS_IsArchivedFile()!!".
+- 040469b0, 224 bytes. One string: "Invalid handle given to VPFS_Tell()!!".
+- 040f54d0, 224 bytes, 16 strings. Includes: "DIPROP_APPDATA", "DIPROP_AUTOCENTER", "DIPROP_AXISMODE", "DIPROP_CALIBRATION", "DIPROP_CALIBRATIONMODE".
+- 0411faf0, 224 bytes, 12 strings. Includes: "BITSPIXEL", "HORZRES", "HORZSIZE", "LOGPIXELSX", "LOGPIXELSY".
+- 0412e030, 224 bytes. One string: "Tried to map view of file, existing only in VPFS archive!".
+- 0412e3d0, 224 bytes. One string: "Tried to map view of file, existing only in VPFS archive!".
+- 04157080, 224 bytes, 2 strings: "GetEnvironmentVariableA( lpName = '%s', lpBuffer = %p, nSize = %u )", "USERPROFILE".
+- 041600e0, 224 bytes. One string: "{%08X-%04X-%04X-%02X%02X-%02X%02X%02X%02X%02X%02X}".

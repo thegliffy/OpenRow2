@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries that reference a string (note 17).
+
+Skipped the 140 already listed in decomp/largest_fun_strings_note.txt through note14. Sizes are the gap to the next function. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 042bb3c0, 768 bytes, 7 strings. Includes: "Insufficient memory for pCAL parameter", "Insufficient memory for pCAL params", "Insufficient memory for pCAL purpose", "Insufficient memory for pCAL units", "Invalid format for pCAL parameter".
+- 041cae02, 757 bytes. One string: "nynorsk".
+- 0402d700, 752 bytes, 2 strings: "When looking for dimensions of the main game window , found that no main game window is set!", "When looking for origin of the main game window , found that no main game window is set!".
+- 0417d100, 752 bytes. One string: "eON_GetUserObjectInformationW - unhandled flag %d".
+- 04052550, 736 bytes, 6 strings. Includes: "(1.0-%s%s)", "(2.0*%s%s)", "(2.0*(%s%s-0.5))", "-(%s%s-vec4(0.5)%s)", "-abs(%s%s)".
+- 040575a0, 736 bytes, 4 strings: "%s%s = %s(", "%s%s = ( %s <= 0.5 ) ? %s : %s;\\n", "%s%s = mix( %s, %s, lessThanEqual( %s, vec%d(0.5) ) );\\n", "( %s > 0.5 ) ? %s : %s );\\n".
+- 04117760, 736 bytes, 2 strings: "Warning! Non-zero Reserved given to RegCreateKeyExA. Some problem?", "Warning! Non-zero dwOptions given to RegCreateKeyExA - eON doesn't support this at the moment. Add it maybe?".
+- 0423e8e0, 736 bytes. One string: "abcdefghbcdefghicdefghijdefghijkefghijklfghijklmghijklmnhijklmnoijklmnopjklmnopqklmnopqrlmnopqrsmnopqrstnopqrstu".
+- 042b7b00, 736 bytes, 7 strings. Includes: "No space in chunk cache for sPLT", "malformed sPLT chunk", "missing IHDR", "out of place", "sPLT chunk has bad length".
+- 042b9200, 736 bytes, 5 strings: "bad compression info", "bad keyword", "insufficient memory", "missing IHDR", "no space in chunk cache".

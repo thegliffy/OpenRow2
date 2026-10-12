@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries with no string reference
+
+Continued from decomp/largest_fun_calls_note78.txt. Size is the gap to the next function; instruction mix is the top 5 Ghidra mnemonics in the function body. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 041026a0, 336 bytes. 6 outgoing calls: memcpy x3, __throw_bad_alloc x1, operator.delete x1, operator.new x1. Instruction mix: MOV 40, LEA 8, ADD 7, SUB 7, CALL 6.
+- 040fe5e0, 336 bytes. 8 outgoing calls: FUN_040f9840 x1, FUN_040fbdf0 x1, backendOpenALSoft_040f9890 x1, backendOpenALSoft_040faf00 x1, free x1, malloc x1, memcpy x1, operator.new x1. Instruction mix: MOV 47, CALL 8, POP 8, TEST 5, JZ 4.
+- 040f15c0, 336 bytes. 11 outgoing calls (8 listed): operator.new x3, memcmp x2, FUN_04010e80 x1, FUN_040f4370 x1, FUN_040f43f0 x1, FUN_040f6310 x1, FUN_040f8760 x1, GamepadControl::SetInitialMinMaxValues x1. Instruction mix: MOV 41, CALL 12, MOVZX 6, JZ 4, TEST 4.
+- 040e94b0, 336 bytes. 7 outgoing calls: fread x4, free x2, malloc x1. Instruction mix: MOV 51, CALL 7, CMP 7, JNZ 4, XOR 4.
+- 040838c0, 336 bytes. 7 outgoing calls: memcpy x3, OpenGLContextCache::__glewBindFramebuffer x1, free x1, glReadPixels x1, malloc x1. Instruction mix: MOV 55, CALL 9, ADD 5, SUB 4, POP 4.
+- 0406bfc0, 336 bytes. 3 outgoing calls: Direct3DDevice9Imp::DeleteTextureInOpenGL x1, FUN_040ba660 x1, operator.delete x1. Instruction mix: MOV 33, SUB 9, TEST 7, JNZ 6, CALL 5.
+- 0401de50, 336 bytes. 4 outgoing calls: memcpy x2, operator.delete x1, operator.new x1. Instruction mix: MOV 36, TEST 8, CMP 6, JMP 6, JZ 6.
+- 0400ded0, 336 bytes. 1 outgoing call: bzero x1. Instruction mix: MOV 20, XOR 11, AND 10, LEA 9, OR 8.
+- 0400ccf0, 336 bytes. 5 outgoing calls: memcmp x2, _M_destroy x1, assign x1, string x1. Instruction mix: MOV 45, TEST 9, CALL 5, CMP 5, LEA 5.
+- 040098c0, 336 bytes. 4 outgoing calls: __cxa_atexit x1, __throw_bad_alloc x1, ceilf x1, operator.new x1. Instruction mix: MOV 25, LEA 9, CMP 5, CALL 4, POP 3.

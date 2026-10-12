@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries that reference a string
+
+Skipped the ones already listed in decomp/largest_fun_strings_note.txt through note53. Sizes are the gap to the next function. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 042bb180, 224 bytes, 2 strings. Includes: "Insufficient memory for hIST chunk data", "Invalid palette size, hIST allocation skipped".
+- 042b6420, 224 bytes, 2 strings. Includes: "Not a PNG file", "PNG file corrupted by ASCII conversion".
+- 042af3e0, 224 bytes, 2 strings. Includes: "png_image_begin_read_from_file: incorrect PNG_IMAGE_VERSION", "png_image_begin_read_from_file: invalid argument".
+- 042a9c00, 224 bytes, 2 strings. Includes: "Application jmp_buf size changed", "Libpng jmp_buf still allocated".
+- 042a9510, 224 bytes. One string: "0123456789ABCDEF".
+- 042a7ab0, 224 bytes, 2 strings. Includes: "gamma value does not match libpng estimate", "gamma value does not match sRGB".
+- 041860e0, 224 bytes, 3 strings. Includes: "GetWindowLong: DWL_DLGPROC requested, but not supported", "GetWindowLong: DWL_USER requested, but not supported", "GetWindowLong: unknown nIndex requested (%d)".
+- 04183140, 224 bytes, 2 strings. Includes: "Desktop HWND supplied in SendMessageW()", "HWND_BROADCAST not supported in SendMessageW(). Add it.".
+- 04183060, 224 bytes, 2 strings. Includes: "Desktop HWND supplied in SendMessageA().", "HWND_BROADCAST not supported in SendMessageA(). Add it.".
+- 04182dc0, 224 bytes, 2 strings. Includes: "Desktop HWND supplied in SendMessageA().", "HWND_BROADCAST not supported in SendMessageA(). Add it.".

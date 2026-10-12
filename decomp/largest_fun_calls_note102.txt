@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries with no string reference
+
+Continued from decomp/largest_fun_calls_note101.txt. Size is the gap to the next function; instruction mix is the top 5 Ghidra mnemonics in the function body. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 040fa210, 256 bytes. 5 outgoing calls: alSourcef x2, pow x2, alDeferUpdatesSOFT x1. Instruction mix: MOVSD 12, MOV 12, CALL 5, CMP 4, POP 4.
+- 040ebd10, 256 bytes. 6 outgoing calls: FUN_040eb950 x2, FUN_040e5a00 x1, FUN_040e9870 x1, pthread_mutex_lock x1, pthread_mutex_unlock x1. Instruction mix: MOV 38, CALL 6, ADD 5, CMP 4, POP 4.
+- 040ebc10, 256 bytes. 6 outgoing calls: FUN_040eb950 x2, FUN_040e5a00 x1, FUN_040e9720 x1, pthread_mutex_lock x1, pthread_mutex_unlock x1. Instruction mix: MOV 38, CALL 6, ADD 5, CMP 4, POP 4.
+- 040e43a0, 256 bytes. 4 outgoing calls: memcmp x2, FUN_040e42c0 x1, _Rb_tree_decrement x1. Instruction mix: MOV 37, POP 8, LEA 7, TEST 6, CALL 4.
+- 040e3fb0, 256 bytes. 4 outgoing calls: memcmp x2, FUN_040e3ee0 x1, _Rb_tree_decrement x1. Instruction mix: MOV 37, POP 8, LEA 7, TEST 6, CALL 4.
+- 040e3bd0, 256 bytes. 4 outgoing calls: memcmp x2, FUN_040e3b00 x1, _Rb_tree_decrement x1. Instruction mix: MOV 37, POP 8, LEA 7, TEST 6, CALL 4.
+- 040c67f0, 256 bytes. 4 outgoing calls: memcmp x2, FUN_040c66c0 x1, _Rb_tree_decrement x1. Instruction mix: MOV 37, POP 8, LEA 7, TEST 6, CALL 4.
+- 040acd10, 256 bytes. No outgoing calls. Instruction mix: MOV 33, POP 16, CMP 9, RET 4, ADD 4.
+- 04085610, 256 bytes. No outgoing calls. Instruction mix: MOV 17, MOVSS 5, MULSS 4, CVTSI2SS 4, POP 2.
+- 0406fa90, 256 bytes. 1 outgoing call: SetUserGammaRamp x1. Instruction mix: MOV 10, CVTSI2SS 6, MOVSS 6, POP 4, PUSH 4.

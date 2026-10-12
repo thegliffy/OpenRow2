@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries that reference a string
+
+Skipped the 659 already listed in decomp/largest_fun_strings_note.txt through note66. Sizes are the gap to the next function. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 0419b0f0, 160 bytes, 6 strings. Includes: "glTexStorage1D", "glTexStorage2D", "glTexStorage3D", "glTextureStorage1DEXT", "glTextureStorage2DEXT".
+- 0419ddb0, 160 bytes, 6 strings. Includes: "glColorMaskIndexedEXT", "glDisableIndexedEXT", "glEnableIndexedEXT", "glGetBooleanIndexedvEXT", "glGetIntegerIndexedvEXT".
+- 0419e640, 160 bytes, 6 strings. Includes: "glPixelTransformParameterfEXT", "glPixelTransformParameteriEXT", "glGetPixelTransformParameterfvEXT", "glGetPixelTransformParameterivEXT", "glPixelTransformParameterfvEXT".
+- 0419e880, 160 bytes, 6 strings. Includes: "glClearColorIiEXT", "glClearColorIuiEXT", "glGetTexParameterIivEXT", "glGetTexParameterIuivEXT", "glTexParameterIivEXT".
+- 0419e920, 160 bytes, 6 strings. Includes: "glAreTexturesResidentEXT", "glBindTextureEXT", "glDeleteTexturesEXT", "glGenTexturesEXT", "glIsTextureEXT".
+- 0419f020, 160 bytes, 6 strings. Includes: "glImageTransformParameterfHP", "glImageTransformParameterfvHP", "glImageTransformParameteriHP", "glImageTransformParameterivHP", "glGetImageTransformParameterfvHP".
+- 0419f940, 160 bytes, 6 strings. Includes: "glProgramNamedParameter4dNV", "glProgramNamedParameter4dvNV", "glProgramNamedParameter4fNV", "glProgramNamedParameter4fvNV", "glGetProgramNamedParameterdvNV".
+- 041a0750, 160 bytes, 6 strings. Includes: "glGetVideoi64vNV", "glGetVideoivNV", "glGetVideoui64vNV", "glGetVideouivNV", "glPresentFrameDualFillNV".
+- 041a0a70, 160 bytes, 6 strings. Includes: "glTextureImage2DMultisampleNV", "glTextureImage3DMultisampleNV", "glTexImage2DMultisampleCoverageNV", "glTexImage3DMultisampleCoverageNV", "glTextureImage2DMultisampleCoverageNV".
+- 041a17a0, 160 bytes, 6 strings. Includes: "glClearDepthfOES", "glClipPlanefOES", "glDepthRangefOES", "glFrustumfOES", "glGetClipPlanefOES".

@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries that reference a string
+
+Skipped the 300 already listed in decomp/largest_fun_strings_note.txt through note30. Sizes are the gap to the next function. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 040a4480, 400 bytes. One string: "Direct3DPixelShader9Imp".
+- 04118ff0, 400 bytes, 3 strings. Includes: "Error! RegEnumValueW() given lpData, but not lpcbData! See what PC does in this case and do the same.", "Error! RegEnumValueW() given neither lpData nor lpcbData! See what PC does in this case and do the same.", "Warning! Non-zero lpReserved given to RegEnumValueA. Some problem?".
+- 042c1130, 400 bytes. One string: "keyword @1: bad character '0x@2'".
+- 042c2490, 400 bytes. One string: "sPLT: invalid keyword".
+- 041fd9fd, 399 bytes, 2 strings. Includes: "ERROR: Could not load entrypoint", "ERROR: could not load library".
+- 04027160, 384 bytes, 3 strings. Includes: "SetWindowPosition 2 (center)", "SetWindowPosition to %d, %d", "SetWindowSize to %d, %d".
+- 04055d90, 384 bytes, 3 strings. Includes: "%s%s = %s(", "dot(%s,%s));\n", "vec%d(dot(%s,%s)));\n".
+- 04065f90, 384 bytes. One string: "Warning: GetAdapterIdentifier enables download of WHQL drivers".
+- 0408a4d0, 384 bytes. One string: "( unknown: %u )".
+- 040d9d60, 384 bytes, 10 strings. Includes: "No valid OpenGL context in calling thread!.", "OpenGL Error: GL_INVALID_ENUM\n", "OpenGL Error: GL_INVALID_OPERATION\n", "OpenGL Error: GL_INVALID_VALUE\n", "OpenGL Error: GL_NO_ERROR\n".

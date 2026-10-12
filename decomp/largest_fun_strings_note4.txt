@@ -1,0 +1,15 @@
+Next 10 largest FUN_ entries that reference a string
+
+Skipped the 30 already listed in decomp/largest_fun_strings_note.txt through note3. Sizes are the gap to the next function. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 0401bf20, 2208 bytes. Gamepad control update: "UpdateControlValues for gamepad %p", plus the axis and button range messages.
+- 040e1130, 2096 bytes. One string: "Unsupported texture format %s".
+- 04198d00, 2080 bytes, 93 strings. OpenGL named-object entry points, from glBindTextureUnit through glClearNamedBufferSubData.
+- 04197880, 2080 bytes, 93 strings. OpenGL shader-program entry points, from glAttachShader and glCompileShader through glCreateProgram.
+- 0417da90, 2080 bytes. One string: "WARNING: unknown substitution in wvsnprintfA - ignoring". The wide version is 0417e2b0, already listed.
+- 041eb1aa, 2064 bytes, 9 strings. Charset names: ISO8859_7, Shift-JIS, jisx-212, ibm-5478, ksc_5601.
+- 04057950, 1888 bytes. Shader register decoding: oDepth, "Unhandled register type: %u", "_unknown_source_modifier(%x)", "Unhandled MISCTYPE register: %u".
+- 04016a90, 1872 bytes, 13 strings. Cursor fallback: "No Mac standard cursor for %s", then IDC_APPSTARTING, IDC_WAIT, IDC_HELP.
+- 042ad580, 1856 bytes. libpng transforms: "lost rgb to gray", "unexpected compose", "lost/gained channels", "unknown interlace type", "unexpected bit depth".
+- 040f2f50, 1840 bytes. Two strings: "reporting %s" and "Button %u".
+

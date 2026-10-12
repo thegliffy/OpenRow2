@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries with no string reference
+
+Continued from decomp/largest_fun_calls_note253.txt. Size is the declared gap to the next function (Ghidra body size in parentheses where it differs); instruction mix is the top 5 Ghidra mnemonics in the function body. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 04164d80, 80 bytes (body 72). No outgoing calls. Instruction mix: MOV 3, MOVSD 2, UCOMISD 2, XORPD 2, RET 1.
+- 04164fb0, 80 bytes (body 60). No outgoing calls. Instruction mix: MOV 8, RET 2, POP 2, XOR 2, NEG 1.
+- 04165070, 80 bytes (body 75). No outgoing calls. Instruction mix: MOV 3, MOVSD 2, UCOMISD 2, XORPD 2, RET 1.
+- 04168440, 80 bytes (body 67). No outgoing calls. Instruction mix: MOV 3, MOVSD 2, UCOMISD 2, RET 1, SUB 1.
+- 041684a0, 80 bytes (body 76). No outgoing calls. Instruction mix: MOV 13, RET 2, NEG 2, LEAVE 2, XOR 2.
+- 04168620, 80 bytes (body 67). No outgoing calls. Instruction mix: UCOMISD 2, MOV 2, AND 2, RET 1, ADDSD 1.
+- 04168780, 80 bytes (body 69). No outgoing calls. Instruction mix: MOV 9, TEST 4, JNZ 4, RET 2, POP 2.
+- 04168830, 80 bytes (body 59). No outgoing calls. Instruction mix: MOV 9, RET 2, POP 2, XOR 2, NEG 1.
+- 041689c0, 80 bytes (body 60). No outgoing calls. Instruction mix: MOV 8, RET 2, POP 2, XOR 2, NEG 1.
+- 04168d00, 80 bytes (body 67). No outgoing calls. Instruction mix: UCOMISD 2, MOV 2, AND 2, RET 1, ADDSD 1.

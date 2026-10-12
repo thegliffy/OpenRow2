@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries with no string reference
+
+Continued from decomp/largest_fun_calls_note49.txt. Size is the gap to the next function. Counts are Ghidra instructions in the function body. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 0421b580, 480 bytes. 14 outgoing calls (5 listed): FUN_04219d30 x6, FUN_0421a340 x3, FUN_0421abf0 x3, __stack_chk_fail x1, memcmp x1. Instruction mix: LEA 41, MOV 40, CALL 14, BSWAP 12, ADD 2.
+- 041fed68, 480 bytes. 12 outgoing calls (8 listed): FUN_041fe550 x3, FUN_041cac52 x1, FUN_041fe5fe x1, FUN_041fe640 x1, FUN_041fe985 x1, FUN_04204a92 x1, FUN_0420c5ea x1, FUN_0420c65e x1. Instruction mix: MOV 60, PUSH 20, ADD 16, CALL 12, SUB 11.
+- 04174270, 480 bytes. 8 outgoing calls (7 listed): operator.delete x2, FUN_0415b3b0 x1, FUN_04174e20 x1, _Rb_tree_increment x1, memmove x1, operator.new x1, pthread_mutex_lock x1. Instruction mix: MOV 64, JZ 9, ADD 8, CALL 8, TEST 8.
+- 0414c8e0, 480 bytes. 6 outgoing calls (5 listed): pthread_mutex_unlock x2, FUN_0414d300 x1, FUN_0415ddd0 x1, pthread_cond_signal x1, pthread_mutex_lock x1. Instruction mix: MOV 49, JZ 9, CMP 7, JMP 7, TEST 7.
+- 041276d0, 480 bytes. 10 outgoing calls (7 listed): if_freenameindex x2, ioctl x2, strncpy x2, close x1, if_nameindex x1, malloc x1, socket x1. Instruction mix: MOV 57, TEST 15, JZ 14, ADD 10, CALL 10.
+- 04112100, 480 bytes. 7 outgoing calls (5 listed): FUN_0415cec0 x3, FUN_04232bd0 x1, FUN_04239ae0 x1, FUN_0423bfa0 x1, memcpy x1. Instruction mix: MOV 47, CMP 12, JZ 11, LEA 9, JMP 8.
+- 04105ce0, 480 bytes. 2 outgoing calls (1 listed): FUN_04105ba0 x2. Instruction mix: MOV 78, CMP 14, SUB 8, LEA 6, JMP 5.
+- 040f7500, 480 bytes. 4 outgoing calls (2 listed): FUN_0415a150 x2, bzero x2. Instruction mix: MOV 72, POP 6, CALL 4, ADD 3, SUB 3.
+- 0404f060, 480 bytes. 7 outgoing calls (4 listed): memcmp x4, FUN_0404f710 x1, _M_destroy x1, string x1. Instruction mix: MOV 76, TEST 19, CALL 7, JZ 7, LEA 6.
+- 0403ce00, 480 bytes. 12 outgoing calls (8 listed): readdir64 x3, unlink x2, __fxstatat64 x1, closedir x1, dirfd x1, opendir x1, rmdir x1, strcat x1. Instruction mix: MOV 39, CALL 13, POP 12, JZ 9, CMP 8.

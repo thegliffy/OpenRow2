@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries that reference a string
+
+Skipped the ones already listed in decomp/largest_fun_strings_note.txt through note52. Sizes are the gap to the next function. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 04145a90, 240 bytes. One string: "Unknown APC type; not calling anything!".
+- 04131240, 240 bytes, 2 strings. Includes: "vpfs_GetFileInformationByHandle failed (1)", "vpfs_GetFileInformationByHandle failed (2)".
+- 04123420, 240 bytes, 2 strings. Includes: "Add DIB capability to eON_GetBitmapBits", "Requested bits from empty bitmap - giving zeros".
+- 0411ad30, 240 bytes, 2 strings. Includes: "__unDName", "msvcrt.dll".
+- 040b7210, 240 bytes. One string: "Direct3DVolume9Imp".
+- 040b3280, 240 bytes, 4 strings. Includes: "    Usage: %s%u, offset: %u, type: %s, size: %u, %s", "!!!(unknown)!!!", "Vertex Declaration:", "not normalized".
+- 0406f9a0, 240 bytes. One string: "Unhandled primitive type in DeterminePrimitiveType()! Handle it.".
+- 0405d1c0, 240 bytes, 9 strings. Includes: "%s: !unhandled!", "%s: D3DCMP_ALWAYS", "%s: D3DCMP_EQUAL", "%s: D3DCMP_GREATER", "%s: D3DCMP_GREATEREQUAL".
+- 0405d0d0, 240 bytes, 9 strings. Includes: "%s: !unhandled!", "%s: D3DSTENCILOP_DECR", "%s: D3DSTENCILOP_DECRSAT", "%s: D3DSTENCILOP_INCR", "%s: D3DSTENCILOP_INCRSAT".
+- 0402d560, 240 bytes. One string: "When looking for dimensions of the main game window , found that no main game window is set!".

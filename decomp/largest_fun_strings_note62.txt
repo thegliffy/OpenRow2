@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries that reference a string
+
+Skipped every address already listed in decomp/largest_fun_strings_note.txt through note58. Sizes are the gap to the next function. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 041a1e90, 192 bytes, 7 strings. Includes: "glColorTableParameterfvSGI", "glColorTableParameterivSGI", "glColorTableSGI", "glCopyColorTableSGI", "glGetColorTableParameterfvSGI".
+- 041a2020, 192 bytes, 7 strings. Includes: "glReplacementCodePointerSUN", "glReplacementCodeubSUN", "glReplacementCodeubvSUN", "glReplacementCodeuiSUN", "glReplacementCodeuivSUN".
+- 042a6270, 192 bytes, 9 strings. Includes: "bad parameters to zlib", "damaged LZ stream", "insufficient memory", "missing LZ dictionary", "unexpected end of LZ stream".
+- 042af4c0, 192 bytes, 2 strings. Includes: "png_image_begin_read_from_memory: incorrect PNG_IMAGE_VERSION", "png_image_begin_read_from_memory: invalid argument".
+- 042bcc00, 192 bytes, 3 strings. Includes: "Compression buffer size cannot be changed because it is in use", "Compression buffer size cannot be reduced below 6", "invalid compression buffer size".
+- 042bce80, 192 bytes, 2 strings. Includes: "png_set_filler is invalid for low bit depth gray output", "png_set_filler: inappropriate color type".
+- 042c3530, 192 bytes. One string: "Invalid time specified for tIME chunk".
+- 041ff641, 187 bytes. One string: "icudt52l".
+- 0404d170, 176 bytes. One string: "Unknown key code %u in keyUp!! Please add translation to the table in KeycodeToScanCode.".
+- 040b30d0, 176 bytes. One string: "Direct3DVertexDeclaration9Imp".

@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries that reference a string
+
+Skipped the 689 already listed in decomp/largest_fun_strings_note.txt through note69. Sizes are the gap to the next function. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 040fbdf0, 144 bytes. One string: "DirectSound3DBuffer8Imp".
+- 04119a40, 144 bytes, 2 strings: "Forcibly removing a key that's currently open, as game deleted it in registry! This is not a good behaviour.", "Forcibly removing a key that's currently open, as game deleted it in registry! This is not a good behaviour.".
+- 0413f350, 144 bytes. One string: "VirtualFreeEx() called with hProcess %p !!".
+- 041762c0, 144 bytes, 3 strings: "LoadKeyboardLayoutA( pszKLID = '%s', Flags = %#x )", "0000409", "0000452".
+- 04182ad0, 144 bytes. One string: "eON_GetDlgItem() didn't find control with id: %d in dialog: %p!".
+- 04198620, 144 bytes, 5 strings: "glBlendEquationSeparatei", "glBlendEquationi", "glBlendFuncSeparatei", "glBlendFunci", "glMinSampleShading".
+- 041988d0, 144 bytes, 5 strings: "glDrawElementArrayAPPLE", "glDrawRangeElementArrayAPPLE", "glElementPointerAPPLE", "glMultiDrawElementArrayAPPLE", "glMultiDrawRangeElementArrayAPPLE".
+- 04198af0, 144 bytes, 5 strings: "glClearDepthf", "glDepthRangef", "glGetShaderPrecisionFormat", "glReleaseShaderCompiler", "glShaderBinary".
+- 04199c50, 144 bytes, 5 strings: "glCurrentPaletteMatrixARB", "glMatrixIndexPointerARB", "glMatrixIndexubvARB", "glMatrixIndexuivARB", "glMatrixIndexusvARB".
+- 0419caa0, 144 bytes, 5 strings: "glCopyTexImage1DEXT", "glCopyTexImage2DEXT", "glCopyTexSubImage1DEXT", "glCopyTexSubImage2DEXT", "glCopyTexSubImage3DEXT".

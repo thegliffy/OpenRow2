@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries that reference a string
+
+Skipped the 20 already listed in decomp/largest_fun_strings_note.txt and decomp/largest_fun_strings_note2.txt. Sizes are the gap to the next function. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 0401e070, 2896 bytes, 24 strings. udev entry points: udev_device_get_action, udev_device_get_devnode, udev_device_new_from_syspath, udev_enumerate_get_list_entry.
+- 0401aa20, 2880 bytes, 16 strings. Gamepad discovery: "Force feedback effect stop failed!" and the "Gamepads: New potential device" rejection messages.
+- 040491e0, 2832 bytes, and 04048720, 2752 bytes. The two VPFS archive openers. Both say the path must end in vpfs and that the header must be valid. Already traced in decomp/vpfs_zstream_note.txt: 040491e0 is the open used by VPFS_UnpackArchive.
+- 041ffcd0, 2615 bytes. ICU data names: icudt52l, ICUDATA, icudt52l-, ICUDATA-.
+- 0405bf50, 2528 bytes, 45 strings. Shader varyings: eON_Varyings[0] onward, and gl_TexCoord[0].
+- 040d5040, 2448 bytes, 27 strings. GL type names: GL_FLOAT, GL_INT, GL_UNSIGNED_INT, GL_SIGNED_NORMALIZED, GL_UNSIGNED_NORMALIZED, plus !!!unknown!!!.
+- 041375b0, 2400 bytes, 45 strings. A custom heap checker: "Magic value of heap %p invalid!" and the large-area size and alignment complaints.
+- 0412c970, 2288 bytes. One string, the ReadDirectoryChangesW argument dump.
+- 0417e2b0, 2208 bytes. One string: "WARNING: unknown substitution in wvsnprintfW - ignoring".
+

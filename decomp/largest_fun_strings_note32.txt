@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries that reference a string
+
+Skipped the 300 already listed in decomp/largest_fun_strings_note.txt through note30. Sizes are the gap to the next function. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 040cc640, 448 bytes, 25 strings. Includes: "!!!unknown!!!", "GL_BACK_LEFT", "GL_BACK_RIGHT", "GL_COLOR_ATTACHMENT0", "GL_COLOR_ATTACHMENT1".
+- 040df390, 448 bytes. One string: "No valid OpenGL context in calling thread!.".
+- 0401c7c0, 432 bytes, 2 strings. Includes: "Force feedback effect destroy failed!", "Force feedback effect stop failed!".
+- 040f6310, 432 bytes. One string: "DirectInputKeyboardDeviceImp".
+- 0410c8f0, 432 bytes. One string: "Invalid output filter parameters! This may cause crashes in Core Audio!".
+- 041777a0, 432 bytes, 2 strings. Includes: "Cancel", "Ignore".
+- 04180f00, 432 bytes, 3 strings. Includes: "Thread %u entering SendMessageW wait loop", "Thread %u leaving SendMessageW wait loop", "Wait for another thread to process sent message failed! (2)".
+- 0418eb40, 432 bytes, 2 strings. Includes: "Application wants new timer resolution: %u", "eON_timeBeginPeriod returns TIMERR_NOCANDO for timer resolution %u".
+- 04199700, 432 bytes, 18 strings. Includes: "glGetUniformdv", "glUniform1d", "glUniform1dv", "glUniform2d", "glUniform2dv".
+- 0419dee0, 432 bytes, 18 strings. Includes: "glFragmentColorMaterialEXT", "glFragmentLightModelfEXT", "glFragmentLightModelfvEXT", "glFragmentLightModeliEXT", "glFragmentLightModelivEXT".

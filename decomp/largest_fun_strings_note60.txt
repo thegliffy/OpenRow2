@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries that reference a string
+
+Skipped every address already listed in decomp/largest_fun_strings_note.txt through note58. Sizes are the gap to the next function. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 040510b0, 192 bytes, 17 strings. Includes: "eON_Texcoord8", "eON_Texcoord9", "eON_Varyings[0]", "eON_Varyings[1]", "eON_Varyings[2]".
+- 04051170, 192 bytes, 17 strings. Includes: "eON_Varyings[0]", "eON_Varyings[1]", "eON_Varyings[2]", "eON_Varyings[3]", "eON_Varyings[4]".
+- 04051230, 192 bytes, 17 strings. Includes: "eON_Varyings[0]", "eON_Varyings[1]", "eON_Varyings[2]", "eON_Varyings[3]", "eON_Varyings[4]".
+- 0405d6a0, 192 bytes, 7 strings. Includes: "%s: !unhandled!", "%s: D3DTEXF_ANISOTROPIC", "%s: D3DTEXF_GAUSSIANQUAD", "%s: D3DTEXF_LINEAR", "%s: D3DTEXF_NONE".
+- 04080d80, 192 bytes. One string: "Error trying to remove resource from pool in device - invalid pool specified!".
+- 041186c0, 192 bytes. One string: "Warning! Non-zero lpReserved given to RegSetValueExW. Some problem?".
+- 04121d00, 192 bytes. One string: "ExtTextOutW - some options unimplemented!".
+- 0412e4e0, 192 bytes. One string: "Game stdout/err: %s".
+- 04181b10, 192 bytes. One string: "RegisterClassExA( wc = %p )".
+- 04182050, 192 bytes. One string: "HWND_BROADCAST not supported in SendMessageA(). Add it.".

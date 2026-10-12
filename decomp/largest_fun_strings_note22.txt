@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries that reference a string (note 22).
+
+Skipped the 210 already listed in decomp/largest_fun_strings_note.txt through note21. Sizes are the gap to the next function. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 0417ce90, 608 bytes. One string: "uiAction %d (%#x)".
+- 040428c0, 592 bytes, 3 strings. Includes: "Reached number of simultaneously open files in VPFS! Increase VPFS_MAX_OPEN_HANDLES constant to use more.", "VPFS_OpenExec() error - no default exec found!", "VPFS_OpenExec() error - too many open handles!".
+- 0404b970, 592 bytes. One string: "VPFSDB".
+- 040f08c0, 592 bytes, 4 strings. Includes: "DirectInput8Create - requested DirectInput version %#x, which is not supported", "DirectInput8Create - requested DirectInput version 0x700, but unrecognized object GUID = %s", "DirectInput8Create - requested DirectInput version 0x800, but unrecognized object GUID = %s", "DirectInput8Create - unhandled parameter value!".
+- 040f2000, 592 bytes, 9 strings. Includes: "Asked DirectInputDevice7A object for DirectInputDevice7W representation!", "Asked DirectInputDevice7W object for DirectInputDevice7A representation!", "Asked DirectInputDevice8A object for DirectInputDevice8W representation!", "Asked DirectInputDevice8W object for DirectInputDevice8A representation!", "DirectInputDevice::QueryInterface, getting IID_IDirectInputDevice7A interface".
+- 040f8760, 592 bytes. One string: "DirectInputMouseDeviceImp".
+- 04149c40, 592 bytes. One string: "E.WaitTimers".
+- 04195ab0, 592 bytes, 3 strings. Includes: "SOCKETS: accept() - unknown error - %d.", "SOCKETS: nonstandard address length given to accept(): %d.", "SOCKETS: too small address length given to accept(): %d.".
+- 042b7150, 592 bytes, 5 strings. Includes: "duplicate", "invalid", "invalid values", "missing IHDR", "out of place".
+- 042c1fe0, 592 bytes. One string: "Z_OK on Z_FINISH with output space".

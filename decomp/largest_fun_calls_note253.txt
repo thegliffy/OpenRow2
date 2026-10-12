@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries with no string reference
+
+Continued from decomp/largest_fun_calls_note241.txt. Size is the declared gap to the next function (Ghidra body size in parentheses where it differs); instruction mix is the top 5 Ghidra mnemonics in the function body. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 041597c0, 80 bytes (body 72). 1 outgoing call: FUN_04159600 x1. Instruction mix: MOV 13, SUB 2, LEA 2, PUSH 2, RET 1.
+- 04159810, 80 bytes (body 72). 1 outgoing call: FindResourceExW x1. Instruction mix: MOV 13, SUB 2, LEA 2, PUSH 2, RET 1.
+- 04159ea0, 80 bytes (body 65). 2 outgoing calls: __ctype_b_loc x1, strlen x1. Instruction mix: MOV 6, POP 3, PUSH 3, JZ 2, CALL 2.
+- 04159ff0, 80 bytes (body 60). 2 outgoing calls: FUN_0415cec0 x1, strlen x1. Instruction mix: MOV 5, PUSH 3, CALL 2, SUB 2, LEA 2.
+- 0415a040, 80 bytes (body 71). 1 outgoing call: FUN_0415cec0 x1. Instruction mix: MOV 5, LEA 3, PUSH 3, SUB 2, RET 1.
+- 0415a250, 80 bytes (body 74). No outgoing calls. Instruction mix: POP 6, MOVZX 4, MOV 3, XOR 3, PUSH 3.
+- 04160900, 80 bytes (body 66). No outgoing calls. Instruction mix: MOV 16, PUSH 2, RET 1, CALL 1, SUB 1.
+- 041609a0, 80 bytes (body 66). No outgoing calls. Instruction mix: MOV 16, PUSH 2, RET 1, CALL 1, SUB 1.
+- 041609f0, 80 bytes (body 66). No outgoing calls. Instruction mix: MOV 16, PUSH 2, RET 1, CALL 1, SUB 1.
+- 04164b00, 80 bytes (body 68). No outgoing calls. Instruction mix: MOV 4, MOVSD 2, UCOMISD 2, JNC 2, RET 1.

@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries that reference a string (note 21).
+
+Skipped the 200 already listed in decomp/largest_fun_strings_note.txt through note20. Sizes are the gap to the next function. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 04142630, 640 bytes, 2 strings. Includes: "(unknown - %#x)", "LCID[Language = %s, sublanguage = %u, sort = %u]".
+- 041484b0, 640 bytes. One string: "vector::_M_fill_insert".
+- 04056220, 624 bytes, 7 strings. Includes: "%s%s = %s(", "int( floor(abs(%s)+0.5) * sign(%s)));\n", "int( round(%s) ) );\n", "int(floor(%s)));\n", "ivec%d( floor(abs(%s)+vec%d(0.5)) * sign(%s)));\n".
+- 040a5620, 624 bytes. One string: "Query type %u wanted in Issue()!".
+- 040fea90, 624 bytes, 16 strings. Includes: "        DSBCAPS_CTRL3D", "        DSBCAPS_CTRLFREQUENCY", "        DSBCAPS_CTRLFX", "        DSBCAPS_CTRLPAN", "        DSBCAPS_CTRLPOSITIONNOTIFY".
+- 04101c50, 624 bytes. One string: "vector::_M_range_insert".
+- 041127b0, 624 bytes, 3 strings. Includes: "TomCrypt initialized", "TomCrypt initializing...", "TomsFastMath".
+- 042b6b40, 624 bytes, 8 strings. Includes: "bKGD must be after", "duplicate", "hIST must be after", "ignored in grayscale PNG", "invalid".
+- 042bf380, 624 bytes, 5 strings. Includes: "Can't add Average filter after starting", "Can't add Paeth filter after starting", "Can't add Up filter after starting", "Unknown custom filter method", "Unknown row filter for method 0".
+- 041e5cac, 618 bytes, 2 strings. Includes: "GB18030", "gb18030".

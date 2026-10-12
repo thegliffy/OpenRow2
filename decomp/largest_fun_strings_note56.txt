@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries that reference a string
+
+Skipped the ones already listed in decomp/largest_fun_strings_note.txt through note55.
+
+- 0416a2c0, 224 bytes. One string: "%08x-%04x-%04x-%02x%02x-%02x%02x%02x%02x%02x%02x".
+- 0416d8c0, 224 bytes. One string: "CLIPBOARD: SetClipboardViewer(NULL) - probably invalid. Test this and GetLastError() on Windows and add code here.".
+- 0416e8e0, 224 bytes, 2 strings: "Could not load cursor: %p", "Could not load cursor: '%s'".
+- 0401ed00, 208 bytes. One string: "remove".
+- 0402d1f0, 208 bytes. One string: "Attempt to set main game window display mode, when there's no main game window! Deferring setting display mode until there is a window.".
+- 04046490, 208 bytes. One string: "Invalid handle given to VPFS_CancelIo()!!".
+- 0404ea70, 208 bytes, 3 strings: "Game tried to minimize window, and it's not handled well in eON. Perhaps hack it by not sending it WM_ACTIVATE ( FALSE ) messages?", "ShowWindow called with SW_RESTORE. Ignoring specifics of this flag, just showing window.", "Unhandled argument ( %d ) in eON_ShowWindow()!! Handle it.".
+- 0406d6a0, 208 bytes. One string: "Direct3DBaseTexture9Imp".
+- 040de860, 208 bytes, 3 strings: "%sbbBack.tiff", "%sbbFront.tiff", "No valid OpenGL context in calling thread!.".
+- 040e0d60, 208 bytes, 3 strings: "Couldn't create OpenGLDebugWriter_File log file '%s'!\n", "OpenGLDebugWriter_File log message doesn't fit into the buffer!", "Problem writing to OpenGLDebugWriter_File log file '%s'! Written %zu out of %zu bytes\n".

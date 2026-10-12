@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries with no string reference
+
+Continued from decomp/largest_fun_calls_note217.txt. Size is the declared gap to the next function (Ghidra body size in parentheses where it differs); instruction mix is the top 5 Ghidra mnemonics in the function body. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 0404eda0, 96 bytes (body 80). No outgoing calls. Instruction mix: MOV 12, POP 3, TEST 2, JNZ 2, JMP 2.
+- 04051310, 96 bytes (body 78). No outgoing calls. Instruction mix: MOV 7, POP 6, JZ 3, CMP 3, XOR 3.
+- 04051370, 96 bytes (body 78). No outgoing calls. Instruction mix: MOV 7, POP 6, JZ 3, CMP 3, XOR 3.
+- 040513d0, 96 bytes (body 78). No outgoing calls. Instruction mix: MOV 7, POP 6, JZ 3, CMP 3, XOR 3.
+- 040654f0, 96 bytes (body 95). 2 outgoing calls: FUN_040ba100 x1, OpenGLContextCache::__glewBindBuffer x1. Instruction mix: MOV 15, CALL 3, POP 2, ADD 2, PUSH 2.
+- 04068400, 96 bytes (body 90). 1 outgoing call: FUN_04065950 x1. Instruction mix: MOV 21, RET 1, CALL 1, ADD 1, SUB 1.
+- 040684b0, 96 bytes (body 90). 1 outgoing call: FUN_04065930 x1. Instruction mix: MOV 21, RET 1, CALL 1, ADD 1, SUB 1.
+- 040686a0, 96 bytes (body 83). 1 outgoing call: FUN_040658a0 x1. Instruction mix: MOV 19, RET 1, CALL 1, ADD 1, SUB 1.
+- 04069480, 96 bytes (body 83). 1 outgoing call: d3d9device_DrawIndexedPrimitiveUP x1. Instruction mix: MOV 19, RET 1, CALL 1, ADD 1, SUB 1.
+- 040694e0, 96 bytes (body 83). 1 outgoing call: d3d9device_DrawIndexedPrimitiveUP x1. Instruction mix: MOV 19, RET 1, CALL 1, ADD 1, SUB 1.

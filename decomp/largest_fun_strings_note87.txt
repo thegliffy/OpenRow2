@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries that reference a string
+
+Skipped the 859 addresses already listed in decomp/largest_fun_strings_note.txt through note86. Sizes are the gap to the next function. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 04156db0, 64 bytes. One string: "SetProcessWorkingSetSize( hProcess = %p, dwMinimumWorkingSetSize = %zu, dwMaximumWorkingSetSize = %zu".
+- 041567a0, 64 bytes. One string: "Exiting through Windows call FatalExit(%d)!".
+- 04156120, 64 bytes. One string: "Beep( dwFreq = %u Hz, dwDuration = %u ms )".
+- 04147ba0, 64 bytes. One string: "Non-NULL lpTimerAttributes in CreateWaitableTimerA() - possibly unhandled?".
+- 04139650, 64 bytes. One string: "kernel32_Shutdown".
+- 04132c90, 64 bytes. One string: "OpenFile( lpFileName = '%s', lpReOpenBuff = %p, uStyle = %u )".
+- 04129ec0, 64 bytes. One string: "Game tries to set standard output to invalid handle. Ignoring.".
+- 04126de0, 64 bytes. One string: "ImmGetConversionStatus( hIMC = %p, lpfdwConversion = %p, lpfdwSentence = %p )".
+- 04126d80, 64 bytes. One string: "ImmSetConversionStatus( hIMC = %p, fdwConversion = %#x, fdwSentence = %#x )".
+- 04126d40, 64 bytes. One string: "ImmSetOpenStatus( hIMC = %p, fOpen = %s )".

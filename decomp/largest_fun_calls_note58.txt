@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries with no string reference
+
+Continued from decomp/largest_fun_calls_note57.txt. Size is the gap to the next function. Counts are Ghidra instructions in the function body. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 04147f30, 432 bytes. 4 outgoing calls: memmove x2, operator.delete x1, operator.new x1. Instruction mix: MOV 51, TEST 10, CMP 9, JZ 9, ADD 7.
+- 04112ba0, 432 bytes. 9 outgoing calls (only the first 8 are listed): eON_WideCharToMultiByte x4, free x2, malloc x2, eON_CryptAcquireContextA x1. Instruction mix: MOV 61, CALL 9, SUB 6, PUSH 6, POP 5.
+- 0410ed90, 432 bytes. 7 outgoing calls: memmove x4, __throw_bad_alloc x1, operator.delete x1, operator.new x1. Instruction mix: MOV 64, CALL 7, SUB 7, TEST 7, JMP 6.
+- 0410bd60, 432 bytes. 5 outgoing calls: _Rb_tree_insert_and_rebalance x2, operator.new x2, _Rb_tree_decrement x1. Instruction mix: MOV 81, CMP 8, POP 8, JZ 7, TEST 6.
+- 0410bbb0, 432 bytes. 5 outgoing calls: _Rb_tree_insert_and_rebalance x2, operator.new x2, _Rb_tree_decrement x1. Instruction mix: MOV 81, CMP 8, POP 8, JZ 7, TEST 6.
+- 040fcf60, 432 bytes. 8 outgoing calls: operator.new x2, FUN_040fd600 x1, FUN_040fdd40 x1, FUN_040fdf20 x1, FUN_040fe040 x1, FUN_040fed00 x1, FUN_04100870 x1. Instruction mix: MOV 66, CALL 8, JZ 8, TEST 8, SUB 5.
+- 040ec280, 432 bytes. 10 outgoing calls (only the first 8 are listed): FUN_040ee090 x2, FUN_040e5a00 x1, FUN_040e99c0 x1, FUN_040edb90 x1, fixedPipelineEmulation_040bec40 x1, free x1, pthread_mutex_lock x1, pthread_mutex_unlock x1. Instruction mix: MOV 102, CALL 10, LEA 6, RET 2, POP 2.
+- 040a36c0, 432 bytes. 5 outgoing calls: memmove x3, operator.delete x1, operator.new x1. Instruction mix: MOV 71, SUB 9, SAR 7, LEA 7, TEST 7.
+- 040871b0, 432 bytes. 2 outgoing calls: D3D9CommandQueue::GetNextCommandPointer x1, memcmp x1. Instruction mix: MOV 45, TEST 11, JMP 9, JNZ 9, MOVZX 8.
+- 0404c040, 432 bytes. 2 outgoing calls: FUN_0404bbc0 x1, strcmp x1. Instruction mix: MOV 45, TEST 13, JZ 12, POP 8, MOVZX 8.

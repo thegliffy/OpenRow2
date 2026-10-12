@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries that reference a string
+
+Skipped every address already listed in decomp/largest_fun_strings_note.txt through note78. Sizes are the gap to the next function. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 04100b50, 96 bytes. One string: "Primary DirectSound Driver".
+- 04107480, 96 bytes. One string: "E.XA2GrUp".
+- 0411a120, 96 bytes. One string: "Failed to save to registry - fix it!".
+- 04126e30, 96 bytes, 2 strings. Includes: "ImmNotifyIME( hIMC = %p, dwAction = %u (%s), dwIndex = %u, dwValue = %u )", "unknown".
+- 04129b90, 96 bytes. One string: "Adding global atom %u for string '%s'".
+- 041395f0, 96 bytes. One string: "kernel32_Init".
+- 04142e80, 96 bytes. One string: "ConvertDefaultLocale( Locale = %#x ) - lang = %u, sublang = %u, sort = %u".
+- 04156690, 96 bytes. One string: "Command line: '%s'".
+- 04162e00, 96 bytes. One string: "CoSetProxyBlanket( pProxy = %p, dwAuthnSvc = %u, dwAuthzSvc = %u, pServerPrincName = %p, dwAuthnLevel = %u, dwImpLevel = %u, pAuthInfo = %p, dwCapabilities = %u )".
+- 04175ef0, 96 bytes. One string: "eON_ToUnicodeEx doesn't support hkl parameter at the moment.".

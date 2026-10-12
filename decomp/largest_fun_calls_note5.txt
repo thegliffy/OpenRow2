@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries with no string reference
+
+Continued from decomp/largest_fun_calls_note4.txt. Size is the gap to the next function. Counts are Ghidra instructions in the function body. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 042361f0, 3392 bytes. No outgoing calls. Instruction mix: MOV 361, ADD 162, ROL 128, AND 128, LEA 105.
+- 0424d810, 3312 bytes. 28 outgoing calls. Callees include FUN_0424b1b0 x7, FUN_04283f90 x7, FUN_042a47a0 x3, FUN_0424b350 x2, FUN_042506e0 x2, FUN_0424afb0 x1, FUN_0424b100 x1, FUN_0424c840 x1. Instruction mix: MOV 369, LEA 75, TEST 58, JNZ 46, JZ 40.
+- 041e05a4, 3308 bytes. 23 outgoing calls: FUN_041e0423 x8, FUN_041e0357 x5, FUN_041e03de x4, FUN_041e04d0 x4, FUN_041e0399 x1, __stack_chk_fail x1. Instruction mix: MOV 431, CMP 77, MOVZX 57, ADD 55, JMP 55.
+- 0424ee20, 3232 bytes. 90 outgoing calls. Callees include FUN_0424fe10 x42, FUN_04285580 x25, FUN_04250b80 x16, FUN_0424b1b0 x1, FUN_0424c840 x1, FUN_0424ec50 x1, FUN_0424fbf0 x1, FUN_04250490 x1. Instruction mix: MOV 451, CALL 90, ADD 37, CMP 30, LEA 26.
+- 04233270, 3216 bytes. No outgoing calls. Instruction mix: MOV 326, ADD 168, ROL 128, AND 128, LEA 99.
+- 041e1290, 2860 bytes. 23 outgoing calls: FUN_041e0423 x8, FUN_041e0357 x5, FUN_041e03de x4, FUN_041e04d0 x4, FUN_041e0399 x1, __stack_chk_fail x1. Instruction mix: MOV 342, CMP 61, MOVZX 57, ADD 51, JMP 50.
+- 04243920, 2832 bytes. 4 outgoing calls: FUN_04240fe0 x2, FUN_04240e30 x1, FUN_04244430 x1. Instruction mix: MOV 419, CALL 81, TEST 75, JNZ 65, JZ 19.
+- 0422e2a0, 2816 bytes. 2 outgoing calls: __stack_chk_fail x1, memcpy x1. Instruction mix: MOVZX 223, MOV 192, XOR 105, ADD 22, CMP 17.
+- 04154090, 2752 bytes. 73 outgoing calls: operator.delete x37, FUN_04153bf0 x18, _M_destroy x18. Instruction mix: MOV 383, TEST 82, CALL 74, JZ 55, LEA 46.
+- 04230ec0, 2736 bytes. 7 outgoing calls: FUN_04242730 x3, __stack_chk_fail x1, memcmp x1, memcpy x1, strlen x1. Instruction mix: MOV 242, XOR 147, MOVZX 144, LEA 26, CMP 24.

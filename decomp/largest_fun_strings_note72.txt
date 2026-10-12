@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries that reference a string
+
+Skipped the 699 already listed in decomp/largest_fun_strings_note.txt through note71. Sizes are the gap to the next function. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 042bc2c0, 144 bytes. One string: "Ignoring invalid time value".
+- 042bc7f0, 144 bytes. One string: "invalid unknown chunk location".
+- 042c2ad0, 144 bytes. One string: "Invalid number of histogram entries specified".
+- 04010ed0, 128 bytes. One string: "{%08x-%04x-%04x-%02x%02x-%02x%02x%02x%02x%02x%02x}".
+- 04010f50, 128 bytes. One string: "{ {%08x-%04x-%04x-%02x%02x-%02x%02x%02x%02x%02x%02x}, %u }".
+- 040a66c0, 128 bytes. One string: "Direct3DResource9Imp".
+- 040ea820, 128 bytes. One string: "Internal program problem in location value caching in eON_LinkedProgramData! (2). Caching impaired.".
+- 040f76e0, 128 bytes. One string: "DirectInput 7/8 mouse acquired.".
+- 040fcd70, 128 bytes. One string: "DirectSound3DListener8Imp".
+- 040fff70, 128 bytes. One string: "DirectSoundCaptureBuffer8Imp(%p)::Start() tells us to capture into a non-looping buffer. This is currently not supported in eON2!".

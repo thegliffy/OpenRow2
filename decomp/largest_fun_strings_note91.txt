@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries that reference a string
+
+Skipped the 899 addresses already listed in decomp/largest_fun_strings_note.txt through note90. Sizes are the gap to the next function. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 040506b0, 32 bytes. One string: "}\nelse\n{\n".
+- 040506d0, 32 bytes. One string: "texm3x3tex conversion not implemented yet, add it when you need it.".
+- 040506f0, 32 bytes. One string: "texm3x3vspec conversion not implemented yet, add it when you need it.".
+- 04050710, 32 bytes. One string: "texm3x3spec conversion not implemented yet, add it when you need it.".
+- 04050730, 32 bytes. One string: "texm3x3pad conversion not implemented yet, add it when you need it.".
+- 04050750, 32 bytes. One string: "texm3x2tex conversion not implemented yet, add it when you need it.".
+- 04050770, 32 bytes. One string: "texm3x2pad conversion not implemented yet, add it when you need it.".
+- 04050790, 32 bytes. One string: "texbem conversion not implemented yet, add it when you need it.".
+- 040512f0, 32 bytes, 2 strings: "eON_VaryingFog", "gl_FogFragCoord".
+- 04066590, 32 bytes. One string: "!!!unknown!!!".

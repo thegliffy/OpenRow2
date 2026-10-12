@@ -1,0 +1,7 @@
+Windows rdata paths vs the Linux binary
+
+seeds/win_rdata_sourcepaths.txt has 71 source paths from the Windows exe .rdata. None of those exact strings, and none of their filenames, occur in bin/saintsrow2.i386. Examples absent as raw bytes: hkpContinuousSimulation.cpp, gameaudio.cpp, game.cpp, color_pool.cpp, hkpWorld.cpp, hkError.cpp.
+
+The Linux binary has its own source paths, under /home/peterm/Development/Projects/eon2-sr2/. There are 136 path-like strings ending in .cpp, .inl, or .h. The basename sets do not overlap, so there is no Linux function that references these Windows path strings. seeds/rejected/win_string_module_map.csv stays unused.
+
+seeds/win_rdata_matches.tsv records each of the 71 paths as a miss.

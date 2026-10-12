@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries that reference a string
+
+Skipped the 60 already listed in decomp/largest_fun_strings_note.txt through note6. Sizes are the gap to the next function. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 04195220, 1328 bytes, 2 strings: "SOCKETS: %d = nfds > FD_SETSIZE in select()!", "SOCKETS: Unhandled error %d in select()".
+- 04054530, 1296 bytes, 56 strings. Includes: "%s%s );", "%s%s / %s );", "%s%s / vec%d( %s ) );", "%s%s = %s(", "clamp( %s, 0.0, 1.0 )%s );".
+- 040f0f10, 1296 bytes, 2 strings: "Keyboard".
+- 04045da0, 1280 bytes, 2 strings: "Invalid handle given to VPFS_Read()!!", "VPFS_ArchiveSeek() error in file read!".
+- 0413ea10, 1280 bytes, 3 strings: "Warning: VirtualProtect() with PAGE_GUARD protection flag. Handle it.", "Warning: VirtualProtect() with unsupported protection flags. Handle it.", "Win32ToPosixProtectFlags: unhandled flags %x !!".
+- 041fdde3, 1276 bytes, 4 strings: "/Development/build/icu52_1/build/lib/icu", "ICU_PLUGINS".
+- 0417c9a0, 1264 bytes, 2 strings: "SystemParametersInfoA( SPI_SETFOREGROUNDLOCKTIMEOUT ) trying to set its value to %u, unhandled", "uiAction %d (%#x)".
+- 042bf5f0, 1264 bytes, 2 strings: "no color-map for color-mapped image", "png_write_image: unsupported transformation".
+- 040a5140, 1248 bytes, 3 strings: "Invalid arguments to Direct3DQuery9Imp::GetData! Memory leak may occur.", "Occlusion query returning fake result - Direc3DDevice9 already deleted, or game waited several frames before asking for answer", "Query type %u wanted in GetData()!".
+- 04198140, 1248 bytes, 55 strings. Includes: "glBeginConditionalRender", "glBeginTransformFeedback", "glBindFragDataLocation", "glClampColor", "glClearBufferfi".

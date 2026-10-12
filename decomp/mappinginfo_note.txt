@@ -1,0 +1,7 @@
+google_breakpad::MappingInfo
+
+This cluster is not two copies of one method. The checker regex treats the parameter type google_breakpad::MappingInfo as a Class::Method signature, and that type appears in two different functions. Neither was added to the name batch.
+
+- 042c9b20 (560 bytes, still FUN_042c9b20) is the anonymous helper ElfFileSoName. Its assert string is "bool google_breakpad::{anonymous}::ElfFileSoName(const google_breakpad::MappingInfo&, char*, size_t)" in linux_dumper.cc, and it also references the ELF section names .dynamic and .dynstr. The braces in {anonymous} keep the real method name out of the checker, so the only signature it extracts is MappingInfo.
+- 042ca2f0 (1024 bytes) is already named google_breakpad::LinuxDumper::ElfFileIdentifierForMapping. Its signature string takes a const MappingInfo& plus a bool, an unsigned int, and a uint8_t*, and it references linux-gate.so. 536 of the 560 overlapping bytes differ from 042c9b20.
+

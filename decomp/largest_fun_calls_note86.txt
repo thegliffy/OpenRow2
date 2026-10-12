@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries with no string reference
+
+Continued from decomp/largest_fun_calls_note85.txt. Size is the gap to the next function; instruction mix is the top 5 Ghidra mnemonics in the function body. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 04124550, 304 bytes. 5 outgoing calls: FUN_0411d870 x2, free x2, FUN_0411db10 x1. Instruction mix: MOV 23, TEST 9, POP 8, JZ 8, CALL 5.
+- 04120a50, 304 bytes. 5 outgoing calls: FT_Get_Char_Index x1, FUN_0411c370 x1, eON_GetTextExtentExPointI x1, free x1, malloc x1. Instruction mix: MOV 55, LEA 6, CALL 5, TEST 4, CMP 3.
+- 040e2e60, 304 bytes. 1 outgoing calls: PixelFormatData::MakeSureMultisamplingTested x1. Instruction mix: CMP 19, MOV 19, LEA 14, CMOVNZ 14, JNZ 3.
+- 040c66c0, 304 bytes. 3 outgoing calls: _Rb_tree_insert_and_rebalance x1, memcmp x1, operator.new x1. Instruction mix: MOV 63, POP 4, PUSH 4, JZ 3, ADD 3.
+- 040b5e00, 304 bytes. 4 outgoing calls: direct3ddevice9imp_040803c0 x1, direct3ddevice9imp_04080490 x1, free x1, memcmp x1. Instruction mix: MOV 44, ADD 8, CALL 5, JZ 5, SUB 4.
+- 040a61c0, 304 bytes. 4 outgoing calls: direct3ddevice9imp_040803c0 x1, direct3ddevice9imp_04080490 x1, free x1, memcmp x1. Instruction mix: MOV 44, ADD 8, CALL 5, JZ 5, SUB 4.
+- 040661a0, 304 bytes. 3 outgoing calls: FUN_04022090 x1, FUN_040220a0 x1, FUN_04022400 x1. Instruction mix: MOV 55, RET 6, POP 6, XOR 5, CALL 3.
+- 04050f70, 304 bytes. No outgoing calls. Instruction mix: MOV 32, TEST 8, AND 8, JZ 7, SHR 6.
+- 04050e40, 304 bytes. No outgoing calls. Instruction mix: MOV 29, JZ 11, TEST 9, ADD 7, AND 6.
+- 0404c4c0, 304 bytes. 1 outgoing calls: strcmp x1. Instruction mix: MOV 25, TEST 10, POP 8, JZ 8, ADD 6.

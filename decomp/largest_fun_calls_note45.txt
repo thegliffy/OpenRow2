@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries with no string reference
+
+Continued from decomp/largest_fun_calls_note43.txt. Size is the gap to the next function. Counts are Ghidra instructions in the function body. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 040b90c0, 528 bytes. 5 outgoing calls: memmove x3, operator.delete x1, operator.new x1. Instruction mix: MOV 82, SUB 9, LEA 8, POP 8, IMUL 8.
+- 040a3870, 528 bytes. 5 outgoing calls: memmove x3, operator.delete x1, operator.new x1. Instruction mix: MOV 82, SUB 9, LEA 8, POP 8, IMUL 8.
+- 042032cd, 515 bytes. 1 outgoing call: FUN_04203100 x1. Instruction mix: MOV 76, CMP 19, JMP 14, ADD 12, JZ 5.
+- 041f9a84, 515 bytes. No outgoing calls. Instruction mix: MOV 51, CMP 39, JZ 24, JNZ 16, MOVZX 13.
+- 040093cc, 514 bytes. 10 outgoing calls: FUN_042d1680 x2, __errno_location x2, FUN_0400920c x1, FUN_042d28f0 x1, FUN_042d5e70 x1, __assert_fail x1, __i686.get_pc_thunk.bx x1, google_breakpad::UntypedMDRVA::Allocate x1. Instruction mix: MOV 58, PUSH 26, ADD 12, CALL 10, CMP 7.
+- 042d4f20, 512 bytes. No outgoing calls. Instruction mix: MOV 90, LEA 9, SUB 8, MOVSD.REP 3, AND 3.
+- 042d48d0, 512 bytes. 9 outgoing calls: __errno_location x6, FUN_042d4850 x1, FUN_042d5e70 x1, __i686.get_pc_thunk.bx x1. Instruction mix: MOV 57, PUSH 12, POP 11, CALL 9, CMP 8.
+- 042504e0, 512 bytes. 1 outgoing call: memset x1. Instruction mix: MOV 66, LEA 18, ADD 15, SHR 15, OR 14.
+- 04242760, 512 bytes. 2 outgoing calls: FUN_04240e30 x1, FUN_04240fe0 x1. Instruction mix: MOV 84, TEST 14, CALL 13, JNZ 9, JZ 5.
+- 04241330, 512 bytes. No outgoing calls. Instruction mix: MOV 49, TEST 23, JNZ 19, LEA 16, JZ 14.

@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries that reference a string
+
+Skipped the ones already listed in decomp/largest_fun_strings_note.txt through note51. Sizes are the gap to the next function. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 042b01b0, 240 bytes. One string: "Application must supply a known background gamma".
+- 042a9940, 240 bytes. One string: "3456789".
+- 041c2150, 240 bytes, 3 strings. Includes: "!Find( addMe->Name() )", "/home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxml.cpp", "void TiXmlAttributeSet::Add(TiXmlAttribute*)".
+- 0419f790, 240 bytes, 9 strings. Includes: "glEvalMapsNV", "glGetMapAttribParameterfvNV", "glGetMapAttribParameterivNV", "glGetMapControlPointsNV", "glGetMapParameterfvNV".
+- 0418bb10, 240 bytes. One string: "eONMemoryReader internal check issue: Seek() offset outside allowed values!".
+- 04188790, 240 bytes, 2 strings. Includes: "CreateDialogParamA( hInstance = %p, lpTemplateName = '%s', hWndParent = %p, lpDialogFunc = %p, dwInitParam = %p )", "CreateDialogParamA( hInstance = %p, lpTemplateName = '0x%x', hWndParent = %p, lpDialogFunc = %p, dwInitParam = %p )".
+- 04175f50, 240 bytes. One string: "eON_ToUnicodeEx doesn't support hkl parameter at the moment.".
+- 0416e9c0, 240 bytes. One string: "Couldn't create eON_Cursor from HICON! It may crash now...".
+- 04161b30, 240 bytes, 2 strings. Includes: "DllGetClassObject", "eON_GetCOMObjects".
+- 0414d640, 240 bytes. One string: "wrong OSVERSIONINFO size from app (got: %u)\n".

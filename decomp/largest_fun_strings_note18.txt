@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries that reference a string (note 18).
+
+Skipped the 140 already listed in decomp/largest_fun_strings_note.txt through note14. Sizes are the gap to the next function. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 042c2da0, 736 bytes, 3 strings: "iTXt: invalid compression", "iTXt: invalid keyword", "iTXt: uncompressed text too long".
+- 040e2570, 720 bytes. One string: "Unhandled device format: %u".
+- 040e3450, 720 bytes. One string: "Testing of non-texture volumes unimplemented, fail".
+- 0412fce0, 720 bytes, 6 strings. Includes: "Error EBADF in lseek in fs_SetFilePointer!", "Error EINVAL in lseek in fs_SetFilePointer!", "Error EOVERFLOW in lseek in fs_SetFilePointer!", "Error ESPIPE in lseek in fs_SetFilePointer!", "Unknown error in lseek in fs_SetFilePointer!".
+- 041353a0, 720 bytes. One string: "Temporary folder contains all possible temp files that could be generated from eON_GetTempFileNameW() with given prefix string!".
+- 041a1840, 720 bytes, 31 strings. Includes: "glAlphaFuncx", "glClearColorx", "glClearDepthx", "glColor4x", "glDepthRangex".
+- 042bc8a0, 720 bytes, 3 strings: "png_set_keep_unknown_chunks: invalid keep", "png_set_keep_unknown_chunks: no chunk list", "png_set_keep_unknown_chunks: too many chunks".
+- 042c3100, 720 bytes, 2 strings: "Unrecognized equation type for pCAL chunk", "pCAL: invalid keyword".
+- 042d33e0, 720 bytes. One string: "vector::_M_fill_insert".
+- 040e09d0, 704 bytes, 44 strings. Includes: "         - dump content of depth attachment of given framebuffer into given file.", "         - dump content of given face/level of texture into given file. If texture isn't bound to some stage, this will fail. Most textures need flipping.", "         - dump content of selected color attachment of given framebuffer into given file.", "         - dump content of stencil attachment of given framebuffer into given file.", "        posssible bind points: V(vertex), VAx(vertex array x), E(element), U(uniform), UBx(uniform bind x)".

@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries that reference a string (note 19).
+
+Skipped the 180 already listed in decomp/largest_fun_strings_note.txt through note18. Sizes are the gap to the next function. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 04117c80, 704 bytes, 9 strings. Includes: "HKEY_CLASSES_ROOT", "HKEY_CURRENT_USER", "HKEY_DYN_DATA", "HKEY_LOCAL_MACHINE", "HKEY_LOCAL_MACHINE\System\CurrentControlSet\Hardware Profiles\Current".
+- 04134210, 704 bytes. One string: "Non-zero flags in ReplaceFileA, possibly unhandled!".
+- 04130070, 688 bytes, 6 strings. Includes: "Error EBADF in lseek in fs_SetFilePointerEx!", "Error EINVAL in lseek in fs_SetFilePointerEx!", "Error EOVERFLOW in lseek in fs_SetFilePointerEx!", "Error ESPIPE in lseek in fs_SetFilePointerEx!", "Unknown error in lseek in fs_SetFilePointerEx!".
+- 041ca5d9, 688 bytes, 3 strings. Includes: "/etc/localtime", "localtime", "posixrules".
+- 0405d2b0, 672 bytes, 27 strings. Includes: "%s: !unhandled!", "%s: D3DTOP_ADD", "%s: D3DTOP_ADDSIGNED", "%s: D3DTOP_ADDSIGNED2X", "%s: D3DTOP_ADDSMOOTH".
+- 042a7d60, 672 bytes, 3 strings. Includes: "Not recognizing known sRGB profile that has been edited", "known incorrect sRGB profile", "out-of-date sRGB profile with no signature".
+- 042b7de0, 672 bytes, 5 strings. Includes: "duplicate", "invalid", "invalid with alpha channel", "missing IHDR", "out of place".
+- 041d1bae, 666 bytes, 6 strings. Includes: "BOCU-1", "UTF-16BE", "UTF-16LE", "UTF-32BE", "UTF-32LE".
+- 041ca889, 662 bytes, 2 strings. Includes: "/etc/localtime", "/usr/share/zoneinfo/".
+- 04018ea0, 656 bytes, 2 strings. Includes: "eONprecompiledShaders.dat", "eONprecompiledShaders32.dat".

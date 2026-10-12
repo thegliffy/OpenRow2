@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries that reference a string
+
+Skipped every address already listed in decomp/largest_fun_strings_note.txt through note82. Sizes are the gap to the next function. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 042bd650, 80 bytes. One string: "info change after png_start_read_image or png_read_update_info".
+- 042bc270, 80 bytes. One string: "Insufficient memory to store text".
+- 042bb130, 80 bytes. One string: "png_set_gAMA".
+- 042b96d0, 80 bytes. One string: "invalid chunk type".
+- 042b6350, 80 bytes. One string: "PNG unsigned integer out of range".
+- 042aa3a0, 80 bytes. One string: "Out of memory".
+- 042aa350, 80 bytes. One string: "Out of Memory".
+- 04191e80, 80 bytes, 3 strings: "WAIT_EVENT_%u", "WSA_WAIT_IO_COMPLETION", "WSA_WAIT_TIMEOUT".
+- 0418e330, 80 bytes. One string: "PropertyStoreImp".
+- 0418d680, 80 bytes. One string: "MMEndpointImp".

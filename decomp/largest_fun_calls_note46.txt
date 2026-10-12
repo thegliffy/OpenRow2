@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries with no string reference
+
+Continued from decomp/largest_fun_calls_note45.txt. Size is the gap to the next function. Counts are Ghidra instructions in the function body. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 04221af0, 512 bytes. 22 outgoing calls: FUN_042205f0 x9, FUN_04220880 x9, memcmp x2, FUN_04220f20 x1, __stack_chk_fail x1. Instruction mix: MOV 73, CALL 22, JNZ 11, CMP 8, LEA 6.
+- 042218f0, 512 bytes. 22 outgoing calls: FUN_042205f0 x9, FUN_04220880 x9, memcmp x2, FUN_04220f20 x1, __stack_chk_fail x1. Instruction mix: MOV 73, CALL 22, JNZ 11, CMP 8, LEA 6.
+- 0417c5b0, 512 bytes. 11 outgoing calls: eON_Int_LoadBitmap x3, eON_MultiByteToWideChar x2, eON_WideCharToMultiByte x2, free x2, malloc x2. Instruction mix: MOV 71, CALL 11, SUB 8, LEA 3, TEST 2.
+- 04175120, 512 bytes. 6 outgoing calls: FUN_04174f00 x3, FUN_04175000 x1, _Rb_tree_decrement x1, _Rb_tree_increment x1. Instruction mix: MOV 71, CMP 15, JZ 9, LEA 8, JMP 7.
+- 04106ce0, 512 bytes. 10 outgoing calls: FUN_04105f30 x2, FUN_04105ce0 x1, FUN_04107d50 x1, FUN_041088b0 x1, FUN_0410afc0 x1, __throw_system_error x1, operator.new x1, pthread_mutex_lock x1. Instruction mix: MOV 71, CALL 10, LEA 9, POP 8, JZ 8.
+- 040f7e60, 512 bytes. 7 outgoing calls: memmove x3, operator.new x2, __throw_bad_alloc x1, operator.delete x1. Instruction mix: MOV 83, SUB 9, LEA 8, ADD 7, CALL 7.
+- 040f5850, 512 bytes. 7 outgoing calls: memmove x3, operator.new x2, __throw_bad_alloc x1, operator.delete x1. Instruction mix: MOV 83, SUB 9, LEA 8, ADD 7, CALL 7.
+- 0400d040, 512 bytes. 7 outgoing calls: _M_destroy x2, memcmp x2, assign x1, string x1, strtol x1. Instruction mix: MOV 61, TEST 12, LEA 10, JMP 8, CALL 7.
+- 0400ce40, 512 bytes. 7 outgoing calls: _M_destroy x2, memcmp x2, assign x1, string x1, strtol x1. Instruction mix: MOV 61, TEST 12, LEA 10, JMP 8, CALL 7.
+- 042060ae, 510 bytes. 13 outgoing calls (8 listed): memcpy x2, FUN_04204da8 x1, FUN_04204dcc x1, FUN_04204e1e x1, FUN_04204e7a x1, FUN_04205166 x1, FUN_04205178 x1, FUN_042051a0 x1. Instruction mix: MOV 51, PUSH 22, ADD 16, SUB 14, CALL 13.

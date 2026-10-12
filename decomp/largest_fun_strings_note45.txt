@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries that reference a string
+
+Skipped the 440 already listed in decomp/largest_fun_strings_note.txt through note44. Sizes are the gap to the next function. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 042b73a0, 304 bytes, 4 strings: "invalid", "missing IHDR", "out of place", "too many profiles".
+- 042b8d40, 304 bytes, 3 strings: "duplicate", "invalid", "missing IHDR".
+- 042c2c70, 304 bytes, 2 strings: "zTXt: invalid compression type", "zTXt: invalid keyword".
+- 042d25a0, 304 bytes, 3 strings: "bool google_breakpad::MinidumpFileWriter::Copy(MDRVA, const void*, ssize_t)", "file_ != -1", "src/client/minidump_file_writer.cc".
+- 040257c0, 288 bytes. One string: "E.runloop".
+- 0402d440, 288 bytes. One string: "When looking for origin of the main game window , found that no main game window is set!".
+- 0402f640, 288 bytes. One string: "Shader compilation message doesn't fit into the buffer!".
+- 04052ae0, 288 bytes, 2 strings: "Unrecognized opcode-specific control, can't choose comparison operator !!!. Opcode %#x", "if( %s %s %s ) {\n".
+- 04052c00, 288 bytes, 2 strings: "Unrecognized opcode-specific control, can't choose comparison operator !!!. Opcode %#x", "if( %s %s %s ) break;\n".
+- 040a3e90, 288 bytes. One string: "Index buffer %p - detected clumsy attempt at using buffer streaming. Switching on the workaround.".

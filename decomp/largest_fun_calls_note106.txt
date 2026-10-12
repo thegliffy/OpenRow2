@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries with no string reference
+
+Continued from decomp/largest_fun_calls_note105.txt. Size is the gap to the next function; instruction mix is the top 5 Ghidra mnemonics in the function body. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 04184700, 240 bytes. 5 outgoing calls: FUN_0404ecd0 x3, FUN_0415cec0 x2. Instruction mix: POP 15, MOV 15, LEA 7, CALL 6, CMP 6.
+- 04181e60, 240 bytes. 7 outgoing calls: free x2, FUN_04129730 x1, FUN_04129b10 x1, FUN_0415a040 x1, eON_WideCharToMultiByte x1, malloc x1. Instruction mix: MOV 31, CALL 7, SUB 7, LEA 3, MOVZX 2.
+- 04171340, 240 bytes. 4 outgoing calls: FUN_0415b3b0 x1, FUN_0415c900 x1, bzero x1, pthread_mutex_lock x1. Instruction mix: MOV 16, JMP 6, ADD 4, CALL 4, MOVZX 4.
+- 0416be00, 240 bytes. 5 outgoing calls: eON_MultiByteToWideChar x2, FUN_0416bcc0 x1, free x1, malloc x1. Instruction mix: MOV 39, CALL 5, SUB 4, LEA 3, JZ 2.
+- 0416a9c0, 240 bytes. 10 outgoing calls: strcpy x5, FUN_04019130 x1, FUN_04019310 x1, FUN_040194d0 x1, FUN_04019690 x1, FUN_04019850 x1. Instruction mix: MOV 20, CALL 10, CMP 7, JZ 5, XOR 5.
+- 04160ce0, 240 bytes. 3 outgoing calls: FUN_0413a0a0 x1, FUN_0413a0d0 x1, memcpy x1. Instruction mix: MOV 48, SUB 4, CALL 3, JZ 3, TEST 3.
+- 0415c7e0, 240 bytes. 5 outgoing calls: FUN_0414a950 x1, FUN_0415af30 x1, pthread_cond_signal x1, pthread_mutex_lock x1, pthread_mutex_unlock x1. Instruction mix: MOV 27, CALL 5, CMP 5, LEA 5, TEST 5.
+- 04156430, 240 bytes. 6 outgoing calls: bzero x3, eON_MapOfBits::SetRange x2, FUN_0402f3e0 x1. Instruction mix: MOV 26, CALL 6, RET 1, SUB 1, LEAVE 1.
+- 04153ae0, 240 bytes. 5 outgoing calls: eON_WideCharToMultiByte x2, eON_LoadLibraryEx x1, free x1, malloc x1. Instruction mix: MOV 36, CALL 5, SUB 4, LEA 2, PUSH 2.
+- 04152080, 240 bytes. 5 outgoing calls: eON_WideCharToMultiByte x2, eON_LoadLibraryEx x1, free x1, malloc x1. Instruction mix: MOV 42, CALL 5, SUB 4, LEA 2, PUSH 2.

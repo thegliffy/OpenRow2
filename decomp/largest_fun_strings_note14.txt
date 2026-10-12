@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries that reference a string
+
+Skipped the 130 already listed in decomp/largest_fun_strings_note.txt through note13. Sizes are the gap to the next function. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 042a8710, 896 bytes, 2 strings. Includes: "internal error checking chromaticities", "invalid end points".
+- 04052dc0, 880 bytes, 4 strings. Includes: "%s%s = %s(", "max( %s, 0.0 )", "pow( max( %s, 0.0 ) * step( 0.0, %s ), clamp( %s, -128.0, 128.0 ) )", "vec%d( ".
+- 042c1b70, 880 bytes, 9 strings. Includes: "Invalid bit depth for RGB image", "Invalid bit depth for RGBA image", "Invalid bit depth for grayscale image", "Invalid bit depth for grayscale+alpha image", "Invalid bit depth for paletted image".
+- 04055090, 864 bytes, 3 strings. Includes: "%s * %s", "%s%s = %s(", "vec%d( ".
+- 0419bd00, 864 bytes, 38 strings. Includes: "glColorP3ui", "glColorP3uiv", "glColorP4ui", "glColorP4uiv", "glMultiTexCoordP1ui".
+- 042b8750, 864 bytes, 7 strings. Includes: "duplicate", "invalid", "invalid data", "invalid parameter count", "missing IHDR".
+- 042d1330, 848 bytes, 6 strings. Includes: "fd_ == -1 || !minidump_path", "src/client/linux/minidump_writer/minidump_writer.cc", "{anonymous}::MinidumpWriter::MinidumpWriter(const char*, int, const google_breakpad::ExceptionHandler::CrashContext*, const MappingList&, const AppMemoryList&, google_breakpad::LinuxDumper*)".
+- 0417d560, 832 bytes. One string: "GetSystemMetrics called with unsupported parameter %d".
+- 04185b70, 832 bytes. One string: "Window %p created.".
+- 04055a60, 816 bytes, 4 strings. Includes: "%s%s = %s(", "%s(%s));\n", "Unrecognized instruction in convert_map2gl!!", "normalize".

@@ -1,0 +1,19 @@
+eON_FileSystem::checkPathExists cluster
+
+Ten FUN_ entries share the assert text eON_FileSystem::checkPathExists() failed for path %s. They are not copies of one function, and they are not the same method body.
+
+Each one stats a path and, on ENOENT, calls eON_FileSystem::createPath. Any other errno is printed with that shared format string. The bodies are the same shape and about the same size (448 bytes, except 04019130 at 480 and 04019f50 at 272), but the bytes differ because each function has its own guard flags and its own path.
+
+Suffix appended to the base directory, from the function's string refs:
+- 04018ba0 DataChanges/
+- 04019130 System32/ and also logs "Requested Windows System32 path, investigate why!"
+- 04019310 GameDocuments/
+- 040194d0 AppData/
+- 04019690 AppDataLocal/
+- 04019850 AppDataShared/
+- 04019a10 SavedGames/
+- 04019bd0 Screenshots/
+- 04019d90 no suffix string of its own; same stat/create shape
+- 04019f50 no suffix; stats the base path in DAT_044112d0 directly
+
+04017fd0 readSymbolicLink references the same format string and is not part of this cluster. The checker still rejects all ten, because the stripped signature eON_FileSystem::checkPathExists is shared. They were not added to the name batch.

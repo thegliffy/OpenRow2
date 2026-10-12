@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries that reference a string
+
+Skipped the 260 already listed in decomp/largest_fun_strings_note.txt through note26. Sizes are the gap to the next function. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 042c1680, 448 bytes. One string: "compressed data too long".
+- 042bbcf0, 448 bytes, 3 strings. Includes: "Insufficient memory to process iCCP chunk", "Insufficient memory to process iCCP profile", "Invalid iCCP compression method".
+- 042bb6c0, 448 bytes, 4 strings. Includes: "Invalid sCAL height", "Invalid sCAL unit", "Invalid sCAL width", "Memory allocation failed while processing sCAL".
+- 042b8590, 448 bytes, 4 strings. Includes: "duplicate", "invalid", "missing IHDR", "out of place".
+- 042af580, 448 bytes, 3 strings. Includes: "png_image_finish_read: damaged PNG_IMAGE_VERSION", "png_image_finish_read: invalid argument", "png_image_finish_read[color-map]: no color-map".
+- 041a0de0, 448 bytes, 19 strings. Includes: "glGetVertexAttribLi64vNV", "glGetVertexAttribLui64vNV", "glVertexAttribL1i64NV", "glVertexAttribL1i64vNV", "glVertexAttribL1ui64NV".
+- 041976c0, 448 bytes, 19 strings. Includes: "glBeginQuery", "glBindBuffer", "glBufferData", "glBufferSubData", "glDeleteBuffers".
+- 0413d9b0, 448 bytes, 5 strings. Includes: "(%p-%p)(%zu bytes),FREE\n", "==== REGION DUMP END ========\n", "==== REGION DUMP START ========\n", "Free areas of less than allocation granularity size each: %llu (summary size: %llu bytes)\n", "Free areas of more than allocation granularity size each: %llu (summary size: %llu bytes)\n".
+- 04133310, 448 bytes, 9 strings. Includes: "   unlink( '%s' ) errno unknown (%d).", "   unlink( '%s' ) errno: EACCES.", "   unlink( '%s' ) errno: EBUSY.", "   unlink( '%s' ) errno: EFAULT.", "   unlink( '%s' ) errno: EIO.".
+- 04100950, 448 bytes. One string: "Unhandled - eON_DirectSoundCreate8 called with pcGuidDevice = %s".

@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries that reference a string
+
+Skipped the 340 already listed in decomp/largest_fun_strings_note.txt through note34. Sizes are the gap to the next function. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 042a9640, 352 bytes, 1 string: "0123456789ABCDEF".
+- 042b8430, 352 bytes, 4 strings: "duplicate", "invalid", "missing IHDR", "out of place".
+- 042bbaa0, 352 bytes, 2 strings: "Invalid palette", "Invalid palette length".
+- 042bc690, 352 bytes, 2 strings: "too many unknown chunks", "unknown chunk: out of memory".
+- 04010a50, 336 bytes, 6 strings. Includes: "0500000047532047616d657061640000,GameStop Gamepad,a:b0,b:b1,back:b8,dpdown:h0.4,dpleft:h0.8,dpright:h0.2,dpup:h0.1,guide:,leftshoulder:b4,leftstick:b10,lefttrigger:b6,leftx:a0,lefty:a1,rightshoulder:b5,rightstick:b11,righttrigger:b7,rightx:a2,righty:a3,start:b9,x:b2,y:b3", "Gamepads: SDL_GAMECONTROLLERCONFIG - %s", "SDL_GAMECONTROLLERCONFIG", "calibrate_gamepads", "gamepad_mapping".
+- 0401b5e0, 336 bytes, 4 strings: "    after clamp: %d", "    after scaler: %d", "    in flat zone, ie. 0", "Axis value cleanup for axis %d, input value %d".
+- 040275f0, 336 bytes, 1 string: "_NET_FRAME_EXTENTS".
+- 04054e30, 336 bytes, 2 strings: "%s%s = %s(", "( pow( abs( %s ), %s ) ) );\n".
+- 0405d550, 336 bytes, 10 strings. Includes: "%s: !unhandled!%s%s", "%s: D3DTA_CONSTANT%s%s", "%s: D3DTA_CURRENT%s%s", "%s: D3DTA_DIFFUSE%s%s", "%s: D3DTA_SPECULAR%s%s".
+- 040a3ce0, 336 bytes, 2 strings: "OffsetToLock <= mDesc.Size", "virtual HRESULT Direct3DIndexBuffer9Imp::Lock(UINT, UINT, void**, DWORD)".

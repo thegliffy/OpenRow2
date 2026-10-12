@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries with no string reference
+
+Continued from decomp/largest_fun_calls_note60.txt. Size is the gap to the next function. Counts are Ghidra instructions in the function body. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 04155d10, 416 bytes. 11 outgoing calls (only the first 8 are listed): FUN_0413a490 x2, FUN_0415cec0 x2, HeapAlloc x2, eON_MapOfBits::ClearRange x1, eON_MapOfBits::FindClearRange x1, eON_MapOfBits::SetRange x1, pthread_mutex_lock x1, pthread_mutex_unlock x1. Instruction mix: MOV 52, CALL 11, JZ 5, SUB 5, TEST 4.
+- 041480e0, 416 bytes. 5 outgoing calls: memmove x3, operator.delete x1, operator.new x1. Instruction mix: MOV 57, SUB 9, SAR 7, LEA 7, TEST 7.
+- 041453c0, 416 bytes. 5 outgoing calls: _Rb_tree_insert_and_rebalance x2, operator.new x2, _Rb_tree_decrement x1. Instruction mix: MOV 66, CMP 8, POP 8, JZ 7, TEST 6.
+- 04129820, 416 bytes. 7 outgoing calls: eON_WideCharToMultiByte x2, __ctype_b_loc x1, free x1, malloc x1, strcasecmp x1, strtol x1. Instruction mix: MOV 44, CALL 7, JZ 7, TEST 6, PUSH 6.
+- 0410d260, 416 bytes. 8 outgoing calls: FUN_0410b560 x2, operator.delete x2, FUN_0410ed90 x1, __throw_system_error x1, pthread_mutex_lock x1, pthread_mutex_unlock x1. Instruction mix: MOV 41, TEST 11, LEA 9, CALL 8, JZ 8.
+- 0410ba10, 416 bytes. 5 outgoing calls: _Rb_tree_insert_and_rebalance x2, operator.new x2, _Rb_tree_decrement x1. Instruction mix: MOV 73, CMP 8, POP 8, JZ 7, TEST 6.
+- 0410b560, 416 bytes. 10 outgoing calls (only the first 8 are listed): FUN_0410b3b0 x7, FUN_0410b4a0 x1, _Rb_tree_decrement x1, _Rb_tree_increment x1. Instruction mix: MOV 68, CALL 10, CMP 7, JZ 6, JMP 5.
+- 04106f90, 416 bytes. 6 outgoing calls: FUN_04108a30 x1, FUN_04108b20 x1, XAudio2Imp::ExecuteOperation x1, __throw_system_error x1, pthread_mutex_lock x1, pthread_mutex_unlock x1. Instruction mix: MOV 63, ADD 6, CALL 6, LEA 6, TEST 6.
+- 040e55f0, 416 bytes. 3 outgoing calls: free x2, operator.delete x1. Instruction mix: MOV 48, TEST 11, CALL 7, JNZ 7, ADD 6.
+- 040b4e20, 416 bytes. 4 outgoing calls: FUN_040303a0 x1, __throw_bad_alloc x1, ceilf x1, operator.new x1. Instruction mix: MOV 37, LEA 9, CMP 5, CALL 4, POP 4.

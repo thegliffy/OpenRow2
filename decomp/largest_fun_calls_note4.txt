@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries with no string reference
+
+Continued from decomp/largest_fun_calls_note3.txt. Size is the gap to the next function. Counts are Ghidra instructions in the function body. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 04110a60, 4816 bytes. 3 outgoing calls: EnsureGamepadConnected x1, bzero x1, memcmp x1. Instruction mix: MOV 187, CMP 121, JMP 79, SUB 67, JZ 57.
+- 04210b70, 4688 bytes. No outgoing calls. Instruction mix: MOV 465, XOR 315, AND 103, MOVZX 87, SHRD 78.
+- 0420f970, 4608 bytes. No outgoing calls. Instruction mix: MOV 447, XOR 315, AND 104, MOVZX 86, SHRD 78.
+- 04061fc0, 4400 bytes. 15 outgoing calls: bzero x15. Instruction mix: MOV 442, LEA 16, CALL 15, POP 2, ADD 2.
+- 04221d50, 4272 bytes. 1 outgoing call: __stack_chk_fail x1. Instruction mix: MOV 422, MOVZX 247, ADD 193, CMP 57, JNZ 49.
+- 041e8a49, 4272 bytes. 8 outgoing calls: FUN_041e3ac1 x2, FUN_041e4859 x1, FUN_041e7e7c x1, FUN_041e832e x1, FUN_041e8634 x1, FUN_042042c2 x1, __stack_chk_fail x1. Instruction mix: MOV 516, JMP 106, MOVZX 100, CMP 100, ADD 64.
+- 0414dfe0, 4112 bytes. No outgoing calls. Instruction mix: MOV 2, RET 1, POP 1, PUSH 1.
+- 042cd680, 3968 bytes. 39 outgoing calls. Callees include google_breakpad::UntypedMDRVA::Allocate x6, google_breakpad::MinidumpFileWriter::Copy x5, FUN_042d1b90 x3, FUN_042d28f0 x3, FUN_042d46e0 x3, __errno_location x3, FUN_042ca220 x2, FUN_042d4e00 x2. Instruction mix: MOV 408, PUSH 116, ADD 58, CALL 45, JZ 42.
+- 042c3c20, 3872 bytes. 3 outgoing calls: FUN_042bf190 x1, FUN_042c1fe0 x1, FUN_042c37c0 x1. Instruction mix: MOV 383, CMP 90, ADD 87, MOVZX 78, JZ 47.
+- 041f1b75, 3738 bytes. 1 outgoing call: FUN_041f187b x1. Instruction mix: MOV 643, CMP 72, MOVZX 62, ADD 45, JZ 43.

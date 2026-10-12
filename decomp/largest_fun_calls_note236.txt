@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries with no string reference
+
+Continued from decomp/largest_fun_calls_note235.txt. Size is the declared gap to the next function (Ghidra body size in parentheses where it differs); instruction mix is the top 5 Ghidra mnemonics in the function body. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 042ca160, 96 bytes (body 75). 2 outgoing calls: FUN_042ca030 x1, __i686.get_pc_thunk.bx x1. Instruction mix: ADD 6, PUSH 5, POP 4, CALL 4, SUB 3.
+- 042ca1c0, 96 bytes (body 79). No outgoing calls. Instruction mix: MOV 8, POP 6, ADD 3, SUB 3, CMP 3.
+- 042cc110, 96 bytes (body 78). No outgoing calls. Instruction mix: MOV 11, POP 6, TEST 3, PUSH 3, ADD 2.
+- 042d43f0, 96 bytes (body 75). No outgoing calls. Instruction mix: MOV 5, RET 3, ADD 3, CMP 3, POP 3.
+- 042d4450, 96 bytes (body 82). No outgoing calls. Instruction mix: POP 6, MOV 6, LEA 5, CMP 3, PUSH 3.
+- 042d4760, 96 bytes (body 85). 2 outgoing calls: FUN_042d4710 x1, __i686.get_pc_thunk.bx x1. Instruction mix: ADD 7, PUSH 5, POP 4, SUB 3, CMP 3.
+- 042d4850, 96 bytes (body 77). 2 outgoing calls: __errno_location x1, __i686.get_pc_thunk.bx x1. Instruction mix: MOV 10, POP 4, PUSH 4, CALL 2, RET 1.
+- 042d4b10, 96 bytes (body 91). 2 outgoing calls: __errno_location x1, __i686.get_pc_thunk.bx x1. Instruction mix: MOV 9, POP 5, ADD 3, PUSH 3, RET 2.
+- 041ec324, 95 bytes (body 95). No outgoing calls. Instruction mix: MOV 21, CMP 2, JMP 2, RET 1, POP 1.
+- 041f8576, 95 bytes (body 95). 3 outgoing calls: FUN_041cc920 x1, FUN_041f852c x1, memcpy x1. Instruction mix: MOV 9, PUSH 6, ADD 5, SUB 4, CALL 3.

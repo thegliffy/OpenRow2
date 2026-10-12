@@ -1,0 +1,17 @@
+VPFS payload vs zlib
+
+zstream_decompress at 042b60c0 is a zlib wrapper. It calls zstream_init, then zstream_inflate_buffer, which calls inflate. Its only callers are FUN_042b8ff0 and FUN_042b9200. Nothing in the VPFS address range calls zstream_decompress, zstream_inflate_buffer, zstream_inflate_stream, or inflate.
+
+VPFS_UnpackArchive (04049e00) opens the archive through FUN_040491e0. That function requires a .vpfs path and a 0x20-byte header whose first dword is 0x53465056 (ASCII VPFS). It then reads the directory blob and decrypts it with FUN_0403abc0, which is AES (key schedule FUN_04031570(ctx, 0x80, 0x80), key bytes at DAT_04408c70). The decrypted directory is copied back over the ciphertext. There is no inflate on this path.
+
+So the archive directory is AES ciphertext, not a zlib stream. The per-file payload reader is still the open question for the next pass.
+
+Decompile dump: decomp/vpfs_zstream.txt
+
+Per-file payload
+
+VPFS_ArchiveRead at 0403e5a0 is the file-body reader. It aligns the offset down to 16 bytes, reads ciphertext with fs_ReadFile, and decrypts each block through FUN_0403ab90. That helper calls FUN_04036430, the same block function AES::Decrypt uses (see decomp/aes_decrypt.txt). The decrypted block is four dwords, 16 bytes, copied into the caller buffer. The stride comes from DAT_04468a90, also in 16-byte units.
+
+There is no call to inflate, zstream_decompress, or zstream_inflate_buffer on this path. File bodies are AES blocks, not zlib streams.
+
+Decompile dump: decomp/vpfs_archiveread.txt

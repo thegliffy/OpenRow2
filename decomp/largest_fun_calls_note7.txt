@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries with no string reference
+
+Continued from decomp/largest_fun_calls_note6.txt. Size is the gap to the next function. Counts are Ghidra instructions in the function body. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 041ea554, 2264 bytes. 2 outgoing calls: FUN_041e4859 x1, __stack_chk_fail x1. Instruction mix: MOV 296, MOVZX 73, CMP 63, ADD 47, JMP 44.
+- 040eabb0, 2240 bytes. 21 outgoing calls: __throw_bad_alloc x5, ceilf x5, operator.new x5, FUN_040e52b0 x2, operator.delete x2, malloc x1, pthread_mutex_init x1. Instruction mix: MOV 207, LEA 45, CMP 27, CALL 21, MOVSS 15.
+- 0421abf0, 2224 bytes. 2 outgoing calls: FUN_0421a060 x1, __stack_chk_fail x1. Instruction mix: MOV 101, MOVZX 81, CMP 78, LEA 49, JZ 27.
+- 0421a340, 2224 bytes. 2 outgoing calls: FUN_0421a060 x1, __stack_chk_fail x1. Instruction mix: MOV 102, MOVZX 81, CMP 78, LEA 48, JZ 27.
+- 041d09e0, 2200 bytes. 10 outgoing calls. Callees include FUN_041ceb81 x2, FUN_041ced81 x1, FUN_041ced9b x1, FUN_041cf023 x1, FUN_041cf54c x1, FUN_041cf820 x1, FUN_041cfd25 x1, __stack_chk_fail x1. Instruction mix: MOV 241, CMP 44, TEST 32, JZ 29, PUSH 28.
+- 041e53a8, 2166 bytes. 11 outgoing calls: FUN_041d26d5 x3, memcpy x2, FUN_041cc920 x1, FUN_041d25e0 x1, FUN_041e515e x1, FUN_042007f3 x1, __stack_chk_fail x1, strcmp x1. Instruction mix: MOV 295, MOVZX 45, CMP 39, ADD 37, JMP 28.
+- 041e9ce6, 2158 bytes. 2 outgoing calls: FUN_041e4859 x1, __stack_chk_fail x1. Instruction mix: MOV 281, MOVZX 77, CMP 56, ADD 49, JMP 42.
+- 04140120, 2128 bytes. 13 outgoing calls: FUN_0415a040 x7, FUN_0415cec0 x3, memcpy x2, eON_GetLocaleInfoW x1. Instruction mix: MOV 177, SUB 46, CMP 42, LEA 36, JZ 32.
+- 041df465, 2122 bytes. No outgoing calls. Instruction mix: MOV 333, MOVZX 61, CMP 50, JMP 48, LEA 28.
+- 042caba0, 2112 bytes. 23 outgoing calls. Callees include __errno_location x5, FUN_042d4380 x4, FUN_042d4630 x3, FUN_042d43f0 x2, FUN_042cb3e0 x1, FUN_042cbb30 x1, FUN_042d4580 x1, FUN_042d46e0 x1. Instruction mix: MOV 213, PUSH 49, CMP 38, ADD 33, SUB 32.

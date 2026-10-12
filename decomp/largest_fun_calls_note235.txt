@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries with no string reference
+
+Continued from decomp/largest_fun_calls_note234.txt. Size is the declared gap to the next function (Ghidra body size in parentheses where it differs); instruction mix is the top 5 Ghidra mnemonics in the function body. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 042b6500, 96 bytes (body 95). 1 outgoing call: FUN_042af7a0 x1. Instruction mix: MOV 18, ADD 2, RET 1, JZ 1, CALL 1.
+- 042bb0d0, 96 bytes (body 86). 1 outgoing call: FUN_042a80e0 x1. Instruction mix: MOV 14, ADD 2, TEST 2, JZ 1, RET 1.
+- 042bbc30, 96 bytes (body 86). 1 outgoing call: FUN_042a7b90 x1. Instruction mix: MOV 14, ADD 2, TEST 2, JZ 1, RET 1.
+- 042bbc90, 96 bytes (body 95). 1 outgoing call: FUN_042a7b90 x1. Instruction mix: MOV 14, TEST 3, JZ 2, ADD 2, RET 1.
+- 042bd0c0, 96 bytes (body 84). No outgoing calls. Instruction mix: MOV 7, CMP 6, JZ 3, MOVZX 3, RET 2.
+- 042bf190, 96 bytes (body 86). 1 outgoing call: FUN_042c1fe0 x1. Instruction mix: MOV 8, POP 2, ADD 2, RET 1, JZ 1.
+- 042c1a20, 96 bytes (body 86). 1 outgoing call: FUN_042c6080 x1. Instruction mix: MOV 13, SHR 3, RET 1, JZ 1, ADD 1.
+- 042c4d20, 96 bytes (body 85). No outgoing calls. Instruction mix: MOV 9, JZ 4, TEST 4, XOR 2, FILD 2.
+- 042c6020, 96 bytes (body 89). 2 outgoing calls: FUN_042a9b90 x1, fwritex x1. Instruction mix: MOV 14, CALL 2, RET 1, JZ 1, ADD 1.
+- 042c7630, 96 bytes (body 83). 3 outgoing calls: _M_unhook x1, __i686.get_pc_thunk.bx x1, operator.delete x1. Instruction mix: MOV 5, POP 4, ADD 4, CALL 3, CMP 3.

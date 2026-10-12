@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries that reference a string
+
+Skipped the 110 already listed in decomp/largest_fun_strings_note.txt through note11. Sizes are the gap to the next function. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 042ae210, 1024 bytes. One string: "unknown interlace type".
+- 042be0e0, 1024 bytes. One string: "Valid palette required for paletted images".
+- 04128b60, 1008 bytes, 2 strings. Includes: "%u %u %u %u %u %u %u %u %u %u %u %u", "/proc/net/dev".
+- 04180960, 1008 bytes, 11 strings. Includes: "            hIcon: %p", "            style: %#x", "          hCursor: %p", "          hIconSm: %p", "        hInstance: %p".
+- 042d1f40, 1008 bytes. One string: "vector::_M_fill_insert".
+- 042ba6f0, 992 bytes. One string: "Row has too many bytes to allocate in memory".
+- 040cc080, 976 bytes, 114 strings. Includes: "!!!unknown!!!", "GL_BOOL", "GL_BOOL_VEC2", "GL_BOOL_VEC3", "GL_BOOL_VEC4".
+- 04239db0, 976 bytes. One string: "abcdbcdecdefdefgefghfghighijhijkijkljklmklmnlmnomnopnopq".
+- 04053560, 960 bytes, 12 strings. Includes: "%s%s = %s(", "%sLod( %cSampler%u, %s, %s )%s );\n", "Unknown depth sampler type in GetSampleFunction_OpenGLCore()!", "Unknown sampler type in GetSampleFunction()!", "shadow1D".
+- 041813e0, 960 bytes, 6 strings. Includes: "HWND_BROADCAST not supported in SendMessageW(). Add it.", "SetWindowLong: unhandled nIndex! (%d)", "Window proc set to 0 for window %p.".

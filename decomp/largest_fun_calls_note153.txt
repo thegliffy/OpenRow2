@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries with no string reference
+
+Continued from decomp/largest_fun_calls_note152.txt. Size is the declared gap to the next function (Ghidra body size in parentheses where it differs); instruction mix is the top 5 Ghidra mnemonics in the function body. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 040fa310, 160 bytes (body 149). 3 outgoing calls: alSource3f x1, cosf x1, sinf x1. Instruction mix: MOVSS 9, MOV 8, CALL 3, CMP 2, FSTP 2.
+- 040fe730, 160 bytes (body 129). 2 outgoing calls: backendOpenALSoft_040f9dc0 x1, free x1. Instruction mix: MOV 20, JZ 4, CALL 4, TEST 4, SUB 3.
+- 0410b700, 160 bytes (body 157). 4 outgoing calls: FUN_041062a0 x1, __throw_system_error x1, pthread_mutex_lock x1, pthread_mutex_unlock x1. Instruction mix: MOV 27, CALL 4, TEST 2, RET 1, ADD 1.
+- 0411b140, 160 bytes (body 150). 5 outgoing calls: operator.new x1, pthread_mutex_init x1, pthread_mutexattr_destroy x1, pthread_mutexattr_init x1, pthread_mutexattr_settype x1. Instruction mix: MOV 26, CALL 5, RET 2, POP 2, LEA 2.
+- 0411b750, 160 bytes (body 138). 1 outgoing call: memcmp x1. Instruction mix: MOV 21, POP 8, ADD 4, PUSH 4, SUB 2.
+- 0411c2d0, 160 bytes (body 156). 6 outgoing calls: FUN_0411b2c0 x1, operator.new x1, pthread_mutex_init x1, pthread_mutexattr_destroy x1, pthread_mutexattr_init x1, pthread_mutexattr_settype x1. Instruction mix: MOV 24, CALL 6, LEA 2, RET 1, POP 1.
+- 0411c370, 160 bytes (body 149). 6 outgoing calls: FontCache::GetFTLibraryForThisThread x1, operator.new x1, pthread_mutex_init x1, pthread_mutexattr_destroy x1, pthread_mutexattr_init x1, pthread_mutexattr_settype x1. Instruction mix: MOV 22, CALL 6, LEA 2, RET 1, POP 1.
+- 0411f840, 160 bytes (body 152). 2 outgoing calls: eON_CreateFontIndirectW x1, eON_MultiByteToWideChar x1. Instruction mix: MOV 24, LEA 5, PUSH 4, POP 3, SUB 2.
+- 04122140, 160 bytes (body 133). No outgoing calls. Instruction mix: MOV 8, JZ 5, CMP 4, LEA 4, POP 4.
+- 041246f0, 160 bytes (body 151). 3 outgoing calls: malloc x2, memcpy x1. Instruction mix: MOV 25, CALL 3, MOVZX 3, TEST 3, SUB 2.

@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries that reference a string
+
+Skipped the 340 already listed in decomp/largest_fun_strings_note.txt through note34. Sizes are the gap to the next function. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 042b82c0, 368 bytes, 4 strings: "duplicate", "invalid", "missing IHDR", "out of place".
+- 042bc350, 368 bytes, 1 string: "tRNS chunk has out-of-range samples for bit_depth".
+- 042c27e0, 368 bytes, 4 strings: "Can't write tRNS with an alpha channel", "Ignoring attempt to write 16-bit tRNS chunk when bit_depth is 8", "Ignoring attempt to write tRNS chunk out-of-range for bit_depth", "Invalid number of transparent colors specified".
+- 04051430, 352 bytes, 15 strings. Includes: "ON_AttrBinormal%u", "ON_AttrBlendIndices%u", "ON_AttrBlendWeight%u", "ON_AttrColor%u", "ON_AttrDepth%u".
+- 040b7300, 352 bytes, 1 string: "Max D3D9 volume size is now %d".
+- 041314d0, 352 bytes, 2 strings: "Internal error in vpfs_GetFileAttributesExA - file or dir can be opened but has no file times!", "vpfs_GetFileAttributesExA called with invalid fInfoLevelId param".
+- 04146b40, 352 bytes, 1 string: "CreateSemaphoreA() does not support lpSemaphoreAttributes".
+- 041838e0, 352 bytes, 3 strings: "Desktop HWND supplied in SendMessageA().", "HWND_BROADCAST not supported in SendMessageA(). Add it.", "eON_GetDlgItem() didn't find control with id: %d in dialog: %p!".
+- 04183a40, 352 bytes, 3 strings: "Desktop HWND supplied in SendMessageW()", "HWND_BROADCAST not supported in SendMessageW(). Add it.", "eON_GetDlgItem() didn't find control with id: %d in dialog: %p!".
+- 042a4e50, 352 bytes, 1 string: "inconsistent chromaticities".

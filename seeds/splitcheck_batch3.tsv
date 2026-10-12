@@ -1,0 +1,37 @@
+entry	boundary	sig	ref_type	ref_source	ref_source_function
+04017fd0	readSymbolicLink	04018250	NONE		
+04017fd0	readSymbolicLink	040182c6	NONE		
+04017fd0	readSymbolicLink	040184d8	CONDITIONAL_JUMP	0401838c	readSymbolicLink
+04017fd0	readSymbolicLink	040185e0	CONDITIONAL_JUMP	04017fea	readSymbolicLink
+04017fd0	readSymbolicLink	04018661	NONE		
+04017fd0	readSymbolicLink	04018718	UNCONDITIONAL_JUMP	040188a9	readSymbolicLink
+0402e220	eON_MapOfBits::FindSetRange	0402e26f	NONE		
+0402e220	eON_MapOfBits::FindSetRange	0402e2ef	NONE		
+0402e220	eON_MapOfBits::FindSetRange	0402e328	CONDITIONAL_JUMP	0402e22e	eON_MapOfBits::FindSetRange
+0402e370	eON_MapOfBits::FindClearRange	0402e3bf	NONE		
+0402e370	eON_MapOfBits::FindClearRange	0402e43f	NONE		
+0402e370	eON_MapOfBits::FindClearRange	0402e478	CONDITIONAL_JUMP	0402e37e	eON_MapOfBits::FindClearRange
+0402ecf0	eON_SystemInfo::queryCPUForInfo	0402ee0e	NONE		
+0402ecf0	eON_SystemInfo::queryCPUForInfo	0402f310	CONDITIONAL_JUMP	0402ed31	eON_SystemInfo::queryCPUForInfo
+0402ecf0	eON_SystemInfo::queryCPUForInfo	0402f360	CONDITIONAL_JUMP	0402eed9	eON_SystemInfo::queryCPUForInfo
+0402ecf0	eON_SystemInfo::queryCPUForInfo	0402f37b	CONDITIONAL_JUMP	0402ef16	eON_SystemInfo::queryCPUForInfo
+0402fee0	eON_TrackingManager::Create	0402ff4a	NONE		
+0402fee0	eON_TrackingManager::Create	0402ffe5	CONDITIONAL_JUMP	0402ffa6	eON_TrackingManager::Create
+0402fee0	eON_TrackingManager::Create	04030011	CONDITIONAL_JUMP	0402ff9e	eON_TrackingManager::Create
+04030040	eON_TrackingManager::Delete	040300bb	NONE		
+04030040	eON_TrackingManager::Delete	04030221	CONDITIONAL_JUMP	040301b1	eON_TrackingManager::Delete
+04030040	eON_TrackingManager::Delete	04030250	CONDITIONAL_JUMP	040301a6	eON_TrackingManager::Delete
+04073780	Direct3DStateBlock9Imp::SetSamplerState	040738a0	CONDITIONAL_JUMP	040737fc	Direct3DStateBlock9Imp::SetSamplerState
+04073780	Direct3DStateBlock9Imp::SetSamplerState	040738d0	CONDITIONAL_JUMP	040737c2	Direct3DStateBlock9Imp::SetSamplerState
+04073780	Direct3DStateBlock9Imp::SetSamplerState	04073936	NONE		
+04074f90	Direct3DDevice9Imp::GetTransform	04075024	NONE		
+04074f90	Direct3DDevice9Imp::GetTransform	040750d8	CONDITIONAL_JUMP	04074fd5	Direct3DDevice9Imp::GetTransform
+04074f90	Direct3DDevice9Imp::GetTransform	0407511f	NONE		
+04077000	Direct3DDevice9Imp::GetRenderTargetData	04077180	CONDITIONAL_JUMP	04077045	Direct3DDevice9Imp::GetRenderTargetData
+04077000	Direct3DDevice9Imp::GetRenderTargetData	040771cd	NONE		
+04077000	Direct3DDevice9Imp::GetRenderTargetData	04077220	CONDITIONAL_JUMP	040770de	Direct3DDevice9Imp::GetRenderTargetData
+04077590	Direct3DDevice9Imp::CreateDepthStencilSurface	040776c6	CONDITIONAL_JUMP	040776ac	Direct3DDevice9Imp::CreateDepthStencilSurface
+04077590	Direct3DDevice9Imp::CreateDepthStencilSurface	040776c6	CONDITIONAL_JUMP	0407778f	Direct3DDevice9Imp::CreateDepthStencilSurface
+04077590	Direct3DDevice9Imp::CreateDepthStencilSurface	040776c6	CONDITIONAL_JUMP	040777b0	Direct3DDevice9Imp::CreateDepthStencilSurface
+04077590	Direct3DDevice9Imp::CreateDepthStencilSurface	040776f0	CONDITIONAL_JUMP	040775ed	Direct3DDevice9Imp::CreateDepthStencilSurface
+04077590	Direct3DDevice9Imp::CreateDepthStencilSurface	04077737	NONE		

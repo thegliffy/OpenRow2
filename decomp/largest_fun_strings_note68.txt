@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries that reference a string
+
+Skipped the 669 already listed in decomp/largest_fun_strings_note.txt through note67. Sizes are the gap to the next function. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 041a1c50, 160 bytes, 6 strings. Includes: "glAsyncMarkerSGIX", "glDeleteAsyncMarkersSGIX", "glFinishAsyncSGIX", "glGenAsyncMarkersSGIX", "glIsAsyncMarkerSGIX".
+- 041a2470, 160 bytes, 6 strings. Includes: "glXBindSwapBarrierNV", "glXJoinSwapGroupNV", "glXQueryFrameCountNV", "glXQueryMaxSwapGroupsNV", "glXQuerySwapGroupNV".
+- 041a25a0, 160 bytes, 6 strings. Includes: "glXBindVideoImageNV", "glXGetVideoDeviceNV", "glXGetVideoInfoNV", "glXReleaseVideoDeviceNV", "glXReleaseVideoImageNV".
+- 041a26d0, 160 bytes, 6 strings. Includes: "glXChooseFBConfigSGIX", "glXGetFBConfigAttribSGIX", "glXGetFBConfigFromVisualSGIX", "glXGetVisualFromFBConfigSGIX", "glXCreateContextWithConfigSGIX".
+- 0422ffc0, 160 bytes. One string: "chc_hash".
+- 042a9f60, 160 bytes. One string: "bad longjmp: ".
+- 042aae80, 160 bytes. One string: "unexpected encoding (internal error)".
+- 042af340, 160 bytes, 2 strings: "png_image_begin_read_from_stdio: invalid argument", "png_image_begin_read_from_stdio: incorrect PNG_IMAGE_VERSION".
+- 042b5ee0, 160 bytes. One string: "insufficient memory to read chunk".
+- 042c83e0, 160 bytes, 6 strings. Includes: "src/client/linux/handler/minidump_descriptor.cc", "src/client/linux/handler/minidump_descriptor.cc", "descriptor.path_.empty()", "descriptor.path_.empty()", "google_breakpad::MinidumpDescriptor& google_breakpad::MinidumpDescriptor::operator=(const google_breakpad::MinidumpDescriptor&)".

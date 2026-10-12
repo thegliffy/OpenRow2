@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries with no string reference
+
+Continued from decomp/largest_fun_calls_note37.txt. Size is the gap to the next function. Counts are Ghidra instructions in the function body. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 042205f0, 608 bytes. No outgoing calls. Instruction mix: MOV 54, MOVZX 52, ADD 37, XOR 13, LEA 4.
+- 0421cf20, 608 bytes. No outgoing calls. Instruction mix: MOV 66, XOR 36, MOVZX 24, SHR 16, ADD 8.
+- 041c7eb0, 608 bytes. 12 outgoing calls (8 listed): FUN_041c6e60 x3, FUN_041c73a0 x2, TiXmlDocument::SetError x2, FUN_041c10b0 x1, FUN_041c1190 x1, TiXmlBase::ReadName x1, TiXmlParsingData::Stamp x1, __ctype_b_loc x1. Instruction mix: MOV 81, JZ 21, CALL 12, CMP 11, TEST 11.
+- 04171f30, 608 bytes. 18 outgoing calls (8 listed): operator.delete x3, free x2, pthread_mutex_unlock x2, FUN_0415b3b0 x1, FUN_0415b450 x1, FUN_0415eaf0 x1, FUN_0416ec80 x1, FUN_04174820 x1. Instruction mix: MOV 78, CALL 18, LEA 9, POP 8, TEST 8.
+- 0415e4a0, 608 bytes. 5 outgoing calls: __udivdi3 x3, __umoddi3 x2. Instruction mix: MOV 67, SHR 12, SUB 12, LEA 9, ADD 8.
+- 04150330, 608 bytes. 6 outgoing calls: _Rb_tree_increment x1, memmove x1, operator.delete x1, operator.new x1, pthread_mutex_lock x1, pthread_mutex_unlock x1. Instruction mix: MOV 75, JZ 14, POP 12, TEST 11, CALL 8.
+- 0411ec10, 608 bytes. No outgoing calls. Instruction mix: MOV 89, CMP 17, ADD 16, LEA 13, JZ 7.
+- 0420962c, 607 bytes. 2 outgoing calls: FUN_041f7d78 x1, FUN_0420937f x1. Instruction mix: MOV 70, CMP 23, JMP 13, ADD 12, JZ 11.
+- 041e7c21, 603 bytes. 2 outgoing calls: FUN_041e5f52 x1, FUN_0420371c x1. Instruction mix: MOV 67, CMP 18, JMP 18, MOVZX 16, ADD 15.
+- 041d7523, 598 bytes. No outgoing calls. Instruction mix: MOV 112, LEA 26, MOVZX 18, ADD 10, CMP 8.

@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries with no string reference
+
+Continued from decomp/largest_fun_calls_note63.txt. Size is the gap to the next function; instruction mix is the top 5 Ghidra mnemonics in the function body. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 042471a0, 400 bytes. No outgoing calls. Instruction mix: MOV 41, MOVZX 16, LEA 12, JZ 12, CMP 11.
+- 0421da70, 400 bytes. 5 outgoing calls: memcmp x2, FUN_0421d670 x1, FUN_0421d890 x1, __stack_chk_fail x1. Instruction mix: MOV 39, LEA 13, XOR 10, ROL 7, BSWAP 6.
+- 041970e0, 400 bytes. 9 outgoing calls: operator.delete x9. Instruction mix: MOV 64, TEST 18, JZ 16, CALL 10, JMP 9.
+- 041967b0, 400 bytes. 10 outgoing calls: strlen x4, strcpy x2, FUN_0415cec0 x1, free x1, getprotobyname x1, malloc x1. Instruction mix: MOV 63, CALL 10, ADD 7, LEA 7, TEST 6.
+- 04188990, 400 bytes. 5 outgoing calls: memmove x3, operator.delete x1, operator.new x1. Instruction mix: MOV 62, SUB 9, SAR 7, LEA 7, TEST 7.
+- 0417a090, 400 bytes. 9 outgoing calls: operator.delete x9. Instruction mix: MOV 64, TEST 18, JZ 16, CALL 10, JMP 9.
+- 04179f00, 400 bytes. 5 outgoing calls: memmove x3, operator.delete x1, operator.new x1. Instruction mix: MOV 62, SUB 9, SAR 7, LEA 7, TEST 7.
+- 04174b40, 400 bytes. 5 outgoing calls: memmove x3, operator.delete x1, operator.new x1. Instruction mix: MOV 62, SUB 9, SAR 7, LEA 7, TEST 7.
+- 041749b0, 400 bytes. 5 outgoing calls: memmove x3, operator.delete x1, operator.new x1. Instruction mix: MOV 62, SUB 9, SAR 7, LEA 7, TEST 7.
+- 04174820, 400 bytes. 9 outgoing calls: operator.delete x9. Instruction mix: MOV 64, TEST 18, JZ 16, CALL 10, JMP 9.

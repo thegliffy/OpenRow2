@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries that reference a string
+
+Skipped the 300 already listed in decomp/largest_fun_strings_note.txt through note30. Sizes are the gap to the next function. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 0401dcb0, 416 bytes, 3 strings. Includes: "ID_INPUT_JOYSTICK", "ID_INPUT_KEYBOARD", "ID_INPUT_MOUSE".
+- 040a6520, 416 bytes. One string: "Unknown D3DFORMAT ( %s ) - can't determine pixel size!".
+- 0412d2d0, 416 bytes, 2 strings. Includes: "    can't get current dir!!!", "(%u) convertLen != len + 1 (%u) in GetCurrentDirectoryW()".
+- 041310a0, 416 bytes. One string: "fs_GetFileInformationByHandle failed (3)".
+- 0413df00, 416 bytes. One string: "Win32ToPosixProtectFlags: unhandled flags %x !!".
+- 04195d00, 416 bytes, 2 strings. Includes: "Local stack variable reported at invalid address!", "SOCKETS: getpeername() - unknown error - %d.".
+- 0419e090, 416 bytes, 17 strings. Includes: "glBindFramebufferEXT", "glBindRenderbufferEXT", "glCheckFramebufferStatusEXT", "glDeleteFramebuffersEXT", "glDeleteRenderbuffersEXT".
+- 0419e6e0, 416 bytes, 17 strings. Includes: "glSecondaryColor3bEXT", "glSecondaryColor3bvEXT", "glSecondaryColor3dEXT", "glSecondaryColor3dvEXT", "glSecondaryColor3fEXT".
+- 041a1cf0, 416 bytes, 17 strings. Includes: "glFragmentColorMaterialSGIX", "glFragmentLightModelfSGIX", "glFragmentLightModelfvSGIX", "glFragmentLightModeliSGIX", "glFragmentLightModelivSGIX".
+- 04065550, 400 bytes. One string: "Data transfer buffer now has %d internal buffers, taking %d bytes".

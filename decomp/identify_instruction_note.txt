@@ -1,0 +1,9 @@
+ShaderData::IdentifyInstruction cluster
+
+Five functions reference the string "Unsupported asm opcode in ShaderData::IdentifyInstruction()". They are not copies of one function. The checker strips that string to one shared signature, so none of them were added to the name batch.
+
+- 04057880 (144 bytes) is the lookup itself. It walks the instruction table at shader+0x2d8, matches the opcode and the shader-version range, and logs this error when nothing matches.
+- 04055f10 (480 bytes) is the matmul converter. It switches on opcodes 0x14 through 0x18, logs "Unrecognized instruction in convert_matmul!!" for anything else, then does the same table lookup and calls FUN_04055d90 once per row.
+- 04052100 and 0405ac10 are both 1104 bytes and call the same four helpers (eON_ShaderData::InputRegisterIsColor, FUN_04050e40, the logger, FUN_0402f640). Both also reference the GLSL strings "Unrecognized instruction when producing GLSL code", "Can't convert this instruction to GLSL!!!", the clamp format, and the centroid-modifier warning. Their bytes still differ in 730 of 1104 positions, so they are two variants, not one copied body.
+- 040580b0 (3136 bytes) is the bytecode preparser. Its other strings are "Preparsing bytecode...", the semantic names (_position, _normal, _texcoord, and the rest), and the def/defi/defb formats. It references the IdentifyInstruction error while parsing, and it does not call 04057880.
+

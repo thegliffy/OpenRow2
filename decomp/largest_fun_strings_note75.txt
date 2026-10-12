@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries that reference a string
+
+Skipped the 739 already listed in decomp/largest_fun_strings_note.txt through note74. Sizes are the gap to the next function. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 040f1710, 112 bytes. One string: "DirectInputImp".
+- 040f62a0, 112 bytes. One string: "Can't translate keyCode %u in DirectInput8's ProcessKeyUp function!! Please add translation to the table in KeycodeToDirectInput.".
+- 040fed00, 112 bytes. One string: "DirectSoundBuffer8Imp".
+- 041000c0, 112 bytes. One string: "DSBPN_OFFSETSTOP notification not supported yet".
+- 04113fc0, 112 bytes. One string: "/dev/urandom".
+- 04114cb0, 112 bytes. One string: "/dev/urandom".
+- 041358e0, 112 bytes. One string: "C:\Windows".
+- 04135a40, 112 bytes. One string: "C:\Windows".
+- 04135ae0, 112 bytes. One string: "C:\Windows".
+- 04146880, 112 bytes. One string: "CreateMutexA() - specified lpMutexAttributes, not handled!".

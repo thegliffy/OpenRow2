@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries with no string reference
+
+Continued from decomp/largest_fun_calls_note107.txt. Size is the gap to the next function; instruction mix is the top 5 Ghidra mnemonics in the function body. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 0411b2c0, 240 bytes. 1 outgoing call: free x1. Instruction mix: MOV 39, POP 8, ADD 4, SUB 4, LEA 4.
+- 04118f00, 240 bytes. 6 outgoing calls: FUN_04118b60 x2, eON_MultiByteToWideChar x1, free x1, malloc x1, strlen x1. Instruction mix: MOV 35, CALL 6, SUB 4, LEA 4, JZ 2.
+- 04113840, 240 bytes. 4 outgoing calls: FUN_0415cec0 x1, FUN_04233140 x1, FUN_04239cd0 x1, FUN_0423c880 x1. Instruction mix: MOV 24, JZ 7, CALL 4, CMP 4, LEA 4.
+- 0410b3b0, 240 bytes. 2 outgoing calls: _Rb_tree_insert_and_rebalance x1, operator.new x1. Instruction mix: MOV 45, JZ 3, CALL 2, CMP 2, TEST 2.
+- 04108b20, 240 bytes. No outgoing calls. Instruction mix: MOV 20, CMP 14, POP 12, JZ 12, LEA 6.
+- 04108a30, 240 bytes. No outgoing calls. Instruction mix: MOV 20, CMP 14, POP 12, JZ 12, LEA 6.
+- 041061b0, 240 bytes. 5 outgoing calls: XAudio2MasteringVoiceImp::XAudio2MasteringVoiceImp x1, __throw_system_error x1, operator.new x1, pthread_mutex_lock x1, pthread_mutex_unlock x1. Instruction mix: MOV 41, CALL 5, TEST 4, JZ 3, LEA 2.
+- 040f9fb0, 240 bytes. 6 outgoing calls: alGetSourcei x2, alSourcei x2, alSourcePlay x1, alSourceRewind x1. Instruction mix: MOV 33, CALL 6, CMP 4, JMP 3, JZ 3.
+- 040ee470, 240 bytes. 3 outgoing calls: __throw_bad_alloc x1, operator.delete x1, operator.new x1. Instruction mix: MOV 34, ADD 8, CMP 6, LEA 5, POP 4.
+- 040edfa0, 240 bytes. 3 outgoing calls: __throw_bad_alloc x1, operator.delete x1, operator.new x1. Instruction mix: MOV 31, LEA 8, ADD 7, CMP 5, POP 4.

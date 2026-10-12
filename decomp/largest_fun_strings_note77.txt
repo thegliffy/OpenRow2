@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries that reference a string
+
+Skipped the 739 already listed in decomp/largest_fun_strings_note.txt through note76. Sizes are the gap to the next function. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 042c1a80, 112 bytes. One string: "length exceeds PNG maximum".
+- 042c60d0, 112 bytes. One string: "Can't set both read_data_fn and write_data_fn in the same structure".
+- 041cac52, 105 bytes, 2 strings: "ICU_DATA", "/Development/build/icu52_1/build/share/icu/52.1".
+- 041ce02c, 104 bytes. One string: "[BOGUS Trace Function Number]".
+- 0400b7a0, 96 bytes, 2 strings: "Linux kernel version: %s", "Linux glibc version: %s".
+- 04045ce0, 96 bytes. One string: "Invalid handle given to VPFS_GetFirstSubelement()!!".
+- 04045d40, 96 bytes. One string: "Invalid handle given to VPFS_GetNextSubelement()!!".
+- 040528a0, 96 bytes. One string: "if( %s )\n{\n".
+- 040665b0, 96 bytes, 4 strings: "D3DPOOL_SYSTEMMEM", "D3DPOOL_SCRATCH", "D3DPOOL_EON_NONE", "!unknown!".
+- 040a3e30, 96 bytes. One string: "Direct3DIndexBuffer9Imp".

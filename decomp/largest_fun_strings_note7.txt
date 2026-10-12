@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries that reference a string
+
+Skipped the 60 already listed in decomp/largest_fun_strings_note.txt through note6. Sizes are the gap to the next function. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 040975f0, 1440 bytes. One string: "Couldn't set up render pipeline in DrawPrimitive! Skipping the draw.".
+- 041703e0, 1408 bytes, 73 strings. Includes: "(eon internal message)", "CB_ADDSTRING", "CB_GETCURSEL", "CB_RESETCONTENT", "CB_SETCURSEL".
+- 04230200, 1408 bytes, 4 strings: "chc_hash", "hello world", "rijndael".
+- 042aa680, 1408 bytes, 2 strings: "bad encoding (internal error)", "color-map index out of range".
+- 04066c90, 1392 bytes, 4 strings: "!!!unknown!!!", "pParams: BackBufferWidth: %u, BackBufferHeight: %u, BackBufferFormat: %s, BackBufferCount: %u              MultiSampleType = %s, MultiSampleQuality = %u              SwapEffect: %s, Windowed: %s, EnableAutoDepthStencil: %s, AutoDepthStencilFormat: %s              Flags: %s, Fullscreen_RefreshRateInHz: %u, PresentationInterval: %u".
+- 04179710, 1392 bytes. One string: "Unknown key code %u in ProcessKeyboard!! Please add translation to the table in KeycodeToScanCode.".
+- 0419b790, 1392 bytes, 62 strings. Includes: "glBindProgramARB", "glDeleteProgramsARB", "glDisableVertexAttribArrayARB", "glEnableVertexAttribArrayARB", "glGenProgramsARB".
+- 0419a530, 1360 bytes, 60 strings. Includes: "glActiveShaderProgram", "glBindProgramPipeline", "glCreateShaderProgramv", "glDeleteProgramPipelines", "glGenProgramPipelines".
+- 042ac930, 1360 bytes, 4 strings: "Invalid attempt to read row data", "bad adaptive filter value", "internal sequential row size calculation error", "sequential row overflow".
+- 041791d0, 1344 bytes. One string: "Unknown key code %u in ProcessKeyboard!! Please add translation to the table in KeycodeToScanCode.".

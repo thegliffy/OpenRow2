@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries with no string reference
+
+Continued from decomp/largest_fun_calls_note246.txt. Size is the declared gap to the next function (Ghidra body size in parentheses where it differs); instruction mix is the top 5 Ghidra mnemonics in the function body. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 040e9460, 80 bytes (body 65). 1 outgoing call: fread x1. Instruction mix: MOV 8, RET 2, CMP 2, LEAVE 2, JZ 1.
+- 040edb40, 80 bytes (body 74). 1 outgoing call: operator.delete x1. Instruction mix: MOV 9, POP 8, ADD 4, PUSH 4, CMP 2.
+- 040f2a30, 80 bytes (body 45). 2 outgoing calls: FUN_040f2570 x1, operator.new x1. Instruction mix: MOV 7, POP 2, CALL 2, PUSH 2, RET 1.
+- 040f9840, 80 bytes (body 67). 1 outgoing call: operator.new x1. Instruction mix: MOV 10, RET 1, CALL 1, SUB 1, LEAVE 1.
+- 040fa0f0, 80 bytes (body 75). 1 outgoing call: alGetSourceiv x1. Instruction mix: MOV 17, JZ 2, TEST 2, RET 1, POP 1.
+- 040fc270, 80 bytes (body 67). No outgoing calls. Instruction mix: MOV 17, POP 2, JZ 2, TEST 2, PUSH 2.
+- 040fd5b0, 80 bytes (body 76). 1 outgoing call: FUN_04100310 x1. Instruction mix: MOV 17, RET 1, CALL 1, ADD 1, SUB 1.
+- 040fd880, 80 bytes (body 76). 1 outgoing call: FUN_040fc340 x1. Instruction mix: MOV 17, RET 1, CALL 1, ADD 1, SUB 1.
+- 040fdcf0, 80 bytes (body 76). 1 outgoing call: directsoundbuffer8imp_040fe400 x1. Instruction mix: MOV 17, RET 1, CALL 1, ADD 1, SUB 1.
+- 040fe1d0, 80 bytes (body 74). 1 outgoing call: FUN_040fa310 x1. Instruction mix: MOV 10, POP 2, CMP 2, PUSH 2, RET 1.

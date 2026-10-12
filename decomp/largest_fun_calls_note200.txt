@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries with no string reference
+
+Continued from decomp/largest_fun_calls_note199.txt. Size is the declared gap to the next function (Ghidra body size in parentheses where it differs); instruction mix is the top 5 Ghidra mnemonics in the function body. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 040bc920, 112 bytes (body 99). No outgoing calls. Instruction mix: MOV 20, POP 4, TEST 4, PUSH 4, JZ 3.
+- 040bc990, 112 bytes (body 99). No outgoing calls. Instruction mix: MOV 20, POP 4, TEST 4, PUSH 4, JZ 3.
+- 040c5600, 112 bytes (body 109). 3 outgoing calls: FUN_040c6530 x1, FUN_040c6dd0 x1, _Rb_tree_increment x1. Instruction mix: MOV 16, POP 4, LEA 4, PUSH 4, CALL 3.
+- 040c7380, 112 bytes (body 112). No outgoing calls. Instruction mix: MOV 19, TEST 3, XOR 3, SETNZ 3, AND 2.
+- 040e2d60, 112 bytes (body 105). 1 outgoing call: FUN_04022340 x1. Instruction mix: MOV 18, CMP 6, JNZ 4, JZ 2, RET 1.
+- 040e2dd0, 112 bytes (body 99). 3 outgoing calls: FUN_04022510 x1, FUN_04022590 x1, FUN_04023a80 x1. Instruction mix: MOV 22, CALL 5, RET 1, POP 1, JZ 1.
+- 040e5240, 112 bytes (body 102). No outgoing calls. Instruction mix: MOV 18, POP 8, PUSH 4, ADD 3, JNZ 3.
+- 040e5e80, 112 bytes (body 106). 2 outgoing calls: ShaderCache::CompileShaderForIndex x1, ShaderCache::VetCompiledShaderForIndex x1. Instruction mix: MOV 20, ADD 3, JZ 2, CALL 2, TEST 2.
+- 040ed260, 112 bytes (body 107). 2 outgoing calls: FUN_040e5240 x1, FUN_040ecb20 x1. Instruction mix: MOV 24, LEA 3, RET 2, POP 2, CALL 2.
+- 040f0240, 112 bytes (body 99). 2 outgoing calls: memcmp x1, memcpy x1. Instruction mix: MOV 20, CALL 2, RET 1, POP 1, JZ 1.

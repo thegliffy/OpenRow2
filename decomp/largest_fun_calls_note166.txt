@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries with no string reference
+
+Continued from decomp/largest_fun_calls_note165.txt. Size is the declared gap to the next function (Ghidra body size in parentheses where it differs); instruction mix is the top 5 Ghidra mnemonics in the function body. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 040fccb0, 144 bytes (body 132). 1 outgoing call: FUN_040fd2a0 x1. Instruction mix: MOV 13, JZ 4, MOVSS 3, UCOMISS 3, ADD 2.
+- 040fe7f0, 144 bytes (body 130). 2 outgoing calls: memcpy x2. Instruction mix: MOV 27, RET 3, POP 3, JZ 3, TEST 3.
+- 040ffc20, 144 bytes (body 128). 1 outgoing call: memcpy x1. Instruction mix: MOV 27, TEST 5, JZ 3, RET 2, POP 2.
+- 04100720, 144 bytes (body 130). 2 outgoing calls: memcpy x2. Instruction mix: MOV 27, RET 3, POP 3, JZ 3, TEST 3.
+- 041016f0, 144 bytes (body 105). 4 outgoing calls: __throw_system_error x1, av_free x1, avcodec_close x1, pthread_mutex_lock x1. Instruction mix: MOV 18, CALL 4, TEST 3, POP 2, JZ 2.
+- 04102e80, 144 bytes (body 105). 3 outgoing calls: operator.delete x2, OpenALSoft_Shutdown x1. Instruction mix: MOV 12, POP 4, PUSH 4, ADD 3, CALL 3.
+- 041090a0, 144 bytes (body 133). No outgoing calls. Instruction mix: MOV 21, SUB 5, SAR 3, IMUL 3, ADD 2.
+- 0410caa0, 144 bytes (body 131). 1 outgoing call: FUN_0410c590 x1. Instruction mix: MOV 21, LEA 4, POP 4, PUSH 4, CMP 3.
+- 0410e150, 144 bytes (body 116). 3 outgoing calls: Dsp::ChangeVolume x1, FUN_0410fff0 x1, operator.delete x1. Instruction mix: MOV 14, CALL 3, POP 3, PUSH 3, SUB 2.
+- 04111df0, 144 bytes (body 126). 1 outgoing call: EnsureGamepadConnected x1. Instruction mix: MOV 18, MOVZX 4, CALL 2, SUB 2, CMP 2.

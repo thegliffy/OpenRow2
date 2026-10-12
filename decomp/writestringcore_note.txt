@@ -1,0 +1,7 @@
+google_breakpad::MinidumpFileWriter::WriteStringCore
+
+042d2b40 and 042d2d30 are the two template instantiations of WriteStringCore, not copies of one body. The checker drops the [with CharType = ...] suffix, so both collapse to one shared signature and neither was added to the name batch.
+
+- 042d2b40 (496 bytes) is CharType = wchar_t. The assert strings say so, at minidump_file_writer.cc lines 0xa1 and 0xa2. It converts through FUN_042d27b0 and writes with MinidumpFileWriter::Copy.
+- 042d2d30 (480 bytes) is CharType = char, same source lines, converting through FUN_042d26d0 before the same Copy. 378 of the 480 overlapping bytes differ.
+

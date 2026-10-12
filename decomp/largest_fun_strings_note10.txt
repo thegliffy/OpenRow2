@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries that reference a string
+
+Skipped the 60 already listed in decomp/largest_fun_strings_note.txt through note6. Sizes are the gap to the next function. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 041c73a0, 1152 bytes, 14 strings. Includes: "*length >= 0 && *length < 5", "/home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxml.h", "/home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxmlparser.cpp", "static bool TiXmlBase::StringEqual(const char*, const char*, bool, TiXmlEncoding)", "static const char* TiXmlBase::GetChar(const char*, char*, int*, TiXmlEncoding)".
+- 042d0710, 1152 bytes, 6 strings. Includes: "fd_ == -1 || !minidump_path", "src/client/linux/minidump_writer/minidump_writer.cc", "{anonymous}::MinidumpWriter::MinidumpWriter(const char*, int, const google_breakpad::ExceptionHandler::CrashContext*, const MappingList&, const AppMemoryList&, google_breakpad::LinuxDumper*)".
+- 0405d8a0, 1136 bytes, 69 strings. Includes: "(unknown)", "D3DFMT_A16B16G16R16", "D3DFMT_A16B16G16R16F", "D3DFMT_A1R5G5B5", "D3DFMT_A2B10G10R10".
+- 041a02f0, 1120 bytes, 49 strings. Includes: "glCopyPathNV", "glCoverFillPathInstancedNV", "glCoverFillPathNV", "glCoverStrokePathInstancedNV", "glCoverStrokePathNV".
+- 04052100, 1104 bytes, 5 strings. Includes: "%s%s = clamp(%s%s, 0.0, 1.0);", "Can't convert this instruction to GLSL!!!", "Unrecognized instruction when producing GLSL code", "Unsupported asm opcode in ShaderData::IdentifyInstruction() !!!. Opcode %#x, shader version %#x", "_centroid modifier not supported atm, add it please.".
+- 0405ac10, 1104 bytes, 5 strings. Includes: "%s%s = clamp(%s%s, 0.0, 1.0);", "Can't convert this instruction to GLSL!!!", "Unrecognized instruction when producing GLSL code", "Unsupported asm opcode in ShaderData::IdentifyInstruction() !!!. Opcode %#x, shader version %#x", "_centroid modifier not supported atm, add it please.".
+- 0423c430, 1104 bytes. One string: "abcdbcdecdefdefgefghfghighijhijkijkljklmklmnlmnomnopnopq".
+- 042ac320, 1104 bytes, 3 strings: "Missing IHDR before IDAT", "Missing PLTE before IDAT", "Too many IDATs found".
+- 042cb6e0, 1104 bytes, 2 strings: "vector::_M_fill_insert".
+- 042cd230, 1104 bytes, 2 strings: "vector::_M_fill_insert".

@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries with no string reference
+
+Continued from decomp/largest_fun_calls_note225.txt. Size is the declared gap to the next function (Ghidra body size in parentheses where it differs); instruction mix is the top 5 Ghidra mnemonics in the function body. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 041263d0, 96 bytes (body 81). 1 outgoing call: malloc x1. Instruction mix: MOV 15, JZ 2, TEST 2, PUSH 2, RET 1.
+- 04129370, 96 bytes (body 85). No outgoing calls. Instruction mix: MOV 8, POP 6, CMP 3, PUSH 3, RET 2.
+- 041320a0, 96 bytes (body 84). 1 outgoing call: vpfs_WriteFile x1. Instruction mix: MOV 18, SUB 2, LEA 2, PUSH 2, RET 1.
+- 04132d70, 96 bytes (body 81). 1 outgoing call: __ctype_b_loc x1. Instruction mix: TEST 4, MOV 4, CMP 3, POP 3, JZ 3.
+- 04139330, 96 bytes (body 86). 2 outgoing calls: FUN_0415cec0 x2. Instruction mix: MOV 9, RET 3, SUB 3, LEAVE 3, CALL 2.
+- 04139dd0, 96 bytes (body 85). 4 outgoing calls: FUN_0413f440 x2, operator.delete x2. Instruction mix: MOV 9, CALL 4, POP 2, JZ 2, TEST 2.
+- 0413f3e0, 96 bytes (body 87). 4 outgoing calls: pthread_mutex_init x1, pthread_mutexattr_destroy x1, pthread_mutexattr_init x1, pthread_mutexattr_settype x1. Instruction mix: MOV 15, CALL 4, LEA 2, RET 1, POP 1.
+- 04145360, 96 bytes. 3 outgoing calls: bzero x1, sigaction x1, sigemptyset x1. Instruction mix: MOV 9, CALL 3, POP 2, LEA 2, PUSH 2.
+- 04146d50, 96 bytes (body 92). No outgoing calls. Instruction mix: MOV 12, POP 3, PUSH 3, ADD 2, LEA 2.
+- 041493c0, 96 bytes (body 91). 2 outgoing calls: SignalObject x1, pthread_mutex_lock x1. Instruction mix: MOV 8, TEST 3, CALL 2, SUB 2, POP 2.

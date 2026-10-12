@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries with no string reference
+
+Continued from decomp/largest_fun_calls_note51.txt. Size is the gap to the next function. Counts are Ghidra instructions in the function body. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 042a4b30, 464 bytes. 3 outgoing calls: FUN_042aa2c0 x1, FUN_042aa300 x1, pow x1. Instruction mix: MOV 49, ADD 8, SHL 7, SUB 7, CMP 5.
+- 0422fdf0, 464 bytes. 6 outgoing calls (4 listed): FUN_0422f990 x2, memset x2, FUN_04241e40 x1, memcpy x1. Instruction mix: MOV 59, LEA 9, CALL 6, SUB 5, CMP 5.
+- 0421cd50, 464 bytes. 23 outgoing calls (4 listed): FUN_0421c560 x18, memcmp x3, FUN_0421c990 x1, __stack_chk_fail x1. Instruction mix: MOV 52, LEA 25, CALL 23, JNZ 7, POP 4.
+- 0421bc30, 464 bytes. No outgoing calls. Instruction mix: MOV 47, MOVZX 16, OR 12, SHL 11, AND 11.
+- 041c24a0, 464 bytes. 13 outgoing calls (4 listed): FUN_041c1190 x9, tinystr_041c1970 x2, operator.delete[] x1, strlen x1. Instruction mix: MOV 63, CALL 13, ADD 12, LEA 8, POP 8.
+- 04187480, 464 bytes. 13 outgoing calls (7 listed): free x3, malloc x3, eON_MultiByteToWideChar x2, strlen x2, FUN_0415a040 x1, GetClassInfoA x1, eON_WideCharToMultiByte x1. Instruction mix: MOV 72, CALL 13, LEA 9, JZ 6, SUB 6.
+- 04172d10, 464 bytes. 12 outgoing calls (8 listed): pthread_mutex_unlock x2, FUN_041466d0 x1, FUN_0415b3b0 x1, FUN_0415c900 x1, FUN_04174b40 x1, FUN_04183060 x1, FUN_04183140 x1, free x1. Instruction mix: MOV 57, CALL 12, SUB 8, POP 8, JZ 6.
+- 04127160, 464 bytes. 11 outgoing calls (5 listed): inet_aton x7, __res_init x1, __res_state x1, eON_MultiByteToWideChar x1, strlen x1. Instruction mix: MOV 47, TEST 18, CALL 11, JZ 11, LEA 10.
+- 04119610, 464 bytes. 10 outgoing calls (8 listed): FUN_04115780 x1, FUN_04119c40 x1, FUN_0411a120 x1, FUN_0411a400 x1, FUN_0411a610 x1, FUN_0415dd70 x1, Registry_Load x1, eON_WideCharToMultiByte x1. Instruction mix: MOV 65, TEST 12, JZ 11, CALL 10, MOVZX 7.
+- 041188b0, 464 bytes. 9 outgoing calls (7 listed): calloc x2, eON_MultiByteToWideChar x2, eON_WideCharToMultiByte x2, free x2, FUN_04118780 x1. Instruction mix: MOV 81, CALL 9, TEST 7, JZ 6, SUB 6.

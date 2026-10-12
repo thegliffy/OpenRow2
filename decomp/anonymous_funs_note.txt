@@ -1,0 +1,9 @@
+Anonymous-namespace FUN_ entries
+
+Six functions still named FUN_ reference a string containing {anonymous}. They are distinct. None were added to the name batch, because the checker cannot see a name that contains braces.
+
+- 0400939e (46 bytes) is only the failed assert "fd_ != -1 || minidump_path" from minidump_writer.cc. The pretty-function string is {anonymous}::MinidumpWriter::MinidumpWriter(...).
+- 042d0710 (1152 bytes), 042d0e50 (1248 bytes), and 042d1330 (848 bytes) are three different minidump entry points. Each inlines that same constructor check, "fd_ == -1 || !minidump_path", then calls MinidumpFileWriter::Open and SetFile. Their parameter lists differ, and the bodies are not copies.
+- 042c84d0 (5712 bytes) is the microdump writer in microdump_writer.cc. It prints the BEGIN/END BREAKPAD MICRODUMP banners and references both MicrodumpWriter::DumpThreadStack and MicrodumpWriter::DumpCrashingThread.
+- 042c9b20 is ElfFileSoName, already described in decomp/mappinginfo_note.txt.
+

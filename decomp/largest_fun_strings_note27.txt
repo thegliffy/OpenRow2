@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries that reference a string
+
+Skipped the 260 already listed in decomp/largest_fun_strings_note.txt through note26. Sizes are the gap to the next function. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 042d2d30, 480 bytes, 2 strings. Includes: "bool google_breakpad::MinidumpFileWriter::WriteStringCore(const CharType*, unsigned int, MDLocationDescriptor*) [with CharType = char]", "src/client/minidump_file_writer.cc".
+- 042beee0, 480 bytes. One string: "png_write_image: internal call error".
+- 042b6960, 480 bytes, 2 strings. Includes: "invalid", "out of place".
+- 042a76e0, 480 bytes, 2 strings. Includes: "internal error handling cHRM coefficients", "internal error handling cHRM->XYZ".
+- 0419a200, 480 bytes, 20 strings. Includes: "glGetGraphicsResetStatusARB", "glGetnColorTableARB", "glGetnCompressedTexImageARB", "glGetnConvolutionFilterARB", "glGetnHistogramARB".
+- 04199520, 480 bytes, 20 strings. Includes: "glBindFramebuffer", "glBindRenderbuffer", "glBlitFramebuffer", "glCheckFramebufferStatus", "glDeleteFramebuffers".
+- 041897f0, 480 bytes. One string: "CoreAudio error when trying to set format of stream for device: %d".
+- 041238d0, 480 bytes. One string: "GetObjectW not written for this GDI object type! Add it.".
+- 0411c5a0, 480 bytes. One string: "Unhandled font '%s' (pitchAndFamily = %u) in eON_Int_EnumerateFontFamilies(). Add data.".
+- 041068f0, 480 bytes. One string: "XAudio2Imp".

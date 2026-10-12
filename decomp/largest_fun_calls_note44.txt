@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries with no string reference
+
+Continued from decomp/largest_fun_calls_note43.txt. Size is the gap to the next function. Counts are Ghidra instructions in the function body. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 0404ad10, 544 bytes. 10 outgoing calls: read x4, free x3, malloc x2, __ctype_tolower_loc x1. Instruction mix: MOV 65, CALL 12, POP 12, JZ 10, TEST 9.
+- 041fadea, 540 bytes. 13 outgoing calls: FUN_041f95da x3, FUN_041f9ec5 x2, FUN_041fa734 x2, FUN_041fa75b x2, FUN_041f96f1 x1, FUN_041f994f x1, FUN_041f9968 x1, __stack_chk_fail x1. Instruction mix: PUSH 55, MOV 15, CALL 13, JMP 13, ADD 12.
+- 041e4859, 530 bytes. 3 outgoing calls: FUN_04202a56 x1, FUN_04204084 x1, __stack_chk_fail x1. Instruction mix: MOV 87, PUSH 20, ADD 13, SUB 10, SHR 8.
+- 042422f0, 528 bytes. 8 outgoing calls: memcmp x8. Instruction mix: MOV 43, LEA 21, JZ 17, TEST 17, POP 12.
+- 0410ad60, 528 bytes. 7 outgoing calls: memmove x3, operator.new x2, __throw_bad_alloc x1, operator.delete x1. Instruction mix: MOV 84, SUB 9, ADD 8, LEA 8, CALL 7.
+- 040f3780, 528 bytes. 5 outgoing calls: memmove x3, operator.delete x1, operator.new x1. Instruction mix: MOV 98, SUB 9, POP 8, SAR 7, JZ 6.
+- 040e44a0, 528 bytes. 11 outgoing calls: memcmp x5, FUN_040e42c0 x3, FUN_040e43a0 x1, _Rb_tree_decrement x1, _Rb_tree_increment x1. Instruction mix: MOV 79, CALL 11, JMP 8, TEST 8, JZ 6.
+- 040e40b0, 528 bytes. 11 outgoing calls: memcmp x5, FUN_040e3ee0 x3, FUN_040e3fb0 x1, _Rb_tree_decrement x1, _Rb_tree_increment x1. Instruction mix: MOV 79, CALL 11, JMP 8, TEST 8, JZ 6.
+- 040e3cd0, 528 bytes. 11 outgoing calls: memcmp x5, FUN_040e3b00 x3, FUN_040e3bd0 x1, _Rb_tree_decrement x1, _Rb_tree_increment x1. Instruction mix: MOV 79, CALL 11, JMP 8, TEST 8, JZ 6.
+- 040c68f0, 528 bytes. 11 outgoing calls: memcmp x5, FUN_040c66c0 x3, FUN_040c67f0 x1, _Rb_tree_decrement x1, _Rb_tree_increment x1. Instruction mix: MOV 79, CALL 11, JMP 8, TEST 8, JZ 6.

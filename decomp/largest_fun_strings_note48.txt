@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries that reference a string
+
+Skipped the 470 already listed in decomp/largest_fun_strings_note.txt through note47. Sizes are the gap to the next function. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 040f5c60, 272 bytes. One string: "DirectInput 7/8 keyboard unacquired.".
+- 04137f10, 272 bytes. One string: "Heap_Create - no continuous free memory area to allocate of size %zu!".
+- 0413ffc0, 272 bytes. One string: "WARNING! Unhandled CodePage %d".
+- 04147be0, 272 bytes. One string: "Non-NULL lpTimerAttributes in CreateWaitableTimerA() - possibly unhandled?".
+- 0416f1a0, 272 bytes, 2 strings. Includes: "\Registry\Machine\System\CurrentControlSet\Control\Video\{B3716315-5352-4892-9842-2EDA542072C5}\%u", "\\.\DISPLAY%u".
+- 0418ecf0, 272 bytes, 5 strings. Includes: "More eON_timeEndPeriod calls than timeBeginPeriod ones!", "eON_timeEndPeriod returns TIMERR_NOCANDO for timer resolution %u", "eON_timeEndPeriod: Application  no longer wants timer resolution %u. Reverting to default.", "eON_timeEndPeriod: Application  no longer wants timer resolution %u. Reverting to previous: %u", "eON_timeEndPeriod: WARNING! Timer resolution in timeEndPeriod() doesn't match the one in previous timeBeginPeriod()!!".
+- 04191af0, 272 bytes, 12 strings. Includes: "(unknown protocol)", "IPPROTO_GGP", "IPPROTO_ICMP", "IPPROTO_IDP", "IPPROTO_IGMP".
+- 04194260, 272 bytes, 2 strings. Includes: "SOCKETS: shutdown() - unknown error - %d", "The socket isn't completely shutting down, perhaps not all events should be removed from it?".
+- 041986b0, 272 bytes, 11 strings. Includes: "glBeginPerfMonitorAMD", "glDeletePerfMonitorsAMD", "glEndPerfMonitorAMD", "glGenPerfMonitorsAMD", "glGetPerfMonitorCounterDataAMD".
+- 041987c0, 272 bytes, 11 strings. Includes: "glBeginQueryANGLE", "glDeleteQueriesANGLE", "glEndQueryANGLE", "glGenQueriesANGLE", "glGetQueryObjecti64vANGLE".

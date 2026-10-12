@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries that reference a string
+
+Skipped the 400 already listed in decomp/largest_fun_strings_note.txt through note40. Sizes are the gap to the next function. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 0405d760, 320 bytes, 4 strings: "Matrix: { %f , %f , %f , %f }", "        { %f , %f , %f , %f }", "        { %f , %f , %f , %f }", "        { %f , %f , %f , %f }".
+- 0410b7a0, 320 bytes. One string: "Invalid filter parameters! This may cause crashes in Core Audio!".
+- 0410fc10, 320 bytes. One string: "vector::_M_default_append".
+- 04136180, 320 bytes. One string: "eON_GetDiskFreeSpaceW: statvfs() for / failed, errno %d".
+- 041363f0, 320 bytes. One string: "eON_GetDiskFreeSpaceExW: statvfs() for / failed, errno %d".
+- 04183220, 320 bytes. One string: "eON_DispatchMessageA( lpMsg->hwnd = %p, lpMsg->message = %s, lpMsg->wParam = %p, lpMsg->lParam = %p ) to desktop window! Ignoring.".
+- 04183360, 320 bytes. One string: "eON_DispatchMessageW( lpMsg->hwnd = %p, lpMsg->message = %s, lpMsg->wParam = %p, lpMsg->lParam = %p ) to desktop window! Ignoring.".
+- 04184530, 320 bytes. One string: "HWND_BROADCAST not supported in SendMessageA(). Add it.".
+- 04184ab0, 320 bytes, 3 strings: "HWND_BROADCAST not supported in SendMessageA(). Add it.", "eON_GetDlgItem() didn't find control with id: %d in dialog: %p!", "Desktop HWND supplied in SendMessageA().".
+- 04184bf0, 320 bytes, 3 strings: "HWND_BROADCAST not supported in SendMessageW(). Add it.", "eON_GetDlgItem() didn't find control with id: %d in dialog: %p!", "Desktop HWND supplied in SendMessageW()".

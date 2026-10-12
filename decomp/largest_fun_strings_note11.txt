@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries that reference a string
+
+Skipped the 100 already listed in decomp/largest_fun_strings_note.txt through note10. Sizes are the gap to the next function. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 041f4a12, 1086 bytes, 19 strings. Includes: "ibm-874_P100-1995", "ibm-912_P100-1995", "ibm-913_P100-2000", "ibm-914_P100-1995", "ibm-915_P100-1995".
+- 04197290, 1072 bytes, 47 strings. Includes: "glBlendColor", "glBlendEquation", "glBlendFuncSeparate", "glFogCoordPointer", "glFogCoordd".
+- 042cbb30, 1072 bytes. One string: "vector::_M_fill_insert".
+- 0404d220, 1040 bytes. One string: "Unknown flag change: %u".
+- 0408c880, 1040 bytes. One string: "Multiple render targets, and COLORWRITEENABLE settings for two render targets differ. OpenGL can't simulate it this way!".
+- 040fc5e0, 1040 bytes, 2 strings. Includes: "Nearly zero vector given as orientation front!", "Nearly zero vector given as orientation top!".
+- 0419fe20, 1040 bytes, 46 strings. Includes: "glColor3hNV", "glColor3hvNV", "glColor4hNV", "glColor4hvNV", "glFogCoordhNV".
+- 0423c960, 1040 bytes. One string: "abcdbcdecdefdefgefghfghighijhijkijkljklmklmnlmnomnopnopq".
+- 042be880, 1040 bytes, 2 strings. Includes: "internal write transform logic error", "png_write_info was never called before png_write_row".
+- 0419c560, 1024 bytes, 45 strings. Includes: "glClientActiveVertexStreamATI", "glNormalStream3bATI", "glNormalStream3bvATI", "glNormalStream3dATI", "glNormalStream3dvATI".

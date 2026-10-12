@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries that reference a string
+
+Skipped the 260 already listed in decomp/largest_fun_strings_note.txt through note26. Sizes are the gap to the next function. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 042aee50, 464 bytes, 2 strings. Includes: "png_image_read: opaque pointer not NULL", "png_image_read: out of memory".
+- 042a7b90, 464 bytes, 4 strings. Includes: "cHRM chunk does not match sRGB", "duplicate sRGB information ignored", "inconsistent rendering intents", "invalid sRGB rendering intent".
+- 04191430, 464 bytes. One string: "E.WS.RecvFrom".
+- 04130820, 464 bytes, 6 strings. Includes: "	stat() errno unknown (%d)", "	stat() errno: EACCES", "	stat() errno: EIO", "	stat() errno: ELOOP", "	stat() errno: ENAMETOOLONG".
+- 04126f90, 464 bytes. One string: "GetPhysicalInterfaceAddress('%s') fails with errno %d!".
+- 041184f0, 464 bytes. One string: "Warning! Non-zero lpReserved given to RegSetValueExW. Some problem?".
+- 040cc470, 464 bytes, 30 strings. Includes: "GL_BACK", "GL_BACK_LEFT", "GL_BACK_RIGHT", "GL_COLOR_ATTACHMENT0", "GL_COLOR_ATTACHMENT1".
+- 0409a5f0, 464 bytes. One string: "Requested more than 16 samples per pixel in renderbuffer creation. Setting it to safe value - 1.".
+- 04055890, 464 bytes, 5 strings. Includes: "%s%s = %s(", "(1.0 - step(%s, %s)));\n", "(vec%d(1.0)-step(%s, %s)));\n", "Unrecognized instruction in convert_compare!! (2)", "step(%s, %s));\n".
+- 04045b10, 464 bytes. One string: "Invalid handle given to VPFS_GetSize()!!".

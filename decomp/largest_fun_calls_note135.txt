@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries with no string reference
+
+Continued from decomp/largest_fun_calls_note133.txt. Size is the declared gap to the next function (Ghidra body size in parentheses where it differs); instruction mix is the top 5 Ghidra mnemonics in the function body. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 040fce20, 192 bytes (body 190). No outgoing calls. Instruction mix: MOV 26, RET 2, POP 2, JZ 2, TEST 1.
+- 040f8120, 192 bytes (body 191). 5 outgoing calls: FUN_040f22b0 x1, FUN_040f7e60 x1, FUN_0415eaf0 x1, pthread_mutex_lock x1, pthread_mutex_unlock x1. Instruction mix: MOV 31, ADD 5, CALL 5, CMP 3, POP 3.
+- 040f8060, 192 bytes (body 191). 5 outgoing calls: FUN_040f22b0 x1, FUN_040f7e60 x1, FUN_0415eaf0 x1, pthread_mutex_lock x1, pthread_mutex_unlock x1. Instruction mix: MOV 31, ADD 5, CALL 5, CMP 3, POP 3.
+- 040ed2d0, 192 bytes (body 173). 4 outgoing calls: FUN_040e5240 x1, FUN_040ecb20 x1, ShaderCache::LinkedProgram_FinalizeLink x1, ShaderCache::LinkedProgram_SecondLink x1. Instruction mix: MOV 37, CALL 4, JZ 3, CMP 3, LEA 3.
+- 040e52b0, 192 bytes (body 112). 2 outgoing calls: operator.new x2. Instruction mix: MOV 18, LEA 5, POP 3, PUSH 3, CALL 2.
+- 040c6e20, 192 bytes (body 174). 2 outgoing calls: glBindTexture x2. Instruction mix: MOV 33, JZ 5, CMP 4, CALL 3, TEST 2.
+- 040b4c90, 192 bytes (body 178). 4 outgoing calls: free x2, operator.delete x2. Instruction mix: MOV 31, TEST 5, CALL 4, POP 4, PUSH 4.
+- 040a43c0, 192 bytes (body 178). 4 outgoing calls: free x2, operator.delete x2. Instruction mix: MOV 31, TEST 5, CALL 4, POP 4, PUSH 4.
+- 04097ca0, 192 bytes (body 180). No outgoing calls. Instruction mix: MOV 26, LEA 3, CALL 2, ADD 2, SUB 2.
+- 04097b90, 192 bytes (body 180). No outgoing calls. Instruction mix: MOV 26, LEA 3, CALL 2, ADD 2, SUB 2.

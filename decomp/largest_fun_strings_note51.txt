@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries that reference a string
+
+Skipped the 499 already listed in decomp/largest_fun_strings_note.txt through note50. Sizes are the gap to the next function. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 042c2620, 256 bytes. One string: "Invalid sBIT depth specified".
+- 042c1ee0, 256 bytes, 2 strings. Includes: "Ignoring request to write a PLTE chunk in grayscale PNG", "Invalid number of colors in palette".
+- 042b6e30, 256 bytes, 3 strings. Includes: "invalid", "missing IHDR", "out of place".
+- 042aa1c0, 256 bytes. One string: "internal error: array realloc".
+- 041a0ce0, 256 bytes, 10 strings. Includes: "glVDPAUFiniNV", "glVDPAUGetSurfaceivNV", "glVDPAUInitNV", "glVDPAUIsSurfaceNV", "glVDPAUMapSurfacesNV".
+- 0419f290, 256 bytes, 10 strings. Includes: "glDebugMessageCallback", "glDebugMessageControl", "glDebugMessageInsert", "glGetDebugMessageLog", "glGetObjectLabel".
+- 0419f190, 256 bytes, 10 strings. Includes: "glBeginPerfQueryINTEL", "glCreatePerfQueryINTEL", "glDeletePerfQueryINTEL", "glEndPerfQueryINTEL", "glGetFirstPerfQueryIdINTEL".
+- 0419e540, 256 bytes, 10 strings. Includes: "glGetHistogramEXT", "glGetHistogramParameterfvEXT", "glGetHistogramParameterivEXT", "glGetMinmaxEXT", "glGetMinmaxParameterfvEXT".
+- 040090e2, 254 bytes. One string: "	{ %f, %f, %f, %f }\n".
+- 041cacbb, 247 bytes, 4 strings. Includes: "LC_ALL", "LC_CTYPE", "LC_MESSAGES", "en_US_POSIX".

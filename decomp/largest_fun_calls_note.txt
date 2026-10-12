@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries with no string reference
+
+Skipped every address in decomp/largest_fun_strings_note.txt through note94. Size is the gap to the next function. Counts are Ghidra instructions in the function body. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 04268670, 81024 bytes. No outgoing calls. Instruction mix: ADC 8192, MOV 4387, ADD 4097, MUL 4096, LEA 12.
+- 0425d7a0, 44752 bytes. No outgoing calls. Instruction mix: ADC 4608, MOV 2539, ADD 2305, MUL 2304, TEST 16.
+- 04293190, 43344 bytes. No outgoing calls. Instruction mix: ADC 4418, MOV 3203, ADD 2213, MUL 2080, XOR 249.
+- 0427c950, 30272 bytes. No outgoing calls. Instruction mix: MOV 3137, ADC 2992, ADD 1497, MUL 1496, TEST 132.
+- 0429e200, 25856 bytes. No outgoing calls. Instruction mix: MOV 3077, ADC 2178, ADD 1114, MUL 816, XOR 401.
+- 0428d230, 24416 bytes. No outgoing calls. Instruction mix: ADC 2546, MOV 2019, ADD 1277, MUL 1176, XOR 185.
+- 04227a20, 20272 bytes. One outgoing call, __stack_chk_fail. Instruction mix: MOV 2228, MOVZX 1705, SUB 1289, XOR 267, POP 4.
+- 04258910, 20112 bytes. No outgoing calls. Instruction mix: ADC 2048, MOV 1277, ADD 1026, MUL 1024, TEST 54.
+- 04211dc0, 19504 bytes. One outgoing call, __stack_chk_fail. Instruction mix: MOV 1998, OR 978, SHL 774, MOVZX 649, SAR 383.
+- 04222e00, 19440 bytes. One outgoing call, __stack_chk_fail. Instruction mix: MOV 1811, MOVZX 1669, ADD 1196, XOR 267, LEA 93.

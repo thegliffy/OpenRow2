@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries with no string reference
+
+Continued from decomp/largest_fun_calls_note83.txt. Size is the gap to the next function; instruction mix is the top 5 Ghidra mnemonics in the function body. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 042c5290, 304 bytes. No outgoing calls. Instruction mix: MOV 32, JZ 11, TEST 11, FSTP 8, FILD 8.
+- 0424c710, 304 bytes. No outgoing calls. Instruction mix: MOV 25, TEST 18, JNZ 16, JZ 11, LEA 9.
+- 04207438, 304 bytes. 8 outgoing calls: FUN_04204d30 x3, FUN_04204e7a x3, FUN_04204fb8 x1, FUN_0420502a x1. Instruction mix: MOV 28, PUSH 26, ADD 11, SUB 10, CALL 8.
+- 041c6070, 304 bytes. 4 outgoing calls: strcmp x4. Instruction mix: MOV 34, TEST 17, JZ 9, CALL 8, JNZ 7.
+- 0418d700, 304 bytes. 7 outgoing calls: FUN_0418bcb0 x2, FUN_04131d10 x1, FUN_04131f00 x1, FUN_041322c0 x1, FUN_04136760 x1, malloc x1. Instruction mix: MOV 45, CALL 7, SUB 5, JZ 3, LEA 3.
+- 041822b0, 304 bytes. 7 outgoing calls: eON_MultiByteToWideChar x2, FUN_0404ecd0 x1, FUN_0415cec0 x1, FUN_041821d0 x1, free x1, malloc x1. Instruction mix: MOV 41, CALL 7, SUB 5, LEA 4, JZ 4.
+- 04180350, 304 bytes. 6 outgoing calls: eON_Int_GetCharWidth x2, eON_MultiByteToWideChar x2, free x1, malloc x1. Instruction mix: MOV 58, CALL 6, SUB 5, LEA 3, PUSH 2.
+- 0417c2e0, 304 bytes. 6 outgoing calls: eON_Int_LoadBitmap x2, eON_MultiByteToWideChar x2, free x1, malloc x1. Instruction mix: MOV 44, CALL 6, SUB 5, LEA 3, PUSH 2.
+- 041701e0, 304 bytes. 4 outgoing calls: FUN_04022090 x1, FUN_040220a0 x1, FUN_04022130 x1, opengl_objects_04022160 x1. Instruction mix: MOV 33, CMP 8, POP 8, LEA 7, CALL 4.
+- 0416a730, 304 bytes. 1 outgoing calls: comalloc_0415fe10 x1. Instruction mix: MOV 18, MOVZX 12, TEST 11, ADD 9, LEA 9.

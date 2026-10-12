@@ -1,0 +1,38 @@
+blob	current_name	split_addr	new_name
+040709f0	040709f0	04070a70	void Direct3DDevice9Imp::MultithreadedGuard_Enter
+040709f0	040709f0	04070cf3	void Direct3DDevice9Imp::MultithreadedGuard_Enter
+040709f0	040709f0	04070dba	virtual HRESULT Direct3DDevice9Imp::SetCursorProperties
+040709f0	040709f0	04070e20	virtual HRESULT Direct3DDevice9Imp::SetCursorProperties
+040709f0	040709f0	04070e50	virtual HRESULT Direct3DDevice9Imp::SetCursorProperties
+040709f0	040709f0	04070e80	virtual HRESULT Direct3DDevice9Imp::SetCursorProperties
+040709f0	040709f0	04070ec0	virtual HRESULT Direct3DDevice9Imp::SetCursorProperties
+040709f0	040709f0	04070ee9	virtual HRESULT Direct3DDevice9Imp::SetCursorProperties
+04078620	04078620	040786ba	Direct3DDevice9Imp::Present
+04078620	04078620	04078810	void Direct3DDevice9Imp::MultithreadedGuard_Enter
+04078620	04078620	04078888	Direct3DDevice9Imp::Present
+04078620	04078620	040788bf	void Direct3DDevice9Imp::MultithreadedGuard_Enter
+040794b0	040794b0	04079678	void Direct3DDevice9Imp::MultithreadedGuard_Enter
+040794b0	040794b0	040796cd	void Direct3DDevice9Imp::MultithreadedGuard_Enter
+040794b0	040794b0	04079760	void Direct3DDevice9Imp::UpdateViewportAndScissorDimensions_D3D9
+04080760	04080760	0408078b	bool Direct3DDevice9Imp::ExecuteOutOfBoundsCommand
+04080760	04080760	04080858	void Direct3DDevice9Imp::FlushUntilCommand
+04080890	04080890	040808e9	bool Direct3DDevice9Imp::ExecuteOutOfBoundsCommand
+04080890	04080890	04080af0	void Direct3DDevice9Imp::FlushUntilCommand
+04080890	04080890	04080b60	void Direct3DDevice9Imp::OpenGLThreadRunloop
+04081470	04081470	04081e10	void OpenGLContextCache::UpdateClipPlaneEnable
+04081470	04081470	04081e48	void OpenGLContextCache::EnableAlphaTest
+04081470	04081470	04082310	void OpenGLContextCache::EnableTwoSideStencilTest
+04082f20	04082f20	04082f68	DWORD Direct3DDevice9Imp::OpenGLSide_CopyRects_ScreenSurfaceToTexture
+04082f20	04082f20	040834b5	OpenGLTexture* Direct3DBaseTexture9Imp::GetOpenGLTexture
+04083a10	04083a10	04083ade	DWORD Direct3DDevice9Imp::OpenGLSide_StretchRect_SimpleTexture2Texture
+04083a10	04083a10	04083c28	OpenGLTexture* Direct3DBaseTexture9Imp::GetOpenGLTexture
+04083a10	04083a10	04083cc7	DWORD Direct3DDevice9Imp::OpenGLSide_StretchRect_SimpleTexture2Texture
+04083a10	04083a10	04083e20	OpenGLTexture* Direct3DBaseTexture9Imp::GetOpenGLTexture
+04083a10	04083a10	04083e68	DWORD Direct3DDevice9Imp::OpenGLSide_StretchRect_SimpleTexture2Texture
+04083ea0	04083ea0	04083eeb	OpenGLTexture* Direct3DBaseTexture9Imp::GetOpenGLTexture
+04083ea0	04083ea0	04083f24	DWORD Direct3DDevice9Imp::OpenGLSide_StretchRect_Texture2TextureOrRenderbuffer
+04084810	04084810	04084873	DWORD Direct3DDevice9Imp::OpenGLSide_StretchRect_SimpleRenderbuffer2Texture
+04084810	04084810	040848a8	DWORD Direct3DDevice9Imp::OpenGLSide_StretchRect_SimpleRenderbuffer2Texture
+04084810	04084810	04084ca0	DWORD Direct3DDevice9Imp::OpenGLSide_StretchRect_SimpleRenderbuffer2Texture
+04084810	04084810	04084ee8	OpenGLTexture* Direct3DBaseTexture9Imp::GetOpenGLTexture
+04084810	04084810	04084f1b	DWORD Direct3DDevice9Imp::OpenGLSide_StretchRect_SimpleRenderbuffer2Texture

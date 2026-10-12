@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries with no string reference
+
+Continued from decomp/largest_fun_calls_note164.txt. Size is the declared gap to the next function (Ghidra body size in parentheses where it differs); instruction mix is the top 5 Ghidra mnemonics in the function body. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 040b83c0, 144 bytes (body 109). 2 outgoing calls: direct3ddevice9imp_040803c0 x1, direct3ddevice9imp_04080490 x1. Instruction mix: MOV 17, CALL 3, ADD 3, POP 3, PUSH 3.
+- 040b85d0, 144 bytes (body 124). 1 outgoing call: FUN_040b90c0 x1. Instruction mix: MOV 27, RET 2, JZ 2, ADD 2, LEAVE 2.
+- 040b99b0, 144 bytes (body 134). 5 outgoing calls: EnterCriticalSection x1, FUN_0402d1f0 x1, FUN_0402d690 x1, FUN_0416eb70 x1, LeaveCriticalSection x1. Instruction mix: MOV 22, CALL 5, SUB 4, RET 1, POP 1.
+- 040ba490, 144 bytes (body 135). 2 outgoing calls: pthread_mutex_lock x1, pthread_mutex_unlock x1. Instruction mix: MOV 30, TEST 3, POP 2, JZ 2, CALL 2.
+- 040c6d40, 144 bytes (body 136). No outgoing calls. Instruction mix: MOV 21, CALL 2, RET 1, POP 1, SUB 1.
+- 040c6ee0, 144 bytes (body 132). 2 outgoing calls: glBindTexture x2. Instruction mix: MOV 25, JZ 3, CMP 3, CALL 2, TEST 2.
+- 040f06d0, 144 bytes (body 125). 1 outgoing call: eON_UniformBufferStreamed::UpdateToNextBatch x1. Instruction mix: MOV 22, POP 2, CMP 2, LEA 2, RET 1.
+- 040f2610, 144 bytes (body 132). 2 outgoing calls: FUN_04010e80 x1, GamepadControl::SetInitialMinMaxValues x1. Instruction mix: MOV 15, POP 3, PUSH 3, ADD 2, CALL 2.
+- 040f96a0, 144 bytes (body 137). 4 outgoing calls: FUN_0400dd30 x1, alDistanceModel x1, bzero x1, operator.new x1. Instruction mix: MOV 17, CALL 4, POP 2, PUSH 2, RET 1.
+- 040fbc80, 144 bytes (body 128). 1 outgoing call: FUN_040feea0 x1. Instruction mix: MOV 16, POP 6, CMP 4, ADD 3, JZ 3.

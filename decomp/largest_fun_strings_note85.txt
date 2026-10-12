@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries that reference a string
+
+Skipped every address already listed in decomp/largest_fun_strings_note.txt through note82. Sizes are the gap to the next function. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 04182b70, 80 bytes, 2 strings: "(atom)", "Looking for window class '%s', window name '%s'".
+- 04177970, 80 bytes. One string: "MessageBoxExA( hWnd = %p, lpText = '%s', lpCaption = '%s', uType = %u, wLanguageId = %u )".
+- 0416dfa0, 80 bytes. One string: "Game asking if clipboard format %#x is available.".
+- 04146af0, 80 bytes. One string: "CreateSemaphoreA() does not support lpSemaphoreAttributes".
+- 041ca19b, 77 bytes, 2 strings: "posix/", "right/".
+- 042bff20, 64 bytes. One string: "Only compression method 8 is supported by PNG".
+- 042bfe20, 64 bytes. One string: "Only compression method 8 is supported by PNG".
+- 042aa2c0, 64 bytes. One string: "Out of memory".
+- 042a51e0, 64 bytes. One string: "Too many bytes for PNG signature".
+- 04191c00, 64 bytes, 4 strings: "(unknown)", "FIONBIO", "FIONREAD", "SIOCATMARK".

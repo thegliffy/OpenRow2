@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries that reference a string
+
+Skipped the 619 already listed in decomp/largest_fun_strings_note.txt through note62. Sizes are the gap to the next function. No Class::Method names were invented, and nothing was added to the name batch.
+
+- 04026cf0, 160 bytes. One string: "Saints Row 2".
+- 04042fc0, 160 bytes. One string: "Invalid handle given to VPFS_IsFolder()!!".
+- 04043060, 160 bytes. One string: "Invalid handle given to VPFS_IsFile()!!".
+- 04043270, 160 bytes. One string: "Invalid handle given to VPFS_GetDiskFileHandle()!!".
+- 04043310, 160 bytes. One string: "Invalid handle given to VPFS_GetDiskFolderHandle()!!".
+- 04052d20, 160 bytes. One string: "if( any( lessThan( %s.%s, vec%d(0.0) ) ) ) discard;\n".
+- 04099f80, 160 bytes. One string: "Stream source %d, that has only %u vertices, used to draw vertex %d! Buffer overflow!".
+- 040a59a0, 160 bytes. One string: "Direct3DQuery9Imp".
+- 040de100, 160 bytes. One string: "No valid OpenGL context in calling thread!.".
+- 04125e40, 160 bytes. One string: "eON_CreateDCA( lpszDriver = '%s', lpszDevice = '%s', lpszOutput = '%s', lpInitData = %p )".
