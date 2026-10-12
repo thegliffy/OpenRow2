@@ -1,0 +1,4770 @@
+=== 041a5dd0 FUN_041a5dd0 ===
+(decompile failed: Exception while decompiling 041a5dd0: process: timeout
+)
+
+=== 0419cb30 FUN_0419cb30 ===
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+bool FUN_0419cb30(void)
+
+{
+  int iVar1;
+  bool bVar2;
+  bool bVar3;
+  bool bVar4;
+  bool bVar5;
+  bool bVar6;
+  bool bVar7;
+  bool bVar8;
+  bool bVar9;
+  bool bVar10;
+  bool bVar11;
+  bool bVar12;
+  bool bVar13;
+  bool bVar14;
+  bool bVar15;
+  bool bVar16;
+  bool bVar17;
+  bool bVar18;
+  bool bVar19;
+  bool bVar20;
+  bool bVar21;
+  bool bVar22;
+  bool bVar23;
+  bool bVar24;
+  bool bVar25;
+  bool bVar26;
+  bool bVar27;
+  bool bVar28;
+  bool bVar29;
+  bool bVar30;
+  bool bVar31;
+  bool bVar32;
+  bool bVar33;
+  bool bVar34;
+  bool bVar35;
+  bool bVar36;
+  bool bVar37;
+  bool bVar38;
+  bool bVar39;
+  bool bVar40;
+  bool bVar41;
+  bool bVar42;
+  bool bVar43;
+  bool bVar44;
+  bool bVar45;
+  bool bVar46;
+  bool bVar47;
+  bool bVar48;
+  bool bVar49;
+  bool bVar50;
+  bool bVar51;
+  bool bVar52;
+  bool bVar53;
+  bool bVar54;
+  bool bVar55;
+  bool bVar56;
+  bool bVar57;
+  bool bVar58;
+  bool bVar59;
+  bool bVar60;
+  bool bVar61;
+  bool bVar62;
+  bool bVar63;
+  bool bVar64;
+  bool bVar65;
+  bool bVar66;
+  bool bVar67;
+  bool bVar68;
+  bool bVar69;
+  bool bVar70;
+  bool bVar71;
+  bool bVar72;
+  bool bVar73;
+  bool bVar74;
+  bool bVar75;
+  bool bVar76;
+  bool bVar77;
+  bool bVar78;
+  bool bVar79;
+  bool bVar80;
+  bool bVar81;
+  bool bVar82;
+  bool bVar83;
+  bool bVar84;
+  bool bVar85;
+  bool bVar86;
+  bool bVar87;
+  bool bVar88;
+  bool bVar89;
+  bool bVar90;
+  bool bVar91;
+  bool bVar92;
+  bool bVar93;
+  bool bVar94;
+  bool bVar95;
+  bool bVar96;
+  bool bVar97;
+  bool bVar98;
+  bool bVar99;
+  bool bVar100;
+  bool bVar101;
+  bool bVar102;
+  bool bVar103;
+  bool bVar104;
+  bool bVar105;
+  bool bVar106;
+  bool bVar107;
+  bool bVar108;
+  bool bVar109;
+  bool bVar110;
+  bool bVar111;
+  bool bVar112;
+  bool bVar113;
+  bool bVar114;
+  bool bVar115;
+  bool bVar116;
+  bool bVar117;
+  bool bVar118;
+  bool bVar119;
+  bool bVar120;
+  bool bVar121;
+  bool bVar122;
+  bool bVar123;
+  bool bVar124;
+  bool bVar125;
+  bool bVar126;
+  bool bVar127;
+  bool bVar128;
+  bool bVar129;
+  bool bVar130;
+  bool bVar131;
+  bool bVar132;
+  bool bVar133;
+  bool bVar134;
+  bool bVar135;
+  bool bVar136;
+  bool bVar137;
+  bool bVar138;
+  bool bVar139;
+  bool bVar140;
+  bool bVar141;
+  bool bVar142;
+  bool bVar143;
+  bool bVar144;
+  bool bVar145;
+  bool bVar146;
+  bool bVar147;
+  bool bVar148;
+  bool bVar149;
+  bool bVar150;
+  bool bVar151;
+  bool bVar152;
+  bool bVar153;
+  bool bVar154;
+  bool bVar155;
+  bool bVar156;
+  bool bVar157;
+  bool bVar158;
+  bool bVar159;
+  bool bVar160;
+  bool bVar161;
+  bool bVar162;
+  bool bVar163;
+  bool bVar164;
+  bool bVar165;
+  bool bVar166;
+  bool bVar167;
+  bool bVar168;
+  bool bVar169;
+  bool bVar170;
+  bool bVar171;
+  bool bVar172;
+  bool bVar173;
+  bool bVar174;
+  bool bVar175;
+  bool bVar176;
+  bool bVar177;
+  bool bVar178;
+  bool bVar179;
+  bool bVar180;
+  bool bVar181;
+  bool bVar182;
+  bool bVar183;
+  bool bVar184;
+  bool bVar185;
+  bool bVar186;
+  bool bVar187;
+  bool bVar188;
+  bool bVar189;
+  bool bVar190;
+  bool bVar191;
+  bool bVar192;
+  bool bVar193;
+  bool bVar194;
+  bool bVar195;
+  bool bVar196;
+  bool bVar197;
+  bool bVar198;
+  bool bVar199;
+  bool bVar200;
+  bool bVar201;
+  bool bVar202;
+  bool bVar203;
+  bool bVar204;
+  bool bVar205;
+  bool bVar206;
+  bool bVar207;
+  bool bVar208;
+  bool bVar209;
+  bool bVar210;
+  bool bVar211;
+  bool bVar212;
+  bool bVar213;
+  
+  iVar1 = glXGetProcAddressARB("glBindMultiTextureEXT");
+  _DAT_0451dbec = iVar1;
+  _DAT_0451dbe8 = glXGetProcAddressARB("glCheckNamedFramebufferStatusEXT");
+  bVar2 = _DAT_0451dbe8 == 0;
+  _DAT_0451dbe4 = glXGetProcAddressARB("glClientAttribDefaultEXT");
+  bVar3 = _DAT_0451dbe4 == 0;
+  _DAT_0451dbe0 = glXGetProcAddressARB("glCompressedMultiTexImage1DEXT");
+  bVar4 = _DAT_0451dbe0 == 0;
+  _DAT_0451dbdc = glXGetProcAddressARB("glCompressedMultiTexImage2DEXT");
+  bVar5 = _DAT_0451dbdc == 0;
+  _DAT_0451dbd8 = glXGetProcAddressARB("glCompressedMultiTexImage3DEXT");
+  bVar6 = _DAT_0451dbd8 == 0;
+  _DAT_0451dbd4 = glXGetProcAddressARB("glCompressedMultiTexSubImage1DEXT");
+  bVar7 = _DAT_0451dbd4 == 0;
+  _DAT_0451dbd0 = glXGetProcAddressARB("glCompressedMultiTexSubImage2DEXT");
+  bVar8 = _DAT_0451dbd0 == 0;
+  _DAT_0451dbcc = glXGetProcAddressARB("glCompressedMultiTexSubImage3DEXT");
+  bVar9 = _DAT_0451dbcc == 0;
+  _DAT_0451dbc8 = glXGetProcAddressARB("glCompressedTextureImage1DEXT");
+  bVar10 = _DAT_0451dbc8 == 0;
+  _DAT_0451dbc4 = glXGetProcAddressARB("glCompressedTextureImage2DEXT");
+  bVar11 = _DAT_0451dbc4 == 0;
+  _DAT_0451dbc0 = glXGetProcAddressARB("glCompressedTextureImage3DEXT");
+  bVar12 = _DAT_0451dbc0 == 0;
+  _DAT_0451dbbc = glXGetProcAddressARB("glCompressedTextureSubImage1DEXT");
+  bVar13 = _DAT_0451dbbc == 0;
+  _DAT_0451dbb8 = glXGetProcAddressARB("glCompressedTextureSubImage2DEXT");
+  bVar14 = _DAT_0451dbb8 == 0;
+  _DAT_0451dbb4 = glXGetProcAddressARB("glCompressedTextureSubImage3DEXT");
+  bVar15 = _DAT_0451dbb4 == 0;
+  _DAT_0451dbb0 = glXGetProcAddressARB("glCopyMultiTexImage1DEXT");
+  bVar16 = _DAT_0451dbb0 == 0;
+  _DAT_0451dbac = glXGetProcAddressARB("glCopyMultiTexImage2DEXT");
+  bVar17 = _DAT_0451dbac == 0;
+  _DAT_0451dba8 = glXGetProcAddressARB("glCopyMultiTexSubImage1DEXT");
+  bVar18 = _DAT_0451dba8 == 0;
+  _DAT_0451dba4 = glXGetProcAddressARB("glCopyMultiTexSubImage2DEXT");
+  bVar19 = _DAT_0451dba4 == 0;
+  _DAT_0451dba0 = glXGetProcAddressARB("glCopyMultiTexSubImage3DEXT");
+  bVar20 = _DAT_0451dba0 == 0;
+  _DAT_0451db9c = glXGetProcAddressARB("glCopyTextureImage1DEXT");
+  bVar21 = _DAT_0451db9c == 0;
+  _DAT_0451db98 = glXGetProcAddressARB("glCopyTextureImage2DEXT");
+  bVar22 = _DAT_0451db98 == 0;
+  _DAT_0451db94 = glXGetProcAddressARB("glCopyTextureSubImage1DEXT");
+  bVar23 = _DAT_0451db94 == 0;
+  _DAT_0451db90 = glXGetProcAddressARB("glCopyTextureSubImage2DEXT");
+  bVar24 = _DAT_0451db90 == 0;
+  _DAT_0451db8c = glXGetProcAddressARB("glCopyTextureSubImage3DEXT");
+  bVar25 = _DAT_0451db8c == 0;
+  _DAT_0451db88 = glXGetProcAddressARB("glDisableClientStateIndexedEXT");
+  bVar26 = _DAT_0451db88 == 0;
+  _DAT_0451db84 = glXGetProcAddressARB("glDisableClientStateiEXT");
+  bVar27 = _DAT_0451db84 == 0;
+  _DAT_0451db80 = glXGetProcAddressARB("glDisableVertexArrayAttribEXT");
+  bVar28 = _DAT_0451db80 == 0;
+  _DAT_0451db7c = glXGetProcAddressARB("glDisableVertexArrayEXT");
+  bVar29 = _DAT_0451db7c == 0;
+  _DAT_0451db78 = glXGetProcAddressARB("glEnableClientStateIndexedEXT");
+  bVar30 = _DAT_0451db78 == 0;
+  _DAT_0451db74 = glXGetProcAddressARB("glEnableClientStateiEXT");
+  bVar31 = _DAT_0451db74 == 0;
+  _DAT_0451db70 = glXGetProcAddressARB("glEnableVertexArrayAttribEXT");
+  bVar32 = _DAT_0451db70 == 0;
+  _DAT_0451db6c = glXGetProcAddressARB("glEnableVertexArrayEXT");
+  bVar33 = _DAT_0451db6c == 0;
+  _DAT_0451db68 = glXGetProcAddressARB("glFlushMappedNamedBufferRangeEXT");
+  bVar34 = _DAT_0451db68 == 0;
+  _DAT_0451db64 = glXGetProcAddressARB("glFramebufferDrawBufferEXT");
+  bVar35 = _DAT_0451db64 == 0;
+  _DAT_0451db60 = glXGetProcAddressARB("glFramebufferDrawBuffersEXT");
+  bVar36 = _DAT_0451db60 == 0;
+  _DAT_0451db5c = glXGetProcAddressARB("glFramebufferReadBufferEXT");
+  bVar37 = _DAT_0451db5c == 0;
+  _DAT_0451db58 = glXGetProcAddressARB("glGenerateMultiTexMipmapEXT");
+  bVar38 = _DAT_0451db58 == 0;
+  _DAT_0451db54 = glXGetProcAddressARB("glGenerateTextureMipmapEXT");
+  bVar39 = _DAT_0451db54 == 0;
+  _DAT_0451db50 = glXGetProcAddressARB("glGetCompressedMultiTexImageEXT");
+  bVar40 = _DAT_0451db50 == 0;
+  _DAT_0451db4c = glXGetProcAddressARB("glGetCompressedTextureImageEXT");
+  bVar41 = _DAT_0451db4c == 0;
+  _DAT_0451db48 = glXGetProcAddressARB("glGetDoubleIndexedvEXT");
+  bVar42 = _DAT_0451db48 == 0;
+  _DAT_0451db44 = glXGetProcAddressARB("glGetDoublei_vEXT");
+  bVar43 = _DAT_0451db44 == 0;
+  _DAT_0451db40 = glXGetProcAddressARB("glGetFloatIndexedvEXT");
+  bVar44 = _DAT_0451db40 == 0;
+  _DAT_0451db3c = glXGetProcAddressARB("glGetFloati_vEXT");
+  bVar45 = _DAT_0451db3c == 0;
+  _DAT_0451db38 = glXGetProcAddressARB("glGetFramebufferParameterivEXT");
+  bVar46 = _DAT_0451db38 == 0;
+  _DAT_0451db34 = glXGetProcAddressARB("glGetMultiTexEnvfvEXT");
+  bVar47 = _DAT_0451db34 == 0;
+  _DAT_0451db30 = glXGetProcAddressARB("glGetMultiTexEnvivEXT");
+  bVar48 = _DAT_0451db30 == 0;
+  _DAT_0451db2c = glXGetProcAddressARB("glGetMultiTexGendvEXT");
+  bVar49 = _DAT_0451db2c == 0;
+  _DAT_0451db28 = glXGetProcAddressARB("glGetMultiTexGenfvEXT");
+  bVar50 = _DAT_0451db28 == 0;
+  _DAT_0451db24 = glXGetProcAddressARB("glGetMultiTexGenivEXT");
+  bVar51 = _DAT_0451db24 == 0;
+  _DAT_0451db20 = glXGetProcAddressARB("glGetMultiTexImageEXT");
+  bVar52 = _DAT_0451db20 == 0;
+  _DAT_0451db1c = glXGetProcAddressARB("glGetMultiTexLevelParameterfvEXT");
+  bVar53 = _DAT_0451db1c == 0;
+  _DAT_0451db18 = glXGetProcAddressARB("glGetMultiTexLevelParameterivEXT");
+  bVar54 = _DAT_0451db18 == 0;
+  _DAT_0451db14 = glXGetProcAddressARB("glGetMultiTexParameterIivEXT");
+  bVar55 = _DAT_0451db14 == 0;
+  _DAT_0451db10 = glXGetProcAddressARB("glGetMultiTexParameterIuivEXT");
+  bVar56 = _DAT_0451db10 == 0;
+  _DAT_0451db0c = glXGetProcAddressARB("glGetMultiTexParameterfvEXT");
+  bVar57 = _DAT_0451db0c == 0;
+  _DAT_0451db08 = glXGetProcAddressARB("glGetMultiTexParameterivEXT");
+  bVar58 = _DAT_0451db08 == 0;
+  _DAT_0451db04 = glXGetProcAddressARB("glGetNamedBufferParameterivEXT");
+  bVar59 = _DAT_0451db04 == 0;
+  _DAT_0451db00 = glXGetProcAddressARB("glGetNamedBufferPointervEXT");
+  bVar60 = _DAT_0451db00 == 0;
+  _DAT_0451dafc = glXGetProcAddressARB("glGetNamedBufferSubDataEXT");
+  bVar61 = _DAT_0451dafc == 0;
+  _DAT_0451daf8 = glXGetProcAddressARB("glGetNamedFramebufferAttachmentParameterivEXT");
+  bVar62 = _DAT_0451daf8 == 0;
+  _DAT_0451daf4 = glXGetProcAddressARB("glGetNamedProgramLocalParameterIivEXT");
+  bVar63 = _DAT_0451daf4 == 0;
+  _DAT_0451daf0 = glXGetProcAddressARB("glGetNamedProgramLocalParameterIuivEXT");
+  bVar64 = _DAT_0451daf0 == 0;
+  _DAT_0451daec = glXGetProcAddressARB("glGetNamedProgramLocalParameterdvEXT");
+  bVar65 = _DAT_0451daec == 0;
+  _DAT_0451dae8 = glXGetProcAddressARB("glGetNamedProgramLocalParameterfvEXT");
+  bVar66 = _DAT_0451dae8 == 0;
+  _DAT_0451dae4 = glXGetProcAddressARB("glGetNamedProgramStringEXT");
+  bVar67 = _DAT_0451dae4 == 0;
+  _DAT_0451dae0 = glXGetProcAddressARB("glGetNamedProgramivEXT");
+  bVar68 = _DAT_0451dae0 == 0;
+  _DAT_0451dadc = glXGetProcAddressARB("glGetNamedRenderbufferParameterivEXT");
+  bVar69 = _DAT_0451dadc == 0;
+  _DAT_0451dad8 = glXGetProcAddressARB("glGetPointerIndexedvEXT");
+  bVar70 = _DAT_0451dad8 == 0;
+  _DAT_0451dad4 = glXGetProcAddressARB("glGetPointeri_vEXT");
+  bVar71 = _DAT_0451dad4 == 0;
+  _DAT_0451dad0 = glXGetProcAddressARB("glGetTextureImageEXT");
+  bVar72 = _DAT_0451dad0 == 0;
+  _DAT_0451dacc = glXGetProcAddressARB("glGetTextureLevelParameterfvEXT");
+  bVar73 = _DAT_0451dacc == 0;
+  _DAT_0451dac8 = glXGetProcAddressARB("glGetTextureLevelParameterivEXT");
+  bVar74 = _DAT_0451dac8 == 0;
+  _DAT_0451dac4 = glXGetProcAddressARB("glGetTextureParameterIivEXT");
+  bVar75 = _DAT_0451dac4 == 0;
+  _DAT_0451dac0 = glXGetProcAddressARB("glGetTextureParameterIuivEXT");
+  bVar76 = _DAT_0451dac0 == 0;
+  _DAT_0451dabc = glXGetProcAddressARB("glGetTextureParameterfvEXT");
+  bVar77 = _DAT_0451dabc == 0;
+  _DAT_0451dab8 = glXGetProcAddressARB("glGetTextureParameterivEXT");
+  bVar78 = _DAT_0451dab8 == 0;
+  _DAT_0451dab4 = glXGetProcAddressARB("glGetVertexArrayIntegeri_vEXT");
+  bVar79 = _DAT_0451dab4 == 0;
+  _DAT_0451dab0 = glXGetProcAddressARB("glGetVertexArrayIntegervEXT");
+  bVar80 = _DAT_0451dab0 == 0;
+  _DAT_0451daac = glXGetProcAddressARB("glGetVertexArrayPointeri_vEXT");
+  bVar81 = _DAT_0451daac == 0;
+  _DAT_0451daa8 = glXGetProcAddressARB("glGetVertexArrayPointervEXT");
+  bVar82 = _DAT_0451daa8 == 0;
+  _DAT_0451daa4 = glXGetProcAddressARB("glMapNamedBufferEXT");
+  bVar83 = _DAT_0451daa4 == 0;
+  _DAT_0451daa0 = glXGetProcAddressARB("glMapNamedBufferRangeEXT");
+  bVar84 = _DAT_0451daa0 == 0;
+  _DAT_0451da9c = glXGetProcAddressARB("glMatrixFrustumEXT");
+  bVar85 = _DAT_0451da9c == 0;
+  _DAT_0451da98 = glXGetProcAddressARB("glMatrixLoadIdentityEXT");
+  bVar86 = _DAT_0451da98 == 0;
+  _DAT_0451da94 = glXGetProcAddressARB("glMatrixLoadTransposedEXT");
+  bVar87 = _DAT_0451da94 == 0;
+  _DAT_0451da90 = glXGetProcAddressARB("glMatrixLoadTransposefEXT");
+  bVar88 = _DAT_0451da90 == 0;
+  _DAT_0451da8c = glXGetProcAddressARB("glMatrixLoaddEXT");
+  bVar89 = _DAT_0451da8c == 0;
+  _DAT_0451da88 = glXGetProcAddressARB("glMatrixLoadfEXT");
+  bVar90 = _DAT_0451da88 == 0;
+  _DAT_0451da84 = glXGetProcAddressARB("glMatrixMultTransposedEXT");
+  bVar91 = _DAT_0451da84 == 0;
+  _DAT_0451da80 = glXGetProcAddressARB("glMatrixMultTransposefEXT");
+  bVar92 = _DAT_0451da80 == 0;
+  _DAT_0451da7c = glXGetProcAddressARB("glMatrixMultdEXT");
+  bVar93 = _DAT_0451da7c == 0;
+  _DAT_0451da78 = glXGetProcAddressARB("glMatrixMultfEXT");
+  bVar94 = _DAT_0451da78 == 0;
+  _DAT_0451da74 = glXGetProcAddressARB("glMatrixOrthoEXT");
+  bVar95 = _DAT_0451da74 == 0;
+  _DAT_0451da70 = glXGetProcAddressARB("glMatrixPopEXT");
+  bVar96 = _DAT_0451da70 == 0;
+  _DAT_0451da6c = glXGetProcAddressARB("glMatrixPushEXT");
+  bVar97 = _DAT_0451da6c == 0;
+  _DAT_0451da68 = glXGetProcAddressARB("glMatrixRotatedEXT");
+  bVar98 = _DAT_0451da68 == 0;
+  _DAT_0451da64 = glXGetProcAddressARB("glMatrixRotatefEXT");
+  bVar99 = _DAT_0451da64 == 0;
+  _DAT_0451da60 = glXGetProcAddressARB("glMatrixScaledEXT");
+  bVar100 = _DAT_0451da60 == 0;
+  _DAT_0451da5c = glXGetProcAddressARB("glMatrixScalefEXT");
+  bVar101 = _DAT_0451da5c == 0;
+  _DAT_0451da58 = glXGetProcAddressARB("glMatrixTranslatedEXT");
+  bVar102 = _DAT_0451da58 == 0;
+  _DAT_0451da54 = glXGetProcAddressARB("glMatrixTranslatefEXT");
+  bVar103 = _DAT_0451da54 == 0;
+  _DAT_0451da50 = glXGetProcAddressARB("glMultiTexBufferEXT");
+  bVar104 = _DAT_0451da50 == 0;
+  _DAT_0451da4c = glXGetProcAddressARB("glMultiTexCoordPointerEXT");
+  bVar105 = _DAT_0451da4c == 0;
+  _DAT_0451da48 = glXGetProcAddressARB("glMultiTexEnvfEXT");
+  bVar106 = _DAT_0451da48 == 0;
+  _DAT_0451da44 = glXGetProcAddressARB("glMultiTexEnvfvEXT");
+  bVar107 = _DAT_0451da44 == 0;
+  _DAT_0451da40 = glXGetProcAddressARB("glMultiTexEnviEXT");
+  bVar108 = _DAT_0451da40 == 0;
+  _DAT_0451da3c = glXGetProcAddressARB("glMultiTexEnvivEXT");
+  bVar109 = _DAT_0451da3c == 0;
+  _DAT_0451da38 = glXGetProcAddressARB("glMultiTexGendEXT");
+  bVar110 = _DAT_0451da38 == 0;
+  _DAT_0451da34 = glXGetProcAddressARB("glMultiTexGendvEXT");
+  bVar111 = _DAT_0451da34 == 0;
+  _DAT_0451da30 = glXGetProcAddressARB("glMultiTexGenfEXT");
+  bVar112 = _DAT_0451da30 == 0;
+  _DAT_0451da2c = glXGetProcAddressARB("glMultiTexGenfvEXT");
+  bVar113 = _DAT_0451da2c == 0;
+  _DAT_0451da28 = glXGetProcAddressARB("glMultiTexGeniEXT");
+  bVar114 = _DAT_0451da28 == 0;
+  _DAT_0451da24 = glXGetProcAddressARB("glMultiTexGenivEXT");
+  bVar115 = _DAT_0451da24 == 0;
+  _DAT_0451da20 = glXGetProcAddressARB("glMultiTexImage1DEXT");
+  bVar116 = _DAT_0451da20 == 0;
+  _DAT_0451da1c = glXGetProcAddressARB("glMultiTexImage2DEXT");
+  bVar117 = _DAT_0451da1c == 0;
+  _DAT_0451da18 = glXGetProcAddressARB("glMultiTexImage3DEXT");
+  bVar118 = _DAT_0451da18 == 0;
+  _DAT_0451da14 = glXGetProcAddressARB("glMultiTexParameterIivEXT");
+  bVar119 = _DAT_0451da14 == 0;
+  _DAT_0451da10 = glXGetProcAddressARB("glMultiTexParameterIuivEXT");
+  bVar120 = _DAT_0451da10 == 0;
+  _DAT_0451da0c = glXGetProcAddressARB("glMultiTexParameterfEXT");
+  bVar121 = _DAT_0451da0c == 0;
+  _DAT_0451da08 = glXGetProcAddressARB("glMultiTexParameterfvEXT");
+  bVar122 = _DAT_0451da08 == 0;
+  _DAT_0451da04 = glXGetProcAddressARB("glMultiTexParameteriEXT");
+  bVar123 = _DAT_0451da04 == 0;
+  _DAT_0451da00 = glXGetProcAddressARB("glMultiTexParameterivEXT");
+  bVar124 = _DAT_0451da00 == 0;
+  _DAT_0451d9fc = glXGetProcAddressARB("glMultiTexRenderbufferEXT");
+  bVar125 = _DAT_0451d9fc == 0;
+  _DAT_0451d9f8 = glXGetProcAddressARB("glMultiTexSubImage1DEXT");
+  bVar126 = _DAT_0451d9f8 == 0;
+  _DAT_0451d9f4 = glXGetProcAddressARB("glMultiTexSubImage2DEXT");
+  bVar127 = _DAT_0451d9f4 == 0;
+  _DAT_0451d9f0 = glXGetProcAddressARB("glMultiTexSubImage3DEXT");
+  bVar128 = _DAT_0451d9f0 == 0;
+  _DAT_0451d9ec = glXGetProcAddressARB("glNamedBufferDataEXT");
+  bVar129 = _DAT_0451d9ec == 0;
+  _DAT_0451d9e8 = glXGetProcAddressARB("glNamedBufferSubDataEXT");
+  bVar130 = _DAT_0451d9e8 == 0;
+  _DAT_0451d9e4 = glXGetProcAddressARB("glNamedCopyBufferSubDataEXT");
+  bVar131 = _DAT_0451d9e4 == 0;
+  _DAT_0451d9e0 = glXGetProcAddressARB("glNamedFramebufferRenderbufferEXT");
+  bVar132 = _DAT_0451d9e0 == 0;
+  _DAT_0451d9dc = glXGetProcAddressARB("glNamedFramebufferTexture1DEXT");
+  bVar133 = _DAT_0451d9dc == 0;
+  _DAT_0451d9d8 = glXGetProcAddressARB("glNamedFramebufferTexture2DEXT");
+  bVar134 = _DAT_0451d9d8 == 0;
+  _DAT_0451d9d4 = glXGetProcAddressARB("glNamedFramebufferTexture3DEXT");
+  bVar135 = _DAT_0451d9d4 == 0;
+  _DAT_0451d9d0 = glXGetProcAddressARB("glNamedFramebufferTextureEXT");
+  bVar136 = _DAT_0451d9d0 == 0;
+  _DAT_0451d9cc = glXGetProcAddressARB("glNamedFramebufferTextureFaceEXT");
+  bVar137 = _DAT_0451d9cc == 0;
+  _DAT_0451d9c8 = glXGetProcAddressARB("glNamedFramebufferTextureLayerEXT");
+  bVar138 = _DAT_0451d9c8 == 0;
+  _DAT_0451d9c4 = glXGetProcAddressARB("glNamedProgramLocalParameter4dEXT");
+  bVar139 = _DAT_0451d9c4 == 0;
+  _DAT_0451d9c0 = glXGetProcAddressARB("glNamedProgramLocalParameter4dvEXT");
+  bVar140 = _DAT_0451d9c0 == 0;
+  _DAT_0451d9bc = glXGetProcAddressARB("glNamedProgramLocalParameter4fEXT");
+  bVar141 = _DAT_0451d9bc == 0;
+  _DAT_0451d9b8 = glXGetProcAddressARB("glNamedProgramLocalParameter4fvEXT");
+  bVar142 = _DAT_0451d9b8 == 0;
+  _DAT_0451d9b4 = glXGetProcAddressARB("glNamedProgramLocalParameterI4iEXT");
+  bVar143 = _DAT_0451d9b4 == 0;
+  _DAT_0451d9b0 = glXGetProcAddressARB("glNamedProgramLocalParameterI4ivEXT");
+  bVar144 = _DAT_0451d9b0 == 0;
+  _DAT_0451d9ac = glXGetProcAddressARB("glNamedProgramLocalParameterI4uiEXT");
+  bVar145 = _DAT_0451d9ac == 0;
+  _DAT_0451d9a8 = glXGetProcAddressARB("glNamedProgramLocalParameterI4uivEXT");
+  bVar146 = _DAT_0451d9a8 == 0;
+  _DAT_0451d9a4 = glXGetProcAddressARB("glNamedProgramLocalParameters4fvEXT");
+  bVar147 = _DAT_0451d9a4 == 0;
+  _DAT_0451d9a0 = glXGetProcAddressARB("glNamedProgramLocalParametersI4ivEXT");
+  bVar148 = _DAT_0451d9a0 == 0;
+  _DAT_0451d99c = glXGetProcAddressARB("glNamedProgramLocalParametersI4uivEXT");
+  bVar149 = _DAT_0451d99c == 0;
+  _DAT_0451d998 = glXGetProcAddressARB("glNamedProgramStringEXT");
+  bVar150 = _DAT_0451d998 == 0;
+  _DAT_0451d994 = glXGetProcAddressARB("glNamedRenderbufferStorageEXT");
+  bVar151 = _DAT_0451d994 == 0;
+  _DAT_0451d990 = glXGetProcAddressARB("glNamedRenderbufferStorageMultisampleCoverageEXT");
+  bVar152 = _DAT_0451d990 == 0;
+  _DAT_0451d98c = glXGetProcAddressARB("glNamedRenderbufferStorageMultisampleEXT");
+  bVar153 = _DAT_0451d98c == 0;
+  _DAT_0451d988 = glXGetProcAddressARB("glProgramUniform1fEXT");
+  bVar154 = _DAT_0451d988 == 0;
+  _DAT_0451d984 = glXGetProcAddressARB("glProgramUniform1fvEXT");
+  bVar155 = _DAT_0451d984 == 0;
+  _DAT_0451d980 = glXGetProcAddressARB("glProgramUniform1iEXT");
+  bVar156 = _DAT_0451d980 == 0;
+  _DAT_0451d97c = glXGetProcAddressARB("glProgramUniform1ivEXT");
+  bVar157 = _DAT_0451d97c == 0;
+  _DAT_0451d978 = glXGetProcAddressARB("glProgramUniform1uiEXT");
+  bVar158 = _DAT_0451d978 == 0;
+  _DAT_0451d974 = glXGetProcAddressARB("glProgramUniform1uivEXT");
+  bVar159 = _DAT_0451d974 == 0;
+  _DAT_0451d970 = glXGetProcAddressARB("glProgramUniform2fEXT");
+  bVar160 = _DAT_0451d970 == 0;
+  _DAT_0451d96c = glXGetProcAddressARB("glProgramUniform2fvEXT");
+  bVar161 = _DAT_0451d96c == 0;
+  _DAT_0451d968 = glXGetProcAddressARB("glProgramUniform2iEXT");
+  bVar162 = _DAT_0451d968 == 0;
+  _DAT_0451d964 = glXGetProcAddressARB("glProgramUniform2ivEXT");
+  bVar163 = _DAT_0451d964 == 0;
+  _DAT_0451d960 = glXGetProcAddressARB("glProgramUniform2uiEXT");
+  bVar164 = _DAT_0451d960 == 0;
+  _DAT_0451d95c = glXGetProcAddressARB("glProgramUniform2uivEXT");
+  bVar165 = _DAT_0451d95c == 0;
+  _DAT_0451d958 = glXGetProcAddressARB("glProgramUniform3fEXT");
+  bVar166 = _DAT_0451d958 == 0;
+  _DAT_0451d954 = glXGetProcAddressARB("glProgramUniform3fvEXT");
+  bVar167 = _DAT_0451d954 == 0;
+  _DAT_0451d950 = glXGetProcAddressARB("glProgramUniform3iEXT");
+  bVar168 = _DAT_0451d950 == 0;
+  _DAT_0451d94c = glXGetProcAddressARB("glProgramUniform3ivEXT");
+  bVar169 = _DAT_0451d94c == 0;
+  _DAT_0451d948 = glXGetProcAddressARB("glProgramUniform3uiEXT");
+  bVar170 = _DAT_0451d948 == 0;
+  _DAT_0451d944 = glXGetProcAddressARB("glProgramUniform3uivEXT");
+  bVar171 = _DAT_0451d944 == 0;
+  _DAT_0451d940 = glXGetProcAddressARB("glProgramUniform4fEXT");
+  bVar172 = _DAT_0451d940 == 0;
+  _DAT_0451d93c = glXGetProcAddressARB("glProgramUniform4fvEXT");
+  bVar173 = _DAT_0451d93c == 0;
+  _DAT_0451d938 = glXGetProcAddressARB("glProgramUniform4iEXT");
+  bVar174 = _DAT_0451d938 == 0;
+  _DAT_0451d934 = glXGetProcAddressARB("glProgramUniform4ivEXT");
+  bVar175 = _DAT_0451d934 == 0;
+  _DAT_0451d930 = glXGetProcAddressARB("glProgramUniform4uiEXT");
+  bVar176 = _DAT_0451d930 == 0;
+  _DAT_0451d92c = glXGetProcAddressARB("glProgramUniform4uivEXT");
+  bVar177 = _DAT_0451d92c == 0;
+  _DAT_0451d928 = glXGetProcAddressARB("glProgramUniformMatrix2fvEXT");
+  bVar178 = _DAT_0451d928 == 0;
+  _DAT_0451d924 = glXGetProcAddressARB("glProgramUniformMatrix2x3fvEXT");
+  bVar179 = _DAT_0451d924 == 0;
+  _DAT_0451d920 = glXGetProcAddressARB("glProgramUniformMatrix2x4fvEXT");
+  bVar180 = _DAT_0451d920 == 0;
+  _DAT_0451d91c = glXGetProcAddressARB("glProgramUniformMatrix3fvEXT");
+  bVar181 = _DAT_0451d91c == 0;
+  _DAT_0451d918 = glXGetProcAddressARB("glProgramUniformMatrix3x2fvEXT");
+  bVar182 = _DAT_0451d918 == 0;
+  _DAT_0451d914 = glXGetProcAddressARB("glProgramUniformMatrix3x4fvEXT");
+  bVar183 = _DAT_0451d914 == 0;
+  _DAT_0451d910 = glXGetProcAddressARB("glProgramUniformMatrix4fvEXT");
+  bVar184 = _DAT_0451d910 == 0;
+  _DAT_0451d90c = glXGetProcAddressARB("glProgramUniformMatrix4x2fvEXT");
+  bVar185 = _DAT_0451d90c == 0;
+  _DAT_0451d908 = glXGetProcAddressARB("glProgramUniformMatrix4x3fvEXT");
+  bVar186 = _DAT_0451d908 == 0;
+  _DAT_0451d904 = glXGetProcAddressARB("glPushClientAttribDefaultEXT");
+  bVar187 = _DAT_0451d904 == 0;
+  _DAT_0451d900 = glXGetProcAddressARB("glTextureBufferEXT");
+  bVar188 = _DAT_0451d900 == 0;
+  _DAT_0451d8fc = glXGetProcAddressARB("glTextureImage1DEXT");
+  bVar189 = _DAT_0451d8fc == 0;
+  _DAT_0451d8f8 = glXGetProcAddressARB("glTextureImage2DEXT");
+  bVar190 = _DAT_0451d8f8 == 0;
+  _DAT_0451d8f4 = glXGetProcAddressARB("glTextureImage3DEXT");
+  bVar191 = _DAT_0451d8f4 == 0;
+  _DAT_0451d8f0 = glXGetProcAddressARB("glTextureParameterIivEXT");
+  bVar192 = _DAT_0451d8f0 == 0;
+  _DAT_0451d8ec = glXGetProcAddressARB("glTextureParameterIuivEXT");
+  bVar193 = _DAT_0451d8ec == 0;
+  _DAT_0451d8e8 = glXGetProcAddressARB("glTextureParameterfEXT");
+  bVar194 = _DAT_0451d8e8 == 0;
+  _DAT_0451d8e4 = glXGetProcAddressARB("glTextureParameterfvEXT");
+  bVar195 = _DAT_0451d8e4 == 0;
+  _DAT_0451d8e0 = glXGetProcAddressARB("glTextureParameteriEXT");
+  bVar196 = _DAT_0451d8e0 == 0;
+  _DAT_0451d8dc = glXGetProcAddressARB("glTextureParameterivEXT");
+  bVar197 = _DAT_0451d8dc == 0;
+  _DAT_0451d8d8 = glXGetProcAddressARB("glTextureRenderbufferEXT");
+  bVar198 = _DAT_0451d8d8 == 0;
+  _DAT_0451d8d4 = glXGetProcAddressARB("glTextureSubImage1DEXT");
+  bVar199 = _DAT_0451d8d4 == 0;
+  _DAT_0451d8d0 = glXGetProcAddressARB("glTextureSubImage2DEXT");
+  bVar200 = _DAT_0451d8d0 == 0;
+  _DAT_0451d8cc = glXGetProcAddressARB("glTextureSubImage3DEXT");
+  bVar201 = _DAT_0451d8cc == 0;
+  _DAT_0451d8c8 = glXGetProcAddressARB("glUnmapNamedBufferEXT");
+  bVar202 = _DAT_0451d8c8 == 0;
+  _DAT_0451d8c4 = glXGetProcAddressARB("glVertexArrayColorOffsetEXT");
+  bVar203 = _DAT_0451d8c4 == 0;
+  _DAT_0451d8c0 = glXGetProcAddressARB("glVertexArrayEdgeFlagOffsetEXT");
+  bVar204 = _DAT_0451d8c0 == 0;
+  _DAT_0451d8bc = glXGetProcAddressARB("glVertexArrayFogCoordOffsetEXT");
+  bVar205 = _DAT_0451d8bc == 0;
+  _DAT_0451d8b8 = glXGetProcAddressARB("glVertexArrayIndexOffsetEXT");
+  bVar206 = _DAT_0451d8b8 == 0;
+  _DAT_0451d8b4 = glXGetProcAddressARB("glVertexArrayMultiTexCoordOffsetEXT");
+  bVar207 = _DAT_0451d8b4 == 0;
+  _DAT_0451d8b0 = glXGetProcAddressARB("glVertexArrayNormalOffsetEXT");
+  bVar208 = _DAT_0451d8b0 == 0;
+  _DAT_0451d8ac = glXGetProcAddressARB("glVertexArraySecondaryColorOffsetEXT");
+  bVar209 = _DAT_0451d8ac == 0;
+  _DAT_0451d8a8 = glXGetProcAddressARB("glVertexArrayTexCoordOffsetEXT");
+  bVar210 = _DAT_0451d8a8 == 0;
+  _DAT_0451d8a4 = glXGetProcAddressARB("glVertexArrayVertexAttribDivisorEXT");
+  bVar211 = _DAT_0451d8a4 == 0;
+  _DAT_0451d8a0 = glXGetProcAddressARB("glVertexArrayVertexAttribIOffsetEXT");
+  bVar212 = _DAT_0451d8a0 == 0;
+  _DAT_0451d89c = glXGetProcAddressARB("glVertexArrayVertexAttribOffsetEXT");
+  bVar213 = _DAT_0451d89c == 0;
+  _DAT_0451d898 = glXGetProcAddressARB("glVertexArrayVertexOffsetEXT");
+  return _DAT_0451d898 == 0 ||
+         (bVar213 ||
+         (bVar212 ||
+         (bVar211 ||
+         (bVar210 ||
+         (bVar209 ||
+         (bVar208 ||
+         (bVar207 ||
+         (bVar206 ||
+         (bVar205 ||
+         (bVar204 ||
+         (bVar203 ||
+         (bVar202 ||
+         (bVar201 ||
+         (bVar200 ||
+         (bVar199 ||
+         (bVar198 ||
+         (bVar197 ||
+         (bVar196 ||
+         (bVar195 ||
+         (bVar194 ||
+         (bVar193 ||
+         (bVar192 ||
+         (bVar191 ||
+         (bVar190 ||
+         (bVar189 ||
+         (bVar188 ||
+         (bVar187 ||
+         (bVar186 ||
+         (bVar185 ||
+         (bVar184 ||
+         (bVar183 ||
+         (bVar182 ||
+         (bVar181 ||
+         (bVar180 ||
+         (bVar179 ||
+         (bVar178 ||
+         (bVar177 ||
+         (bVar176 ||
+         (bVar175 ||
+         (bVar174 ||
+         (bVar173 ||
+         (bVar172 ||
+         (bVar171 ||
+         (bVar170 ||
+         (bVar169 ||
+         (bVar168 ||
+         (bVar167 ||
+         (bVar166 ||
+         (bVar165 ||
+         (bVar164 ||
+         (bVar163 ||
+         (bVar162 ||
+         (bVar161 ||
+         (bVar160 ||
+         (bVar159 ||
+         (bVar158 ||
+         (bVar157 ||
+         (bVar156 ||
+         (bVar155 ||
+         (bVar154 ||
+         (bVar153 ||
+         (bVar152 ||
+         (bVar151 ||
+         (bVar150 ||
+         (bVar149 ||
+         (bVar148 ||
+         (bVar147 ||
+         (bVar146 ||
+         (bVar145 ||
+         (bVar144 ||
+         (bVar143 ||
+         (bVar142 ||
+         (bVar141 ||
+         (bVar140 ||
+         (bVar139 ||
+         (bVar138 ||
+         (bVar137 ||
+         (bVar136 ||
+         (bVar135 ||
+         (bVar134 ||
+         (bVar133 ||
+         (bVar132 ||
+         (bVar131 ||
+         (bVar130 ||
+         (bVar129 ||
+         (bVar128 ||
+         (bVar127 ||
+         (bVar126 ||
+         (bVar125 ||
+         (bVar124 ||
+         (bVar123 ||
+         (bVar122 ||
+         (bVar121 ||
+         (bVar120 ||
+         (bVar119 ||
+         (bVar118 ||
+         (bVar117 ||
+         (bVar116 ||
+         (bVar115 ||
+         (bVar114 ||
+         (bVar113 ||
+         (bVar112 ||
+         (bVar111 ||
+         (bVar110 ||
+         (bVar109 ||
+         (bVar108 ||
+         (bVar107 ||
+         (bVar106 ||
+         (bVar105 ||
+         (bVar104 ||
+         (bVar103 ||
+         (bVar102 ||
+         (bVar101 ||
+         (bVar100 ||
+         (bVar99 ||
+         (bVar98 ||
+         (bVar97 ||
+         (bVar96 ||
+         (bVar95 ||
+         (bVar94 ||
+         (bVar93 ||
+         (bVar92 ||
+         (bVar91 ||
+         (bVar90 ||
+         (bVar89 ||
+         (bVar88 ||
+         (bVar87 ||
+         (bVar86 ||
+         (bVar85 ||
+         (bVar84 ||
+         (bVar83 ||
+         (bVar82 ||
+         (bVar81 ||
+         (bVar80 ||
+         (bVar79 ||
+         (bVar78 ||
+         (bVar77 ||
+         (bVar76 ||
+         (bVar75 ||
+         (bVar74 ||
+         (bVar73 ||
+         (bVar72 ||
+         (bVar71 ||
+         (bVar70 ||
+         (bVar69 ||
+         (bVar68 ||
+         (bVar67 ||
+         (bVar66 ||
+         (bVar65 ||
+         (bVar64 ||
+         (bVar63 ||
+         (bVar62 ||
+         (bVar61 ||
+         (bVar60 ||
+         (bVar59 ||
+         (bVar58 ||
+         (bVar57 ||
+         (bVar56 ||
+         (bVar55 ||
+         (bVar54 ||
+         (bVar53 ||
+         (bVar52 ||
+         (bVar51 ||
+         (bVar50 ||
+         (bVar49 ||
+         (bVar48 ||
+         (bVar47 ||
+         (bVar46 ||
+         (bVar45 ||
+         (bVar44 ||
+         (bVar43 ||
+         (bVar42 ||
+         (bVar41 ||
+         (bVar40 ||
+         (bVar39 ||
+         (bVar38 ||
+         (bVar37 ||
+         (bVar36 ||
+         (bVar35 ||
+         (bVar34 ||
+         (bVar33 ||
+         (bVar32 ||
+         (bVar31 ||
+         (bVar30 ||
+         (bVar29 ||
+         (bVar28 ||
+         (bVar27 ||
+         (bVar26 ||
+         (bVar25 ||
+         (bVar24 ||
+         (bVar23 ||
+         (bVar22 ||
+         (bVar21 ||
+         (bVar20 ||
+         (bVar19 ||
+         (bVar18 ||
+         (bVar17 ||
+         (bVar16 ||
+         (bVar15 ||
+         (bVar14 ||
+         (bVar13 ||
+         (bVar12 ||
+         (bVar11 ||
+         (bVar10 ||
+         (bVar9 || (bVar8 || (bVar7 || (bVar6 || (bVar5 || (bVar4 || (bVar3 || (bVar2 || iVar1 == 0)
+                                                                     )))))))))))))))))))))))))))))))
+         )))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
+         )))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))));
+}
+
+
+
+=== 04197880 FUN_04197880 ===
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+bool FUN_04197880(void)
+
+{
+  int iVar1;
+  bool bVar2;
+  bool bVar3;
+  bool bVar4;
+  bool bVar5;
+  bool bVar6;
+  bool bVar7;
+  bool bVar8;
+  bool bVar9;
+  bool bVar10;
+  bool bVar11;
+  bool bVar12;
+  bool bVar13;
+  bool bVar14;
+  bool bVar15;
+  bool bVar16;
+  bool bVar17;
+  bool bVar18;
+  bool bVar19;
+  bool bVar20;
+  bool bVar21;
+  bool bVar22;
+  bool bVar23;
+  bool bVar24;
+  bool bVar25;
+  bool bVar26;
+  bool bVar27;
+  bool bVar28;
+  bool bVar29;
+  bool bVar30;
+  bool bVar31;
+  bool bVar32;
+  bool bVar33;
+  bool bVar34;
+  bool bVar35;
+  bool bVar36;
+  bool bVar37;
+  bool bVar38;
+  bool bVar39;
+  bool bVar40;
+  bool bVar41;
+  bool bVar42;
+  bool bVar43;
+  bool bVar44;
+  bool bVar45;
+  bool bVar46;
+  bool bVar47;
+  bool bVar48;
+  bool bVar49;
+  bool bVar50;
+  bool bVar51;
+  bool bVar52;
+  bool bVar53;
+  bool bVar54;
+  bool bVar55;
+  bool bVar56;
+  bool bVar57;
+  bool bVar58;
+  bool bVar59;
+  bool bVar60;
+  bool bVar61;
+  bool bVar62;
+  bool bVar63;
+  bool bVar64;
+  bool bVar65;
+  bool bVar66;
+  bool bVar67;
+  bool bVar68;
+  bool bVar69;
+  bool bVar70;
+  bool bVar71;
+  bool bVar72;
+  bool bVar73;
+  bool bVar74;
+  bool bVar75;
+  bool bVar76;
+  bool bVar77;
+  bool bVar78;
+  bool bVar79;
+  bool bVar80;
+  bool bVar81;
+  bool bVar82;
+  bool bVar83;
+  bool bVar84;
+  bool bVar85;
+  bool bVar86;
+  bool bVar87;
+  bool bVar88;
+  bool bVar89;
+  bool bVar90;
+  bool bVar91;
+  bool bVar92;
+  
+  iVar1 = glXGetProcAddressARB("glAttachShader");
+  DAT_0451ecec = iVar1;
+  DAT_0451ece8 = glXGetProcAddressARB("glBindAttribLocation");
+  bVar2 = DAT_0451ece8 == 0;
+  DAT_0451ece4 = glXGetProcAddressARB("glBlendEquationSeparate");
+  bVar3 = DAT_0451ece4 == 0;
+  DAT_0451ece0 = glXGetProcAddressARB("glCompileShader");
+  bVar4 = DAT_0451ece0 == 0;
+  DAT_0451ecdc = glXGetProcAddressARB("glCreateProgram");
+  bVar5 = DAT_0451ecdc == 0;
+  DAT_0451ecd8 = glXGetProcAddressARB("glCreateShader");
+  bVar6 = DAT_0451ecd8 == 0;
+  DAT_0451ecd4 = glXGetProcAddressARB("glDeleteProgram");
+  bVar7 = DAT_0451ecd4 == 0;
+  DAT_0451ecd0 = glXGetProcAddressARB("glDeleteShader");
+  bVar8 = DAT_0451ecd0 == 0;
+  _DAT_0451eccc = glXGetProcAddressARB("glDetachShader");
+  bVar9 = _DAT_0451eccc == 0;
+  DAT_0451ecc8 = glXGetProcAddressARB("glDisableVertexAttribArray");
+  bVar10 = DAT_0451ecc8 == 0;
+  DAT_0451ecc4 = glXGetProcAddressARB("glDrawBuffers");
+  bVar11 = DAT_0451ecc4 == 0;
+  DAT_0451ecc0 = glXGetProcAddressARB("glEnableVertexAttribArray");
+  bVar12 = DAT_0451ecc0 == 0;
+  DAT_0451ecbc = glXGetProcAddressARB("glGetActiveAttrib");
+  bVar13 = DAT_0451ecbc == 0;
+  DAT_0451ecb8 = glXGetProcAddressARB("glGetActiveUniform");
+  bVar14 = DAT_0451ecb8 == 0;
+  DAT_0451ecb4 = glXGetProcAddressARB("glGetAttachedShaders");
+  bVar15 = DAT_0451ecb4 == 0;
+  DAT_0451ecb0 = glXGetProcAddressARB("glGetAttribLocation");
+  bVar16 = DAT_0451ecb0 == 0;
+  DAT_0451ecac = glXGetProcAddressARB("glGetProgramInfoLog");
+  bVar17 = DAT_0451ecac == 0;
+  DAT_0451eca8 = glXGetProcAddressARB("glGetProgramiv");
+  bVar18 = DAT_0451eca8 == 0;
+  DAT_0451eca4 = glXGetProcAddressARB("glGetShaderInfoLog");
+  bVar19 = DAT_0451eca4 == 0;
+  DAT_0451eca0 = glXGetProcAddressARB("glGetShaderSource");
+  bVar20 = DAT_0451eca0 == 0;
+  DAT_0451ec9c = glXGetProcAddressARB("glGetShaderiv");
+  bVar21 = DAT_0451ec9c == 0;
+  DAT_0451ec98 = glXGetProcAddressARB("glGetUniformLocation");
+  bVar22 = DAT_0451ec98 == 0;
+  DAT_0451ec94 = glXGetProcAddressARB("glGetUniformfv");
+  bVar23 = DAT_0451ec94 == 0;
+  DAT_0451ec90 = glXGetProcAddressARB("glGetUniformiv");
+  bVar24 = DAT_0451ec90 == 0;
+  DAT_0451ec8c = glXGetProcAddressARB("glGetVertexAttribPointerv");
+  bVar25 = DAT_0451ec8c == 0;
+  _DAT_0451ec88 = glXGetProcAddressARB("glGetVertexAttribdv");
+  bVar26 = _DAT_0451ec88 == 0;
+  DAT_0451ec84 = glXGetProcAddressARB("glGetVertexAttribfv");
+  bVar27 = DAT_0451ec84 == 0;
+  DAT_0451ec80 = glXGetProcAddressARB("glGetVertexAttribiv");
+  bVar28 = DAT_0451ec80 == 0;
+  DAT_0451ec7c = glXGetProcAddressARB("glIsProgram");
+  bVar29 = DAT_0451ec7c == 0;
+  DAT_0451ec78 = glXGetProcAddressARB("glIsShader");
+  bVar30 = DAT_0451ec78 == 0;
+  DAT_0451ec74 = glXGetProcAddressARB("glLinkProgram");
+  bVar31 = DAT_0451ec74 == 0;
+  DAT_0451ec70 = glXGetProcAddressARB("glShaderSource");
+  bVar32 = DAT_0451ec70 == 0;
+  DAT_0451ec6c = glXGetProcAddressARB("glStencilFuncSeparate");
+  bVar33 = DAT_0451ec6c == 0;
+  _DAT_0451ec68 = glXGetProcAddressARB("glStencilMaskSeparate");
+  bVar34 = _DAT_0451ec68 == 0;
+  DAT_0451ec64 = glXGetProcAddressARB("glStencilOpSeparate");
+  bVar35 = DAT_0451ec64 == 0;
+  DAT_0451ec60 = glXGetProcAddressARB("glUniform1f");
+  bVar36 = DAT_0451ec60 == 0;
+  _DAT_0451ec5c = glXGetProcAddressARB("glUniform1fv");
+  bVar37 = _DAT_0451ec5c == 0;
+  DAT_0451ec58 = glXGetProcAddressARB("glUniform1i");
+  bVar38 = DAT_0451ec58 == 0;
+  DAT_0451ec54 = glXGetProcAddressARB("glUniform1iv");
+  bVar39 = DAT_0451ec54 == 0;
+  _DAT_0451ec50 = glXGetProcAddressARB("glUniform2f");
+  bVar40 = _DAT_0451ec50 == 0;
+  _DAT_0451ec4c = glXGetProcAddressARB("glUniform2fv");
+  bVar41 = _DAT_0451ec4c == 0;
+  _DAT_0451ec48 = glXGetProcAddressARB("glUniform2i");
+  bVar42 = _DAT_0451ec48 == 0;
+  _DAT_0451ec44 = glXGetProcAddressARB("glUniform2iv");
+  bVar43 = _DAT_0451ec44 == 0;
+  _DAT_0451ec40 = glXGetProcAddressARB("glUniform3f");
+  bVar44 = _DAT_0451ec40 == 0;
+  _DAT_0451ec3c = glXGetProcAddressARB("glUniform3fv");
+  bVar45 = _DAT_0451ec3c == 0;
+  _DAT_0451ec38 = glXGetProcAddressARB("glUniform3i");
+  bVar46 = _DAT_0451ec38 == 0;
+  _DAT_0451ec34 = glXGetProcAddressARB("glUniform3iv");
+  bVar47 = _DAT_0451ec34 == 0;
+  _DAT_0451ec30 = glXGetProcAddressARB("glUniform4f");
+  bVar48 = _DAT_0451ec30 == 0;
+  DAT_0451ec2c = glXGetProcAddressARB("glUniform4fv");
+  bVar49 = DAT_0451ec2c == 0;
+  _DAT_0451ec28 = glXGetProcAddressARB("glUniform4i");
+  bVar50 = _DAT_0451ec28 == 0;
+  DAT_0451ec24 = glXGetProcAddressARB("glUniform4iv");
+  bVar51 = DAT_0451ec24 == 0;
+  _DAT_0451ec20 = glXGetProcAddressARB("glUniformMatrix2fv");
+  bVar52 = _DAT_0451ec20 == 0;
+  _DAT_0451ec1c = glXGetProcAddressARB("glUniformMatrix3fv");
+  bVar53 = _DAT_0451ec1c == 0;
+  DAT_0451ec18 = glXGetProcAddressARB("glUniformMatrix4fv");
+  bVar54 = DAT_0451ec18 == 0;
+  DAT_0451ec14 = glXGetProcAddressARB("glUseProgram");
+  bVar55 = DAT_0451ec14 == 0;
+  DAT_0451ec10 = glXGetProcAddressARB("glValidateProgram");
+  bVar56 = DAT_0451ec10 == 0;
+  _DAT_0451ec0c = glXGetProcAddressARB("glVertexAttrib1d");
+  bVar57 = _DAT_0451ec0c == 0;
+  _DAT_0451ec08 = glXGetProcAddressARB("glVertexAttrib1dv");
+  bVar58 = _DAT_0451ec08 == 0;
+  _DAT_0451ec04 = glXGetProcAddressARB("glVertexAttrib1f");
+  bVar59 = _DAT_0451ec04 == 0;
+  _DAT_0451ec00 = glXGetProcAddressARB("glVertexAttrib1fv");
+  bVar60 = _DAT_0451ec00 == 0;
+  _DAT_0451ebfc = glXGetProcAddressARB("glVertexAttrib1s");
+  bVar61 = _DAT_0451ebfc == 0;
+  _DAT_0451ebf8 = glXGetProcAddressARB("glVertexAttrib1sv");
+  bVar62 = _DAT_0451ebf8 == 0;
+  _DAT_0451ebf4 = glXGetProcAddressARB("glVertexAttrib2d");
+  bVar63 = _DAT_0451ebf4 == 0;
+  _DAT_0451ebf0 = glXGetProcAddressARB("glVertexAttrib2dv");
+  bVar64 = _DAT_0451ebf0 == 0;
+  _DAT_0451ebec = glXGetProcAddressARB("glVertexAttrib2f");
+  bVar65 = _DAT_0451ebec == 0;
+  _DAT_0451ebe8 = glXGetProcAddressARB("glVertexAttrib2fv");
+  bVar66 = _DAT_0451ebe8 == 0;
+  _DAT_0451ebe4 = glXGetProcAddressARB("glVertexAttrib2s");
+  bVar67 = _DAT_0451ebe4 == 0;
+  _DAT_0451ebe0 = glXGetProcAddressARB("glVertexAttrib2sv");
+  bVar68 = _DAT_0451ebe0 == 0;
+  _DAT_0451ebdc = glXGetProcAddressARB("glVertexAttrib3d");
+  bVar69 = _DAT_0451ebdc == 0;
+  _DAT_0451ebd8 = glXGetProcAddressARB("glVertexAttrib3dv");
+  bVar70 = _DAT_0451ebd8 == 0;
+  _DAT_0451ebd4 = glXGetProcAddressARB("glVertexAttrib3f");
+  bVar71 = _DAT_0451ebd4 == 0;
+  _DAT_0451ebd0 = glXGetProcAddressARB("glVertexAttrib3fv");
+  bVar72 = _DAT_0451ebd0 == 0;
+  _DAT_0451ebcc = glXGetProcAddressARB("glVertexAttrib3s");
+  bVar73 = _DAT_0451ebcc == 0;
+  _DAT_0451ebc8 = glXGetProcAddressARB("glVertexAttrib3sv");
+  bVar74 = _DAT_0451ebc8 == 0;
+  DAT_0451ebc4 = glXGetProcAddressARB("glVertexAttrib4Nbv");
+  bVar75 = DAT_0451ebc4 == 0;
+  DAT_0451ebc0 = glXGetProcAddressARB("glVertexAttrib4Niv");
+  bVar76 = DAT_0451ebc0 == 0;
+  DAT_0451ebbc = glXGetProcAddressARB("glVertexAttrib4Nsv");
+  bVar77 = DAT_0451ebbc == 0;
+  _DAT_0451ebb8 = glXGetProcAddressARB("glVertexAttrib4Nub");
+  bVar78 = _DAT_0451ebb8 == 0;
+  DAT_0451ebb4 = glXGetProcAddressARB("glVertexAttrib4Nubv");
+  bVar79 = DAT_0451ebb4 == 0;
+  DAT_0451ebb0 = glXGetProcAddressARB("glVertexAttrib4Nuiv");
+  bVar80 = DAT_0451ebb0 == 0;
+  DAT_0451ebac = glXGetProcAddressARB("glVertexAttrib4Nusv");
+  bVar81 = DAT_0451ebac == 0;
+  DAT_0451eba8 = glXGetProcAddressARB("glVertexAttrib4bv");
+  bVar82 = DAT_0451eba8 == 0;
+  _DAT_0451eba4 = glXGetProcAddressARB("glVertexAttrib4d");
+  bVar83 = _DAT_0451eba4 == 0;
+  DAT_0451eba0 = glXGetProcAddressARB("glVertexAttrib4dv");
+  bVar84 = DAT_0451eba0 == 0;
+  DAT_0451eb9c = glXGetProcAddressARB("glVertexAttrib4f");
+  bVar85 = DAT_0451eb9c == 0;
+  DAT_0451eb98 = glXGetProcAddressARB("glVertexAttrib4fv");
+  bVar86 = DAT_0451eb98 == 0;
+  DAT_0451eb94 = glXGetProcAddressARB("glVertexAttrib4iv");
+  bVar87 = DAT_0451eb94 == 0;
+  _DAT_0451eb90 = glXGetProcAddressARB("glVertexAttrib4s");
+  bVar88 = _DAT_0451eb90 == 0;
+  DAT_0451eb8c = glXGetProcAddressARB("glVertexAttrib4sv");
+  bVar89 = DAT_0451eb8c == 0;
+  DAT_0451eb88 = glXGetProcAddressARB("glVertexAttrib4ubv");
+  bVar90 = DAT_0451eb88 == 0;
+  DAT_0451eb84 = glXGetProcAddressARB("glVertexAttrib4uiv");
+  bVar91 = DAT_0451eb84 == 0;
+  DAT_0451eb80 = glXGetProcAddressARB("glVertexAttrib4usv");
+  bVar92 = DAT_0451eb80 == 0;
+  DAT_0451eb7c = glXGetProcAddressARB("glVertexAttribPointer");
+  return DAT_0451eb7c == 0 ||
+         (bVar92 ||
+         (bVar91 ||
+         (bVar90 ||
+         (bVar89 ||
+         (bVar88 ||
+         (bVar87 ||
+         (bVar86 ||
+         (bVar85 ||
+         (bVar84 ||
+         (bVar83 ||
+         (bVar82 ||
+         (bVar81 ||
+         (bVar80 ||
+         (bVar79 ||
+         (bVar78 ||
+         (bVar77 ||
+         (bVar76 ||
+         (bVar75 ||
+         (bVar74 ||
+         (bVar73 ||
+         (bVar72 ||
+         (bVar71 ||
+         (bVar70 ||
+         (bVar69 ||
+         (bVar68 ||
+         (bVar67 ||
+         (bVar66 ||
+         (bVar65 ||
+         (bVar64 ||
+         (bVar63 ||
+         (bVar62 ||
+         (bVar61 ||
+         (bVar60 ||
+         (bVar59 ||
+         (bVar58 ||
+         (bVar57 ||
+         (bVar56 ||
+         (bVar55 ||
+         (bVar54 ||
+         (bVar53 ||
+         (bVar52 ||
+         (bVar51 ||
+         (bVar50 ||
+         (bVar49 ||
+         (bVar48 ||
+         (bVar47 ||
+         (bVar46 ||
+         (bVar45 ||
+         (bVar44 ||
+         (bVar43 ||
+         (bVar42 ||
+         (bVar41 ||
+         (bVar40 ||
+         (bVar39 ||
+         (bVar38 ||
+         (bVar37 ||
+         (bVar36 ||
+         (bVar35 ||
+         (bVar34 ||
+         (bVar33 ||
+         (bVar32 ||
+         (bVar31 ||
+         (bVar30 ||
+         (bVar29 ||
+         (bVar28 ||
+         (bVar27 ||
+         (bVar26 ||
+         (bVar25 ||
+         (bVar24 ||
+         (bVar23 ||
+         (bVar22 ||
+         (bVar21 ||
+         (bVar20 ||
+         (bVar19 ||
+         (bVar18 ||
+         (bVar17 ||
+         (bVar16 ||
+         (bVar15 ||
+         (bVar14 ||
+         (bVar13 ||
+         (bVar12 ||
+         (bVar11 ||
+         (bVar10 ||
+         (bVar9 || (bVar8 || (bVar7 || (bVar6 || (bVar5 || (bVar4 || (bVar3 || (bVar2 || iVar1 == 0)
+                                                                     )))))))))))))))))))))))))))))))
+         )))))))))))))))))))))))))))))))))))))))))))))))))))))))))));
+}
+
+
+
+=== 04198d00 FUN_04198d00 ===
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+bool FUN_04198d00(void)
+
+{
+  int iVar1;
+  bool bVar2;
+  bool bVar3;
+  bool bVar4;
+  bool bVar5;
+  bool bVar6;
+  bool bVar7;
+  bool bVar8;
+  bool bVar9;
+  bool bVar10;
+  bool bVar11;
+  bool bVar12;
+  bool bVar13;
+  bool bVar14;
+  bool bVar15;
+  bool bVar16;
+  bool bVar17;
+  bool bVar18;
+  bool bVar19;
+  bool bVar20;
+  bool bVar21;
+  bool bVar22;
+  bool bVar23;
+  bool bVar24;
+  bool bVar25;
+  bool bVar26;
+  bool bVar27;
+  bool bVar28;
+  bool bVar29;
+  bool bVar30;
+  bool bVar31;
+  bool bVar32;
+  bool bVar33;
+  bool bVar34;
+  bool bVar35;
+  bool bVar36;
+  bool bVar37;
+  bool bVar38;
+  bool bVar39;
+  bool bVar40;
+  bool bVar41;
+  bool bVar42;
+  bool bVar43;
+  bool bVar44;
+  bool bVar45;
+  bool bVar46;
+  bool bVar47;
+  bool bVar48;
+  bool bVar49;
+  bool bVar50;
+  bool bVar51;
+  bool bVar52;
+  bool bVar53;
+  bool bVar54;
+  bool bVar55;
+  bool bVar56;
+  bool bVar57;
+  bool bVar58;
+  bool bVar59;
+  bool bVar60;
+  bool bVar61;
+  bool bVar62;
+  bool bVar63;
+  bool bVar64;
+  bool bVar65;
+  bool bVar66;
+  bool bVar67;
+  bool bVar68;
+  bool bVar69;
+  bool bVar70;
+  bool bVar71;
+  bool bVar72;
+  bool bVar73;
+  bool bVar74;
+  bool bVar75;
+  bool bVar76;
+  bool bVar77;
+  bool bVar78;
+  bool bVar79;
+  bool bVar80;
+  bool bVar81;
+  bool bVar82;
+  bool bVar83;
+  bool bVar84;
+  bool bVar85;
+  bool bVar86;
+  bool bVar87;
+  bool bVar88;
+  bool bVar89;
+  bool bVar90;
+  bool bVar91;
+  bool bVar92;
+  
+  iVar1 = glXGetProcAddressARB("glBindTextureUnit");
+  _DAT_0451e844 = iVar1;
+  _DAT_0451e840 = glXGetProcAddressARB("glBlitNamedFramebuffer");
+  bVar2 = _DAT_0451e840 == 0;
+  _DAT_0451e83c = glXGetProcAddressARB("glCheckNamedFramebufferStatus");
+  bVar3 = _DAT_0451e83c == 0;
+  _DAT_0451e838 = glXGetProcAddressARB("glClearNamedBufferData");
+  bVar4 = _DAT_0451e838 == 0;
+  _DAT_0451e834 = glXGetProcAddressARB("glClearNamedBufferSubData");
+  bVar5 = _DAT_0451e834 == 0;
+  _DAT_0451e830 = glXGetProcAddressARB("glClearNamedFramebufferfi");
+  bVar6 = _DAT_0451e830 == 0;
+  _DAT_0451e82c = glXGetProcAddressARB("glClearNamedFramebufferfv");
+  bVar7 = _DAT_0451e82c == 0;
+  _DAT_0451e828 = glXGetProcAddressARB("glClearNamedFramebufferiv");
+  bVar8 = _DAT_0451e828 == 0;
+  _DAT_0451e824 = glXGetProcAddressARB("glClearNamedFramebufferuiv");
+  bVar9 = _DAT_0451e824 == 0;
+  _DAT_0451e820 = glXGetProcAddressARB("glCompressedTextureSubImage1D");
+  bVar10 = _DAT_0451e820 == 0;
+  _DAT_0451e81c = glXGetProcAddressARB("glCompressedTextureSubImage2D");
+  bVar11 = _DAT_0451e81c == 0;
+  _DAT_0451e818 = glXGetProcAddressARB("glCompressedTextureSubImage3D");
+  bVar12 = _DAT_0451e818 == 0;
+  _DAT_0451e814 = glXGetProcAddressARB("glCopyNamedBufferSubData");
+  bVar13 = _DAT_0451e814 == 0;
+  _DAT_0451e810 = glXGetProcAddressARB("glCopyTextureSubImage1D");
+  bVar14 = _DAT_0451e810 == 0;
+  _DAT_0451e80c = glXGetProcAddressARB("glCopyTextureSubImage2D");
+  bVar15 = _DAT_0451e80c == 0;
+  _DAT_0451e808 = glXGetProcAddressARB("glCopyTextureSubImage3D");
+  bVar16 = _DAT_0451e808 == 0;
+  _DAT_0451e804 = glXGetProcAddressARB("glCreateBuffers");
+  bVar17 = _DAT_0451e804 == 0;
+  _DAT_0451e800 = glXGetProcAddressARB("glCreateFramebuffers");
+  bVar18 = _DAT_0451e800 == 0;
+  _DAT_0451e7fc = glXGetProcAddressARB("glCreateProgramPipelines");
+  bVar19 = _DAT_0451e7fc == 0;
+  _DAT_0451e7f8 = glXGetProcAddressARB("glCreateQueries");
+  bVar20 = _DAT_0451e7f8 == 0;
+  _DAT_0451e7f4 = glXGetProcAddressARB("glCreateRenderbuffers");
+  bVar21 = _DAT_0451e7f4 == 0;
+  _DAT_0451e7f0 = glXGetProcAddressARB("glCreateSamplers");
+  bVar22 = _DAT_0451e7f0 == 0;
+  _DAT_0451e7ec = glXGetProcAddressARB("glCreateTextures");
+  bVar23 = _DAT_0451e7ec == 0;
+  _DAT_0451e7e8 = glXGetProcAddressARB("glCreateTransformFeedbacks");
+  bVar24 = _DAT_0451e7e8 == 0;
+  _DAT_0451e7e4 = glXGetProcAddressARB("glCreateVertexArrays");
+  bVar25 = _DAT_0451e7e4 == 0;
+  _DAT_0451e7e0 = glXGetProcAddressARB("glDisableVertexArrayAttrib");
+  bVar26 = _DAT_0451e7e0 == 0;
+  _DAT_0451e7dc = glXGetProcAddressARB("glEnableVertexArrayAttrib");
+  bVar27 = _DAT_0451e7dc == 0;
+  _DAT_0451e7d8 = glXGetProcAddressARB("glFlushMappedNamedBufferRange");
+  bVar28 = _DAT_0451e7d8 == 0;
+  _DAT_0451e7d4 = glXGetProcAddressARB("glGenerateTextureMipmap");
+  bVar29 = _DAT_0451e7d4 == 0;
+  _DAT_0451e7d0 = glXGetProcAddressARB("glGetCompressedTextureImage");
+  bVar30 = _DAT_0451e7d0 == 0;
+  _DAT_0451e7cc = glXGetProcAddressARB("glGetNamedBufferParameteri64v");
+  bVar31 = _DAT_0451e7cc == 0;
+  _DAT_0451e7c8 = glXGetProcAddressARB("glGetNamedBufferParameteriv");
+  bVar32 = _DAT_0451e7c8 == 0;
+  _DAT_0451e7c4 = glXGetProcAddressARB("glGetNamedBufferPointerv");
+  bVar33 = _DAT_0451e7c4 == 0;
+  _DAT_0451e7c0 = glXGetProcAddressARB("glGetNamedBufferSubData");
+  bVar34 = _DAT_0451e7c0 == 0;
+  _DAT_0451e7bc = glXGetProcAddressARB("glGetNamedFramebufferAttachmentParameteriv");
+  bVar35 = _DAT_0451e7bc == 0;
+  _DAT_0451e7b8 = glXGetProcAddressARB("glGetNamedFramebufferParameteriv");
+  bVar36 = _DAT_0451e7b8 == 0;
+  _DAT_0451e7b4 = glXGetProcAddressARB("glGetNamedRenderbufferParameteriv");
+  bVar37 = _DAT_0451e7b4 == 0;
+  _DAT_0451e7b0 = glXGetProcAddressARB("glGetTextureImage");
+  bVar38 = _DAT_0451e7b0 == 0;
+  _DAT_0451e7ac = glXGetProcAddressARB("glGetTextureLevelParameterfv");
+  bVar39 = _DAT_0451e7ac == 0;
+  _DAT_0451e7a8 = glXGetProcAddressARB("glGetTextureLevelParameteriv");
+  bVar40 = _DAT_0451e7a8 == 0;
+  _DAT_0451e7a4 = glXGetProcAddressARB("glGetTextureParameterIiv");
+  bVar41 = _DAT_0451e7a4 == 0;
+  _DAT_0451e7a0 = glXGetProcAddressARB("glGetTextureParameterIuiv");
+  bVar42 = _DAT_0451e7a0 == 0;
+  _DAT_0451e79c = glXGetProcAddressARB("glGetTextureParameterfv");
+  bVar43 = _DAT_0451e79c == 0;
+  _DAT_0451e798 = glXGetProcAddressARB("glGetTextureParameteriv");
+  bVar44 = _DAT_0451e798 == 0;
+  _DAT_0451e794 = glXGetProcAddressARB("glGetTransformFeedbacki64_v");
+  bVar45 = _DAT_0451e794 == 0;
+  _DAT_0451e790 = glXGetProcAddressARB("glGetTransformFeedbacki_v");
+  bVar46 = _DAT_0451e790 == 0;
+  _DAT_0451e78c = glXGetProcAddressARB("glGetTransformFeedbackiv");
+  bVar47 = _DAT_0451e78c == 0;
+  _DAT_0451e788 = glXGetProcAddressARB("glGetVertexArrayIndexed64iv");
+  bVar48 = _DAT_0451e788 == 0;
+  _DAT_0451e784 = glXGetProcAddressARB("glGetVertexArrayIndexediv");
+  bVar49 = _DAT_0451e784 == 0;
+  _DAT_0451e780 = glXGetProcAddressARB("glGetVertexArrayiv");
+  bVar50 = _DAT_0451e780 == 0;
+  _DAT_0451e77c = glXGetProcAddressARB("glInvalidateNamedFramebufferData");
+  bVar51 = _DAT_0451e77c == 0;
+  _DAT_0451e778 = glXGetProcAddressARB("glInvalidateNamedFramebufferSubData");
+  bVar52 = _DAT_0451e778 == 0;
+  _DAT_0451e774 = glXGetProcAddressARB("glMapNamedBuffer");
+  bVar53 = _DAT_0451e774 == 0;
+  _DAT_0451e770 = glXGetProcAddressARB("glMapNamedBufferRange");
+  bVar54 = _DAT_0451e770 == 0;
+  _DAT_0451e76c = glXGetProcAddressARB("glNamedBufferData");
+  bVar55 = _DAT_0451e76c == 0;
+  _DAT_0451e768 = glXGetProcAddressARB("glNamedBufferStorage");
+  bVar56 = _DAT_0451e768 == 0;
+  _DAT_0451e764 = glXGetProcAddressARB("glNamedBufferSubData");
+  bVar57 = _DAT_0451e764 == 0;
+  _DAT_0451e760 = glXGetProcAddressARB("glNamedFramebufferDrawBuffer");
+  bVar58 = _DAT_0451e760 == 0;
+  _DAT_0451e75c = glXGetProcAddressARB("glNamedFramebufferDrawBuffers");
+  bVar59 = _DAT_0451e75c == 0;
+  _DAT_0451e758 = glXGetProcAddressARB("glNamedFramebufferParameteri");
+  bVar60 = _DAT_0451e758 == 0;
+  _DAT_0451e754 = glXGetProcAddressARB("glNamedFramebufferReadBuffer");
+  bVar61 = _DAT_0451e754 == 0;
+  _DAT_0451e750 = glXGetProcAddressARB("glNamedFramebufferRenderbuffer");
+  bVar62 = _DAT_0451e750 == 0;
+  _DAT_0451e74c = glXGetProcAddressARB("glNamedFramebufferTexture");
+  bVar63 = _DAT_0451e74c == 0;
+  _DAT_0451e748 = glXGetProcAddressARB("glNamedFramebufferTextureLayer");
+  bVar64 = _DAT_0451e748 == 0;
+  _DAT_0451e744 = glXGetProcAddressARB("glNamedRenderbufferStorage");
+  bVar65 = _DAT_0451e744 == 0;
+  _DAT_0451e740 = glXGetProcAddressARB("glNamedRenderbufferStorageMultisample");
+  bVar66 = _DAT_0451e740 == 0;
+  _DAT_0451e73c = glXGetProcAddressARB("glTextureBuffer");
+  bVar67 = _DAT_0451e73c == 0;
+  _DAT_0451e738 = glXGetProcAddressARB("glTextureBufferRange");
+  bVar68 = _DAT_0451e738 == 0;
+  _DAT_0451e734 = glXGetProcAddressARB("glTextureParameterIiv");
+  bVar69 = _DAT_0451e734 == 0;
+  _DAT_0451e730 = glXGetProcAddressARB("glTextureParameterIuiv");
+  bVar70 = _DAT_0451e730 == 0;
+  _DAT_0451e72c = glXGetProcAddressARB("glTextureParameterf");
+  bVar71 = _DAT_0451e72c == 0;
+  _DAT_0451e728 = glXGetProcAddressARB("glTextureParameterfv");
+  bVar72 = _DAT_0451e728 == 0;
+  _DAT_0451e724 = glXGetProcAddressARB("glTextureParameteri");
+  bVar73 = _DAT_0451e724 == 0;
+  _DAT_0451e720 = glXGetProcAddressARB("glTextureParameteriv");
+  bVar74 = _DAT_0451e720 == 0;
+  _DAT_0451e71c = glXGetProcAddressARB("glTextureStorage1D");
+  bVar75 = _DAT_0451e71c == 0;
+  _DAT_0451e718 = glXGetProcAddressARB("glTextureStorage2D");
+  bVar76 = _DAT_0451e718 == 0;
+  _DAT_0451e714 = glXGetProcAddressARB("glTextureStorage2DMultisample");
+  bVar77 = _DAT_0451e714 == 0;
+  _DAT_0451e710 = glXGetProcAddressARB("glTextureStorage3D");
+  bVar78 = _DAT_0451e710 == 0;
+  _DAT_0451e70c = glXGetProcAddressARB("glTextureStorage3DMultisample");
+  bVar79 = _DAT_0451e70c == 0;
+  _DAT_0451e708 = glXGetProcAddressARB("glTextureSubImage1D");
+  bVar80 = _DAT_0451e708 == 0;
+  _DAT_0451e704 = glXGetProcAddressARB("glTextureSubImage2D");
+  bVar81 = _DAT_0451e704 == 0;
+  _DAT_0451e700 = glXGetProcAddressARB("glTextureSubImage3D");
+  bVar82 = _DAT_0451e700 == 0;
+  _DAT_0451e6fc = glXGetProcAddressARB("glTransformFeedbackBufferBase");
+  bVar83 = _DAT_0451e6fc == 0;
+  _DAT_0451e6f8 = glXGetProcAddressARB("glTransformFeedbackBufferRange");
+  bVar84 = _DAT_0451e6f8 == 0;
+  _DAT_0451e6f4 = glXGetProcAddressARB("glUnmapNamedBuffer");
+  bVar85 = _DAT_0451e6f4 == 0;
+  _DAT_0451e6f0 = glXGetProcAddressARB("glVertexArrayAttribBinding");
+  bVar86 = _DAT_0451e6f0 == 0;
+  _DAT_0451e6ec = glXGetProcAddressARB("glVertexArrayAttribFormat");
+  bVar87 = _DAT_0451e6ec == 0;
+  _DAT_0451e6e8 = glXGetProcAddressARB("glVertexArrayAttribIFormat");
+  bVar88 = _DAT_0451e6e8 == 0;
+  _DAT_0451e6e4 = glXGetProcAddressARB("glVertexArrayAttribLFormat");
+  bVar89 = _DAT_0451e6e4 == 0;
+  _DAT_0451e6e0 = glXGetProcAddressARB("glVertexArrayBindingDivisor");
+  bVar90 = _DAT_0451e6e0 == 0;
+  _DAT_0451e6dc = glXGetProcAddressARB("glVertexArrayElementBuffer");
+  bVar91 = _DAT_0451e6dc == 0;
+  _DAT_0451e6d8 = glXGetProcAddressARB("glVertexArrayVertexBuffer");
+  bVar92 = _DAT_0451e6d8 == 0;
+  _DAT_0451e6d4 = glXGetProcAddressARB("glVertexArrayVertexBuffers");
+  return _DAT_0451e6d4 == 0 ||
+         (bVar92 ||
+         (bVar91 ||
+         (bVar90 ||
+         (bVar89 ||
+         (bVar88 ||
+         (bVar87 ||
+         (bVar86 ||
+         (bVar85 ||
+         (bVar84 ||
+         (bVar83 ||
+         (bVar82 ||
+         (bVar81 ||
+         (bVar80 ||
+         (bVar79 ||
+         (bVar78 ||
+         (bVar77 ||
+         (bVar76 ||
+         (bVar75 ||
+         (bVar74 ||
+         (bVar73 ||
+         (bVar72 ||
+         (bVar71 ||
+         (bVar70 ||
+         (bVar69 ||
+         (bVar68 ||
+         (bVar67 ||
+         (bVar66 ||
+         (bVar65 ||
+         (bVar64 ||
+         (bVar63 ||
+         (bVar62 ||
+         (bVar61 ||
+         (bVar60 ||
+         (bVar59 ||
+         (bVar58 ||
+         (bVar57 ||
+         (bVar56 ||
+         (bVar55 ||
+         (bVar54 ||
+         (bVar53 ||
+         (bVar52 ||
+         (bVar51 ||
+         (bVar50 ||
+         (bVar49 ||
+         (bVar48 ||
+         (bVar47 ||
+         (bVar46 ||
+         (bVar45 ||
+         (bVar44 ||
+         (bVar43 ||
+         (bVar42 ||
+         (bVar41 ||
+         (bVar40 ||
+         (bVar39 ||
+         (bVar38 ||
+         (bVar37 ||
+         (bVar36 ||
+         (bVar35 ||
+         (bVar34 ||
+         (bVar33 ||
+         (bVar32 ||
+         (bVar31 ||
+         (bVar30 ||
+         (bVar29 ||
+         (bVar28 ||
+         (bVar27 ||
+         (bVar26 ||
+         (bVar25 ||
+         (bVar24 ||
+         (bVar23 ||
+         (bVar22 ||
+         (bVar21 ||
+         (bVar20 ||
+         (bVar19 ||
+         (bVar18 ||
+         (bVar17 ||
+         (bVar16 ||
+         (bVar15 ||
+         (bVar14 ||
+         (bVar13 ||
+         (bVar12 ||
+         (bVar11 ||
+         (bVar10 ||
+         (bVar9 || (bVar8 || (bVar7 || (bVar6 || (bVar5 || (bVar4 || (bVar3 || (bVar2 || iVar1 == 0)
+                                                                     )))))))))))))))))))))))))))))))
+         )))))))))))))))))))))))))))))))))))))))))))))))))))))))))));
+}
+
+
+
+=== 041a2e50 FUN_041a2e50 ===
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+undefined4 FUN_041a2e50(void)
+
+{
+  char *pcVar1;
+  int iVar2;
+  char cVar3;
+  undefined4 uVar4;
+  int iVar5;
+  int iVar6;
+  char *pcVar7;
+  bool bVar8;
+  bool bVar9;
+  bool bVar10;
+  bool bVar11;
+  bool bVar12;
+  bool bVar13;
+  bool bVar14;
+  bool bVar15;
+  bool bVar16;
+  bool bVar17;
+  bool bVar18;
+  bool bVar19;
+  bool bVar20;
+  bool bVar21;
+  bool bVar22;
+  int local_24;
+  int local_20 [4];
+  
+  DAT_0451c8b4 = (code *)glXGetProcAddressARB("glXGetCurrentDisplay");
+  if (DAT_0451c8b4 == (code *)0x0) {
+    return 3;
+  }
+  DAT_0451c6ea = 1;
+  DAT_0451c6e9 = 1;
+  DAT_0451c6e8 = 1;
+  DAT_0451c6e7 = '\x01';
+  DAT_0451c6e6 = 1;
+  uVar4 = (*DAT_0451c8b4)();
+  glXQueryVersion(uVar4,&local_24,local_20);
+  if ((local_24 == 1) && (local_20[0] < 4)) {
+    if (local_20[0] == 2) {
+      DAT_0451c6e6 = 0;
+      DAT_0451c6e7 = '\0';
+    }
+    else {
+      if (local_20[0] != 3) {
+        return 3;
+      }
+      DAT_0451c6e6 = 0;
+    }
+  }
+  pcVar7 = "";
+  if (DAT_0451c8b4 != (code *)0x0) {
+    uVar4 = (*DAT_0451c8b4)();
+    pcVar7 = (char *)glXGetClientString(uVar4,3);
+    if (pcVar7 == (char *)0x0) {
+      pcVar7 = "";
+    }
+  }
+  cVar3 = *pcVar7;
+  while (cVar3 != '\0') {
+    pcVar7 = pcVar7 + 1;
+    cVar3 = *pcVar7;
+  }
+  if ((DAT_0451c6a4 != '\0') || (DAT_0451c6e7 != '\0')) {
+    iVar5 = glXGetProcAddressARB("glXChooseFBConfig");
+    _DAT_0451c8b0 = iVar5;
+    _DAT_0451c8ac = glXGetProcAddressARB("glXCreateNewContext");
+    bVar8 = _DAT_0451c8ac != 0;
+    _DAT_0451c8a8 = glXGetProcAddressARB("glXCreatePbuffer");
+    bVar9 = _DAT_0451c8a8 != 0;
+    _DAT_0451c8a4 = glXGetProcAddressARB("glXCreatePixmap");
+    bVar10 = _DAT_0451c8a4 != 0;
+    _DAT_0451c8a0 = glXGetProcAddressARB("glXCreateWindow");
+    bVar11 = _DAT_0451c8a0 != 0;
+    _DAT_0451c89c = glXGetProcAddressARB("glXDestroyPbuffer");
+    bVar12 = _DAT_0451c89c != 0;
+    _DAT_0451c898 = glXGetProcAddressARB("glXDestroyPixmap");
+    bVar13 = _DAT_0451c898 != 0;
+    _DAT_0451c894 = glXGetProcAddressARB("glXDestroyWindow");
+    bVar14 = _DAT_0451c894 != 0;
+    _DAT_0451c890 = glXGetProcAddressARB("glXGetCurrentReadDrawable");
+    bVar15 = _DAT_0451c890 != 0;
+    _DAT_0451c88c = glXGetProcAddressARB("glXGetFBConfigAttrib");
+    bVar16 = _DAT_0451c88c != 0;
+    _DAT_0451c888 = glXGetProcAddressARB("glXGetFBConfigs");
+    bVar17 = _DAT_0451c888 != 0;
+    _DAT_0451c884 = glXGetProcAddressARB("glXGetSelectedEvent");
+    bVar18 = _DAT_0451c884 != 0;
+    _DAT_0451c880 = glXGetProcAddressARB("glXGetVisualFromFBConfig");
+    bVar19 = _DAT_0451c880 != 0;
+    _DAT_0451c87c = glXGetProcAddressARB("glXMakeContextCurrent");
+    bVar20 = _DAT_0451c87c != 0;
+    _DAT_0451c878 = glXGetProcAddressARB("glXQueryContext");
+    bVar21 = _DAT_0451c878 != 0;
+    _DAT_0451c874 = glXGetProcAddressARB("glXQueryDrawable");
+    bVar22 = _DAT_0451c874 != 0;
+    _DAT_0451c870 = glXGetProcAddressARB("glXSelectEvent");
+    DAT_0451c6e7 = _DAT_0451c870 != 0 &&
+                   (bVar22 &&
+                   (bVar21 &&
+                   (bVar20 &&
+                   (bVar19 &&
+                   (bVar18 &&
+                   (bVar17 &&
+                   (bVar16 &&
+                   (bVar15 &&
+                   (bVar14 &&
+                   (bVar13 && (bVar12 && (bVar11 && (bVar10 && (bVar9 && (bVar8 && iVar5 != 0)))))))
+                   ))))))));
+  }
+  if (DAT_0451eedc == 0) {
+    DAT_0451c6e5 = FUN_041a2ad0();
+LAB_041a31d3:
+    cVar3 = FUN_041a2ad0();
+  }
+  else {
+    if (DAT_0451eee0 < 1) {
+      DAT_0451c6e5 = 0;
+    }
+    else {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_3DFX_multisample"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_3DFX_multisample"[iVar2] == '\0') {
+              DAT_0451c6e5 = 1;
+              goto LAB_041a511a;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      DAT_0451c6e5 = 0;
+LAB_041a511a:
+      if (DAT_0451eedc == 0) goto LAB_041a31d3;
+    }
+    cVar3 = '\0';
+    if (0 < DAT_0451eee0) {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_AMD_gpu_association"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_AMD_gpu_association"[iVar2] == '\0') {
+              cVar3 = '\x01';
+              goto LAB_041a31e1;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      cVar3 = '\0';
+    }
+  }
+LAB_041a31e1:
+  DAT_0451c6e4 = cVar3;
+  if ((DAT_0451c6a4 != '\0') || (cVar3 != '\0')) {
+    iVar5 = glXGetProcAddressARB("glXBlitContextFramebufferAMD");
+    _DAT_0451c86c = iVar5;
+    _DAT_0451c868 = glXGetProcAddressARB("glXCreateAssociatedContextAMD");
+    bVar8 = _DAT_0451c868 != 0;
+    _DAT_0451c864 = glXGetProcAddressARB("glXCreateAssociatedContextAttribsAMD");
+    bVar9 = _DAT_0451c864 != 0;
+    _DAT_0451c860 = glXGetProcAddressARB("glXDeleteAssociatedContextAMD");
+    bVar10 = _DAT_0451c860 != 0;
+    _DAT_0451c85c = glXGetProcAddressARB(&DAT_04359a41);
+    bVar11 = _DAT_0451c85c != 0;
+    _DAT_0451c858 = glXGetProcAddressARB("glXGetCurrentAssociatedContextAMD");
+    bVar12 = _DAT_0451c858 != 0;
+    _DAT_0451c854 = glXGetProcAddressARB("glXGetGPUIDsAMD");
+    bVar13 = _DAT_0451c854 != 0;
+    _DAT_0451c850 = glXGetProcAddressARB("glXGetGPUInfoAMD");
+    bVar14 = _DAT_0451c850 != 0;
+    _DAT_0451c84c = glXGetProcAddressARB("glXMakeAssociatedContextCurrentAMD");
+    DAT_0451c6e4 = _DAT_0451c84c != 0 &&
+                   (bVar14 &&
+                   (bVar13 && (bVar12 && (bVar11 && (bVar10 && (bVar9 && (bVar8 && iVar5 != 0)))))))
+    ;
+  }
+  if (DAT_0451eedc == 0) {
+    DAT_0451c6e3 = FUN_041a2ad0();
+LAB_041a3373:
+    cVar3 = FUN_041a2ad0();
+  }
+  else {
+    if (DAT_0451eee0 < 1) {
+      DAT_0451c6e3 = 0;
+    }
+    else {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_ARB_context_flush_control"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_ARB_context_flush_control"[iVar2] == '\0') {
+              DAT_0451c6e3 = 1;
+              goto LAB_041a520a;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      DAT_0451c6e3 = 0;
+LAB_041a520a:
+      if (DAT_0451eedc == 0) goto LAB_041a3373;
+    }
+    cVar3 = '\0';
+    if (0 < DAT_0451eee0) {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_ARB_create_context"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_ARB_create_context"[iVar2] == '\0') {
+              cVar3 = '\x01';
+              goto LAB_041a3381;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      cVar3 = '\0';
+    }
+  }
+LAB_041a3381:
+  DAT_0451c6e2 = cVar3;
+  if ((DAT_0451c6a4 != '\0') || (cVar3 != '\0')) {
+    _DAT_0451c848 = glXGetProcAddressARB("glXCreateContextAttribsARB");
+    DAT_0451c6e2 = _DAT_0451c848 != 0;
+  }
+  if (DAT_0451eedc == 0) {
+    DAT_0451c6e1 = FUN_041a2ad0();
+LAB_041a3433:
+    DAT_0451c6e0 = FUN_041a2ad0();
+LAB_041a3446:
+    DAT_0451c6df = FUN_041a2ad0();
+LAB_041a3459:
+    DAT_0451c6de = FUN_041a2ad0();
+LAB_041a346c:
+    DAT_0451c6dd = FUN_041a2ad0();
+LAB_041a347f:
+    DAT_0451c6dc = FUN_041a2ad0();
+LAB_041a3492:
+    DAT_0451c6db = FUN_041a2ad0();
+LAB_041a34a5:
+    DAT_0451c6da = FUN_041a2ad0();
+LAB_041a34b8:
+    DAT_0451c6d9 = FUN_041a2ad0();
+LAB_041a34cb:
+    DAT_0451c6d8 = FUN_041a2ad0();
+LAB_041a34de:
+    cVar3 = FUN_041a2ad0();
+  }
+  else {
+    if (DAT_0451eee0 < 1) {
+      DAT_0451c6e1 = 0;
+    }
+    else {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_ARB_create_context_profile"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_ARB_create_context_profile"[iVar2] == '\0') {
+              DAT_0451c6e1 = 1;
+              goto LAB_041a530a;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      DAT_0451c6e1 = 0;
+LAB_041a530a:
+      if (DAT_0451eedc == 0) goto LAB_041a3433;
+    }
+    if (DAT_0451eee0 < 1) {
+      DAT_0451c6e0 = 0;
+    }
+    else {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_ARB_create_context_robustness"[iVar2] == pcVar7[iVar6 + 1])
+          {
+            iVar6 = iVar6 + 1;
+            if ("GLX_ARB_create_context_robustness"[iVar2] == '\0') {
+              DAT_0451c6e0 = 1;
+              goto LAB_041a537a;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      DAT_0451c6e0 = 0;
+LAB_041a537a:
+      if (DAT_0451eedc == 0) goto LAB_041a3446;
+    }
+    if (DAT_0451eee0 < 1) {
+      DAT_0451c6df = 0;
+    }
+    else {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_ARB_fbconfig_float"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_ARB_fbconfig_float"[iVar2] == '\0') {
+              DAT_0451c6df = 1;
+              goto LAB_041a53ea;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      DAT_0451c6df = 0;
+LAB_041a53ea:
+      if (DAT_0451eedc == 0) goto LAB_041a3459;
+    }
+    if (DAT_0451eee0 < 1) {
+      DAT_0451c6de = 0;
+    }
+    else {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_ARB_framebuffer_sRGB"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_ARB_framebuffer_sRGB"[iVar2] == '\0') {
+              DAT_0451c6de = 1;
+              goto LAB_041a545a;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      DAT_0451c6de = 0;
+LAB_041a545a:
+      if (DAT_0451eedc == 0) goto LAB_041a346c;
+    }
+    if (DAT_0451eee0 < 1) {
+      DAT_0451c6dd = 0;
+    }
+    else {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_ARB_get_proc_address"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_ARB_get_proc_address"[iVar2] == '\0') {
+              DAT_0451c6dd = 1;
+              goto LAB_041a54ca;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      DAT_0451c6dd = 0;
+LAB_041a54ca:
+      if (DAT_0451eedc == 0) goto LAB_041a347f;
+    }
+    if (DAT_0451eee0 < 1) {
+      DAT_0451c6dc = 0;
+    }
+    else {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_ARB_multisample"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_ARB_multisample"[iVar2] == '\0') {
+              DAT_0451c6dc = 1;
+              goto LAB_041a553a;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      DAT_0451c6dc = 0;
+LAB_041a553a:
+      if (DAT_0451eedc == 0) goto LAB_041a3492;
+    }
+    if (DAT_0451eee0 < 1) {
+      DAT_0451c6db = 0;
+    }
+    else {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1,
+                "GLX_ARB_robustness_application_isolation"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_ARB_robustness_application_isolation"[iVar2] == '\0') {
+              DAT_0451c6db = 1;
+              goto LAB_041a55aa;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      DAT_0451c6db = 0;
+LAB_041a55aa:
+      if (DAT_0451eedc == 0) goto LAB_041a34a5;
+    }
+    if (DAT_0451eee0 < 1) {
+      DAT_0451c6da = 0;
+    }
+    else {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1,
+                "GLX_ARB_robustness_share_group_isolation"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_ARB_robustness_share_group_isolation"[iVar2] == '\0') {
+              DAT_0451c6da = 1;
+              goto LAB_041a561a;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      DAT_0451c6da = 0;
+LAB_041a561a:
+      if (DAT_0451eedc == 0) goto LAB_041a34b8;
+    }
+    if (DAT_0451eee0 < 1) {
+      DAT_0451c6d9 = 0;
+    }
+    else {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_ARB_vertex_buffer_object"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_ARB_vertex_buffer_object"[iVar2] == '\0') {
+              DAT_0451c6d9 = 1;
+              goto LAB_041a568a;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      DAT_0451c6d9 = 0;
+LAB_041a568a:
+      if (DAT_0451eedc == 0) goto LAB_041a34cb;
+    }
+    if (DAT_0451eee0 < 1) {
+      DAT_0451c6d8 = 0;
+    }
+    else {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_ATI_pixel_format_float"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_ATI_pixel_format_float"[iVar2] == '\0') {
+              DAT_0451c6d8 = 1;
+              goto LAB_041a56fa;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      DAT_0451c6d8 = 0;
+LAB_041a56fa:
+      if (DAT_0451eedc == 0) goto LAB_041a34de;
+    }
+    cVar3 = '\0';
+    if (0 < DAT_0451eee0) {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_ATI_render_texture"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_ATI_render_texture"[iVar2] == '\0') {
+              cVar3 = '\x01';
+              goto LAB_041a34ec;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      cVar3 = '\0';
+    }
+  }
+LAB_041a34ec:
+  DAT_0451c6d7 = cVar3;
+  if ((DAT_0451c6a4 != '\0') || (cVar3 != '\0')) {
+    iVar5 = glXGetProcAddressARB("glXBindTexImageATI");
+    _DAT_0451c844 = iVar5;
+    _DAT_0451c840 = glXGetProcAddressARB("glXDrawableAttribATI");
+    bVar8 = _DAT_0451c840 != 0;
+    _DAT_0451c83c = glXGetProcAddressARB("glXReleaseTexImageATI");
+    DAT_0451c6d7 = _DAT_0451c83c != 0 && (bVar8 && iVar5 != 0);
+  }
+  if (DAT_0451eedc == 0) {
+    DAT_0451c6d6 = FUN_041a2ad0();
+LAB_041a35d3:
+    DAT_0451c6d5 = FUN_041a2ad0();
+LAB_041a35e6:
+    DAT_0451c6d4 = FUN_041a2ad0();
+LAB_041a35f9:
+    DAT_0451c6d3 = FUN_041a2ad0();
+LAB_041a360c:
+    DAT_0451c6d2 = FUN_041a2ad0();
+LAB_041a361f:
+    cVar3 = FUN_041a2ad0();
+  }
+  else {
+    if (DAT_0451eee0 < 1) {
+      DAT_0451c6d6 = 0;
+    }
+    else {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_EXT_buffer_age"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_EXT_buffer_age"[iVar2] == '\0') {
+              DAT_0451c6d6 = 1;
+              goto LAB_041a5192;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      DAT_0451c6d6 = 0;
+LAB_041a5192:
+      if (DAT_0451eedc == 0) goto LAB_041a35d3;
+    }
+    if (DAT_0451eee0 < 1) {
+      DAT_0451c6d5 = 0;
+    }
+    else {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_EXT_create_context_es2_profile"[iVar2] == pcVar7[iVar6 + 1]
+                ) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_EXT_create_context_es2_profile"[iVar2] == '\0') {
+              DAT_0451c6d5 = 1;
+              goto LAB_041a587a;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      DAT_0451c6d5 = 0;
+LAB_041a587a:
+      if (DAT_0451eedc == 0) goto LAB_041a35e6;
+    }
+    if (DAT_0451eee0 < 1) {
+      DAT_0451c6d4 = 0;
+    }
+    else {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_EXT_create_context_es_profile"[iVar2] == pcVar7[iVar6 + 1])
+          {
+            iVar6 = iVar6 + 1;
+            if ("GLX_EXT_create_context_es_profile"[iVar2] == '\0') {
+              DAT_0451c6d4 = 1;
+              goto LAB_041a597a;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      DAT_0451c6d4 = 0;
+LAB_041a597a:
+      if (DAT_0451eedc == 0) goto LAB_041a35f9;
+    }
+    if (DAT_0451eee0 < 1) {
+      DAT_0451c6d3 = 0;
+    }
+    else {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_EXT_fbconfig_packed_float"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_EXT_fbconfig_packed_float"[iVar2] == '\0') {
+              DAT_0451c6d3 = 1;
+              goto LAB_041a5afa;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      DAT_0451c6d3 = 0;
+LAB_041a5afa:
+      if (DAT_0451eedc == 0) goto LAB_041a360c;
+    }
+    if (DAT_0451eee0 < 1) {
+      DAT_0451c6d2 = 0;
+    }
+    else {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_EXT_framebuffer_sRGB"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_EXT_framebuffer_sRGB"[iVar2] == '\0') {
+              DAT_0451c6d2 = 1;
+              goto LAB_041a5b6a;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      DAT_0451c6d2 = 0;
+LAB_041a5b6a:
+      if (DAT_0451eedc == 0) goto LAB_041a361f;
+    }
+    cVar3 = '\0';
+    if (0 < DAT_0451eee0) {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_EXT_import_context"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_EXT_import_context"[iVar2] == '\0') {
+              cVar3 = '\x01';
+              goto LAB_041a362d;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      cVar3 = '\0';
+    }
+  }
+LAB_041a362d:
+  DAT_0451c6d1 = cVar3;
+  if ((DAT_0451c6a4 != '\0') || (cVar3 != '\0')) {
+    iVar5 = glXGetProcAddressARB("glXFreeContextEXT");
+    _DAT_0451c838 = iVar5;
+    _DAT_0451c834 = glXGetProcAddressARB("glXGetContextIDEXT");
+    bVar8 = _DAT_0451c834 != 0;
+    _DAT_0451c830 = glXGetProcAddressARB("glXImportContextEXT");
+    bVar9 = _DAT_0451c830 != 0;
+    _DAT_0451c82c = glXGetProcAddressARB("glXQueryContextInfoEXT");
+    DAT_0451c6d1 = _DAT_0451c82c != 0 && (bVar9 && (bVar8 && iVar5 != 0));
+  }
+  if (DAT_0451eedc == 0) {
+    DAT_0451c6d0 = FUN_041a2ad0();
+LAB_041a3733:
+    DAT_0451c6cf = FUN_041a2ad0();
+LAB_041a3746:
+    cVar3 = FUN_041a2ad0();
+  }
+  else {
+    if (DAT_0451eee0 < 1) {
+      DAT_0451c6d0 = 0;
+    }
+    else {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_EXT_scene_marker"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_EXT_scene_marker"[iVar2] == '\0') {
+              DAT_0451c6d0 = 1;
+              goto LAB_041a578a;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      DAT_0451c6d0 = 0;
+LAB_041a578a:
+      if (DAT_0451eedc == 0) goto LAB_041a3733;
+    }
+    if (DAT_0451eee0 < 1) {
+      DAT_0451c6cf = 0;
+    }
+    else {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_EXT_stereo_tree"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_EXT_stereo_tree"[iVar2] == '\0') {
+              DAT_0451c6cf = 1;
+              goto LAB_041a57fa;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      DAT_0451c6cf = 0;
+LAB_041a57fa:
+      if (DAT_0451eedc == 0) goto LAB_041a3746;
+    }
+    cVar3 = '\0';
+    if (0 < DAT_0451eee0) {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_EXT_swap_control"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_EXT_swap_control"[iVar2] == '\0') {
+              cVar3 = '\x01';
+              goto LAB_041a3754;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      cVar3 = '\0';
+    }
+  }
+LAB_041a3754:
+  DAT_0451c6ce = cVar3;
+  if ((DAT_0451c6a4 != '\0') || (cVar3 != '\0')) {
+    _DAT_0451c828 = glXGetProcAddressARB("glXSwapIntervalEXT");
+    DAT_0451c6ce = _DAT_0451c828 != 0;
+  }
+  if (DAT_0451eedc == 0) {
+    DAT_0451c6cd = FUN_041a2ad0();
+LAB_041a3803:
+    cVar3 = FUN_041a2ad0();
+  }
+  else {
+    if (DAT_0451eee0 < 1) {
+      DAT_0451c6cd = 0;
+    }
+    else {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_EXT_swap_control_tear"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_EXT_swap_control_tear"[iVar2] == '\0') {
+              DAT_0451c6cd = 1;
+              goto LAB_041a5282;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      DAT_0451c6cd = 0;
+LAB_041a5282:
+      if (DAT_0451eedc == 0) goto LAB_041a3803;
+    }
+    cVar3 = '\0';
+    if (0 < DAT_0451eee0) {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_EXT_texture_from_pixmap"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_EXT_texture_from_pixmap"[iVar2] == '\0') {
+              cVar3 = '\x01';
+              goto LAB_041a3811;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      cVar3 = '\0';
+    }
+  }
+LAB_041a3811:
+  DAT_0451c6cc = cVar3;
+  if ((DAT_0451c6a4 != '\0') || (cVar3 != '\0')) {
+    iVar5 = glXGetProcAddressARB("glXBindTexImageEXT");
+    _DAT_0451c824 = iVar5;
+    _DAT_0451c820 = glXGetProcAddressARB("glXReleaseTexImageEXT");
+    DAT_0451c6cc = _DAT_0451c820 != 0 && iVar5 != 0;
+  }
+  if (DAT_0451eedc == 0) {
+    DAT_0451c6cb = FUN_041a2ad0();
+LAB_041a38d3:
+    DAT_0451c6ca = FUN_041a2ad0();
+LAB_041a38e6:
+    DAT_0451c6c9 = FUN_041a2ad0();
+LAB_041a38f9:
+    cVar3 = FUN_041a2ad0();
+  }
+  else {
+    if (DAT_0451eee0 < 1) {
+      DAT_0451c6cb = 0;
+    }
+    else {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_EXT_visual_info"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_EXT_visual_info"[iVar2] == '\0') {
+              DAT_0451c6cb = 1;
+              goto LAB_041a58fa;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      DAT_0451c6cb = 0;
+LAB_041a58fa:
+      if (DAT_0451eedc == 0) goto LAB_041a38d3;
+    }
+    if (DAT_0451eee0 < 1) {
+      DAT_0451c6ca = 0;
+    }
+    else {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_EXT_visual_rating"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_EXT_visual_rating"[iVar2] == '\0') {
+              DAT_0451c6ca = 1;
+              goto LAB_041a5a0a;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      DAT_0451c6ca = 0;
+LAB_041a5a0a:
+      if (DAT_0451eedc == 0) goto LAB_041a38e6;
+    }
+    if (DAT_0451eee0 < 1) {
+      DAT_0451c6c9 = 0;
+    }
+    else {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_INTEL_swap_event"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_INTEL_swap_event"[iVar2] == '\0') {
+              DAT_0451c6c9 = 1;
+              goto LAB_041a5a7a;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      DAT_0451c6c9 = 0;
+LAB_041a5a7a:
+      if (DAT_0451eedc == 0) goto LAB_041a38f9;
+    }
+    cVar3 = '\0';
+    if (0 < DAT_0451eee0) {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_MESA_agp_offset"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_MESA_agp_offset"[iVar2] == '\0') {
+              cVar3 = '\x01';
+              goto LAB_041a3907;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      cVar3 = '\0';
+    }
+  }
+LAB_041a3907:
+  DAT_0451c6c8 = cVar3;
+  if ((DAT_0451c6a4 != '\0') || (cVar3 != '\0')) {
+    _DAT_0451c81c = glXGetProcAddressARB("glXGetAGPOffsetMESA");
+    DAT_0451c6c8 = _DAT_0451c81c != 0;
+  }
+  if (DAT_0451eedc == 0) {
+    cVar3 = FUN_041a2ad0();
+  }
+  else {
+    cVar3 = '\0';
+    if (0 < DAT_0451eee0) {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_MESA_copy_sub_buffer"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_MESA_copy_sub_buffer"[iVar2] == '\0') {
+              cVar3 = '\x01';
+              goto LAB_041a3998;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      cVar3 = '\0';
+    }
+  }
+LAB_041a3998:
+  DAT_0451c6c7 = cVar3;
+  if ((DAT_0451c6a4 != '\0') || (cVar3 != '\0')) {
+    _DAT_0451c818 = glXGetProcAddressARB("glXCopySubBufferMESA");
+    DAT_0451c6c7 = _DAT_0451c818 != 0;
+  }
+  if (DAT_0451eedc == 0) {
+    cVar3 = FUN_041a2ad0();
+  }
+  else {
+    cVar3 = '\0';
+    if (0 < DAT_0451eee0) {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_MESA_pixmap_colormap"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_MESA_pixmap_colormap"[iVar2] == '\0') {
+              cVar3 = '\x01';
+              goto LAB_041a3a28;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      cVar3 = '\0';
+    }
+  }
+LAB_041a3a28:
+  DAT_0451c6c6 = cVar3;
+  if ((DAT_0451c6a4 != '\0') || (cVar3 != '\0')) {
+    _DAT_0451c814 = glXGetProcAddressARB("glXCreateGLXPixmapMESA");
+    DAT_0451c6c6 = _DAT_0451c814 != 0;
+  }
+  if (DAT_0451eedc == 0) {
+    cVar3 = FUN_041a2ad0();
+  }
+  else {
+    cVar3 = '\0';
+    if (0 < DAT_0451eee0) {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_MESA_query_renderer"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_MESA_query_renderer"[iVar2] == '\0') {
+              cVar3 = '\x01';
+              goto LAB_041a3ab8;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      cVar3 = '\0';
+    }
+  }
+LAB_041a3ab8:
+  DAT_0451c6c5 = cVar3;
+  if ((DAT_0451c6a4 != '\0') || (cVar3 != '\0')) {
+    iVar5 = glXGetProcAddressARB("glXQueryCurrentRendererIntegerMESA");
+    DAT_0451c810 = iVar5;
+    _DAT_0451c80c = glXGetProcAddressARB("glXQueryCurrentRendererStringMESA");
+    bVar8 = _DAT_0451c80c != 0;
+    _DAT_0451c808 = glXGetProcAddressARB("glXQueryRendererIntegerMESA");
+    bVar9 = _DAT_0451c808 != 0;
+    _DAT_0451c804 = glXGetProcAddressARB("glXQueryRendererStringMESA");
+    DAT_0451c6c5 = _DAT_0451c804 != 0 && (bVar9 && (bVar8 && iVar5 != 0));
+  }
+  if (DAT_0451eedc == 0) {
+    cVar3 = FUN_041a2ad0();
+  }
+  else {
+    cVar3 = '\0';
+    if (0 < DAT_0451eee0) {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_MESA_release_buffers"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_MESA_release_buffers"[iVar2] == '\0') {
+              cVar3 = '\x01';
+              goto LAB_041a3ba0;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      cVar3 = '\0';
+    }
+  }
+LAB_041a3ba0:
+  DAT_0451c6c4 = cVar3;
+  if ((DAT_0451c6a4 != '\0') || (cVar3 != '\0')) {
+    _DAT_0451c800 = glXGetProcAddressARB("glXReleaseBuffersMESA");
+    DAT_0451c6c4 = _DAT_0451c800 != 0;
+  }
+  if (DAT_0451eedc == 0) {
+    cVar3 = FUN_041a2ad0();
+  }
+  else {
+    cVar3 = '\0';
+    if (0 < DAT_0451eee0) {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_MESA_set_3dfx_mode"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_MESA_set_3dfx_mode"[iVar2] == '\0') {
+              cVar3 = '\x01';
+              goto LAB_041a3c30;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      cVar3 = '\0';
+    }
+  }
+LAB_041a3c30:
+  DAT_0451c6c3 = cVar3;
+  if ((DAT_0451c6a4 != '\0') || (cVar3 != '\0')) {
+    _DAT_0451c7fc = glXGetProcAddressARB("glXSet3DfxModeMESA");
+    DAT_0451c6c3 = _DAT_0451c7fc != 0;
+  }
+  if (DAT_0451eedc == 0) {
+    cVar3 = FUN_041a2ad0();
+  }
+  else {
+    cVar3 = '\0';
+    if (0 < DAT_0451eee0) {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_MESA_swap_control"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_MESA_swap_control"[iVar2] == '\0') {
+              cVar3 = '\x01';
+              goto LAB_041a3cc0;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      cVar3 = '\0';
+    }
+  }
+LAB_041a3cc0:
+  DAT_0451c6c2 = cVar3;
+  if ((DAT_0451c6a4 != '\0') || (cVar3 != '\0')) {
+    iVar5 = glXGetProcAddressARB("glXGetSwapIntervalMESA");
+    _DAT_0451c7f8 = iVar5;
+    _DAT_0451c7f4 = glXGetProcAddressARB("glXSwapIntervalMESA");
+    DAT_0451c6c2 = _DAT_0451c7f4 != 0 && iVar5 != 0;
+  }
+  if (DAT_0451eedc == 0) {
+    cVar3 = FUN_041a2ad0();
+  }
+  else {
+    cVar3 = '\0';
+    if (0 < DAT_0451eee0) {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_NV_copy_buffer"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_NV_copy_buffer"[iVar2] == '\0') {
+              cVar3 = '\x01';
+              goto LAB_041a3d68;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      cVar3 = '\0';
+    }
+  }
+LAB_041a3d68:
+  DAT_0451c6c1 = cVar3;
+  if ((DAT_0451c6a4 != '\0') || (cVar3 != '\0')) {
+    iVar5 = glXGetProcAddressARB("glXCopyBufferSubDataNV");
+    _DAT_0451c7f0 = iVar5;
+    _DAT_0451c7ec = glXGetProcAddressARB("glXNamedCopyBufferSubDataNV");
+    DAT_0451c6c1 = _DAT_0451c7ec != 0 && iVar5 != 0;
+  }
+  if (DAT_0451eedc == 0) {
+    cVar3 = FUN_041a2ad0();
+  }
+  else {
+    cVar3 = '\0';
+    if (0 < DAT_0451eee0) {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_NV_copy_image"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_NV_copy_image"[iVar2] == '\0') {
+              cVar3 = '\x01';
+              goto LAB_041a3e10;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      cVar3 = '\0';
+    }
+  }
+LAB_041a3e10:
+  DAT_0451c6c0 = cVar3;
+  if ((DAT_0451c6a4 != '\0') || (cVar3 != '\0')) {
+    _DAT_0451c7e8 = glXGetProcAddressARB("glXCopyImageSubDataNV");
+    DAT_0451c6c0 = _DAT_0451c7e8 != 0;
+  }
+  if (DAT_0451eedc == 0) {
+    cVar3 = FUN_041a2ad0();
+  }
+  else {
+    cVar3 = '\0';
+    if (0 < DAT_0451eee0) {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_NV_delay_before_swap"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_NV_delay_before_swap"[iVar2] == '\0') {
+              cVar3 = '\x01';
+              goto LAB_041a3ea0;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      cVar3 = '\0';
+    }
+  }
+LAB_041a3ea0:
+  DAT_0451c6bf = cVar3;
+  if ((DAT_0451c6a4 != '\0') || (cVar3 != '\0')) {
+    _DAT_0451c7e4 = glXGetProcAddressARB("glXDelayBeforeSwapNV");
+    DAT_0451c6bf = _DAT_0451c7e4 != 0;
+  }
+  if (DAT_0451eedc == 0) {
+    DAT_0451c6be = FUN_041a2ad0();
+LAB_041a3f43:
+    DAT_0451c6bd = FUN_041a2ad0();
+LAB_041a3f56:
+    cVar3 = FUN_041a2ad0();
+  }
+  else {
+    if (DAT_0451eee0 < 1) {
+      DAT_0451c6be = 0;
+    }
+    else {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_NV_float_buffer"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_NV_float_buffer"[iVar2] == '\0') {
+              DAT_0451c6be = 1;
+              goto LAB_041a4c7a;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      DAT_0451c6be = 0;
+LAB_041a4c7a:
+      if (DAT_0451eedc == 0) goto LAB_041a3f43;
+    }
+    if (DAT_0451eee0 < 1) {
+      DAT_0451c6bd = 0;
+    }
+    else {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_NV_multisample_coverage"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_NV_multisample_coverage"[iVar2] == '\0') {
+              DAT_0451c6bd = 1;
+              goto LAB_041a4cfa;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      DAT_0451c6bd = 0;
+LAB_041a4cfa:
+      if (DAT_0451eedc == 0) goto LAB_041a3f56;
+    }
+    cVar3 = '\0';
+    if (0 < DAT_0451eee0) {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_NV_present_video"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_NV_present_video"[iVar2] == '\0') {
+              cVar3 = '\x01';
+              goto LAB_041a3f64;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      cVar3 = '\0';
+    }
+  }
+LAB_041a3f64:
+  DAT_0451c6bc = cVar3;
+  if ((DAT_0451c6a4 != '\0') || (cVar3 != '\0')) {
+    iVar5 = glXGetProcAddressARB("glXBindVideoDeviceNV");
+    _DAT_0451c7e0 = iVar5;
+    _DAT_0451c7dc = glXGetProcAddressARB("glXEnumerateVideoDevicesNV");
+    DAT_0451c6bc = _DAT_0451c7dc != 0 && iVar5 != 0;
+  }
+  if (DAT_0451eedc == 0) {
+    cVar3 = FUN_041a2ad0();
+  }
+  else {
+    cVar3 = '\0';
+    if (0 < DAT_0451eee0) {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_NV_swap_group"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_NV_swap_group"[iVar2] == '\0') {
+              cVar3 = '\x01';
+              goto LAB_041a4008;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      cVar3 = '\0';
+    }
+  }
+LAB_041a4008:
+  DAT_0451c6bb = cVar3;
+  if ((DAT_0451c6a4 != '\0') || (cVar3 != '\0')) {
+    cVar3 = FUN_041a2470();
+    DAT_0451c6bb = cVar3 == '\0';
+  }
+  if (DAT_0451eedc == 0) {
+    cVar3 = FUN_041a2ad0();
+  }
+  else {
+    cVar3 = '\0';
+    if (0 < DAT_0451eee0) {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_NV_vertex_array_range"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_NV_vertex_array_range"[iVar2] == '\0') {
+              cVar3 = '\x01';
+              goto LAB_041a4088;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      cVar3 = '\0';
+    }
+  }
+LAB_041a4088:
+  DAT_0451c6ba = cVar3;
+  if ((DAT_0451c6a4 != '\0') || (cVar3 != '\0')) {
+    iVar5 = glXGetProcAddressARB("glXAllocateMemoryNV");
+    _DAT_0451c7c0 = iVar5;
+    _DAT_0451c7bc = glXGetProcAddressARB("glXFreeMemoryNV");
+    DAT_0451c6ba = _DAT_0451c7bc != 0 && iVar5 != 0;
+  }
+  if (DAT_0451eedc == 0) {
+    cVar3 = FUN_041a2ad0();
+  }
+  else {
+    cVar3 = '\0';
+    if (0 < DAT_0451eee0) {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_NV_video_capture"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_NV_video_capture"[iVar2] == '\0') {
+              cVar3 = '\x01';
+              goto LAB_041a4130;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      cVar3 = '\0';
+    }
+  }
+LAB_041a4130:
+  DAT_0451c6b9 = cVar3;
+  if ((DAT_0451c6a4 != '\0') || (cVar3 != '\0')) {
+    cVar3 = FUN_041a2510();
+    DAT_0451c6b9 = cVar3 == '\0';
+  }
+  if (DAT_0451eedc == 0) {
+    cVar3 = FUN_041a2ad0();
+  }
+  else {
+    cVar3 = '\0';
+    if (0 < DAT_0451eee0) {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (pcVar1 = &DAT_0435a038 + iVar6, *pcVar1 == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if (*pcVar1 == '\0') {
+              cVar3 = '\x01';
+              goto LAB_041a41b8;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      cVar3 = '\0';
+    }
+  }
+LAB_041a41b8:
+  DAT_0451c6b8 = cVar3;
+  if ((DAT_0451c6a4 != '\0') || (cVar3 != '\0')) {
+    cVar3 = FUN_041a25a0();
+    DAT_0451c6b8 = cVar3 == '\0';
+  }
+  if (DAT_0451eedc == 0) {
+    DAT_0451c6b7 = FUN_041a2ad0();
+LAB_041a4253:
+    cVar3 = FUN_041a2ad0();
+  }
+  else {
+    if (DAT_0451eee0 < 1) {
+      DAT_0451c6b7 = 0;
+    }
+    else {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_OML_swap_method"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_OML_swap_method"[iVar2] == '\0') {
+              DAT_0451c6b7 = 1;
+              goto LAB_041a4d7a;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      DAT_0451c6b7 = 0;
+LAB_041a4d7a:
+      if (DAT_0451eedc == 0) goto LAB_041a4253;
+    }
+    cVar3 = '\0';
+    if (0 < DAT_0451eee0) {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_OML_sync_control"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_OML_sync_control"[iVar2] == '\0') {
+              cVar3 = '\x01';
+              goto LAB_041a4261;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      cVar3 = '\0';
+    }
+  }
+LAB_041a4261:
+  DAT_0451c6b6 = cVar3;
+  if ((DAT_0451c6a4 != '\0') || (cVar3 != '\0')) {
+    cVar3 = FUN_041a2640();
+    DAT_0451c6b6 = cVar3 == '\0';
+  }
+  if (DAT_0451eedc == 0) {
+    DAT_0451c6b5 = FUN_041a2ad0();
+LAB_041a4303:
+    DAT_0451c6b4 = FUN_041a2ad0();
+LAB_041a4316:
+    DAT_0451c6b3 = FUN_041a2ad0();
+LAB_041a4329:
+    DAT_0451c6b2 = FUN_041a2ad0();
+LAB_041a433c:
+    cVar3 = FUN_041a2ad0();
+  }
+  else {
+    if (DAT_0451eee0 < 1) {
+      DAT_0451c6b5 = 0;
+    }
+    else {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_SGIS_blended_overlay"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_SGIS_blended_overlay"[iVar2] == '\0') {
+              DAT_0451c6b5 = 1;
+              goto LAB_041a4e22;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      DAT_0451c6b5 = 0;
+LAB_041a4e22:
+      if (DAT_0451eedc == 0) goto LAB_041a4303;
+    }
+    if (DAT_0451eee0 < 1) {
+      DAT_0451c6b4 = 0;
+    }
+    else {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_SGIS_color_range"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_SGIS_color_range"[iVar2] == '\0') {
+              DAT_0451c6b4 = 1;
+              goto LAB_041a4eca;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      DAT_0451c6b4 = 0;
+LAB_041a4eca:
+      if (DAT_0451eedc == 0) goto LAB_041a4316;
+    }
+    if (DAT_0451eee0 < 1) {
+      DAT_0451c6b3 = 0;
+    }
+    else {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_SGIS_multisample"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_SGIS_multisample"[iVar2] == '\0') {
+              DAT_0451c6b3 = 1;
+              goto LAB_041a4f3a;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      DAT_0451c6b3 = 0;
+LAB_041a4f3a:
+      if (DAT_0451eedc == 0) goto LAB_041a4329;
+    }
+    if (DAT_0451eee0 < 1) {
+      DAT_0451c6b2 = 0;
+    }
+    else {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_SGIS_shared_multisample"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_SGIS_shared_multisample"[iVar2] == '\0') {
+              DAT_0451c6b2 = 1;
+              goto LAB_041a4faa;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      DAT_0451c6b2 = 0;
+LAB_041a4faa:
+      if (DAT_0451eedc == 0) goto LAB_041a433c;
+    }
+    cVar3 = '\0';
+    if (0 < DAT_0451eee0) {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_SGIX_fbconfig"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_SGIX_fbconfig"[iVar2] == '\0') {
+              cVar3 = '\x01';
+              goto LAB_041a434a;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      cVar3 = '\0';
+    }
+  }
+LAB_041a434a:
+  DAT_0451c6b1 = cVar3;
+  if ((DAT_0451c6a4 != '\0') || (cVar3 != '\0')) {
+    cVar3 = FUN_041a26d0();
+    DAT_0451c6b1 = cVar3 == '\0';
+  }
+  if (DAT_0451eedc == 0) {
+    cVar3 = FUN_041a2ad0();
+  }
+  else {
+    cVar3 = '\0';
+    if (0 < DAT_0451eee0) {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_SGIX_hyperpipe"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_SGIX_hyperpipe"[iVar2] == '\0') {
+              cVar3 = '\x01';
+              goto LAB_041a43c8;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      cVar3 = '\0';
+    }
+  }
+LAB_041a43c8:
+  DAT_0451c6b0 = cVar3;
+  if ((DAT_0451c6a4 != '\0') || (cVar3 != '\0')) {
+    cVar3 = FUN_041a2770();
+    DAT_0451c6b0 = cVar3 == '\0';
+  }
+  if (DAT_0451eedc == 0) {
+    cVar3 = FUN_041a2ad0();
+  }
+  else {
+    cVar3 = '\0';
+    if (0 < DAT_0451eee0) {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_SGIX_pbuffer"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_SGIX_pbuffer"[iVar2] == '\0') {
+              cVar3 = '\x01';
+              goto LAB_041a4448;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      cVar3 = '\0';
+    }
+  }
+LAB_041a4448:
+  DAT_0451c6af = cVar3;
+  if ((DAT_0451c6a4 != '\0') || (cVar3 != '\0')) {
+    cVar3 = FUN_041a2840();
+    DAT_0451c6af = cVar3 == '\0';
+  }
+  if (DAT_0451eedc == 0) {
+    cVar3 = FUN_041a2ad0();
+  }
+  else {
+    cVar3 = '\0';
+    if (0 < DAT_0451eee0) {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_SGIX_swap_barrier"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_SGIX_swap_barrier"[iVar2] == '\0') {
+              cVar3 = '\x01';
+              goto LAB_041a44c8;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      cVar3 = '\0';
+    }
+  }
+LAB_041a44c8:
+  DAT_0451c6ae = cVar3;
+  if ((DAT_0451c6a4 != '\0') || (cVar3 != '\0')) {
+    iVar5 = glXGetProcAddressARB("glXBindSwapBarrierSGIX");
+    _DAT_0451c72c = iVar5;
+    _DAT_0451c728 = glXGetProcAddressARB("glXQueryMaxSwapBarriersSGIX");
+    DAT_0451c6ae = _DAT_0451c728 != 0 && iVar5 != 0;
+  }
+  if (DAT_0451eedc == 0) {
+    cVar3 = FUN_041a2ad0();
+  }
+  else {
+    cVar3 = '\0';
+    if (0 < DAT_0451eee0) {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_SGIX_swap_group"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_SGIX_swap_group"[iVar2] == '\0') {
+              cVar3 = '\x01';
+              goto LAB_041a4570;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      cVar3 = '\0';
+    }
+  }
+LAB_041a4570:
+  DAT_0451c6ad = cVar3;
+  if ((DAT_0451c6a4 != '\0') || (cVar3 != '\0')) {
+    _DAT_0451c724 = glXGetProcAddressARB("glXJoinSwapGroupSGIX");
+    DAT_0451c6ad = _DAT_0451c724 != 0;
+  }
+  if (DAT_0451eedc == 0) {
+    cVar3 = FUN_041a2ad0();
+  }
+  else {
+    cVar3 = '\0';
+    if (0 < DAT_0451eee0) {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_SGIX_video_resize"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_SGIX_video_resize"[iVar2] == '\0') {
+              cVar3 = '\x01';
+              goto LAB_041a4600;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      cVar3 = '\0';
+    }
+  }
+LAB_041a4600:
+  DAT_0451c6ac = cVar3;
+  if ((DAT_0451c6a4 != '\0') || (cVar3 != '\0')) {
+    cVar3 = FUN_041a28d0();
+    DAT_0451c6ac = cVar3 == '\0';
+  }
+  if (DAT_0451eedc == 0) {
+    DAT_0451c6ab = FUN_041a2ad0();
+LAB_041a46a3:
+    cVar3 = FUN_041a2ad0();
+  }
+  else {
+    if (DAT_0451eee0 < 1) {
+      DAT_0451c6ab = 0;
+    }
+    else {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_SGIX_visual_select_group"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_SGIX_visual_select_group"[iVar2] == '\0') {
+              DAT_0451c6ab = 1;
+              goto LAB_041a509a;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      DAT_0451c6ab = 0;
+LAB_041a509a:
+      if (DAT_0451eedc == 0) goto LAB_041a46a3;
+    }
+    cVar3 = '\0';
+    if (0 < DAT_0451eee0) {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_SGI_cushion"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_SGI_cushion"[iVar2] == '\0') {
+              cVar3 = '\x01';
+              goto LAB_041a46b1;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      cVar3 = '\0';
+    }
+  }
+LAB_041a46b1:
+  DAT_0451c6aa = cVar3;
+  if ((DAT_0451c6a4 != '\0') || (cVar3 != '\0')) {
+    _DAT_0451c70c = glXGetProcAddressARB("glXCushionSGI");
+    DAT_0451c6aa = _DAT_0451c70c != 0;
+  }
+  if (DAT_0451eedc == 0) {
+    cVar3 = FUN_041a2ad0();
+  }
+  else {
+    cVar3 = '\0';
+    if (0 < DAT_0451eee0) {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_SGI_make_current_read"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_SGI_make_current_read"[iVar2] == '\0') {
+              cVar3 = '\x01';
+              goto LAB_041a4740;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      cVar3 = '\0';
+    }
+  }
+LAB_041a4740:
+  DAT_0451c6a9 = cVar3;
+  if ((DAT_0451c6a4 != '\0') || (cVar3 != '\0')) {
+    iVar5 = glXGetProcAddressARB("glXGetCurrentReadDrawableSGI");
+    _DAT_0451c708 = iVar5;
+    _DAT_0451c704 = glXGetProcAddressARB("glXMakeCurrentReadSGI");
+    DAT_0451c6a9 = _DAT_0451c704 != 0 && iVar5 != 0;
+  }
+  if (DAT_0451eedc == 0) {
+    cVar3 = FUN_041a2ad0();
+  }
+  else {
+    cVar3 = '\0';
+    if (0 < DAT_0451eee0) {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_SGI_swap_control"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_SGI_swap_control"[iVar2] == '\0') {
+              cVar3 = '\x01';
+              goto LAB_041a47e8;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      cVar3 = '\0';
+    }
+  }
+LAB_041a47e8:
+  DAT_0451c6a8 = cVar3;
+  if ((DAT_0451c6a4 != '\0') || (cVar3 != '\0')) {
+    _DAT_0451c700 = glXGetProcAddressARB("glXSwapIntervalSGI");
+    DAT_0451c6a8 = _DAT_0451c700 != 0;
+  }
+  if (DAT_0451eedc == 0) {
+    cVar3 = FUN_041a2ad0();
+  }
+  else {
+    cVar3 = '\0';
+    if (0 < DAT_0451eee0) {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_SGI_video_sync"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_SGI_video_sync"[iVar2] == '\0') {
+              cVar3 = '\x01';
+              goto LAB_041a4878;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      cVar3 = '\0';
+    }
+  }
+LAB_041a4878:
+  DAT_0451c6a7 = cVar3;
+  if ((DAT_0451c6a4 != '\0') || (cVar3 != '\0')) {
+    iVar5 = glXGetProcAddressARB("glXGetVideoSyncSGI");
+    _DAT_0451c6fc = iVar5;
+    _DAT_0451c6f8 = glXGetProcAddressARB("glXWaitVideoSyncSGI");
+    DAT_0451c6a7 = _DAT_0451c6f8 != 0 && iVar5 != 0;
+  }
+  if (DAT_0451eedc == 0) {
+    cVar3 = FUN_041a2ad0();
+  }
+  else {
+    cVar3 = '\0';
+    if (0 < DAT_0451eee0) {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_SUN_get_transparent_index"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_SUN_get_transparent_index"[iVar2] == '\0') {
+              cVar3 = '\x01';
+              goto LAB_041a4920;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      cVar3 = '\0';
+    }
+  }
+LAB_041a4920:
+  DAT_0451c6a6 = cVar3;
+  if ((DAT_0451c6a4 != '\0') || (cVar3 != '\0')) {
+    _DAT_0451c6f4 = glXGetProcAddressARB("glXGetTransparentIndexSUN");
+    DAT_0451c6a6 = _DAT_0451c6f4 != 0;
+  }
+  if (DAT_0451eedc == 0) {
+    cVar3 = FUN_041a2ad0();
+  }
+  else {
+    cVar3 = '\0';
+    if (0 < DAT_0451eee0) {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_SUN_video_resize"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_SUN_video_resize"[iVar2] == '\0') {
+              cVar3 = '\x01';
+              goto LAB_041a3165;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      cVar3 = '\0';
+    }
+  }
+LAB_041a3165:
+  DAT_0451c6a5 = cVar3;
+  if ((DAT_0451c6a4 != '\0') || (cVar3 != '\0')) {
+    iVar5 = glXGetProcAddressARB("glXGetVideoResizeSUN");
+    _DAT_0451c6f0 = iVar5;
+    _DAT_0451c6ec = glXGetProcAddressARB("glXVideoResizeSUN");
+    DAT_0451c6a5 = _DAT_0451c6ec != 0 && iVar5 != 0;
+  }
+  return 0;
+}
+
+
+
+=== 041a10d0 FUN_041a10d0 ===
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+bool FUN_041a10d0(void)
+
+{
+  int iVar1;
+  bool bVar2;
+  bool bVar3;
+  bool bVar4;
+  bool bVar5;
+  bool bVar6;
+  bool bVar7;
+  bool bVar8;
+  bool bVar9;
+  bool bVar10;
+  bool bVar11;
+  bool bVar12;
+  bool bVar13;
+  bool bVar14;
+  bool bVar15;
+  bool bVar16;
+  bool bVar17;
+  bool bVar18;
+  bool bVar19;
+  bool bVar20;
+  bool bVar21;
+  bool bVar22;
+  bool bVar23;
+  bool bVar24;
+  bool bVar25;
+  bool bVar26;
+  bool bVar27;
+  bool bVar28;
+  bool bVar29;
+  bool bVar30;
+  bool bVar31;
+  bool bVar32;
+  bool bVar33;
+  bool bVar34;
+  bool bVar35;
+  bool bVar36;
+  bool bVar37;
+  bool bVar38;
+  bool bVar39;
+  bool bVar40;
+  bool bVar41;
+  bool bVar42;
+  bool bVar43;
+  bool bVar44;
+  bool bVar45;
+  bool bVar46;
+  bool bVar47;
+  bool bVar48;
+  bool bVar49;
+  bool bVar50;
+  bool bVar51;
+  bool bVar52;
+  bool bVar53;
+  bool bVar54;
+  bool bVar55;
+  bool bVar56;
+  bool bVar57;
+  bool bVar58;
+  bool bVar59;
+  bool bVar60;
+  bool bVar61;
+  bool bVar62;
+  bool bVar63;
+  
+  iVar1 = glXGetProcAddressARB("glAreProgramsResidentNV");
+  _DAT_0451cea0 = iVar1;
+  _DAT_0451ce9c = glXGetProcAddressARB("glBindProgramNV");
+  bVar2 = _DAT_0451ce9c == 0;
+  _DAT_0451ce98 = glXGetProcAddressARB("glDeleteProgramsNV");
+  bVar3 = _DAT_0451ce98 == 0;
+  _DAT_0451ce94 = glXGetProcAddressARB("glExecuteProgramNV");
+  bVar4 = _DAT_0451ce94 == 0;
+  _DAT_0451ce90 = glXGetProcAddressARB("glGenProgramsNV");
+  bVar5 = _DAT_0451ce90 == 0;
+  _DAT_0451ce8c = glXGetProcAddressARB("glGetProgramParameterdvNV");
+  bVar6 = _DAT_0451ce8c == 0;
+  _DAT_0451ce88 = glXGetProcAddressARB("glGetProgramParameterfvNV");
+  bVar7 = _DAT_0451ce88 == 0;
+  _DAT_0451ce84 = glXGetProcAddressARB("glGetProgramStringNV");
+  bVar8 = _DAT_0451ce84 == 0;
+  _DAT_0451ce80 = glXGetProcAddressARB("glGetProgramivNV");
+  bVar9 = _DAT_0451ce80 == 0;
+  _DAT_0451ce7c = glXGetProcAddressARB("glGetTrackMatrixivNV");
+  bVar10 = _DAT_0451ce7c == 0;
+  _DAT_0451ce78 = glXGetProcAddressARB("glGetVertexAttribPointervNV");
+  bVar11 = _DAT_0451ce78 == 0;
+  _DAT_0451ce74 = glXGetProcAddressARB("glGetVertexAttribdvNV");
+  bVar12 = _DAT_0451ce74 == 0;
+  _DAT_0451ce70 = glXGetProcAddressARB("glGetVertexAttribfvNV");
+  bVar13 = _DAT_0451ce70 == 0;
+  _DAT_0451ce6c = glXGetProcAddressARB("glGetVertexAttribivNV");
+  bVar14 = _DAT_0451ce6c == 0;
+  _DAT_0451ce68 = glXGetProcAddressARB("glIsProgramNV");
+  bVar15 = _DAT_0451ce68 == 0;
+  _DAT_0451ce64 = glXGetProcAddressARB("glLoadProgramNV");
+  bVar16 = _DAT_0451ce64 == 0;
+  _DAT_0451ce60 = glXGetProcAddressARB("glProgramParameter4dNV");
+  bVar17 = _DAT_0451ce60 == 0;
+  _DAT_0451ce5c = glXGetProcAddressARB("glProgramParameter4dvNV");
+  bVar18 = _DAT_0451ce5c == 0;
+  _DAT_0451ce58 = glXGetProcAddressARB("glProgramParameter4fNV");
+  bVar19 = _DAT_0451ce58 == 0;
+  _DAT_0451ce54 = glXGetProcAddressARB("glProgramParameter4fvNV");
+  bVar20 = _DAT_0451ce54 == 0;
+  _DAT_0451ce50 = glXGetProcAddressARB("glProgramParameters4dvNV");
+  bVar21 = _DAT_0451ce50 == 0;
+  _DAT_0451ce4c = glXGetProcAddressARB("glProgramParameters4fvNV");
+  bVar22 = _DAT_0451ce4c == 0;
+  _DAT_0451ce48 = glXGetProcAddressARB("glRequestResidentProgramsNV");
+  bVar23 = _DAT_0451ce48 == 0;
+  _DAT_0451ce44 = glXGetProcAddressARB("glTrackMatrixNV");
+  bVar24 = _DAT_0451ce44 == 0;
+  _DAT_0451ce40 = glXGetProcAddressARB("glVertexAttrib1dNV");
+  bVar25 = _DAT_0451ce40 == 0;
+  _DAT_0451ce3c = glXGetProcAddressARB("glVertexAttrib1dvNV");
+  bVar26 = _DAT_0451ce3c == 0;
+  _DAT_0451ce38 = glXGetProcAddressARB("glVertexAttrib1fNV");
+  bVar27 = _DAT_0451ce38 == 0;
+  _DAT_0451ce34 = glXGetProcAddressARB("glVertexAttrib1fvNV");
+  bVar28 = _DAT_0451ce34 == 0;
+  _DAT_0451ce30 = glXGetProcAddressARB("glVertexAttrib1sNV");
+  bVar29 = _DAT_0451ce30 == 0;
+  _DAT_0451ce2c = glXGetProcAddressARB("glVertexAttrib1svNV");
+  bVar30 = _DAT_0451ce2c == 0;
+  _DAT_0451ce28 = glXGetProcAddressARB("glVertexAttrib2dNV");
+  bVar31 = _DAT_0451ce28 == 0;
+  _DAT_0451ce24 = glXGetProcAddressARB("glVertexAttrib2dvNV");
+  bVar32 = _DAT_0451ce24 == 0;
+  _DAT_0451ce20 = glXGetProcAddressARB("glVertexAttrib2fNV");
+  bVar33 = _DAT_0451ce20 == 0;
+  _DAT_0451ce1c = glXGetProcAddressARB("glVertexAttrib2fvNV");
+  bVar34 = _DAT_0451ce1c == 0;
+  _DAT_0451ce18 = glXGetProcAddressARB("glVertexAttrib2sNV");
+  bVar35 = _DAT_0451ce18 == 0;
+  _DAT_0451ce14 = glXGetProcAddressARB("glVertexAttrib2svNV");
+  bVar36 = _DAT_0451ce14 == 0;
+  _DAT_0451ce10 = glXGetProcAddressARB("glVertexAttrib3dNV");
+  bVar37 = _DAT_0451ce10 == 0;
+  _DAT_0451ce0c = glXGetProcAddressARB("glVertexAttrib3dvNV");
+  bVar38 = _DAT_0451ce0c == 0;
+  _DAT_0451ce08 = glXGetProcAddressARB("glVertexAttrib3fNV");
+  bVar39 = _DAT_0451ce08 == 0;
+  _DAT_0451ce04 = glXGetProcAddressARB("glVertexAttrib3fvNV");
+  bVar40 = _DAT_0451ce04 == 0;
+  _DAT_0451ce00 = glXGetProcAddressARB("glVertexAttrib3sNV");
+  bVar41 = _DAT_0451ce00 == 0;
+  _DAT_0451cdfc = glXGetProcAddressARB("glVertexAttrib3svNV");
+  bVar42 = _DAT_0451cdfc == 0;
+  _DAT_0451cdf8 = glXGetProcAddressARB("glVertexAttrib4dNV");
+  bVar43 = _DAT_0451cdf8 == 0;
+  _DAT_0451cdf4 = glXGetProcAddressARB("glVertexAttrib4dvNV");
+  bVar44 = _DAT_0451cdf4 == 0;
+  _DAT_0451cdf0 = glXGetProcAddressARB("glVertexAttrib4fNV");
+  bVar45 = _DAT_0451cdf0 == 0;
+  _DAT_0451cdec = glXGetProcAddressARB("glVertexAttrib4fvNV");
+  bVar46 = _DAT_0451cdec == 0;
+  _DAT_0451cde8 = glXGetProcAddressARB("glVertexAttrib4sNV");
+  bVar47 = _DAT_0451cde8 == 0;
+  _DAT_0451cde4 = glXGetProcAddressARB("glVertexAttrib4svNV");
+  bVar48 = _DAT_0451cde4 == 0;
+  _DAT_0451cde0 = glXGetProcAddressARB("glVertexAttrib4ubNV");
+  bVar49 = _DAT_0451cde0 == 0;
+  _DAT_0451cddc = glXGetProcAddressARB("glVertexAttrib4ubvNV");
+  bVar50 = _DAT_0451cddc == 0;
+  _DAT_0451cdd8 = glXGetProcAddressARB("glVertexAttribPointerNV");
+  bVar51 = _DAT_0451cdd8 == 0;
+  _DAT_0451cdd4 = glXGetProcAddressARB("glVertexAttribs1dvNV");
+  bVar52 = _DAT_0451cdd4 == 0;
+  _DAT_0451cdd0 = glXGetProcAddressARB("glVertexAttribs1fvNV");
+  bVar53 = _DAT_0451cdd0 == 0;
+  _DAT_0451cdcc = glXGetProcAddressARB("glVertexAttribs1svNV");
+  bVar54 = _DAT_0451cdcc == 0;
+  _DAT_0451cdc8 = glXGetProcAddressARB("glVertexAttribs2dvNV");
+  bVar55 = _DAT_0451cdc8 == 0;
+  _DAT_0451cdc4 = glXGetProcAddressARB("glVertexAttribs2fvNV");
+  bVar56 = _DAT_0451cdc4 == 0;
+  _DAT_0451cdc0 = glXGetProcAddressARB("glVertexAttribs2svNV");
+  bVar57 = _DAT_0451cdc0 == 0;
+  _DAT_0451cdbc = glXGetProcAddressARB("glVertexAttribs3dvNV");
+  bVar58 = _DAT_0451cdbc == 0;
+  _DAT_0451cdb8 = glXGetProcAddressARB("glVertexAttribs3fvNV");
+  bVar59 = _DAT_0451cdb8 == 0;
+  _DAT_0451cdb4 = glXGetProcAddressARB("glVertexAttribs3svNV");
+  bVar60 = _DAT_0451cdb4 == 0;
+  _DAT_0451cdb0 = glXGetProcAddressARB("glVertexAttribs4dvNV");
+  bVar61 = _DAT_0451cdb0 == 0;
+  _DAT_0451cdac = glXGetProcAddressARB("glVertexAttribs4fvNV");
+  bVar62 = _DAT_0451cdac == 0;
+  _DAT_0451cda8 = glXGetProcAddressARB("glVertexAttribs4svNV");
+  bVar63 = _DAT_0451cda8 == 0;
+  _DAT_0451cda4 = glXGetProcAddressARB("glVertexAttribs4ubvNV");
+  return _DAT_0451cda4 == 0 ||
+         (bVar63 ||
+         (bVar62 ||
+         (bVar61 ||
+         (bVar60 ||
+         (bVar59 ||
+         (bVar58 ||
+         (bVar57 ||
+         (bVar56 ||
+         (bVar55 ||
+         (bVar54 ||
+         (bVar53 ||
+         (bVar52 ||
+         (bVar51 ||
+         (bVar50 ||
+         (bVar49 ||
+         (bVar48 ||
+         (bVar47 ||
+         (bVar46 ||
+         (bVar45 ||
+         (bVar44 ||
+         (bVar43 ||
+         (bVar42 ||
+         (bVar41 ||
+         (bVar40 ||
+         (bVar39 ||
+         (bVar38 ||
+         (bVar37 ||
+         (bVar36 ||
+         (bVar35 ||
+         (bVar34 ||
+         (bVar33 ||
+         (bVar32 ||
+         (bVar31 ||
+         (bVar30 ||
+         (bVar29 ||
+         (bVar28 ||
+         (bVar27 ||
+         (bVar26 ||
+         (bVar25 ||
+         (bVar24 ||
+         (bVar23 ||
+         (bVar22 ||
+         (bVar21 ||
+         (bVar20 ||
+         (bVar19 ||
+         (bVar18 ||
+         (bVar17 ||
+         (bVar16 ||
+         (bVar15 ||
+         (bVar14 ||
+         (bVar13 ||
+         (bVar12 ||
+         (bVar11 ||
+         (bVar10 ||
+         (bVar9 || (bVar8 || (bVar7 || (bVar6 || (bVar5 || (bVar4 || (bVar3 || (bVar2 || iVar1 == 0)
+                                                                     )))))))))))))))))))))))))))))))
+         ))))))))))))))))))))))))))))));
+}
+
+
+
+=== 0419b790 FUN_0419b790 ===
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+bool FUN_0419b790(void)
+
+{
+  int iVar1;
+  bool bVar2;
+  bool bVar3;
+  bool bVar4;
+  bool bVar5;
+  bool bVar6;
+  bool bVar7;
+  bool bVar8;
+  bool bVar9;
+  bool bVar10;
+  bool bVar11;
+  bool bVar12;
+  bool bVar13;
+  bool bVar14;
+  bool bVar15;
+  bool bVar16;
+  bool bVar17;
+  bool bVar18;
+  bool bVar19;
+  bool bVar20;
+  bool bVar21;
+  bool bVar22;
+  bool bVar23;
+  bool bVar24;
+  bool bVar25;
+  bool bVar26;
+  bool bVar27;
+  bool bVar28;
+  bool bVar29;
+  bool bVar30;
+  bool bVar31;
+  bool bVar32;
+  bool bVar33;
+  bool bVar34;
+  bool bVar35;
+  bool bVar36;
+  bool bVar37;
+  bool bVar38;
+  bool bVar39;
+  bool bVar40;
+  bool bVar41;
+  bool bVar42;
+  bool bVar43;
+  bool bVar44;
+  bool bVar45;
+  bool bVar46;
+  bool bVar47;
+  bool bVar48;
+  bool bVar49;
+  bool bVar50;
+  bool bVar51;
+  bool bVar52;
+  bool bVar53;
+  bool bVar54;
+  bool bVar55;
+  bool bVar56;
+  bool bVar57;
+  bool bVar58;
+  bool bVar59;
+  bool bVar60;
+  bool bVar61;
+  
+  iVar1 = glXGetProcAddressARB("glBindProgramARB");
+  _DAT_0451dfec = iVar1;
+  _DAT_0451dfe8 = glXGetProcAddressARB("glDeleteProgramsARB");
+  bVar2 = _DAT_0451dfe8 == 0;
+  _DAT_0451dfe4 = glXGetProcAddressARB("glDisableVertexAttribArrayARB");
+  bVar3 = _DAT_0451dfe4 == 0;
+  _DAT_0451dfe0 = glXGetProcAddressARB("glEnableVertexAttribArrayARB");
+  bVar4 = _DAT_0451dfe0 == 0;
+  _DAT_0451dfdc = glXGetProcAddressARB("glGenProgramsARB");
+  bVar5 = _DAT_0451dfdc == 0;
+  _DAT_0451dfd8 = glXGetProcAddressARB("glGetProgramEnvParameterdvARB");
+  bVar6 = _DAT_0451dfd8 == 0;
+  _DAT_0451dfd4 = glXGetProcAddressARB("glGetProgramEnvParameterfvARB");
+  bVar7 = _DAT_0451dfd4 == 0;
+  _DAT_0451dfd0 = glXGetProcAddressARB("glGetProgramLocalParameterdvARB");
+  bVar8 = _DAT_0451dfd0 == 0;
+  _DAT_0451dfcc = glXGetProcAddressARB("glGetProgramLocalParameterfvARB");
+  bVar9 = _DAT_0451dfcc == 0;
+  _DAT_0451dfc8 = glXGetProcAddressARB("glGetProgramStringARB");
+  bVar10 = _DAT_0451dfc8 == 0;
+  _DAT_0451dfc4 = glXGetProcAddressARB("glGetProgramivARB");
+  bVar11 = _DAT_0451dfc4 == 0;
+  _DAT_0451dfc0 = glXGetProcAddressARB("glGetVertexAttribPointervARB");
+  bVar12 = _DAT_0451dfc0 == 0;
+  _DAT_0451dfbc = glXGetProcAddressARB("glGetVertexAttribdvARB");
+  bVar13 = _DAT_0451dfbc == 0;
+  _DAT_0451dfb8 = glXGetProcAddressARB("glGetVertexAttribfvARB");
+  bVar14 = _DAT_0451dfb8 == 0;
+  _DAT_0451dfb4 = glXGetProcAddressARB("glGetVertexAttribivARB");
+  bVar15 = _DAT_0451dfb4 == 0;
+  _DAT_0451dfb0 = glXGetProcAddressARB("glIsProgramARB");
+  bVar16 = _DAT_0451dfb0 == 0;
+  _DAT_0451dfac = glXGetProcAddressARB("glProgramEnvParameter4dARB");
+  bVar17 = _DAT_0451dfac == 0;
+  _DAT_0451dfa8 = glXGetProcAddressARB("glProgramEnvParameter4dvARB");
+  bVar18 = _DAT_0451dfa8 == 0;
+  _DAT_0451dfa4 = glXGetProcAddressARB("glProgramEnvParameter4fARB");
+  bVar19 = _DAT_0451dfa4 == 0;
+  _DAT_0451dfa0 = glXGetProcAddressARB("glProgramEnvParameter4fvARB");
+  bVar20 = _DAT_0451dfa0 == 0;
+  _DAT_0451df9c = glXGetProcAddressARB("glProgramLocalParameter4dARB");
+  bVar21 = _DAT_0451df9c == 0;
+  _DAT_0451df98 = glXGetProcAddressARB("glProgramLocalParameter4dvARB");
+  bVar22 = _DAT_0451df98 == 0;
+  _DAT_0451df94 = glXGetProcAddressARB("glProgramLocalParameter4fARB");
+  bVar23 = _DAT_0451df94 == 0;
+  _DAT_0451df90 = glXGetProcAddressARB("glProgramLocalParameter4fvARB");
+  bVar24 = _DAT_0451df90 == 0;
+  _DAT_0451df8c = glXGetProcAddressARB("glProgramStringARB");
+  bVar25 = _DAT_0451df8c == 0;
+  _DAT_0451df88 = glXGetProcAddressARB("glVertexAttrib1dARB");
+  bVar26 = _DAT_0451df88 == 0;
+  _DAT_0451df84 = glXGetProcAddressARB("glVertexAttrib1dvARB");
+  bVar27 = _DAT_0451df84 == 0;
+  _DAT_0451df80 = glXGetProcAddressARB("glVertexAttrib1fARB");
+  bVar28 = _DAT_0451df80 == 0;
+  _DAT_0451df7c = glXGetProcAddressARB("glVertexAttrib1fvARB");
+  bVar29 = _DAT_0451df7c == 0;
+  _DAT_0451df78 = glXGetProcAddressARB("glVertexAttrib1sARB");
+  bVar30 = _DAT_0451df78 == 0;
+  _DAT_0451df74 = glXGetProcAddressARB("glVertexAttrib1svARB");
+  bVar31 = _DAT_0451df74 == 0;
+  _DAT_0451df70 = glXGetProcAddressARB("glVertexAttrib2dARB");
+  bVar32 = _DAT_0451df70 == 0;
+  _DAT_0451df6c = glXGetProcAddressARB("glVertexAttrib2dvARB");
+  bVar33 = _DAT_0451df6c == 0;
+  _DAT_0451df68 = glXGetProcAddressARB("glVertexAttrib2fARB");
+  bVar34 = _DAT_0451df68 == 0;
+  _DAT_0451df64 = glXGetProcAddressARB("glVertexAttrib2fvARB");
+  bVar35 = _DAT_0451df64 == 0;
+  _DAT_0451df60 = glXGetProcAddressARB("glVertexAttrib2sARB");
+  bVar36 = _DAT_0451df60 == 0;
+  _DAT_0451df5c = glXGetProcAddressARB("glVertexAttrib2svARB");
+  bVar37 = _DAT_0451df5c == 0;
+  _DAT_0451df58 = glXGetProcAddressARB("glVertexAttrib3dARB");
+  bVar38 = _DAT_0451df58 == 0;
+  _DAT_0451df54 = glXGetProcAddressARB("glVertexAttrib3dvARB");
+  bVar39 = _DAT_0451df54 == 0;
+  _DAT_0451df50 = glXGetProcAddressARB("glVertexAttrib3fARB");
+  bVar40 = _DAT_0451df50 == 0;
+  _DAT_0451df4c = glXGetProcAddressARB("glVertexAttrib3fvARB");
+  bVar41 = _DAT_0451df4c == 0;
+  _DAT_0451df48 = glXGetProcAddressARB("glVertexAttrib3sARB");
+  bVar42 = _DAT_0451df48 == 0;
+  _DAT_0451df44 = glXGetProcAddressARB("glVertexAttrib3svARB");
+  bVar43 = _DAT_0451df44 == 0;
+  _DAT_0451df40 = glXGetProcAddressARB("glVertexAttrib4NbvARB");
+  bVar44 = _DAT_0451df40 == 0;
+  _DAT_0451df3c = glXGetProcAddressARB("glVertexAttrib4NivARB");
+  bVar45 = _DAT_0451df3c == 0;
+  _DAT_0451df38 = glXGetProcAddressARB("glVertexAttrib4NsvARB");
+  bVar46 = _DAT_0451df38 == 0;
+  _DAT_0451df34 = glXGetProcAddressARB("glVertexAttrib4NubARB");
+  bVar47 = _DAT_0451df34 == 0;
+  _DAT_0451df30 = glXGetProcAddressARB("glVertexAttrib4NubvARB");
+  bVar48 = _DAT_0451df30 == 0;
+  _DAT_0451df2c = glXGetProcAddressARB("glVertexAttrib4NuivARB");
+  bVar49 = _DAT_0451df2c == 0;
+  _DAT_0451df28 = glXGetProcAddressARB("glVertexAttrib4NusvARB");
+  bVar50 = _DAT_0451df28 == 0;
+  _DAT_0451df24 = glXGetProcAddressARB("glVertexAttrib4bvARB");
+  bVar51 = _DAT_0451df24 == 0;
+  _DAT_0451df20 = glXGetProcAddressARB("glVertexAttrib4dARB");
+  bVar52 = _DAT_0451df20 == 0;
+  _DAT_0451df1c = glXGetProcAddressARB("glVertexAttrib4dvARB");
+  bVar53 = _DAT_0451df1c == 0;
+  _DAT_0451df18 = glXGetProcAddressARB("glVertexAttrib4fARB");
+  bVar54 = _DAT_0451df18 == 0;
+  _DAT_0451df14 = glXGetProcAddressARB("glVertexAttrib4fvARB");
+  bVar55 = _DAT_0451df14 == 0;
+  _DAT_0451df10 = glXGetProcAddressARB("glVertexAttrib4ivARB");
+  bVar56 = _DAT_0451df10 == 0;
+  _DAT_0451df0c = glXGetProcAddressARB("glVertexAttrib4sARB");
+  bVar57 = _DAT_0451df0c == 0;
+  _DAT_0451df08 = glXGetProcAddressARB("glVertexAttrib4svARB");
+  bVar58 = _DAT_0451df08 == 0;
+  _DAT_0451df04 = glXGetProcAddressARB("glVertexAttrib4ubvARB");
+  bVar59 = _DAT_0451df04 == 0;
+  _DAT_0451df00 = glXGetProcAddressARB("glVertexAttrib4uivARB");
+  bVar60 = _DAT_0451df00 == 0;
+  _DAT_0451defc = glXGetProcAddressARB("glVertexAttrib4usvARB");
+  bVar61 = _DAT_0451defc == 0;
+  _DAT_0451def8 = glXGetProcAddressARB("glVertexAttribPointerARB");
+  return _DAT_0451def8 == 0 ||
+         (bVar61 ||
+         (bVar60 ||
+         (bVar59 ||
+         (bVar58 ||
+         (bVar57 ||
+         (bVar56 ||
+         (bVar55 ||
+         (bVar54 ||
+         (bVar53 ||
+         (bVar52 ||
+         (bVar51 ||
+         (bVar50 ||
+         (bVar49 ||
+         (bVar48 ||
+         (bVar47 ||
+         (bVar46 ||
+         (bVar45 ||
+         (bVar44 ||
+         (bVar43 ||
+         (bVar42 ||
+         (bVar41 ||
+         (bVar40 ||
+         (bVar39 ||
+         (bVar38 ||
+         (bVar37 ||
+         (bVar36 ||
+         (bVar35 ||
+         (bVar34 ||
+         (bVar33 ||
+         (bVar32 ||
+         (bVar31 ||
+         (bVar30 ||
+         (bVar29 ||
+         (bVar28 ||
+         (bVar27 ||
+         (bVar26 ||
+         (bVar25 ||
+         (bVar24 ||
+         (bVar23 ||
+         (bVar22 ||
+         (bVar21 ||
+         (bVar20 ||
+         (bVar19 ||
+         (bVar18 ||
+         (bVar17 ||
+         (bVar16 ||
+         (bVar15 ||
+         (bVar14 ||
+         (bVar13 ||
+         (bVar12 ||
+         (bVar11 ||
+         (bVar10 ||
+         (bVar9 || (bVar8 || (bVar7 || (bVar6 || (bVar5 || (bVar4 || (bVar3 || (bVar2 || iVar1 == 0)
+                                                                     )))))))))))))))))))))))))))))))
+         ))))))))))))))))))))))))))));
+}
+
+
+
+=== 0419a530 FUN_0419a530 ===
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+bool FUN_0419a530(void)
+
+{
+  int iVar1;
+  bool bVar2;
+  bool bVar3;
+  bool bVar4;
+  bool bVar5;
+  bool bVar6;
+  bool bVar7;
+  bool bVar8;
+  bool bVar9;
+  bool bVar10;
+  bool bVar11;
+  bool bVar12;
+  bool bVar13;
+  bool bVar14;
+  bool bVar15;
+  bool bVar16;
+  bool bVar17;
+  bool bVar18;
+  bool bVar19;
+  bool bVar20;
+  bool bVar21;
+  bool bVar22;
+  bool bVar23;
+  bool bVar24;
+  bool bVar25;
+  bool bVar26;
+  bool bVar27;
+  bool bVar28;
+  bool bVar29;
+  bool bVar30;
+  bool bVar31;
+  bool bVar32;
+  bool bVar33;
+  bool bVar34;
+  bool bVar35;
+  bool bVar36;
+  bool bVar37;
+  bool bVar38;
+  bool bVar39;
+  bool bVar40;
+  bool bVar41;
+  bool bVar42;
+  bool bVar43;
+  bool bVar44;
+  bool bVar45;
+  bool bVar46;
+  bool bVar47;
+  bool bVar48;
+  bool bVar49;
+  bool bVar50;
+  bool bVar51;
+  bool bVar52;
+  bool bVar53;
+  bool bVar54;
+  bool bVar55;
+  bool bVar56;
+  bool bVar57;
+  bool bVar58;
+  bool bVar59;
+  
+  iVar1 = glXGetProcAddressARB("glActiveShaderProgram");
+  _DAT_0451e38c = iVar1;
+  _DAT_0451e388 = glXGetProcAddressARB("glBindProgramPipeline");
+  bVar2 = _DAT_0451e388 == 0;
+  _DAT_0451e384 = glXGetProcAddressARB("glCreateShaderProgramv");
+  bVar3 = _DAT_0451e384 == 0;
+  _DAT_0451e380 = glXGetProcAddressARB("glDeleteProgramPipelines");
+  bVar4 = _DAT_0451e380 == 0;
+  _DAT_0451e37c = glXGetProcAddressARB("glGenProgramPipelines");
+  bVar5 = _DAT_0451e37c == 0;
+  _DAT_0451e378 = glXGetProcAddressARB("glGetProgramPipelineInfoLog");
+  bVar6 = _DAT_0451e378 == 0;
+  _DAT_0451e374 = glXGetProcAddressARB("glGetProgramPipelineiv");
+  bVar7 = _DAT_0451e374 == 0;
+  _DAT_0451e370 = glXGetProcAddressARB("glIsProgramPipeline");
+  bVar8 = _DAT_0451e370 == 0;
+  _DAT_0451e36c = glXGetProcAddressARB("glProgramUniform1d");
+  bVar9 = _DAT_0451e36c == 0;
+  _DAT_0451e368 = glXGetProcAddressARB("glProgramUniform1dv");
+  bVar10 = _DAT_0451e368 == 0;
+  _DAT_0451e364 = glXGetProcAddressARB("glProgramUniform1f");
+  bVar11 = _DAT_0451e364 == 0;
+  _DAT_0451e360 = glXGetProcAddressARB("glProgramUniform1fv");
+  bVar12 = _DAT_0451e360 == 0;
+  _DAT_0451e35c = glXGetProcAddressARB("glProgramUniform1i");
+  bVar13 = _DAT_0451e35c == 0;
+  _DAT_0451e358 = glXGetProcAddressARB("glProgramUniform1iv");
+  bVar14 = _DAT_0451e358 == 0;
+  _DAT_0451e354 = glXGetProcAddressARB("glProgramUniform1ui");
+  bVar15 = _DAT_0451e354 == 0;
+  _DAT_0451e350 = glXGetProcAddressARB("glProgramUniform1uiv");
+  bVar16 = _DAT_0451e350 == 0;
+  _DAT_0451e34c = glXGetProcAddressARB("glProgramUniform2d");
+  bVar17 = _DAT_0451e34c == 0;
+  _DAT_0451e348 = glXGetProcAddressARB("glProgramUniform2dv");
+  bVar18 = _DAT_0451e348 == 0;
+  _DAT_0451e344 = glXGetProcAddressARB("glProgramUniform2f");
+  bVar19 = _DAT_0451e344 == 0;
+  _DAT_0451e340 = glXGetProcAddressARB("glProgramUniform2fv");
+  bVar20 = _DAT_0451e340 == 0;
+  _DAT_0451e33c = glXGetProcAddressARB("glProgramUniform2i");
+  bVar21 = _DAT_0451e33c == 0;
+  _DAT_0451e338 = glXGetProcAddressARB("glProgramUniform2iv");
+  bVar22 = _DAT_0451e338 == 0;
+  _DAT_0451e334 = glXGetProcAddressARB("glProgramUniform2ui");
+  bVar23 = _DAT_0451e334 == 0;
+  _DAT_0451e330 = glXGetProcAddressARB("glProgramUniform2uiv");
+  bVar24 = _DAT_0451e330 == 0;
+  _DAT_0451e32c = glXGetProcAddressARB("glProgramUniform3d");
+  bVar25 = _DAT_0451e32c == 0;
+  _DAT_0451e328 = glXGetProcAddressARB("glProgramUniform3dv");
+  bVar26 = _DAT_0451e328 == 0;
+  _DAT_0451e324 = glXGetProcAddressARB("glProgramUniform3f");
+  bVar27 = _DAT_0451e324 == 0;
+  _DAT_0451e320 = glXGetProcAddressARB("glProgramUniform3fv");
+  bVar28 = _DAT_0451e320 == 0;
+  _DAT_0451e31c = glXGetProcAddressARB("glProgramUniform3i");
+  bVar29 = _DAT_0451e31c == 0;
+  _DAT_0451e318 = glXGetProcAddressARB("glProgramUniform3iv");
+  bVar30 = _DAT_0451e318 == 0;
+  _DAT_0451e314 = glXGetProcAddressARB("glProgramUniform3ui");
+  bVar31 = _DAT_0451e314 == 0;
+  _DAT_0451e310 = glXGetProcAddressARB("glProgramUniform3uiv");
+  bVar32 = _DAT_0451e310 == 0;
+  _DAT_0451e30c = glXGetProcAddressARB("glProgramUniform4d");
+  bVar33 = _DAT_0451e30c == 0;
+  _DAT_0451e308 = glXGetProcAddressARB("glProgramUniform4dv");
+  bVar34 = _DAT_0451e308 == 0;
+  _DAT_0451e304 = glXGetProcAddressARB("glProgramUniform4f");
+  bVar35 = _DAT_0451e304 == 0;
+  _DAT_0451e300 = glXGetProcAddressARB("glProgramUniform4fv");
+  bVar36 = _DAT_0451e300 == 0;
+  _DAT_0451e2fc = glXGetProcAddressARB("glProgramUniform4i");
+  bVar37 = _DAT_0451e2fc == 0;
+  _DAT_0451e2f8 = glXGetProcAddressARB("glProgramUniform4iv");
+  bVar38 = _DAT_0451e2f8 == 0;
+  _DAT_0451e2f4 = glXGetProcAddressARB("glProgramUniform4ui");
+  bVar39 = _DAT_0451e2f4 == 0;
+  _DAT_0451e2f0 = glXGetProcAddressARB("glProgramUniform4uiv");
+  bVar40 = _DAT_0451e2f0 == 0;
+  _DAT_0451e2ec = glXGetProcAddressARB("glProgramUniformMatrix2dv");
+  bVar41 = _DAT_0451e2ec == 0;
+  _DAT_0451e2e8 = glXGetProcAddressARB("glProgramUniformMatrix2fv");
+  bVar42 = _DAT_0451e2e8 == 0;
+  _DAT_0451e2e4 = glXGetProcAddressARB("glProgramUniformMatrix2x3dv");
+  bVar43 = _DAT_0451e2e4 == 0;
+  _DAT_0451e2e0 = glXGetProcAddressARB("glProgramUniformMatrix2x3fv");
+  bVar44 = _DAT_0451e2e0 == 0;
+  _DAT_0451e2dc = glXGetProcAddressARB("glProgramUniformMatrix2x4dv");
+  bVar45 = _DAT_0451e2dc == 0;
+  _DAT_0451e2d8 = glXGetProcAddressARB("glProgramUniformMatrix2x4fv");
+  bVar46 = _DAT_0451e2d8 == 0;
+  _DAT_0451e2d4 = glXGetProcAddressARB("glProgramUniformMatrix3dv");
+  bVar47 = _DAT_0451e2d4 == 0;
+  _DAT_0451e2d0 = glXGetProcAddressARB("glProgramUniformMatrix3fv");
+  bVar48 = _DAT_0451e2d0 == 0;
+  _DAT_0451e2cc = glXGetProcAddressARB("glProgramUniformMatrix3x2dv");
+  bVar49 = _DAT_0451e2cc == 0;
+  _DAT_0451e2c8 = glXGetProcAddressARB("glProgramUniformMatrix3x2fv");
+  bVar50 = _DAT_0451e2c8 == 0;
+  _DAT_0451e2c4 = glXGetProcAddressARB("glProgramUniformMatrix3x4dv");
+  bVar51 = _DAT_0451e2c4 == 0;
+  _DAT_0451e2c0 = glXGetProcAddressARB("glProgramUniformMatrix3x4fv");
+  bVar52 = _DAT_0451e2c0 == 0;
+  _DAT_0451e2bc = glXGetProcAddressARB("glProgramUniformMatrix4dv");
+  bVar53 = _DAT_0451e2bc == 0;
+  _DAT_0451e2b8 = glXGetProcAddressARB("glProgramUniformMatrix4fv");
+  bVar54 = _DAT_0451e2b8 == 0;
+  _DAT_0451e2b4 = glXGetProcAddressARB("glProgramUniformMatrix4x2dv");
+  bVar55 = _DAT_0451e2b4 == 0;
+  _DAT_0451e2b0 = glXGetProcAddressARB("glProgramUniformMatrix4x2fv");
+  bVar56 = _DAT_0451e2b0 == 0;
+  _DAT_0451e2ac = glXGetProcAddressARB("glProgramUniformMatrix4x3dv");
+  bVar57 = _DAT_0451e2ac == 0;
+  _DAT_0451e2a8 = glXGetProcAddressARB("glProgramUniformMatrix4x3fv");
+  bVar58 = _DAT_0451e2a8 == 0;
+  _DAT_0451e2a4 = glXGetProcAddressARB("glUseProgramStages");
+  bVar59 = _DAT_0451e2a4 == 0;
+  _DAT_0451e2a0 = glXGetProcAddressARB("glValidateProgramPipeline");
+  return _DAT_0451e2a0 == 0 ||
+         (bVar59 ||
+         (bVar58 ||
+         (bVar57 ||
+         (bVar56 ||
+         (bVar55 ||
+         (bVar54 ||
+         (bVar53 ||
+         (bVar52 ||
+         (bVar51 ||
+         (bVar50 ||
+         (bVar49 ||
+         (bVar48 ||
+         (bVar47 ||
+         (bVar46 ||
+         (bVar45 ||
+         (bVar44 ||
+         (bVar43 ||
+         (bVar42 ||
+         (bVar41 ||
+         (bVar40 ||
+         (bVar39 ||
+         (bVar38 ||
+         (bVar37 ||
+         (bVar36 ||
+         (bVar35 ||
+         (bVar34 ||
+         (bVar33 ||
+         (bVar32 ||
+         (bVar31 ||
+         (bVar30 ||
+         (bVar29 ||
+         (bVar28 ||
+         (bVar27 ||
+         (bVar26 ||
+         (bVar25 ||
+         (bVar24 ||
+         (bVar23 ||
+         (bVar22 ||
+         (bVar21 ||
+         (bVar20 ||
+         (bVar19 ||
+         (bVar18 ||
+         (bVar17 ||
+         (bVar16 ||
+         (bVar15 ||
+         (bVar14 ||
+         (bVar13 ||
+         (bVar12 ||
+         (bVar11 ||
+         (bVar10 ||
+         (bVar9 || (bVar8 || (bVar7 || (bVar6 || (bVar5 || (bVar4 || (bVar3 || (bVar2 || iVar1 == 0)
+                                                                     )))))))))))))))))))))))))))))))
+         ))))))))))))))))))))))))));
+}
+
+
+
+=== 04198140 FUN_04198140 ===
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+bool FUN_04198140(void)
+
+{
+  int iVar1;
+  bool bVar2;
+  bool bVar3;
+  bool bVar4;
+  bool bVar5;
+  bool bVar6;
+  bool bVar7;
+  bool bVar8;
+  bool bVar9;
+  bool bVar10;
+  bool bVar11;
+  bool bVar12;
+  bool bVar13;
+  bool bVar14;
+  bool bVar15;
+  bool bVar16;
+  bool bVar17;
+  bool bVar18;
+  bool bVar19;
+  bool bVar20;
+  bool bVar21;
+  bool bVar22;
+  bool bVar23;
+  bool bVar24;
+  bool bVar25;
+  bool bVar26;
+  bool bVar27;
+  bool bVar28;
+  bool bVar29;
+  bool bVar30;
+  bool bVar31;
+  bool bVar32;
+  bool bVar33;
+  bool bVar34;
+  bool bVar35;
+  bool bVar36;
+  bool bVar37;
+  bool bVar38;
+  bool bVar39;
+  bool bVar40;
+  bool bVar41;
+  bool bVar42;
+  bool bVar43;
+  bool bVar44;
+  bool bVar45;
+  bool bVar46;
+  bool bVar47;
+  bool bVar48;
+  bool bVar49;
+  bool bVar50;
+  bool bVar51;
+  bool bVar52;
+  bool bVar53;
+  bool bVar54;
+  
+  iVar1 = glXGetProcAddressARB("glBeginConditionalRender");
+  _DAT_0451eb60 = iVar1;
+  _DAT_0451eb5c = glXGetProcAddressARB("glBeginTransformFeedback");
+  bVar2 = _DAT_0451eb5c == 0;
+  _DAT_0451eb58 = glXGetProcAddressARB("glBindFragDataLocation");
+  bVar3 = _DAT_0451eb58 == 0;
+  _DAT_0451eb54 = glXGetProcAddressARB("glClampColor");
+  bVar4 = _DAT_0451eb54 == 0;
+  _DAT_0451eb50 = glXGetProcAddressARB("glClearBufferfi");
+  bVar5 = _DAT_0451eb50 == 0;
+  _DAT_0451eb4c = glXGetProcAddressARB("glClearBufferfv");
+  bVar6 = _DAT_0451eb4c == 0;
+  _DAT_0451eb48 = glXGetProcAddressARB("glClearBufferiv");
+  bVar7 = _DAT_0451eb48 == 0;
+  _DAT_0451eb44 = glXGetProcAddressARB("glClearBufferuiv");
+  bVar8 = _DAT_0451eb44 == 0;
+  DAT_0451eb40 = glXGetProcAddressARB("glColorMaski");
+  bVar9 = DAT_0451eb40 == 0;
+  _DAT_0451eb3c = glXGetProcAddressARB("glDisablei");
+  bVar10 = _DAT_0451eb3c == 0;
+  _DAT_0451eb38 = glXGetProcAddressARB("glEnablei");
+  bVar11 = _DAT_0451eb38 == 0;
+  _DAT_0451eb34 = glXGetProcAddressARB("glEndConditionalRender");
+  bVar12 = _DAT_0451eb34 == 0;
+  _DAT_0451eb30 = glXGetProcAddressARB("glEndTransformFeedback");
+  bVar13 = _DAT_0451eb30 == 0;
+  DAT_0451eb2c = glXGetProcAddressARB("glGetBooleani_v");
+  bVar14 = DAT_0451eb2c == 0;
+  _DAT_0451eb28 = glXGetProcAddressARB("glGetFragDataLocation");
+  bVar15 = _DAT_0451eb28 == 0;
+  DAT_0451eb24 = glXGetProcAddressARB("glGetStringi");
+  bVar16 = DAT_0451eb24 == 0;
+  _DAT_0451eb20 = glXGetProcAddressARB("glGetTexParameterIiv");
+  bVar17 = _DAT_0451eb20 == 0;
+  _DAT_0451eb1c = glXGetProcAddressARB("glGetTexParameterIuiv");
+  bVar18 = _DAT_0451eb1c == 0;
+  _DAT_0451eb18 = glXGetProcAddressARB("glGetTransformFeedbackVarying");
+  bVar19 = _DAT_0451eb18 == 0;
+  DAT_0451eb14 = glXGetProcAddressARB("glGetUniformuiv");
+  bVar20 = DAT_0451eb14 == 0;
+  _DAT_0451eb10 = glXGetProcAddressARB("glGetVertexAttribIiv");
+  bVar21 = _DAT_0451eb10 == 0;
+  DAT_0451eb0c = glXGetProcAddressARB("glGetVertexAttribIuiv");
+  bVar22 = DAT_0451eb0c == 0;
+  _DAT_0451eb08 = glXGetProcAddressARB("glIsEnabledi");
+  bVar23 = _DAT_0451eb08 == 0;
+  _DAT_0451eb04 = glXGetProcAddressARB("glTexParameterIiv");
+  bVar24 = _DAT_0451eb04 == 0;
+  _DAT_0451eb00 = glXGetProcAddressARB("glTexParameterIuiv");
+  bVar25 = _DAT_0451eb00 == 0;
+  _DAT_0451eafc = glXGetProcAddressARB("glTransformFeedbackVaryings");
+  bVar26 = _DAT_0451eafc == 0;
+  _DAT_0451eaf8 = glXGetProcAddressARB("glUniform1ui");
+  bVar27 = _DAT_0451eaf8 == 0;
+  _DAT_0451eaf4 = glXGetProcAddressARB("glUniform1uiv");
+  bVar28 = _DAT_0451eaf4 == 0;
+  _DAT_0451eaf0 = glXGetProcAddressARB("glUniform2ui");
+  bVar29 = _DAT_0451eaf0 == 0;
+  _DAT_0451eaec = glXGetProcAddressARB("glUniform2uiv");
+  bVar30 = _DAT_0451eaec == 0;
+  _DAT_0451eae8 = glXGetProcAddressARB("glUniform3ui");
+  bVar31 = _DAT_0451eae8 == 0;
+  _DAT_0451eae4 = glXGetProcAddressARB("glUniform3uiv");
+  bVar32 = _DAT_0451eae4 == 0;
+  _DAT_0451eae0 = glXGetProcAddressARB("glUniform4ui");
+  bVar33 = _DAT_0451eae0 == 0;
+  _DAT_0451eadc = glXGetProcAddressARB("glUniform4uiv");
+  bVar34 = _DAT_0451eadc == 0;
+  _DAT_0451ead8 = glXGetProcAddressARB("glVertexAttribI1i");
+  bVar35 = _DAT_0451ead8 == 0;
+  _DAT_0451ead4 = glXGetProcAddressARB("glVertexAttribI1iv");
+  bVar36 = _DAT_0451ead4 == 0;
+  _DAT_0451ead0 = glXGetProcAddressARB("glVertexAttribI1ui");
+  bVar37 = _DAT_0451ead0 == 0;
+  _DAT_0451eacc = glXGetProcAddressARB("glVertexAttribI1uiv");
+  bVar38 = _DAT_0451eacc == 0;
+  _DAT_0451eac8 = glXGetProcAddressARB("glVertexAttribI2i");
+  bVar39 = _DAT_0451eac8 == 0;
+  _DAT_0451eac4 = glXGetProcAddressARB("glVertexAttribI2iv");
+  bVar40 = _DAT_0451eac4 == 0;
+  _DAT_0451eac0 = glXGetProcAddressARB("glVertexAttribI2ui");
+  bVar41 = _DAT_0451eac0 == 0;
+  _DAT_0451eabc = glXGetProcAddressARB("glVertexAttribI2uiv");
+  bVar42 = _DAT_0451eabc == 0;
+  _DAT_0451eab8 = glXGetProcAddressARB("glVertexAttribI3i");
+  bVar43 = _DAT_0451eab8 == 0;
+  _DAT_0451eab4 = glXGetProcAddressARB("glVertexAttribI3iv");
+  bVar44 = _DAT_0451eab4 == 0;
+  _DAT_0451eab0 = glXGetProcAddressARB("glVertexAttribI3ui");
+  bVar45 = _DAT_0451eab0 == 0;
+  _DAT_0451eaac = glXGetProcAddressARB("glVertexAttribI3uiv");
+  bVar46 = _DAT_0451eaac == 0;
+  _DAT_0451eaa8 = glXGetProcAddressARB("glVertexAttribI4bv");
+  bVar47 = _DAT_0451eaa8 == 0;
+  _DAT_0451eaa4 = glXGetProcAddressARB("glVertexAttribI4i");
+  bVar48 = _DAT_0451eaa4 == 0;
+  _DAT_0451eaa0 = glXGetProcAddressARB("glVertexAttribI4iv");
+  bVar49 = _DAT_0451eaa0 == 0;
+  _DAT_0451ea9c = glXGetProcAddressARB("glVertexAttribI4sv");
+  bVar50 = _DAT_0451ea9c == 0;
+  _DAT_0451ea98 = glXGetProcAddressARB("glVertexAttribI4ubv");
+  bVar51 = _DAT_0451ea98 == 0;
+  _DAT_0451ea94 = glXGetProcAddressARB("glVertexAttribI4ui");
+  bVar52 = _DAT_0451ea94 == 0;
+  _DAT_0451ea90 = glXGetProcAddressARB("glVertexAttribI4uiv");
+  bVar53 = _DAT_0451ea90 == 0;
+  _DAT_0451ea8c = glXGetProcAddressARB("glVertexAttribI4usv");
+  bVar54 = _DAT_0451ea8c == 0;
+  _DAT_0451ea88 = glXGetProcAddressARB("glVertexAttribIPointer");
+  return _DAT_0451ea88 == 0 ||
+         (bVar54 ||
+         (bVar53 ||
+         (bVar52 ||
+         (bVar51 ||
+         (bVar50 ||
+         (bVar49 ||
+         (bVar48 ||
+         (bVar47 ||
+         (bVar46 ||
+         (bVar45 ||
+         (bVar44 ||
+         (bVar43 ||
+         (bVar42 ||
+         (bVar41 ||
+         (bVar40 ||
+         (bVar39 ||
+         (bVar38 ||
+         (bVar37 ||
+         (bVar36 ||
+         (bVar35 ||
+         (bVar34 ||
+         (bVar33 ||
+         (bVar32 ||
+         (bVar31 ||
+         (bVar30 ||
+         (bVar29 ||
+         (bVar28 ||
+         (bVar27 ||
+         (bVar26 ||
+         (bVar25 ||
+         (bVar24 ||
+         (bVar23 ||
+         (bVar22 ||
+         (bVar21 ||
+         (bVar20 ||
+         (bVar19 ||
+         (bVar18 ||
+         (bVar17 ||
+         (bVar16 ||
+         (bVar15 ||
+         (bVar14 ||
+         (bVar13 ||
+         (bVar12 ||
+         (bVar11 ||
+         (bVar10 ||
+         (bVar9 || (bVar8 || (bVar7 || (bVar6 || (bVar5 || (bVar4 || (bVar3 || (bVar2 || iVar1 == 0)
+                                                                     )))))))))))))))))))))))))))))))
+         )))))))))))))))))))));
+}
+
+
+
+=== 041a02f0 FUN_041a02f0 ===
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+bool FUN_041a02f0(void)
+
+{
+  int iVar1;
+  bool bVar2;
+  bool bVar3;
+  bool bVar4;
+  bool bVar5;
+  bool bVar6;
+  bool bVar7;
+  bool bVar8;
+  bool bVar9;
+  bool bVar10;
+  bool bVar11;
+  bool bVar12;
+  bool bVar13;
+  bool bVar14;
+  bool bVar15;
+  bool bVar16;
+  bool bVar17;
+  bool bVar18;
+  bool bVar19;
+  bool bVar20;
+  bool bVar21;
+  bool bVar22;
+  bool bVar23;
+  bool bVar24;
+  bool bVar25;
+  bool bVar26;
+  bool bVar27;
+  bool bVar28;
+  bool bVar29;
+  bool bVar30;
+  bool bVar31;
+  bool bVar32;
+  bool bVar33;
+  bool bVar34;
+  bool bVar35;
+  bool bVar36;
+  bool bVar37;
+  bool bVar38;
+  bool bVar39;
+  bool bVar40;
+  bool bVar41;
+  bool bVar42;
+  bool bVar43;
+  bool bVar44;
+  bool bVar45;
+  bool bVar46;
+  bool bVar47;
+  bool bVar48;
+  
+  iVar1 = glXGetProcAddressARB("glCopyPathNV");
+  _DAT_0451d114 = iVar1;
+  _DAT_0451d110 = glXGetProcAddressARB("glCoverFillPathInstancedNV");
+  bVar2 = _DAT_0451d110 == 0;
+  _DAT_0451d10c = glXGetProcAddressARB("glCoverFillPathNV");
+  bVar3 = _DAT_0451d10c == 0;
+  _DAT_0451d108 = glXGetProcAddressARB("glCoverStrokePathInstancedNV");
+  bVar4 = _DAT_0451d108 == 0;
+  _DAT_0451d104 = glXGetProcAddressARB("glCoverStrokePathNV");
+  bVar5 = _DAT_0451d104 == 0;
+  _DAT_0451d100 = glXGetProcAddressARB("glDeletePathsNV");
+  bVar6 = _DAT_0451d100 == 0;
+  _DAT_0451d0fc = glXGetProcAddressARB("glGenPathsNV");
+  bVar7 = _DAT_0451d0fc == 0;
+  _DAT_0451d0f8 = glXGetProcAddressARB("glGetPathColorGenfvNV");
+  bVar8 = _DAT_0451d0f8 == 0;
+  _DAT_0451d0f4 = glXGetProcAddressARB("glGetPathColorGenivNV");
+  bVar9 = _DAT_0451d0f4 == 0;
+  _DAT_0451d0f0 = glXGetProcAddressARB("glGetPathCommandsNV");
+  bVar10 = _DAT_0451d0f0 == 0;
+  _DAT_0451d0ec = glXGetProcAddressARB("glGetPathCoordsNV");
+  bVar11 = _DAT_0451d0ec == 0;
+  _DAT_0451d0e8 = glXGetProcAddressARB("glGetPathDashArrayNV");
+  bVar12 = _DAT_0451d0e8 == 0;
+  _DAT_0451d0e4 = glXGetProcAddressARB("glGetPathLengthNV");
+  bVar13 = _DAT_0451d0e4 == 0;
+  _DAT_0451d0e0 = glXGetProcAddressARB("glGetPathMetricRangeNV");
+  bVar14 = _DAT_0451d0e0 == 0;
+  _DAT_0451d0dc = glXGetProcAddressARB("glGetPathMetricsNV");
+  bVar15 = _DAT_0451d0dc == 0;
+  _DAT_0451d0d8 = glXGetProcAddressARB("glGetPathParameterfvNV");
+  bVar16 = _DAT_0451d0d8 == 0;
+  _DAT_0451d0d4 = glXGetProcAddressARB("glGetPathParameterivNV");
+  bVar17 = _DAT_0451d0d4 == 0;
+  _DAT_0451d0d0 = glXGetProcAddressARB("glGetPathSpacingNV");
+  bVar18 = _DAT_0451d0d0 == 0;
+  _DAT_0451d0cc = glXGetProcAddressARB("glGetPathTexGenfvNV");
+  bVar19 = _DAT_0451d0cc == 0;
+  _DAT_0451d0c8 = glXGetProcAddressARB("glGetPathTexGenivNV");
+  bVar20 = _DAT_0451d0c8 == 0;
+  _DAT_0451d0c4 = glXGetProcAddressARB("glInterpolatePathsNV");
+  bVar21 = _DAT_0451d0c4 == 0;
+  _DAT_0451d0c0 = glXGetProcAddressARB("glIsPathNV");
+  bVar22 = _DAT_0451d0c0 == 0;
+  _DAT_0451d0bc = glXGetProcAddressARB("glIsPointInFillPathNV");
+  bVar23 = _DAT_0451d0bc == 0;
+  _DAT_0451d0b8 = glXGetProcAddressARB("glIsPointInStrokePathNV");
+  bVar24 = _DAT_0451d0b8 == 0;
+  _DAT_0451d0b4 = glXGetProcAddressARB("glPathColorGenNV");
+  bVar25 = _DAT_0451d0b4 == 0;
+  _DAT_0451d0b0 = glXGetProcAddressARB("glPathCommandsNV");
+  bVar26 = _DAT_0451d0b0 == 0;
+  _DAT_0451d0ac = glXGetProcAddressARB("glPathCoordsNV");
+  bVar27 = _DAT_0451d0ac == 0;
+  _DAT_0451d0a8 = glXGetProcAddressARB("glPathCoverDepthFuncNV");
+  bVar28 = _DAT_0451d0a8 == 0;
+  _DAT_0451d0a4 = glXGetProcAddressARB("glPathDashArrayNV");
+  bVar29 = _DAT_0451d0a4 == 0;
+  _DAT_0451d0a0 = glXGetProcAddressARB("glPathFogGenNV");
+  bVar30 = _DAT_0451d0a0 == 0;
+  _DAT_0451d09c = glXGetProcAddressARB("glPathGlyphRangeNV");
+  bVar31 = _DAT_0451d09c == 0;
+  _DAT_0451d098 = glXGetProcAddressARB("glPathGlyphsNV");
+  bVar32 = _DAT_0451d098 == 0;
+  _DAT_0451d094 = glXGetProcAddressARB("glPathParameterfNV");
+  bVar33 = _DAT_0451d094 == 0;
+  _DAT_0451d090 = glXGetProcAddressARB("glPathParameterfvNV");
+  bVar34 = _DAT_0451d090 == 0;
+  _DAT_0451d08c = glXGetProcAddressARB("glPathParameteriNV");
+  bVar35 = _DAT_0451d08c == 0;
+  _DAT_0451d088 = glXGetProcAddressARB("glPathParameterivNV");
+  bVar36 = _DAT_0451d088 == 0;
+  _DAT_0451d084 = glXGetProcAddressARB("glPathStencilDepthOffsetNV");
+  bVar37 = _DAT_0451d084 == 0;
+  _DAT_0451d080 = glXGetProcAddressARB("glPathStencilFuncNV");
+  bVar38 = _DAT_0451d080 == 0;
+  _DAT_0451d07c = glXGetProcAddressARB("glPathStringNV");
+  bVar39 = _DAT_0451d07c == 0;
+  _DAT_0451d078 = glXGetProcAddressARB("glPathSubCommandsNV");
+  bVar40 = _DAT_0451d078 == 0;
+  _DAT_0451d074 = glXGetProcAddressARB("glPathSubCoordsNV");
+  bVar41 = _DAT_0451d074 == 0;
+  _DAT_0451d070 = glXGetProcAddressARB("glPathTexGenNV");
+  bVar42 = _DAT_0451d070 == 0;
+  _DAT_0451d06c = glXGetProcAddressARB("glPointAlongPathNV");
+  bVar43 = _DAT_0451d06c == 0;
+  _DAT_0451d068 = glXGetProcAddressARB("glStencilFillPathInstancedNV");
+  bVar44 = _DAT_0451d068 == 0;
+  _DAT_0451d064 = glXGetProcAddressARB("glStencilFillPathNV");
+  bVar45 = _DAT_0451d064 == 0;
+  _DAT_0451d060 = glXGetProcAddressARB("glStencilStrokePathInstancedNV");
+  bVar46 = _DAT_0451d060 == 0;
+  _DAT_0451d05c = glXGetProcAddressARB("glStencilStrokePathNV");
+  bVar47 = _DAT_0451d05c == 0;
+  _DAT_0451d058 = glXGetProcAddressARB("glTransformPathNV");
+  bVar48 = _DAT_0451d058 == 0;
+  _DAT_0451d054 = glXGetProcAddressARB("glWeightPathsNV");
+  return _DAT_0451d054 == 0 ||
+         (bVar48 ||
+         (bVar47 ||
+         (bVar46 ||
+         (bVar45 ||
+         (bVar44 ||
+         (bVar43 ||
+         (bVar42 ||
+         (bVar41 ||
+         (bVar40 ||
+         (bVar39 ||
+         (bVar38 ||
+         (bVar37 ||
+         (bVar36 ||
+         (bVar35 ||
+         (bVar34 ||
+         (bVar33 ||
+         (bVar32 ||
+         (bVar31 ||
+         (bVar30 ||
+         (bVar29 ||
+         (bVar28 ||
+         (bVar27 ||
+         (bVar26 ||
+         (bVar25 ||
+         (bVar24 ||
+         (bVar23 ||
+         (bVar22 ||
+         (bVar21 ||
+         (bVar20 ||
+         (bVar19 ||
+         (bVar18 ||
+         (bVar17 ||
+         (bVar16 ||
+         (bVar15 ||
+         (bVar14 ||
+         (bVar13 ||
+         (bVar12 ||
+         (bVar11 ||
+         (bVar10 ||
+         (bVar9 || (bVar8 || (bVar7 || (bVar6 || (bVar5 || (bVar4 || (bVar3 || (bVar2 || iVar1 == 0)
+                                                                     )))))))))))))))))))))))))))))))
+         )))))))))))))));
+}
+
+
+

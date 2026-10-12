@@ -1,0 +1,10 @@
+FUN_04197880	_glewInit_GL_VERSION_2_0
+FUN_04198140	_glewInit_GL_VERSION_3_0
+FUN_04198d00	_glewInit_GL_VERSION_4_5
+FUN_0419a530	_glewInit_GL_VERSION_4_1
+FUN_0419b790	_glewInit_GL_ARB_vertex_program
+FUN_0419cb30	_glewInit_GL_EXT_direct_state_access
+FUN_041a02f0	_glewInit_GL_NV_path_rendering
+FUN_041a10d0	_glewInit_GL_NV_vertex_program
+FUN_041a2e50	glxewInit
+FUN_041a5dd0	glewInit

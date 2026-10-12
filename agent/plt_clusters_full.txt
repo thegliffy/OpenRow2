@@ -1,0 +1,138 @@
+422 clusters, 804 functions
+  23 (18 unnamed)  __throw_system_error
+      ANCHOR: /home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/xaudio2_full/xaudio2voiceimpl.cpp
+      04105ff0  FUN_04105ff0
+      041061b0  FUN_041061b0
+      041062a0  FUN_041062a0
+      04106510  FUN_04106510
+      04106b80  FUN_04106b80
+      04106ce0  FUN_04106ce0
+      04106f90  FUN_04106f90
+      04109980  FUN_04109980
+      0410b700  FUN_0410b700
+      0410b7a0  FUN_0410b7a0
+      0410b9a0  FUN_0410b9a0
+      0410c8f0  FUN_0410c8f0
+      0410cd60  FUN_0410cd60
+      0410cef0  FUN_0410cef0
+      0410d1f0  FUN_0410d1f0
+      0410d260  FUN_0410d260
+      0410dde0  FUN_0410dde0
+      0410df00  FUN_0410df00
+  17 (15 unnamed)  _Rb_tree_decrement+_Rb_tree_insert_and_rebalance
+      ANCHOR: /home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/user32/accelerators.cpp
+      0400a850  FUN_0400a850
+      0400aab0  FUN_0400aab0
+      04020320  FUN_04020320
+      040204c0  FUN_040204c0
+      040705b0  FUN_040705b0
+      04108450  FUN_04108450
+      0410ba10  FUN_0410ba10
+      0410bbb0  FUN_0410bbb0
+      0410bd60  FUN_0410bd60
+      041453c0  FUN_041453c0
+      0415a8e0  FUN_0415a8e0
+      0415aa80  FUN_0415aa80
+      0416ca90  FUN_0416ca90
+      04177f00  FUN_04177f00
+      04191600  FUN_04191600
+  16 (15 unnamed)  _Rb_tree_decrement+_Rb_tree_increment
+      ANCHOR: /home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/samplercache.cpp
+      0400b570  FUN_0400b570
+      0401fe90  FUN_0401fe90
+      04070340  FUN_04070340
+      040c68f0  FUN_040c68f0
+      040e3cd0  FUN_040e3cd0
+      040e40b0  FUN_040e40b0
+      040e44a0  FUN_040e44a0
+      0410b560  FUN_0410b560
+      04110440  FUN_04110440
+      04148950  FUN_04148950
+      0414f610  FUN_0414f610
+      0414f9e0  FUN_0414f9e0
+      0416d5c0  FUN_0416d5c0
+      04175120  FUN_04175120
+      04176e10  FUN_04176e10
+  13 (3 unnamed)  _M_destroy+string
+      ANCHOR: /home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/D3DBytecodeToGLSLText.cpp
+      ANCHOR: /home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/synchronisationPrimitives.cpp
+      0400cbc0  FUN_0400cbc0
+      0404f060  FUN_0404f060
+      04177050  FUN_04177050
+  13 (8 unnamed)  sprintf
+      ANCHOR: /home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/atom.cpp
+      040de100  FUN_040de100
+      040de1a0  FUN_040de1a0
+      040de860  FUN_040de860
+      040de9a0  FUN_040de9a0
+      04115780  FUN_04115780
+      04117c80  FUN_04117c80
+      0413c2b0  FUN_0413c2b0
+      04156550  FUN_04156550
+  11 (7 unnamed)  _Rb_tree_increment
+      ANCHOR: /home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3dstateblock9imp.h
+      ANCHOR: /home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/user32/events.cpp
+      0400b010  FUN_0400b010
+      0414fc60  FUN_0414fc60
+      04150330  FUN_04150330
+      0415b5b0  FUN_0415b5b0
+      0415b620  FUN_0415b620
+      0415d080  FUN_0415d080
+      04174270  FUN_04174270
+  11 (9 unnamed)  pthread_mutex_init+pthread_mutexattr_destroy+pthread_mutexattr_init+pthread_mute
+      ANCHOR: /home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/winsock/winsock.cpp
+      0411aff0  FUN_0411aff0
+      0411b140  FUN_0411b140
+      0411c100  FUN_0411c100
+      0411c1b0  FUN_0411c1b0
+      0411c2d0  FUN_0411c2d0
+      0411c370  FUN_0411c370
+      0413f3e0  FUN_0413f3e0
+      0416de60  FUN_0416de60
+      0418f810  FUN_0418f810
+  10 (6 unnamed)  pthread_mutex_init
+      ANCHOR: /home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/winsock/asyncSelectSystem.cpp
+      ANCHOR: /home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/winsock/eventSelectSystem.cpp
+      0400aa30  FUN_0400aa30
+      0400b0d0  FUN_0400b0d0
+      0402f8c0  FUN_0402f8c0
+      0402fa30  FUN_0402fa30
+      040f6310  FUN_040f6310
+      040f8760  FUN_040f8760
+   8 (5 unnamed)  _M_destroy
+      ANCHOR: /home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3dpixelshader9imp.cpp
+      ANCHOR: /home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3dvertexshader9imp.cpp
+      ANCHOR: /home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/nls_locale.cpp
+      0400d4a0  FUN_0400d4a0
+      0400d550  FUN_0400d550
+      0404f270  FUN_0404f270
+      04153bf0  FUN_04153bf0
+      04154090  FUN_04154090
+   8 (3 unnamed)  __ctype_tolower_loc
+      ANCHOR: /home/peterm/Development/Projects/eon2-sr2/eon2/src/core/vpfs/caseInsensitivePath.cpp
+      0403c9d0  FUN_0403c9d0
+      04040250  FUN_04040250
+      04040720  FUN_04040720
+   7 (6 unnamed)  __ctype_b_loc
+      ANCHOR: /home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxml.h
+      0403d0f0  FUN_0403d0f0
+      04159ea0  FUN_04159ea0
+      041c73a0  FUN_041c73a0
+      041c7910  FUN_041c7910
+      041c8110  FUN_041c8110
+      041c8680  FUN_041c8680
+   5 (1 unnamed)  strcasecmp
+      ANCHOR: /home/peterm/Development/Projects/eon2-sr2/eon2/src/core/gameControllers.cpp
+      04040950  FUN_04040950
+   4 (1 unnamed)  floorf
+      ANCHOR: /home/peterm/Development/Projects/eon2-sr2/eon2/src/core/ImageScaling.cpp
+      ANCHOR: /home/peterm/Development/Projects/eon2-sr2/eon2/src/core/mouseDeltas.cpp
+      04010fd0  FUN_04010fd0
+   4 (2 unnamed)  snprintf
+      ANCHOR: /home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinystr.h
+      041c3c90  FUN_041c3c90
+      041c3d60  FUN_041c3d60
+   3 (2 unnamed)  glDeleteTextures
+      ANCHOR: /home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/pixelformatdata.cpp
+      040e3450  FUN_040e3450
+      040e3720  FUN_040e3720
