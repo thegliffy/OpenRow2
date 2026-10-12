@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries with no string reference
+Continued from decomp/largest_fun_calls_note580.txt.
+No Class::Method names were invented.
+
+- 0416c0e0, 16 bytes (body 9). No outgoing calls. Instruction mix: RET 1, POP 1, MOV 1, XOR 1, PUSH 1.
+- 0416c0f0, 16 bytes (body 9). No outgoing calls. Instruction mix: RET 1, POP 1, MOV 1, XOR 1, PUSH 1.
+- 0416c100, 16 bytes (body 7). No outgoing calls. Instruction mix: RET 1, POP 1, MOV 1, PUSH 1.
+- 0416c110, 16 bytes (body 9). No outgoing calls. Instruction mix: RET 1, POP 1, MOV 1, XOR 1, PUSH 1.
+- 0416c120, 16 bytes (body 9). No outgoing calls. Instruction mix: RET 1, POP 1, MOV 1, XOR 1, PUSH 1.
+- 0416c160, 16 bytes (body 7). No outgoing calls. Instruction mix: RET 1, POP 1, MOV 1, PUSH 1.
+- 0416c240, 16 bytes (body 9). No outgoing calls. Instruction mix: RET 1, POP 1, MOV 1, XOR 1, PUSH 1.
+- 0416c250, 16 bytes (body 9). No outgoing calls. Instruction mix: RET 1, POP 1, MOV 1, XOR 1, PUSH 1.
+- 0416d1a0, 16 bytes (body 9). No outgoing calls. Instruction mix: RET 1, POP 1, MOV 1, XOR 1, PUSH 1.
+- 0416d1b0, 16 bytes (body 9). No outgoing calls. Instruction mix: RET 1, POP 1, MOV 1, XOR 1, PUSH 1.

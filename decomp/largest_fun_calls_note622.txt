@@ -1,0 +1,13 @@
+Next 10 largest FUN_ entries with no string reference
+Continued from decomp/largest_fun_calls_note621.txt. No Class::Method names were invented.
+
+- 041fe5bc, 12 bytes (body 11). No outgoing calls. Instruction mix: MOV 3, RET 1, POP 1, PUSH 1.
+- 04204a86, 12 bytes (body 11). No outgoing calls. Instruction mix: MOV 3, RET 1, POP 1, PUSH 1.
+- 04204c86, 12 bytes. No outgoing calls. Instruction mix: RET 1, POP 1, MOV 1, CMP 1, SETLE 1.
+- 04204c92, 12 bytes. No outgoing calls. Instruction mix: RET 1, POP 1, SETG 1, MOV 1, CMP 1.
+- 0420937f, 12 bytes. No outgoing calls. Instruction mix: RET 1, POP 1, SETG 1, MOV 1, CMP 1.
+- 0420c475, 12 bytes. No outgoing calls. Instruction mix: RET 1, POP 1, MOV 1, CMP 1, SETLE 1.
+- 041c9cf4, 11 bytes. No outgoing calls. Instruction mix: RET 1, POP 1, MOV 1, FLD 1, PUSH 1.
+- 041c9cff, 11 bytes. No outgoing calls. Instruction mix: RET 1, POP 1, MOV 1, FLD 1, PUSH 1.
+- 041ca068, 11 bytes. No outgoing calls. Instruction mix: RET 1, POP 1, MOV 1, FLD 1, PUSH 1.
+- 041fd80e, 11 bytes. No outgoing calls. Instruction mix: MOV 2, RET 1, POP 1, ADD 1, PUSH 1.
