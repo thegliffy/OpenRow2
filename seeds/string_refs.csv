@@ -12195,7 +12195,7 @@ Unhandled -  AudioClientImp::QueryInterface called with iid = %s,AudioClientImp:
 /home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/winmm/audioclientimp.cpp,audioclientimp_04189630,04189630
 ( hnsPeriodicity & ~ 0x7FFFFFFFF ) == 0,audioclientimp_04189630,04189630
 Failure setting up Audio Client audio device unit!,audioclientimp_04189630,04189630
-CoreAudio error when trying to set format of stream for device: %d,FUN_041897f0,041897f0
+CoreAudio error when trying to set format of stream for device: %d,AudioClientImp::IsFormatSupported,041897f0
 "pthread_mutex_init( &mClientMutex, &attr ) == 0",AudioClientImp::AudioClientImp,04189f80
 mFrameSize,AudioClientImp::RequestPackets,04189d60
 AudioClientImp,AudioClientImp::AudioClientImp,04189f80

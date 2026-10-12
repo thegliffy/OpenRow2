@@ -33,14 +33,24 @@ CLASSES = {
     "MMDeviceEnumeratorImp": ("mmdeviceapi.idl", "IMMDeviceEnumerator"),
     "MMDeviceCollectionImp": ("mmdeviceapi.idl", "IMMDeviceCollection"),
     "MMEndpointImp": ("mmdeviceapi.idl", "IMMEndpoint"),
-    "PropertyStoreImp": ("propidl.idl", "IPropertyStore"),
     "DirectSoundBuffer8Imp": ("dsound.h", "IDirectSoundBuffer8"),
-    "DirectSound3DBuffer8Imp": ("dsound.h", "IDirectSound3DBuffer8"),
+    # dsound.h typedefs IDirectSound3DBuffer8 -> IDirectSound3DBuffer; the
+    # #define block uses the un-suffixed name.
+    "DirectSound3DBuffer8Imp": ("dsound.h", "IDirectSound3DBuffer"),
+}
+
+# Wine's propidl.idl has no IPropertyStore (it lives in the C header); the
+# documented order (MSDN, IUnknown first) is pinned here instead.
+MANUAL_ORDER = {
+    "IPropertyStore": ["QueryInterface", "AddRef", "Release",
+                       "GetCount", "GetAt", "QueryProperties", "QueryValue",
+                       "SetValue", "CommitChanges"],
 }
 
 
 def order_from_defines(fname, iface):
-    """Method order from Wine's #define Interface_Method blocks."""
+    """Method order from Wine's #define Interface_Method blocks (full vtable order,
+    IUnknown trio included)."""
     text = open(HDR / fname).read()
     order = []
     for line in text.splitlines():
@@ -75,15 +85,18 @@ def order_from_idl(fname, iface):
         body = text[m.end():text.find("}", m.end())]
         for line in body.splitlines():
             line = line.strip()
-            if line.startswith(("[", "import", "typedef", "const", "/*", "//")) or not line:
+            if not line or line.startswith(("import", "typedef", "const", "/*", "//")):
                 continue
-            f = re.search(r"\b([A-Za-z_][A-Za-z0-9_]*)\s*\(", line)
-            if f and f.group(1) not in ("interface", "HRESULT", "BOOL"):
-                order.append(f.group(1))
+            # IDL methods may carry [id(N)] attributes on the same line.
+            m2 = re.search(r"\bHRESULT\s+([A-Za-z_][A-Za-z0-9_]*)\s*\(", line)
+            if m2:
+                order.append(m2.group(1))
     return order or None
 
 
 def documented_order(fname, iface):
+    if iface in MANUAL_ORDER:
+        return MANUAL_ORDER[iface]
     if fname.endswith(".h"):
         return order_from_defines(fname, iface)
     return order_from_idl(fname, iface)
@@ -102,6 +115,19 @@ def runs(rows):
     return out
 
 
+def method_of(name):
+    """Documented method name from a project name: Class::Method, or
+    module_Method for shared impls. module_<hex> placeholders carry no
+    method evidence."""
+    if "::" in name:
+        return name.split("::")[-1]
+    if "_" in name:
+        tail = name.rsplit("_", 1)[-1]
+        if tail.isalpha():
+            return tail
+    return None
+
+
 def main():
     proposals = []
     for path in sorted((ROOT / "agent" / "vtables").glob("*.tsv")):
@@ -109,11 +135,13 @@ def main():
         if not rows:
             continue
         for run in runs(rows):
-            named = [r for r in run if "::" in r["target_name"]]
+            named = [r for r in run if "::" in r["target_name"] or "_" in r["target_name"]]
             if not named:
                 continue
-            prefixes = {n["target_name"].split("::")[0] for n in named}
-            prefixes = [p for p in prefixes if p in CLASSES]
+            prefixes = {n["target_name"].split("::")[0] for n in named if "::" in n["target_name"]}
+            prefixes |= {n["target_name"].rsplit("_", 1)[0] for n in named if "_" in n["target_name"]}
+            lower = {p.lower(): p for p in CLASSES}
+            prefixes = [lower[p.lower()] for p in prefixes if p.lower() in lower]
             if not prefixes:
                 continue
             cls = prefixes[0]
@@ -127,9 +155,9 @@ def main():
                 agree = 0
                 for r in named:
                     di = run.index(r) - shift
-                    if 0 <= di < len(order) and order[di] == r["target_name"].split("::")[-1]:
+                    if 0 <= di < len(order) and order[di] == method_of(r["target_name"]):
                         agree += 1
-                if agree >= 2 and (best is None or agree > best[1]):
+                if agree >= 3 and (best is None or agree > best[1]):
                     best = (shift, agree)
             if not best:
                 continue
