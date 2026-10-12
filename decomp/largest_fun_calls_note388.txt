@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries with no string reference
+Continued from decomp/largest_fun_calls_note387.txt.
+No Class::Method names were invented.
+
+- 041698f0, 48 bytes (body 47). No outgoing calls. Instruction mix: MOV 3, MOVSD 2, UCOMISD 2, RET 1, POP 1.
+- 04169a80, 48 bytes. No outgoing calls. Instruction mix: MOV 2, MOVSD 2, UCOMISD 2, RET 1, POP 1.
+- 0416a040, 48 bytes (body 39). No outgoing calls. Instruction mix: MOV 8, POP 2, PUSH 2, RET 1, XOR 1.
+- 0416c130, 48 bytes. 1 outgoing call: comalloc_0415fd50 x1. Instruction mix: MOV 5, PUSH 3, SUB 2, LEA 2, RET 1.
+- 0416c210, 48 bytes (body 40). 1 outgoing call: comalloc_0415ffe0 x1. Instruction mix: MOV 4, PUSH 3, SUB 2, LEA 2, RET 1.
+- 0416d890, 48 bytes (body 47). 2 outgoing calls: pthread_mutex_lock x1, pthread_mutex_unlock x1. Instruction mix: MOV 6, CALL 2, PUSH 2, RET 1, SUB 1.
+- 0416ecc0, 48 bytes (body 36). 1 outgoing call: FUN_04027550 x1. Instruction mix: MOV 6, RET 1, CALL 1, SUB 1, AND 1.
+- 0416ecf0, 48 bytes (body 27). No outgoing calls. Instruction mix: MOV 3, RET 2, POP 2, TEST 2, JZ 1.
+- 0416f040, 48 bytes (body 39). No outgoing calls. Instruction mix: MOV 5, RET 2, POP 2, ADD 1, SUB 1.
+- 041754d0, 48 bytes (body 45). No outgoing calls. Instruction mix: MOV 4, CMP 4, POP 2, XOR 2, JG 2.

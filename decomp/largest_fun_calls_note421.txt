@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries with no string reference
+Continued from decomp/largest_fun_calls_note420.txt.
+No Class::Method names were invented; every callee below is exactly what the tool printed.
+
+- 0401f910, 32 bytes (body 18). No outgoing calls. Instruction mix: MOV 4, POP 1, JMP 1, PUSH 1.
+- 04020180, 32 bytes (body 31). 1 outgoing call: opengl_objects_04020090 x1. Instruction mix: MOV 4, POP 2, PUSH 2, ADD 1, CALL 1.
+- 040220a0, 32 bytes (body 26). No outgoing calls. Instruction mix: MOV 4, RET 1, POP 1, CMP 1, XOR 1.
+- 04022140, 32 bytes (body 26). No outgoing calls. Instruction mix: MOV 4, RET 1, POP 1, JZ 1, CMP 1.
+- 04023c50, 32 bytes (body 18). No outgoing calls. Instruction mix: MOV 3, POP 1, JMP 1, PUSH 1.
+- 04023f90, 32 bytes (body 26). 1 outgoing call: FUN_04023e00 x1. Instruction mix: MOV 5, RET 1, CALL 1, SUB 1, LEAVE 1.
+- 04024140, 32 bytes (body 26). 1 outgoing call: FUN_04023fb0 x1. Instruction mix: MOV 5, RET 1, CALL 1, SUB 1, LEAVE 1.
+- 040242f0, 32 bytes (body 26). 1 outgoing call: FUN_04024160 x1. Instruction mix: MOV 5, RET 1, CALL 1, SUB 1, LEAVE 1.
+- 04025660, 32 bytes (body 26). No outgoing calls. Instruction mix: MOV 5, POP 1, JMP 1, PUSH 1.
+- 04025ec0, 32 bytes (body 27). 1 outgoing call: SDL_GetWindowFlags x1. Instruction mix: MOV 4, RET 1, CALL 1, SUB 1, TEST 1.

@@ -81,7 +81,7 @@ Closed, do not restart:
 Closed, continued:
 
 - VPFS decrypt and extract. `tools/vpfs_extract.py` follows the AES path (`decomp/vpfs_aes_plain.txt`) and writes `decomp/vpfs_dir_records.tsv`. The 15 files check out as PE32 or the VC80 manifest (`decomp/vpfs_extract_check.txt`). `language_setup.exe` is UPX. Extracted files stay out of the tree. The `tools/vpfs_*.py` probes other than `vpfs_extract.py` still search for zlib or import `Crypto`. Do not extend them.
-- Call catalog of unnamed `FUN_` bodies: `decomp/largest_fun_calls_note.txt` through `note386.txt` (3,860 functions). Notes 385–386 are compare-leaves with no outgoing calls, so the catalog is stopped. An instruction mix is not a `Class::Method` name. Scoreboard stays 2,113 / 9,221 named (22.9%).
+- Call catalog of unnamed `FUN_` bodies: `decomp/largest_fun_calls_note.txt` through `note460.txt` (4,600 functions). Notes 459–460 have no outgoing calls, so the catalog is stopped. An instruction mix is not a `Class::Method` name. Scoreboard stays 2,113 / 9,221 named (22.9%).
 
 The extracted `sr2_pc.exe` contains the 71 Windows paths. That does not add a Linux assert the checker can name. Leave `seeds/rejected/win_string_module_map.csv` unused.
 

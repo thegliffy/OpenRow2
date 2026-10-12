@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries with no string reference
+Continued from decomp/largest_fun_calls_note396.txt.
+No Class::Method names were invented.
+
+- 041c4720, 48 bytes (body 36). 1 outgoing call: FUN_041c45e0 x1. Instruction mix: MOV 7, RET 1, CALL 1, ADD 1, SUB 1.
+- 041c4b70, 48 bytes (body 35). No outgoing calls. Instruction mix: MOV 8, TEST 2, RET 1, POP 1, JNZ 1.
+- 041c4ba0, 48 bytes (body 35). No outgoing calls. Instruction mix: MOV 8, TEST 2, RET 1, POP 1, JNZ 1.
+- 041c50e0, 48 bytes (body 41). 1 outgoing call: strtol x1. Instruction mix: MOV 6, RET 1, CALL 1, ADD 1, SUB 1.
+- 041c5110, 48 bytes (body 33). 1 outgoing call: strtod x1. Instruction mix: MOV 5, RET 1, CALL 1, ADD 1, SUB 1.
+- 041c6360, 48 bytes (body 41). No outgoing calls. Instruction mix: MOV 9, RET 1, CALL 1, SUB 1, LEAVE 1.
+- 041c6ba0, 48 bytes (body 46). 1 outgoing call: __ctype_b_loc x1. Instruction mix: MOVZX 3, MOV 3, POP 2, PUSH 2, RET 1.
+- 041c6bd0, 48 bytes (body 44). 1 outgoing call: __ctype_b_loc x1. Instruction mix: MOVZX 3, MOV 3, POP 2, PUSH 2, RET 1.
+- 041c99a0, 48 bytes (body 41). 1 outgoing call: FUN_041c4bd0 x1. Instruction mix: MOV 8, RET 1, CALL 1, SUB 1, LEAVE 1.
+- 041cc694, 48 bytes. No outgoing calls. Instruction mix: MOV 7, RET 1, JZ 1, CALL 1, SUB 1.

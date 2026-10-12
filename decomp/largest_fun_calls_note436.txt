@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries with no string reference
+Continued from decomp/largest_fun_calls_note435.txt.
+No Class::Method names were invented.
+
+- 040ac080, 32 bytes (body 31). 1 outgoing call: FUN_040abb90 x1. Instruction mix: MOV 4, POP 2, PUSH 2, ADD 1, CALL 1.
+- 040ac500, 32 bytes (body 27). 1 outgoing call: direct3ddevice9imp_04080490 x1. Instruction mix: MOV 4, RET 1, JZ 1, CALL 1, ADD 1.
+- 040ac900, 32 bytes (body 31). 1 outgoing call: FUN_040ac7a0 x1. Instruction mix: MOV 4, POP 2, PUSH 2, ADD 1, CALL 1.
+- 040ad550, 32 bytes (body 29). No outgoing calls. Instruction mix: MOV 4, RET 1, POP 1, JZ 1, TEST 1.
+- 040b0b60, 32 bytes (body 27). No outgoing calls. Instruction mix: MOV 3, RET 1, POP 1, TEST 1, SETBE 1.
+- 040b0f80, 32 bytes (body 27). 1 outgoing call: direct3ddevice9imp_04080490 x1. Instruction mix: MOV 4, RET 1, JZ 1, CALL 1, ADD 1.
+- 040b15c0, 32 bytes (body 31). 1 outgoing call: FUN_040b1520 x1. Instruction mix: MOV 4, POP 2, PUSH 2, ADD 1, CALL 1.
+- 040b3030, 32 bytes (body 31). 1 outgoing call: FUN_040b2f80 x1. Instruction mix: MOV 4, POP 2, PUSH 2, ADD 1, CALL 1.
+- 040b4fc0, 32 bytes (body 31). No outgoing calls. Instruction mix: MOV 9, RET 1, POP 1, PUSH 1.
+- 040b5840, 32 bytes (body 29). No outgoing calls. Instruction mix: MOV 4, RET 1, POP 1, ADD.LOCK 1, XADD.LOCK 1.

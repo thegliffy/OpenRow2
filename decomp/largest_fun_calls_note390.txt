@@ -1,0 +1,13 @@
+Next 10 largest FUN_ entries with no string reference
+Continued from decomp/largest_fun_calls_note389.txt. No Class::Method names were invented.
+
+- 04176380, 48 bytes (body 36). No outgoing calls. Instruction mix: MOV 6, JZ 2, TEST 2, RET 1, POP 1.
+- 04176990, 48 bytes (body 36). 2 outgoing calls: SDL_DisableScreenSaver x1, SDL_EnableScreenSaver x1. Instruction mix: MOV 3, RET 2, CALL 2, LEAVE 2, SUB 1.
+- 04177c00, 48 bytes (body 40). 1 outgoing call: FUN_0415cec0 x1. Instruction mix: MOV 4, PUSH 3, SUB 2, LEA 2, RET 1.
+- 0417eb50, 48 bytes (body 33). 1 outgoing call: FUN_0417da90 x1. Instruction mix: MOV 4, RET 1, CALL 1, CMP 1, AND 1.
+- 0417eb80, 48 bytes (body 33). 1 outgoing call: FUN_0417e2b0 x1. Instruction mix: MOV 4, RET 1, CALL 1, CMP 1, AND 1.
+- 0417ebb0, 48 bytes (body 35). 1 outgoing call: FUN_0417da90 x1. Instruction mix: MOV 5, RET 1, CALL 1, CMP 1, AND 1.
+- 0417ebe0, 48 bytes (body 35). 1 outgoing call: FUN_0417e2b0 x1. Instruction mix: MOV 5, RET 1, CALL 1, CMP 1, AND 1.
+- 0417ec30, 48 bytes (body 40). 1 outgoing call: strcpy x1. Instruction mix: MOV 6, RET 1, JZ 1, CALL 1, SUB 1.
+- 0417f040, 48 bytes (body 47). 1 outgoing call: __ctype_b_loc x1. Instruction mix: MOV 4, AND 2, PUSH 2, RET 1, MOVZX 1.
+- 0417f070, 48 bytes (body 36). 1 outgoing call: __ctype_b_loc x1. Instruction mix: MOV 3, PUSH 2, RET 1, MOVZX 1, CALL 1.

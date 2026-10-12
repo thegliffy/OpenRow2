@@ -1,0 +1,13 @@
+Next 10 largest FUN_ entries with no string reference
+Continued from decomp/largest_fun_calls_note454.txt. No Class::Method names were invented.
+
+- 0415b390, 32 bytes (body 20). 1 outgoing call: pthread_mutex_destroy x1. Instruction mix: MOV 2, RET 1, CALL 1, SUB 1, LEAVE 1.
+- 0415b4f0, 32 bytes (body 20). No outgoing calls. Instruction mix: MOV 4, RET 1, POP 1, PUSH 1.
+- 0415b6a0, 32 bytes (body 26). No outgoing calls. Instruction mix: MOV 3, TEST 2, RET 1, POP 1, JZ 1.
+- 0415c000, 32 bytes (body 24). No outgoing calls. Instruction mix: MOV 4, RET 1, POP 1, PUSH 1.
+- 0415c020, 32 bytes (body 29). 1 outgoing call: pthread_self x1. Instruction mix: POP 2, MOV 2, PUSH 2, RET 1, ADD 1.
+- 0415c040, 32 bytes (body 29). 1 outgoing call: pthread_self x1. Instruction mix: POP 2, MOV 2, PUSH 2, RET 1, ADD 1.
+- 0415c070, 32 bytes (body 22). No outgoing calls. Instruction mix: MOV 3, RET 1, POP 1, XOR 1, PUSH 1.
+- 0415c8d0, 32 bytes (body 18). 1 outgoing call: sched_yield x1. Instruction mix: MOV 2, RET 1, CALL 1, AND 1, LEAVE 1.
+- 0415cc50, 32 bytes (body 22). No outgoing calls. Instruction mix: MOV 3, RET 1, POP 1, XOR 1, PUSH 1.
+- 0415cc70, 32 bytes (body 22). No outgoing calls. Instruction mix: MOV 3, RET 1, POP 1, XOR 1, PUSH 1.

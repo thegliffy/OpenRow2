@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries with no string reference
+Continued from decomp/largest_fun_calls_note424.txt.
+No Class::Method names were invented.
+
+- 040696e0, 32 bytes (body 27). 1 outgoing call: d3d9device_GetNPatchMode x1. Instruction mix: MOV 3, RET 1, CALL 1, ADD 1, SUB 1.
+- 04069760, 32 bytes (body 27). 1 outgoing call: d3d9device_GetSoftwareVertexProcessing x1. Instruction mix: MOV 3, RET 1, CALL 1, ADD 1, SUB 1.
+- 04069780, 32 bytes (body 27). 1 outgoing call: d3d9device_GetSoftwareVertexProcessing x1. Instruction mix: MOV 3, RET 1, CALL 1, ADD 1, SUB 1.
+- 04069e00, 32 bytes (body 27). 1 outgoing call: d3d9device_BeginStateBlock x1. Instruction mix: MOV 3, RET 1, CALL 1, ADD 1, SUB 1.
+- 04069e20, 32 bytes (body 27). 1 outgoing call: d3d9device_BeginStateBlock x1. Instruction mix: MOV 3, RET 1, CALL 1, ADD 1, SUB 1.
+- 0406a4e0, 32 bytes (body 27). 1 outgoing call: d3d9device_EndScene x1. Instruction mix: MOV 3, RET 1, CALL 1, ADD 1, SUB 1.
+- 0406a500, 32 bytes (body 27). 1 outgoing call: d3d9device_EndScene x1. Instruction mix: MOV 3, RET 1, CALL 1, ADD 1, SUB 1.
+- 0406a520, 32 bytes (body 27). 1 outgoing call: d3d9device_BeginScene x1. Instruction mix: MOV 3, RET 1, CALL 1, ADD 1, SUB 1.
+- 0406a540, 32 bytes (body 27). 1 outgoing call: d3d9device_BeginScene x1. Instruction mix: MOV 3, RET 1, CALL 1, ADD 1, SUB 1.
+- 0406b1c0, 32 bytes (body 27). 1 outgoing call: d3d9device_GetNumberOfSwapChains x1. Instruction mix: MOV 3, RET 1, CALL 1, ADD 1, SUB 1.

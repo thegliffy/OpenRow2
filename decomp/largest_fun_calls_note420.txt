@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries with no string reference
+Continued from decomp/largest_fun_calls_note419.txt.
+No Class::Method names were invented; every callee below is exactly what the tool printed.
+
+- 04015a30, 32 bytes (body 24). No outgoing calls. Instruction mix: MOV 6, POP 1, JMP 1, PUSH 1.
+- 04017400, 32 bytes (body 17). No outgoing calls. Instruction mix: MOV 2, RET 1, POP 1, TEST 1, SETNZ 1.
+- 040175b0, 32 bytes (body 22). No outgoing calls. Instruction mix: MOV 5, RET 1, POP 1, PUSH 1.
+- 04017d80, 32 bytes (body 28). 1 outgoing call: strcpy x1. Instruction mix: MOV 5, RET 1, CALL 1, SUB 1, LEAVE 1.
+- 04017da0, 32 bytes (body 28). 1 outgoing call: strcpy x1. Instruction mix: MOV 5, RET 1, CALL 1, SUB 1, LEAVE 1.
+- 04018aa0, 32 bytes (body 21). 1 outgoing call: eON_FileSystem::removeDirRecursive x1. Instruction mix: MOV 3, RET 1, CALL 1, SUB 1, LEAVE 1.
+- 0401edd0, 32 bytes (body 23). No outgoing calls. Instruction mix: MOV 4, POP 2, RET 1, JZ 1, TEST 1.
+- 0401eec0, 32 bytes (body 25). No outgoing calls. Instruction mix: MOV 3, RET 1, POP 1, JA 1, CMP 1.
+- 0401f1c0, 32 bytes (body 20). No outgoing calls. Instruction mix: MOV 2, RET 1, MOVZX 1, POP 1, CMP 1.
+- 0401f830, 32 bytes (body 19). 1 outgoing call: SDL_GL_GetCurrentContext x1. Instruction mix: RET 1, CALL 1, SUB 1, MOV 1, CMP 1.

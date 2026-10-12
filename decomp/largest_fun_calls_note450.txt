@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries with no string reference
+Continued from decomp/largest_fun_calls_note449.txt.
+No Class::Method names were invented.
+
+- 0410b370, 32 bytes (body 20). 1 outgoing call: operator.delete x1. Instruction mix: MOV 2, RET 1, JZ 1, CALL 1, SUB 1.
+- 0410b390, 32 bytes (body 27). 1 outgoing call: pthread_mutex_unlock x1. Instruction mix: MOV 4, RET 1, JZ 1, CALL 1, SUB 1.
+- 0410d1d0, 32 bytes. No outgoing calls. Instruction mix: MOV 2, RET 1, DIVSS 1, SUB 1, MOVSS 1.
+- 0410d620, 32 bytes (body 31). 1 outgoing call: xaudio2voiceimpl_0410d400 x1. Instruction mix: MOV 4, POP 2, PUSH 2, ADD 1, CALL 1.
+- 04110a40, 32 bytes (body 22). No outgoing calls. Instruction mix: MOV 3, RET 1, POP 1, TEST 1, XOR 1.
+- 04114eb0, 32 bytes (body 29). 1 outgoing call: FUN_041127b0 x1. Instruction mix: MOV 2, RET 1, MOVZX 1, CALL 1, JNZ 1.
+- 0411a650, 32 bytes (body 31). 1 outgoing call: strlen x1. Instruction mix: MOV 4, SUB 2, RET 1, CALL 1, ADD 1.
+- 0411ab10, 32 bytes (body 31). 1 outgoing call: strlen x1. Instruction mix: MOV 4, SUB 2, RET 1, CALL 1, ADD 1.
+- 0411abe0, 32 bytes (body 30). 1 outgoing call: strlen x1. Instruction mix: MOV 4, SUB 2, RET 1, CALL 1, ADD 1.
+- 0411c840, 32 bytes (body 29). No outgoing calls. Instruction mix: MOV 2, RET 1, POP 1, JZ 1, ADD 1.

@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries with no string reference
+Continued from decomp/largest_fun_calls_note411.txt.
+No Class::Method names were invented; only names printed by Ghidra are used.
+
+- 042063f8, 42 bytes. 2 outgoing calls: FUN_041f75a2 x1, FUN_04204e1e x1. Instruction mix: PUSH 6, ADD 2, CALL 2, SUB 2, RET 1.
+- 0400a7e7, 41 bytes (body 39). No outgoing calls. Instruction mix: JZ 2, SUB 2, MOV 2, PUSH 2, RET 1.
+- 04200c3e, 41 bytes. No outgoing calls. Instruction mix: MOV 9, RET 1, JZ 1, SUB 1, CMP 1.
+- 04208af6, 41 bytes. 1 outgoing call: FUN_04204e64 x1. Instruction mix: MOV 4, SUB 2, PUSH 2, RET 1, JZ 1.
+- 04144668, 40 bytes (body 15). 1 outgoing call: FUN_04144520 x1. Instruction mix: PUSH 2, RET 1, CALL 1.
+- 041c9d9e, 40 bytes. 1 outgoing call: modf x1. Instruction mix: MOV 5, PUSH 4, SUB 2, RET 1, ADD 1.
+- 041cadb2, 40 bytes. 1 outgoing call: FUN_041cacbb x1. Instruction mix: MOV 4, SUB 2, PUSH 2, RET 1, ADD 1.
+- 041cadda, 40 bytes. 1 outgoing call: FUN_041cacbb x1. Instruction mix: MOV 4, SUB 2, PUSH 2, RET 1, ADD 1.
+- 041cd562, 40 bytes. No outgoing calls. Instruction mix: MOV 4, PUSH 3, SUB 2, RET 1, JZ 1.
+- 041d5911, 40 bytes. 2 outgoing calls: FUN_041cca07 x2. Instruction mix: SUB 3, MOV 3, PUSH 3, ADD 2, CALL 2.

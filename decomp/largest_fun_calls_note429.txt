@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries with no string reference
+Continued from decomp/largest_fun_calls_note428.txt.
+No Class::Method names were invented.
+
+- 040a1610, 32 bytes (body 24). No outgoing calls. Instruction mix: MOV 4, POP 1, ADD 1, JMP 1, PUSH 1.
+- 040a1630, 32 bytes (body 24). No outgoing calls. Instruction mix: MOV 4, POP 1, ADD 1, JMP 1, PUSH 1.
+- 040a1650, 32 bytes (body 24). No outgoing calls. Instruction mix: MOV 4, POP 1, ADD 1, JMP 1, PUSH 1.
+- 040a1670, 32 bytes (body 24). No outgoing calls. Instruction mix: MOV 4, POP 1, ADD 1, JMP 1, PUSH 1.
+- 040a1690, 32 bytes (body 24). No outgoing calls. Instruction mix: MOV 4, POP 1, ADD 1, JMP 1, PUSH 1.
+- 040a16b0, 32 bytes (body 24). No outgoing calls. Instruction mix: MOV 4, POP 1, ADD 1, JMP 1, PUSH 1.
+- 040a16d0, 32 bytes (body 24). No outgoing calls. Instruction mix: MOV 4, POP 1, ADD 1, JMP 1, PUSH 1.
+- 040a16f0, 32 bytes (body 24). No outgoing calls. Instruction mix: MOV 4, POP 1, ADD 1, JMP 1, PUSH 1.
+- 040a1710, 32 bytes (body 24). No outgoing calls. Instruction mix: MOV 4, POP 1, ADD 1, JMP 1, PUSH 1.
+- 040a1730, 32 bytes (body 24). No outgoing calls. Instruction mix: MOV 4, POP 1, ADD 1, JMP 1, PUSH 1.

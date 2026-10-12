@@ -1,0 +1,14 @@
+Next 10 largest FUN_ entries with no string reference
+Continued from decomp/largest_fun_calls_note451.txt.
+No Class::Method names were invented.
+
+- 04132bf0, 32 bytes (body 29). 1 outgoing call: FUN_04046490 x1. Instruction mix: MOV 4, RET 1, CALL 1, SUB 1, AND 1.
+- 04139850, 32 bytes (body 31). 1 outgoing call: bzero x1. Instruction mix: MOV 5, RET 1, CALL 1, SUB 1, AND 1.
+- 0413a2d0, 32 bytes (body 24). 1 outgoing call: Heap_Destroy x1. Instruction mix: MOV 3, RET 1, CALL 1, SUB 1, AND 1.
+- 0413a410, 32 bytes (body 31). 1 outgoing call: FUN_04139270 x1. Instruction mix: MOV 5, RET 1, CALL 1, SUB 1, AND 1.
+- 0413a430, 32 bytes (body 31). 1 outgoing call: FUN_04139280 x1. Instruction mix: MOV 5, RET 1, CALL 1, SUB 1, AND 1.
+- 0413a450, 32 bytes (body 24). 1 outgoing call: FUN_041392a0 x1. Instruction mix: MOV 3, RET 1, CALL 1, SUB 1, AND 1.
+- 0413a470, 32 bytes (body 24). 1 outgoing call: FUN_041392f0 x1. Instruction mix: MOV 3, RET 1, CALL 1, SUB 1, AND 1.
+- 0413a4a0, 32 bytes (body 31). 1 outgoing call: Heap_GetProcessHeaps x1. Instruction mix: MOV 5, RET 1, CALL 1, SUB 1, AND 1.
+- 041452e0, 32 bytes. 1 outgoing call: FUN_041451a0 x1. Instruction mix: MOV 4, CALL 1, SUB 1, AND 1, LEA 1.
+- 04145300, 32 bytes (body 21). No outgoing calls. Instruction mix: MOV 4, RET 1, POP 1, PUSH 1.
