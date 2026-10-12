@@ -943,7 +943,7 @@ entry,name
 04029850,FUN_04029850
 0402a4e0,FUN_0402a4e0
 0402b440,FUN_0402b440
-0402c440,FUN_0402c440
+0402c440,OpenGL_InternalFormatToString
 0402c9f0,FUN_0402c9f0
 0402ca50,FUN_0402ca50
 0402ca80,FUN_0402ca80
@@ -1318,7 +1318,7 @@ entry,name
 04053920,convert_texreg2gb
 04053a90,convert_texreg2ar
 04053c00,DetermineCoordMaskForSampling
-04054530,FUN_04054530
+04054530,eON_ShaderData::GenerateVaryingAssignments
 04054a40,FUN_04054a40
 04054bb0,FUN_04054bb0
 04054d20,FUN_04054d20
@@ -1360,7 +1360,7 @@ entry,name
 0405d550,FUN_0405d550
 0405d6a0,FUN_0405d6a0
 0405d760,FUN_0405d760
-0405d8a0,FUN_0405d8a0
+0405d8a0,D3D9_FormatToString
 0405dd10,FUN_0405dd10
 0405dd20,FUN_0405dd20
 0405e370,SetVertexDeclaration
@@ -2521,10 +2521,10 @@ entry,name
 040c73f0,OpenGLContextCache::EnableClipDistance
 040c7480,OpenGLContextCache::CheckCacheIntegrity
 040caf20,OpenGLContextCache::OpenGLContextCache
-040cc080,FUN_040cc080
+040cc080,OpenGL_DataTypeToString
 040cc450,FUN_040cc450
 040cc470,FUN_040cc470
-040cc640,FUN_040cc640
+040cc640,OpenGL_BufferToString
 040cc800,OpenGL_LogState_VertexArrays
 040ccdf0,OpenGL_LogState_BufferObjectBindings
 040cd310,OpenGL_LogState_Textures
@@ -2540,7 +2540,7 @@ entry,name
 040d2a80,openGlDebugFunctions_040d2a80
 040d4420,openGlDebugFunctions_040d4420
 040d4890,OpenGL_LogState_BoundTexLevel
-040d5040,FUN_040d5040
+040d5040,OpenGL_LogState_CompressedTexture
 040d59d0,OpenGL_LogState_BoundTexture
 040d63e0,OpenGL_LogState_BoundSampler
 040d6f40,OpenGL_InterpretCurrentVertexBufferWithVertexAttribInfo
@@ -5596,7 +5596,7 @@ entry,name
 041701e0,FUN_041701e0
 04170310,FUN_04170310
 04170360,FUN_04170360
-041703e0,FUN_041703e0
+041703e0,user32_MessageToString
 04170960,FUN_04170960
 04170a80,FUN_04170a80
 04170e20,FUN_04170e20
@@ -6401,7 +6401,7 @@ entry,name
 04196e10,FUN_04196e10
 041970e0,FUN_041970e0
 04197270,FUN_04197270
-04197290,FUN_04197290
+04197290,_glewInit_GL_VERSION_1_4
 041976c0,FUN_041976c0
 04197880,_glewInit_GL_VERSION_2_0
 041980a0,FUN_041980a0
@@ -6475,7 +6475,7 @@ entry,name
 0419f940,FUN_0419f940
 0419f9e0,FUN_0419f9e0
 0419fb10,FUN_0419fb10
-0419fe20,FUN_0419fe20
+0419fe20,_glewInit_GL_NV_half_float
 041a0230,FUN_041a0230
 041a02f0,_glewInit_GL_NV_path_rendering
 041a0750,FUN_041a0750

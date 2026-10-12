@@ -1,0 +1,9 @@
+FUN_04197290	_glewInit_GL_VERSION_1_4
+FUN_0419fe20	_glewInit_GL_NV_half_float
+FUN_040cc080	OpenGL_DataTypeToString
+FUN_040cc640	OpenGL_BufferToString
+FUN_0402c440	OpenGL_InternalFormatToString
+FUN_0405d8a0	D3D9_FormatToString
+FUN_041703e0	user32_MessageToString
+FUN_040d5040	OpenGL_LogState_CompressedTexture
+FUN_04054530	eON_ShaderData::GenerateVaryingAssignments
