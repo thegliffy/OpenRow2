@@ -37,3 +37,5 @@ FUN_041c34b0	TiXmlElement::RemoveAttribute
 FUN_041c5c20	TiXmlAttributeSet::Remove
 FUN_041c73a0	TiXmlBase::ReadText
 FUN_041c7910	TiXmlBase::ReadText
+FUN_042c84d0	MicrodumpWriter::Dump
+FUN_042c9b20	ElfFileSoName

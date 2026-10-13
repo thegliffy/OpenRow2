@@ -1,0 +1,20 @@
+Breakpad source-match wave (wave 15), 2026-10-12.
+
+Upstream reference: breakpad main (chromium.googlesource.com), minidump_writer.cc,
+microdump_writer.cc, linux_dumper.cc. Bodies verified by decompile against
+upstream function bodies (wave-13/14 method).
+
+- 042c84d0 -> MicrodumpWriter::Dump. Prints "-----BEGIN BREAKPAD MICRODUMP-----"
+  and "-----END BREAKPAD MICRODUMP-----", uppercase-hex line encoding, uname(),
+  calls the file writer. DumpCrashingThread and DumpThreadStack are inlined into
+  it (their assert strings appear inside the body). Matches upstream Dump().
+- 042c9b20 -> ElfFileSoName. Walks .dynamic for DT_SONAME and returns the
+  .dynstr string. Matches upstream linux_dumper.cc.
+
+Still unnamed, and staying unnamed: 0400939e, 042d0710, 042d0e50, 042d1330.
+These are cold-path assert stubs. Each one only calls the assert helper with
+"fd_ >= 0" / "minidump_writer.cc" / a constructor line number — four stubs
+share the one MinidumpWriter constructor assert. Naming all four after the
+constructor would double-count it, so they stay FUN_.
+
+Decompiles: /tmp/openrow-breakpad-cands.txt.
