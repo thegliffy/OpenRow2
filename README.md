@@ -14,7 +14,7 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 ## Scoreboard
 
-**2,196 / 9,221 functions carry a project name (23.8%).** A name is kept when that function references a matching assert signature, a single source file, or a D3D9 vtable slot locked by those signatures. Module prefixes name the file, not the function. Message-style strings do not replace a signature name.
+**2,216 / 9,221 functions carry a project name (24.0%).** A name is kept when that function references a matching assert signature, a single source file, or a D3D9 vtable slot locked by those signatures. Module prefixes name the file, not the function. Message-style strings do not replace a signature name.
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
@@ -86,7 +86,7 @@ Closed, do not restart:
 Closed, continued:
 
 - VPFS decrypt and extract. `tools/vpfs_extract.py` follows the AES path (`decomp/vpfs_aes_plain.txt`) and writes `decomp/vpfs_dir_records.tsv`. The 15 files check out as PE32 or the VC80 manifest (`decomp/vpfs_extract_check.txt`). `language_setup.exe` is UPX. Extracted files stay out of the tree. The `tools/vpfs_*.py` probes other than `vpfs_extract.py` still search for zlib or import `Crypto`. Do not extend them.
-- Call catalog of unnamed `FUN_` bodies: `decomp/largest_fun_calls_note.txt` through `note625.txt` (6,248 functions). Note 625 holds the last 8. Every `FUN_` in `seeds/functions.csv` now appears in a string note or a call note. An instruction mix is not a `Class::Method` name. Scoreboard stays 2,196 / 9,221 named (23.8%).
+- Call catalog of unnamed `FUN_` bodies: `decomp/largest_fun_calls_note.txt` through `note625.txt` (6,248 functions). Note 625 holds the last 8. Every `FUN_` in `seeds/functions.csv` now appears in a string note or a call note. An instruction mix is not a `Class::Method` name. Scoreboard stays 2,216 / 9,221 named (24.0%).
 - Breakpad `{anonymous}` writers: `decomp/breakpad_writers_note.txt`. Two named by source match (wave 15, `decomp/breakpad_source_match_note.txt`). Four `FUN_` entries stay unnamed: assert-only stubs sharing the constructor assert.
 - Subsystem map: `decomp/subsystem_map_note.txt`. Buckets are library-call prefixes from `tools/subsystem_map.py`, not names.
 - VPFS extracted files: `decomp/vpfs_files_note.txt`. The 15 files stay in `/tmp` and out of the tree.

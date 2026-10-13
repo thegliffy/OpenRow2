@@ -1,0 +1,27 @@
+GLEW 2012-era sweep (wave 19), 2026-10-12.
+
+Wave 18 used the modern Khronos gl.xml, which misses extensions whose
+function lists changed after the game shipped. This sweep regenerated the
+lists from GLEW's own pinned-era specs: glew-1.8.0 tag (2012), auto/core and
+auto/extensions spec files, function prototypes parsed directly (the repo's
+make_init.pl needs a Perl @INC fix; not needed for set matching).
+
+Twenty candidates matched exactly against the 2012 specs (string set == spec
+function set, one extension each), and every body was verified to load
+exactly that set through the proc-address loader — the _glewInit_<EXT>
+pattern. Names use the generator's convention: _glewInit_ plus the extension
+name verbatim, GLX_ prefix kept.
+
+- 04198620 _glewInit_GL_VERSION_4_0        - 041a0930 _glewInit_GL_NV_shader_buffer_load
+- 0419b0f0 _glewInit_GL_ARB_texture_storage - 041a0b10 _glewInit_GL_NV_transform_feedback
+- 0419b450 _glewInit_GL_ARB_vertex_attrib_binding - 041a1cf0 _glewInit_GL_SGIX_fragment_specular_lighting
+- 0419c060 _glewInit_GL_ARB_viewport_array  - 041a2470 _glewInit_GLX_NV_swap_group
+- 0419dee0 _glewInit_GL_EXT_fragment_lighting - 041a2510 _glewInit_GLX_NV_video_capture
+- 0419ea80 _glewInit_GL_EXT_vertex_array    - 041a25a0 _glewInit_GLX_NV_video_out
+- 0419eb50 _glewInit_GL_EXT_vertex_attrib_64bit - 041a2640 _glewInit_GLX_OML_sync_control
+- 0419f390 _glewInit_GL_KTX_buffer_region   - 041a26d0 _glewInit_GLX_SGIX_fbconfig
+- 0419f9e0 _glewInit_GL_NV_gpu_program4     - 041a2770 _glewInit_GLX_SGIX_hyperpipe
+                                           - 041a2840 _glewInit_GLX_SGIX_pbuffer
+                                           - 041a28d0 _glewInit_GLX_SGIX_video_resize
+
+Decompiles: /tmp/openrow-grind4.txt. GLEW checkout: glew-1.8.0 tag.
