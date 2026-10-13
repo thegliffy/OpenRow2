@@ -1,0 +1,14 @@
+Tinyxml source-match wave 21, 2026-10-13.
+
+Upstream reference: /tmp/tinyxml (SourceForge tinyxml git master, tinyxml.cpp).
+Body match is the wave-13/14/20 method; the checker holds these because the
+FindOrCreate signature string belongs to the inlined callee (041c2150, wave 14).
+
+- 041c3c90 -> TiXmlElement::SetAttribute (int variant). Find by name (the
+  circular list head at +0x2c), inlined FindOrCreate, then the SetIntValue
+  body: snprintf(buf, 0x40, "%d") — buf[64] upstream — then SetValue on the
+  attribute value field at +0x18.
+- 041c3d60 -> TiXmlElement::SetDoubleAttribute. Same shape, snprintf(buf,
+  0x100, "%g") — buf[256] upstream.
+
+Decompiles: agent/wave20_decompiles.txt (041c3c90, 041c3d60 entries).

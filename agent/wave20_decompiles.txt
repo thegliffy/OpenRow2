@@ -1,0 +1,1009 @@
+=== 0403d0f0 FUN_0403d0f0 ===
+
+int __regparm3 FUN_0403d0f0(char *param_1,void *param_2)
+
+{
+  bool bVar1;
+  uint uVar2;
+  uint uVar3;
+  ushort **ppuVar4;
+  char cVar5;
+  uint *puVar6;
+  uint *puVar7;
+  char *pcVar8;
+  int iVar9;
+  uint local_41c [259];
+  
+  bVar1 = false;
+  cVar5 = *param_1;
+  if (param_1[1] == ':') {
+    ppuVar4 = __ctype_b_loc();
+    bVar1 = false;
+    if ((*(byte *)((int)*ppuVar4 + cVar5 * 2 + 1) & 4) != 0) {
+      cVar5 = param_1[2];
+      bVar1 = true;
+      param_1 = param_1 + 2;
+    }
+  }
+  if (cVar5 == '.') {
+    cVar5 = param_1[1];
+    if ((cVar5 == '/') || (cVar5 == '\0')) {
+      if (cVar5 != '\0') goto LAB_0403d27c;
+      param_1 = param_1 + 1;
+    }
+    else if (cVar5 == '\\') {
+LAB_0403d27c:
+      param_1 = param_1 + 2;
+    }
+  }
+  else if ((cVar5 == '\\') || (cVar5 == '/')) {
+    if (bVar1) {
+      local_41c[0]._0_1_ = 0;
+      strcpy((char *)local_41c,param_1);
+      goto LAB_0403d13b;
+    }
+    if (cVar5 != '\0') {
+      do {
+        param_1 = param_1 + 1;
+        cVar5 = *param_1;
+        if (cVar5 == '\0') break;
+      } while ((cVar5 == '\\') || (cVar5 == '/'));
+    }
+  }
+  strcpy((char *)local_41c,&DAT_04468280);
+  puVar7 = local_41c;
+  do {
+    puVar6 = puVar7;
+    uVar2 = *puVar6 + 0xfefefeff & ~*puVar6;
+    uVar3 = uVar2 & 0x80808080;
+    puVar7 = puVar6 + 1;
+  } while (uVar3 == 0);
+  if ((uVar2 & 0x8080) == 0) {
+    puVar7 = (uint *)((int)puVar6 + 6);
+    uVar3 = uVar3 >> 0x10;
+  }
+  pcVar8 = (char *)((int)puVar7 + (-3 - (uint)CARRY1((byte)uVar3,(byte)uVar3)));
+  pcVar8[0] = '/';
+  pcVar8[1] = '\0';
+  strcat((char *)local_41c,param_1);
+LAB_0403d13b:
+  FUN_0403cbe0();
+  puVar7 = local_41c;
+  do {
+    puVar6 = puVar7;
+    uVar2 = *puVar6 + 0xfefefeff & ~*puVar6;
+    uVar3 = uVar2 & 0x80808080;
+    puVar7 = puVar6 + 1;
+  } while (uVar3 == 0);
+  if ((uVar2 & 0x8080) == 0) {
+    puVar7 = (uint *)((int)puVar6 + 6);
+    uVar3 = uVar3 >> 0x10;
+  }
+  iVar9 = (int)puVar7 + ((-3 - (uint)CARRY1((byte)uVar3,(byte)uVar3)) - (int)local_41c);
+  memcpy(param_2,local_41c,iVar9 + 1);
+  return iVar9;
+}
+
+
+
+=== 04159ea0 FUN_04159ea0 ===
+
+void FUN_04159ea0(char *param_1)
+
+{
+  size_t sVar1;
+  ushort **ppuVar2;
+  
+  sVar1 = strlen(param_1);
+  if (sVar1 != 0) {
+    ppuVar2 = __ctype_b_loc();
+    do {
+      if ((*(byte *)((int)*ppuVar2 + param_1[sVar1 - 1] * 2 + 1) & 0x20) == 0) {
+        return;
+      }
+      param_1[sVar1 - 1] = '\0';
+      sVar1 = sVar1 - 1;
+    } while (sVar1 != 0);
+  }
+  return;
+}
+
+
+
+=== 041c73a0 TiXmlBase::ReadText ===
+
+/* source: tinyxml, tinyxmlparser */
+
+byte * __regparm3
+TiXmlBase__ReadText(byte *param_1,undefined4 param_2,char param_3,char *param_4,int param_5)
+
+{
+  bool bVar1;
+  byte bVar2;
+  char cVar3;
+  size_t sVar4;
+  byte *pbVar5;
+  ushort **ppuVar6;
+  uint uVar7;
+  uint uVar8;
+  uint local_28;
+  byte local_21 [17];
+  
+  FUN_041c10b0(param_2,&DAT_04328763,0);
+  if ((param_3 == '\0') || (DAT_04410be0 == '\0')) {
+    while (param_1 != (byte *)0x0) {
+      bVar2 = *param_1;
+      if (bVar2 == 0) goto LAB_041c73eb;
+      if (param_4 == (char *)0x0) {
+        FUN_0400a810(&PTR_DAT_0435cf24,
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxmlparser.cpp"
+                     ,0x21c,
+                     "static bool TiXmlBase::StringEqual(const char*, const char*, bool, TiXmlEncoding)"
+                    );
+        bVar2 = *param_1;
+      }
+      if (bVar2 == 0) {
+        FUN_0400a810("0",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxmlparser.cpp"
+                     ,0x21f,
+                     "static bool TiXmlBase::StringEqual(const char*, const char*, bool, TiXmlEncoding)"
+                    );
+      }
+      else {
+        cVar3 = FUN_041c6930(param_5);
+        if (cVar3 != '\0') goto LAB_041c73eb;
+      }
+      local_21[0] = 0;
+      local_21[1] = 0;
+      local_21[2] = 0;
+      local_21[3] = 0;
+      if (param_5 == 1) {
+        local_28 = *(uint *)(&DAT_04362a20 + (uint)*param_1 * 4);
+        if (4 < local_28) {
+          FUN_0400a810("*length >= 0 && *length < 5",
+                       "/home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxml.h"
+                       ,0x14c,
+                       "static const char* TiXmlBase::GetChar(const char*, char*, int*, TiXmlEncoding)"
+                      );
+        }
+        if (local_28 == 1) goto LAB_041c746d;
+        if (local_28 == 0) {
+          FUN_041c1190(param_2,local_21,0);
+          return (byte *)0x0;
+        }
+        bVar2 = *param_1;
+        if ((bVar2 != 0) && (uVar8 = 0, 0 < (int)local_28)) {
+          do {
+            uVar7 = uVar8 + 1;
+            local_21[uVar8] = bVar2;
+            bVar2 = param_1[uVar7];
+            if (bVar2 == 0) break;
+            uVar8 = uVar7;
+          } while (uVar7 != local_28);
+        }
+        param_1 = param_1 + local_28;
+      }
+      else {
+        local_28 = 1;
+LAB_041c746d:
+        bVar2 = *param_1;
+        if (bVar2 == 0x26) {
+          param_1 = (byte *)TiXmlBase__GetEntity(param_1,local_21,&local_28,param_5);
+        }
+        else {
+          param_1 = param_1 + 1;
+          local_21[0] = bVar2;
+        }
+      }
+      FUN_041c1190(param_2,local_21,local_28);
+    }
+  }
+  else {
+    param_1 = (byte *)FUN_041c6e60(param_1,param_5);
+    if (param_1 != (byte *)0x0) {
+      bVar2 = *param_1;
+      if (bVar2 != 0) {
+        bVar1 = false;
+        do {
+          if (param_4 == (char *)0x0) {
+            FUN_0400a810(&PTR_DAT_0435cf24,
+                         "/home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxmlparser.cpp"
+                         ,0x21c,
+                         "static bool TiXmlBase::StringEqual(const char*, const char*, bool, TiXmlEncoding)"
+                        );
+            bVar2 = *param_1;
+          }
+          if (bVar2 == 0) {
+            FUN_0400a810("0",
+                         "/home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxmlparser.cpp"
+                         ,0x21f,
+                         "static bool TiXmlBase::StringEqual(const char*, const char*, bool, TiXmlEncoding)"
+                        );
+            bVar2 = *param_1;
+          }
+          else {
+            cVar3 = FUN_041c6930(param_5);
+            if (cVar3 != '\0') break;
+          }
+          if (((bVar2 == 10) || (bVar2 == 0xd)) ||
+             (ppuVar6 = __ctype_b_loc(),
+             (*(byte *)((int)*ppuVar6 + (uint)bVar2 * 2 + 1) & 0x20) != 0)) {
+            param_1 = param_1 + 1;
+            bVar1 = true;
+          }
+          else {
+            if (bVar1) {
+              local_21[4] = 0x20;
+              FUN_041c1190(param_2,local_21 + 4,1);
+            }
+            local_21[0] = 0;
+            local_21[1] = 0;
+            local_21[2] = 0;
+            local_21[3] = 0;
+            if (param_5 == 1) {
+              local_28 = *(uint *)(&DAT_04362a20 + (uint)*param_1 * 4);
+              if (4 < local_28) {
+                FUN_0400a810("*length >= 0 && *length < 5",
+                             "/home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxml.h"
+                             ,0x14c,
+                             "static const char* TiXmlBase::GetChar(const char*, char*, int*, TiXmlEncoding)"
+                            );
+              }
+              if (local_28 == 1) goto LAB_041c75fd;
+              if (local_28 != 0) {
+                bVar2 = *param_1;
+                if ((bVar2 != 0) && (uVar8 = 0, 0 < (int)local_28)) {
+                  do {
+                    uVar7 = uVar8 + 1;
+                    local_21[uVar8] = bVar2;
+                    bVar2 = param_1[uVar7];
+                    if (bVar2 == 0) break;
+                    uVar8 = uVar7;
+                  } while (uVar7 != local_28);
+                }
+                param_1 = param_1 + local_28;
+                uVar8 = local_28;
+                goto joined_r0x041c7778;
+              }
+              param_1 = (byte *)0x0;
+              uVar8 = 0;
+LAB_041c7620:
+              pbVar5 = local_21;
+            }
+            else {
+              local_28 = 1;
+LAB_041c75fd:
+              bVar2 = *param_1;
+              if (bVar2 == 0x26) {
+                param_1 = (byte *)TiXmlBase__GetEntity(param_1,local_21,&local_28,param_5);
+                uVar8 = local_28;
+              }
+              else {
+                param_1 = param_1 + 1;
+                uVar8 = local_28;
+                local_21[0] = bVar2;
+              }
+joined_r0x041c7778:
+              local_28 = uVar8;
+              if (uVar8 != 1) goto LAB_041c7620;
+              uVar8 = 1;
+              pbVar5 = local_21 + 4;
+              local_21[4] = local_21[0];
+            }
+            bVar1 = false;
+            FUN_041c1190(param_2,pbVar5,uVar8);
+          }
+          if (param_1 == (byte *)0x0) {
+            return (byte *)0x0;
+          }
+          bVar2 = *param_1;
+        } while (bVar2 != 0);
+      }
+LAB_041c73eb:
+      if (param_1 != (byte *)0x0) {
+        if (*param_1 != 0) {
+          sVar4 = strlen(param_4);
+          param_1 = param_1 + sVar4;
+          if (param_1 == (byte *)0x0) {
+            return (byte *)0x0;
+          }
+          if (*param_1 != 0) {
+            return param_1;
+          }
+        }
+        return (byte *)0x0;
+      }
+    }
+  }
+  return (byte *)0x0;
+}
+
+
+
+=== 041c7910 TiXmlBase::ReadText ===
+
+/* source: tinyxml, tinyxmlparser */
+
+byte * TiXmlBase__ReadText(byte *param_1,undefined4 param_2,char param_3,char *param_4,
+                          undefined4 param_5,int param_6)
+
+{
+  bool bVar1;
+  byte bVar2;
+  char cVar3;
+  size_t sVar4;
+  ushort **ppuVar5;
+  uint uVar6;
+  uint uVar7;
+  uint local_28;
+  byte local_21 [17];
+  
+  FUN_041c10b0(param_2,&DAT_04328763,0);
+  if ((param_3 == '\0') || (DAT_04410be0 == '\0')) {
+    if (param_1 == (byte *)0x0) {
+      return (byte *)0x0;
+    }
+    bVar2 = *param_1;
+    while (bVar2 != 0) {
+      if (param_4 == (char *)0x0) {
+        FUN_0400a810(&PTR_DAT_0435cf24,
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxmlparser.cpp"
+                     ,0x21c,
+                     "static bool TiXmlBase::StringEqual(const char*, const char*, bool, TiXmlEncoding)"
+                    );
+        bVar2 = *param_1;
+      }
+      if (bVar2 == 0) {
+        FUN_0400a810("0",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxmlparser.cpp"
+                     ,0x21f,
+                     "static bool TiXmlBase::StringEqual(const char*, const char*, bool, TiXmlEncoding)"
+                    );
+      }
+      else {
+        cVar3 = FUN_041c6930(param_6);
+        if (cVar3 != '\0') break;
+      }
+      local_21[0] = 0;
+      local_21[1] = 0;
+      local_21[2] = 0;
+      local_21[3] = 0;
+      if (param_6 == 1) {
+        local_28 = *(uint *)(&DAT_04362a20 + (uint)*param_1 * 4);
+        if (4 < local_28) {
+          FUN_0400a810("*length >= 0 && *length < 5",
+                       "/home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxml.h"
+                       ,0x14c,
+                       "static const char* TiXmlBase::GetChar(const char*, char*, int*, TiXmlEncoding)"
+                      );
+        }
+        if (local_28 == 1) goto LAB_041c7a09;
+        if (local_28 == 0) {
+          FUN_041c1190(param_2,local_21,0);
+          return (byte *)0x0;
+        }
+        bVar2 = *param_1;
+        if ((bVar2 != 0) && (uVar6 = 0, 0 < (int)local_28)) {
+          do {
+            uVar7 = uVar6 + 1;
+            local_21[uVar6] = bVar2;
+            bVar2 = param_1[uVar7];
+            if (bVar2 == 0) break;
+            uVar6 = uVar7;
+          } while (uVar7 != local_28);
+        }
+        param_1 = param_1 + local_28;
+      }
+      else {
+        local_28 = 1;
+LAB_041c7a09:
+        bVar2 = *param_1;
+        if (bVar2 == 0x26) {
+          param_1 = (byte *)TiXmlBase__GetEntity(param_1,local_21,&local_28,param_6);
+        }
+        else {
+          param_1 = param_1 + 1;
+          local_21[0] = bVar2;
+        }
+      }
+      FUN_041c1190(param_2,local_21,local_28);
+      if (param_1 == (byte *)0x0) {
+        return (byte *)0x0;
+      }
+      bVar2 = *param_1;
+    }
+  }
+  else {
+    param_1 = (byte *)FUN_041c6e60(param_1,param_6);
+    if (param_1 == (byte *)0x0) {
+      return (byte *)0x0;
+    }
+    bVar2 = *param_1;
+    if (bVar2 != 0) {
+      bVar1 = false;
+      do {
+        if (param_4 == (char *)0x0) {
+          FUN_0400a810(&PTR_DAT_0435cf24,
+                       "/home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxmlparser.cpp"
+                       ,0x21c,
+                       "static bool TiXmlBase::StringEqual(const char*, const char*, bool, TiXmlEncoding)"
+                      );
+          bVar2 = *param_1;
+        }
+        if (bVar2 == 0) {
+          FUN_0400a810("0",
+                       "/home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxmlparser.cpp"
+                       ,0x21f,
+                       "static bool TiXmlBase::StringEqual(const char*, const char*, bool, TiXmlEncoding)"
+                      );
+          bVar2 = *param_1;
+        }
+        else {
+          cVar3 = FUN_041c6930(param_6);
+          if (cVar3 != '\0') break;
+        }
+        if (((bVar2 == 10) || (bVar2 == 0xd)) ||
+           (ppuVar5 = __ctype_b_loc(), (*(byte *)((int)*ppuVar5 + (uint)bVar2 * 2 + 1) & 0x20) != 0)
+           ) {
+          param_1 = param_1 + 1;
+          bVar1 = true;
+        }
+        else {
+          if (bVar1) {
+            local_21[4] = 0x20;
+            FUN_041c1190(param_2,local_21 + 4,1);
+          }
+          local_21[0] = 0;
+          local_21[1] = 0;
+          local_21[2] = 0;
+          local_21[3] = 0;
+          if (param_6 == 1) {
+            local_28 = *(uint *)(&DAT_04362a20 + (uint)*param_1 * 4);
+            if (4 < local_28) {
+              FUN_0400a810("*length >= 0 && *length < 5",
+                           "/home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxml.h"
+                           ,0x14c,
+                           "static const char* TiXmlBase::GetChar(const char*, char*, int*, TiXmlEncoding)"
+                          );
+            }
+            if (local_28 == 1) goto LAB_041c7bbf;
+            if (local_28 != 0) {
+              bVar2 = *param_1;
+              if ((bVar2 != 0) && (uVar6 = 0, 0 < (int)local_28)) {
+                do {
+                  uVar7 = uVar6 + 1;
+                  local_21[uVar6] = bVar2;
+                  bVar2 = param_1[uVar7];
+                  if (bVar2 == 0) break;
+                  uVar6 = uVar7;
+                } while (uVar7 != local_28);
+              }
+              param_1 = param_1 + local_28;
+              uVar6 = local_28;
+              goto joined_r0x041c7d10;
+            }
+            param_1 = (byte *)0x0;
+            uVar6 = 0;
+          }
+          else {
+            local_28 = 1;
+LAB_041c7bbf:
+            bVar2 = *param_1;
+            if (bVar2 == 0x26) {
+              param_1 = (byte *)TiXmlBase__GetEntity(param_1,local_21,&local_28,param_6);
+              uVar6 = local_28;
+            }
+            else {
+              param_1 = param_1 + 1;
+              uVar6 = local_28;
+              local_21[0] = bVar2;
+            }
+joined_r0x041c7d10:
+            local_28 = uVar6;
+            if (uVar6 == 1) {
+              bVar1 = false;
+              local_21[4] = local_21[0];
+              FUN_041c1190(param_2,local_21 + 4,1);
+              goto LAB_041c7c00;
+            }
+          }
+          FUN_041c1190(param_2,local_21,uVar6);
+          bVar1 = false;
+        }
+LAB_041c7c00:
+        if (param_1 == (byte *)0x0) {
+          return (byte *)0x0;
+        }
+        bVar2 = *param_1;
+      } while (bVar2 != 0);
+    }
+  }
+  if (param_1 == (byte *)0x0) {
+    return (byte *)0x0;
+  }
+  if (*param_1 != 0) {
+    sVar4 = strlen(param_4);
+    param_1 = param_1 + sVar4;
+    if (param_1 == (byte *)0x0) {
+      return (byte *)0x0;
+    }
+    if (*param_1 != 0) {
+      return param_1;
+    }
+  }
+  return (byte *)0x0;
+}
+
+
+
+=== 041c8110 FUN_041c8110 ===
+
+undefined4 * FUN_041c8110(undefined4 param_1,undefined4 param_2,undefined4 param_3)
+
+{
+  byte bVar1;
+  char cVar2;
+  char *pcVar3;
+  undefined4 *puVar4;
+  ushort **ppuVar5;
+  
+  pcVar3 = (char *)FUN_041c6e60(param_2,param_3);
+  if (pcVar3 == (char *)0x0) {
+    return (undefined4 *)0x0;
+  }
+  if (*pcVar3 != '<') {
+    return (undefined4 *)0x0;
+  }
+  pcVar3 = (char *)FUN_041c6e60(pcVar3,param_3);
+  if (pcVar3 == (char *)0x0) {
+    return (undefined4 *)0x0;
+  }
+  if (*pcVar3 == '\0') {
+    return (undefined4 *)0x0;
+  }
+  cVar2 = FUN_041c6930(param_3);
+  if (cVar2 == '\0') {
+    cVar2 = FUN_041c6930(param_3);
+    if (cVar2 == '\0') {
+      cVar2 = FUN_041c6930(param_3);
+      if (cVar2 == '\0') {
+        cVar2 = FUN_041c6930(param_3);
+        if (cVar2 == '\0') {
+          bVar1 = pcVar3[1];
+          if (((0x7e < bVar1) ||
+              (ppuVar5 = __ctype_b_loc(), (*(byte *)((int)*ppuVar5 + (uint)bVar1 * 2 + 1) & 4) != 0)
+              ) || (bVar1 == 0x5f)) {
+            puVar4 = operator_new(0x50);
+                    /* try { // try from 041c82f1 to 041c82f5 has its CatchHandler @ 041c830f */
+            FUN_041c5820(puVar4,&DAT_04328763);
+            goto LAB_041c819d;
+          }
+          puVar4 = operator_new(0x2c);
+                    /* try { // try from 041c82ce to 041c82d2 has its CatchHandler @ 041c830d */
+          FUN_041c2ab0(puVar4,3);
+        }
+        else {
+          puVar4 = operator_new(0x2c);
+                    /* try { // try from 041c8286 to 041c828a has its CatchHandler @ 041c82fb */
+          FUN_041c2ab0(puVar4,3);
+        }
+        *puVar4 = &PTR_FUN_043620c8;
+      }
+      else {
+        puVar4 = operator_new(0x30);
+                    /* try { // try from 041c8229 to 041c822d has its CatchHandler @ 041c8327 */
+        FUN_041c2ab0(puVar4,4);
+        *puVar4 = &PTR_FUN_04362008;
+                    /* try { // try from 041c824a to 041c824e has its CatchHandler @ 041c8316 */
+        FUN_041c10b0(puVar4 + 8,&DAT_04328763,0);
+        *(undefined1 *)(puVar4 + 0xb) = 1;
+      }
+    }
+    else {
+      puVar4 = operator_new(0x2c);
+                    /* try { // try from 041c81ee to 041c81f2 has its CatchHandler @ 041c8314 */
+      FUN_041c2ab0(puVar4,2);
+      *puVar4 = &PTR_FUN_04361fa8;
+    }
+  }
+  else {
+    puVar4 = operator_new(0x38);
+                    /* try { // try from 041c817d to 041c8181 has its CatchHandler @ 041c8312 */
+    FUN_041c2ab0(puVar4,5);
+    *puVar4 = &PTR_FUN_04362068;
+    puVar4[0xb] = &DAT_0451eee4;
+    puVar4[0xc] = &DAT_0451eee4;
+    puVar4[0xd] = &DAT_0451eee4;
+  }
+LAB_041c819d:
+  if (puVar4 == (undefined4 *)0x0) {
+    return (undefined4 *)0x0;
+  }
+  puVar4[4] = param_1;
+  return puVar4;
+}
+
+
+
+=== 041c8680 FUN_041c8680 ===
+
+char * FUN_041c8680(undefined4 param_1,undefined4 param_2,undefined4 param_3,undefined4 param_4)
+
+{
+  byte bVar1;
+  uint *puVar2;
+  uint uVar3;
+  char cVar4;
+  int iVar5;
+  char *pcVar6;
+  int *piVar7;
+  ushort **ppuVar8;
+  uint uVar9;
+  bool bVar10;
+  undefined4 local_24;
+  
+  iVar5 = FUN_041c3740(param_1);
+  pcVar6 = (char *)FUN_041c6e60(param_2,param_4);
+  if (pcVar6 == (char *)0x0) {
+LAB_041c8850:
+    pcVar6 = (char *)0x0;
+    if (iVar5 != 0) {
+      TiXmlDocument__SetError(iVar5,5,0,0,param_4);
+    }
+  }
+  else if (*pcVar6 != '\0') {
+    local_24 = param_2;
+    if (*pcVar6 == '<') goto LAB_041c87cb;
+    do {
+      piVar7 = operator_new(0x30);
+                    /* try { // try from 041c86e9 to 041c86ed has its CatchHandler @ 041c8898 */
+      FUN_041c2ab0(piVar7,4);
+      *piVar7 = (int)&PTR_FUN_04362008;
+                    /* try { // try from 041c870a to 041c870e has its CatchHandler @ 041c88aa */
+      FUN_041c10b0(piVar7 + 8,&DAT_04328763,0);
+      bVar10 = DAT_04410be0 == '\0';
+      *(undefined1 *)(piVar7 + 0xb) = 0;
+      if (bVar10) {
+        local_24 = (**(code **)(*piVar7 + 0xc))(piVar7,local_24,param_3,param_4);
+      }
+      else {
+        local_24 = (**(code **)(*piVar7 + 0xc))(piVar7,pcVar6,param_3,param_4);
+      }
+      puVar2 = (uint *)piVar7[8];
+      uVar3 = *puVar2;
+      if (uVar3 == 0) {
+LAB_041c87b0:
+        (**(code **)(*piVar7 + 4))(piVar7);
+        goto LAB_041c8778;
+      }
+      ppuVar8 = __ctype_b_loc();
+      uVar9 = 0;
+      while (((bVar1 = *(byte *)((int)puVar2 + uVar9 + 8),
+              (*(byte *)((int)*ppuVar8 + (uint)bVar1 * 2 + 1) & 0x20) != 0 || (bVar1 == 10)) ||
+             (bVar1 == 0xd))) {
+        uVar9 = uVar9 + 1;
+        if (uVar3 <= uVar9) goto LAB_041c87b0;
+      }
+      while( true ) {
+        TiXmlNode__LinkEndChild(param_1,piVar7);
+LAB_041c8778:
+        pcVar6 = (char *)FUN_041c6e60(local_24,param_4);
+        if (pcVar6 == (char *)0x0) goto LAB_041c8850;
+        if (*pcVar6 == '\0') {
+          return pcVar6;
+        }
+        if (*pcVar6 != '<') break;
+LAB_041c87cb:
+        cVar4 = FUN_041c6930(param_4);
+        if (cVar4 != '\0') {
+          return pcVar6;
+        }
+        piVar7 = (int *)FUN_041c8110(param_1,pcVar6,param_4);
+        if (piVar7 == (int *)0x0) {
+          return (char *)0x0;
+        }
+        local_24 = (**(code **)(*piVar7 + 0xc))(piVar7,pcVar6,param_3,param_4);
+      }
+    } while( true );
+  }
+  return pcVar6;
+}
+
+
+
+=== 041c3c90 FUN_041c3c90 ===
+
+void FUN_041c3c90(int param_1,char *param_2,undefined4 param_3)
+
+{
+  int iVar1;
+  uint uVar2;
+  uint uVar3;
+  int iVar4;
+  uint *puVar5;
+  uint *puVar6;
+  uint local_5c [19];
+  
+  for (iVar4 = *(int *)(param_1 + 0x4c); param_1 + 0x2c != iVar4; iVar4 = *(int *)(iVar4 + 0x20)) {
+    iVar1 = strcmp((char *)(*(int *)(iVar4 + 0x14) + 8),param_2);
+    if (iVar1 == 0) goto LAB_041c3cd1;
+  }
+  iVar4 = TiXmlAttributeSet__FindOrCreate();
+  if (iVar4 != 0) {
+LAB_041c3cd1:
+    snprintf((char *)local_5c,0x40,"%d",param_3);
+    puVar6 = local_5c;
+    do {
+      puVar5 = puVar6;
+      uVar2 = *puVar5 + 0xfefefeff & ~*puVar5;
+      uVar3 = uVar2 & 0x80808080;
+      puVar6 = puVar5 + 1;
+    } while (uVar3 == 0);
+    if ((uVar2 & 0x8080) == 0) {
+      puVar6 = (uint *)((int)puVar5 + 6);
+      uVar3 = uVar3 >> 0x10;
+    }
+    FUN_041c10b0(iVar4 + 0x18,local_5c,
+                 (char *)((int)puVar6 +
+                         ((-3 - (uint)CARRY1((byte)uVar3,(byte)uVar3)) - (int)local_5c)));
+  }
+  return;
+}
+
+
+
+=== 041c3d60 FUN_041c3d60 ===
+
+void FUN_041c3d60(int param_1,char *param_2,undefined8 param_3)
+
+{
+  int iVar1;
+  uint uVar2;
+  uint uVar3;
+  int iVar4;
+  uint *puVar5;
+  uint *puVar6;
+  uint local_11c [67];
+  
+  for (iVar4 = *(int *)(param_1 + 0x4c); param_1 + 0x2c != iVar4; iVar4 = *(int *)(iVar4 + 0x20)) {
+    iVar1 = strcmp((char *)(*(int *)(iVar4 + 0x14) + 8),param_2);
+    if (iVar1 == 0) goto LAB_041c3db1;
+  }
+  iVar4 = TiXmlAttributeSet__FindOrCreate();
+  if (iVar4 != 0) {
+LAB_041c3db1:
+    snprintf((char *)local_11c,0x100,"%g",param_3);
+    puVar6 = local_11c;
+    do {
+      puVar5 = puVar6;
+      uVar2 = *puVar5 + 0xfefefeff & ~*puVar5;
+      uVar3 = uVar2 & 0x80808080;
+      puVar6 = puVar5 + 1;
+    } while (uVar3 == 0);
+    if ((uVar2 & 0x8080) == 0) {
+      puVar6 = (uint *)((int)puVar5 + 6);
+      uVar3 = uVar3 >> 0x10;
+    }
+    FUN_041c10b0(iVar4 + 0x18,local_11c,
+                 (char *)((int)puVar6 +
+                         ((-3 - (uint)CARRY1((byte)uVar3,(byte)uVar3)) - (int)local_11c)));
+  }
+  return;
+}
+
+
+
+=== 041c1970 tinystr_041c1970 ===
+
+/* source: tinystr */
+
+void __regparm3 tinystr_041c1970(undefined4 *param_1,undefined4 param_2)
+
+{
+  byte bVar1;
+  int iVar2;
+  size_t sVar3;
+  byte *pbVar4;
+  uint *puVar5;
+  uint uVar6;
+  uint uVar7;
+  uint uVar8;
+  bool bVar9;
+  byte local_3d [32];
+  byte local_1d [13];
+  
+  puVar5 = (uint *)*param_1;
+  uVar6 = *puVar5;
+  uVar7 = 0;
+LAB_041c1988:
+  do {
+    bVar9 = uVar7 < uVar6;
+    if ((int)uVar6 <= (int)uVar7) {
+      return;
+    }
+    while( true ) {
+      if (!bVar9) {
+        FUN_0400a810("index < length()",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinystr.h"
+                     ,0x9b,"char& TiXmlString::operator[](TiXmlString::size_type) const");
+        puVar5 = (uint *)*param_1;
+      }
+      bVar1 = *(byte *)((int)puVar5 + uVar7 + 8);
+      if (bVar1 == 0x26) break;
+      pbVar4 = PTR_DAT_04410c4c;
+      sVar3 = DAT_04410c50;
+      if ((((bVar1 != 0x3c) && (pbVar4 = PTR_DAT_04410c58, sVar3 = DAT_04410c5c, bVar1 != 0x3e)) &&
+          (pbVar4 = PTR_s__quot__04410c64, sVar3 = DAT_04410c68, bVar1 != 0x22)) &&
+         (pbVar4 = PTR_s__apos__04410c70, sVar3 = DAT_04410c74, bVar1 != 0x27)) {
+        if (bVar1 < 0x20) {
+          snprintf((char *)local_3d,0x20,"&#x%02X;",(uint)bVar1);
+          sVar3 = strlen((char *)local_3d);
+          pbVar4 = local_3d;
+        }
+        else {
+          pbVar4 = local_1d;
+          sVar3 = 1;
+          local_1d[0] = bVar1;
+        }
+      }
+      uVar7 = uVar7 + 1;
+      FUN_041c1190(param_2,pbVar4,sVar3);
+      puVar5 = (uint *)*param_1;
+      bVar9 = uVar7 < *puVar5;
+      if ((int)*puVar5 <= (int)uVar7) {
+        return;
+      }
+    }
+    if ((int)(*puVar5 - 2) <= (int)uVar7) {
+LAB_041c1a5c:
+      FUN_041c1190(param_2,PTR_s__amp__04410c40,DAT_04410c44);
+      puVar5 = (uint *)*param_1;
+      uVar6 = *puVar5;
+      uVar7 = uVar7 + 1;
+      goto LAB_041c1988;
+    }
+    if (*puVar5 <= uVar7 + 1) {
+      FUN_0400a810("index < length()",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinystr.h"
+                   ,0x9b,"char& TiXmlString::operator[](TiXmlString::size_type) const");
+      puVar5 = (uint *)*param_1;
+    }
+    if (*(char *)((int)puVar5 + uVar7 + 9) != '#') goto LAB_041c1a5c;
+    if (*puVar5 <= uVar7 + 2) {
+      FUN_0400a810("index < length()",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinystr.h"
+                   ,0x9b,"char& TiXmlString::operator[](TiXmlString::size_type) const");
+      puVar5 = (uint *)*param_1;
+    }
+    if (*(char *)((int)puVar5 + uVar7 + 10) != 'x') goto LAB_041c1a5c;
+    uVar6 = *puVar5;
+    uVar8 = uVar7;
+    do {
+      uVar7 = uVar8;
+      if ((int)(uVar6 - 1) <= (int)uVar8) break;
+      uVar7 = uVar8 + 1;
+      FUN_041c1190(param_2,(int)puVar5 + uVar8 + 8,1);
+      puVar5 = (uint *)*param_1;
+      uVar6 = *puVar5;
+      if (uVar6 <= uVar7) {
+        FUN_0400a810("index < length()",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinystr.h"
+                     ,0x9b,"char& TiXmlString::operator[](TiXmlString::size_type) const");
+        puVar5 = (uint *)*param_1;
+        uVar6 = *puVar5;
+      }
+      iVar2 = uVar8 + 9;
+      uVar8 = uVar7;
+    } while (*(char *)((int)puVar5 + iVar2) != ';');
+  } while( true );
+}
+
+
+
+=== 041c2820 tinystr_041c2820 ===
+
+/* source: tinystr */
+
+void tinystr_041c2820(undefined4 *param_1,undefined4 param_2)
+
+{
+  byte bVar1;
+  int iVar2;
+  size_t sVar3;
+  uint *puVar4;
+  uint uVar5;
+  uint uVar6;
+  uint uVar7;
+  bool bVar8;
+  byte *pbVar9;
+  byte local_3d [32];
+  byte local_1d [13];
+  
+  puVar4 = (uint *)*param_1;
+  uVar5 = *puVar4;
+  uVar6 = 0;
+LAB_041c2838:
+  do {
+    bVar8 = uVar6 < uVar5;
+    if ((int)uVar5 <= (int)uVar6) {
+      return;
+    }
+    while( true ) {
+      if (!bVar8) {
+        FUN_0400a810("index < length()",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinystr.h"
+                     ,0x9b,"char& TiXmlString::operator[](TiXmlString::size_type) const");
+        puVar4 = (uint *)*param_1;
+      }
+      bVar1 = *(byte *)((int)puVar4 + uVar6 + 8);
+      if (bVar1 == 0x26) break;
+      pbVar9 = PTR_DAT_04410c4c;
+      sVar3 = DAT_04410c50;
+      if ((((bVar1 != 0x3c) && (pbVar9 = PTR_DAT_04410c58, sVar3 = DAT_04410c5c, bVar1 != 0x3e)) &&
+          (pbVar9 = PTR_s__quot__04410c64, sVar3 = DAT_04410c68, bVar1 != 0x22)) &&
+         (pbVar9 = PTR_s__apos__04410c70, sVar3 = DAT_04410c74, bVar1 != 0x27)) {
+        if (bVar1 < 0x20) {
+          snprintf((char *)local_3d,0x20,"&#x%02X;",(uint)bVar1);
+          sVar3 = strlen((char *)local_3d);
+          pbVar9 = local_3d;
+        }
+        else {
+          pbVar9 = local_1d;
+          sVar3 = 1;
+          local_1d[0] = bVar1;
+        }
+      }
+      uVar6 = uVar6 + 1;
+      FUN_041c1190(param_2,pbVar9,sVar3);
+      puVar4 = (uint *)*param_1;
+      bVar8 = uVar6 < *puVar4;
+      if ((int)*puVar4 <= (int)uVar6) {
+        return;
+      }
+    }
+    if ((int)(*puVar4 - 2) <= (int)uVar6) {
+LAB_041c2913:
+      FUN_041c1190(param_2,PTR_s__amp__04410c40,DAT_04410c44);
+      puVar4 = (uint *)*param_1;
+      uVar5 = *puVar4;
+      uVar6 = uVar6 + 1;
+      goto LAB_041c2838;
+    }
+    if (*puVar4 <= uVar6 + 1) {
+      FUN_0400a810("index < length()",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinystr.h"
+                   ,0x9b,"char& TiXmlString::operator[](TiXmlString::size_type) const");
+      puVar4 = (uint *)*param_1;
+    }
+    if (*(char *)((int)puVar4 + uVar6 + 9) != '#') goto LAB_041c2913;
+    if (*puVar4 <= uVar6 + 2) {
+      FUN_0400a810("index < length()",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinystr.h"
+                   ,0x9b,"char& TiXmlString::operator[](TiXmlString::size_type) const");
+      puVar4 = (uint *)*param_1;
+    }
+    if (*(char *)((int)puVar4 + uVar6 + 10) != 'x') goto LAB_041c2913;
+    uVar5 = *puVar4;
+    uVar7 = uVar6;
+    do {
+      uVar6 = uVar7;
+      if ((int)(uVar5 - 1) <= (int)uVar7) break;
+      uVar6 = uVar7 + 1;
+      FUN_041c1190(param_2,(int)puVar4 + uVar7 + 8,1);
+      puVar4 = (uint *)*param_1;
+      uVar5 = *puVar4;
+      if (uVar5 <= uVar6) {
+        FUN_0400a810("index < length()",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinystr.h"
+                     ,0x9b,"char& TiXmlString::operator[](TiXmlString::size_type) const");
+        puVar4 = (uint *)*param_1;
+        uVar5 = *puVar4;
+      }
+      iVar2 = uVar7 + 9;
+      uVar7 = uVar6;
+    } while (*(char *)((int)puVar4 + iVar2) != ';');
+  } while( true );
+}
+
+
+

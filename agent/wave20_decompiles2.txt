@@ -1,0 +1,369 @@
+=== 041c8330 TiXmlDocument::Parse ===
+
+/* source: tinyxmlparser */
+
+char * TiXmlDocument__Parse(int param_1,char *param_2,undefined4 *param_3,int param_4)
+
+{
+  char cVar1;
+  char *pcVar2;
+  int *piVar3;
+  undefined4 uVar4;
+  int iVar5;
+  undefined4 local_2c;
+  undefined4 local_28;
+  char *local_24;
+  undefined4 local_20;
+  
+  *(undefined1 *)(param_1 + 0x2c) = 0;
+  *(undefined4 *)(param_1 + 0x30) = 0;
+  FUN_041c10b0(param_1 + 0x34,&DAT_04328763,0);
+  *(undefined4 *)(param_1 + 0x40) = 0;
+  *(undefined4 *)(param_1 + 0x3c) = 0;
+  if ((param_2 != (char *)0x0) && (*param_2 != '\0')) {
+    *(undefined4 *)(param_1 + 8) = 0xffffffff;
+    *(undefined4 *)(param_1 + 4) = 0xffffffff;
+    if (param_3 == (undefined4 *)0x0) {
+      *(undefined4 *)(param_1 + 4) = 0;
+      local_2c = 0;
+      local_28 = 0;
+      *(undefined4 *)(param_1 + 8) = 0;
+    }
+    else {
+      local_2c = *param_3;
+      local_28 = param_3[1];
+      *(undefined4 *)(param_1 + 4) = local_2c;
+      *(undefined4 *)(param_1 + 8) = local_28;
+    }
+    local_20 = *(undefined4 *)(param_1 + 0x38);
+    local_24 = param_2;
+    *(undefined4 *)(param_1 + 4) = local_2c;
+    *(undefined4 *)(param_1 + 8) = local_28;
+    if ((((param_4 == 0) && (*param_2 == -0x11)) && (param_2[1] == -0x45)) && (param_2[2] == -0x41))
+    {
+      *(undefined1 *)(param_1 + 0x44) = 1;
+      param_4 = 1;
+    }
+    pcVar2 = (char *)FUN_041c6e60(param_2,param_4);
+    if (pcVar2 == (char *)0x0) {
+      TiXmlDocument__SetError(param_1,0xc,0,0,0);
+    }
+    else {
+      do {
+        if ((*pcVar2 == '\0') ||
+           (piVar3 = (int *)FUN_041c8110(param_1,pcVar2,param_4), piVar3 == (int *)0x0)) break;
+        uVar4 = (**(code **)(*piVar3 + 0xc))(piVar3,pcVar2,&local_2c,param_4);
+        TiXmlNode__LinkEndChild(param_1,piVar3);
+        if ((param_4 == 0) && (iVar5 = (**(code **)(*piVar3 + 0x3c))(piVar3), iVar5 != 0)) {
+          iVar5 = (**(code **)(*piVar3 + 0x3c))(piVar3);
+          iVar5 = *(int *)(iVar5 + 0x30);
+          if (iVar5 == -8) {
+            FUN_0400a810(&PTR_DAT_0436291f,
+                         "/home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxmlparser.cpp"
+                         ,0x305,
+                         "virtual const char* TiXmlDocument::Parse(const char*, TiXmlParsingData*, TiXmlEncoding)"
+                        );
+          }
+          param_4 = 1;
+          if (*(char *)(iVar5 + 8) != '\0') {
+            if (iVar5 == -8) {
+              FUN_0400a810(&DAT_04361ca0,
+                           "/home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxmlparser.cpp"
+                           ,0x21b,
+                           "static bool TiXmlBase::StringEqual(const char*, const char*, bool, TiXmlEncoding)"
+                          );
+              FUN_0400a810("0",
+                           "/home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxmlparser.cpp"
+                           ,0x21f,
+                           "static bool TiXmlBase::StringEqual(const char*, const char*, bool, TiXmlEncoding)"
+                          );
+              FUN_0400a810(&DAT_04361ca0,
+                           "/home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxmlparser.cpp"
+                           ,0x21b,
+                           "static bool TiXmlBase::StringEqual(const char*, const char*, bool, TiXmlEncoding)"
+                          );
+              FUN_0400a810("0",
+                           "/home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxmlparser.cpp"
+                           ,0x21f,
+                           "static bool TiXmlBase::StringEqual(const char*, const char*, bool, TiXmlEncoding)"
+                          );
+            }
+            else {
+              cVar1 = FUN_041c6930(0);
+              if ((cVar1 != '\0') || (cVar1 = FUN_041c6930(0), cVar1 != '\0')) goto LAB_041c8458;
+            }
+            param_4 = 2;
+          }
+        }
+LAB_041c8458:
+        pcVar2 = (char *)FUN_041c6e60(uVar4,param_4);
+      } while (pcVar2 != (char *)0x0);
+      if (*(int *)(param_1 + 0x18) == 0) goto LAB_041c8588;
+    }
+    return pcVar2;
+  }
+  param_4 = 0;
+LAB_041c8588:
+  TiXmlDocument__SetError(param_1,0xc,0,0,param_4);
+  return (char *)0x0;
+}
+
+
+
+=== 041c1190 FUN_041c1190 ===
+
+int * FUN_041c1190(int *param_1,void *param_2,size_t param_3)
+
+{
+  uint uVar1;
+  uint *puVar2;
+  int *piVar3;
+  int iVar4;
+  
+  piVar3 = (int *)*param_1;
+  iVar4 = *piVar3;
+  uVar1 = param_3 + iVar4;
+  if ((uint)piVar3[1] < uVar1) {
+    FUN_041c1000(param_1,piVar3[1] + uVar1);
+    piVar3 = (int *)*param_1;
+    iVar4 = *piVar3;
+  }
+  memmove((void *)((int)piVar3 + iVar4 + 8),param_2,param_3);
+  puVar2 = (uint *)*param_1;
+  *(undefined1 *)((int)puVar2 + uVar1 + 8) = 0;
+  *puVar2 = uVar1;
+  return param_1;
+}
+
+
+
+=== 041c10b0 FUN_041c10b0 ===
+
+int * FUN_041c10b0(int *param_1,void *param_2,uint param_3)
+
+{
+  uint uVar1;
+  undefined4 *puVar2;
+  uint *puVar3;
+  uint *local_20;
+  
+  uVar1 = *(uint *)(*param_1 + 4);
+  if ((param_3 <= uVar1) && (uVar1 <= param_3 * 3 + 0x18)) {
+    memmove((void *)(*param_1 + 8),param_2,param_3);
+    puVar3 = (uint *)*param_1;
+    *(undefined1 *)((int)puVar3 + param_3 + 8) = 0;
+    *puVar3 = param_3;
+    return param_1;
+  }
+  local_20 = &DAT_0451eee4;
+  if (param_3 != 0) {
+                    /* try { // try from 041c1139 to 041c113d has its CatchHandler @ 041c117b */
+    local_20 = operator_new__(param_3 + 0xf & 0xfffffffc);
+    local_20[1] = param_3;
+    *local_20 = param_3;
+    *(undefined1 *)((int)local_20 + param_3 + 8) = 0;
+  }
+  memcpy(local_20 + 2,param_2,param_3);
+  puVar2 = (undefined4 *)*param_1;
+  *param_1 = (int)local_20;
+  if ((puVar2 != &DAT_0451eee4) && (puVar2 != (undefined4 *)0x0)) {
+    operator_delete__(puVar2);
+  }
+  return param_1;
+}
+
+
+
+=== 041c2ab0 FUN_041c2ab0 ===
+
+void FUN_041c2ab0(undefined4 *param_1,undefined4 param_2)
+
+{
+  param_1[2] = 0xffffffff;
+  param_1[1] = 0xffffffff;
+  param_1[3] = 0;
+  *param_1 = &PTR_FUN_04361ee8;
+  param_1[8] = &DAT_0451eee4;
+  param_1[4] = 0;
+  param_1[5] = param_2;
+  param_1[6] = 0;
+  param_1[7] = 0;
+  param_1[9] = 0;
+  param_1[10] = 0;
+  return;
+}
+
+
+
+=== 041c6e60 FUN_041c6e60 ===
+
+byte * FUN_041c6e60(byte *param_1,int param_2)
+
+{
+  ushort **ppuVar1;
+  byte bVar2;
+  byte *pbVar3;
+  
+  pbVar3 = (byte *)0x0;
+  if (param_1 != (byte *)0x0) {
+    bVar2 = *param_1;
+    if (bVar2 == 0) {
+      pbVar3 = (byte *)0x0;
+    }
+    else if (param_2 == 1) {
+      do {
+        if (bVar2 == 0xef) {
+          if (param_1[1] == 0xbb) {
+            if (param_1[2] == 0xbf) goto LAB_041c6ef8;
+            goto LAB_041c6eaf;
+          }
+          if ((param_1[1] != 0xbf) || ((param_1[2] != 0xbe && (param_1[2] != 0xbf))))
+          goto LAB_041c6eaf;
+LAB_041c6ef8:
+          param_1 = param_1 + 3;
+        }
+        else {
+LAB_041c6eaf:
+          ppuVar1 = __ctype_b_loc();
+          if ((((*(byte *)((int)*ppuVar1 + (uint)bVar2 * 2 + 1) & 0x20) == 0) && (bVar2 != 10)) &&
+             (bVar2 != 0xd)) {
+            return param_1;
+          }
+          param_1 = param_1 + 1;
+        }
+        bVar2 = *param_1;
+        pbVar3 = param_1;
+      } while (bVar2 != 0);
+    }
+    else {
+      ppuVar1 = __ctype_b_loc();
+      do {
+        if ((((*(byte *)((int)*ppuVar1 + (uint)bVar2 * 2 + 1) & 0x20) == 0) && (bVar2 != 10)) &&
+           (bVar2 != 0xd)) {
+          return param_1;
+        }
+        param_1 = param_1 + 1;
+        bVar2 = *param_1;
+        pbVar3 = param_1;
+      } while (bVar2 != 0);
+    }
+  }
+  return pbVar3;
+}
+
+
+
+=== 041c6930 FUN_041c6930 ===
+
+bool __regparm3 FUN_041c6930(char *param_1,char *param_2,int param_3,int param_4)
+
+{
+  char *pcVar1;
+  __int32_t **pp_Var2;
+  char cVar3;
+  char cVar4;
+  __int32_t _Var5;
+  __int32_t _Var6;
+  
+  if (param_3 == 0) {
+    if (*param_1 != '\0') {
+      if (*param_2 == '\0') {
+        return true;
+      }
+      if (*param_1 != *param_2) {
+        return false;
+      }
+      while( true ) {
+        pcVar1 = param_1 + 1;
+        param_2 = param_2 + 1;
+        if (*pcVar1 == '\0') break;
+        if (*param_2 == '\0') {
+          return true;
+        }
+        param_1 = param_1 + 1;
+        if (*pcVar1 != *param_2) {
+          return false;
+        }
+      }
+    }
+  }
+  else {
+    cVar3 = *param_1;
+    if (cVar3 != '\0') {
+      cVar4 = *param_2;
+      if (cVar4 == '\0') {
+        return true;
+      }
+      if (param_4 == 1) {
+        do {
+          _Var6 = (__int32_t)cVar3;
+          if (_Var6 + 0x80U < 0x180) {
+            pp_Var2 = __ctype_tolower_loc();
+            _Var6 = (*pp_Var2)[_Var6];
+          }
+          _Var5 = (__int32_t)cVar4;
+          if (_Var5 + 0x80U < 0x180) {
+            pp_Var2 = __ctype_tolower_loc();
+            _Var5 = (*pp_Var2)[_Var5];
+          }
+          if (_Var6 != _Var5) goto LAB_041c6948;
+          cVar3 = param_1[1];
+          param_2 = param_2 + 1;
+          if (cVar3 == '\0') goto LAB_041c6948;
+          cVar4 = *param_2;
+          param_1 = param_1 + 1;
+        } while (cVar4 != '\0');
+      }
+      else {
+        do {
+          _Var6 = (__int32_t)cVar3;
+          if (_Var6 + 0x80U < 0x180) {
+            pp_Var2 = __ctype_tolower_loc();
+            _Var6 = (*pp_Var2)[_Var6];
+          }
+          _Var5 = (__int32_t)cVar4;
+          if (_Var5 + 0x80U < 0x180) {
+            pp_Var2 = __ctype_tolower_loc();
+            _Var5 = (*pp_Var2)[_Var5];
+          }
+          if (_Var6 != _Var5) goto LAB_041c6948;
+          cVar3 = param_1[1];
+          param_2 = param_2 + 1;
+          if (cVar3 == '\0') goto LAB_041c6948;
+          cVar4 = *param_2;
+          param_1 = param_1 + 1;
+        } while (cVar4 != '\0');
+      }
+      return true;
+    }
+  }
+LAB_041c6948:
+  return *param_2 == '\0';
+}
+
+
+
+=== 041c3740 FUN_041c3740 ===
+
+undefined4 FUN_041c3740(int *param_1)
+
+{
+  int iVar1;
+  undefined4 uVar2;
+  
+  while( true ) {
+    if (param_1 == (int *)0x0) {
+      return 0;
+    }
+    iVar1 = (**(code **)(*param_1 + 0x10))(param_1);
+    if (iVar1 != 0) break;
+    param_1 = (int *)param_1[4];
+  }
+                    /* WARNING: Could not recover jumptable at 0x041c3770. Too many branches */
+                    /* WARNING: Treating indirect jump as call */
+  uVar2 = (**(code **)(*param_1 + 0x10))();
+  return uVar2;
+}
+
+
+

@@ -146,3 +146,5 @@ tinyxmlparser_041c90c0	TiXmlText::Parse
 tinyxmlparser_041c9360	TiXmlDeclaration::Parse
 tinystr_041c1970	TiXmlBase::EncodeString
 tinystr_041c2820	TiXmlBase::EncodeString
+FUN_041c3c90	TiXmlElement::SetAttribute
+FUN_041c3d60	TiXmlElement::SetDoubleAttribute
