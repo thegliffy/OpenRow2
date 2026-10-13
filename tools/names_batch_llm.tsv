@@ -32,3 +32,8 @@ FUN_040a3ce0	Direct3DIndexBuffer9Imp::Lock
 FUN_041c16b0	TiXmlComment::Print
 FUN_041c4a90	TiXmlDocument::Print
 FUN_042d28f0	google_breakpad::UntypedMDRVA::Copy
+FUN_041c2150	TiXmlAttributeSet::FindOrCreate
+FUN_041c34b0	TiXmlElement::RemoveAttribute
+FUN_041c5c20	TiXmlAttributeSet::Remove
+FUN_041c73a0	TiXmlBase::ReadText
+FUN_041c7910	TiXmlBase::ReadText

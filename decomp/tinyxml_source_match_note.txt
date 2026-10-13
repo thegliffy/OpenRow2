@@ -1,0 +1,26 @@
+Tinyxml source-match wave (wave 14), 2026-10-12.
+
+Upstream reference: SourceForge tinyxml git master (tinyxml.cpp, tinyxmlparser.cpp).
+Bodies verified by decompile against upstream function bodies. The checker
+cannot accept these mechanically because the assert signatures they contain
+belong to the functions that were inlined into them, so the signature is
+shared across two functions. Body match is the wave-13 method.
+
+- 041c2150 -> TiXmlAttributeSet::FindOrCreate. Allocates 0x24 (TiXmlAttribute),
+  Find loop by strcmp, inlined Add (assert "!Find( addMe->Name() )" at
+  tinyxml.cpp line 0x5ef), then name assign. 041c5ba0 (already named
+  TiXmlAttributeSet::Add) is the pure link-only body, matching upstream Add.
+- 041c34b0 -> TiXmlElement::RemoveAttribute. Find by name, inlined Remove
+  (assert "0" at tinyxml.cpp line 0x608), then virtual deleting-dtor call
+  (vtable+4). RemoveAttribute is the only upstream function that deletes the
+  node.
+- 041c5c20 -> TiXmlAttributeSet::Remove. Pure unlink, nulls the removed
+  node's links, assert(0) on not-found. Matches upstream Remove exactly.
+- 041c73a0 -> TiXmlBase::ReadText. Checks the condenseWhiteSpace static,
+  inlines GetChar (utf8ByteTable lookup, assert "*length >= 0 && *length < 5"
+  at tinyxml.h line 0x14c) and StringEqual, calls GetEntity. ReadText is the
+  only upstream caller of GetChar.
+- 041c7910 -> TiXmlBase::ReadText (second clone). Same string set and control
+  flow as 041c73a0; compiler emitted two copies.
+
+Decompiles: /tmp/openrow-tinyxml-cands.txt, /tmp/openrow-tinyxml-coowners.txt.
