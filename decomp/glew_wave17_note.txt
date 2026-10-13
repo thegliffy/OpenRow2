@@ -1,0 +1,22 @@
+GLEW extension-init completion (wave 17), 2026-10-12.
+
+Method: wave-12 method at scale. Each candidate function's referenced string
+set matches the Khronos registry (gl.xml, main) require block for exactly one
+extension, and the body loads exactly those functions through
+glXGetProcAddressARB — the GLEW generated _glewInit_<EXT> pattern.
+
+- 0419c560 -> _glewInit_GL_ATI_vertex_streams (45 funcs, exact)
+- 04199d80 -> _glewInit_GL_ARB_multitexture (34 funcs, exact)
+- 0419aa80 -> _glewInit_GL_ARB_shader_objects (39 funcs, exact)
+- 041a20e0 -> _glewInit_GL_SUN_vertex (40 funcs, exact)
+- 0419bd00 -> _glewInit_GL_ARB_vertex_type_2_10_10_10_rev (38 funcs, exact)
+- 0419fb10 -> _glewInit_GL_AMD_gpu_shader_int64 (34 funcs, exact)
+- 0419e230 -> _glewInit_GL_EXT_gpu_shader4 (34 funcs, exact)
+- 0419ec60 -> _glewInit_GL_EXT_vertex_shader (42 funcs, exact)
+
+Checked and NOT matched: 041998b0 (32 strings, no exact extension — partial
+set, likely a multi-extension loader) and 041b9b20 (79 strings, the big
+loader; decompile timed out; not a single-extension set).
+
+Registry: KhronosGroup/OpenGL-Registry gl.xml. Decompiles:
+/tmp/openrow-grind1.txt, /tmp/openrow-grind2.txt.
