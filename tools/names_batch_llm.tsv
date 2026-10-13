@@ -28,3 +28,7 @@ FUN_042c8060	google_breakpad::MinidumpDescriptor::MinidumpDescriptor
 FUN_042c83e0	google_breakpad::MinidumpDescriptor::operator
 FUN_042d2b40	google_breakpad::MinidumpFileWriter::WriteStringCore
 FUN_042d2d30	google_breakpad::MinidumpFileWriter::WriteStringCore
+FUN_040a3ce0	Direct3DIndexBuffer9Imp::Lock
+FUN_041c16b0	TiXmlComment::Print
+FUN_041c4a90	TiXmlDocument::Print
+FUN_042d28f0	google_breakpad::UntypedMDRVA::Copy
