@@ -17,3 +17,16 @@ compile-time asset-hash constant to match a seed against.
 
 The bridge needs runtime data — a memory dump of EON_RESERVE from a running
 game — which this project does not have. Closed unless a dump appears.
+
+Runtime dump attempt, 2026-10-13: the game ran. The Steam install was synced
+from glifftop (15 GB), the native Linux ELF booted under Xvfb with software
+GL after adding libva/libvpx soname symlinks and a null ALSA device. It
+reached the main menu, entered the world (Jailbreak mission, HUD live), and
+the full address space (1.2 GB, 2,534 regions) was scanned for seed hashes.
+Result: 545 hits against 3,817 expected by chance — noise, no table. The
+density outliers (2-5x) are loaded asset data, not lookup tables: the top
+region is one repeated hash (snpc_jane.pcm_pc audio blocks). The engine's
+in-memory index does not expose the Volition hashes as searchable dwords;
+it parses the package index into its own structures. The bridge needs the
+index-parsing code path identified, not a raw memory scan. Game stopped
+after the scan.
