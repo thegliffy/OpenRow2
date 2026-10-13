@@ -1,0 +1,19 @@
+VPP asset-name bridge: closed, 2026-10-12.
+
+ApplySeeds.java ran against the project with all 53,969 verified seeds
+(agent/headless_seeds.log): scanned 768,035 instructions, 0 instruction
+immediate hits, 0 functions touched, 0 renames.
+
+A whole-binary dword scan finds only 18 seed-hash constants on disk, and
+they are coincidental: 14 are the same hash (0xEB147447) repeated inside one
+data cluster — a real hash table would show distinct hashes — and one is a
+pointer value that happens to collide.
+
+Why the bridge cannot work statically: the ELF's EON_RESERVE segment is
+64 MB with FileSize 0. The engine's hash->asset lookup tables are built at
+runtime by loading the VPP package indexes; they are not in the file. Code
+references assets through that runtime table, so no function body carries a
+compile-time asset-hash constant to match a seed against.
+
+The bridge needs runtime data — a memory dump of EON_RESERVE from a running
+game — which this project does not have. Closed unless a dump appears.
