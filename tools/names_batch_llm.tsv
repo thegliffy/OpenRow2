@@ -39,3 +39,5 @@ FUN_041c73a0	TiXmlBase::ReadText
 FUN_041c7910	TiXmlBase::ReadText
 FUN_042c84d0	MicrodumpWriter::Dump
 FUN_042c9b20	ElfFileSoName
+FUN_042ac890	png_read_update_info
+FUN_042ac900	png_start_read_image

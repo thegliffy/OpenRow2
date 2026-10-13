@@ -1,0 +1,20 @@
+libpng source-match wave (wave 16), 2026-10-12.
+
+Upstream reference: glennrp/libpng develop, pngread.c. Bodies verified by
+decompile against upstream function bodies (wave-13/14/15 method).
+
+- 042ac890 -> png_read_update_info. Null check, PNG_FLAG_ROW_INIT test at
+  struct+0xd4 bit 0x40; when unset calls png_read_start_row then
+  png_read_transform_info; when set calls the error helper with the
+  "png_read_update_info/png_start_read_image: duplicate call" string.
+  Matches upstream exactly.
+- 042ac900 -> png_start_read_image. Same flag test; when unset calls
+  png_read_start_row only (no transform_info); when set calls the error
+  helper with "png_start_read_image/png_read_update_info: duplicate call".
+  Matches upstream exactly.
+
+The two ICU path-string functions (041cac52, 041fdde3) stay unnamed: their
+strings are data path constants ("ICU_DATA", "ICU_PLUGINS"), not assert
+signatures; message-style strings do not replace a signature name.
+
+Decompiles: /tmp/openrow-png-cands.txt.
