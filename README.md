@@ -14,10 +14,12 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 ## Scoreboard
 
-**2,225 / 9,221 functions carry a project name (24.1%).** A name is kept when that function references a matching assert signature, a single source file, or a D3D9 vtable slot locked by those signatures. Module prefixes name the file, not the function. Message-style strings do not replace a signature name.
+**2,227 / 9,221 functions carry a project name (24.2%).** A name is kept when that function references a matching assert signature, a single source file, or a D3D9 vtable slot locked by those signatures. Module prefixes name the file, not the function. Message-style strings do not replace a signature name.
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
+| 22 | Hand-read decompiles: OpenGL context dump helpers (`agent/wave22_decompiles.txt`, 15 bodies). All SKIP under the rules — an instruction/call mix is not a name; none has a `Class::Method` assert. Evidence kept, no names. | 0 | 0 |
+| 21 | Tinyxml source match, continued (`decomp/tinyxml_source_match_note3.txt`; 2 names, both source-match rows; checker holds them — the FindOrCreate signature belongs to the inlined callee) | 2 | 2 |
 | 20 | Tinyxml source match, continued (`decomp/tinyxml_source_match_note2.txt`; 15 rows, 9 new names — 6 were module-prefix upgrades; assert-line matches verified against upstream) | 15 | 9 |
 | 1 | Hand-read decompiles (zstream, tinyxml, shader PCH) | 10 | 10 |
 | 2 | Source-path asserts → module prefixes | 721 | 721 |
