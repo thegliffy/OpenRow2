@@ -14,10 +14,11 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 ## Scoreboard
 
-**2,216 / 9,221 functions carry a project name (24.0%).** A name is kept when that function references a matching assert signature, a single source file, or a D3D9 vtable slot locked by those signatures. Module prefixes name the file, not the function. Message-style strings do not replace a signature name.
+**2,225 / 9,221 functions carry a project name (24.1%).** A name is kept when that function references a matching assert signature, a single source file, or a D3D9 vtable slot locked by those signatures. Module prefixes name the file, not the function. Message-style strings do not replace a signature name.
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
+| 20 | Tinyxml source match, continued (`decomp/tinyxml_source_match_note2.txt`; 15 rows, 9 new names — 6 were module-prefix upgrades; assert-line matches verified against upstream) | 15 | 9 |
 | 1 | Hand-read decompiles (zstream, tinyxml, shader PCH) | 10 | 10 |
 | 2 | Source-path asserts → module prefixes | 721 | 721 |
 | 3 | Assert signatures (VPFS district) | 22 | 0 (renames) |

@@ -1,0 +1,66 @@
+Tinyxml source-match wave 20, 2026-10-13.
+
+Upstream reference: /tmp/tinyxml (SourceForge tinyxml git master: tinystr.cpp,
+tinyxml.cpp, tinyxmlparser.cpp). Bodies verified by decompile
+(agent/wave20_decompiles.txt, decompiles2, decompiles3) against upstream
+function bodies. These carry no unique assert signature of their own — the
+asserts they contain belong to inlined callees (operator[], GetChar) or are
+shared — so the checker cannot accept them mechanically. Body match is the
+wave-13/14 method.
+
+- 041c1000 -> TiXmlString::reserve. `if (cap > capacity())` guard, init(len,
+  cap) via operator new[] (the `+0xf & ~3` align), memcpy, swap; nullrep_
+  sentinel at DAT_0451eee4 freed by operator delete[].
+- 041c10b0 -> TiXmlString::assign. The `len > cap || cap > 3*(len+8)` guard is
+  exact, memmove fast path, set_size, else realloc + memcpy + delete.
+- 041c1190 -> TiXmlString::append. newsize = length+len, reserve(newsize +
+  capacity()) when short, memmove at finish(), set_size.
+- 041c2ab0 -> TiXmlNode::TiXmlNode(NodeType). Writes the TiXmlBase vtable
+  (PTR_FUN_04361ee8), location = (-1,-1,0), then parent/type/firstChild/
+  lastChild/prev/next = 0. Field offsets match the TiXmlString members
+  (rep at +0, capacity +4, data +8).
+- 041c3740 -> TiXmlNode::GetDocument. Walks the parent chain (+0x20) calling
+  vtable slot +0x10 = ToDocument, the first virtual after the two dtor slots.
+- 041c6930 -> TiXmlBase::StringEqual (the outlined body). Two-pointer
+  compare, the ignoreCase branch through __ctype_tolower_loc (the ToLower
+  inline with the 0x80..0x180 range check), the `*tag == 0` true returns.
+  Every parser call site lands here.
+- 041c7820 -> TiXmlBase::StringEqual (second copy). The copy that carries the
+  asserts: lines 0x21b/0x21c/0x21f match upstream tinyxmlparser.cpp
+  539/540/543 exactly (assert p; assert tag; assert(0) on empty p), then it
+  tail-calls the outlined body. Wave-14 clone precedent.
+- 041c6e60 -> TiXmlBase::SkipWhiteSpace. The three Microsoft BOM sequences
+  (EF BB BF / EF BF BE / EF BF BF) are spelled out in the body; IsWhiteSpace
+  via __ctype_b (bit 0x20, plus explicit 10 and 13).
+- 041c8110 -> TiXmlNode::Identify. Checks '<', then StringEqual chains on
+  "<?xml" (case-insensitive), "<!--", "<![CDATA[", "<!"; the IsAlpha/underscore
+  branch allocates 0x50 (TiXmlElement, attributeSet at +0x2c) and calls the
+  already-named TiXmlElement ctor path; the final else allocates 0x2c
+  (TiXmlComment). Sizes match the upstream class layouts exactly.
+- 041c8680 -> TiXmlElement::ReadValue. GetDocument, SkipWhiteSpace, allocates
+  0x30 TiXmlText (cdata flag at +0x2c), virtual Parse through slot +0xc,
+  Blank check via the already-named TiXmlText::Print cluster path,
+  LinkEndChild, the "</" early return, and SetError code 5 =
+  TIXML_ERROR_READING_ELEMENT_VALUE.
+- 041c8ef0 -> TiXmlComment::Parse. StringEqual on "<!--", per-char append
+  loop, SetError code 10 = TIXML_ERROR_PARSING_COMMENT.
+- 041c90c0 -> TiXmlText::Parse. The cdata flag branch, StringEqual on
+  "<![CDATA[", SetError code 14 = TIXML_ERROR_PARSING_CDATA, ReadText call,
+  the `return p-1` ("don't truncate the '<'").
+- 041c9360 -> TiXmlDeclaration::Parse. StringEqual on "<?xml" case-
+  insensitive, SetError code 11 = TIXML_ERROR_PARSING_DECLARATION, then the
+  version/encoding/standalone loop constructing a stack TiXmlAttribute
+  (PTR_FUN_043629f8 = nullrep_ rep anchor, 0x24-byte object) per match.
+- 041c7820 -> TiXmlBase::StringEqual. Assert lines 0x21b/0x21c/0x21f match
+  upstream tinyxmlparser.cpp 539/540/543 exactly (assert p; assert tag;
+  assert 0 on empty p). The assert signature is shared with its callers, so
+  the checker holds it; the body is the function.
+- 041c1970 -> TiXmlBase::EncodeString. Walks the input via operator[]
+  (asserts at tinystr.h 0x9b), the entity table (PTR_s__amp__04410c40 =
+  entity[0], &quot;/&apos; entries), the &#x%02X; format, appends through
+  TiXmlString::append.
+- 041c2820 -> TiXmlBase::EncodeString (second clone). Same string set and
+  control flow as 041c1970; compiler emitted two copies (wave-14 ReadText
+  precedent).
+
+Names are pending the next ApplyNames run; scoreboard stays 2,216 until applied.
