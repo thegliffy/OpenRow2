@@ -1,0 +1,9 @@
+FUN_041061b0	XAudio2Imp::CreateMasteringVoice
+FUN_04106510	XAudio2Imp::DestroyMasteringVoice
+FUN_04106b80	XAudio2Imp::CreateSourceVoice
+FUN_04106ce0	XAudio2Imp::CreateSubmixVoice
+FUN_04106f90	XAudio2Imp::CommitChanges
+FUN_041062a0	XAudio2Imp::QueueOperation
+FUN_0410b700	XAudio2VoiceImp::SetVolume
+FUN_0410b9a0	XAudio2VoiceImp::GetVolume
+FUN_0410b7a0	XAudio2VoiceImp::SetFilterParameters

@@ -37,6 +37,11 @@ CLASSES = {
     # dsound.h typedefs IDirectSound3DBuffer8 -> IDirectSound3DBuffer; the
     # #define block uses the un-suffixed name.
     "DirectSound3DBuffer8Imp": ("dsound.h", "IDirectSound3DBuffer"),
+    # Keys are lowercase: the live project names these via module_<hex> batch
+    # names (xaudio2voiceimpl_0410b070), and the CLASSES lookup lowercases.
+    "xaudio2voiceimp": ("xaudio2.idl", "IXAudio2Voice"),
+    "xaudio2sourcevoiceimp": ("xaudio2.idl", "IXAudio2SourceVoice"),
+    "xaudio2masteringvoiceimp": ("xaudio2.idl", "IXAudio2MasteringVoice"),
 }
 
 # Wine's propidl.idl has no IPropertyStore (it lives in the C header); the
@@ -45,6 +50,28 @@ MANUAL_ORDER = {
     "IPropertyStore": ["QueryInterface", "AddRef", "Release",
                        "GetCount", "GetAt", "QueryProperties", "QueryValue",
                        "SetValue", "CommitChanges"],
+    # The IDL parser only counts HRESULT-returning one-line signatures, but
+    # void methods occupy vtable slots too. Full documented order pinned here
+    # (IXAudio2Voice has no IUnknown base; slots 0-14 per MSDN/XAudio2Voice.h).
+    "IXAudio2Voice": ["GetVoiceDetails", "SetOutputVoices", "SetEffectChain",
+                      "EnableEffect", "DisableEffect", "GetEffectState",
+                      "SetEffectParameters", "GetEffectParameters", "SetVolume",
+                      "GetVolume", "SetChannelVolumes", "GetChannelVolumes",
+                      "SetOutputMatrix", "DestroyVoices", "GetOutputVoices"],
+    "IXAudio2SourceVoice": ["GetVoiceDetails", "SetOutputVoices", "SetEffectChain",
+                      "EnableEffect", "DisableEffect", "GetEffectState",
+                      "SetEffectParameters", "GetEffectParameters", "SetVolume",
+                      "GetVolume", "SetChannelVolumes", "GetChannelVolumes",
+                      "SetOutputMatrix", "DestroyVoices", "GetOutputVoices",
+                      "Start", "Stop", "SubmitSourceBuffer", "FlushSourceBuffers",
+                      "Discontinuity", "ExitLoop", "GetState", "SetFrequencyRatio",
+                      "GetFrequencyRatio", "SetSourceSampleRate"],
+    "IXAudio2MasteringVoice": ["GetVoiceDetails", "SetOutputVoices", "SetEffectChain",
+                      "EnableEffect", "DisableEffect", "GetEffectState",
+                      "SetEffectParameters", "GetEffectParameters", "SetVolume",
+                      "GetVolume", "SetChannelVolumes", "GetChannelVolumes",
+                      "SetOutputMatrix", "DestroyVoices", "GetOutputVoices",
+                      "GetChannelMask"],
 }
 
 

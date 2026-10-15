@@ -1,0 +1,976 @@
+=== 04105ff0 FUN_04105ff0 ===
+
+undefined4 FUN_04105ff0(int param_1,int param_2)
+
+{
+  int iVar1;
+  int iVar2;
+  int *piVar3;
+  
+  iVar1 = pthread_mutex_lock((pthread_mutex_t *)(param_1 + 0x1c));
+  if (iVar1 != 0) {
+                    /* WARNING: Subroutine does not return */
+    std::__throw_system_error(iVar1);
+  }
+  iVar1 = *(int *)(param_1 + 0x14);
+  if (iVar1 != 0) {
+    piVar3 = *(int **)(param_1 + 0x10);
+    iVar2 = 0;
+    if (param_2 == 0) {
+      do {
+        *piVar3 = 0;
+        if (iVar2 + 1 == iVar1) break;
+        iVar2 = iVar2 + 2;
+        piVar3[7] = 0;
+        piVar3 = piVar3 + 0xe;
+      } while (iVar2 != iVar1);
+    }
+    else {
+      iVar2 = 0;
+      do {
+        if (*piVar3 == param_2) {
+          *piVar3 = 0;
+        }
+        iVar2 = iVar2 + 1;
+        piVar3 = piVar3 + 7;
+      } while (iVar2 != iVar1);
+    }
+  }
+  pthread_mutex_unlock((pthread_mutex_t *)(param_1 + 0x1c));
+  return 0;
+}
+
+
+
+=== 041061b0 FUN_041061b0 ===
+
+/* WARNING: Removing unreachable block (ram,0x04106287) */
+
+undefined4
+FUN_041061b0(int param_1,undefined4 *param_2,undefined4 param_3,undefined4 param_4,
+            undefined4 param_5,undefined4 param_6,undefined4 param_7)
+
+{
+  undefined4 uVar1;
+  undefined4 uVar2;
+  undefined4 *puVar3;
+  int iVar4;
+  
+  uVar2 = 0x57;
+  if ((param_2 != (undefined4 *)0x0) && (*(int *)(param_1 + 0x5c) == 0)) {
+    uVar2 = *(undefined4 *)(param_1 + 0xc);
+    uVar1 = *(undefined4 *)(param_1 + 0x40);
+    puVar3 = operator_new(0x134);
+    *puVar3 = &PTR_FUN_043105e8;
+                    /* try { // try from 0410623c to 04106240 has its CatchHandler @ 0410626d */
+    XAudio2MasteringVoiceImp__XAudio2MasteringVoiceImp
+              (puVar3 + 1,puVar3,uVar1,uVar2,param_3,param_4,param_5,param_7);
+    *param_2 = puVar3;
+    iVar4 = pthread_mutex_lock((pthread_mutex_t *)(param_1 + 0x60));
+    if (iVar4 != 0) {
+                    /* WARNING: Subroutine does not return */
+      std::__throw_system_error(iVar4);
+    }
+    *(undefined4 **)(param_1 + 0x5c) = puVar3;
+    pthread_mutex_unlock((pthread_mutex_t *)(param_1 + 0x60));
+    uVar2 = 0;
+  }
+  return uVar2;
+}
+
+
+
+=== 041062a0 FUN_041062a0 ===
+
+/* WARNING: Removing unreachable block (ram,0x04106396) */
+
+void FUN_041062a0(int param_1,undefined4 param_2,undefined4 param_3,undefined4 param_4,
+                 undefined4 param_5,undefined4 param_6,undefined4 param_7,undefined4 param_8)
+
+{
+  int iVar1;
+  undefined4 *puVar2;
+  size_t __size;
+  void *pvVar3;
+  
+  iVar1 = pthread_mutex_lock((pthread_mutex_t *)(param_1 + 0x1c));
+  if (iVar1 == 0) {
+    iVar1 = *(int *)(param_1 + 0x14);
+    if (iVar1 == *(int *)(param_1 + 0x18)) {
+      *(int *)(param_1 + 0x18) = iVar1 + 0x10;
+      __size = (iVar1 + 0x10) * 0x1c;
+      if (*(void **)(param_1 + 0x10) == (void *)0x0) {
+        pvVar3 = malloc(__size);
+        *(void **)(param_1 + 0x10) = pvVar3;
+      }
+      else {
+        pvVar3 = realloc(*(void **)(param_1 + 0x10),__size);
+        iVar1 = *(int *)(param_1 + 0x14);
+        *(void **)(param_1 + 0x10) = pvVar3;
+      }
+    }
+    else {
+      pvVar3 = *(void **)(param_1 + 0x10);
+    }
+    *(int *)(param_1 + 0x14) = iVar1 + 1;
+    puVar2 = (undefined4 *)((int)pvVar3 + iVar1 * 0x1c);
+    puVar2[1] = param_2;
+    *puVar2 = param_3;
+    puVar2[2] = param_4;
+    puVar2[3] = param_5;
+    puVar2[4] = param_6;
+    puVar2[5] = param_7;
+    puVar2[6] = param_8;
+    pthread_mutex_unlock((pthread_mutex_t *)(param_1 + 0x1c));
+    return;
+  }
+                    /* WARNING: Subroutine does not return */
+  std::__throw_system_error(iVar1);
+}
+
+
+
+=== 04106510 FUN_04106510 ===
+
+void FUN_04106510(int param_1)
+
+{
+  int *piVar1;
+  int iVar2;
+  
+  iVar2 = pthread_mutex_lock((pthread_mutex_t *)(param_1 + 0x60));
+  if (iVar2 == 0) {
+    piVar1 = *(int **)(param_1 + 0x5c);
+    if (piVar1 != (int *)0x0) {
+                    /* try { // try from 04106542 to 04106544 has its CatchHandler @ 0410656a */
+      (**(code **)(*piVar1 + 0x50))(piVar1);
+    }
+    *(undefined4 *)(param_1 + 0x5c) = 0;
+    pthread_mutex_unlock((pthread_mutex_t *)(param_1 + 0x60));
+    return;
+  }
+                    /* WARNING: Subroutine does not return */
+  std::__throw_system_error(iVar2);
+}
+
+
+
+=== 04106b80 FUN_04106b80 ===
+
+/* WARNING: Removing unreachable block (ram,0x04106ca0) */
+
+undefined4
+FUN_04106b80(int param_1,undefined4 *param_2,undefined4 param_3,undefined4 param_4,
+            undefined4 param_5,undefined4 param_6,undefined4 param_7,undefined4 param_8)
+
+{
+  undefined4 uVar1;
+  undefined4 *puVar2;
+  int *piVar3;
+  int iVar4;
+  int *local_24;
+  pthread_mutex_t *local_20;
+  
+  if ((param_2 != (undefined4 *)0x0) && (*(int *)(param_1 + 0x5c) != 0)) {
+    uVar1 = *(undefined4 *)(param_1 + 0xc);
+    piVar3 = operator_new(0x180);
+    *piVar3 = (int)&PTR_FUN_04310428;
+                    /* try { // try from 04106bf6 to 04106bfa has its CatchHandler @ 04106caf */
+    XAudio2SourceVoiceImp__XAudio2SourceVoiceImp
+              (piVar3 + 1,piVar3,uVar1,param_3,param_5,param_4,param_8,param_6);
+    local_24 = piVar3;
+    (**(code **)(*piVar3 + 4))(piVar3,param_7);
+    *param_2 = local_24;
+    local_20 = (pthread_mutex_t *)(param_1 + 0x60);
+    iVar4 = pthread_mutex_lock(local_20);
+    if (iVar4 == 0) {
+      puVar2 = *(undefined4 **)(param_1 + 0x48);
+      if (puVar2 == *(undefined4 **)(param_1 + 0x4c)) {
+                    /* try { // try from 04106c99 to 04106c9d has its CatchHandler @ 04106cc1 */
+        FUN_04108730(param_1 + 0x44,puVar2,&local_24);
+      }
+      else {
+        iVar4 = 0;
+        if (puVar2 != (undefined4 *)0x0) {
+          *puVar2 = local_24;
+          iVar4 = *(int *)(param_1 + 0x48);
+        }
+        *(int *)(param_1 + 0x48) = iVar4 + 4;
+      }
+      pthread_mutex_unlock(local_20);
+      return 0;
+    }
+                    /* WARNING: Subroutine does not return */
+    std::__throw_system_error(iVar4);
+  }
+  return 0x57;
+}
+
+
+
+=== 04106ce0 FUN_04106ce0 ===
+
+/* WARNING: Removing unreachable block (ram,0x04106ea4) */
+
+undefined4
+FUN_04106ce0(int param_1,undefined4 *param_2,undefined4 param_3,undefined4 param_4,
+            undefined4 param_5,undefined4 param_6,undefined4 param_7,undefined4 param_8)
+
+{
+  undefined4 uVar1;
+  undefined4 *puVar2;
+  int *piVar3;
+  int iVar4;
+  uint uVar5;
+  int *piVar6;
+  int iVar7;
+  int *piVar8;
+  int *local_30;
+  int *local_24;
+  pthread_mutex_t *local_20;
+  
+  if ((param_2 != (undefined4 *)0x0) && (*(int *)(param_1 + 0x5c) != 0)) {
+    uVar1 = *(undefined4 *)(param_1 + 0xc);
+    piVar3 = operator_new(0x134);
+    *piVar3 = (int)&PTR_FUN_04310528;
+                    /* try { // try from 04106d50 to 04106d54 has its CatchHandler @ 04106ec0 */
+    FUN_0410afc0(piVar3 + 1,piVar3,uVar1,param_3,param_4,param_5,param_6,param_8);
+    local_24 = piVar3;
+    (**(code **)(*piVar3 + 4))(piVar3,param_7);
+    *param_2 = local_24;
+    local_20 = (pthread_mutex_t *)(param_1 + 0x60);
+    iVar4 = pthread_mutex_lock(local_20);
+    if (iVar4 == 0) {
+      puVar2 = *(undefined4 **)(param_1 + 0x54);
+      if (puVar2 == *(undefined4 **)(param_1 + 0x58)) {
+                    /* try { // try from 04106e94 to 04106e98 has its CatchHandler @ 04106eab */
+        FUN_041088b0(param_1 + 0x50,puVar2,&local_24);
+        local_30 = *(int **)(param_1 + 0x54);
+      }
+      else {
+        iVar4 = 0;
+        if (puVar2 != (undefined4 *)0x0) {
+          *puVar2 = local_24;
+          iVar4 = *(int *)(param_1 + 0x54);
+        }
+        local_30 = (int *)(iVar4 + 4);
+        *(int **)(param_1 + 0x54) = local_30;
+      }
+      piVar3 = *(int **)(param_1 + 0x50);
+      if (local_30 != piVar3) {
+        uVar5 = (int)local_30 - (int)piVar3 >> 2;
+        iVar4 = 0x1f;
+        if (uVar5 != 0) {
+          for (; uVar5 >> iVar4 == 0; iVar4 = iVar4 + -1) {
+          }
+        }
+        FUN_04105ce0();
+        if ((int)local_30 - (int)piVar3 < 0x44) {
+          FUN_04105f30();
+        }
+        else {
+          FUN_04105f30();
+          for (piVar3 = piVar3 + 0x10; local_30 != piVar3; piVar3 = piVar3 + 1) {
+            iVar4 = *piVar3;
+            iVar7 = piVar3[-1];
+            piVar6 = piVar3;
+            piVar8 = piVar3;
+            if (*(uint *)(iVar4 + 0x130) < *(uint *)(iVar7 + 0x130)) {
+              do {
+                piVar6 = piVar8 + -1;
+                *piVar8 = iVar7;
+                iVar7 = piVar8[-2];
+                piVar8 = piVar6;
+              } while (*(uint *)(iVar4 + 0x130) < *(uint *)(iVar7 + 0x130));
+            }
+            *piVar6 = iVar4;
+          }
+        }
+      }
+      pthread_mutex_unlock(local_20);
+      return 0;
+    }
+                    /* WARNING: Subroutine does not return */
+    std::__throw_system_error(iVar4);
+  }
+  return 0x57;
+}
+
+
+
+=== 04106f90 FUN_04106f90 ===
+
+void FUN_04106f90(int param_1)
+
+{
+  int iVar1;
+  int iVar2;
+  int iVar3;
+  int *piVar4;
+  int *piVar5;
+  uint uVar6;
+  int *piVar7;
+  int *piVar8;
+  uint uVar9;
+  int local_38;
+  int local_34;
+  int local_30 [2];
+  pthread_mutex_t *local_28;
+  int local_24;
+  int local_20 [4];
+  
+  local_28 = (pthread_mutex_t *)(param_1 + 0x1c);
+  iVar3 = pthread_mutex_lock(local_28);
+  if (iVar3 != 0) {
+                    /* WARNING: Subroutine does not return */
+    std::__throw_system_error(iVar3);
+  }
+  uVar6 = *(uint *)(param_1 + 0x14);
+  local_38 = 0;
+  piVar7 = (int *)&stack0xffffff94;
+  if (uVar6 != 0) {
+    iVar3 = 0;
+    uVar9 = 0;
+    local_38 = 0;
+    piVar7 = (int *)&stack0xffffff94;
+    do {
+      while (piVar4 = (int *)(*(int *)(param_1 + 0x10) + iVar3), *piVar4 == 0) {
+        iVar1 = piVar4[2];
+        piVar5 = piVar7;
+        if (iVar1 == *(int *)(param_1 + 0x5c)) {
+LAB_04107000:
+          piVar8 = piVar5;
+          piVar8[1] = (int)piVar4;
+          *piVar8 = param_1;
+                    /* try { // try from 04107007 to 0410700b has its CatchHandler @ 0410711b */
+          piVar8[-1] = 0x410700c;
+          XAudio2Imp__ExecuteOperation();
+        }
+        else {
+          iVar2 = *(int *)(param_1 + 0x48);
+          *(undefined1 *)(piVar7 + 4) = 0;
+          piVar7[3] = (int)&local_24;
+          piVar7[2] = iVar2;
+          piVar7[1] = *(int *)(param_1 + 0x44);
+          *piVar7 = (int)local_30;
+          piVar7[-1] = 0x41070bc;
+          local_24 = iVar1;
+          FUN_04108a30();
+          piVar5 = piVar7 + -1;
+          if (iVar2 != local_30[0]) goto LAB_04107000;
+          iVar2 = *(int *)(param_1 + 0x54);
+          *(undefined1 *)(piVar7 + 3) = 0;
+          piVar7[2] = (int)local_20;
+          piVar7[1] = iVar2;
+          *piVar7 = *(undefined4 *)(param_1 + 0x50);
+          piVar7[-1] = (int)&local_34;
+          piVar7[-2] = 0x41070fc;
+          local_20[0] = iVar1;
+          FUN_04108b20();
+          piVar8 = piVar7 + -2;
+          piVar5 = piVar7 + -2;
+          if (iVar2 != local_34) goto LAB_04107000;
+        }
+        uVar6 = *(uint *)(param_1 + 0x14);
+        uVar9 = uVar9 + 1;
+        iVar3 = iVar3 + 0x1c;
+        local_38 = local_38 + 1;
+        piVar7 = piVar8;
+        if (uVar6 <= uVar9) goto LAB_04107020;
+      }
+      if (local_38 != 0) {
+        piVar5 = piVar4 + local_38 * -7;
+        *piVar5 = *piVar4;
+        piVar5[1] = piVar4[1];
+        piVar5[2] = piVar4[2];
+        piVar5[3] = piVar4[3];
+        piVar5[4] = piVar4[4];
+        piVar5[5] = piVar4[5];
+        piVar5[6] = piVar4[6];
+        uVar6 = *(uint *)(param_1 + 0x14);
+      }
+      uVar9 = uVar9 + 1;
+      iVar3 = iVar3 + 0x1c;
+    } while (uVar9 < uVar6);
+  }
+LAB_04107020:
+  *(uint *)(param_1 + 0x14) = uVar6 - local_38;
+  *piVar7 = (int)local_28;
+  piVar7[-1] = 0x4107039;
+  pthread_mutex_unlock((pthread_mutex_t *)*piVar7);
+  return;
+}
+
+
+
+=== 04109980 FUN_04109980 ===
+
+/* WARNING: Removing unreachable block (ram,0x04109aa7) */
+
+undefined4 FUN_04109980(int param_1,undefined4 *param_2)
+
+{
+  undefined4 *puVar1;
+  pthread_mutex_t *__mutex;
+  int iVar2;
+  undefined4 uVar3;
+  
+  if (((*(int *)(param_1 + 0x140) - *(int *)(param_1 + 0x138) >> 2) * 0x38e38e39 +
+       (*(int *)(param_1 + 0x148) - *(int *)(param_1 + 0x14c) >> 2) * 0x38e38e39 +
+       ((*(int *)(param_1 + 0x154) - *(int *)(param_1 + 0x144) >> 2) + -1) * 0xe == 0x40) ||
+     (param_2 == (undefined4 *)0x0)) {
+    uVar3 = 0x88960001;
+  }
+  else {
+    __mutex = (pthread_mutex_t *)xaudio2voiceimpl_0410cf50(param_1);
+    iVar2 = pthread_mutex_lock(__mutex);
+    if (iVar2 != 0) {
+                    /* WARNING: Subroutine does not return */
+      std::__throw_system_error(iVar2);
+    }
+    puVar1 = *(undefined4 **)(param_1 + 0x148);
+    if (puVar1 == (undefined4 *)(*(int *)(param_1 + 0x150) + -0x24)) {
+                    /* try { // try from 04109a8d to 04109a91 has its CatchHandler @ 04109aae */
+      FUN_0410ad60(param_1 + 0x130,param_2);
+    }
+    else {
+      if (puVar1 != (undefined4 *)0x0) {
+        *puVar1 = *param_2;
+        puVar1[1] = param_2[1];
+        puVar1[2] = param_2[2];
+        puVar1[3] = param_2[3];
+        puVar1[4] = param_2[4];
+        puVar1[5] = param_2[5];
+        puVar1[6] = param_2[6];
+        puVar1[7] = param_2[7];
+        puVar1[8] = param_2[8];
+      }
+      *(undefined4 **)(param_1 + 0x148) = puVar1 + 9;
+    }
+    pthread_mutex_unlock(__mutex);
+    uVar3 = 0;
+  }
+  return uVar3;
+}
+
+
+
+=== 0410b700 FUN_0410b700 ===
+
+/* WARNING: Removing unreachable block (ram,0x0410b790) */
+
+undefined4 FUN_0410b700(int param_1,undefined4 param_2,undefined4 param_3)
+
+{
+  int iVar1;
+  
+  iVar1 = pthread_mutex_lock((pthread_mutex_t *)(param_1 + 0xac));
+  if (iVar1 == 0) {
+    *(undefined4 *)(param_1 + 0x5c) = param_2;
+    pthread_mutex_unlock((pthread_mutex_t *)(param_1 + 0xac));
+    FUN_041062a0(*(int *)(param_1 + 0xdc) + 4,6,param_3,*(undefined4 *)(param_1 + 0xd8),param_2,0,0,
+                 0);
+    return 0;
+  }
+                    /* WARNING: Subroutine does not return */
+  std::__throw_system_error(iVar1);
+}
+
+
+
+=== 0410b7a0 FUN_0410b7a0 ===
+
+/* WARNING: Removing unreachable block (ram,0x0410b8c7) */
+/* WARNING: Removing unreachable block (ram,0x0410b8d1) */
+/* WARNING: Removing unreachable block (ram,0x0410b8d3) */
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+undefined4 FUN_0410b7a0(int param_1,uint *param_2,undefined4 param_3)
+
+{
+  uint uVar1;
+  int iVar2;
+  undefined4 uVar3;
+  
+  if ((param_2 == (uint *)0x0) || ((*(byte *)(param_1 + 0xe0) & 8) == 0)) {
+    uVar3 = 0x88960001;
+  }
+  else {
+    if ((((3 < *param_2) || ((float)param_2[1] < 0.0)) || (DAT_042dbf3c < (float)param_2[1])) ||
+       (((float)param_2[2] <= 0.0 || (_DAT_04311b30 < (float)param_2[2])))) {
+      FUN_0402cd10(10,"Invalid filter parameters! This may cause crashes in Core Audio!");
+    }
+    iVar2 = pthread_mutex_lock((pthread_mutex_t *)(param_1 + 0xac));
+    if (iVar2 != 0) {
+                    /* WARNING: Subroutine does not return */
+      std::__throw_system_error(iVar2);
+    }
+    *(uint *)(param_1 + 0x60) = *param_2;
+    *(uint *)(param_1 + 100) = param_2[1];
+    uVar1 = param_2[2];
+    *(undefined1 *)(param_1 + 0xa8) = 1;
+    *(uint *)(param_1 + 0x68) = uVar1;
+    pthread_mutex_unlock((pthread_mutex_t *)(param_1 + 0xac));
+    FUN_041062a0(*(int *)(param_1 + 0xdc) + 4,0,param_3,*(undefined4 *)(param_1 + 0xd8),0,0,0,0);
+    uVar3 = 0;
+  }
+  return uVar3;
+}
+
+
+
+=== 0410b9a0 FUN_0410b9a0 ===
+
+/* WARNING: Removing unreachable block (ram,0x0410b9ed) */
+
+void FUN_0410b9a0(int param_1,undefined4 *param_2)
+
+{
+  int iVar1;
+  
+  if (param_2 == (undefined4 *)0x0) {
+    return;
+  }
+  iVar1 = pthread_mutex_lock((pthread_mutex_t *)(param_1 + 0xac));
+  if (iVar1 != 0) {
+                    /* WARNING: Subroutine does not return */
+    std::__throw_system_error(iVar1);
+  }
+  *param_2 = *(undefined4 *)(param_1 + 0x5c);
+  pthread_mutex_unlock((pthread_mutex_t *)(param_1 + 0xac));
+  return;
+}
+
+
+
+=== 0410c8f0 FUN_0410c8f0 ===
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+undefined4 FUN_0410c8f0(int param_1,uint param_2,uint *param_3,undefined4 param_4)
+
+{
+  int *piVar1;
+  int iVar2;
+  int iVar3;
+  int iVar4;
+  int local_40;
+  uint local_30 [4];
+  pthread_mutex_t *local_20;
+  
+  if (param_3 == (uint *)0x0) {
+    return 0x88960001;
+  }
+  if ((((3 < *param_3) || ((float)param_3[1] < 0.0)) || (DAT_042dbf3c < (float)param_3[1])) ||
+     (((float)param_3[2] <= 0.0 || (_DAT_04311b30 < (float)param_3[2])))) {
+    FUN_0402cd10(10,"Invalid output filter parameters! This may cause crashes in Core Audio!");
+  }
+  local_20 = (pthread_mutex_t *)(param_1 + 0xac);
+  iVar2 = pthread_mutex_lock(local_20);
+  if (iVar2 != 0) {
+                    /* WARNING: Subroutine does not return */
+    std::__throw_system_error(iVar2);
+  }
+  iVar2 = *(int *)(param_1 + 0x98);
+  iVar3 = param_1 + 0x94;
+  if (*(int *)(param_1 + 0x98) != 0) {
+    do {
+      while (iVar4 = iVar2, param_2 <= *(uint *)(iVar4 + 0x10)) {
+        iVar2 = *(int *)(iVar4 + 8);
+        iVar3 = iVar4;
+        if (*(int *)(iVar4 + 8) == 0) goto LAB_0410c985;
+      }
+      piVar1 = (int *)(iVar4 + 0xc);
+      iVar2 = *piVar1;
+      iVar4 = iVar3;
+    } while (*piVar1 != 0);
+LAB_0410c985:
+    if ((param_1 + 0x94 != iVar4) && (*(uint *)(iVar4 + 0x10) <= param_2)) goto LAB_0410c996;
+  }
+  local_30[0] = param_2;
+  local_30[1] = 0;
+  local_30[2] = 0;
+  local_30[3] = 0;
+                    /* try { // try from 0410ca67 to 0410ca6b has its CatchHandler @ 0410ca7b */
+  FUN_0410c590(local_30);
+  iVar4 = local_40;
+LAB_0410c996:
+  *(uint *)(iVar4 + 0x14) = *param_3;
+  *(uint *)(iVar4 + 0x18) = param_3[1];
+  *(uint *)(iVar4 + 0x1c) = param_3[2];
+  pthread_mutex_unlock(local_20);
+  FUN_041062a0(*(int *)(param_1 + 0xdc) + 4,0,param_4,*(undefined4 *)(param_1 + 0xd8),param_2,0,0,0)
+  ;
+  return 0;
+}
+
+
+
+=== 0410cd60 FUN_0410cd60 ===
+
+void FUN_0410cd60(int param_1,uint param_2)
+
+{
+  int *piVar1;
+  int iVar2;
+  int iVar3;
+  int iVar4;
+  int iVar5;
+  int local_50;
+  uint local_40 [5];
+  undefined4 local_2c;
+  undefined4 local_28;
+  undefined4 local_24;
+  pthread_mutex_t *local_20;
+  
+  local_20 = (pthread_mutex_t *)(param_1 + 0xac);
+  iVar2 = pthread_mutex_lock(local_20);
+  if (iVar2 != 0) {
+                    /* WARNING: Subroutine does not return */
+    std::__throw_system_error(iVar2);
+  }
+  if (param_2 == 0) {
+    *(undefined4 *)(param_1 + 0xc) = *(undefined4 *)(param_1 + 0x60);
+    *(undefined4 *)(param_1 + 0x10) = *(undefined4 *)(param_1 + 100);
+    *(undefined4 *)(param_1 + 0x14) = *(undefined4 *)(param_1 + 0x68);
+    *(undefined1 *)(param_1 + 0x54) = *(undefined1 *)(param_1 + 0xa8);
+    goto LAB_0410ce20;
+  }
+  iVar2 = *(int *)(param_1 + 0x44);
+  iVar3 = param_1 + 0x40;
+  if (*(int *)(param_1 + 0x44) == 0) {
+LAB_0410ce98:
+    local_40[0] = param_2;
+    local_40[1] = 0;
+    local_40[2] = 0;
+    local_40[3] = 0;
+    FUN_0410c230(local_40);
+    iVar5 = local_50;
+  }
+  else {
+    do {
+      while (iVar5 = iVar2, *(uint *)(iVar5 + 0x10) < param_2) {
+        piVar1 = (int *)(iVar5 + 0xc);
+        iVar2 = *piVar1;
+        iVar5 = iVar3;
+        if (*piVar1 == 0) goto LAB_0410cdc5;
+      }
+      iVar2 = *(int *)(iVar5 + 8);
+      iVar3 = iVar5;
+    } while (*(int *)(iVar5 + 8) != 0);
+LAB_0410cdc5:
+    if ((iVar5 == param_1 + 0x40) || (param_2 < *(uint *)(iVar5 + 0x10))) goto LAB_0410ce98;
+  }
+  iVar2 = *(int *)(param_1 + 0x98);
+  iVar3 = param_1 + 0x94;
+  if (*(int *)(param_1 + 0x98) == 0) {
+LAB_0410ce60:
+    local_40[4] = param_2;
+    local_2c = 0;
+    local_28 = 0;
+    local_24 = 0;
+                    /* try { // try from 0410ce87 to 0410cec2 has its CatchHandler @ 0410ced3 */
+    FUN_0410c230(local_40 + 4);
+    iVar4 = local_50;
+  }
+  else {
+    do {
+      while (iVar4 = iVar2, *(uint *)(iVar4 + 0x10) < param_2) {
+        piVar1 = (int *)(iVar4 + 0xc);
+        iVar2 = *piVar1;
+        iVar4 = iVar3;
+        if (*piVar1 == 0) goto LAB_0410ce05;
+      }
+      iVar2 = *(int *)(iVar4 + 8);
+      iVar3 = iVar4;
+    } while (*(int *)(iVar4 + 8) != 0);
+LAB_0410ce05:
+    if ((iVar4 == param_1 + 0x94) || (param_2 < *(uint *)(iVar4 + 0x10))) goto LAB_0410ce60;
+  }
+  *(undefined4 *)(iVar5 + 0x14) = *(undefined4 *)(iVar4 + 0x14);
+  *(undefined4 *)(iVar5 + 0x18) = *(undefined4 *)(iVar4 + 0x18);
+  *(undefined4 *)(iVar5 + 0x1c) = *(undefined4 *)(iVar4 + 0x1c);
+LAB_0410ce20:
+  pthread_mutex_unlock(local_20);
+  return;
+}
+
+
+
+=== 0410cef0 FUN_0410cef0 ===
+
+/* WARNING: Removing unreachable block (ram,0x0410cf31) */
+
+void FUN_0410cef0(int param_1)
+
+{
+  int iVar1;
+  
+  iVar1 = pthread_mutex_lock((pthread_mutex_t *)(param_1 + 0xac));
+  if (iVar1 != 0) {
+                    /* WARNING: Subroutine does not return */
+    std::__throw_system_error(iVar1);
+  }
+  *(undefined4 *)(param_1 + 8) = *(undefined4 *)(param_1 + 0x5c);
+  pthread_mutex_unlock((pthread_mutex_t *)(param_1 + 0xac));
+  return;
+}
+
+
+
+=== 0410d1f0 FUN_0410d1f0 ===
+
+void FUN_0410d1f0(int param_1)
+
+{
+  int iVar1;
+  
+  iVar1 = pthread_mutex_lock((pthread_mutex_t *)(param_1 + 0xac));
+  if (iVar1 == 0) {
+                    /* try { // try from 0410d226 to 0410d22a has its CatchHandler @ 0410d249 */
+    FUN_0410ed90(param_1 + 0x18,param_1 + 0x6c);
+    pthread_mutex_unlock((pthread_mutex_t *)(param_1 + 0xac));
+    return;
+  }
+                    /* WARNING: Subroutine does not return */
+  std::__throw_system_error(iVar1);
+}
+
+
+
+=== 0410d260 FUN_0410d260 ===
+
+void FUN_0410d260(int param_1,uint param_2)
+
+{
+  int *piVar1;
+  int iVar2;
+  int iVar3;
+  int iVar4;
+  int iVar5;
+  int local_50;
+  uint local_40;
+  void *local_3c;
+  undefined4 local_38;
+  undefined4 local_34;
+  uint local_30;
+  void *local_2c;
+  undefined4 local_28;
+  undefined4 local_24;
+  pthread_mutex_t *local_20;
+  
+  local_20 = (pthread_mutex_t *)(param_1 + 0xac);
+  iVar2 = pthread_mutex_lock(local_20);
+  if (iVar2 != 0) {
+                    /* WARNING: Subroutine does not return */
+    std::__throw_system_error(iVar2);
+  }
+  iVar2 = *(int *)(param_1 + 0x80);
+  iVar3 = param_1 + 0x7c;
+  if (*(int *)(param_1 + 0x80) == 0) {
+LAB_0410d378:
+    local_40 = param_2;
+    local_3c = (void *)0x0;
+    local_38 = 0;
+    local_34 = 0;
+                    /* try { // try from 0410d39e to 0410d3a2 has its CatchHandler @ 0410d3eb */
+    FUN_0410b560(&local_40);
+    iVar5 = local_50;
+    if (local_3c != (void *)0x0) {
+      operator_delete(local_3c);
+    }
+  }
+  else {
+    do {
+      while (iVar5 = iVar2, *(uint *)(iVar5 + 0x10) < param_2) {
+        piVar1 = (int *)(iVar5 + 0xc);
+        iVar2 = *piVar1;
+        iVar5 = iVar3;
+        if (*piVar1 == 0) goto LAB_0410d2bd;
+      }
+      iVar2 = *(int *)(iVar5 + 8);
+      iVar3 = iVar5;
+    } while (*(int *)(iVar5 + 8) != 0);
+LAB_0410d2bd:
+    if ((param_1 + 0x7c == iVar5) || (param_2 < *(uint *)(iVar5 + 0x10))) goto LAB_0410d378;
+  }
+  iVar2 = *(int *)(param_1 + 0x2c);
+  iVar3 = param_1 + 0x28;
+  if (*(int *)(param_1 + 0x2c) != 0) {
+    do {
+      while (iVar4 = iVar2, *(uint *)(iVar4 + 0x10) < param_2) {
+        piVar1 = (int *)(iVar4 + 0xc);
+        iVar2 = *piVar1;
+        iVar4 = iVar3;
+        if (*piVar1 == 0) goto LAB_0410d2f5;
+      }
+      iVar2 = *(int *)(iVar4 + 8);
+      iVar3 = iVar4;
+    } while (*(int *)(iVar4 + 8) != 0);
+LAB_0410d2f5:
+    if ((param_1 + 0x28 != iVar4) && (*(uint *)(iVar4 + 0x10) <= param_2)) goto LAB_0410d2fe;
+  }
+  local_30 = param_2;
+  local_2c = (void *)0x0;
+  local_28 = 0;
+  local_24 = 0;
+                    /* try { // try from 0410d354 to 0410d358 has its CatchHandler @ 0410d3be */
+  FUN_0410b560(&local_30);
+  iVar4 = local_50;
+  if (local_2c != (void *)0x0) {
+    operator_delete(local_2c);
+  }
+LAB_0410d2fe:
+                    /* try { // try from 0410d30b to 0410d30f has its CatchHandler @ 0410d3e7 */
+  FUN_0410ed90(iVar4 + 0x14,iVar5 + 0x14);
+  pthread_mutex_unlock(local_20);
+  return;
+}
+
+
+
+=== 0410dde0 FUN_0410dde0 ===
+
+undefined4 FUN_0410dde0(int param_1,uint param_2,void *param_3,undefined4 param_4)
+
+{
+  int iVar1;
+  uint uVar2;
+  void *__dest;
+  size_t __n;
+  
+  iVar1 = pthread_mutex_lock((pthread_mutex_t *)(param_1 + 0xac));
+  if (iVar1 == 0) {
+    __dest = *(void **)(param_1 + 0x6c);
+    uVar2 = *(int *)(param_1 + 0x70) - (int)__dest >> 2;
+    if (uVar2 < param_2) {
+                    /* try { // try from 0410dece to 0410ded2 has its CatchHandler @ 0410dee6 */
+      FUN_0410fc10(param_1 + 0x6c,param_2 - uVar2);
+      __n = param_2 << 2;
+      __dest = *(void **)(param_1 + 0x6c);
+    }
+    else if (param_2 < uVar2) {
+      __n = param_2 * 4;
+      *(void **)(param_1 + 0x70) = (void *)((int)__dest + __n);
+    }
+    else {
+      __n = param_2 << 2;
+    }
+    memcpy(__dest,param_3,__n);
+    pthread_mutex_unlock((pthread_mutex_t *)(param_1 + 0xac));
+    FUN_041062a0(*(int *)(param_1 + 0xdc) + 4,3,param_4,*(undefined4 *)(param_1 + 0xd8),0,0,0,0);
+    return 0;
+  }
+                    /* WARNING: Subroutine does not return */
+  std::__throw_system_error(iVar1);
+}
+
+
+
+=== 0410df00 FUN_0410df00 ===
+
+undefined4
+FUN_0410df00(int param_1,uint param_2,int param_3,int param_4,void *param_5,undefined4 param_6)
+
+{
+  int *piVar1;
+  int iVar2;
+  int iVar3;
+  uint uVar4;
+  uint uVar5;
+  int iVar6;
+  int iVar7;
+  size_t local_54;
+  int local_50;
+  uint local_40;
+  void *local_3c;
+  undefined4 local_38;
+  undefined4 local_34;
+  uint local_30;
+  void *local_2c;
+  undefined4 local_28;
+  undefined4 local_24;
+  pthread_mutex_t *local_20;
+  
+  local_20 = (pthread_mutex_t *)(param_1 + 0xac);
+  iVar3 = pthread_mutex_lock(local_20);
+  if (iVar3 != 0) {
+                    /* WARNING: Subroutine does not return */
+    std::__throw_system_error(iVar3);
+  }
+  iVar3 = param_1 + 0x7c;
+  iVar2 = *(int *)(param_1 + 0x80);
+  iVar6 = iVar3;
+  if (*(int *)(param_1 + 0x80) == 0) {
+LAB_0410df66:
+    local_40 = param_2;
+    local_3c = (void *)0x0;
+    local_38 = 0;
+    local_34 = 0;
+                    /* try { // try from 0410df8a to 0410df8e has its CatchHandler @ 0410e102 */
+    FUN_0410b560(&local_40);
+    iVar7 = local_50;
+    if (local_3c != (void *)0x0) {
+      operator_delete(local_3c);
+    }
+  }
+  else {
+    do {
+      while (iVar7 = iVar2, *(uint *)(iVar7 + 0x10) < param_2) {
+        piVar1 = (int *)(iVar7 + 0xc);
+        iVar2 = *piVar1;
+        iVar7 = iVar6;
+        if (*piVar1 == 0) goto LAB_0410df5d;
+      }
+      iVar2 = *(int *)(iVar7 + 8);
+      iVar6 = iVar7;
+    } while (*(int *)(iVar7 + 8) != 0);
+LAB_0410df5d:
+    if ((iVar7 == iVar3) || (param_2 < *(uint *)(iVar7 + 0x10))) goto LAB_0410df66;
+  }
+  uVar4 = param_3 * param_4;
+  uVar5 = *(int *)(iVar7 + 0x18) - *(int *)(iVar7 + 0x14) >> 2;
+  if (uVar5 < uVar4) {
+                    /* try { // try from 0410e0ef to 0410e0f3 has its CatchHandler @ 0410e136 */
+    FUN_0410fc10(iVar7 + 0x14,uVar4 - uVar5);
+  }
+  else if (uVar4 < uVar5) {
+    *(uint *)(iVar7 + 0x18) = *(int *)(iVar7 + 0x14) + uVar4 * 4;
+  }
+  local_54 = uVar4 * 4;
+  iVar2 = *(int *)(param_1 + 0x80);
+  iVar6 = iVar3;
+  if (*(int *)(param_1 + 0x80) != 0) {
+    do {
+      while (iVar7 = iVar2, *(uint *)(iVar7 + 0x10) < param_2) {
+        piVar1 = (int *)(iVar7 + 0xc);
+        iVar2 = *piVar1;
+        iVar7 = iVar6;
+        if (*piVar1 == 0) goto LAB_0410e005;
+      }
+      iVar2 = *(int *)(iVar7 + 8);
+      iVar6 = iVar7;
+    } while (*(int *)(iVar7 + 8) != 0);
+LAB_0410e005:
+    if ((iVar3 != iVar7) && (*(uint *)(iVar7 + 0x10) <= param_2)) goto LAB_0410e04f;
+  }
+  local_30 = param_2;
+  local_2c = (void *)0x0;
+  local_28 = 0;
+  local_24 = 0;
+                    /* try { // try from 0410e032 to 0410e036 has its CatchHandler @ 0410e123 */
+  FUN_0410b560(&local_30);
+  iVar7 = local_50;
+  if (local_2c != (void *)0x0) {
+    operator_delete(local_2c);
+  }
+LAB_0410e04f:
+  memcpy(*(void **)(iVar7 + 0x14),param_5,local_54);
+  pthread_mutex_unlock(local_20);
+  FUN_041062a0(*(int *)(param_1 + 0xdc) + 4,5,param_6,*(undefined4 *)(param_1 + 0xd8),param_2,0,0,0)
+  ;
+  return 0;
+}
+
+
+

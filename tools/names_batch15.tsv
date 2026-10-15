@@ -1,0 +1,3 @@
+FUN_0410c8f0	XAudio2VoiceImp::SetOutputFilterParameters
+FUN_0410dde0	XAudio2VoiceImp::SetChannelVolumes
+FUN_0410df00	XAudio2VoiceImp::SetOutputMatrix
