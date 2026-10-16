@@ -1,0 +1,37 @@
+Breakpad source-match wave 25 — the four assert stubs, three resolved.
+
+Upstream reference: breakpad at commit 9f150ee33e99 (2014-10-01, "Microdumps:
+refactor out common parts of minidump_writer.cc") — the era-appropriate
+revision. Its MinidumpWriter constructor is the 6-arg form the binary's assert
+strings name, and the two constructor asserts sit at lines 0x8c and 0x8d of
+that file, exactly matching the assert callsites the binary references. Modern
+main has moved them; do not match against main.
+
+Body-level matches (decompiles in /tmp/openrow-breakpad-cands.txt):
+
+- 042d0710 -> google_breakpad::WriteMinidumpImpl. It builds the dumper
+  (FUN_042cc800), constructs the writer inline (the 0x8c/0x8d assert pair),
+  calls Init (SetFile/Open + the virtual at +0x10), then Dump. The blob-size
+  test against 0x250 is `blob_size != sizeof(CrashContext)` and the five copied
+  words are siginfo.si_addr, si_signo, and tid — the set_crash_address /
+  set_crash_signal / set_crash_thread calls upstream makes through the dumper's
+  vtable. The two 256-byte callers 042d0b90 and 042d0c90 are the
+  WriteMinidump(path/fd, pid, blob, size) wrappers that forward to
+  WriteMinidumpImpl with the empty MappingList/AppMemoryList temporaries
+  (operator.delete x2 in the catalog).
+- 042d0e50 -> google_breakpad::WriteMinidump. Three args: path, pid, and the
+  size stored next to the fd of -1. It builds the dumper, constructs two empty
+  circular lists (the MappingList and AppMemoryList defaults, freed with
+  operator.delete at the end), inlines the constructor asserts, then
+  Init/Dump/destroy. This is the (path, pid, blob, blob_size) entry point.
+- 042d1330 -> google_breakpad::WriteMinidump. Four args: filename, mappings,
+  appmem, dumper. It does NOT build a dumper (the 4th arg is used as-is), does
+  NOT free lists (they are references to the caller's), and does not destroy a
+  dumper — exactly the shape of the (path, mappings, appmem, dumper) overload.
+
+Still unnamed, and staying unnamed: 0400939e. It is the cold assert stub for
+the constructor's first assert (fd_ != -1 || minidump_path); the constructor
+itself is inlined into the three writers above, so the stub owns no method.
+
+Batch: tools/names_batch17.tsv (3 rows, applied renamed=3). Scoreboard
+2,241 -> 2,244.
