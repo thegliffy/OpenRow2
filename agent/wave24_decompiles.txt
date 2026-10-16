@@ -1,0 +1,264 @@
+=== 04109090 FUN_04109090 ===
+
+undefined4 FUN_04109090(void)
+
+{
+  return 0;
+}
+
+
+
+=== 041090a0 FUN_041090a0 ===
+
+void FUN_041090a0(int param_1,undefined4 *param_2)
+
+{
+  undefined4 uVar1;
+  undefined4 uVar2;
+  int iVar3;
+  undefined4 uVar4;
+  
+  uVar4 = 0;
+  iVar3 = (*(int *)(param_1 + 0x140) - *(int *)(param_1 + 0x138) >> 2) * 0x38e38e39 +
+          (*(int *)(param_1 + 0x148) - *(int *)(param_1 + 0x14c) >> 2) * 0x38e38e39 +
+          ((*(int *)(param_1 + 0x154) - *(int *)(param_1 + 0x144) >> 2) + -1) * 0xe;
+  if (iVar3 != 0) {
+    uVar4 = *(undefined4 *)(*(int *)(param_1 + 0x138) + 0x20);
+  }
+  param_2[1] = iVar3;
+  uVar1 = *(undefined4 *)(param_1 + 0x16c);
+  uVar2 = *(undefined4 *)(param_1 + 0x168);
+  *param_2 = uVar4;
+  param_2[3] = uVar1;
+  param_2[2] = uVar2;
+  return;
+}
+
+
+
+=== 04109130 FUN_04109130 ===
+
+undefined4 FUN_04109130(void)
+
+{
+  return 0;
+}
+
+
+
+=== 04109140 FUN_04109140 ===
+
+void FUN_04109140(int param_1,undefined4 *param_2)
+
+{
+  if (param_2 != (undefined4 *)0x0) {
+    *param_2 = *(undefined4 *)(param_1 + 4);
+  }
+  return;
+}
+
+
+
+=== 04109160 FUN_04109160 ===
+
+undefined4 FUN_04109160(int param_1,undefined4 param_2)
+
+{
+  *(undefined4 *)(param_1 + 0xc4) = param_2;
+  return 0;
+}
+
+
+
+=== 04109180 FUN_04109180 ===
+
+undefined4 FUN_04109180(void)
+
+{
+  return 0;
+}
+
+
+
+=== 04109190 FUN_04109190 ===
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+undefined4 FUN_04109190(int param_1,float param_2,undefined4 param_3)
+
+{
+  float fVar1;
+  float fVar2;
+  
+  fVar1 = *(float *)(param_1 + 0x164);
+  if (param_2 <= *(float *)(param_1 + 0x164)) {
+    fVar1 = param_2;
+  }
+  fVar2 = _DAT_043111f0;
+  if (_DAT_043111f0 <= fVar1) {
+    fVar2 = fVar1;
+  }
+  *(float *)(param_1 + 0x58) = fVar2;
+  XAudio2Imp__QueueOperation
+            (*(int *)(param_1 + 0xdc) + 4,8,param_3,*(undefined4 *)(param_1 + 0xd8),fVar2,0,0,0);
+  return 0;
+}
+
+
+
+=== 04109210 FUN_04109210 ===
+
+undefined4 FUN_04109210(int param_1,undefined4 param_2)
+
+{
+  XAudio2Imp__QueueOperation
+            (*(int *)(param_1 + 0xdc) + 4,7,param_2,*(undefined4 *)(param_1 + 0xd8),0,0,0,0);
+  return 0;
+}
+
+
+
+=== 04109270 FUN_04109270 ===
+
+undefined4 FUN_04109270(int param_1,undefined4 param_2,undefined4 param_3)
+
+{
+  XAudio2Imp__QueueOperation
+            (*(int *)(param_1 + 0xdc) + 4,10,param_3,*(undefined4 *)(param_1 + 0xd8),param_2,0,0,0);
+  return 0;
+}
+
+
+
+=== 041092d0 FUN_041092d0 ===
+
+undefined4 FUN_041092d0(int param_1,undefined4 param_2,undefined4 param_3)
+
+{
+  XAudio2Imp__QueueOperation
+            (*(int *)(param_1 + 0xdc) + 4,9,param_3,*(undefined4 *)(param_1 + 0xd8),0,0,0,0);
+  return 0;
+}
+
+
+
+=== 04109980 FUN_04109980 ===
+
+/* WARNING: Removing unreachable block (ram,0x04109aa7) */
+
+undefined4 FUN_04109980(int param_1,undefined4 *param_2)
+
+{
+  undefined4 *puVar1;
+  pthread_mutex_t *__mutex;
+  int iVar2;
+  undefined4 uVar3;
+  
+  if (((*(int *)(param_1 + 0x140) - *(int *)(param_1 + 0x138) >> 2) * 0x38e38e39 +
+       (*(int *)(param_1 + 0x148) - *(int *)(param_1 + 0x14c) >> 2) * 0x38e38e39 +
+       ((*(int *)(param_1 + 0x154) - *(int *)(param_1 + 0x144) >> 2) + -1) * 0xe == 0x40) ||
+     (param_2 == (undefined4 *)0x0)) {
+    uVar3 = 0x88960001;
+  }
+  else {
+    __mutex = (pthread_mutex_t *)xaudio2voiceimpl_0410cf50(param_1);
+    iVar2 = pthread_mutex_lock(__mutex);
+    if (iVar2 != 0) {
+                    /* WARNING: Subroutine does not return */
+      std::__throw_system_error(iVar2);
+    }
+    puVar1 = *(undefined4 **)(param_1 + 0x148);
+    if (puVar1 == (undefined4 *)(*(int *)(param_1 + 0x150) + -0x24)) {
+                    /* try { // try from 04109a8d to 04109a91 has its CatchHandler @ 04109aae */
+      FUN_0410ad60(param_1 + 0x130,param_2);
+    }
+    else {
+      if (puVar1 != (undefined4 *)0x0) {
+        *puVar1 = *param_2;
+        puVar1[1] = param_2[1];
+        puVar1[2] = param_2[2];
+        puVar1[3] = param_2[3];
+        puVar1[4] = param_2[4];
+        puVar1[5] = param_2[5];
+        puVar1[6] = param_2[6];
+        puVar1[7] = param_2[7];
+        puVar1[8] = param_2[8];
+      }
+      *(undefined4 **)(param_1 + 0x148) = puVar1 + 9;
+    }
+    pthread_mutex_unlock(__mutex);
+    uVar3 = 0;
+  }
+  return uVar3;
+}
+
+
+
+=== 0410b060 FUN_0410b060 ===
+
+undefined4 FUN_0410b060(void)
+
+{
+  return 1;
+}
+
+
+
+=== 0410b340 FUN_0410b340 ===
+
+void FUN_0410b340(int param_1,undefined4 *param_2)
+
+{
+  if ((param_2 != (undefined4 *)0x0) && ((*(byte *)(param_1 + 0xe0) & 8) != 0)) {
+    *param_2 = *(undefined4 *)(param_1 + 0xc);
+    param_2[1] = *(undefined4 *)(param_1 + 0x10);
+    param_2[2] = *(undefined4 *)(param_1 + 0x14);
+  }
+  return;
+}
+
+
+
+=== 0410caa0 FUN_0410caa0 ===
+
+void FUN_0410caa0(int param_1,uint param_2,undefined4 *param_3)
+
+{
+  int *piVar1;
+  int iVar2;
+  int iVar3;
+  int iVar4;
+  int local_30;
+  uint local_2c [7];
+  
+  iVar2 = *(int *)(param_1 + 0x44);
+  iVar3 = param_1 + 0x40;
+  if (*(int *)(param_1 + 0x44) != 0) {
+    do {
+      while (iVar4 = iVar2, param_2 <= *(uint *)(iVar4 + 0x10)) {
+        iVar2 = *(int *)(iVar4 + 8);
+        iVar3 = iVar4;
+        if (*(int *)(iVar4 + 8) == 0) goto LAB_0410cad5;
+      }
+      piVar1 = (int *)(iVar4 + 0xc);
+      iVar2 = *piVar1;
+      iVar4 = iVar3;
+    } while (*piVar1 != 0);
+LAB_0410cad5:
+    if ((param_1 + 0x40 != iVar4) && (*(uint *)(iVar4 + 0x10) <= param_2)) goto LAB_0410cb0a;
+  }
+  local_2c[0] = param_2;
+  local_2c[1] = 0;
+  local_2c[2] = 0;
+  local_2c[3] = 0;
+  FUN_0410c590(local_2c);
+  iVar4 = local_30;
+LAB_0410cb0a:
+  *param_3 = *(undefined4 *)(iVar4 + 0x14);
+  param_3[1] = *(undefined4 *)(iVar4 + 0x18);
+  param_3[2] = *(undefined4 *)(iVar4 + 0x1c);
+  return;
+}
+
+
+
