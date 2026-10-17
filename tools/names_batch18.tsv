@@ -1,0 +1,3 @@
+FUN_04109190	XAudio2SourceVoiceImp::SetFrequencyRatio
+FUN_04109140	XAudio2SourceVoiceImp::GetFrequencyRatio
+FUN_04109580	XAudio2SourceVoiceImp::Real_SetFrequencyRatio

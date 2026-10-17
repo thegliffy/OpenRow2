@@ -28,3 +28,29 @@ class prefix, it does not add names.
 seeds/functions.csv and seeds/string_refs.csv were re-synced from the live
 project after the renames (29 and 111 rows updated respectively; the extra
 diff rows are a CSV quoting artifact on the __ostream_insert<char,...> name).
+
+Wave 27 scan — other vtable families (no renames)
+
+Same wave-26 rule applied to the non-DirectInput dumps under agent/vtables/:
+
+  XAudio (xaudio2voice.tsv, xaudio2voice2.tsv, xaudio2source.tsv)
+  DirectSound (idirectsoundbuffer8.tsv, idirectsound3dbuffer8.tsv)
+  WASAPI/MMDevice (iaudio*.tsv, immm*.tsv, mmendpoint.tsv, ipropertystore.tsv)
+
+Findings:
+
+- DirectInput residual: 0. Wave 26 left no DeviceImp::X that appears only in one
+  concrete gamepad/keyboard/mouse run.
+- XAudio: shared slots (also in the short base runs @04311254 / @04311654) are
+  already XAudio2VoiceImp::*; source-only slots in the 21-slot run @04310f14 that
+  are named are already XAudio2SourceVoiceImp::* (SubmitSampleBuffer, GetState).
+  No base→concrete or concrete→base prefix fixes.
+- DirectSound / MMDevice / WASAPI: each dump is a single concrete interface with
+  no base/concrete shared-impl conflict in the dumps. QueryInterface anchors only.
+
+No ApplyNames / MCP renames. Scoreboard unchanged.
+
+Open FUN_ on the XAudio source run (not a class-prefix job): 04109090, 04109130,
+04109140, 04109160, 04109180, 04109190, 04109210, 04109270, 041092d0, plus shared
+FUN_0410b340 / FUN_0410caa0 / FUN_0410b060. Those belong to a hand-read / PLT
+wave, not this pass.

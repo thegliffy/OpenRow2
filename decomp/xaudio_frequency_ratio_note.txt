@@ -1,0 +1,26 @@
+Wave 27 — XAudio2 Set/GetFrequencyRatio (3 names)
+
+Wave 24 left the source-voice queue wrappers unnamed because the
+ExecuteOperation opcode enum is Volition-private. Opcode 8 is now locked
+without needing the rest of the enum:
+
+1. FUN_04109190 (vtable source run @04310f14, next to named GetState) clamps
+   a float into [DAT_043111f0, this+0x164], stores the pending value at
+   this+0x58, and QueueOperation(..., opcode=8, ..., float, ...).
+2. ExecuteOperation case 8 (jumptable @043101a0 -> 041064f0) loads the float
+   from the pending-op dword at +0xc (QueueOperation param_5) and the voice
+   pointer at +0x8, then tail-calls FUN_04109580.
+3. FUN_04109580 stores that float at voice+4 — the committed ratio.
+4. FUN_04109140 copies voice+4 to the out-parameter — the Get pair.
+
+Applied via PyGhidra MCP on moneta:
+  04109190 XAudio2SourceVoiceImp::SetFrequencyRatio
+  04109140 XAudio2SourceVoiceImp::GetFrequencyRatio
+  04109580 XAudio2SourceVoiceImp::Real_SetFrequencyRatio
+
+Scoreboard 2,246 / 9,221. Still unnamed on this run: return-0 stubs
+(04109090, 04109130, 04109180), QueueOperation wrappers for opcodes 7/9/10
+(04109210, 041092d0, 04109270) and their commit stubs (04109590/04109520/04109550),
+SetSourceSampleRate-shaped field write (04109160), and shared FUN_0410b340 /
+FUN_0410caa0 / FUN_0410b060. Those stay SKIP until an opcode or field lock
+as strong as this pair.
