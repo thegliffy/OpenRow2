@@ -1,0 +1,13 @@
+FUN_04188b20	GetFileVersionInfoA
+FUN_04188b70	GetFileVersionInfoW
+FUN_04188c40	GetFileVersionInfoExA
+FUN_04188c90	GetFileVersionInfoExW
+FUN_04188bc0	GetFileVersionInfoSizeA
+FUN_04188c00	GetFileVersionInfoSizeW
+FUN_04188ce0	GetFileVersionInfoSizeExA
+FUN_04188d20	GetFileVersionInfoSizeExW
+FUN_0412fce0	fs_SetFilePointer
+FUN_04130070	fs_SetFilePointerEx
+FUN_041309f0	fs_GetFileAttributesExA
+FUN_041314d0	vpfs_GetFileAttributesExA
+FUN_0412f140	vpfs_CreateFileA

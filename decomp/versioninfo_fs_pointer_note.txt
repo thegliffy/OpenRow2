@@ -1,0 +1,10 @@
+Wave 39 — file version stubs + fs/vpfs pointer/attrs/create (13 names)
+
+  GetFileVersionInfo{,Ex}{A,W} / GetFileVersionInfoSize{,Ex}{A,W}
+    Non-Ex stubs log the Ex format string with dwFlags=0; Ex variants take flags.
+    Peer VerQueryValueA/W already bare Win32 names.
+  fs_SetFilePointer / fs_SetFilePointerEx — unique lseek errno paths
+  fs_GetFileAttributesExA / vpfs_GetFileAttributesExA — invalid fInfoLevelId
+  vpfs_CreateFileA — INVALID_NAME + disposition/attribute warnings
+
+Applied via PyGhidra MCP (batch30). Scoreboard 2,382 / 9,221.
