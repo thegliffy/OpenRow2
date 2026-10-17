@@ -14,10 +14,11 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 ## Scoreboard
 
-**2,387 / 9,221 functions carry a project name (25.9%).** A name is kept when that function references a matching assert signature, a single source file, or a D3D9 vtable slot locked by those signatures. Module prefixes name the file, not the function. Message-style strings do not replace a signature name.
+**2,391 / 9,221 functions carry a project name (25.9%).** A name is kept when that function references a matching assert signature, a single source file, or a D3D9 vtable slot locked by those signatures. Module prefixes name the file, not the function. Message-style strings do not replace a signature name.
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
+| 41 | Shared-cluster LEAVE + Direct3DDevice9Imp::SetRenderState + OGLC_PrintHelp + LinkedProgramData cache pair (`decomp/shared_clusters_setrenderstate_oglc_note.txt`). Splits still empty. | 4 | 4 |
 | 40 | ToUnicodeEx/ToAsciiEx + GetUserObjectInformation A/W + fs_unlink (`decomp/tounicode_userobject_unlink_note.txt`). | 5 | 5 |
 | 39 | File version A/W/Ex stubs + fs/vpfs SetFilePointer/GetFileAttributesEx/CreateFile (`decomp/versioninfo_fs_pointer_note.txt`). | 13 | 13 |
 | 38 | thread/window/fileinfo + sync CreateMutex/Semaphore/WaitableTimer (`decomp/thread_window_sync_timer_note.txt`). | 10 | 7 (+3 renames) |
@@ -118,6 +119,7 @@ Closed, do not restart:
 - thread/window/fileinfo + WaitableTimer (wave 38).
 - versioninfo + fs/vpfs pointer/attrs (wave 39).
 - ToUnicode/ToAscii + GetUserObjectInformation + fs_unlink (wave 40).
+- Shared-cluster verdicts + SetRenderState + OGLC/LinkedProgramData (wave 41).
 
 Closed, continued:
 
@@ -129,8 +131,8 @@ Closed, continued:
 
 Open:
 
-- Assert queue empty; unique C-API / fs_ / VPFS_ message harvest largely drained (waves 32–40).
-- Needs direction: shared `eON_FileSystem` / `eON_Varyings` / `eON_GetDlgItem` multi-owner clusters; `FUN_04089990` vs existing `d3d9device_SetRenderState`; OGLC help-text blob; `eON_LinkedProgramData` cache pair; remaining module_hex without unique alone asserts; ambiguous splits.
+- Assert queue empty; unique C-API harvest drained (waves 32–40).
+- Closed by verdict (wave 41): shared FileSystem/Varyings/GetDlgItem clusters; SetRenderState Imp named; OGLC help + LinkedProgramData cache pair named; module_hex multi-sig leftovers and ambiguous splits stay leave-alone until a real external split ref appears.
 
 The extracted `sr2_pc.exe` contains the 71 Windows paths. That does not add a Linux assert the checker can name. Leave `seeds/rejected/win_string_module_map.csv` unused.
 

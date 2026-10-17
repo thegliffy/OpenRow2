@@ -1,0 +1,27 @@
+Wave 41 — shared-cluster verdicts + SetRenderState + OGLC/LinkedProgramData; splits unchanged (4 names)
+
+Track 1 — shared multi-owner clusters: LEAVE
+  eON_FileSystem::checkPathExists — 10 near-identical ~2.3KB FUN_ plus readSymbolicLink all
+    reference the same assert (path-helper clones / inlines). No unique owner for the method.
+  eON_Varyings[*] — shared token across shader GLSL generators and named eON_ShaderData::* /
+    fixedPipeline / GenerateProgram bodies. Not a function identity.
+  eON_GetDlgItem — 6 dialog helpers call vtable+0xc0 then log the same "didn't find control"
+    string; none is a unique GetDlgItem implementation. Leave until a single wrapper is isolated.
+
+Track 2 — FUN_04089990 → Direct3DDevice9Imp::SetRenderState
+  Large D3DRS switch; sole Imp callee from d3d9device_SetRenderState (stateblock path also).
+  d3d9device_SetRenderState stays the COM thunk; OpenGLSide_SetRenderState stays the GL commit.
+  Unique "SetRenderState( D3DRS_SHADEMODEL… )" message sits on this body.
+
+Track 3 — OGLC / LinkedProgramData / module_hex
+  OGLC_PrintHelp (040e09d0) — prints the OGLC_* command help catalog (not a command itself).
+  eON_LinkedProgramData::SetCachedLocation (040ea710) — grow/store location cache; assert (1).
+  eON_LinkedProgramData::CheckCachedLocation (040ea820) — compare cached blob; assert (2).
+  module_hex leftovers (incl. 040af4e0 UploadOpenGLObjectData vs GetOpenGLTexture, elfutils-inl
+    multi-sig) — still no unique-alone Class::Method. LEAVE.
+
+Track 4 — ambiguous splits: LEAVE
+  seeds/split_confirmed.tsv still has no real boundary rows. The 64 ambiguous_signatures.tsv
+  entries stay closed; no new split without an external call/data ref.
+
+Applied via PyGhidra MCP (batch32). Scoreboard 2,391 / 9,221.

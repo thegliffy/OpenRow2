@@ -1,0 +1,4 @@
+FUN_04089990	Direct3DDevice9Imp::SetRenderState
+FUN_040e09d0	OGLC_PrintHelp
+FUN_040ea710	eON_LinkedProgramData::SetCachedLocation
+FUN_040ea820	eON_LinkedProgramData::CheckCachedLocation

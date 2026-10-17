@@ -1945,7 +1945,7 @@ entry,name
 04088440,FUN_04088440
 04088460,FUN_04088460
 04088480,Direct3DDevice9Imp::OpenGLSide_SetRenderState
-04089990,FUN_04089990
+04089990,Direct3DDevice9Imp::SetRenderState
 04089fa0,d3d9device_SetRenderState
 0408a060,FUN_0408a060
 0408a120,FUN_0408a120
@@ -2579,7 +2579,7 @@ entry,name
 040e0920,OGLC_StopOnProgramUpdatePresent
 040e09b0,FUN_040e09b0
 040e09c0,FUN_040e09c0
-040e09d0,FUN_040e09d0
+040e09d0,OGLC_PrintHelp
 040e0c90,FUN_040e0c90
 040e0ca0,FUN_040e0ca0
 040e0cb0,FUN_040e0cb0
@@ -2653,8 +2653,8 @@ entry,name
 040ea280,ShaderCache::FillInProgramConstants
 040ea600,FUN_040ea600
 040ea6a0,FUN_040ea6a0
-040ea710,FUN_040ea710
-040ea820,FUN_040ea820
+040ea710,eON_LinkedProgramData::SetCachedLocation
+040ea820,eON_LinkedProgramData::CheckCachedLocation
 040ea8a0,FUN_040ea8a0
 040eabb0,FUN_040eabb0
 040eb470,FUN_040eb470
