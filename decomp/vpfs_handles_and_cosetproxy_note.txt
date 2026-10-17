@@ -1,0 +1,26 @@
+Wave 33 — VPFS handle district + CoSetProxyBlanket; leave-alones confirmed (11 names)
+
+Track 1 — VPFS invalid-handle API wrappers (unique VPFS_* message per FUN_; body is handle-table lookup):
+  04042fc0 VPFS_IsFolder
+  04043060 VPFS_IsFile
+  04043270 VPFS_GetDiskFileHandle
+  04043310 VPFS_GetDiskFolderHandle
+  04045b10 VPFS_GetSize
+  04045d40 VPFS_GetNextSubelement
+  040462a0 VPFS_ReadEx
+  04046490 VPFS_CancelIo
+  040469b0 VPFS_Tell
+  04046a90 VPFS_FileOffset
+Dropped: FUN_04018d60 only references the filename VPFS_registry.vpfsdb — not an API name.
+
+Track 2 — COM leftover:
+  04162e00 CoSetProxyBlanket  log-and-return-0 stub; unique CoSetProxyBlanket(…) format string
+            (pair with CoInitializeEx / CoUninitialize / CoCreateInstance).
+
+Track 3 — leave alone (confirmed SKIP, do not restart):
+  Shared eON_FileSystem::checkPathExists and eON_Varyings multi-owner FUN_ clusters.
+  ~120 module_hex leftovers with no unique alone Class::Method (040af4e0 still ambiguous
+  Surface UploadOpenGLObjectData vs BaseTexture GetOpenGLTexture).
+  ADC/MUL largest FUN_, GLSL producers, ambiguous splits — already closed in README.
+
+Applied via PyGhidra MCP (batch24). Scoreboard 2,300 / 9,221.

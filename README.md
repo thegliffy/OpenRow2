@@ -14,10 +14,11 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 ## Scoreboard
 
-**2,289 / 9,221 functions carry a project name (24.8%).** A name is kept when that function references a matching assert signature, a single source file, or a D3D9 vtable slot locked by those signatures. Module prefixes name the file, not the function. Message-style strings do not replace a signature name.
+**2,300 / 9,221 functions carry a project name (24.9%).** A name is kept when that function references a matching assert signature, a single source file, or a D3D9 vtable slot locked by those signatures. Module prefixes name the file, not the function. Message-style strings do not replace a signature name.
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
+| 33 | VPFS handle district + CoSetProxyBlanket; leave-alones confirmed (`decomp/vpfs_handles_and_cosetproxy_note.txt`). 10 unique invalid-handle VPFS_* wrappers; CoSetProxyBlanket stub; dropped VPFS_registry.vpfsdb filename. | 11 | 11 |
 | 32 | eON_GetCOMObjects + CoInitializeEx/Security + 25 module_hex assert upgrades + 16 unique eON_* C wrappers (`decomp/eon_comobjects_and_module_upgrades_note.txt`). Dropped ambiguous Surface UploadOpenGLObjectData. | 44 | 19 (+25 renames) |
 | 31 | COT COM tracker + XAudio leftovers (`decomp/cot_and_xaudio_leftovers_note.txt`). Cot::{Create,AddRef,Release,Destroy,ReportLeaks} from COT messages; GetAudioGraphMutex assert upgrade; CancelOperations pair. Largest FUN_ tables stay SKIP. | 8 | 7 (+1 rename) |
 | 30 | XAudio2 opcodes 0–6 + Imp ctor (`decomp/xaudio_opcodes_0_6_note.txt`). Jumptable locks Real_SetFilterParameters/ChannelVolumes/OutputMatrix/Volume; Enable/DisableEffect and SetEffectParameters wrappers; XAudio2Imp::XAudio2Imp. Accelerators PLT cluster SKIP (STL helpers). | 8 | 8 |
@@ -103,6 +104,7 @@ Closed, do not restart:
 - GLSL producers: `decomp/shader_glsl_note.txt`. `FUN_04052100` and `FUN_0405ac10` stay unnamed (IdentifyInstruction assert is the callee).
 - COT COM object tracker: Cot::{Create,AddRef,Release,Destroy,ReportLeaks} (wave 31).
 - eON COM bootstrap + unique eON_* C district + module_hex assert upgrades (wave 32).
+- VPFS invalid-handle wrappers + CoSetProxyBlanket; shared eON_FileSystem/Varyings and remaining module_hex leftovers confirmed leave-alone (wave 33).
 
 Closed, continued:
 
@@ -115,7 +117,6 @@ Closed, continued:
 Open:
 
 - Hand-read districts with unique `Class::Method` asserts not yet drained by the checker (none queued today).
-- Remaining shared `eON_FileSystem::checkPathExists` / `eON_Varyings` FUN_ clusters (multi-owner strings — not unique).
 
 The extracted `sr2_pc.exe` contains the 71 Windows paths. That does not add a Linux assert the checker can name. Leave `seeds/rejected/win_string_module_map.csv` unused.
 
