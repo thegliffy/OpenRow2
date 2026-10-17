@@ -1,0 +1,25 @@
+Wave 34 — Win32 C-API district + DeterminePrimitiveType; leave-alones (35 names)
+
+Track 1 — unique ApiName(…) log on a single FUN_ (eON_ prefix to match peers; ole32 bare like Co*):
+  Registry: eON_RegOpenKeyExW, eON_RegQueryValueExW, eON_RegEnumValueW
+  GDI/IMM: eON_ExcludeClipRect, eON_Imm{SetOpenStatus,Set/GetConversionStatus,NotifyIME}
+  Net/FS: eON_GetPhysicalInterfaceAddress, eON_ReadDirectoryChangesW, eON_OpenFile,
+          eON_SearchPathA, eON_PeekNamedPipe, eON_setsockopt, eON_getsockopt
+  Locale: eON_IsValidLocale, eON_ConvertDefaultLocale
+  Process: eON_Beep, eON_CreateProcessA/W, eON_WinExec, eON_SetProcessWorkingSetSize,
+           eON_GetEnvironmentVariableA, eON_SetConsoleCtrlHandler
+  Ole32: CLSIDFromProgID, OleRun
+  User32: eON_LoadKeyboardLayoutA, eON_MessageBoxExA, eON_LoadStringA,
+          eON_SystemParametersInfoA, eON_RegisterClassExW, eON_FindWindowExA/W,
+          eON_CreateDialogParamA
+Dropped noise: GLSL emitters, DDS bitfield dump labels, rename/unlink errno, SetRenderState
+  OpenGL-core note (not an exclusive API body).
+
+Track 2 — DeterminePrimitiveType (0406f9a0):
+  switch on D3DPRIMITIVETYPE-style cases; default fires the unique unhandled assert.
+
+Track 3 — leave alone (confirmed):
+  OGLC_* help-text blob, GLSL producers, 040af4e0 ambiguous upload, module_hex leftovers,
+  ADC/MUL tables, shared eON_FileSystem/Varyings — already closed.
+
+Applied via PyGhidra MCP (batch25). Scoreboard 2,335 / 9,221.

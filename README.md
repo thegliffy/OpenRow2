@@ -14,10 +14,11 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 ## Scoreboard
 
-**2,300 / 9,221 functions carry a project name (24.9%).** A name is kept when that function references a matching assert signature, a single source file, or a D3D9 vtable slot locked by those signatures. Module prefixes name the file, not the function. Message-style strings do not replace a signature name.
+**2,335 / 9,221 functions carry a project name (25.3%).** A name is kept when that function references a matching assert signature, a single source file, or a D3D9 vtable slot locked by those signatures. Module prefixes name the file, not the function. Message-style strings do not replace a signature name.
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
+| 34 | Win32 C-API district + DeterminePrimitiveType (`decomp/win32_capi_and_primitive_type_note.txt`). 34 unique ApiName logs (eON_/ole32); primitive-type switch hand-read; leave-alones confirmed. | 35 | 35 |
 | 33 | VPFS handle district + CoSetProxyBlanket; leave-alones confirmed (`decomp/vpfs_handles_and_cosetproxy_note.txt`). 10 unique invalid-handle VPFS_* wrappers; CoSetProxyBlanket stub; dropped VPFS_registry.vpfsdb filename. | 11 | 11 |
 | 32 | eON_GetCOMObjects + CoInitializeEx/Security + 25 module_hex assert upgrades + 16 unique eON_* C wrappers (`decomp/eon_comobjects_and_module_upgrades_note.txt`). Dropped ambiguous Surface UploadOpenGLObjectData. | 44 | 19 (+25 renames) |
 | 31 | COT COM tracker + XAudio leftovers (`decomp/cot_and_xaudio_leftovers_note.txt`). Cot::{Create,AddRef,Release,Destroy,ReportLeaks} from COT messages; GetAudioGraphMutex assert upgrade; CancelOperations pair. Largest FUN_ tables stay SKIP. | 8 | 7 (+1 rename) |
@@ -105,6 +106,7 @@ Closed, do not restart:
 - COT COM object tracker: Cot::{Create,AddRef,Release,Destroy,ReportLeaks} (wave 31).
 - eON COM bootstrap + unique eON_* C district + module_hex assert upgrades (wave 32).
 - VPFS invalid-handle wrappers + CoSetProxyBlanket; shared eON_FileSystem/Varyings and remaining module_hex leftovers confirmed leave-alone (wave 33).
+- Win32 C-API district + DeterminePrimitiveType (wave 34).
 
 Closed, continued:
 
