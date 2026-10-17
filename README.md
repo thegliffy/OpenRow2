@@ -29,24 +29,25 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 | 22 | Hand-read decompiles: OpenGL context dump helpers (`agent/wave22_decompiles.txt`, 15 bodies). All SKIP under the rules — an instruction/call mix is not a name; none has a `Class::Method` assert. Evidence kept, no names. | 0 | 0 |
 | 21 | Tinyxml source match, continued (`decomp/tinyxml_source_match_note3.txt`; 2 names, both source-match rows; checker holds them — the FindOrCreate signature belongs to the inlined callee) | 2 | 2 |
 | 20 | Tinyxml source match, continued (`decomp/tinyxml_source_match_note2.txt`; 15 rows, 9 new names — 6 were module-prefix upgrades; assert-line matches verified against upstream) | 15 | 9 |
-| 1 | Hand-read decompiles (zstream, tinyxml, shader PCH) | 10 | 10 |
-| 2 | Source-path asserts → module prefixes | 721 | 721 |
-| 3 | Assert signatures (VPFS district) | 22 | 0 (renames) |
-| 4 | Binary-wide signature asserts | 462 | 2 |
-| 5 | Message-style asserts | 103 | 103 |
-| 6 | D3D9 vtable alignment (assert anchors, documented method order) | 102 | 15 |
-| 7 | Short names qualified to `Class::Method` when that method is the only matching signature | 249 | 0 (renames) |
-| 8 | Local-model loop (`llm_work.py`, checker-verified) | 25 | 25 |
-| 9 | COM vtable alignment (DirectInputDevice8 runs, ≥3-anchor rule) | 119 | 53 |
-| 10 | COM vtable alignment, parser fixed (IDL `[id(N)]` attrs, `IDirectSound3DBuffer` alias, `module_Method` anchors, ≥3-anchor rule enforced) | 102 | 49 (53 rows hit wave-9 names) |
 | 19 | GLEW 2012-era sweep (glew-1.8.0 pinned specs; modern gl.xml misses extensions whose lists changed since; bodies verified) | 20 | 20 |
 | 18 | GLEW extension-init sweep (all remaining exact gl.xml require-block matches; bodies verified by spot-check) | 62 | 62 |
 | 17 | GLEW extension-init completion (string sets match gl.xml require blocks exactly; bodies load exactly those functions) | 8 | 8 |
 | 16 | libpng source match (upstream pngread.c bodies) | 2 | 2 |
 | 15 | Breakpad source match (upstream bodies; 4 assert-only stubs stay unnamed) | 2 | 2 |
 | 14 | Tinyxml source match (upstream bodies verified against SourceForge tinyxml git master; inlined-assert collisions resolved by body) | 5 | 5 |
-| 12 | GLEW loader identification: the extension-set init functions match GLEW's generated `_glewInit_*`/`glxewInit`/`glewInit` bodies (string sets match the Khronos registry per extension; verified against GLEW master) | 10 | 10 |
 | 13 | Hand-read decompiles: GLEW extension sets completed (`_glewInit_GL_VERSION_1_4`, `_glewInit_GL_NV_half_float` — string sets match the Khronos registry exactly), enum-to-string decoders (`OpenGL_DataTypeToString`, `OpenGL_BufferToString`, `OpenGL_InternalFormatToString`, `D3D9_FormatToString`, `user32_MessageToString`), `OpenGL_LogState_CompressedTexture`, `eON_ShaderData::GenerateVaryingAssignments` | 9 | 9 |
+| 12 | GLEW loader identification: the extension-set init functions match GLEW's generated `_glewInit_*`/`glxewInit`/`glewInit` bodies (string sets match the Khronos registry per extension; verified against GLEW master) | 10 | 10 |
+| 11 | Empty batch — `names_batch11.tsv` has no rows. | 0 | 0 |
+| 10 | COM vtable alignment, parser fixed (IDL `[id(N)]` attrs, `IDirectSound3DBuffer` alias, `module_Method` anchors, ≥3-anchor rule enforced) | 102 | 49 (53 rows hit wave-9 names) |
+| 9 | COM vtable alignment (DirectInputDevice8 runs, ≥3-anchor rule) | 119 | 53 |
+| 8 | Local-model loop (`llm_work.py`, checker-verified) | 25 | 25 |
+| 7 | Short names qualified to `Class::Method` when that method is the only matching signature | 249 | 0 (renames) |
+| 6 | D3D9 vtable alignment (assert anchors, documented method order) | 102 | 15 |
+| 5 | Message-style asserts | 103 | 103 |
+| 4 | Binary-wide signature asserts | 462 | 2 |
+| 3 | Assert signatures (VPFS district) | 22 | 0 (renames) |
+| 2 | Source-path asserts → module prefixes | 721 | 721 |
+| 1 | Hand-read decompiles (zstream, tinyxml, shader PCH) | 10 | 10 |
 
 10 + 721 + 2 + 103 + 15 + 53 + 49 = 953. Wave 5's file originally had 32 extra rows aimed at functions wave 4 had already named (`GetLight` over `StateBlock_GetTextureStageState`, `glCheckFramebufferStatus` over `GetFramebufferHash`, and similar). Those rows did not apply and have been removed. The scoreboard counts the live Ghidra project after all waves were applied and re-dumped; `seeds/functions.csv` and `seeds/string_refs.csv` are that dump. Wave 9's 119 proposal rows collapse to 53 unique functions (keyboard/mouse/gamepad runs share slots on the same interface); the 11 two-anchor `iaudioclient` proposals were held below the ≥3-anchor trust floor. Wave 10's 102 rows are the unique remainder after wave 9 (conflicting class prefixes resolved to the base class — shared implementations); the aligner now enforces ≥3 anchors, so the two-anchor MMDevice/MMEndpoint/IAudioCapture/IAudioRender runs stay held.
 
@@ -67,6 +68,7 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 - `seeds/win_rdata_paths.csv` — 71 markers from `SR2_pc.exe`. `.\geom\color_pool.cpp` sits between `Color_Entry` and `.rig_pc`. The next path is not the end of that file's strings.
 - `seeds/win_rdata_sourcepaths.txt` — the same 71 paths, one per line.
 - `seeds/rejected/win_string_module_map.csv` — do not use. It treated the span until the next path as that `.cpp`. `color_pool.cpp` was given 2,194 strings, including melee finisher names and weapon anim names.
+- `mcp/` — PyGhidra MCP server (`server.py`, FastMCP, port 8191, Docker on moneta at `/dock/openrow2`): the resident single-writer gateway that owns the live Ghidra project — `decompile`, `rename`, `set_comment`, `list_functions`, `list_strings`, `callers`, `scoreboard`. Waves 27+ apply through it; its `scoreboard` is the live authority.
 - `decomp/` — raw decompilation output (evidence for applied names).
 - `vendor/` — reference RE tooling, cloned not committed: [gibbed/Gibbed.SaintsRow2](https://github.com/gibbed/Gibbed.SaintsRow2) (zlib-style license) and the [saintsrowmods2](https://github.com/saintsrowmods2/SaintsRow2Tools) fork (PegTool, StringHashTool, save editor).
 
