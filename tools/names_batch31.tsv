@@ -1,0 +1,5 @@
+FUN_04175ef0	eON_ToUnicodeEx
+FUN_04175f50	eON_ToAsciiEx
+FUN_0417d100	eON_GetUserObjectInformationA
+FUN_0417d3f0	eON_GetUserObjectInformationW
+FUN_04133310	fs_unlink

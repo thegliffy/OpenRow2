@@ -1,0 +1,13 @@
+Wave 40 — ToUnicodeEx/ToAsciiEx, GetUserObjectInformation A/W, fs_unlink (5 names)
+
+  eON_ToUnicodeEx — hkl guard then core converter
+  eON_ToAsciiEx — same hkl guard; WideCharToMultiByte into caller ANSI buffer
+  eON_GetUserObjectInformationA — WideCharToMultiByte path; shared unhandled-flag assert
+  eON_GetUserObjectInformationW — wide implementation (same assert text)
+  fs_unlink — errno switch around unlink()
+
+Applied via PyGhidra MCP (batch31). Scoreboard 2,387 / 9,221.
+
+Auto unique-API harvest is now largely drained; remaining FUN_ need judgment
+(shared eON_FileSystem/Varyings/GetDlgItem, SetRenderState vs existing d3d9device_*,
+OGLC help blob, LinkedProgramData cache pair, ambiguous splits).
