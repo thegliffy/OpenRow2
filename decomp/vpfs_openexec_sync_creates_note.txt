@@ -1,0 +1,11 @@
+Wave 37 — VPFS_OpenExec, FatalExit, D3D9_FormatToPixelSize, sync Create* A/W (9 names)
+
+  VPFS_OpenExec — default-exec / handle-table body (caller-only "failed!" stays on thread_StartMain)
+  eON_FatalExit — logs then Exit_eON
+  D3D9_FormatToPixelSize — peer of D3D9_FormatToString; switch returns bpp
+  eON_CreateMutexA/W, eON_CreateEventA/W, eON_CreateSemaphoreA/W — thin A vs WideCharToMultiByte W
+    (shared attribute-not-handled asserts; A/W locked by body)
+
+SKIP: FUN_04089990 SetRenderState-ish switch — d3d9device_SetRenderState already named nearby.
+
+Applied via PyGhidra MCP (batch28). Scoreboard 2,362 / 9,221.

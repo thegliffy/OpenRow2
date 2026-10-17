@@ -14,10 +14,11 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 ## Scoreboard
 
-**2,353 / 9,221 functions carry a project name (25.5%).** A name is kept when that function references a matching assert signature, a single source file, or a D3D9 vtable slot locked by those signatures. Module prefixes name the file, not the function. Message-style strings do not replace a signature name.
+**2,362 / 9,221 functions carry a project name (25.6%).** A name is kept when that function references a matching assert signature, a single source file, or a D3D9 vtable slot locked by those signatures. Module prefixes name the file, not the function. Message-style strings do not replace a signature name.
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
+| 37 | VPFS_OpenExec + FatalExit + D3D9_FormatToPixelSize + CreateMutex/Event/Semaphore A/W (`decomp/vpfs_openexec_sync_creates_note.txt`). | 9 | 9 |
 | 36 | Remaining sockets + VirtualProtect + clipboard/console + WSAWaitResultToString (`decomp/sockets_virtualprotect_clipboard_note.txt`). | 7 | 7 |
 | 34 | Win32 C-API district + DeterminePrimitiveType (`decomp/win32_capi_and_primitive_type_note.txt`). 34 unique ApiName logs (eON_/ole32); primitive-type switch hand-read; leave-alones confirmed. | 35 | 35 |
 | 33 | VPFS handle district + CoSetProxyBlanket; leave-alones confirmed (`decomp/vpfs_handles_and_cosetproxy_note.txt`). 10 unique invalid-handle VPFS_* wrappers; CoSetProxyBlanket stub; dropped VPFS_registry.vpfsdb filename. | 11 | 11 |
@@ -110,6 +111,7 @@ Closed, do not restart:
 - Win32 C-API district + DeterminePrimitiveType (wave 34).
 - Sockets eON_* leftovers + Query Issue (wave 35).
 - Sockets/VirtualProtect/clipboard wave (wave 36).
+- VPFS_OpenExec + sync Create* A/W (wave 37).
 
 Closed, continued:
 

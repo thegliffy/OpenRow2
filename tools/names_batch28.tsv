@@ -1,0 +1,9 @@
+FUN_040428c0	VPFS_OpenExec
+FUN_041567a0	eON_FatalExit
+FUN_040a6520	D3D9_FormatToPixelSize
+FUN_04146880	eON_CreateMutexA
+FUN_041468f0	eON_CreateMutexW
+FUN_04146540	eON_CreateEventA
+FUN_04146590	eON_CreateEventW
+FUN_04146af0	eON_CreateSemaphoreA
+FUN_04146b40	eON_CreateSemaphoreW
