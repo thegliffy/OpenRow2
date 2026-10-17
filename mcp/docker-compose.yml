@@ -1,0 +1,11 @@
+name: openrow2
+
+services:
+  mcp:
+    build: .
+    container_name: openrow2_mcp
+    restart: unless-stopped
+    ports:
+      - "8191:8191"
+    volumes:
+      - ./project:/project

@@ -1,0 +1,30 @@
+Wave 26 — DirectInput class-prefix resolution (renames, no new names)
+
+The wave-9/10 aligner runs on the DirectInputDevice8 vtables named shared
+implementations to the base class (rule: conflicting class prefixes on shared
+slots resolve to the base class). The per-class anchor dumps
+(agent/vtables/dinputgamepad.tsv and the gamepad/keyboard/mouse runs in
+dinputdevice8.tsv) carry class-specific anchors that pin the run to the
+concrete class:
+
+  run@0430c288  gamepad   anchors: GetProperty@7, GetDeviceState@11,
+                  directinputgamepaddevice8imp_040f3990@13  -> shift 2
+  run@0430ce88  keyboard  anchors: EnumObjects@6, GetProperty@7, GetDeviceState@11,
+                  GetDeviceData@12, SetDataFormat@13, SetCooperativeLevel@15 -> shift 2
+  run@0430d628  mouse     anchors: GetDeviceState@11, GetDeviceData@12,
+                  SetDataFormat@13 -> shift 2
+  run@0430ba08  base      no class-specific anchors beyond the shared trio; stays
+                  DirectInputDeviceImp.
+
+The aligner output (agent/vtable_proposals.tsv, regenerated) now resolves the
+per-class runs to their concrete classes; shared slots that appear in multiple
+runs with different class prefixes keep the base-class name (16 such addresses).
+
+Applied via the PyGhidra MCP gateway on moneta (single-writer, port 8191):
+27 renames, all DirectInputDeviceImp::X -> DirectInput{Gamepad,Keyboard,Mouse}DeviceImp::X.
+Scoreboard unchanged (2,243) — these were already named; the wave corrects the
+class prefix, it does not add names.
+
+seeds/functions.csv and seeds/string_refs.csv were re-synced from the live
+project after the renames (29 and 111 rows updated respectively; the extra
+diff rows are a CSV quoting artifact on the __ostream_insert<char,...> name).

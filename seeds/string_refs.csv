@@ -9629,30 +9629,30 @@ DirectInputDeviceImp,FUN_040f2250,040f2250
 "virtual HRESULT DirectInputDeviceImp::SetActionMap(LPVOID, LPCVOID, DWORD)",DirectInputDeviceImp::SetActionMap,040f1f50
 virtual HRESULT DirectInputDeviceImp::GetImageInfo(LPVOID),DirectInputDeviceImp::GetImageInfo,040f1f10
 DirectInputEffectImp,FUN_040f2570,040f2570
-DIPROP_AUTOCENTER %d %d %d,DirectInputDeviceImp::SetProperty,040f2a80
-DIPROP_AXISMODE %d %d,DirectInputDeviceImp::SetProperty,040f2a80
-DIPROP_BUFFERSIZE %d %d %d,DirectInputDeviceImp::SetProperty,040f2a80
-DIPROP_CALIBRATION %d %d,DirectInputDeviceImp::SetProperty,040f2a80
-DIPROP_CALIBRATIONMODE %d %d,DirectInputDeviceImp::SetProperty,040f2a80
-DIPROP_CPOINTS %d %d,DirectInputDeviceImp::SetProperty,040f2a80
-DIPROP_INSTANCENAME %d %d,DirectInputDeviceImp::SetProperty,040f2a80
-DIPROP_PRODUCTNAME %d %d,DirectInputDeviceImp::SetProperty,040f2a80
-DIPROP_SATURATION %d %d %d,DirectInputDeviceImp::SetProperty,040f2a80
-unknown property %p,DirectInputDeviceImp::SetProperty,040f2a80
-reporting %s,DirectInputDeviceImp::EnumObjects,040f2f50
-reporting %s,DirectInputDeviceImp::EnumObjects,040f2f50
-Button %u,DirectInputDeviceImp::EnumObjects,040f2f50
+DIPROP_AUTOCENTER %d %d %d,DirectInputGamepadDeviceImp::SetProperty,040f2a80
+DIPROP_AXISMODE %d %d,DirectInputGamepadDeviceImp::SetProperty,040f2a80
+DIPROP_BUFFERSIZE %d %d %d,DirectInputGamepadDeviceImp::SetProperty,040f2a80
+DIPROP_CALIBRATION %d %d,DirectInputGamepadDeviceImp::SetProperty,040f2a80
+DIPROP_CALIBRATIONMODE %d %d,DirectInputGamepadDeviceImp::SetProperty,040f2a80
+DIPROP_CPOINTS %d %d,DirectInputGamepadDeviceImp::SetProperty,040f2a80
+DIPROP_INSTANCENAME %d %d,DirectInputGamepadDeviceImp::SetProperty,040f2a80
+DIPROP_PRODUCTNAME %d %d,DirectInputGamepadDeviceImp::SetProperty,040f2a80
+DIPROP_SATURATION %d %d %d,DirectInputGamepadDeviceImp::SetProperty,040f2a80
+unknown property %p,DirectInputGamepadDeviceImp::SetProperty,040f2a80
+reporting %s,DirectInputGamepadDeviceImp::EnumObjects,040f2f50
+reporting %s,DirectInputGamepadDeviceImp::EnumObjects,040f2f50
+Button %u,DirectInputGamepadDeviceImp::EnumObjects,040f2f50
 data format: num objs %u,directinputgamepaddevice8imp_040f3990,040f3990
 fmt->dwOfs % 4 == 0,directinputgamepaddevice8imp_040f3990,040f3990
 DirectInputGamepadDeviceImp,FUN_040f43f0,040f43f0
-DIPROP_DEADZONE - DIPH_BYUSAGE not supported,DirectInputDeviceImp::SetProperty,040f2a80
-Setting dead zone %d to element %u,DirectInputDeviceImp::SetProperty,040f2a80
-DIPROP_RANGE - DIPH_BYUSAGE not supported,DirectInputDeviceImp::SetProperty,040f2a80
-"Setting ranges ( %d, %d ) to element %u",DirectInputDeviceImp::SetProperty,040f2a80
+DIPROP_DEADZONE - DIPH_BYUSAGE not supported,DirectInputGamepadDeviceImp::SetProperty,040f2a80
+Setting dead zone %d to element %u,DirectInputGamepadDeviceImp::SetProperty,040f2a80
+DIPROP_RANGE - DIPH_BYUSAGE not supported,DirectInputGamepadDeviceImp::SetProperty,040f2a80
+"Setting ranges ( %d, %d ) to element %u",DirectInputGamepadDeviceImp::SetProperty,040f2a80
 DirectInputGamepadDeviceImp::GetProperty requested unsupported property %p! Handle it.,DirectInputGamepadDeviceImp::GetProperty,040f3680
-DirectInput 7/8 gamepad unacquired.,DirectInputDeviceImp::Unacquire,040f36e0
+DirectInput 7/8 gamepad unacquired.,DirectInputGamepadDeviceImp::Unacquire,040f36e0
 DirectInput 7/8 gamepad unacquired.,FUN_040f4250,040f4250
-DirectInput 7/8 gamepad acquired.,DirectInputDeviceImp::Acquire,040f3730
+DirectInput 7/8 gamepad acquired.,DirectInputGamepadDeviceImp::Acquire,040f3730
 "obj %u: GUID %p, type %u (%#x), flags %u (%#x), offset %u",directinputgamepaddevice8imp_040f3990,040f3990
 "couldn't map button at data struture offset %u, no such button on gamepad",directinputgamepaddevice8imp_040f3990,040f3990
 "added button, elem usage %u, offset %d, size %d",directinputgamepaddevice8imp_040f3990,040f3990
@@ -9685,11 +9685,11 @@ DirectInputKeyboardDeviceImp::EnumObjects() - non-typical flags specified. Make 
 DirectInputKeyboardDeviceImp::GetDeviceState() returning DIERR_NOTACQUIRED.,DirectInputKeyboardDeviceImp::GetDeviceState,040f4fb0
 DirectInputKeyboardDeviceImp::GetDeviceState() returning DIERR_INVALIDPARAM.,DirectInputKeyboardDeviceImp::GetDeviceState,040f4fb0
 DirectInputKeyboardDeviceImp::GetDeviceData() returning DIERR_NOTACQUIRED.,DirectInputKeyboardDeviceImp::GetDeviceData,040f50b0
-DirectInputKeyboardDeviceImp::SetProperty( DIPROP_BUFFERSIZE ) to %u. Ignoring it.,DirectInputDeviceImp::SetProperty,040f54d0
-DirectInputKeyboardDeviceImp::SetProperty( %s ) unhandled!,DirectInputDeviceImp::SetProperty,040f54d0
+DirectInputKeyboardDeviceImp::SetProperty( DIPROP_BUFFERSIZE ) to %u. Ignoring it.,DirectInputKeyboardDeviceImp::SetProperty,040f54d0
+DirectInputKeyboardDeviceImp::SetProperty( %s ) unhandled!,DirectInputKeyboardDeviceImp::SetProperty,040f54d0
 DirectInput 7/8 keyboard unacquired.,FUN_040f5c60,040f5c60
-DirectInput 7/8 keyboard unacquired.,DirectInputDeviceImp::Unacquire,040f55b0
-DirectInput 7/8 keyboard acquired.,DirectInputDeviceImp::Acquire,040f5600
+DirectInput 7/8 keyboard unacquired.,DirectInputKeyboardDeviceImp::Unacquire,040f55b0
+DirectInput 7/8 keyboard acquired.,DirectInputKeyboardDeviceImp::Acquire,040f5600
 Can't translate keyCode %u in DirectInput8's ProcessKeyDown function!! Please add translation to the table in KeycodeToDirectInput.,KeyboardEventReceiver::ProcessKeyDown,040f5a50
 Can't translate keyCode %u in DirectInput8's ProcessKeyUp function!! Please add translation to the table in KeycodeToDirectInput.,FUN_040f62a0,040f62a0
 Keys not up on DInput keyboard (%p): %s,FUN_040f64c0,040f64c0
@@ -9698,85 +9698,85 @@ Unexpected object size in new data format in DirectInputKeyboardDeviceImp::SetDa
 DirectInputKeyboardDeviceImp::SetDataFormat(): game wants data about something other than key. Ignoring this one.,DirectInputKeyboardDeviceImp::SetDataFormat,040f6590
 DirectInputKeyboardDeviceImp::SetDataFormat(): game wants data about something other than keyboard button. Ignoring this one.,DirectInputKeyboardDeviceImp::SetDataFormat,040f6590
 DirectInputKeyboardDeviceImp::SetDataFormat(): game wants us to set values beyond the packet it gives! Disabling keyboard data reporting.,DirectInputKeyboardDeviceImp::SetDataFormat,040f6590
-DIPROP_APPDATA,DirectInputDeviceImp::GetProperty,040f6ae0
-DIPROP_APPDATA,DirectInputDeviceImp::SetProperty,040f6bb0
-DIPROP_APPDATA,DirectInputDeviceImp::SetProperty,040f54d0
-DIPROP_APPDATA,DirectInputDeviceImp::SetProperty,040f54d0
-DIPROP_APPDATA,DirectInputDeviceImp::GetProperty,040f6ae0
-DIPROP_APPDATA,DirectInputDeviceImp::SetProperty,040f6bb0
-DIPROP_AUTOCENTER,DirectInputDeviceImp::GetProperty,040f6ae0
-DIPROP_AUTOCENTER,DirectInputDeviceImp::SetProperty,040f6bb0
-DIPROP_AUTOCENTER,DirectInputDeviceImp::SetProperty,040f54d0
-DIPROP_AUTOCENTER,DirectInputDeviceImp::SetProperty,040f54d0
-DIPROP_AUTOCENTER,DirectInputDeviceImp::GetProperty,040f6ae0
-DIPROP_AUTOCENTER,DirectInputDeviceImp::SetProperty,040f6bb0
-DIPROP_AXISMODE,DirectInputDeviceImp::GetProperty,040f6ae0
-DIPROP_AXISMODE,DirectInputDeviceImp::SetProperty,040f54d0
-DIPROP_AXISMODE,DirectInputDeviceImp::SetProperty,040f54d0
-DIPROP_AXISMODE,DirectInputDeviceImp::GetProperty,040f6ae0
-DIPROP_GRANULARITY,DirectInputDeviceImp::SetProperty,040f6bb0
-DIPROP_GRANULARITY,DirectInputDeviceImp::SetProperty,040f54d0
-DIPROP_GRANULARITY,DirectInputDeviceImp::SetProperty,040f54d0
-DIPROP_GRANULARITY,DirectInputDeviceImp::SetProperty,040f6bb0
-DIPROP_CALIBRATION,DirectInputDeviceImp::GetProperty,040f6ae0
-DIPROP_CALIBRATION,DirectInputDeviceImp::SetProperty,040f6bb0
-DIPROP_CALIBRATION,DirectInputDeviceImp::SetProperty,040f54d0
-DIPROP_CALIBRATION,DirectInputDeviceImp::SetProperty,040f54d0
-DIPROP_CALIBRATION,DirectInputDeviceImp::GetProperty,040f6ae0
-DIPROP_CALIBRATION,DirectInputDeviceImp::SetProperty,040f6bb0
-DIPROP_CALIBRATIONMODE,DirectInputDeviceImp::GetProperty,040f6ae0
-DIPROP_CALIBRATIONMODE,DirectInputDeviceImp::SetProperty,040f6bb0
-DIPROP_CALIBRATIONMODE,DirectInputDeviceImp::SetProperty,040f54d0
-DIPROP_CALIBRATIONMODE,DirectInputDeviceImp::SetProperty,040f54d0
-DIPROP_CALIBRATIONMODE,DirectInputDeviceImp::GetProperty,040f6ae0
-DIPROP_CALIBRATIONMODE,DirectInputDeviceImp::SetProperty,040f6bb0
-DIPROP_CPOINTS,DirectInputDeviceImp::GetProperty,040f6ae0
-DIPROP_CPOINTS,DirectInputDeviceImp::SetProperty,040f6bb0
-DIPROP_CPOINTS,DirectInputDeviceImp::SetProperty,040f54d0
-DIPROP_CPOINTS,DirectInputDeviceImp::SetProperty,040f54d0
-DIPROP_CPOINTS,DirectInputDeviceImp::GetProperty,040f6ae0
-DIPROP_CPOINTS,DirectInputDeviceImp::SetProperty,040f6bb0
-DIPROP_DEADZONE,DirectInputDeviceImp::GetProperty,040f6ae0
-DIPROP_DEADZONE,DirectInputDeviceImp::SetProperty,040f6bb0
-DIPROP_DEADZONE,DirectInputDeviceImp::SetProperty,040f54d0
-DIPROP_DEADZONE,DirectInputDeviceImp::SetProperty,040f54d0
-DIPROP_DEADZONE,DirectInputDeviceImp::GetProperty,040f6ae0
-DIPROP_DEADZONE,DirectInputDeviceImp::SetProperty,040f6bb0
-DIPROP_FFGAIN,DirectInputDeviceImp::GetProperty,040f6ae0
-DIPROP_FFGAIN,DirectInputDeviceImp::SetProperty,040f6bb0
-DIPROP_FFGAIN,DirectInputDeviceImp::SetProperty,040f54d0
-DIPROP_FFGAIN,DirectInputDeviceImp::SetProperty,040f54d0
-DIPROP_FFGAIN,DirectInputDeviceImp::GetProperty,040f6ae0
-DIPROP_FFGAIN,DirectInputDeviceImp::SetProperty,040f6bb0
-DIPROP_INSTANCENAME,DirectInputDeviceImp::GetProperty,040f6ae0
-DIPROP_INSTANCENAME,DirectInputDeviceImp::SetProperty,040f6bb0
-DIPROP_INSTANCENAME,DirectInputDeviceImp::SetProperty,040f54d0
-DIPROP_INSTANCENAME,DirectInputDeviceImp::SetProperty,040f54d0
-DIPROP_INSTANCENAME,DirectInputDeviceImp::GetProperty,040f6ae0
-DIPROP_INSTANCENAME,DirectInputDeviceImp::SetProperty,040f6bb0
-DIPROP_PRODUCTNAME,DirectInputDeviceImp::GetProperty,040f6ae0
-DIPROP_PRODUCTNAME,DirectInputDeviceImp::SetProperty,040f6bb0
-DIPROP_PRODUCTNAME,DirectInputDeviceImp::SetProperty,040f54d0
-DIPROP_PRODUCTNAME,DirectInputDeviceImp::SetProperty,040f54d0
-DIPROP_PRODUCTNAME,DirectInputDeviceImp::GetProperty,040f6ae0
-DIPROP_PRODUCTNAME,DirectInputDeviceImp::SetProperty,040f6bb0
-DIPROP_RANGE,DirectInputDeviceImp::GetProperty,040f6ae0
-DIPROP_RANGE,DirectInputDeviceImp::SetProperty,040f54d0
-DIPROP_RANGE,DirectInputDeviceImp::SetProperty,040f54d0
-DIPROP_RANGE,DirectInputDeviceImp::GetProperty,040f6ae0
-DIPROP_SATURATION,DirectInputDeviceImp::GetProperty,040f6ae0
-DIPROP_SATURATION,DirectInputDeviceImp::SetProperty,040f6bb0
-DIPROP_SATURATION,DirectInputDeviceImp::SetProperty,040f54d0
-DIPROP_SATURATION,DirectInputDeviceImp::SetProperty,040f54d0
-DIPROP_SATURATION,DirectInputDeviceImp::GetProperty,040f6ae0
-DIPROP_SATURATION,DirectInputDeviceImp::SetProperty,040f6bb0
+DIPROP_APPDATA,DirectInputMouseDeviceImp::GetProperty,040f6ae0
+DIPROP_APPDATA,DirectInputMouseDeviceImp::SetProperty,040f6bb0
+DIPROP_APPDATA,DirectInputKeyboardDeviceImp::SetProperty,040f54d0
+DIPROP_APPDATA,DirectInputKeyboardDeviceImp::SetProperty,040f54d0
+DIPROP_APPDATA,DirectInputMouseDeviceImp::GetProperty,040f6ae0
+DIPROP_APPDATA,DirectInputMouseDeviceImp::SetProperty,040f6bb0
+DIPROP_AUTOCENTER,DirectInputMouseDeviceImp::GetProperty,040f6ae0
+DIPROP_AUTOCENTER,DirectInputMouseDeviceImp::SetProperty,040f6bb0
+DIPROP_AUTOCENTER,DirectInputKeyboardDeviceImp::SetProperty,040f54d0
+DIPROP_AUTOCENTER,DirectInputKeyboardDeviceImp::SetProperty,040f54d0
+DIPROP_AUTOCENTER,DirectInputMouseDeviceImp::GetProperty,040f6ae0
+DIPROP_AUTOCENTER,DirectInputMouseDeviceImp::SetProperty,040f6bb0
+DIPROP_AXISMODE,DirectInputMouseDeviceImp::GetProperty,040f6ae0
+DIPROP_AXISMODE,DirectInputKeyboardDeviceImp::SetProperty,040f54d0
+DIPROP_AXISMODE,DirectInputKeyboardDeviceImp::SetProperty,040f54d0
+DIPROP_AXISMODE,DirectInputMouseDeviceImp::GetProperty,040f6ae0
+DIPROP_GRANULARITY,DirectInputMouseDeviceImp::SetProperty,040f6bb0
+DIPROP_GRANULARITY,DirectInputKeyboardDeviceImp::SetProperty,040f54d0
+DIPROP_GRANULARITY,DirectInputKeyboardDeviceImp::SetProperty,040f54d0
+DIPROP_GRANULARITY,DirectInputMouseDeviceImp::SetProperty,040f6bb0
+DIPROP_CALIBRATION,DirectInputMouseDeviceImp::GetProperty,040f6ae0
+DIPROP_CALIBRATION,DirectInputMouseDeviceImp::SetProperty,040f6bb0
+DIPROP_CALIBRATION,DirectInputKeyboardDeviceImp::SetProperty,040f54d0
+DIPROP_CALIBRATION,DirectInputKeyboardDeviceImp::SetProperty,040f54d0
+DIPROP_CALIBRATION,DirectInputMouseDeviceImp::GetProperty,040f6ae0
+DIPROP_CALIBRATION,DirectInputMouseDeviceImp::SetProperty,040f6bb0
+DIPROP_CALIBRATIONMODE,DirectInputMouseDeviceImp::GetProperty,040f6ae0
+DIPROP_CALIBRATIONMODE,DirectInputMouseDeviceImp::SetProperty,040f6bb0
+DIPROP_CALIBRATIONMODE,DirectInputKeyboardDeviceImp::SetProperty,040f54d0
+DIPROP_CALIBRATIONMODE,DirectInputKeyboardDeviceImp::SetProperty,040f54d0
+DIPROP_CALIBRATIONMODE,DirectInputMouseDeviceImp::GetProperty,040f6ae0
+DIPROP_CALIBRATIONMODE,DirectInputMouseDeviceImp::SetProperty,040f6bb0
+DIPROP_CPOINTS,DirectInputMouseDeviceImp::GetProperty,040f6ae0
+DIPROP_CPOINTS,DirectInputMouseDeviceImp::SetProperty,040f6bb0
+DIPROP_CPOINTS,DirectInputKeyboardDeviceImp::SetProperty,040f54d0
+DIPROP_CPOINTS,DirectInputKeyboardDeviceImp::SetProperty,040f54d0
+DIPROP_CPOINTS,DirectInputMouseDeviceImp::GetProperty,040f6ae0
+DIPROP_CPOINTS,DirectInputMouseDeviceImp::SetProperty,040f6bb0
+DIPROP_DEADZONE,DirectInputMouseDeviceImp::GetProperty,040f6ae0
+DIPROP_DEADZONE,DirectInputMouseDeviceImp::SetProperty,040f6bb0
+DIPROP_DEADZONE,DirectInputKeyboardDeviceImp::SetProperty,040f54d0
+DIPROP_DEADZONE,DirectInputKeyboardDeviceImp::SetProperty,040f54d0
+DIPROP_DEADZONE,DirectInputMouseDeviceImp::GetProperty,040f6ae0
+DIPROP_DEADZONE,DirectInputMouseDeviceImp::SetProperty,040f6bb0
+DIPROP_FFGAIN,DirectInputMouseDeviceImp::GetProperty,040f6ae0
+DIPROP_FFGAIN,DirectInputMouseDeviceImp::SetProperty,040f6bb0
+DIPROP_FFGAIN,DirectInputKeyboardDeviceImp::SetProperty,040f54d0
+DIPROP_FFGAIN,DirectInputKeyboardDeviceImp::SetProperty,040f54d0
+DIPROP_FFGAIN,DirectInputMouseDeviceImp::GetProperty,040f6ae0
+DIPROP_FFGAIN,DirectInputMouseDeviceImp::SetProperty,040f6bb0
+DIPROP_INSTANCENAME,DirectInputMouseDeviceImp::GetProperty,040f6ae0
+DIPROP_INSTANCENAME,DirectInputMouseDeviceImp::SetProperty,040f6bb0
+DIPROP_INSTANCENAME,DirectInputKeyboardDeviceImp::SetProperty,040f54d0
+DIPROP_INSTANCENAME,DirectInputKeyboardDeviceImp::SetProperty,040f54d0
+DIPROP_INSTANCENAME,DirectInputMouseDeviceImp::GetProperty,040f6ae0
+DIPROP_INSTANCENAME,DirectInputMouseDeviceImp::SetProperty,040f6bb0
+DIPROP_PRODUCTNAME,DirectInputMouseDeviceImp::GetProperty,040f6ae0
+DIPROP_PRODUCTNAME,DirectInputMouseDeviceImp::SetProperty,040f6bb0
+DIPROP_PRODUCTNAME,DirectInputKeyboardDeviceImp::SetProperty,040f54d0
+DIPROP_PRODUCTNAME,DirectInputKeyboardDeviceImp::SetProperty,040f54d0
+DIPROP_PRODUCTNAME,DirectInputMouseDeviceImp::GetProperty,040f6ae0
+DIPROP_PRODUCTNAME,DirectInputMouseDeviceImp::SetProperty,040f6bb0
+DIPROP_RANGE,DirectInputMouseDeviceImp::GetProperty,040f6ae0
+DIPROP_RANGE,DirectInputKeyboardDeviceImp::SetProperty,040f54d0
+DIPROP_RANGE,DirectInputKeyboardDeviceImp::SetProperty,040f54d0
+DIPROP_RANGE,DirectInputMouseDeviceImp::GetProperty,040f6ae0
+DIPROP_SATURATION,DirectInputMouseDeviceImp::GetProperty,040f6ae0
+DIPROP_SATURATION,DirectInputMouseDeviceImp::SetProperty,040f6bb0
+DIPROP_SATURATION,DirectInputKeyboardDeviceImp::SetProperty,040f54d0
+DIPROP_SATURATION,DirectInputKeyboardDeviceImp::SetProperty,040f54d0
+DIPROP_SATURATION,DirectInputMouseDeviceImp::GetProperty,040f6ae0
+DIPROP_SATURATION,DirectInputMouseDeviceImp::SetProperty,040f6bb0
 unknown,FUN_04126e30,04126e30
-unknown,DirectInputDeviceImp::GetProperty,040f6ae0
-unknown,DirectInputDeviceImp::SetProperty,040f6bb0
-unknown,DirectInputDeviceImp::SetProperty,040f54d0
-unknown,DirectInputDeviceImp::SetProperty,040f54d0
-unknown,DirectInputDeviceImp::GetProperty,040f6ae0
-unknown,DirectInputDeviceImp::SetProperty,040f6bb0
+unknown,DirectInputMouseDeviceImp::GetProperty,040f6ae0
+unknown,DirectInputMouseDeviceImp::SetProperty,040f6bb0
+unknown,DirectInputKeyboardDeviceImp::SetProperty,040f54d0
+unknown,DirectInputKeyboardDeviceImp::SetProperty,040f54d0
+unknown,DirectInputMouseDeviceImp::GetProperty,040f6ae0
+unknown,DirectInputMouseDeviceImp::SetProperty,040f6bb0
 unknown,FUN_04126e30,04126e30
 buttonNum < 256,DirectInputKeyboardDeviceImp::SetDataFormat,040f6590
 buttonNum < 256,KeyboardEventReceiver::Internal_ProcessKeyUp,040f5d90
@@ -9786,25 +9786,25 @@ DirectInputKeyboardDeviceImp,FUN_040f6310,040f6310
 "void KeyboardEventReceiver::Internal_ProcessKeyUp(DWORD, DWORD)",KeyboardEventReceiver::Internal_ProcessKeyUp,040f5d90
 virtual HRESULT DirectInputKeyboardDeviceImp::SetDataFormat(LPCDIDATAFORMAT),DirectInputKeyboardDeviceImp::SetDataFormat,040f6590
 "virtual HRESULT DirectInputKeyboardDeviceImp::GetProperty(REFGUID, LPDIPROPHEADER)",DirectInputKeyboardDeviceImp::GetProperty,040f4af0
-DIPROP_BUFFERSIZE,DirectInputDeviceImp::GetProperty,040f6ae0
-DIPROP_BUFFERSIZE,DirectInputDeviceImp::GetProperty,040f6ae0
+DIPROP_BUFFERSIZE,DirectInputMouseDeviceImp::GetProperty,040f6ae0
+DIPROP_BUFFERSIZE,DirectInputMouseDeviceImp::GetProperty,040f6ae0
 DirectInputMouseDeviceImp,FUN_040f8760,040f8760
-DirectInputMouseDeviceImp::GetProperty( %s ) unhandled!,DirectInputDeviceImp::GetProperty,040f6ae0
-DirectInputMouseDeviceImp::SetProperty( DIPROP_BUFFERSIZE ) to %d. Ignoring it.,DirectInputDeviceImp::SetProperty,040f6bb0
-DirectInputMouseDeviceImp::SetProperty( DIPROP_RANGE ) to %d. Returning E_NOTIMPL.,DirectInputDeviceImp::SetProperty,040f6bb0
-DirectInputMouseDeviceImp::SetProperty( %s ) unhandled!,DirectInputDeviceImp::SetProperty,040f6bb0
+DirectInputMouseDeviceImp::GetProperty( %s ) unhandled!,DirectInputMouseDeviceImp::GetProperty,040f6ae0
+DirectInputMouseDeviceImp::SetProperty( DIPROP_BUFFERSIZE ) to %d. Ignoring it.,DirectInputMouseDeviceImp::SetProperty,040f6bb0
+DirectInputMouseDeviceImp::SetProperty( DIPROP_RANGE ) to %d. Returning E_NOTIMPL.,DirectInputMouseDeviceImp::SetProperty,040f6bb0
+DirectInputMouseDeviceImp::SetProperty( %s ) unhandled!,DirectInputMouseDeviceImp::SetProperty,040f6bb0
 DirectInputMouseDeviceImp::GetDeviceData() returning DIERR_NOTINITIALIZED.,DirectInputMouseDeviceImp::GetDeviceData,040f6d20
 DirectInputMouseDeviceImp::GetDeviceData() returning DIERR_NOTACQUIRED.,DirectInputMouseDeviceImp::GetDeviceData,040f6d20
-DirectInput 7/8 mouse acquired.,DirectInputDeviceImp::Acquire,040f76e0
+DirectInput 7/8 mouse acquired.,DirectInputMouseDeviceImp::Acquire,040f76e0
 DirectInput 7/8 mouse unacquired.,FUN_040f8620,040f8620
-DirectInput 7/8 mouse unacquired.,DirectInputDeviceImp::Unacquire,040f7760
+DirectInput 7/8 mouse unacquired.,DirectInputMouseDeviceImp::Unacquire,040f7760
 Unexpected object size in new data format in DirectInputMouseDeviceImp::SetDataFormat()! Can't interpret that structure.,DirectInputMouseDeviceImp::SetDataFormat,040f77c0
 "DirectInputMouseDeviceImp::SetDataFormat() - Asked for button number %u, unsupported!",DirectInputMouseDeviceImp::SetDataFormat,040f77c0
 DirectInputMouseDeviceImp::GetDeviceState() returning DIERR_NOTINITIALIZED.,DirectInputMouseDeviceImp::GetDeviceState,040f7ae0
 DirectInputMouseDeviceImp::GetDeviceState() returning DIERR_NOTACQUIRED.,DirectInputMouseDeviceImp::GetDeviceState,040f7ae0
 DirectInputMouseDeviceImp::GetDeviceState() returning DIERR_INVALIDPARAM.,DirectInputMouseDeviceImp::GetDeviceState,040f7ae0
-Cooperative level on mouse device for game window set to: %s,DirectInputDeviceImp::SetCooperativeLevel,040f8b80
-"Game wants mouse to be BACKGROUND, ie. receive input even when game window isn't in focus. Currently it doesn't work this way in eON.",DirectInputDeviceImp::SetCooperativeLevel,040f8b80
+Cooperative level on mouse device for game window set to: %s,DirectInputMouseDeviceImp::SetCooperativeLevel,040f8b80
+"Game wants mouse to be BACKGROUND, ie. receive input even when game window isn't in focus. Currently it doesn't work this way in eON.",DirectInputMouseDeviceImp::SetCooperativeLevel,040f8b80
 /home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/dsound/backendOpenALSoft.cpp,backendOpenALSoft_040faf00,040faf00
 /home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/dsound/backendOpenALSoft.cpp,backendOpenALSoft_040faf00,040faf00
 /home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/dsound/backendOpenALSoft.cpp,DSoundBackend_CaptureInit,040fabf0
