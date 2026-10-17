@@ -1,0 +1,8 @@
+FUN_0410cd60	XAudio2VoiceImp::Real_SetFilterParameters
+FUN_0410d1f0	XAudio2VoiceImp::Real_SetChannelVolumes
+FUN_0410d260	XAudio2VoiceImp::Real_SetOutputMatrix
+FUN_0410cef0	XAudio2VoiceImp::Real_SetVolume
+FUN_0410b280	XAudio2VoiceImp::DisableEffect
+FUN_0410b2e0	XAudio2VoiceImp::EnableEffect
+FUN_0410b220	XAudio2VoiceImp::SetEffectParameters
+FUN_041068f0	XAudio2Imp::XAudio2Imp

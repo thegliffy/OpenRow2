@@ -14,10 +14,11 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 ## Scoreboard
 
-**2,255 / 9,221 functions carry a project name (24.5%).** A name is kept when that function references a matching assert signature, a single source file, or a D3D9 vtable slot locked by those signatures. Module prefixes name the file, not the function. Message-style strings do not replace a signature name.
+**2,263 / 9,221 functions carry a project name (24.5%).** A name is kept when that function references a matching assert signature, a single source file, or a D3D9 vtable slot locked by those signatures. Module prefixes name the file, not the function. Message-style strings do not replace a signature name.
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
+| 30 | XAudio2 opcodes 0–6 + Imp ctor (`decomp/xaudio_opcodes_0_6_note.txt`). Jumptable locks Real_SetFilterParameters/ChannelVolumes/OutputMatrix/Volume; Enable/DisableEffect and SetEffectParameters wrappers; XAudio2Imp::XAudio2Imp. Accelerators PLT cluster SKIP (STL helpers). | 8 | 8 |
 | 29 | XAudio2 GetVoiceDetails / GetOutputFilterParameters / SetSourceSampleRate (`decomp/xaudio_voice_details_note.txt`). Details copies 3 voice fields; GetOutputFilterParameters is the read twin of the named setter; SetSourceSampleRate writes the +0xc4 field GetSamplesNeeded reads. Return-0 stubs, constant-1 stub, and GLSL producers stay SKIP. | 3 | 3 |
 | 28 | XAudio2 Start/Stop/Discontinuity (`decomp/xaudio_opcodes_7910_note.txt`). Opcodes 7/9/10 locked via jumptable wiring: Start (buffer-pending play flag), Discontinuity (zero SamplesPlayed), Stop (clear play flag + release; Flags bit 0x20 = XAUDIO2_PLAY_TAILS). 6 names. | 6 | 6 |
 | 27 | XAudio2 FrequencyRatio pair (`decomp/xaudio_frequency_ratio_note.txt`). Opcode 8 locked without the rest of the private enum: float-clamp queue wrapper queues op 8 -> ExecuteOperation case 8 passes the float into the commit stub that stores voice+4; adjacent Get reads voice+4. 3 names: `SetFrequencyRatio`, `GetFrequencyRatio`, `Real_SetFrequencyRatio`. Other opcode-7/9/10 wrappers stay unnamed. | 3 | 3 |

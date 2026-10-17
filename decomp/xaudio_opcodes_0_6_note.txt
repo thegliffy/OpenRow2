@@ -1,0 +1,23 @@
+Wave 30 — XAudio2 ExecuteOperation opcodes 0–6 + ctor (8 names)
+
+Track 1 — jumptable @043101a0 cases 0/3/5/6 and EnableEffect wrappers:
+
+Opcode map (QueueOperation imm -> wrapper -> commit):
+  0  SetFilterParameters / SetOutputFilterParameters -> Real_SetFilterParameters (0410cd60)
+  1  DisableEffect (0410b280) -> Real_EnableEffect(false)  [already named]
+  2  EnableEffect (0410b2e0) -> Real_EnableEffect(true)   [already named]
+  3  SetChannelVolumes -> Real_SetChannelVolumes (0410d1f0) copies pending +0x6c vector
+  4  SetEffectParameters (0410b220) -> Real_SetEffectParameters [already named]
+  5  SetOutputMatrix -> Real_SetOutputMatrix (0410d260)
+  6  SetVolume -> Real_SetVolume (0410cef0) copies pending +0x5c -> +0x8
+
+Track 2 — FUN_041068f0: XAudio2Imp constructor (vtable, name string "XAudio2Imp",
+AlsaOutput, worker thread). Called from xaudio2_full_DllGetClassObject.
+
+Track 3 — user32/accelerators PLT cluster (_Rb_tree_*): bodies are STL insert/lookup
+helpers with no Class::Method assert. Path-anchored accelerators.cpp functions
+0416cc30/0416cff0 already carry module prefixes. Cluster stays SKIP (instruction
+mix is not a name). FUN_04105ff0 (cancel queued ops by OperationSet) also SKIP —
+no unique signature.
+
+Applied via PyGhidra MCP (batch21). Scoreboard 2,263 / 9,221.
