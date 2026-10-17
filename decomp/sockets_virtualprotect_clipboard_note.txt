@@ -1,0 +1,12 @@
+Wave 36 — remaining sockets + VirtualProtect + console/clipboard + wait decoder (7 names)
+
+  eON_WSASocketA, eON_WSAGetOverlappedResult, eON_select
+  eON_VirtualProtect (PAGE_GUARD / unsupported flags warnings; peer VirtualAllocEx/FreeEx)
+  eON_GetNumberOfConsoleInputEvents
+  eON_SetClipboardViewer (CLIPBOARD SetClipboardViewer(NULL) path)
+  WSAWaitResultToString — WSA_WAIT_IO_COMPLETION / TIMEOUT / WAIT_EVENT_%u decoder
+    (same pattern as user32_MessageToString)
+
+SKIP: FUN_0418bb10 carries both eONMemoryReader::Read and Seek messages — ambiguous.
+
+Applied via PyGhidra MCP (batch27). Scoreboard 2,353 / 9,221.

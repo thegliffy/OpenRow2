@@ -1,0 +1,7 @@
+FUN_0412a290	eON_GetNumberOfConsoleInputEvents
+FUN_0413ea10	eON_VirtualProtect
+FUN_04195220	eON_select
+FUN_04196690	eON_WSASocketA
+FUN_04192920	eON_WSAGetOverlappedResult
+FUN_0416d8c0	eON_SetClipboardViewer
+FUN_04191e80	WSAWaitResultToString

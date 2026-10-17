@@ -14,10 +14,11 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 ## Scoreboard
 
-**2,346 / 9,221 functions carry a project name (25.4%).** A name is kept when that function references a matching assert signature, a single source file, or a D3D9 vtable slot locked by those signatures. Module prefixes name the file, not the function. Message-style strings do not replace a signature name.
+**2,353 / 9,221 functions carry a project name (25.5%).** A name is kept when that function references a matching assert signature, a single source file, or a D3D9 vtable slot locked by those signatures. Module prefixes name the file, not the function. Message-style strings do not replace a signature name.
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
+| 36 | Remaining sockets + VirtualProtect + clipboard/console + WSAWaitResultToString (`decomp/sockets_virtualprotect_clipboard_note.txt`). | 7 | 7 |
 | 34 | Win32 C-API district + DeterminePrimitiveType (`decomp/win32_capi_and_primitive_type_note.txt`). 34 unique ApiName logs (eON_/ole32); primitive-type switch hand-read; leave-alones confirmed. | 35 | 35 |
 | 33 | VPFS handle district + CoSetProxyBlanket; leave-alones confirmed (`decomp/vpfs_handles_and_cosetproxy_note.txt`). 10 unique invalid-handle VPFS_* wrappers; CoSetProxyBlanket stub; dropped VPFS_registry.vpfsdb filename. | 11 | 11 |
 | 32 | eON_GetCOMObjects + CoInitializeEx/Security + 25 module_hex assert upgrades + 16 unique eON_* C wrappers (`decomp/eon_comobjects_and_module_upgrades_note.txt`). Dropped ambiguous Surface UploadOpenGLObjectData. | 44 | 19 (+25 renames) |
@@ -108,6 +109,7 @@ Closed, do not restart:
 - VPFS invalid-handle wrappers + CoSetProxyBlanket; shared eON_FileSystem/Varyings and remaining module_hex leftovers confirmed leave-alone (wave 33).
 - Win32 C-API district + DeterminePrimitiveType (wave 34).
 - Sockets eON_* leftovers + Query Issue (wave 35).
+- Sockets/VirtualProtect/clipboard wave (wave 36).
 
 Closed, continued:
 
