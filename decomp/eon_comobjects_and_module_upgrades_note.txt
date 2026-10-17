@@ -1,0 +1,19 @@
+Wave 32 — eON_GetCOMObjects + module_hex upgrades + eON C district (44 names)
+
+Track 1 — COM bootstrap (hand-read decompiles):
+  04161b30 eON_GetCOMObjects     walks loaded COM libs for eON_GetCOMObjects / DllGetClassObject
+  04161c80 CoInitializeEx        threading-model init; sole caller of eON_GetCOMObjects
+  04161e00 CoInitializeSecurity  unique CoInitializeSecurity(…) message (pair with CoUninitialize)
+
+Track 2 — module_hex → unique Class::Method assert (25; 040af4e0 UploadOpenGLObjectData dropped — class mismatch):
+  OpenGLWrapperLinux::Open; Direct3D{Base,Cube,Texture,Volume}Texture9Imp + Surface/VertexBuffer/Volume
+  Initialize/Release/Lock/Unlock/GetLevelDesc; fixedPipeline Vertex/Fragment AnalyzeDeviceState + GenerateProgram;
+  DirectInputGamepadDeviceImp::SetDataFormat; DirectSoundBuffer8Imp::Lock;
+  AudioConverter::DetermineAudioFormatType; MemoryHandleManager::Lock; AudioClientImp::Initialize.
+
+Track 3 — unique eON_* C wrappers (16; one function alone owns each eON_* message):
+  ShowWindow, DirectSoundCreate8, Int_EnumerateFontFamilies, GetBitmapBits, CreateDCA,
+  GetTempFileNameW, GetDriveTypeA, GetDiskFreeSpaceW/ExW, OpenMutexW, ShellExecuteA,
+  SendInput, DispatchMessageA/W, timeBeginPeriod, timeEndPeriod.
+
+Applied via PyGhidra MCP (batch23). Scoreboard 2,289 / 9,221 (+19 new; +25 module renames).
