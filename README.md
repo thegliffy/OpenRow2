@@ -14,10 +14,11 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 ## Scoreboard
 
-**2,362 / 9,221 functions carry a project name (25.6%).** A name is kept when that function references a matching assert signature, a single source file, or a D3D9 vtable slot locked by those signatures. Module prefixes name the file, not the function. Message-style strings do not replace a signature name.
+**2,369 / 9,221 functions carry a project name (25.7%).** A name is kept when that function references a matching assert signature, a single source file, or a D3D9 vtable slot locked by those signatures. Module prefixes name the file, not the function. Message-style strings do not replace a signature name.
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
+| 38 | thread/window/fileinfo + sync CreateMutex/Semaphore/WaitableTimer (`decomp/thread_window_sync_timer_note.txt`). | 10 | 7 (+3 renames) |
 | 37 | VPFS_OpenExec + FatalExit + D3D9_FormatToPixelSize + CreateMutex/Event/Semaphore A/W (`decomp/vpfs_openexec_sync_creates_note.txt`). | 9 | 9 |
 | 36 | Remaining sockets + VirtualProtect + clipboard/console + WSAWaitResultToString (`decomp/sockets_virtualprotect_clipboard_note.txt`). | 7 | 7 |
 | 34 | Win32 C-API district + DeterminePrimitiveType (`decomp/win32_capi_and_primitive_type_note.txt`). 34 unique ApiName logs (eON_/ole32); primitive-type switch hand-read; leave-alones confirmed. | 35 | 35 |
@@ -112,6 +113,7 @@ Closed, do not restart:
 - Sockets eON_* leftovers + Query Issue (wave 35).
 - Sockets/VirtualProtect/clipboard wave (wave 36).
 - VPFS_OpenExec + sync Create* A/W (wave 37).
+- thread/window/fileinfo + WaitableTimer (wave 38).
 
 Closed, continued:
 

@@ -1,0 +1,11 @@
+Wave 38 — thread/window/fileinfo + sync CreateMutex/Semaphore/WaitableTimer (10 names)
+
+  thread_PrepareThreadForRunloop — unique alloc-fail message (caller has separate failed!! string)
+  eON_GetWindowLong / eON_SetWindowLong — unique nIndex diagnostics
+  fs_GetFileInformationByHandle / vpfs_GetFileInformationByHandle — unique fail codes; vpfs wraps fs
+  Synchronisation_CreateMutex / CreateSemaphore — exclusive callees of eON_Create* A/W
+  Synchronisation_CreateWaitableTimer + eON_CreateWaitableTimerA/W — timer attribute assert; A/W by body
+
+SKIP: synchronisationPrimitives_0414aaf0 (shared CreateEvent + CreateThread + TEB paths).
+
+Applied via PyGhidra MCP (batch29). Scoreboard 2,369 / 9,221.
