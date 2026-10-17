@@ -1,0 +1,6 @@
+FUN_04109210	XAudio2SourceVoiceImp::Start
+FUN_04109590	XAudio2SourceVoiceImp::Real_Start
+FUN_041092d0	XAudio2SourceVoiceImp::Discontinuity
+FUN_04109520	XAudio2SourceVoiceImp::Real_Discontinuity
+FUN_04109270	XAudio2SourceVoiceImp::Stop
+FUN_04109550	XAudio2SourceVoiceImp::Real_Stop

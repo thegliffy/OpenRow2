@@ -1,0 +1,34 @@
+Wave 28 — XAudio2 Start / Stop / Discontinuity (6 names)
+
+Same locking method as wave 27 (opcode 8 / FrequencyRatio). Jumptable at
+043101a0; QueueOperation layout opcode@+4, voice@+8, payload@+0xc.
+
+Opcode 7:
+  Wrapper 04109210 queues (OperationSet, voice).
+  Case 7 (041064e0) passes voice+4 into FUN_04109590, which sets this+0x179
+  when the source buffer queue is non-empty — Start.
+
+Opcode 9:
+  Wrapper 041092d0 queues (OperationSet, voice).
+  Case 9 (041063f8) passes voice into FUN_04109520, which zeroes this+0x168 /
+  +0x16c (the SamplesPlayed fields GetState reads) and sets this+0x178 —
+  Discontinuity (MSDN: resets SamplesPlayed).
+
+Opcode 10:
+  Wrapper 04109270 queues (Flags, OperationSet, voice); Flags land at op+0xc.
+  Case 10 (04106410) tests Flags bit 0x20 (XAUDIO2_PLAY_TAILS) and passes
+  voice into FUN_04109550, which clears this+0x178 and releases the callback
+  at +0x170 — Stop. (PLAY_TAILS itself is unused by the commit stub.)
+
+Applied via PyGhidra MCP on moneta (batch19):
+  04109210 Start
+  04109590 Real_Start
+  041092d0 Discontinuity
+  04109520 Real_Discontinuity
+  04109270 Stop
+  04109550 Real_Stop
+
+Scoreboard 2,252 / 9,221. Still SKIP on the source run: return-0 stubs
+(04109090, 04109130, 04109180), SetSourceSampleRate-shaped +0xc4 write
+(04109160), shared FUN_0410b340 / FUN_0410caa0 / FUN_0410b060. ExitLoop /
+FlushSourceBuffers not identified among remaining stubs.
