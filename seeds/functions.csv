@@ -582,11 +582,11 @@ entry,name
 0400a850,FUN_0400a850
 0400a9f0,FUN_0400a9f0
 0400aa30,FUN_0400aa30
-0400aab0,FUN_0400aab0
-0400adb0,FUN_0400adb0
-0400ae70,FUN_0400ae70
-0400af30,FUN_0400af30
-0400b010,FUN_0400b010
+0400aab0,Cot::Create
+0400adb0,Cot::AddRef
+0400ae70,Cot::Release
+0400af30,Cot::Destroy
+0400b010,Cot::ReportLeaks
 0400b0d0,FUN_0400b0d0
 0400b150,FUN_0400b150
 0400b180,FUN_0400b180
@@ -3295,7 +3295,7 @@ entry,name
 04102220,FUN_04102220
 04102240,FUN_04102240
 04102270,FUN_04102270
-041022a0,FUN_041022a0
+041022a0,XAudio2Imp::CancelOperations
 041022d0,FUN_041022d0
 041022f0,FUN_041022f0
 04102310,FUN_04102310
@@ -3346,7 +3346,7 @@ entry,name
 04105ce0,FUN_04105ce0
 04105ec0,FUN_04105ec0
 04105f30,FUN_04105f30
-04105ff0,FUN_04105ff0
+04105ff0,XAudio2Imp::CancelQueuedOperations
 041060a0,FUN_041060a0
 041061b0,XAudio2Imp::CreateMasteringVoice
 041062a0,XAudio2Imp::QueueOperation
@@ -3519,7 +3519,7 @@ entry,name
 0410cca0,XAudio2VoiceImp::Real_EnableEffect
 0410cd60,XAudio2VoiceImp::Real_SetFilterParameters
 0410cef0,XAudio2VoiceImp::Real_SetVolume
-0410cf50,xaudio2voiceimpl_0410cf50
+0410cf50,XAudio2VoiceImp::GetAudioGraphMutex
 0410cfb0,xaudio2helpers_0410cfb0
 0410d080,FUN_0410d080
 0410d140,xaudio2voiceimpl_0410d140

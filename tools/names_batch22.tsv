@@ -1,0 +1,8 @@
+FUN_0400aab0	Cot::Create
+FUN_0400adb0	Cot::AddRef
+FUN_0400ae70	Cot::Release
+FUN_0400af30	Cot::Destroy
+FUN_0400b010	Cot::ReportLeaks
+xaudio2voiceimpl_0410cf50	XAudio2VoiceImp::GetAudioGraphMutex
+FUN_04105ff0	XAudio2Imp::CancelQueuedOperations
+FUN_041022a0	XAudio2Imp::CancelOperations

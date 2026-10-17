@@ -1,0 +1,25 @@
+Wave 31 — COT COM tracker + XAudio leftovers (8 names)
+
+Track 1 — COM Object Table (COT ERROR/REPORT strings, no Class::Method assert):
+  0400aab0 Cot::Create     insert into the tracked-object tree
+  0400adb0 Cot::AddRef     increment refcount / error paths
+  0400ae70 Cot::Release    decrement refcount
+  0400af30 Cot::Destroy    erase when refcount allows
+  0400b010 Cot::ReportLeaks leak walk + totals
+Class prefix Cot is taken from the COT branding on every message. Hand-read.
+
+Track 2 — XAudio leftovers:
+  0410cf50 XAudio2VoiceImp::GetAudioGraphMutex — assert already named the method;
+    was left as module_hex placeholder.
+  04105ff0 XAudio2Imp::CancelQueuedOperations — clears OperationSet slots in the
+    pending-op array (mutex/+0x10/+0x14 layout shared with QueueOperation).
+  041022a0 XAudio2Imp::CancelOperations — thin wrapper calling the above on Imp+4.
+  Buffer-grow helpers (0410ad60, 0410fc10, filter-tree inserts) stay SKIP (STL).
+
+Track 3 — largest FUN_ district:
+  decomp/largest_fun_calls_note.txt leaders are ADC/MUL tables with no calls and
+  no Class::Method. Confirmed SKIP; do not invent names from instruction mixes.
+
+Track 4 — README ## Next refreshed to mark XAudio closed and COT done.
+
+Applied via PyGhidra MCP (batch22). Scoreboard 2,270 / 9,221.

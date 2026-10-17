@@ -14,10 +14,11 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 ## Scoreboard
 
-**2,263 / 9,221 functions carry a project name (24.5%).** A name is kept when that function references a matching assert signature, a single source file, or a D3D9 vtable slot locked by those signatures. Module prefixes name the file, not the function. Message-style strings do not replace a signature name.
+**2,270 / 9,221 functions carry a project name (24.6%).** A name is kept when that function references a matching assert signature, a single source file, or a D3D9 vtable slot locked by those signatures. Module prefixes name the file, not the function. Message-style strings do not replace a signature name.
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
+| 31 | COT COM tracker + XAudio leftovers (`decomp/cot_and_xaudio_leftovers_note.txt`). Cot::{Create,AddRef,Release,Destroy,ReportLeaks} from COT messages; GetAudioGraphMutex assert upgrade; CancelOperations pair. Largest FUN_ tables stay SKIP. | 8 | 7 (+1 rename) |
 | 30 | XAudio2 opcodes 0–6 + Imp ctor (`decomp/xaudio_opcodes_0_6_note.txt`). Jumptable locks Real_SetFilterParameters/ChannelVolumes/OutputMatrix/Volume; Enable/DisableEffect and SetEffectParameters wrappers; XAudio2Imp::XAudio2Imp. Accelerators PLT cluster SKIP (STL helpers). | 8 | 8 |
 | 29 | XAudio2 GetVoiceDetails / GetOutputFilterParameters / SetSourceSampleRate (`decomp/xaudio_voice_details_note.txt`). Details copies 3 voice fields; GetOutputFilterParameters is the read twin of the named setter; SetSourceSampleRate writes the +0xc4 field GetSamplesNeeded reads. Return-0 stubs, constant-1 stub, and GLSL producers stay SKIP. | 3 | 3 |
 | 28 | XAudio2 Start/Stop/Discontinuity (`decomp/xaudio_opcodes_7910_note.txt`). Opcodes 7/9/10 locked via jumptable wiring: Start (buffer-pending play flag), Discontinuity (zero SamplesPlayed), Stop (clear play flag + release; Flags bit 0x20 = XAUDIO2_PLAY_TAILS). 6 names. | 6 | 6 |
@@ -96,15 +97,23 @@ Closed, do not restart:
 - Windows `.rdata` paths. All 71 paths in `seeds/win_rdata_sourcepaths.txt` are absent from the Linux binary, filenames included (`decomp/win_rdata_match_note.txt`, `seeds/win_rdata_matches.tsv`). Leave `seeds/rejected/win_string_module_map.csv` unused.
 - String-reference catalog of unnamed `FUN_` bodies: `decomp/largest_fun_strings_note.txt` through `note94.txt` (937 functions).
 - D3D9 and COM slots that already have an anchor. Do not name an unanchored slot to fill a gap.
+- XAudio2 voice/engine surface: ExecuteOperation opcodes 0-10, voice/source vtable locks, Imp ctor, CancelOperations, GetAudioGraphMutex (waves 23-31). Remaining helpers are STL tree/vector bodies.
+- Largest no-string `FUN_` bodies (`decomp/largest_fun_calls_note.txt`): ADC/MUL data tables — not names.
+- GLSL producers: `decomp/shader_glsl_note.txt`. `FUN_04052100` and `FUN_0405ac10` stay unnamed (IdentifyInstruction assert is the callee).
+- COT COM object tracker: Cot::{Create,AddRef,Release,Destroy,ReportLeaks} (wave 31).
 
 Closed, continued:
 
 - VPFS decrypt and extract. `tools/vpfs_extract.py` follows the AES path (`decomp/vpfs_aes_plain.txt`) and writes `decomp/vpfs_dir_records.tsv`. The 15 files check out as PE32 or the VC80 manifest (`decomp/vpfs_extract_check.txt`). `language_setup.exe` is UPX. Extracted files stay out of the tree. The `tools/vpfs_*.py` probes other than `vpfs_extract.py` still search for zlib or import `Crypto`. Do not extend them.
-- Call catalog of unnamed `FUN_` bodies: `decomp/largest_fun_calls_note.txt` through `note625.txt` (6,248 functions). Note 625 holds the last 8. Every `FUN_` in `seeds/functions.csv` now appears in a string note or a call note. An instruction mix is not a `Class::Method` name. Scoreboard stays 2,216 / 9,221 named (24.0%).
-- Breakpad `{anonymous}` writers: `decomp/breakpad_writers_note.txt`. Five named by source match (wave 15, `decomp/breakpad_source_match_note.txt`; wave 25, `decomp/breakpad_source_match_note4.txt`). One `FUN_` entry stays unnamed: `0400939e`, the assert-only stub for the inlined constructor.
+- Call catalog of unnamed `FUN_` bodies: `decomp/largest_fun_calls_note.txt` through `note625.txt` (6,248 functions). Note 625 holds the last 8. An instruction mix is not a `Class::Method` name.
+- Breakpad `{anonymous}` writers: `decomp/breakpad_writers_note.txt`. One `FUN_` entry stays unnamed: `0400939e`, the assert-only stub for the inlined constructor.
 - Subsystem map: `decomp/subsystem_map_note.txt`. Buckets are library-call prefixes from `tools/subsystem_map.py`, not names.
 - VPFS extracted files: `decomp/vpfs_files_note.txt`. The 15 files stay in `/tmp` and out of the tree.
-- GLSL producers: `decomp/shader_glsl_note.txt`, continued from `decomp/identify_instruction_note.txt`. `FUN_04052100` and `FUN_0405ac10` stay unnamed.
+
+Open:
+
+- `FUN_04161b30` (`eON_GetCOMObjects` string) if a unique assert appears.
+- Hand-read districts with unique `Class::Method` asserts not yet drained by the checker (none queued today).
 
 The extracted `sr2_pc.exe` contains the 71 Windows paths. That does not add a Linux assert the checker can name. Leave `seeds/rejected/win_string_module_map.csv` unused.
 
