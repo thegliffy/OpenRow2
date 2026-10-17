@@ -1,0 +1,11 @@
+FUN_0412d2d0	eON_GetCurrentDirectoryW
+FUN_041330d0	fs_MoveFileA
+FUN_041939c0	eON_ioctlsocket
+FUN_04194260	eON_shutdown
+FUN_041947c0	eON_listen
+FUN_041948f0	eON_send
+FUN_04194af0	eON_recv
+FUN_04195ab0	eON_accept
+FUN_04195d00	eON_getpeername
+FUN_04195ea0	eON_gethostbyaddr
+FUN_040a5620	Direct3DQuery9Imp::Issue

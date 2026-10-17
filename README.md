@@ -14,7 +14,7 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 ## Scoreboard
 
-**2,335 / 9,221 functions carry a project name (25.3%).** A name is kept when that function references a matching assert signature, a single source file, or a D3D9 vtable slot locked by those signatures. Module prefixes name the file, not the function. Message-style strings do not replace a signature name.
+**2,346 / 9,221 functions carry a project name (25.4%).** A name is kept when that function references a matching assert signature, a single source file, or a D3D9 vtable slot locked by those signatures. Module prefixes name the file, not the function. Message-style strings do not replace a signature name.
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
@@ -107,6 +107,7 @@ Closed, do not restart:
 - eON COM bootstrap + unique eON_* C district + module_hex assert upgrades (wave 32).
 - VPFS invalid-handle wrappers + CoSetProxyBlanket; shared eON_FileSystem/Varyings and remaining module_hex leftovers confirmed leave-alone (wave 33).
 - Win32 C-API district + DeterminePrimitiveType (wave 34).
+- Sockets eON_* leftovers + Query Issue (wave 35).
 
 Closed, continued:
 

@@ -1,0 +1,15 @@
+Wave 35 — sockets leftovers + GetCurrentDirectoryW + fs_MoveFileA + Query::Issue (11 names)
+
+Track 1 — SOCKETS: unique errno wrappers (eON_* to match bind/connect/sendto peers):
+  eON_ioctlsocket, eON_shutdown, eON_listen, eON_send, eON_recv,
+  eON_accept, eON_getpeername, eON_gethostbyaddr
+
+Track 2 — FS / path:
+  eON_GetCurrentDirectoryW — unique convertLen assert
+  fs_MoveFileA — unique SetLastError reminder; body calls rename()
+
+Track 3 — Direct3DQuery9Imp::Issue (040a5620):
+  Unique "Query type %u wanted in Issue()!"; sits between named GetData and TestQuery
+  on the same Imp; hand-read switch on query type.
+
+Applied via PyGhidra MCP (batch26). Scoreboard 2,346 / 9,221.
