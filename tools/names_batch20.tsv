@@ -1,0 +1,3 @@
+FUN_0410b340	XAudio2VoiceImp::GetVoiceDetails
+FUN_0410caa0	XAudio2VoiceImp::GetOutputFilterParameters
+FUN_04109160	XAudio2SourceVoiceImp::SetSourceSampleRate

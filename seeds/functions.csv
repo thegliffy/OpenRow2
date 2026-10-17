@@ -3465,7 +3465,7 @@ entry,name
 041090a0,XAudio2SourceVoiceImp::GetState
 04109130,FUN_04109130
 04109140,XAudio2SourceVoiceImp::GetFrequencyRatio
-04109160,FUN_04109160
+04109160,XAudio2SourceVoiceImp::SetSourceSampleRate
 04109180,FUN_04109180
 04109190,XAudio2SourceVoiceImp::SetFrequencyRatio
 04109210,XAudio2SourceVoiceImp::Start
@@ -3497,7 +3497,7 @@ entry,name
 0410b220,FUN_0410b220
 0410b280,FUN_0410b280
 0410b2e0,FUN_0410b2e0
-0410b340,FUN_0410b340
+0410b340,XAudio2VoiceImp::GetVoiceDetails
 0410b370,FUN_0410b370
 0410b390,FUN_0410b390
 0410b3b0,FUN_0410b3b0
@@ -3514,7 +3514,7 @@ entry,name
 0410c230,FUN_0410c230
 0410c590,FUN_0410c590
 0410c8f0,XAudio2VoiceImp::SetOutputFilterParameters
-0410caa0,FUN_0410caa0
+0410caa0,XAudio2VoiceImp::GetOutputFilterParameters
 0410cb30,XAudio2VoiceImp::Real_SetEffectParameters
 0410cca0,XAudio2VoiceImp::Real_EnableEffect
 0410cd60,FUN_0410cd60

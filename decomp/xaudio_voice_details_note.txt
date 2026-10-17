@@ -1,0 +1,30 @@
+Wave 29 — XAudio2 GetVoiceDetails / GetOutputFilterParameters / SetSourceSampleRate (3 names)
+
+Track 1 — shared voice FUN_ on the base/source vtable runs:
+
+- 0410b340 (slot 0 on every voice run): if CreationFlags bit 8 is set, copies three
+  dwords from this+0xc/+0x10/+0x14 into the out struct — GetVoiceDetails
+  (XAUDIO2_VOICE_DETAILS).
+
+- 0410caa0 (slot 2, immediately after named SetOutputFilterParameters): same
+  red-black lookup as the setter, but reads the three filter fields into the
+  out pointer — GetOutputFilterParameters (Set/Get pair adjacency).
+
+- 0410b060 (short-run slot before GetSamplesNeeded): returns constant 1. No
+  field lock. SKIP.
+
+Track 2 — source-voice leftovers:
+
+- 04109160 writes this+0xc4. GetSamplesNeeded (assert-named) reads this+0xc4 as
+  the integer sample-rate term in its ratio math — SetSourceSampleRate.
+
+- 04109090 / 04109130 / 04109180: return 0 stubs. No ExitLoop/Flush lock. SKIP.
+
+Track 3 — GLSL producers:
+
+- 04052100 / 0405ac10 remain unnamed per README and
+  decomp/shader_glsl_note.txt / identify_instruction_note.txt. Both walk the
+  bytecode producing GLSL; the IdentifyInstruction assert belongs to the
+  shared callee. No unique Class::Method. SKIP.
+
+Applied via PyGhidra MCP (batch20). Scoreboard 2,255 / 9,221.
