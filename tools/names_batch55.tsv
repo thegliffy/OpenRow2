@@ -1,0 +1,10 @@
+MemoryHandleManager_0413f4b0	MemoryHandleManager::Free
+MemoryHandleManager_0413fef0	MemoryHandleManager::FreeSlot
+FUN_0413f770	MemoryHandleManager::Unlock
+FUN_0413f840	MemoryHandleManager::GetFlags
+FUN_0413f8f0	MemoryHandleManager::GetSize
+FUN_0413f9f0	MemoryHandleManager::FindHandle
+FUN_0413fbe0	MemoryHandleManager::Alloc
+FUN_0413fc80	MemoryHandleManager::ReAlloc
+FUN_0413fa80	MemoryHandleManager::LockMutex
+FUN_0413fa90	MemoryHandleManager::UnlockMutex
