@@ -1,0 +1,11 @@
+addr	old	new	lock
+04125dd0	FUN_04125dd0	eON_SetMapMode	body: map mode 1..16 at DC+ae0; return previous
+041267d0	FUN_041267d0	eON_GetMapMode	body: read DC map mode ae0
+04125d80	FUN_04125d80	eON_SetViewportOrgEx	body: set DC org shorts; optional POINT out
+04126260	FUN_04126260	eON_GetViewportExtEx	body: copy DC extent pair af0/af4 to SIZE
+041263d0	FUN_041263d0	eON_CreatePenIndirect	body: OBJ_PEN type1 from LOGPEN*
+041261b0	FUN_041261b0	eON_GetDIBColorTable	body: memcpy RGBQUAD table from MEMDC
+04125090	FUN_04125090	eON_GetTextFaceA	body: strncpy Arial stub
+041250c0	FUN_041250c0	eON_GetTextFaceW	body: wide Arial stub
+04126850	FUN_04126850	eON_AddFontResourceA	body: CreateFileA+ReadFile → font add
+04126c60	FUN_04126c60	eON_Gdi_EnsureInitialized	body: first-call DC pool bzero + stock DC
