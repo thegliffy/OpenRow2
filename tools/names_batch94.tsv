@@ -1,0 +1,2 @@
+addr	old	new	lock
+04173d30	FUN_04173d30	eON_GetMessageA	body: loop PeekMessageA+wait; return msg!=WM_QUIT
