@@ -1,0 +1,4 @@
+addr	old	new	lock
+04125850	FUN_04125850	eON_GetCharABCWidthsW	body: FT glyph → ABC ints for [first,last]
+04125720	FUN_04125720	eON_GetCharABCWidthsFloatW	body: FT glyph → ABCFLOAT for [first,last]
+04125c20	FUN_04125c20	eON_GetCharWidth32W	body: FT advance → INT array for [first,last]
