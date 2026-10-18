@@ -1,0 +1,7 @@
+addr	old	new	lock
+04065b00	FUN_04065b00	Direct3D9Imp::GetAdapterCount	body: thin → OpenGLDisplay_GetCount
+040661a0	FUN_040661a0	Direct3D9Imp::GetAdapterDisplayMode	body: RefreshCurrentMode → D3DDISPLAYMODE
+040662d0	FUN_040662d0	Direct3D9Imp::GetAdapterModeCount	body: count modes matching format
+04067500	FUN_04067500	Direct3D9Imp::CreateDevice	body: new Device/Ex + Initialize
+040678f0	FUN_040678f0	Direct3D9Imp::CreateDeviceEx	body: extended create path
+04170a80	FUN_04170a80	eON_Int_ThreadHasQueuedInputMatchingFilter	body: QS_* scan of thread msg queues

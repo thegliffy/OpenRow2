@@ -18,6 +18,7 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
+| 192 | D3D9 CreateDevice/Adapter (`tools/decomp_notes_wave192_d3d9_createdevice.md`). | 6 | 6 |
 | 191 | MonitorFrom + relmouse/GL (`tools/decomp_notes_wave191_monitorfrom_relmouse.md`). | 9 | 9 |
 | 190 | OpenGLDisplay + WrapperLinux (`tools/decomp_notes_wave190_opengldisplay_wrapper.md`). | 15 | 15 |
 | 189 | PropVariant + AudioRenderClient (`tools/decomp_notes_wave189_propvariant_audiorender.md`). | 8 | 8 |
@@ -231,6 +232,8 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 `python3 tools/test_llm_work.py` runs the checker against the seeds.
 
 ## Next
+
+Wave 192 applied (3,558): Direct3D9Imp CreateDevice/Adapter* + input filter. See `tools/decomp_notes_wave192_d3d9_createdevice.md`.
 
 Wave 191 applied (3,552): MonitorFrom* + relative mouse + GL context cache. See `tools/decomp_notes_wave191_monitorfrom_relmouse.md`.
 
