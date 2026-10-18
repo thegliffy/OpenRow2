@@ -1,0 +1,9 @@
+addr	old	new	lock
+04193bc0	FUN_04193bc0	eON_socket	body: map AF_*→native; socket()
+04191d70	FUN_04191d70	eON_WSA_AF_ToNative	body: AF table lookup
+041913c0	FUN_041913c0	SocketWait_ClearFlags	body: clear wait-mask bits for handle
+04191330	FUN_04191330	SocketWait_SetFlags	body: set wait-mask bits
+04191280	FUN_04191280	SocketWait_RemoveHandle	body: unregister handle from wait table
+04192830	FUN_04192830	eON_ResetEvent_ClearWait	body: ClearFlags(3)+ResetEvent
+04194d20	FUN_04194d20	eON_htonl	body: 32-bit endian swap
+04194da0	FUN_04194da0	eON_ntohl	body: 32-bit endian swap
