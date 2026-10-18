@@ -1,0 +1,8 @@
+FUN_0415eb10	eON_QueryPerformanceCounter
+FUN_0415eb70	eON_QueryPerformanceFrequency
+FUN_04025c90	eON_QueryPerformanceFrequencyHz
+FUN_04025ca0	eON_QueryPerformanceCounterValue
+FUN_0415f660	eON_RtlGetNtVersionNumbers
+FUN_041600b0	eON_IsEqualGUID
+FUN_04025b80	eON_GetTickCount
+FUN_0415eaf0	eON_timeGetTime
