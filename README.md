@@ -14,10 +14,11 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 ## Scoreboard
 
-**2,467 / 9,221 functions carry a project name (26.7%).** A name is kept when that function references a matching assert signature, a single source file, or a D3D9 vtable slot locked by those signatures. Module prefixes name the file, not the function. Message-style strings do not replace a signature name.
+**2,478 / 9,221 functions carry a project name (26.9%).** A name is kept when that function references a matching assert signature, a single source file, or a D3D9 vtable slot locked by those signatures. Module prefixes name the file, not the function. Message-style strings do not replace a signature name.
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
+| 46 | Same-method d3d9device wrappers LEAVE + cursor C-API + leave-alones (`decomp/wrappers_cursor_leave_note.txt`). 11 eON_* cursor APIs; 8 Imp wrappers stay d3d9device_*. | 11 | 11 |
 | 45 | Bulk inline d3d9device→Imp + Set*ShaderConstant* + ShowCursor helpers (`decomp/inline_device_shader_showcursor_note.txt`). 81 COM→Imp; 6 Constant wrappers; 2 eON cursor helpers. 8 same-method wrappers left as d3d9device_*. | 89 | 2 (+87 renames) |
 | 44 | Imp ctors + png_image_write + inline device→Imp (`decomp/imp_ctors_png_write_inline_device_note.txt`). 15 ctors; 2 png write; 4 inline Get/Set/Test. | 21 | 17 (+4 renames) |
 | 43 | Harder D3D crumbs + libpng body-lock + DirectSound/Audio/MM Imp ctors (`decomp/d3d_png_com_wave43_note.txt`). | 23 | 23 |
@@ -128,6 +129,7 @@ Closed, do not restart:
 - Harder D3D + png body-lock + COM Imp ctors (wave 43).
 - Imp ctors + png_image_write + inline device Imp (wave 44).
 - Bulk inline d3d9device→Imp + Set*ShaderConstant* + ShowCursor helpers (wave 45).
+- Same-method d3d9device wrappers LEAVE + cursor C-API district + leave-alones (wave 46).
 
 Closed, continued:
 
@@ -139,10 +141,9 @@ Closed, continued:
 
 Open:
 
-- Assert queue empty; message/C-API harvest drained (waves 32–45).
-- Eight `d3d9device_*` wrappers that only call already-named `Direct3DDevice9Imp::SameMethod`.
-- Shared GetCursorPos thin wrapper (`FUN_0416ec80` / `FUN_04027480`).
-- Leave-alone: shared FileSystem/Varyings/GetDlgItem; module_hex multi-sig; ambiguous splits; breakpad stub.
+- Assert queue empty; message/C-API/cursor harvest drained (waves 32–46).
+- Shared screen-pos helper `FUN_04027480` (SDL/window; not a unique Win32 entry).
+- Leave-alone closed: 8 same-method `d3d9device_*` wrappers; FileSystem/Varyings/GetDlgItem; module_hex multi-sig; ambiguous splits; breakpad stub.
 
 The extracted `sr2_pc.exe` contains the 71 Windows paths. That does not add a Linux assert the checker can name. Leave `seeds/rejected/win_string_module_map.csv` unused.
 

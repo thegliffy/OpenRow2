@@ -1,0 +1,23 @@
+Wave 46 — same-method wrappers LEAVE + cursor C-API + leave-alones (11 names)
+
+Track 1 — eight d3d9device_* same-method wrappers LEAVE:
+  SetGammaRamp, SetLight, SetRenderState, SetVertexDeclaration, SetVertexShader,
+  SetIndices, SetPixelShader, EvictManagedResources.
+  Each COM entry still named d3d9device_*; Imp logic already lives in a separate
+  Direct3DDevice9Imp::SameMethod. Renaming the wrapper would collide. Do not restart.
+
+Track 2 — cursor C-API district (user32-range 0416e…), body-locked:
+  eON_GetCursorPos / eON_SetCursorPos / eON_GetCursorInfo / eON_GetCursor /
+  eON_ShowCursor (display-count ±1; peer eON_SetCursorVisible is the bool flag) /
+  eON_ClipCursor / eON_GetClipCursor /
+  eON_LoadCursor (Could not load cursor messages) /
+  eON_DestroyCursor / eON_CreateCursor / eON_LoadCursorFromFile.
+  SKIP: FUN_04027480 — shared SDL/window screen-pos helper used by Get/Set/Info;
+    not a unique Win32 entry.
+
+Track 3 — leave alone (reconfirmed, closed):
+  Shared eON_FileSystem::checkPathExists cluster; eON_Varyings multi-owner;
+  eON_GetDlgItem six-helper cluster; module_hex multi-sig leftovers;
+  ambiguous_signatures / empty split_confirmed; breakpad FUN_0400939e stub.
+
+Applied via PyGhidra MCP (batch37). Scoreboard 2,478 / 9,221 (+11).

@@ -1,0 +1,11 @@
+FUN_0416ec80	eON_GetCursorPos
+FUN_0416ecc0	eON_SetCursorPos
+FUN_0416efe0	eON_GetCursorInfo
+FUN_0416ecf0	eON_GetCursor
+FUN_0416f040	eON_ShowCursor
+FUN_0416eb70	eON_ClipCursor
+FUN_0416eab0	eON_GetClipCursor
+FUN_0416e8e0	eON_LoadCursor
+FUN_0416ed20	eON_DestroyCursor
+FUN_0416eee0	eON_CreateCursor
+FUN_0416ef60	eON_LoadCursorFromFile
