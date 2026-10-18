@@ -1,0 +1,24 @@
+Wave 45 — bulk inline d3d9device→Imp + Set*ShaderConstant* + ShowCursor helpers (89 names)
+
+Track 1 — bulk inline COM entries → Direct3DDevice9Imp::* (81):
+  Every remaining d3d9device_* whose Imp logic lives in the COM entry (inlined or
+  helper MT-guard + field/command-queue work), including Create*/Draw*/Get*/Set*
+  getters and setters that do not delegate to a separate Direct3DDevice9Imp::SameMethod.
+  Also ShowCursor / SetCursorPosition (COM entries themselves).
+
+Track 2 — Set*ShaderConstant* wrappers → Imp:: (6):
+  Set{Vertex,Pixel}ShaderConstant{F,I,B} — thin wrappers around existing
+  Internal_Set*; renamed as the public Imp COM methods.
+
+Track 3 — ShowCursor helpers (2):
+  eON_SetCursorVisible (04017400) — unique ShowCursor callee; writes visibility bool.
+  eON_SetCursor (0416e9c0) — HICON/eON_Cursor current-cursor swap (message-locked;
+    also called from SetCursorProperties).
+  SKIP: FUN_0416ec80 — shared GetCursorPos thin wrapper (ShowCursor / PeekMessage /
+    SendInput); real work is FUN_04027480.
+
+Track 4 — leave alone (wrappers that already call named Imp::SameMethod):
+  d3d9device_{SetGammaRamp,SetLight,SetRenderState,SetVertexDeclaration,
+    SetVertexShader,SetIndices,SetPixelShader,EvictManagedResources}.
+
+Applied via PyGhidra MCP (batch36). Scoreboard 2,467 / 9,221 (+2 new; +87 renames).
