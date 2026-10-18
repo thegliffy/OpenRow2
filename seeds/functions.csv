@@ -650,7 +650,7 @@ entry,name
 0400f840,FUN_0400f840
 0400f880,eON_FileSystem::removeDirRecursive
 0400fc00,GamepadMapping::ApplyControlBinding
-0400ff80,FUN_0400ff80
+0400ff80,GamepadMapping_ParsePlatformBinding
 04010020,GamepadMapping::InitializeFromMappingString
 04010440,GamepadMapping::RegisterMappingString
 04010740,FUN_04010740
@@ -2847,7 +2847,7 @@ entry,name
 040f3780,FUN_040f3780
 040f3990,DirectInputGamepadDeviceImp::SetDataFormat
 040f3e90,DirectInputGamepadDeviceImp::GetDeviceState
-040f4250,FUN_040f4250
+040f4250,DirectInputGamepadDeviceImp::~DirectInputGamepadDeviceImp
 040f4350,FUN_040f4350
 040f4370,FUN_040f4370
 040f43f0,DirectInputGamepadDeviceImp::DirectInputGamepadDeviceImp
@@ -2902,7 +2902,7 @@ entry,name
 040f5660,DirectInputKeyboardDeviceImp::GetObjectInfo
 040f5850,FUN_040f5850
 040f5a50,KeyboardEventReceiver::ProcessKeyDown
-040f5c60,FUN_040f5c60
+040f5c60,DirectInputKeyboardDeviceImp::~DirectInputKeyboardDeviceImp
 040f5d70,FUN_040f5d70
 040f5d90,KeyboardEventReceiver::Internal_ProcessKeyUp
 040f5f60,FUN_040f5f60
@@ -2932,7 +2932,7 @@ entry,name
 040f84b0,FUN_040f84b0
 040f85d0,FUN_040f85d0
 040f8600,FUN_040f8600
-040f8620,FUN_040f8620
+040f8620,DirectInputMouseDeviceImp::~DirectInputMouseDeviceImp
 040f8740,FUN_040f8740
 040f8760,DirectInputMouseDeviceImp::DirectInputMouseDeviceImp
 040f89b0,FUN_040f89b0

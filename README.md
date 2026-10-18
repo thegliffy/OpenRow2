@@ -18,7 +18,8 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
-| 99 | CreateCompatibleDC + VPFS Close/IsArchived/Convert + BitBlt + Gdi_GetDCForWindow (`tools/decomp_notes_wave99_createdc_vpfs_bitblt.md`). | 6 | 6 |
+| 100 | DI Gamepad/Keyboard/Mouse dtors + GamepadMapping_ParsePlatformBinding (`tools/decomp_notes_wave100_di_dtors_gamepadmap.md`). | 4 | 4 |
+| 99 | CreateCompatibleDC + VPFS Close/IsArchived/Convert + BitBlt + Gdi_GetDCForWindow (`tools/decomp_notes_wave99_createdc_vpfs_bitblt.md`). | 6 | 5 (+1 rename) |
 | 98 | GetMessageTime + MessageBoxA + MapVirtualKey(Ex) + GetKeyboardLayout (`tools/decomp_notes_wave98_msgtime_msgbox_mapvk.md`). | 5 | 5 |
 | 97 | IntersectRect + CharUpper/Lower(A/W/Buff) + IsCharAlpha(A/W) + IsCharLowerW (`tools/decomp_notes_wave97_intersect_char.md`). | 12 | 12 |
 | 96 | RECT helpers Copy/Equal/PtIn/Set/Empty/Offset/IsEmpty/Inflate (`tools/decomp_notes_wave96_rect_apis.md`). | 8 | 8 |
@@ -155,6 +156,8 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 `python3 tools/test_llm_work.py` runs the checker against the seeds.
 
 ## Next
+
+Wave 100 applied (3,044): DirectInput Gamepad/Keyboard/Mouse destructors + GamepadMapping_ParsePlatformBinding. See `tools/decomp_notes_wave100_di_dtors_gamepadmap.md`.
 
 Wave 99 applied (3,040): CreateCompatibleDC, VPFS_Close, VPFS_IsArchivedFile, VPFS_ConvertDiskFileToWriteableLocation, BitBlt, Gdi_GetDCForWindow. See `tools/decomp_notes_wave99_createdc_vpfs_bitblt.md`.
 

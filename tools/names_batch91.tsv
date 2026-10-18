@@ -1,0 +1,5 @@
+addr	old	new	lock
+040f4250	FUN_040f4250	DirectInputGamepadDeviceImp::~DirectInputGamepadDeviceImp	body: dtor; logs DirectInput 7/8 gamepad unacquired
+040f5c60	FUN_040f5c60	DirectInputKeyboardDeviceImp::~DirectInputKeyboardDeviceImp	body: dtor; logs DirectInput 7/8 keyboard unacquired
+040f8620	FUN_040f8620	DirectInputMouseDeviceImp::~DirectInputMouseDeviceImp	body: dtor; logs DirectInput 7/8 mouse unacquired
+0400ff80	FUN_0400ff80	GamepadMapping_ParsePlatformBinding	body: platform key; warns if mapping platform != Linux; ApplyControlBinding
