@@ -1,0 +1,7 @@
+FUN_0415cc90	eON_GetExitCodeThread
+FUN_0415cd00	eON_SetThreadPriority
+CoInitializeEx	eON_CoInitializeEx
+CoInitializeSecurity	eON_CoInitializeSecurity
+CoUninitialize	eON_CoUninitialize
+CoCreateInstance	eON_CoCreateInstance
+CLSIDFromProgID	eON_CLSIDFromProgID
