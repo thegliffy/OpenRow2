@@ -1,0 +1,6 @@
+addr	old	new	lock
+0404d8f0	FUN_0404d8f0	eON_Int_Wnd_MouseMove	body: WM_NCCALCSIZE + WM_MOUSEMOVE
+0404da50	FUN_0404da50	eON_Int_Wnd_LButtonOrRButtonUp	body: WM_LBUTTONUP or RBUTTONUP via dblclk latch
+0404dbd0	FUN_0404dbd0	eON_Int_Wnd_RButtonUp	body: clear flag2 + WM_RBUTTONUP
+0404de70	FUN_0404de70	eON_Int_Wnd_XButton1Up	body: clear flag0x20 + WM_XBUTTONUP XBUTTON1
+0404e050	FUN_0404e050	eON_Int_Wnd_MouseWheel	body: float wheel → WM_MOUSEWHEEL
