@@ -1,0 +1,4 @@
+FUN_04156750	eON_GetCommandLineA
+FUN_04156760	eON_GetCommandLineW
+FUN_04156630	eON_SetCommandLineA
+FUN_04156550	eON_BuildCommandLineA

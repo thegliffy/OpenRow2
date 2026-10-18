@@ -14,10 +14,11 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 ## Scoreboard
 
-**2,931 / 9,221 functions carry a project name (31.8%).** A name is kept when that function references a matching assert signature, a single source file, or a D3D9 vtable slot locked by those signatures. Module prefixes name the file, not the function. Message-style strings do not replace a signature name.
+**2,933 / 9,221 functions carry a project name (31.8%).** A name is kept when that function references a matching assert signature, a single source file, or a D3D9 vtable slot locked by those signatures. Module prefixes name the file, not the function. Message-style strings do not replace a signature name.
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
+| 82 | GetCommandLine A/W + Set/BuildCommandLineA (`tools/decomp_notes_wave82_cmdline.md`). | 4 | 4 |
 | 81 | ExitThread/Process + TerminateProcess + ResumeThread (`tools/decomp_notes_wave81_exit_resume.md`). | 4 | 2 (+2 renames) |
 | 80 | GetCurrentProcess(Id) + SetEnvironmentVariableA + GetVersion (`tools/decomp_notes_wave80_process_env.md`). | 4 | 4 |
 | 79 | FindClose + DeleteFile + GetTempPath (`tools/decomp_notes_wave79_findclose_delete_temppath.md`). | 6 | 6 |
@@ -122,7 +123,9 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 ## Next
 
-Wave 81 applied (2,931): ExitThread/Process, TerminateProcess, ResumeThread. See `tools/decomp_notes_wave81_exit_resume.md`.
+Wave 82 applied (2,933): GetCommandLine A/W, Set/BuildCommandLineA. See `tools/decomp_notes_wave82_cmdline.md`.
+
+Wave 81 applied (2,929): ExitThread/Process, TerminateProcess, ResumeThread. See `tools/decomp_notes_wave81_exit_resume.md`.
 
 Wave 80 applied (2,928): GetCurrentProcess(Id), SetEnvironmentVariableA, GetVersion. See `tools/decomp_notes_wave80_process_env.md`.
 
