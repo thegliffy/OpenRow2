@@ -18,6 +18,7 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
+| 201 | Local/Dos FileTime + GetThreadTimes (`tools/decomp_notes_wave201_filetime_threadtimes.md`). | 11 | 11 |
 | 200 | ExitCodeThread + TLS + ThreadMap (`tools/decomp_notes_wave200_exitcode_tls_threadmap.md`). | 17 | 16 new + 1 rename |
 | 199 | SetTimer/KillTimer (`tools/decomp_notes_wave199_settimer_killtimer.md`). | 8 | 6 new + 2 renames |
 | 198 | MsgExtra + QueueStatus_Flags (`tools/decomp_notes_wave198_msgextra_queuestatus.md`). | 7 | 7 |
@@ -240,6 +241,8 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 `python3 tools/test_llm_work.py` runs the checker against the seeds.
 
 ## Next
+
+Wave 201 applied (3,647): Local/Dos FileTime + GetThreadTimes. See `tools/decomp_notes_wave201_filetime_threadtimes.md`.
 
 Wave 200 applied (3,636): GetExitCodeThread + TLS + ThreadMap. See `tools/decomp_notes_wave200_exitcode_tls_threadmap.md`.
 

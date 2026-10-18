@@ -1,0 +1,12 @@
+addr	old	new	lock
+0415e790	FUN_0415e790	eON_LocalFileTimeToFileTime	body: subtract tm_gmtoff*10^7
+0415e700	FUN_0415e700	eON_FileTimeToLocalFileTime	body: add tm_gmtoff*10^7
+0415e820	FUN_0415e820	eON_DosDateTimeToFileTime	body: DOS date/time pack → SystemTimeToFileTime
+0415e8e0	FUN_0415e8e0	eON_FileTimeToDosDateTime	body: FileTimeToSystemTime → DOS pack
+0415d380	FUN_0415d380	eON_GetThreadTimes	body: assert getUserAndSystemTimes + rusage
+0415dc00	FUN_0415dc00	eON_Int_TimevalToFileTime	body: sec/usec → FILETIME epoch
+0415dc60	FUN_0415dc60	eON_Int_FileTimeToTimeval	body: FILETIME → sec/usec
+0415dcf0	FUN_0415dcf0	eON_Int_FileTimeToTimespec	body: FILETIME → sec/nsec
+0415dd70	FUN_0415dd70	eON_Int_TimespecToFileTime	body: sec/nsec → FILETIME
+0415deb0	FUN_0415deb0	eON_Int_GetTimezoneBiasSeconds	body: -tm_gmtoff
+0415eb00	FUN_0415eb00	eON_GetTickCount_Thunk	body: thin GetTickCount wrap
