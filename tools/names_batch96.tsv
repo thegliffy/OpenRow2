@@ -1,0 +1,6 @@
+addr	old	new	lock
+0411cc40	FUN_0411cc40	eON_SetTextColor	body: DC TEXTCOLOR field; return previous
+0411cc80	FUN_0411cc80	eON_SetBkColor	body: DC BKCOLOR; reject (COLORREF&0xff000000)
+041243f0	FUN_041243f0	eON_SetBkMode	body: accept mode 1|2; DC +0xadc
+0411eea0	FUN_0411eea0	eON_SetTextAlign	body: DC ushort text-align at +0xaec; return previous
+0411ee70	FUN_0411ee70	eON_GetTextAlign	body: read DC ushort text-align

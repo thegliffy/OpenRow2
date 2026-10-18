@@ -18,6 +18,7 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
+| 105 | SetTextColor/SetBkColor/SetBkMode + Get/SetTextAlign (`tools/decomp_notes_wave105_dc_text_bk.md`). | 5 | 5 |
 | 104 | CreatePen + CreateBrushIndirect (`tools/decomp_notes_wave104_createpen_brush.md`). | 2 | 2 |
 | 103 | GetMessageA (`tools/decomp_notes_wave103_getmessage.md`). | 1 | 1 |
 | 102 | IsCharLowerA + GamepadForceFeedback_Shutdown + D3D present/MSAA helpers (`tools/decomp_notes_wave102_ischarlower_ff_d3d.md`). | 4 | 4 |
@@ -160,6 +161,8 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 `python3 tools/test_llm_work.py` runs the checker against the seeds.
 
 ## Next
+
+Wave 105 applied (3,059): SetTextColor, SetBkColor, SetBkMode, Get/SetTextAlign. See `tools/decomp_notes_wave105_dc_text_bk.md`.
 
 Wave 104 applied (3,054): CreatePen, CreateBrushIndirect. See `tools/decomp_notes_wave104_createpen_brush.md`.
 
