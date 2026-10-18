@@ -18,6 +18,7 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
+| 111 | GetCharABCWidthsI + Gdi Get/SetDCSelectedObject (`tools/decomp_notes_wave111_abcwidthsi_dc_selected.md`). | 3 | 3 |
 | 110 | GetCharABCWidthsW/FloatW + GetCharWidth32W (`tools/decomp_notes_wave110_char_abc_width.md`). | 3 | 3 |
 | 109 | WarnUnimplementedStub + GetPixel + GetFontLanguageInfo (`tools/decomp_notes_wave109_unimplemented_getpixel_fontlang.md`). | 3 | 3 |
 | 108 | WarnIncompleteStub + PS3 GLSL inputs + ExtTextOutW gate + Get/SetROP2 (`tools/decomp_notes_wave108_stub_ps3_rop2.md`). | 5 | 5 |
@@ -166,6 +167,8 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 `python3 tools/test_llm_work.py` runs the checker against the seeds.
 
 ## Next
+
+Wave 111 applied (3,080): GetCharABCWidthsI, Gdi_Set/GetDCSelectedObject. See `tools/decomp_notes_wave111_abcwidthsi_dc_selected.md`.
 
 Wave 110 applied (3,077): GetCharABCWidthsW, GetCharABCWidthsFloatW, GetCharWidth32W. See `tools/decomp_notes_wave110_char_abc_width.md`.
 

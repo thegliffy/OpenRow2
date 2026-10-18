@@ -1,0 +1,4 @@
+addr	old	new	lock
+04125930	FUN_04125930	eON_GetCharABCWidthsI	body: FT_Load_Glyph by glyph index → ABC; optional pgi mode
+0411ca40	FUN_0411ca40	eON_Gdi_SetDCSelectedObject	body: write DC selected-object slot +0xac8
+0411ca70	FUN_0411ca70	eON_Gdi_GetDCSelectedObject	body: read DC selected-object slot +0xac8
