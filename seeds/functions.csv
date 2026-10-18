@@ -6259,10 +6259,10 @@ entry,name
 0418e330,PropertyStoreImp::PropertyStoreImp
 0418e380,PropertyStoreImp::GetValue
 0418e4f0,FUN_0418e4f0
-0418e520,FUN_0418e520
+0418e520,PropertyStoreImp::Int_InsertPropertyEntry
 0418e7a0,eON_Int_TimerThreadRoutine
 0418eb00,eON_timeGetDevCaps
-0418eb30,FUN_0418eb30
+0418eb30,eON_timeGetTime_Thunk
 0418eb40,eON_timeBeginPeriod
 0418ecf0,eON_timeEndPeriod
 0418ee00,eON_timeSetEvent
