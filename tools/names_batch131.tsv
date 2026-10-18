@@ -1,0 +1,10 @@
+addr	old	new	lock
+041c5d60	FUN_041c5d60	TiXmlHandle::FirstChild	body: return first child node
+041c5d80	FUN_041c5d80	TiXmlHandle::FirstChild_ByName	body: first child matching name
+041c5de0	FUN_041c5de0	TiXmlHandle::FirstChildElement	body: first element child
+041c5e40	FUN_041c5e40	TiXmlHandle::FirstChildElement_ByName	body: first element by name
+041c5ef0	FUN_041c5ef0	TiXmlHandle::Child	body: child by index
+041c5f30	FUN_041c5f30	TiXmlHandle::Child_ByName	body: child name+index
+041c24a0	FUN_041c24a0	TiXmlElement::Print_ToString	body: print element into TiXmlString
+041c5fc0	FUN_041c5fc0	TiXmlHandle::ChildElement	body: element child by index
+041c6070	FUN_041c6070	TiXmlHandle::ChildElement_ByName	body: element child name+index
