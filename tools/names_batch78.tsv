@@ -1,0 +1,7 @@
+FUN_04133a30	eON_MoveFileW
+FUN_04133c20	eON_MoveFileExA
+FUN_04133d80	eON_MoveFileExW
+FUN_04134210	eON_ReplaceFileA
+FUN_041344d0	eON_ReplaceFileW
+FUN_04134a90	eON_GetFullPathNameA
+FUN_04134d00	eON_GetFullPathNameW
