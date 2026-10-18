@@ -1,0 +1,14 @@
+addr	old	new	lock
+040512f0	FUN_040512f0	ShaderData_GetFogVaryingName	body: eON_VaryingFog vs gl_FogFragCoord
+040510b0	FUN_040510b0	ShaderData_GetTexCoordVaryingName_SM3	body: eON_Varyings↔gl_TexCoord map
+04051170	FUN_04051170	ShaderData_GetColorVaryingName_VS	body: FrontColor/Secondary map
+04051230	FUN_04051230	ShaderData_GetColorVaryingName_PS	body: Color/Secondary map
+04050e40	FUN_04050e40	ShaderData_AppendDestMask	body: .xyzw dest write-mask
+04050f70	FUN_04050f70	ShaderData_AppendSwizzle	body: rgba/xyzw swizzle chars
+0404fed0	FUN_0404fed0	eON_Int_D3D9_AllocPagedBlock_Cold	body: VirtualAlloc 0x2000
+0404ff00	FUN_0404ff00	eON_Int_D3D9_FreePagedBlock_VirtualFree	body: VirtualFree MEM_RELEASE
+040500a0	FUN_040500a0	eON_Int_D3D9_GlobalAddRef	body: DAT_04468c00++
+040500c0	FUN_040500c0	eON_Int_D3D9_GlobalRelease	body: DAT_04468c00--
+04050650	FUN_04050650	Direct3D9ExImp::scalar_deleting_destructor	body: dtor + delete
+04050680	FUN_04050680	Direct3DShaderValidator9_scalar_deleting_destructor	body: dtor + delete
+04050a40	FUN_04050a40	ShaderData_ClearCompileState	body: free shader compile buffers
