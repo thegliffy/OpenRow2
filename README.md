@@ -18,6 +18,7 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
+| 117 | SetPixel/FillRect/TextOutA (`tools/decomp_notes_wave117_setpixel_fillrect.md`). | 6 | 6 |
 | 116 | MapMode/Viewport/PenIndirect/fonts (`tools/decomp_notes_wave116_mapmode_viewport_pen.md`). | 10 | 10 |
 | 115 | CreateCompatibleBitmap + CreateBitmap (`tools/decomp_notes_wave115_createcompatiblebitmap.md`). | 2 | 2 |
 | 114 | CreatePalette + Gdi_AllocDC (`tools/decomp_notes_wave114_createpalette_allocdc.md`). | 2 | 2 |
@@ -172,6 +173,8 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 `python3 tools/test_llm_work.py` runs the checker against the seeds.
 
 ## Next
+
+Wave 117 applied (3,105): SetViewportExtEx, SetPixel, Gdi_Init/InitDC, FillRect, TextOutA. See `tools/decomp_notes_wave117_setpixel_fillrect.md`.
 
 Wave 116 applied (3,099): MapMode, Viewport, CreatePenIndirect, GetDIBColorTable, GetTextFace, AddFontResourceA, Gdi_EnsureInitialized. See `tools/decomp_notes_wave116_mapmode_viewport_pen.md`.
 

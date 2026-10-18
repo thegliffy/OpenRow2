@@ -1,0 +1,7 @@
+addr	old	new	lock
+041220f0	FUN_041220f0	eON_SetViewportExtEx	body: set DC extent af0/af4; optional SIZE out
+04122140	FUN_04122140	eON_SetPixel	body: write 24/32bpp pixel on MEMDC
+041230d0	FUN_041230d0	eON_Gdi_Init	body: one-shot DC pool bzero + InitDC(0)
+04122dc0	FUN_04122dc0	eON_Gdi_InitDC	body: reset DC slot defaults + SelectObject stocks
+04123b40	FUN_04123b40	eON_FillRect	body: FillBitmapRectangle with RECT + brush color
+04121fc0	FUN_04121fc0	eON_TextOutA	body: ExtTextOutA with ETO=0
