@@ -1,0 +1,21 @@
+Wave 44 — Imp ctors + png_image_write + inline device→Imp (21 names)
+
+Track 1 — Imp ctors (class-name string + vtable):
+  Direct3D9/9Ex/Device9Ex, BaseTexture/Resource/Surface/Volume/ShaderValidator,
+  VertexDeclaration (Create path; fuller FVF ctor remains at 040b4090),
+  DirectInput + Device/Effect/Gamepad/Keyboard/Mouse Imp ctors.
+
+Track 2 — png_image_write / png_image_write_to_memory
+  Body-locked simplified-API writers (colormap / unsupported-transform /
+  internal-call messages). Peer png_image_write_to_stdio already named.
+
+Track 3 — inline d3d9device_* bodies renamed to Imp::
+  TestCooperativeLevel (stub return 0), GetRenderState, GetClipPlane,
+  SetCurrentTexturePalette — Imp logic lives in the COM entry (no separate FUN_).
+  SKIP: Set*ShaderConstant* (delegate to existing Internal_Set*); larger inline Create*.
+
+Track 4 — leave alone (unchanged):
+  FileSystem/Varyings/GetDlgItem; ShowCursor multi-helper; module_hex multi-sig;
+  ambiguous splits; breakpad stub; remaining large inline d3d9device_* thunks.
+
+Applied via PyGhidra MCP (batch35). Scoreboard 2,465 / 9,221 (+17 new; +4 renames).

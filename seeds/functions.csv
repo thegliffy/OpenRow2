@@ -1396,8 +1396,8 @@ entry,name
 040659a0,FUN_040659a0
 040659c0,FUN_040659c0
 040659f0,FUN_040659f0
-04065a20,FUN_04065a20
-04065a50,FUN_04065a50
+04065a20,Direct3D9ExImp::Direct3D9ExImp
+04065a50,Direct3DDevice9ExImp::Direct3DDevice9ExImp
 04065a80,FUN_04065a80
 04065a90,FUN_04065a90
 04065aa0,FUN_04065aa0
@@ -1416,7 +1416,7 @@ entry,name
 04066610,FUN_04066610
 04066c70,FUN_04066c70
 04066c90,FUN_04066c90
-04067200,FUN_04067200
+04067200,Direct3D9Imp::Direct3D9Imp
 04067250,FUN_04067250
 04067260,FUN_04067260
 04067300,FUN_04067300
@@ -1709,7 +1709,7 @@ entry,name
 0406d530,FUN_0406d530
 0406d620,FUN_0406d620
 0406d680,FUN_0406d680
-0406d6a0,FUN_0406d6a0
+0406d6a0,Direct3DBaseTexture9Imp::Direct3DBaseTexture9Imp
 0406d770,Direct3DBaseTexture9Imp::Initialize
 0406d810,FUN_0406d810
 0406d840,FUN_0406d840
@@ -1762,7 +1762,7 @@ entry,name
 0406f600,FUN_0406f600
 0406f620,FUN_0406f620
 0406f650,FUN_0406f650
-0406f680,d3d9device_TestCooperativeLevel
+0406f680,Direct3DDevice9Imp::TestCooperativeLevel
 0406f690,FUN_0406f690
 0406f850,d3d9device_GetGammaRamp
 0406f980,FUN_0406f980
@@ -1822,8 +1822,8 @@ entry,name
 04074730,d3d9device_SetClipStatus
 04074820,d3d9device_EndStateBlock
 04074960,d3d9device_BeginStateBlock
-04074ad0,d3d9device_GetRenderState
-04074b30,d3d9device_GetClipPlane
+04074ad0,Direct3DDevice9Imp::GetRenderState
+04074b30,Direct3DDevice9Imp::GetClipPlane
 04074ba0,d3d9device_GetMaterial
 04074d60,d3d9device_GetViewport
 04074ea0,d3d9device_MultiplyTransform
@@ -1863,7 +1863,7 @@ entry,name
 040797a0,d3d9device_SetViewport
 04079910,d3d9device_SetMaterial
 04079c50,d3d9device_SetClipPlane
-04079da0,d3d9device_SetCurrentTexturePalette
+04079da0,Direct3DDevice9Imp::SetCurrentTexturePalette
 04079e20,d3d9device_SetScissorRect
 04079ff0,d3d9device_SetNPatchMode
 0407a150,d3d9device_DrawPrimitiveUP
@@ -2262,7 +2262,7 @@ entry,name
 040a6470,FUN_040a6470
 040a64c0,FUN_040a64c0
 040a6520,D3D9_FormatToPixelSize
-040a66c0,FUN_040a66c0
+040a66c0,Direct3DResource9Imp::Direct3DResource9Imp
 040a6740,Direct3DResource9Imp::InitializeInDevicePool
 040a67b0,FUN_040a67b0
 040a67d0,FUN_040a67d0
@@ -2270,7 +2270,7 @@ entry,name
 040a67f0,FUN_040a67f0
 040a6800,FUN_040a6800
 040a6820,FUN_040a6820
-040a6850,FUN_040a6850
+040a6850,Direct3DShaderValidator9Imp::Direct3DShaderValidator9Imp
 040a6880,FUN_040a6880
 040a68a0,FUN_040a68a0
 040a6920,Direct3DStateBlock9Imp::Apply
@@ -2300,7 +2300,7 @@ entry,name
 040ad510,FUN_040ad510
 040ad550,FUN_040ad550
 040ad570,FUN_040ad570
-040ad5d0,FUN_040ad5d0
+040ad5d0,Direct3DSurface9Imp::Direct3DSurface9Imp
 040ad740,Direct3DSurface9Imp::InitializeCommonVariables
 040ad880,FUN_040ad880
 040ad8f0,FUN_040ad8f0
@@ -2359,7 +2359,7 @@ entry,name
 040b2f80,FUN_040b2f80
 040b3030,FUN_040b3030
 040b3050,FUN_040b3050
-040b30d0,FUN_040b30d0
+040b30d0,Direct3DVertexDeclaration9Imp::Direct3DVertexDeclaration9Imp
 040b3180,FUN_040b3180
 040b3280,FUN_040b3280
 040b3370,FUN_040b3370
@@ -2402,7 +2402,7 @@ entry,name
 040b7150,FUN_040b7150
 040b7190,FUN_040b7190
 040b71b0,FUN_040b71b0
-040b7210,FUN_040b7210
+040b7210,Direct3DVolume9Imp::Direct3DVolume9Imp
 040b7300,FUN_040b7300
 040b7460,FUN_040b7460
 040b7490,FUN_040b7490
@@ -2745,7 +2745,7 @@ entry,name
 040f1500,FUN_040f1500
 040f1530,DirectInputImp::GetDeviceStatus
 040f15c0,FUN_040f15c0
-040f1710,FUN_040f1710
+040f1710,DirectInputImp::DirectInputImp
 040f1780,FUN_040f1780
 040f17b0,FUN_040f17b0
 040f17e0,FUN_040f17e0
@@ -2808,7 +2808,7 @@ entry,name
 040f1f90,DirectInputDeviceImp::BuildActionMap
 040f1fd0,FUN_040f1fd0
 040f2000,DirectInputDeviceImp::QueryInterface
-040f2250,FUN_040f2250
+040f2250,DirectInputDeviceImp::DirectInputDeviceImp
 040f22b0,FUN_040f22b0
 040f22d0,FUN_040f22d0
 040f2300,FUN_040f2300
@@ -2832,7 +2832,7 @@ entry,name
 040f2510,FUN_040f2510
 040f2520,FUN_040f2520
 040f2540,FUN_040f2540
-040f2570,FUN_040f2570
+040f2570,DirectInputEffectImp::DirectInputEffectImp
 040f25b0,FUN_040f25b0
 040f25e0,DirectInputGamepadDeviceImp::Poll
 040f2610,DirectInputGamepadDeviceImp::GetCapabilities
@@ -2850,7 +2850,7 @@ entry,name
 040f4250,FUN_040f4250
 040f4350,FUN_040f4350
 040f4370,FUN_040f4370
-040f43f0,FUN_040f43f0
+040f43f0,DirectInputGamepadDeviceImp::DirectInputGamepadDeviceImp
 040f45d0,FUN_040f45d0
 040f45f0,DirectInputGamepadDeviceImp::Release
 040f4620,FUN_040f4620
@@ -2907,7 +2907,7 @@ entry,name
 040f5d90,KeyboardEventReceiver::Internal_ProcessKeyUp
 040f5f60,FUN_040f5f60
 040f62a0,FUN_040f62a0
-040f6310,FUN_040f6310
+040f6310,DirectInputKeyboardDeviceImp::DirectInputKeyboardDeviceImp
 040f64c0,FUN_040f64c0
 040f6590,DirectInputKeyboardDeviceImp::SetDataFormat
 040f6850,DirectInputKeyboardDeviceImp::Release
@@ -2934,7 +2934,7 @@ entry,name
 040f8600,FUN_040f8600
 040f8620,FUN_040f8620
 040f8740,FUN_040f8740
-040f8760,FUN_040f8760
+040f8760,DirectInputMouseDeviceImp::DirectInputMouseDeviceImp
 040f89b0,FUN_040f89b0
 040f8b80,DirectInputMouseDeviceImp::SetCooperativeLevel
 040f8c30,DirectInputMouseDeviceImp::Release
@@ -8396,14 +8396,14 @@ entry,name
 042be830,FUN_042be830
 042be880,png_write_row
 042bec90,FUN_042bec90
-042beee0,FUN_042beee0
+042beee0,png_image_write_to_memory
 042bf0c0,FUN_042bf0c0
 042bf130,FUN_042bf130
 042bf170,FUN_042bf170
 042bf190,FUN_042bf190
 042bf1f0,FUN_042bf1f0
 042bf380,FUN_042bf380
-042bf5f0,FUN_042bf5f0
+042bf5f0,png_image_write
 042bfae0,FUN_042bfae0
 042bfc50,FUN_042bfc50
 042bfd60,FUN_042bfd60

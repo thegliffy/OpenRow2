@@ -14,10 +14,11 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 ## Scoreboard
 
-**2,448 / 9,221 functions carry a project name (26.5%).** A name is kept when that function references a matching assert signature, a single source file, or a D3D9 vtable slot locked by those signatures. Module prefixes name the file, not the function. Message-style strings do not replace a signature name.
+**2,465 / 9,221 functions carry a project name (26.7%).** A name is kept when that function references a matching assert signature, a single source file, or a D3D9 vtable slot locked by those signatures. Module prefixes name the file, not the function. Message-style strings do not replace a signature name.
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
+| 44 | Imp ctors + png_image_write + inline device→Imp (`decomp/imp_ctors_png_write_inline_device_note.txt`). 15 ctors; 2 png write; 4 inline Get/Set/Test. | 21 | 17 (+4 renames) |
 | 43 | Harder D3D crumbs + libpng body-lock + DirectSound/Audio/MM Imp ctors (`decomp/d3d_png_com_wave43_note.txt`). | 23 | 23 |
 | 42 | d3d9device→Imp hand-read + libpng unique APIs (`decomp/d3d_imp_png_wave42_note.txt`). 7 Device Imp methods; 9 resource ctors; 5 Initialize; 13 png_*. fs/vpfs A/W empty. | 34 | 34 |
 | 41 | Shared-cluster LEAVE + Direct3DDevice9Imp::SetRenderState + OGLC_PrintHelp + LinkedProgramData cache pair (`decomp/shared_clusters_setrenderstate_oglc_note.txt`). Splits still empty. | 4 | 4 |
@@ -124,6 +125,7 @@ Closed, do not restart:
 - Shared-cluster verdicts + SetRenderState + OGLC/LinkedProgramData (wave 41).
 - d3d9device→Imp + libpng unique APIs (wave 42).
 - Harder D3D + png body-lock + COM Imp ctors (wave 43).
+- Imp ctors + png_image_write + inline device Imp (wave 44).
 
 Closed, continued:
 
@@ -136,7 +138,7 @@ Closed, continued:
 Open:
 
 - Assert queue empty; message/C-API harvest drained (waves 32–43).
-- Remaining `d3d9device_*` mostly inline-only; ShowCursor multi-helper; png_image_write_* internals.
+- Remaining large inline `d3d9device_*` Create*/Draw*; ShowCursor multi-helper.
 - Leave-alone: shared FileSystem/Varyings/GetDlgItem; module_hex multi-sig; ambiguous splits; breakpad stub.
 
 The extracted `sr2_pc.exe` contains the 71 Windows paths. That does not add a Linux assert the checker can name. Leave `seeds/rejected/win_string_module_map.csv` unused.
