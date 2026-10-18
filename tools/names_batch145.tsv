@@ -1,0 +1,9 @@
+addr	old	new	lock
+04129b10	FUN_04129b10	eON_GlobalDeleteAtom	body: atom refcount--; twin 04129d80 LEAVE
+04181f50	FUN_04181f50	eON_GlobalDeleteAtomA	body: FindAtomA + DeleteAtom + free userdata
+04181e60	FUN_04181e60	eON_GlobalDeleteAtomW	body: Wide→A then DeleteAtomA path
+041822b0	FUN_041822b0	eON_GetWindowTextW	body: GetWindowTextA + MultiByteToWideChar
+04182790	FUN_04182790	eON_CallWindowProcA	body: null → DefWindowProcA else call
+04182800	FUN_04182800	eON_CallWindowProcW	body: null → DefWindowProcW else call
+04182ea0	FUN_04182ea0	eON_BeginPaint	body: GetDC + fill PAINTSTRUCT
+04182fc0	FUN_04182fc0	eON_EndPaint	body: ReleaseDC via PAINTSTRUCT

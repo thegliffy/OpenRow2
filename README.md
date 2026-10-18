@@ -200,6 +200,8 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 ## Next
 
+Wave 154 applied (3,360): GlobalDeleteAtom A/W, Begin/EndPaint, CallWindowProc A/W, GetWindowTextW. See `tools/decomp_notes_wave154_atom_paint_wndproc.md`.
+
 Wave 153 applied (3,352): GetNumberOfInterfaces (PDWORD) + Int count rename, GAA address fill, GetStdHandle, FindAtomA. See `tools/decomp_notes_wave153_ifcount_stdhandle_atom.md`.
 
 Wave 152 applied (3,348): GetAdaptersAddresses, IP tables, GetBestInterface(Ex). See `tools/decomp_notes_wave152_iphlpapi_adapters.md`.
