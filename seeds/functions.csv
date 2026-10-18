@@ -759,7 +759,7 @@ entry,name
 0401ee40,FUN_0401ee40
 0401ee80,FUN_0401ee80
 0401eec0,FUN_0401eec0
-0401eee0,FUN_0401eee0
+0401eee0,BringMainGameWindowToFront
 0401ef20,MainGameWindow_GetDisplayOrigin
 0401ef80,MainGameWindow_GetDisplayDimensions
 0401eff0,FUN_0401eff0
@@ -1197,8 +1197,8 @@ entry,name
 0404cda0,FUN_0404cda0
 0404ceb0,FUN_0404ceb0
 0404d010,FUN_0404d010
-0404d040,FUN_0404d040
-0404d170,FUN_0404d170
+0404d040,eON_KeyDown
+0404d170,eON_KeyUp
 0404d220,FUN_0404d220
 0404d630,FUN_0404d630
 0404d770,FUN_0404d770
@@ -1952,12 +1952,12 @@ entry,name
 0408a230,FUN_0408a230
 0408a250,FUN_0408a250
 0408a4d0,FUN_0408a4d0
-0408a650,FUN_0408a650
+0408a650,Direct3DDevice9Imp::GTRACE_SetTextureStageState
 0408a960,direct3ddevice9imp_0408a960
 0408ab60,Direct3DDevice9Imp::OpenGLSide_SetTextureStageState
 0408ad40,FUN_0408ad40
 0408ad60,FUN_0408ad60
-0408ad80,FUN_0408ad80
+0408ad80,Direct3DDevice9Imp::GTRACE_SetSamplerState
 0408af90,Direct3DDevice9Imp::OpenGLSide_SetSamplerState
 0408b1d0,FUN_0408b1d0
 0408b1f0,FUN_0408b1f0
@@ -2029,7 +2029,7 @@ entry,name
 04099d50,Direct3DDevice9Imp::Internal_SetPixelShaderConstantB
 04099e30,Direct3DDevice9Imp::SetPixelShaderConstantB
 04099ef0,FUN_04099ef0
-04099f80,FUN_04099f80
+04099f80,Direct3DDevice9Imp::ValidateStreamSourceBounds
 0409a020,FUN_0409a020
 0409a0a0,FUN_0409a0a0
 0409a1d0,FUN_0409a1d0
@@ -2668,7 +2668,7 @@ entry,name
 040ec0f0,ShaderCache::LoadEmulatedVertexProgram
 040ec280,FUN_040ec280
 040ec430,FUN_040ec430
-040ec550,FUN_040ec550
+040ec550,shader_pch_load
 040ec9d0,FUN_040ec9d0
 040ecb20,FUN_040ecb20
 040ed260,FUN_040ed260
@@ -2721,9 +2721,9 @@ entry,name
 040f07d0,FUN_040f07d0
 040f08a0,FUN_040f08a0
 040f08b0,FUN_040f08b0
-040f08c0,FUN_040f08c0
-040f0b10,FUN_040f0b10
-040f0bc0,FUN_040f0bc0
+040f08c0,DirectInput8Create
+040f0b10,DirectInputCreateA
+040f0bc0,DirectInputCreateW
 040f0c70,FUN_040f0c70
 040f0ca0,FUN_040f0ca0
 040f0ce0,FUN_040f0ce0

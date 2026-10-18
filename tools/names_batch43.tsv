@@ -1,0 +1,10 @@
+FUN_040f08c0	DirectInput8Create
+FUN_040f0b10	DirectInputCreateA
+FUN_040f0bc0	DirectInputCreateW
+FUN_0404d040	eON_KeyDown
+FUN_0404d170	eON_KeyUp
+FUN_040ec550	shader_pch_load
+FUN_0401eee0	BringMainGameWindowToFront
+FUN_0408a650	Direct3DDevice9Imp::GTRACE_SetTextureStageState
+FUN_0408ad80	Direct3DDevice9Imp::GTRACE_SetSamplerState
+FUN_04099f80	Direct3DDevice9Imp::ValidateStreamSourceBounds
