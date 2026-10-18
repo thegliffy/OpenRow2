@@ -1,0 +1,7 @@
+addr	old	new	lock
+04182ad0	FUN_04182ad0	eON_GetDlgItem	assert: eON_GetDlgItem() didn't find control with id
+041821d0	FUN_041821d0	eON_GetWindowTextA	body: copy HWND+0x50 ANSI title via strlen/strcpy; style & 0xc00000
+04183bb0	FUN_04183bb0	eON_GetClassNameA	body: class atom at HWND+0x3c → class name table → strcpy
+04182430	FUN_04182430	eON_EnableWindow	body: set/clear 0x8000000 disabled bit; vtable+0x90(bEnable)
+04186b10	FUN_04186b10	eON_MoveWindow	body: HWND guard then eON_SetWindowPos(x,y,cx,cy) — MoveWindow arity
+041829b0	FUN_041829b0	eON_GetWindowThreadProcessId	body: return HWND+0x38 tid; optional *pid out; desktop → -1
