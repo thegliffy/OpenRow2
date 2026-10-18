@@ -1,0 +1,11 @@
+addr	old	new	lock
+04050b40	FUN_04050b40	ShaderData_ApplyVersionCaps	body: ps/vs version → slot limits
+04051310	FUN_04051310	ShaderData_HasInputRegister	body: scan input reg table
+04051370	FUN_04051370	ShaderData_HasOutputRegister	body: scan output reg table
+040513d0	FUN_040513d0	ShaderData_HasSamplerRegister	body: scan sampler reg table
+040510a0	FUN_040510a0	ShaderData_GetDefaultConstLimit	body: return 0x100
+040507b0	FUN_040507b0	ShaderData_OnInstructionRemoved	body: dec compile counters
+04050820	FUN_04050820	ShaderData_DispatchOpcodeHandler	body: jumptable by opcode nibble
+04050130	FUN_04050130	Direct3DShaderValidator9Imp_dtor	body: vtable + base dtor
+04050150	FUN_04050150	Direct3D9ExImp_dtor	body: vtable + Imp dtor
+0404f240	FUN_0404f240	eON_Int_IntrusiveList_ClearNodes	body: walk/delete intrusive nodes
