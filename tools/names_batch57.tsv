@@ -1,0 +1,16 @@
+FUN_04139fb0	eON_GlobalAlloc
+FUN_04139fe0	eON_GlobalFree
+FUN_0413a0a0	eON_GlobalLock
+FUN_0413a0d0	eON_GlobalUnlock
+FUN_0413a070	eON_GlobalFlags
+FUN_0413a040	eON_GlobalSize
+FUN_0413a010	eON_GlobalReAlloc
+FUN_0413a100	eON_GlobalHandle
+FUN_04139e30	eON_LocalAlloc
+FUN_04139e60	eON_LocalFree
+FUN_04139ef0	eON_LocalLock
+FUN_04139f20	eON_LocalUnlock
+FUN_04139f80	eON_LocalSize
+FUN_04139e90	eON_LocalReAlloc
+FUN_04139ec0	eON_LocalHandle
+FUN_04139f50	eON_LocalDiscard
