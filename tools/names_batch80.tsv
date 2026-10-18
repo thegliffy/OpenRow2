@@ -1,0 +1,9 @@
+FUN_04175400	eON_ReleaseDC
+FUN_04126af0	eON_AddFontResourceW
+FUN_0411f840	eON_CreateFontIndirectA
+FUN_0411f8e0	eON_CreateFontA
+FUN_0411f9e0	eON_CreateFontW
+FUN_0417c410	eON_LoadBitmapA
+FUN_04180700	eON_CharToOemBuffA
+FUN_041807d0	eON_CharToOemW
+FUN_04126520	eON_EnumFontFamiliesW
