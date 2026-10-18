@@ -1,0 +1,7 @@
+addr	old	new	lock
+04027480	FUN_04027480	eON_Int_GetCursorPos_Core	body: mouse-focus window → screen coords
+04027550	FUN_04027550	eON_Int_SetCursorPos_Core	body: fullscreen Path → warp cursor
+04181220	FUN_04181220	eON_GetFocus_Thunk	body: thin → GetFocus
+04181230	FUN_04181230	eON_SetFocus_Checked	body: HWND gate → prev focus + vtable set
+040270c0	FUN_040270c0	eON_Int_Wnd_CreateWindow_ThreadGate	body: ThreadBlocked → WindowLinux::Create
+040272e0	FUN_040272e0	eON_Int_Wnd_SetWindowPosition_ThreadGate	body: ThreadBlocked → SetWindowPosition
