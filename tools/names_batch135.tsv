@@ -1,0 +1,10 @@
+addr	old	new	lock
+041940e0	FUN_041940e0	eON_inet_ntoa	body: inet_ntoa wrap
+04194240	FUN_04194240	eON_inet_addr	body: inet_addr wrap
+041967b0	FUN_041967b0	eON_getprotobyname	body: getprotobyname + copy protoent
+04191db0	FUN_04191db0	eON_MapSocketOptname_WinToPosix	body: Win SO_* → POSIX; used by setsockopt/getsockopt
+04190bf0	FUN_04190bf0	EventSelect_RemoveSocket	body: remove socket from EventSelect table
+04190cc0	FUN_04190cc0	EventSelect_ClearFlags	body: clear interest bits; send/recv paths
+04196620	FUN_04196620	EventSelect_ClearFD_READ	body: ClearFlags(sock, FD_READ)
+04196650	FUN_04196650	EventSelect_ClearFD_WRITE	body: ClearFlags(sock, FD_WRITE)
+04196030	FUN_04196030	eON_WSAEventSelect	body: EventSelect_AddEvent wrap returns 1

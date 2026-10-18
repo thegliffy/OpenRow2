@@ -200,6 +200,8 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 ## Next
 
+Wave 144 applied (3,292): inet_ntoa/inet_addr, getprotobyname, MapSocketOptname_WinToPosix, EventSelect remove/clear, WSAEventSelect. See `tools/decomp_notes_wave144_inet_proto_eventselect.md`.
+
 Wave 143 applied (3,283): htons, gethostname, WSAAsyncSelect_Enable, WSAWaitForMultipleEvents, FD_ISSET. See `tools/decomp_notes_wave143_winsock_htons_async.md`.
 
 Wave 142 applied (3,278): eON_socket, SocketWait flags, htonl/ntohl. See `tools/decomp_notes_wave142_socket_wait_htonl.md`.
