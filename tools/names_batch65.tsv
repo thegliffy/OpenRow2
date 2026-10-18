@@ -1,0 +1,11 @@
+FUN_0412bce0	eON_GetCurrentDirectoryA
+FUN_0412d490	eON_SetCurrentDirectoryW
+FUN_0412d470	eON_SetCurrentDirectoryA
+FUN_0412e110	eON_CreateFileMappingA
+FUN_0412e180	eON_CreateFileMappingW
+FUN_0412e030	eON_MapViewOfFileEx
+FUN_0412e4b0	eON_UnmapViewOfFile
+FUN_0413e0a0	VMM_UnmapView
+FUN_0412e8e0	eON_GetFileSize
+FUN_0412e910	eON_GetFileSizeEx
+FUN_0412ec40	eON_CancelIo
