@@ -1,0 +1,6 @@
+FUN_0412b590	eON_FindClose
+FUN_0412ac40	eON_FindCloseFindHandle
+FUN_0412c830	eON_DeleteFileW
+FUN_0412bc20	eON_DeleteFileA
+FUN_04135260	eON_GetTempPathA
+FUN_041352d0	eON_GetTempPathW
