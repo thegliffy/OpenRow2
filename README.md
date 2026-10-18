@@ -18,6 +18,7 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
+| 123 | PrimitiveType + FontCache lifecycle (`tools/decomp_notes_wave123_primtype_fontcache.md`). | 8 | 8 |
 | 122 | FontCache remove/get + TextMetrics (`tools/decomp_notes_wave122_fontcache_textmetrics.md`). | 6 | 6 |
 | 121 | Rectangle + AddFontMem + FontCache (`tools/decomp_notes_wave121_rectangle_fontmem.md`). | 6 | 6 |
 | 120 | DC slot/DeviceCaps/Charset/Gamma (`tools/decomp_notes_wave120_dcslot_charset_gamma.md`). | 5 | 5 |
@@ -178,6 +179,8 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 `python3 tools/test_llm_work.py` runs the checker against the seeds.
 
 ## Next
+
+Wave 123 applied (3,139): D3DPRIMITIVETYPE_ToString, FontCache lifecycle/find, Heap ProcessHeap helpers. See `tools/decomp_notes_wave123_primtype_fontcache.md`.
 
 Wave 122 applied (3,131): FontCache get/remove, RemoveFontMemResourceEx, Gdi object lists, GetTextMetrics. See `tools/decomp_notes_wave122_fontcache_textmetrics.md`.
 

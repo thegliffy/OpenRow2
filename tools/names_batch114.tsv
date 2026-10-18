@@ -1,0 +1,9 @@
+addr	old	new	lock
+0408d720	FUN_0408d720	D3DPRIMITIVETYPE_ToString	body: D3DPT_POINTLIST table; !!!(unknown)!!!
+0411b140	FUN_0411b140	FontCache::GetOrCreate	body: singleton FontCache alloc
+0411aff0	FUN_0411aff0	FontCache::FontCache	body: ctor zero + mutex init
+0411b060	FUN_0411b060	FontCache::~FontCache	body: free entries + mutex teardown
+0411b750	FUN_0411b750	FontCache::FindOrAddMemoryFont	body: memcmp hit or AddFontResource
+0411b1e0	FUN_0411b1e0	FontCache::FindFontByNameStyle	body: strcmp name+bold/italic flags
+0411aca0	FUN_0411aca0	eON_HeapFree_ProcessHeap	body: GetProcessHeap+HeapFree
+0411acd0	FUN_0411acd0	eON_HeapAlloc_ProcessHeap	body: GetProcessHeap+HeapAlloc
