@@ -1,0 +1,5 @@
+addr	old	new	lock
+0411ccd0	FUN_0411ccd0	eON_CreateRectRgn	body: GDI type 8 REGION; store LTRB
+04124460	FUN_04124460	eON_SaveDC	body: push DC state block; return save id
+04124550	FUN_04124550	eON_RestoreDC	body: pop save stack; nSavedDC relative/absolute
+0411c840	FUN_0411c840	eON_Gdi_IsValidDC	body: handle in DC pool range
