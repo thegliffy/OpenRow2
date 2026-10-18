@@ -1,0 +1,7 @@
+addr	old	new	lock
+0411c100	FUN_0411c100	eON_FontCache_GetFontInMemory	body: ensure cache → FontCache::GetFontInMemory
+0411b2c0	FUN_0411b2c0	FontCache::RemoveMemoryFont	body: find handle in cache; free buffer; erase
+0411c2d0	FUN_0411c2d0	eON_RemoveFontMemResourceEx	body: FontCache::RemoveMemoryFont wrapper
+0411d870	FUN_0411d870	eON_Gdi_ReleaseObjectList	body: ReleaseObject on multi-slot DC object array
+0411db10	FUN_0411db10	eON_Gdi_AssignObjectList	body: release dst; AddRef copy from src
+04120040	FUN_04120040	eON_GetTextMetrics	body: FT_Get_Sfnt_Table + fill TEXTMETRIC; return BOOL
