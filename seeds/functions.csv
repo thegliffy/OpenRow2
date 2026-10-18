@@ -825,8 +825,8 @@ entry,name
 04022400,OpenGLDisplay_RefreshCurrentMode
 04022440,OpenGLDisplay_GetD3DCAPS9
 040224a0,OpenGLDisplay_SetD3DCAPS9
-04022510,FUN_04022510
-04022590,FUN_04022590
+04022510,eON_Int_GL_NoteCurrentContext
+04022590,eON_Int_GL_RestoreCachedMakeCurrent
 04022630,FUN_04022630
 04022640,EnableVerticalSync
 04022700,SetUserGammaRamp
@@ -839,7 +839,7 @@ entry,name
 04023a00,OpenGLWrapperLinux::DestroyDummyWindow_ThreadGate
 04023a50,OpenGLWrapperLinux::DestroyDummyWindow_Body
 04023a80,OpenGLWrapperLinux::ctor
-04023b00,FUN_04023b00
+04023b00,OpenGLWrapperLinux::MakeCurrent_Ensure
 04023c40,FUN_04023c40
 04023c50,FUN_04023c50
 04023c70,FUN_04023c70
@@ -853,8 +853,8 @@ entry,name
 04024320,FUN_04024320
 04024330,FUN_04024330
 04024340,FUN_04024340
-04024350,FUN_04024350
-04024530,FUN_04024530
+04024350,eON_Int_ClampPointToClipOrWindow
+04024530,eON_Int_RelativeMouse_UpdateDeltas
 04024760,eON_Int_GetMouseState_XY
 04024790,eON_Window_HandleSDLEvent
 04025660,eON_Int_WarpMouse_StoreAndWarp
@@ -5593,11 +5593,11 @@ entry,name
 0416fe80,GetMonitorInfoA
 0416ffb0,GetMonitorInfoW
 041700e0,EnumDisplayMonitors
-041701e0,FUN_041701e0
-04170310,FUN_04170310
-04170360,FUN_04170360
+041701e0,eON_MonitorFromRect
+04170310,eON_MonitorFromPoint
+04170360,eON_MonitorFromWindow
 041703e0,user32_MessageToString
-04170960,FUN_04170960
+04170960,eON_Int_MsgMatchesInputFilter
 04170a80,FUN_04170a80
 04170e20,FUN_04170e20
 04170e70,FUN_04170e70

@@ -18,6 +18,7 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
+| 191 | MonitorFrom + relmouse/GL (`tools/decomp_notes_wave191_monitorfrom_relmouse.md`). | 9 | 9 |
 | 190 | OpenGLDisplay + WrapperLinux (`tools/decomp_notes_wave190_opengldisplay_wrapper.md`). | 15 | 15 |
 | 189 | PropVariant + AudioRenderClient (`tools/decomp_notes_wave189_propvariant_audiorender.md`). | 8 | 8 |
 | 188 | LoadStringW + cursor warp (`tools/decomp_notes_wave188_loadstringw_cursorwarp.md`). | 9 | 9 |
@@ -230,6 +231,8 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 `python3 tools/test_llm_work.py` runs the checker against the seeds.
 
 ## Next
+
+Wave 191 applied (3,552): MonitorFrom* + relative mouse + GL context cache. See `tools/decomp_notes_wave191_monitorfrom_relmouse.md`.
 
 Wave 190 applied (3,543): OpenGLDisplay table + OpenGLWrapperLinux dummy window. See `tools/decomp_notes_wave190_opengldisplay_wrapper.md`.
 

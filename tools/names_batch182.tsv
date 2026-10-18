@@ -1,0 +1,10 @@
+addr	old	new	lock
+041701e0	FUN_041701e0	eON_MonitorFromRect	body: max intersection area over displays
+04170310	FUN_04170310	eON_MonitorFromPoint	body: 1x1 rect → MonitorFromRect
+04170360	FUN_04170360	eON_MonitorFromWindow	body: GetWindowRect → MonitorFromRect
+04024350	FUN_04024350	eON_Int_ClampPointToClipOrWindow	body: clamp POINT to window/clip
+04024530	FUN_04024530	eON_Int_RelativeMouse_UpdateDeltas	body: relative mouse mode deltas
+04022510	FUN_04022510	eON_Int_GL_NoteCurrentContext	body: cache GL context→window
+04022590	FUN_04022590	eON_Int_GL_RestoreCachedMakeCurrent	body: MakeCurrent from cache
+04023b00	FUN_04023b00	OpenGLWrapperLinux::MakeCurrent_Ensure	body: first/later MakeCurrent path
+04170960	FUN_04170960	eON_Int_MsgMatchesInputFilter	body: WM_* vs QS_* filter bits
