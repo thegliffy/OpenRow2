@@ -14,10 +14,11 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 ## Scoreboard
 
-**2,915 / 9,221 functions carry a project name (31.6%).** A name is kept when that function references a matching assert signature, a single source file, or a D3D9 vtable slot locked by those signatures. Module prefixes name the file, not the function. Message-style strings do not replace a signature name.
+**2,918 / 9,221 functions carry a project name (31.6%).** A name is kept when that function references a matching assert signature, a single source file, or a D3D9 vtable slot locked by those signatures. Module prefixes name the file, not the function. Message-style strings do not replace a signature name.
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
+| 78 | CreateDirectory A/W + CopyFileW (`tools/decomp_notes_wave78_mkdir_copyw.md`). | 3 | 3 |
 | 77 | ReadFile/WriteFile + attrs Ex + CreateFileW/Move/Copy (`tools/decomp_notes_wave77_readwrite_copy.md`). | 8 | 8 |
 | 76 | SetFilePointerEx + file times/attrs + CreateFileA (`tools/decomp_notes_wave76_filetime_createfile.md`). | 6 | 6 |
 | 75 | MapViewOfFile + GetFileAttributesA + SetFilePointer (`tools/decomp_notes_wave75_mapview_fileattrs.md`). | 4 | 4 |
@@ -117,6 +118,8 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 `python3 tools/test_llm_work.py` runs the checker against the seeds.
 
 ## Next
+
+Wave 78 applied (2,918): CreateDirectory A/W, CopyFileW. See `tools/decomp_notes_wave78_mkdir_copyw.md`.
 
 Wave 77 applied (2,915): ReadFile/WriteFile, GetFileAttributesEx, CreateFileW, Move/CopyFileA. See `tools/decomp_notes_wave77_readwrite_copy.md`.
 
