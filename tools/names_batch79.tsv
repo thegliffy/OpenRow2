@@ -1,0 +1,6 @@
+FUN_0411daf0	eON_DeleteDC
+FUN_04121e40	eON_ExtTextOutA
+FUN_04120a50	eON_GetTextExtentExPointW
+FUN_04120ca0	eON_GetTextExtentPoint32A
+FUN_04120d60	eON_GetTextExtentPoint32W
+FUN_04120e20	eON_GetTextExtentPointI

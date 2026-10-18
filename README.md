@@ -14,10 +14,11 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 ## Scoreboard
 
-**2,970 / 9,221 functions carry a project name (32.2%).** A name is kept when that function references a matching assert signature, a single source file, or a D3D9 vtable slot locked by those signatures. Module prefixes name the file, not the function. Message-style strings do not replace a signature name.
+**2,976 / 9,221 functions carry a project name (32.3%).** A name is kept when that function references a matching assert signature, a single source file, or a D3D9 vtable slot locked by those signatures. Module prefixes name the file, not the function. Message-style strings do not replace a signature name.
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
+| 88 | GDI DeleteDC + ExtTextOutA + text-extent (`tools/decomp_notes_wave88_gdi_text_dc.md`). | 6 | 6 |
 | 87 | MoveFile(Ex)/ReplaceFile/GetFullPathName (`tools/decomp_notes_wave87_move_replace_fullpath.md`). | 7 | 7 |
 | 86 | DiskFree/TempFile A + env/volume/VPFS (`tools/decomp_notes_wave86_disk_temp_env.md`). | 8 | 8 |
 | 85 | CoTaskMem* + display/resource A/W + winpe/MSAA (`tools/decomp_notes_wave85_com_display_resource.md`). | 18 | 17 (+1 rename) |
@@ -127,6 +128,8 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 `python3 tools/test_llm_work.py` runs the checker against the seeds.
 
 ## Next
+
+Wave 88 applied (2,976): DeleteDC, ExtTextOutA, GetTextExtentExPointW, GetTextExtentPoint32 A/W, GetTextExtentPointI. See `tools/decomp_notes_wave88_gdi_text_dc.md`.
 
 Wave 87 applied (2,970): MoveFileW, MoveFileEx A/W, ReplaceFile A/W, GetFullPathName A/W. See `tools/decomp_notes_wave87_move_replace_fullpath.md`.
 
