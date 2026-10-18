@@ -1,0 +1,18 @@
+addr	old	new	lock
+0415cc90	eON_GetExitCodeThread	eON_GetExitCodeThread_Stub	body: incomplete stub (fix misname)
+0415c460	FUN_0415c460	eON_GetExitCodeThread	body: STILL_ACTIVE 0x103 + exitcode +0x58 type==2
+0415b450	FUN_0415b450	eON_Int_Thread_AttachMsgState	body: thread map set +0x84 MsgState
+0415b510	FUN_0415b510	eON_Int_Thread_IsTerminated	body: SignalledFor case2 state==3
+0415b6c0	FUN_0415b6c0	eON_Int_Thread_GetHandleId	body: thread map +0xc for sync wake
+0415ac20	FUN_0415ac20	eON_Int_ThreadMap_InsertNode	body: rb insert thread-id map
+0415aa80	FUN_0415aa80	eON_Int_ThreadMap_FindInsertPos	body: lower_bound insert pos
+0415b390	FUN_0415b390	eON_Int_ThreadMap_MutexDestroy	body: destroy DAT_0451bd4c
+0415b5b0	FUN_0415b5b0	eON_Int_ThreadMap_BoostSiblingPriorities	body: ProcessDetach +10 to +0x50
+0415b620	FUN_0415b620	eON_Int_ThreadMap_AllSiblingsIdle	body: ProcessDetach all others state==0
+0415b6a0	FUN_0415b6a0	eON_Int_HasTEB	body: FS TEB non-null check
+0415cee0	FUN_0415cee0	eON_TlsAlloc	body: MapOfBits slot + TEB 0xe10/0xf94
+0415d080	FUN_0415d080	eON_TlsFree	body: clear bit + zero all threads slots
+0415d1e0	FUN_0415d1e0	eON_TlsGetValue	body: TEB 0xe10 / ext 0xf94
+0415d260	FUN_0415d260	eON_TlsSetValue	body: write TEB TLS slot
+0415e1e0	FUN_0415e1e0	eON_SystemTimeToFileTime	body: SYSTEMTIME field validate → FILETIME
+0415e4a0	FUN_0415e4a0	eON_FileTimeToSystemTime	body: FILETIME → SYSTEMTIME fields
