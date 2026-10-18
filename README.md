@@ -200,6 +200,8 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 ## Next
 
+Wave 145 applied (3,303): MSG/FD ToString, waveIn Prepare/Unprepare/AddBuffer/Open/Stop/Reset/Close, WaveInDevice Destroy/IsRegistered. See `tools/decomp_notes_wave145_msg_fd_wavein.md`.
+
 Wave 144 applied (3,292): inet_ntoa/inet_addr, getprotobyname, MapSocketOptname_WinToPosix, EventSelect remove/clear, WSAEventSelect. See `tools/decomp_notes_wave144_inet_proto_eventselect.md`.
 
 Wave 143 applied (3,283): htons, gethostname, WSAAsyncSelect_Enable, WSAWaitForMultipleEvents, FD_ISSET. See `tools/decomp_notes_wave143_winsock_htons_async.md`.

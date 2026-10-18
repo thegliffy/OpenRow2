@@ -1,0 +1,12 @@
+addr	old	new	lock
+04191ed0	FUN_04191ed0	MSG_Flags_ToString	body: MSG_PEEK/OOB/DONTROUTE/PARTIAL bit→string
+04192160	FUN_04192160	FD_NetworkEvents_ToString	body: FD_READ/WRITE/… bit→string
+0418ff90	FUN_0418ff90	eON_waveInPrepareHeader	body: set WHDR_PREPARED clear DONE
+04190040	FUN_04190040	eON_waveInUnprepareHeader	body: clear PREPARED set DONE
+041900f0	FUN_041900f0	eON_waveInAddBuffer	body: set WHDR_INQUEUE
+041902b0	FUN_041902b0	eON_waveInStop	body: lookup device → WaveInDevice_Stop
+04190340	FUN_04190340	eON_waveInReset	body: Stop + return queued headers DONE
+04190430	FUN_04190430	eON_waveInClose	body: Destroy + delete if queue empty
+0418fde0	FUN_0418fde0	eON_waveInOpen	body: WAVE_FORMAT_PCM open + register device
+0418fa00	FUN_0418fa00	WaveInDevice_Destroy	body: teardown callback/mutex/unregister
+0418fad0	FUN_0418fad0	WaveInDevice_IsRegistered	body: device list membership
