@@ -1,0 +1,9 @@
+addr	old	new	lock
+041c2090	FUN_041c2090	TiXmlAttribute::Print_ToString_AltQuote	body: attr print alt quotes
+041c3280	FUN_041c3280	TiXmlNode::FirstChild_ByName	body: first child matching name
+041c32d0	FUN_041c32d0	TiXmlNode::LastChild_ByName	body: last child matching name
+041c3410	FUN_041c3410	TiXmlNode::NextSibling_ByName	body: next sibling matching name
+041c3460	FUN_041c3460	TiXmlNode::PreviousSibling_ByName	body: prev sibling matching name
+041c2b70	FUN_041c2b70	TiXmlNode::ClearChildren	body: delete child list
+041c2790	FUN_041c2790	TiXmlText::~TiXmlText	body: text node dtor
+041c1fd0	TiXmlBase::AppendIndent_ToString	TiXmlAttribute::Print_ToString	retarget
