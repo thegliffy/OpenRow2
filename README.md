@@ -18,6 +18,7 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
+| 125 | Registry XML nav + hex codecs (`tools/decomp_notes_wave125_registry_xml_values.md`). | 11 | 11 |
 | 124 | Registry open-key refs + XML (`tools/decomp_notes_wave124_registry_xml.md`). | 7 | 7 |
 | 123 | PrimitiveType + FontCache lifecycle (`tools/decomp_notes_wave123_primtype_fontcache.md`). | 8 | 8 |
 | 122 | FontCache remove/get + TextMetrics (`tools/decomp_notes_wave122_fontcache_textmetrics.md`). | 6 | 6 |
@@ -180,6 +181,8 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 `python3 tools/test_llm_work.py` runs the checker against the seeds.
 
 ## Next
+
+Wave 125 applied (3,157): Registry XML child/attr nav + hex value codecs. See `tools/decomp_notes_wave125_registry_xml_values.md`.
 
 Wave 124 applied (3,146): Registry Is/AddRef/Release open key, OpenPredefinedKey, FindOrCreateKeyNode, Xml RemoveChild/Attribute. See `tools/decomp_notes_wave124_registry_xml.md`.
 

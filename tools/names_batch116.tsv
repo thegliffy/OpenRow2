@@ -1,0 +1,12 @@
+addr	old	new	lock
+04119c40	FUN_04119c40	Registry_IsLoaded	body: DAT registry root TiXml != 0
+0411a570	FUN_0411a570	Registry_EnsureKeyPath	body: FindOrCreate under Software or default
+0411a610	FUN_0411a610	RegistryXml_CountChildren	body: iterate TiXml children
+0411a5d0	FUN_0411a5d0	RegistryXml_SkipChildren	body: advance N child links
+0411a850	FUN_0411a850	RegistryXml_GetNthAttribute	body: walk attribute list by index
+0411a650	FUN_0411a650	RegistryXml_BinaryValueByteCount	body: hex text len→bytes
+0411ab10	FUN_0411ab10	RegistryXml_BinaryAttrByteCount	body: attr hex len→bytes
+0411abe0	FUN_0411abe0	RegistryXml_WideValueCharCount	body: wide hex string chars
+0411aba0	FUN_0411aba0	RegistryXml_ParseHexByte	body: two hex digits → byte
+0411a670	FUN_0411a670	RegistryXml_DecodeHexValue	body: hex string → binary buffer
+0411ab30	FUN_0411ab30	RegistryXml_DecodeHexAttribute	body: attr hex → binary
