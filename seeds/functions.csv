@@ -3695,7 +3695,7 @@ entry,name
 04119950,Registry_AddRefOpenKey
 041199d0,Registry_ReleaseOpenKey
 04119a40,Registry_ForceRemoveOpenKey
-04119ad0,FUN_04119ad0
+04119ad0,RegistryXml_EncodeHex
 04119c40,Registry_IsLoaded
 04119c50,Registry_Load
 0411a120,FlushRegistrySave
@@ -3707,14 +3707,14 @@ entry,name
 0411a650,RegistryXml_BinaryValueByteCount
 0411a670,RegistryXml_DecodeHexValue
 0411a6e0,RegistryXml_RemoveChild
-0411a710,FUN_0411a710
+0411a710,RegistryXml_FindAttributeByName
 0411a850,RegistryXml_GetNthAttribute
-0411a8a0,FUN_0411a8a0
+0411a8a0,RegistryXml_SetValue
 0411ab10,RegistryXml_BinaryAttrByteCount
 0411ab30,RegistryXml_DecodeHexAttribute
 0411aba0,RegistryXml_ParseHexByte
 0411abe0,RegistryXml_WideValueCharCount
-0411ac00,FUN_0411ac00
+0411ac00,RegistryXml_DecodeHexToBuffer
 0411ac70,RegistryXml_RemoveAttribute
 0411aca0,eON_HeapFree_ProcessHeap
 0411acd0,eON_HeapAlloc_ProcessHeap

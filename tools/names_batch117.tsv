@@ -1,0 +1,5 @@
+addr	old	new	lock
+04119ad0	FUN_04119ad0	RegistryXml_EncodeHex	body: bytes→wide hex via 0-9A-F table
+0411a710	FUN_0411a710	RegistryXml_FindAttributeByName	body: walk attrs; decode name; compare
+0411a8a0	FUN_0411a8a0	RegistryXml_SetValue	body: encode + assign TiXml value/attr
+0411ac00	FUN_0411ac00	RegistryXml_DecodeHexToBuffer	body: hex text → output bytes
