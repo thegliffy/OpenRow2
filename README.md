@@ -14,10 +14,11 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 ## Scoreboard
 
-**2,933 / 9,221 functions carry a project name (31.8%).** A name is kept when that function references a matching assert signature, a single source file, or a D3D9 vtable slot locked by those signatures. Module prefixes name the file, not the function. Message-style strings do not replace a signature name.
+**2,936 / 9,221 functions carry a project name (31.8%).** A name is kept when that function references a matching assert signature, a single source file, or a D3D9 vtable slot locked by those signatures. Module prefixes name the file, not the function. Message-style strings do not replace a signature name.
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
+| 83 | Get/Free EnvironmentStrings (`tools/decomp_notes_wave83_envstrings.md`). | 3 | 3 |
 | 82 | GetCommandLine A/W + Set/BuildCommandLineA (`tools/decomp_notes_wave82_cmdline.md`). | 4 | 4 |
 | 81 | ExitThread/Process + TerminateProcess + ResumeThread (`tools/decomp_notes_wave81_exit_resume.md`). | 4 | 2 (+2 renames) |
 | 80 | GetCurrentProcess(Id) + SetEnvironmentVariableA + GetVersion (`tools/decomp_notes_wave80_process_env.md`). | 4 | 4 |
@@ -122,6 +123,8 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 `python3 tools/test_llm_work.py` runs the checker against the seeds.
 
 ## Next
+
+Wave 83 applied (2,936): Get/Free EnvironmentStrings. See `tools/decomp_notes_wave83_envstrings.md`.
 
 Wave 82 applied (2,933): GetCommandLine A/W, Set/BuildCommandLineA. See `tools/decomp_notes_wave82_cmdline.md`.
 
