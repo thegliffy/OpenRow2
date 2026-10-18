@@ -1,0 +1,6 @@
+addr	old	new	lock
+04171e50	FUN_04171e50	eON_GetMessageTime	body: returns DAT_0451be60 stamped with timeGetTime on post
+041777a0	FUN_041777a0	eON_MessageBoxA	body: MB_ type switch (OK/OKCancel/AbortRetryIgnore/YesNoCancel/YesNo/RetryCancel)
+04175b30	FUN_04175b30	eON_MapVirtualKey	body: VK↔scancode/char tables; uMapType 0/1/2
+04175c20	FUN_04175c20	eON_MapVirtualKeyEx	body: MapVirtualKey + HKL passthrough
+04175c50	FUN_04175c50	eON_GetKeyboardLayout	body: returns fixed HKL 0x00010800
