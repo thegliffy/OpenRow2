@@ -1,0 +1,6 @@
+addr	old	new	lock
+0411eee0	FUN_0411eee0	eON_CreateSolidBrush	body: OBJ_BRUSH type2; color at +0xc
+041756e0	FUN_041756e0	eON_GetSysColor	body: COLOR_* index <0x20 → table
+04175700	FUN_04175700	eON_GetSysColorBrush	body: lazy brush objs for 32 sys colors
+04177730	FUN_04177730	eON_MsgWaitForMultipleObjects	body: WaitForMultipleObjects + MWMO flags
+041758e0	FUN_041758e0	eON_LoadIcon	body: OEM IDI_* 0x7fxx + LoadCursor path

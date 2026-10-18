@@ -18,6 +18,7 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
+| 118 | SysColor/SolidBrush/MsgWait/LoadIcon (`tools/decomp_notes_wave118_syscolor_solidbrush.md`). | 5 | 5 |
 | 117 | SetPixel/FillRect/TextOutA (`tools/decomp_notes_wave117_setpixel_fillrect.md`). | 6 | 6 |
 | 116 | MapMode/Viewport/PenIndirect/fonts (`tools/decomp_notes_wave116_mapmode_viewport_pen.md`). | 10 | 10 |
 | 115 | CreateCompatibleBitmap + CreateBitmap (`tools/decomp_notes_wave115_createcompatiblebitmap.md`). | 2 | 2 |
@@ -173,6 +174,8 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 `python3 tools/test_llm_work.py` runs the checker against the seeds.
 
 ## Next
+
+Wave 118 applied (3,110): CreateSolidBrush, GetSysColor/Brush, MsgWaitForMultipleObjects, LoadIcon. See `tools/decomp_notes_wave118_syscolor_solidbrush.md`.
 
 Wave 117 applied (3,105): SetViewportExtEx, SetPixel, Gdi_Init/InitDC, FillRect, TextOutA. See `tools/decomp_notes_wave117_setpixel_fillrect.md`.
 
