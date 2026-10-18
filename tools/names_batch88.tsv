@@ -1,0 +1,13 @@
+addr	old	new	lock
+04175610	FUN_04175610	eON_IntersectRect	body: dest=intersection of two RECTs; overlap gates; else empty
+0417eca0	FUN_0417eca0	eON_CharUpperA	body: toupper in-place string or single char if HIWORD==0
+0417ed30	FUN_0417ed30	eON_CharUpperW	body: wide toupper in-place or single wchar
+0417ee70	FUN_0417ee70	eON_CharLowerA	body: tolower in-place string or single char if HIWORD==0
+0417ef00	FUN_0417ef00	eON_CharLowerW	body: wide tolower in-place or single wchar
+0417eda0	FUN_0417eda0	eON_CharUpperBuffA	body: toupper first n ANSI chars
+0417ee10	FUN_0417ee10	eON_CharUpperBuffW	body: toupper first n wide chars
+0417ef70	FUN_0417ef70	eON_CharLowerBuffA	body: tolower first n ANSI chars
+0417efe0	FUN_0417efe0	eON_CharLowerBuffW	body: tolower first n wide chars
+0417f040	FUN_0417f040	eON_IsCharAlphaA	body: ctype upper|lower bits
+0417f0a0	FUN_0417f0a0	eON_IsCharAlphaW	body: iswalpha
+0417f100	FUN_0417f100	eON_IsCharLowerW	body: iswlower

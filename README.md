@@ -14,10 +14,11 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 ## Scoreboard
 
-**3,018 / 9,221 functions carry a project name (32.7%).** A name is kept when that function references a matching assert signature, a single source file, or a D3D9 vtable slot locked by those signatures. Module prefixes name the file, not the function. Message-style strings do not replace a signature name.
+**3,030 / 9,221 functions carry a project name (32.9%).** A name is kept when that function references a matching assert signature, a single source file, or a D3D9 vtable slot locked by those signatures. Module prefixes name the file, not the function. Message-style strings do not replace a signature name.
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
+| 97 | IntersectRect + CharUpper/Lower(A/W/Buff) + IsCharAlpha(A/W) + IsCharLowerW (`tools/decomp_notes_wave97_intersect_char.md`). | 12 | 12 |
 | 96 | RECT helpers Copy/Equal/PtIn/Set/Empty/Offset/IsEmpty/Inflate (`tools/decomp_notes_wave96_rect_apis.md`). | 8 | 8 |
 | 95 | GetDlgItem + GetWindowTextA + GetClassNameA + EnableWindow + MoveWindow + GetWindowThreadProcessId (`tools/decomp_notes_wave95_dlgitem_text_enable_move.md`). | 6 | 6 |
 | 94 | GetDesktopWindow + Get/SetForeground + Window/Client rect + Screen/ClientToScreen + Placement/Info (`tools/decomp_notes_wave94_window_rect_fg_placement.md`). | 9 | 9 |
@@ -152,6 +153,8 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 `python3 tools/test_llm_work.py` runs the checker against the seeds.
 
 ## Next
+
+Wave 97 applied (3,030): IntersectRect, CharUpper/Lower A/W + Buff, IsCharAlpha A/W, IsCharLowerW. See `tools/decomp_notes_wave97_intersect_char.md`.
 
 Wave 96 applied (3,018): CopyRect, EqualRect, PtInRect, SetRect, SetRectEmpty, OffsetRect, IsRectEmpty, InflateRect. See `tools/decomp_notes_wave96_rect_apis.md`.
 
