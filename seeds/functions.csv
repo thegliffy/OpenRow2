@@ -6526,7 +6526,7 @@ entry,name
 041c1300,TiXmlString::operator+_SC
 041c13f0,TiXmlString::operator+_CS
 041c14f0,TiXmlString::~TiXmlString
-041c1520,FUN_041c1520
+041c1520,TiXmlElement::Accept
 041c15a0,FUN_041c15a0
 041c15c0,FUN_041c15c0
 041c15e0,FUN_041c15e0
@@ -6540,7 +6540,7 @@ entry,name
 041c1be0,TiXmlDeclaration::Print
 041c1de0,TiXmlComment::Clone
 041c1e90,TiXmlText::Clone
-041c1f40,FUN_041c1f40
+041c1f40,TiXmlBase::PrintIndent
 041c1fd0,FUN_041c1fd0
 041c2090,FUN_041c2090
 041c2150,TiXmlAttributeSet::FindOrCreate
@@ -6595,7 +6595,7 @@ entry,name
 041c4720,TiXmlDocument::SaveFile_ToValuePath
 041c4750,TiXmlDocument::SaveFile_Path
 041c4800,TiXmlDocument::Print_FILE
-041c4880,FUN_041c4880
+041c4880,TiXmlDocument::CopyTo
 041c4940,TiXmlNode::DeleteChildren
 041c4990,TiXmlDocument::TiXmlDocument_Empty
 041c4a40,TiXmlDocument::Clone
@@ -6612,7 +6612,7 @@ entry,name
 041c50e0,TiXmlAttribute::IntValue
 041c5110,TiXmlAttribute::DoubleValue
 041c5140,TiXmlAttribute::TiXmlAttribute_Copy
-041c5200,FUN_041c5200
+041c5200,TiXmlElement::CopyTo
 041c5280,FUN_041c5280
 041c52e0,FUN_041c52e0
 041c5340,FUN_041c5340

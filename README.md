@@ -18,6 +18,7 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
+| 132 | TiXml Accept/CopyTo (`tools/decomp_notes_wave132_tixml_copyto_accept.md`). | 4 | 4 |
 | 131 | TiXmlString ops + Clone/Print (`tools/decomp_notes_wave131_tixml_string_clone.md`). | 9 | 9 |
 | 130 | TiXml Clone/Accept/DeleteChildren (`tools/decomp_notes_wave130_tixml_clone_accept.md`). | 8 | 8 |
 | 129 | TiXml Clear/Document/QueryAttr (`tools/decomp_notes_wave129_tixml_doc_attr.md`). | 14 | 14 |
@@ -187,6 +188,8 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 `python3 tools/test_llm_work.py` runs the checker against the seeds.
 
 ## Next
+
+Wave 132 applied (3,213): TiXml Element Accept/CopyTo, Document CopyTo. See `tools/decomp_notes_wave132_tixml_copyto_accept.md`.
 
 Wave 131 applied (3,209): TiXmlString operators, Declaration::Print, Comment/Text Clone, Node dtor. See `tools/decomp_notes_wave131_tixml_string_clone.md`.
 

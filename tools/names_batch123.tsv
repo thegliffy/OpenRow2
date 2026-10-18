@@ -1,0 +1,5 @@
+addr	old	new	lock
+041c1520	FUN_041c1520	TiXmlElement::Accept	body: VisitEnter + Accept children
+041c4880	FUN_041c4880	TiXmlDocument::CopyTo	body: copy value/fields into dst doc
+041c5200	FUN_041c5200	TiXmlElement::CopyTo	body: clear children; copy value+attrs
+041c1f40	FUN_041c1f40	TiXmlBase::PrintIndent	body: append depth*indent spaces
