@@ -1,0 +1,10 @@
+addr	old	new	lock
+041c30e0	FUN_041c30e0	TiXmlNode::ReplaceChild	body: clone new; relink; delete old
+041c2d90	FUN_041c2d90	TiXmlNode::InsertEndChild	body: LinkEndChild after clone check
+041c5ca0	FUN_041c5ca0	TiXmlAttributeSet::Find	body: strcmp attr name walk
+041c5d00	FUN_041c5d00	TiXmlAttributeSet::FindOrCreate_ByName	body: Find or FindOrCreate
+041c5500	FUN_041c5500	TiXmlDeclaration::Clone	body: type5 declaration clone
+041c5900	FUN_041c5900	TiXmlElement::Clone	body: new element + CopyChildrenTo
+041c6ba0	FUN_041c6ba0	TiXmlBase::IsAlpha	body: ctype alpha bit
+041c6bd0	FUN_041c6bd0	TiXmlBase::IsWhiteSpace	body: ctype space bit
+041c5340	FUN_041c5340	TiXmlDeclaration::TiXmlDeclaration_VES	body: ctor version/encoding/standalone
