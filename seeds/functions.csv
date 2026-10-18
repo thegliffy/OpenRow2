@@ -6115,14 +6115,14 @@ entry,name
 0418a0e0,FUN_0418a0e0
 0418a180,FUN_0418a180
 0418a200,FUN_0418a200
-0418a280,FUN_0418a280
+0418a280,AudioClientImp::Int_SubmitRenderData
 0418a380,AudioClientImp::Release
 0418a3b0,FUN_0418a3b0
 0418a3e0,FUN_0418a3e0
-0418a410,FUN_0418a410
+0418a410,AudioRenderClientImp::ReleaseBuffer
 0418a4e0,FUN_0418a4e0
 0418a520,AudioRenderClientImp::QueryInterface
-0418a5d0,FUN_0418a5d0
+0418a5d0,AudioRenderClientImp::GetBuffer
 0418a690,FUN_0418a690
 0418a6d0,AudioRenderClientImp::AudioRenderClientImp
 0418a720,FUN_0418a720
@@ -6252,7 +6252,7 @@ entry,name
 0418dfa0,FUN_0418dfa0
 0418dfd0,FUN_0418dfd0
 0418dff0,FUN_0418dff0
-0418e0c0,FUN_0418e0c0
+0418e0c0,PropertyStoreImp::GetAt
 0418e140,FUN_0418e140
 0418e1e0,PropertyStoreImp::QueryInterface
 0418e290,FUN_0418e290

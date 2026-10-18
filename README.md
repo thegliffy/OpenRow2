@@ -18,6 +18,7 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
+| 168 | PropStore GetAt + RenderBuffer (`tools/decomp_notes_wave168_propstore_getat_renderbuf.md`). | 4 | 4 |
 | 167 | OpenPropertyStore (`tools/decomp_notes_wave167_openpropertystore.md`). | 2 | 2 |
 | 166 | SPIW + PropertyStore GetValue (`tools/decomp_notes_wave166_spi_w_propstore.md`). | 2 | 2 |
 | 165 | MMDeviceImp Activate/GetId (`tools/decomp_notes_wave165_mmdevice_activate_getid.md`). | 3 | 3 |
@@ -207,6 +208,8 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 `python3 tools/test_llm_work.py` runs the checker against the seeds.
 
 ## Next
+
+Wave 168 applied (3,422): PropertyStore GetAt + AudioRenderClient Get/ReleaseBuffer. See `tools/decomp_notes_wave168_propstore_getat_renderbuf.md`.
 
 Wave 167 applied (3,418): MMDeviceImp OpenPropertyStore. See `tools/decomp_notes_wave167_openpropertystore.md`.
 
