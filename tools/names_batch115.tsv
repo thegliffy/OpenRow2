@@ -1,0 +1,8 @@
+addr	old	new	lock
+04119910	FUN_04119910	Registry_IsKeyOpen	body: walk open-key list for handle
+04119950	FUN_04119950	Registry_AddRefOpenKey	body: bump ref or insert open-key node
+041199d0	FUN_041199d0	Registry_ReleaseOpenKey	body: dec ref; unlink at 0
+0411a400	FUN_0411a400	Registry_OpenPredefinedKey	body: HKEY_* roots → XML path
+0411a180	FUN_0411a180	Registry_FindOrCreateKeyNode	body: walk/create TiXml key by wide name
+0411a6e0	FUN_0411a6e0	RegistryXml_RemoveChild	body: TiXmlNode::RemoveChild + dirty
+0411ac70	FUN_0411ac70	RegistryXml_RemoveAttribute	body: TiXmlElement::RemoveAttribute + dirty
