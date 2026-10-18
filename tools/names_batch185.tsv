@@ -1,0 +1,16 @@
+addr	old	new	lock
+04050200	FUN_04050200	Direct3D9ExImp::QueryInterface	body: → IUnknownImp::QueryInterface
+04050230	FUN_04050230	Direct3D9ExImp::CreateDevice	body: → Direct3D9Imp::CreateDevice
+04050280	FUN_04050280	Direct3D9ExImp::GetAdapterMonitor	body: → GetAdapterMonitor
+040502b0	FUN_040502b0	Direct3D9ExImp::GetDeviceCaps	body: → GetDeviceCaps
+04050320	FUN_04050320	Direct3D9ExImp::CheckDeviceType	body: → CheckDeviceType
+04050360	FUN_04050360	Direct3D9ExImp::CreateDeviceEx	body: → CreateDeviceEx
+04050440	FUN_04050440	Direct3D9ExImp::GetAdapterDisplayMode	body: → GetAdapterDisplayMode
+04050470	FUN_04050470	Direct3D9ExImp::EnumAdapterModes	body: → EnumAdapterModes
+040504b0	FUN_040504b0	Direct3D9ExImp::GetAdapterModeCount	body: → GetAdapterModeCount
+04050510	FUN_04050510	Direct3D9ExImp::GetAdapterCount	body: → GetAdapterCount
+04066110	FUN_04066110	Direct3D9Imp::QueryInterface	body: IID_IDirect3D9/Ex → AddRef outer
+04050050	FUN_04050050	Direct3DCreate9ShaderValidator	body: new ShaderValidator9Imp
+0404ff30	FUN_0404ff30	eON_Int_D3D9_EnsureSubsystemsInit	body: one-shot shader/GL init
+0404fe00	FUN_0404fe00	eON_Int_D3D9_AllocPagedBlock	body: 0x2000 VirtualAlloc pool
+0404fe90	FUN_0404fe90	eON_Int_D3D9_FreePagedBlock	body: return block to pool CS

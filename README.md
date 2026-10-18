@@ -18,6 +18,7 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
+| 194 | Direct3D9ExImp thunks (`tools/decomp_notes_wave194_d3d9ex_thunks.md`). | 15 | 15 |
 | 193 | D3D9 CheckDeviceType/helpers (`tools/decomp_notes_wave193_d3d9_checkdevicetype.md`). | 7 | 7 |
 | 192 | D3D9 CreateDevice/Adapter (`tools/decomp_notes_wave192_d3d9_createdevice.md`). | 6 | 6 |
 | 191 | MonitorFrom + relmouse/GL (`tools/decomp_notes_wave191_monitorfrom_relmouse.md`). | 9 | 9 |
@@ -233,6 +234,8 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 `python3 tools/test_llm_work.py` runs the checker against the seeds.
 
 ## Next
+
+Wave 194 applied (3,580): Direct3D9ExImp thunks + D3D9 QI/pool. See `tools/decomp_notes_wave194_d3d9ex_thunks.md`.
 
 Wave 193 applied (3,565): Direct3D9Imp CheckDeviceType + format helpers. See `tools/decomp_notes_wave193_d3d9_checkdevicetype.md`.
 
