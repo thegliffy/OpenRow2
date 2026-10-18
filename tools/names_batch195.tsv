@@ -1,0 +1,9 @@
+addr	old	new	lock
+0416c810	FUN_0416c810	eON_Int_TranslateAccelerator_Core	body: WM_KEYDOWN/SYSKEYDOWN accel table match
+0416d120	FUN_0416d120	eON_TranslateAcceleratorA	body: null-check wrap core
+0416ca90	FUN_0416ca90	eON_Int_AccelTableMap_FindInsertPos	body: rb insert pos for accel handles
+0416d1f0	FUN_0416d1f0	eON_Int_AccelTableMap_DestroySubtree	body: rb destroy
+0416d380	FUN_0416d380	eON_Int_AccelTableMap_Clear	body: clear from root
+04147490	FUN_04147490	eON_DeleteTimerQueue	body: magic 0x5dfa73e1 cancel no-wait
+04147530	FUN_04147530	eON_DeleteTimerQueueEx	body: cancel + optional wait -1
+04147cf0	FUN_04147cf0	eON_Int_WaitForSingleObject_AlertableUnsupported	body: alertable → ERROR_NOT_SUPPORTED

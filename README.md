@@ -18,6 +18,7 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
+| 204 | TranslateAccelerator + DeleteTimerQueue (`tools/decomp_notes_wave204_accel_timerqueue.md`). | 8 | 8 |
 | 203 | IsMainThread + SetErrorMode + Wnd gates (`tools/decomp_notes_wave203_mainthread_errormode.md`). | 10 | 10 |
 | 202 | Thread APIs GetCurrent/Priority/Terminate (`tools/decomp_notes_wave202_thread_apis.md`). | 11 | 9 new + 2 renames |
 | 201 | Local/Dos FileTime + GetThreadTimes (`tools/decomp_notes_wave201_filetime_threadtimes.md`). | 11 | 11 |
@@ -243,6 +244,8 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 `python3 tools/test_llm_work.py` runs the checker against the seeds.
 
 ## Next
+
+Wave 204 applied (3,674): TranslateAccelerator + DeleteTimerQueue. See `tools/decomp_notes_wave204_accel_timerqueue.md`.
 
 Wave 203 applied (3,666): IsMainThread + SetErrorMode + WindowLinux gates. See `tools/decomp_notes_wave203_mainthread_errormode.md`.
 
