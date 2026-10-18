@@ -594,7 +594,7 @@ entry,name
 0400b350,FUN_0400b350
 0400b430,FUN_0400b430
 0400b570,FUN_0400b570
-0400b7a0,FUN_0400b7a0
+0400b7a0,eON_LogLinuxVersions
 0400b800,PrepareOpenGLDisplayInformation
 0400bcc0,FUN_0400bcc0
 0400bcf0,thread_StartMain
@@ -655,7 +655,7 @@ entry,name
 04010440,GamepadMapping::RegisterMappingString
 04010740,FUN_04010740
 040107d0,AppendGameMappingsFromSDLGamepadConfigFile
-04010a50,FUN_04010a50
+04010a50,ApplySDLGamepadConfigEnv
 04010ba0,FUN_04010ba0
 04010c20,FUN_04010c20
 04010c70,FUN_04010c70
@@ -717,7 +717,7 @@ entry,name
 04018ea0,eON_GetPrecompiledShadersPath
 04019130,eON_GetSystem32Path
 04019310,eON_GetGameDocumentsPath
-040194d0,FUN_040194d0
+040194d0,eON_GetAppDataPath
 04019690,eON_GetAppDataLocalPath
 04019850,eON_GetAppDataSharedPath
 04019a10,eON_GetSavedGamesPath
@@ -747,7 +747,7 @@ entry,name
 0401dc20,FUN_0401dc20
 0401dc50,FUN_0401dc50
 0401dc80,FUN_0401dc80
-0401dcb0,FUN_0401dcb0
+0401dcb0,udev_HandleInputDeviceEvent
 0401de50,FUN_0401de50
 0401dfa0,FUN_0401dfa0
 0401e000,FUN_0401e000
@@ -776,7 +776,7 @@ entry,name
 0401f910,FUN_0401f910
 0401f930,OpenGLWrapperLinux::EnableDebugOutput
 0401fb60,OpenGLWrapperLinux::MakeCurrent
-0401fc10,FUN_0401fc10
+0401fc10,eON_FilterDesktopDisplayMode
 0401fd10,FUN_0401fd10
 0401fdd0,FUN_0401fdd0
 0401fe90,FUN_0401fe90
@@ -860,7 +860,7 @@ entry,name
 04025660,FUN_04025660
 04025680,FUN_04025680
 04025730,eON_Core::pumpRunLoopUntilEmpty
-040257c0,FUN_040257c0
+040257c0,eON_EnterRunLoop
 040258e0,RelaunchGame
 04025b20,FUN_04025b20
 04025b80,FUN_04025b80
@@ -952,7 +952,7 @@ entry,name
 0402cc80,FUN_0402cc80
 0402ccb0,FUN_0402ccb0
 0402cd10,FUN_0402cd10
-0402cd40,FUN_0402cd40
+0402cd40,eON_LogSystem_Shutdown
 0402cdb0,eON_LogSystem_Initialise
 0402cfa0,FUN_0402cfa0
 0402cfd0,FUN_0402cfd0
@@ -1115,7 +1115,7 @@ entry,name
 040408e0,FUN_040408e0
 04040950,FUN_04040950
 04040a90,FUN_04040a90
-04040ab0,FUN_04040ab0
+04040ab0,VPFS_EnumerateDiskFolderEntries
 04040c90,VPFS_SetAllFolderContentsAsDeleted
 04040f80,VPFS_OpenFolderOnDisk
 04041da0,VPFS_Open
@@ -1353,12 +1353,12 @@ entry,name
 0405c930,eON_ShaderData::GenerateVertexShaderOutputs
 0405cc40,FUN_0405cc40
 0405cc50,FUN_0405cc50
-0405cf60,FUN_0405cf60
-0405d0d0,FUN_0405d0d0
-0405d1c0,FUN_0405d1c0
-0405d2b0,FUN_0405d2b0
+0405cf60,D3DBLEND_ToString
+0405d0d0,D3DSTENCILOP_ToString
+0405d1c0,D3DCMP_ToString
+0405d2b0,D3DTOP_ToString
 0405d550,D3DTA_ToString
-0405d6a0,FUN_0405d6a0
+0405d6a0,D3DTEXF_ToString
 0405d760,FUN_0405d760
 0405d8a0,D3D9_FormatToString
 0405dd10,FUN_0405dd10
@@ -1982,7 +1982,7 @@ entry,name
 04091490,OpenGLContextCache::LightDirection
 04091ce0,FUN_04091ce0
 04091f80,OpenGLContextCache::MaterialShininess
-04092950,FUN_04092950
+04092950,Direct3DDevice9Imp::SetVertexAttrib
 04092e00,Direct3DDevice9Imp::VertexArrays_EnableArrays
 04093480,Direct3DDevice9Imp::SetupVertexAttributeArrays
 04093810,OpenGLContextCache::UpdateTextureMatrices
@@ -2403,7 +2403,7 @@ entry,name
 040b7190,FUN_040b7190
 040b71b0,FUN_040b71b0
 040b7210,Direct3DVolume9Imp::Direct3DVolume9Imp
-040b7300,FUN_040b7300
+040b7300,Direct3DDevice9Imp::UpdateMaxVolumeSize
 040b7460,FUN_040b7460
 040b7490,FUN_040b7490
 040b74d0,FUN_040b74d0
@@ -2737,7 +2737,7 @@ entry,name
 040f0e70,FUN_040f0e70
 040f0e80,FUN_040f0e80
 040f0e90,FUN_040f0e90
-040f0f10,FUN_040f0f10
+040f0f10,DirectInput8Imp::EnumDevices
 040f1420,FUN_040f1420
 040f1440,DirectInputImp::CreateDeviceEx
 040f1480,DirectInputImp::ConfigureDevices
@@ -3005,7 +3005,7 @@ entry,name
 040fc310,FUN_040fc310
 040fc340,FUN_040fc340
 040fc560,FUN_040fc560
-040fc5e0,FUN_040fc5e0
+040fc5e0,DirectSound3DListenerImp::NormalizeOrientation
 040fc9f0,FUN_040fc9f0
 040fca10,FUN_040fca10
 040fca50,FUN_040fca50
@@ -3205,7 +3205,7 @@ entry,name
 040fff70,DirectSoundCaptureBuffer8Imp::Start
 040ffff0,FUN_040ffff0
 04100070,DirectSoundCaptureBuffer8Imp::DirectSoundCaptureBuffer8Imp
-041000c0,FUN_041000c0
+041000c0,DirectSoundBufferImp::SetNotificationPositions
 04100130,FUN_04100130
 04100150,FUN_04100150
 04100180,DirectSoundNotifyImp::DirectSoundNotifyImp
@@ -3283,7 +3283,7 @@ entry,name
 041015c0,FUN_041015c0
 04101670,FUN_04101670
 04101680,FUN_04101680
-041016a0,FUN_041016a0
+041016a0,libav_LogCallback
 041016f0,FUN_041016f0
 04101780,AudioConverter::DetermineAudioFormatType
 041018a0,FUN_041018a0
@@ -3848,7 +3848,7 @@ entry,name
 04123130,FUN_04123130
 041231e0,FUN_041231e0
 04123420,eON_GetBitmapBits
-04123510,FUN_04123510
+04123510,eON_ValidateBitmapSize
 04123640,eON_GetObjectA
 041238d0,eON_GetObjectW
 04123ab0,FUN_04123ab0
@@ -4193,7 +4193,7 @@ entry,name
 0412e3d0,FUN_0412e3d0
 0412e4b0,FUN_0412e4b0
 0412e4d0,FUN_0412e4d0
-0412e4e0,FUN_0412e4e0
+0412e4e0,eON_LogGameStdout
 0412e5a0,FUN_0412e5a0
 0412e5e0,FUN_0412e5e0
 0412e620,fs_DeleteFileHandle
@@ -4397,9 +4397,9 @@ entry,name
 04139540,FUN_04139540
 04139550,eON_PeekNamedPipe
 041395a0,FUN_041395a0
-041395f0,FUN_041395f0
-04139650,FUN_04139650
-04139690,FUN_04139690
+041395f0,kernel32_Init
+04139650,kernel32_Shutdown
+04139690,kernel32_ProcessAttach
 041396c0,kernel32_ProcessDetach
 04139740,kernel32_ThreadAttach
 04139770,kernel32_ThreadDetach
@@ -5042,7 +5042,7 @@ entry,name
 0415e790,FUN_0415e790
 0415e820,FUN_0415e820
 0415e8e0,FUN_0415e8e0
-0415e990,FUN_0415e990
+0415e990,GetTimeZoneInformation_Log
 0415ea40,eON_CompareFileTime
 0415eaf0,FUN_0415eaf0
 0415eb00,FUN_0415eb00
@@ -5137,7 +5137,7 @@ entry,name
 041611b0,FUN_041611b0
 041611d0,FUN_041611d0
 04161240,FUN_04161240
-04161270,FUN_04161270
+04161270,MallocImp::MallocImp
 041612b0,FUN_041612b0
 041612e0,FUN_041612e0
 041617f0,FUN_041617f0
@@ -6182,7 +6182,7 @@ entry,name
 0418bfa0,FUN_0418bfa0
 0418bfb0,FUN_0418bfb0
 0418c040,FUN_0418c040
-0418c080,FUN_0418c080
+0418c080,MMDevice_GetMainVolume
 0418c390,FUN_0418c390
 0418c500,FUN_0418c500
 0418c510,FUN_0418c510
@@ -6204,7 +6204,7 @@ entry,name
 0418c960,FUN_0418c960
 0418c970,FUN_0418c970
 0418c980,FUN_0418c980
-0418ca30,FUN_0418ca30
+0418ca30,GetDefaultAudioEndpoint
 0418cb00,FUN_0418cb00
 0418cdc0,FUN_0418cdc0
 0418cde0,MMDeviceEnumeratorImp::QueryInterface
