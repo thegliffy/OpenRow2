@@ -18,6 +18,7 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
+| 107 | WaveInDevice_Start* + MsgQueue_Post (+ socket CSV sync) (`tools/decomp_notes_wave107_wavein_msgpost_csv_sync.md`). | 3 | 3 |
 | 106 | CreateRectRgn + SaveDC/RestoreDC + Gdi_IsValidDC (`tools/decomp_notes_wave106_rectrgn_savedc.md`). | 4 | 4 |
 | 105 | SetTextColor/SetBkColor/SetBkMode + Get/SetTextAlign (`tools/decomp_notes_wave105_dc_text_bk.md`). | 5 | 5 |
 | 104 | CreatePen + CreateBrushIndirect (`tools/decomp_notes_wave104_createpen_brush.md`). | 2 | 2 |
@@ -162,6 +163,8 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 `python3 tools/test_llm_work.py` runs the checker against the seeds.
 
 ## Next
+
+Wave 107 applied (3,066): WaveInDevice_Start, WaveInDevice_StartIfRegistered, MsgQueue_Post. See `tools/decomp_notes_wave107_wavein_msgpost_csv_sync.md`.
 
 Wave 106 applied (3,063): CreateRectRgn, SaveDC, RestoreDC, Gdi_IsValidDC. See `tools/decomp_notes_wave106_rectrgn_savedc.md`.
 

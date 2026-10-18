@@ -1,0 +1,4 @@
+addr	old	new	lock
+0418fc40	FUN_0418fc40	WaveInDevice_Start	body: twin of WaveInDevice_Stop; start capture OOM log
+041901e0	FUN_041901e0	WaveInDevice_StartIfRegistered	body: require device in global list then start; same OOM log
+04171f30	FUN_04171f30	eON_MsgQueue_Post	body: enqueue posted message; stamps GetMessageTime + GetCursorPos
