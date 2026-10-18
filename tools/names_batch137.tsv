@@ -1,0 +1,8 @@
+addr	old	new	lock
+0418f3a0	FUN_0418f3a0	eON_waveInGetNumDevs	body: GetAudioDevices count only
+0418f3e0	FUN_0418f3e0	eON_waveInGetDevCapsW	body: WAVEINCAPSW 0x50 fill
+0418f5a0	FUN_0418f5a0	eON_waveInGetDevCapsA	body: capsW + WideCharToMultiByte
+0418f810	FUN_0418f810	WaveInDevice_Init	body: mutex init + register in device list
+0418fb50	FUN_0418fb50	WaveInDevice_Open	body: PCM format + capture callback hookup
+0418fd70	FUN_0418fd70	WaveInDevice_ReturnQueuedBuffers	body: drain queue WHDR_DONE + callback
+0418f7e0	FUN_0418f7e0	WaveInDevice_CaptureCallbackThunk	body: thin → CaptureCallback
