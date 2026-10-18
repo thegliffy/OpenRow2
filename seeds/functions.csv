@@ -6148,8 +6148,8 @@ entry,name
 0418b090,AudioUnit_IsFormatSupported
 0418b0f0,AudioUnit_Create
 0418b200,AudioUnit_Start
-0418b250,FUN_0418b250
-0418b2f0,FUN_0418b2f0
+0418b250,AudioUnit_Pause
+0418b2f0,AudioUnit_Stop
 0418b3b0,AudioUnit_SubmitData
 0418b520,AudioUnit_DrainProcessedBuffers
 0418b620,FUN_0418b620
