@@ -1,0 +1,10 @@
+addr	old	new	lock
+0417a2c0	FUN_0417a2c0	eON_Int_LoadStringW_Core	body: FindResourceW RT_STRING + copy
+0417c900	FUN_0417c900	eON_LoadStringW	body: thin → LoadStringW_Core
+0417c2e0	FUN_0417c2e0	eON_LoadBitmapA	body: MB→W + Int_LoadBitmap
+04025680	FUN_04025680	eON_Int_SetCursorPos_WarpInWindow	body: called by SetCursorPos_Core
+04025660	FUN_04025660	eON_Int_WarpMouse_StoreAndWarp	body: store + SDL_WarpMouseInWindow
+0418dff0	FUN_0418dff0	PropertyStoreImp::Int_FindAndCopyValue	body: PROPERTYKEY match → copy PROPVARIANT
+04189c70	FUN_04189c70	AudioClientImp::scalar_deleting_destructor	body: dtor + operator_delete
+04189f50	FUN_04189f50	AudioClientImp_RequestPackets_Thunk	body: thin → RequestPackets
+04025b20	FUN_04025b20	eON_Int_Wnd_InitHighResTimer	body: clock_gettime / gettimeofday init
