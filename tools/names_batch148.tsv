@@ -1,0 +1,5 @@
+addr	old	new	lock
+04177050	FUN_04177050	eON_RegisterWindowMessageA	body: intern string → atom/message id map
+04177650	FUN_04177650	eON_RegisterWindowMessageW	body: WideChar→A then RegisterWindowMessageA
+04175bc0	FUN_04175bc0	eON_MapVirtualKeyA	body: MapVirtualKey + layout cookie
+04175bf0	FUN_04175bf0	eON_MapVirtualKeyW	body: identical twin of MapVirtualKeyA
