@@ -18,6 +18,7 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
+| 180 | Wnd SDL sync (`tools/decomp_notes_wave180_wnd_sdl_sync.md`). | 4 | 4 |
 | 179 | Wnd SetPosition/SetSize (`tools/decomp_notes_wave179_wnd_setpos_size.md`). | 2 | 2 |
 | 178 | MouseMove/Wheel/buttons (`tools/decomp_notes_wave178_mousemove_wheel_buttons.md`). | 5 | 5 |
 | 177 | mouse/kbd filters + buttons (`tools/decomp_notes_wave177_mouse_kbd_filters_buttons.md`). | 4 | 4 |
@@ -219,6 +220,8 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 `python3 tools/test_llm_work.py` runs the checker against the seeds.
 
 ## Next
+
+Wave 180 applied (3,457): Wnd SDL size/pos sync helpers. See `tools/decomp_notes_wave180_wnd_sdl_sync.md`.
 
 Wave 179 applied (3,453): Wnd SetPosition/SetSize. See `tools/decomp_notes_wave179_wnd_setpos_size.md`.
 

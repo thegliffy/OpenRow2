@@ -882,11 +882,11 @@ entry,name
 04025ea0,FUN_04025ea0
 04025eb0,FUN_04025eb0
 04025ec0,FUN_04025ec0
-04025ee0,FUN_04025ee0
-04025f20,FUN_04025f20
-04025f60,FUN_04025f60
+04025ee0,eON_Int_Wnd_SyncSizeFromRect
+04025f20,eON_Int_Wnd_SyncPositionFromRect
+04025f60,eON_Int_Wnd_RaiseIfInvalidFocus
 04025f90,FUN_04025f90
-04025fe0,FUN_04025fe0
+04025fe0,eON_Int_SDL_GetWindowSize_Thunk
 04026000,eON_WindowLinux::Platform_SetParent
 04026040,eON_WindowLinux::IsVisible
 040260a0,eON_WindowLinux::Platform_InitializeAsEditField

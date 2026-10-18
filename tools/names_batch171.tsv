@@ -1,0 +1,5 @@
+addr	old	new	lock
+04025ee0	FUN_04025ee0	eON_Int_Wnd_SyncSizeFromRect	body: vtable GetRect → SetSize
+04025f20	FUN_04025f20	eON_Int_Wnd_SyncPositionFromRect	body: vtable GetRect → SetPosition
+04025f60	FUN_04025f60	eON_Int_Wnd_RaiseIfInvalidFocus	body: SDL_RaiseWindow on bad focus id
+04025fe0	FUN_04025fe0	eON_Int_SDL_GetWindowSize_Thunk	body: thin SDL_GetWindowSize
