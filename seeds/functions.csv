@@ -737,7 +737,7 @@ entry,name
 0401baf0,FUN_0401baf0
 0401bb90,LinuxDevice::UpdateControlValues
 0401bef0,FUN_0401bef0
-0401bf20,FUN_0401bf20
+0401bf20,eON_GamepadLinux::UpdateControlValues
 0401c7c0,FUN_0401c7c0
 0401c970,FUN_0401c970
 0401c9c0,GamepadControl::SetInitialMinMaxValues
@@ -925,7 +925,7 @@ entry,name
 040270c0,FUN_040270c0
 04027100,FUN_04027100
 04027110,FUN_04027110
-04027160,FUN_04027160
+04027160,eON_WindowLinux::SetWindowPosition
 040272e0,FUN_040272e0
 04027350,FUN_04027350
 04027370,FUN_04027370
@@ -2587,7 +2587,7 @@ entry,name
 040e0cd0,FUN_040e0cd0
 040e0d20,FUN_040e0d20
 040e0d40,FUN_040e0d40
-040e0d60,FUN_040e0d60
+040e0d60,OpenGLDebugWriter_File::Write
 040e0e30,FUN_040e0e30
 040e0e60,FUN_040e0e60
 040e0eb0,PixelFormatData::MakeSureMultisamplingTested
@@ -3200,7 +3200,7 @@ entry,name
 040ffd30,FUN_040ffd30
 040ffd60,FUN_040ffd60
 040ffd80,FUN_040ffd80
-040ffdf0,FUN_040ffdf0
+040ffdf0,DirectSoundCaptureBuffer8Imp::Initialize
 040fff20,FUN_040fff20
 040fff70,DirectSoundCaptureBuffer8Imp::Start
 040ffff0,FUN_040ffff0
@@ -3652,10 +3652,10 @@ entry,name
 04115510,FUN_04115510
 041155f0,FUN_041155f0
 04115780,FUN_04115780
-04117760,FUN_04117760
-04117a40,FUN_04117a40
-04117ba0,FUN_04117ba0
-04117c10,FUN_04117c10
+04117760,eON_RegCreateKeyExW
+04117a40,eON_RegCreateKeyExA
+04117ba0,eON_RegCreateKeyA
+04117c10,eON_RegCreateKeyW
 04117c80,eON_RegOpenKeyExW
 04117f40,FUN_04117f40
 04118010,FUN_04118010
@@ -4362,8 +4362,8 @@ entry,name
 04136ea0,Subheap_Create
 04137130,GetFreeSubheapAreaForAllocation
 041373f0,SetupNewlyAllocatedArea
-041375b0,FUN_041375b0
-04137f10,FUN_04137f10
+041375b0,Heap_Validate
+04137f10,Heap_Create
 04138020,Heap_Destroy
 041381b0,Heap_GetProcessHeap
 04138200,Heap_Allocate

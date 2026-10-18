@@ -1,0 +1,10 @@
+FUN_04137f10	Heap_Create
+FUN_041375b0	Heap_Validate
+FUN_04117760	eON_RegCreateKeyExW
+FUN_04117a40	eON_RegCreateKeyExA
+FUN_04117c10	eON_RegCreateKeyW
+FUN_04117ba0	eON_RegCreateKeyA
+FUN_040e0d60	OpenGLDebugWriter_File::Write
+FUN_04027160	eON_WindowLinux::SetWindowPosition
+FUN_0401bf20	eON_GamepadLinux::UpdateControlValues
+FUN_040ffdf0	DirectSoundCaptureBuffer8Imp::Initialize

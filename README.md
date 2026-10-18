@@ -14,10 +14,11 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 ## Scoreboard
 
-**2,501 / 9,221 functions carry a project name (27.1%).** A name is kept when that function references a matching assert signature, a single source file, or a D3D9 vtable slot locked by those signatures. Module prefixes name the file, not the function. Message-style strings do not replace a signature name.
+**2,511 / 9,221 functions carry a project name (27.2%).** A name is kept when that function references a matching assert signature, a single source file, or a D3D9 vtable slot locked by those signatures. Module prefixes name the file, not the function. Message-style strings do not replace a signature name.
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
+| 49 | Heap_Create/Validate + RegCreateKeyEx A/W + crumbs (`decomp/heap_reg_crumbs_note.txt`). Heap pair; RegCreateKey(Ex) A/W; OpenGLDebugWriter_File::Write; WindowLinux SetWindowPosition; GamepadLinux UpdateControlValues; DSC Initialize. | 10 | 10 |
 | 48 | user32/GDI leftovers + clipboard/OpenURL/screensaver + GetAdapterIdentifier (`decomp/gdi_clipboard_adapterid_note.txt`). 6 GDI/user32; clipboard chain; OpenURL; SPI screensaver; Direct3D9Imp::GetAdapterIdentifier. | 14 | 14 |
 | 47 | user32 leftovers + cursor internals + ProcessKeyUp (`decomp/user32_cursor_processkeyup_note.txt`). HookEx A/W, DefWindowProcW, GetDoubleClickTime, GetAsync/GetKeyState; LoadStandardCursor + LoadCursorW; KeyboardEventReceiver::ProcessKeyUp. | 9 | 9 |
 | 46 | Same-method d3d9device wrappers LEAVE + cursor C-API + leave-alones (`decomp/wrappers_cursor_leave_note.txt`). 11 eON_* cursor APIs; 8 Imp wrappers stay d3d9device_*. | 11 | 11 |
@@ -134,6 +135,7 @@ Closed, do not restart:
 - Same-method d3d9device wrappers LEAVE + cursor C-API district + leave-alones (wave 46).
 - user32 leftovers + cursor internals + ProcessKeyUp (wave 47).
 - user32/GDI leftovers + clipboard/OpenURL/screensaver + GetAdapterIdentifier (wave 48).
+- Heap_Create/Validate + RegCreateKeyEx + OpenGLDebugWriter/Window/Gamepad/DSC crumbs (wave 49).
 
 Closed, continued:
 
@@ -145,8 +147,8 @@ Closed, continued:
 
 Open:
 
-- Assert queue empty; message/C-API harvest drained (waves 32–48).
-- Shared helpers: cursor workers; clipboard SDL→HGLOBAL sync; GetLongPathNameA log; SetForcedOpenGLDisplay pair.
+- Assert queue empty; message/C-API harvest drained (waves 32–49).
+- Shared helpers: cursor workers; clipboard SDL→HGLOBAL sync; GetLongPathNameA log; SetForcedOpenGLDisplay pair; DrawPrimitive pipeline helper; VirtualFreeEx twin.
 - Leave-alone closed: 8 same-method `d3d9device_*` wrappers; capture-devices stub; Present/params logger; FileSystem/Varyings/GetDlgItem; module_hex; ambiguous splits; breakpad stub.
 
 The extracted `sr2_pc.exe` contains the 71 Windows paths. That does not add a Linux assert the checker can name. Leave `seeds/rejected/win_string_module_map.csv` unused.

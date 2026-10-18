@@ -1,0 +1,22 @@
+Wave 49 — Heap_Create/Validate + RegCreateKeyEx + crumbs (10 names)
+
+Track 1 — Heap district:
+  Heap_Create (unique OOM message; calls Subheap_Create, registers heap handle).
+  Heap_Validate (heaps validation start/end dump). Other Heap_* already named.
+
+Track 2 — RegCreateKeyEx A/W:
+  eON_RegCreateKeyExW (core; reserved/dwOptions warnings).
+  eON_RegCreateKeyExA (MultiByte→Wide then ExW).
+  eON_RegCreateKeyA / eON_RegCreateKeyW (thin Ex wrappers with zeroed options).
+
+Track 3 — crumbs:
+  OpenGLDebugWriter_File::Write (file log printf path; unique buffer/file messages).
+  eON_WindowLinux::SetWindowPosition (RECT → SDL position/size; center/size logs).
+  eON_GamepadLinux::UpdateControlValues (unique gamepad log; calls LinuxDevice twin).
+  DirectSoundCaptureBuffer8Imp::Initialize (DSCBUFFERDESC; effects-not-supported message).
+
+Track 4 — leave alone (unchanged):
+  Shared logs (GetLongPathNameA, SetForcedOpenGLDisplay, GetMultisampling, DrawPrimitive
+  pipeline helper, VirtualFreeEx twin); 8 d3d9device_* wrappers; FileSystem/Varyings/GetDlgItem.
+
+Applied via PyGhidra MCP (batch40). Scoreboard 2,511 / 9,221 (+10).
