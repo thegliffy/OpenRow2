@@ -782,7 +782,7 @@ entry,name
 0401fe90,FUN_0401fe90
 04020010,FUN_04020010
 04020040,FUN_04020040
-04020090,opengl_objects_04020090
+04020090,OpenGLWrapperLinux::~OpenGLWrapperLinux
 04020180,FUN_04020180
 040201a0,OpenGLWrapperLinux::ChangeWindow
 04020320,FUN_04020320
@@ -816,7 +816,7 @@ entry,name
 040220c0,FUN_040220c0
 04022130,FUN_04022130
 04022140,FUN_04022140
-04022160,opengl_objects_04022160
+04022160,OpenGLDisplayWorkArea
 04022220,OpenGLDisplayName
 04022340,FUN_04022340
 04022370,FUN_04022370
@@ -830,8 +830,8 @@ entry,name
 04022630,FUN_04022630
 04022640,EnableVerticalSync
 04022700,SetUserGammaRamp
-04022b70,opengl_objects_04022b70
-04022f10,opengl_objects_04022f10
+04022b70,GetGammaRamp
+04022f10,SetGammaRamp
 040230c0,FUN_040230c0
 04023140,OpenGLWrapperLinux::SetupContextAttributes
 040237f0,OpenGLWrapperLinux::Open
@@ -1894,7 +1894,7 @@ entry,name
 04080890,Direct3DDevice9Imp::OpenGLThreadRunloop
 04080b90,Direct3DDevice9Imp::OpenGLThreadStart
 04080bd0,FUN_04080bd0
-04080c30,d3dstructs_04080c30
+04080c30,Direct3DDevice9Imp::AddResourceToPool
 04080d80,Direct3DDevice9Imp::RemoveResourceFromPool
 04080e40,FUN_04080e40
 04080eb0,FUN_04080eb0
@@ -1974,7 +1974,7 @@ entry,name
 0408f6a0,FUN_0408f6a0
 0408f6f0,direct3ddevice9imp_0408f6f0
 0408f7c0,FUN_0408f7c0
-0408fe70,direct3ddevice9imp_0408fe70
+0408fe70,Direct3DDevice9Imp::SetupRenderPipeline
 040906e0,Direct3DDevice9Imp::DrawIndexedPrimitive
 04090a70,Direct3DDevice9Imp::DrawPrimitive
 04090d80,FUN_04090d80
@@ -2319,7 +2319,7 @@ entry,name
 040aed60,direct3dsurface9imp_040aed60
 040aee30,Direct3DSurface9Imp::OpenGLSide_SyncSurface
 040af280,Direct3DSurface9Imp::OpenGLSide_GetSurfaceIntoPBO
-040af4e0,direct3dbasetexture9imp_040af4e0
+040af4e0,Direct3DSurface9Imp::UploadOpenGLObjectData
 040af8e0,direct3dsurface9imp_040af8e0
 040afa40,Direct3DSurface9Imp::CopyOpenGLObjectData
 040afd70,Direct3DSurface9Imp::TransferBetweenOpenGLTexturesInDifferentSurfaces

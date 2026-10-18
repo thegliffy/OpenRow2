@@ -108,6 +108,8 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 ## Next
 
+Wave 65 applied (2,787): SetupRenderPipeline, OpenGL dtor/gamma/WorkArea, AddResourceToPool. See `tools/decomp_notes_wave65_setuppipeline_opengl.md`.
+
 Wave 64 applied (2,787): MemoryHandleManager Global* surface. See `tools/decomp_notes_wave64_memoryhandlemanager.md`.
 
 Wave 63 applied (2,779): VirtualQuery/Ex, MemoryHandleManager_Destroy. See `tools/decomp_notes_wave63_virtualquery_memhandle.md`.

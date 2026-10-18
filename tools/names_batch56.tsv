@@ -1,0 +1,6 @@
+direct3ddevice9imp_0408fe70	Direct3DDevice9Imp::SetupRenderPipeline
+opengl_objects_04020090	OpenGLWrapperLinux::~OpenGLWrapperLinux
+d3dstructs_04080c30	Direct3DDevice9Imp::AddResourceToPool
+opengl_objects_04022b70	GetGammaRamp
+opengl_objects_04022f10	SetGammaRamp
+opengl_objects_04022160	OpenGLDisplayWorkArea
