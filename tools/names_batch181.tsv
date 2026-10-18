@@ -1,0 +1,16 @@
+addr	old	new	lock
+04022090	FUN_04022090	OpenGLDisplay_GetCount	body: return display table count
+040220a0	FUN_040220a0	OpenGLDisplay_GetByIndex	body: index → display*
+040220c0	FUN_040220c0	OpenGLDisplay_FromPoint	body: point-in-bounds display
+04022130	FUN_04022130	OpenGLDisplay_GetPrimary	body: first table entry
+04022140	FUN_04022140	OpenGLDisplay_GetSelected	body: forced index → display*
+04022370	FUN_04022370	OpenGLDisplay_GetModeCount	body: +0x28 mode count
+04022380	FUN_04022380	OpenGLDisplay_GetOrigin	body: +4/+8 origin out
+040223b0	FUN_040223b0	OpenGLDisplay_GetMode	body: mode index → 0x18 struct
+04022400	FUN_04022400	OpenGLDisplay_RefreshCurrentMode	body: SDL_GetCurrentDisplayMode + filter
+04024760	FUN_04024760	eON_Int_GetMouseState_XY	body: cached or SDL_GetMouseState
+040230c0	FUN_040230c0	OpenGLWrapperLinux::InitFields	body: vtable + field zeros
+04023a80	FUN_04023a80	OpenGLWrapperLinux::ctor	body: new 0x4c + InitFields
+040239c0	FUN_040239c0	OpenGLWrapperLinux::CreateDummyWindow	body: SDL_CreateWindow 0x80 hidden
+04023a50	FUN_04023a50	OpenGLWrapperLinux::DestroyDummyWindow_Body	body: SDL_DestroyWindow slot
+04023a00	FUN_04023a00	OpenGLWrapperLinux::DestroyDummyWindow_ThreadGate	body: ThreadBlocked destroy
