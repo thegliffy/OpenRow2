@@ -18,6 +18,7 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
+| 197 | Shader ALU/token (`tools/decomp_notes_wave197_shader_alu_token.md`). | 4 | 4 |
 | 196 | ShaderData regs/caps (`tools/decomp_notes_wave196_shaderdata_regs.md`). | 10 | 10 |
 | 195 | ShaderData varyings (`tools/decomp_notes_wave195_shaderdata_varyings.md`). | 13 | 13 |
 | 194 | Direct3D9ExImp thunks (`tools/decomp_notes_wave194_d3d9ex_thunks.md`). | 15 | 15 |
@@ -236,6 +237,8 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 `python3 tools/test_llm_work.py` runs the checker against the seeds.
 
 ## Next
+
+Wave 197 applied (3,607): ShaderData ALU table convert + token reader. See `tools/decomp_notes_wave197_shader_alu_token.md`.
 
 Wave 196 applied (3,603): ShaderData registers/version caps. See `tools/decomp_notes_wave196_shaderdata_regs.md`.
 

@@ -1,0 +1,5 @@
+addr	old	new	lock
+04055090	FUN_04055090	eON_ShaderData_convert_alu_table_op	body: opcode table → GLSL assign
+04057910	FUN_04057910	ShaderData_ReadSrcTokenWithRelative	body: read src + optional rel addr
+0404f060	FUN_0404f060	eON_Int_StringMap_FindOrHint	body: rb-tree string key walk
+0404f710	FUN_0404f710	eON_Int_RbTree_Clear	body: clear rb-tree via 4f270

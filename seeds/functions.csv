@@ -1228,10 +1228,10 @@ entry,name
 0404ee40,FUN_0404ee40
 0404ef30,FUN_0404ef30
 0404ef70,FUN_0404ef70
-0404f060,FUN_0404f060
+0404f060,eON_Int_StringMap_FindOrHint
 0404f240,eON_Int_IntrusiveList_ClearNodes
 0404f270,FUN_0404f270
-0404f710,FUN_0404f710
+0404f710,eON_Int_RbTree_Clear
 0404f850,D3D9CommandQueue::D3D9CommandQueue
 0404f930,D3D9CommandQueue::~D3D9CommandQueue
 0404fa10,D3D9CommandQueue::GetNextCommandPointer
@@ -1324,7 +1324,7 @@ entry,name
 04054d20,eON_ShaderData_convert_crs
 04054e30,eON_ShaderData_convert_pow
 04054f80,eON_ShaderData_convert_lrp
-04055090,FUN_04055090
+04055090,eON_ShaderData_convert_alu_table_op
 040553f0,eON_ShaderData_convert_log
 04055520,eON_ShaderData_convert_rsq
 04055650,eON_ShaderData_convert_rcp
@@ -1339,7 +1339,7 @@ entry,name
 04056820,eON_ShaderData_convert_cnd
 040575a0,eON_ShaderData_convert_cmp
 04057880,ShaderData::IdentifyInstruction
-04057910,FUN_04057910
+04057910,ShaderData_ReadSrcTokenWithRelative
 04057950,eON_ShaderData_FormatSourceRegister
 040580b0,ShaderData::PreparseBytecode
 04058cf0,FUN_04058cf0
