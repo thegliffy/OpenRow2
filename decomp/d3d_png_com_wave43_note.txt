@@ -1,0 +1,26 @@
+Wave 43 — harder D3D Imp crumbs + libpng body-lock + COM Imp ctors (25 names)
+
+Track 1 — harder d3d9device_*:
+  Direct3DVertexDeclaration9Imp::Initialize (040b4000) — element copy used by CreateVertexDeclaration
+    (basic ctor 040b30d0 left unnamed; fuller ctor already at 040b4090).
+  eON_Cursor::eON_Cursor (0400ec30) — mask-bitmap assert in constructing method.
+  SKIP: DrawIndexedPrimitiveUP helper (scratch IB grow); CreateTexture format mapper;
+    ShowCursor multi-helper (flag/HICON/hotspot); most Create* still inline in thunks.
+
+Track 2 — shared libpng by body:
+  png_read_image; png_image_read_direct / png_image_read_colormapped;
+  png_write_image; png_set_keep_unknown_chunks; png_do_read_transformations.
+  SKIP: png_image_write_* internals (042bf5f0/042beee0) without unique API lock;
+    png_read_update_info already named peers.
+
+Track 3 — DirectSound / Audio / MMDevice Imp ctors (+ CaptureBuffer::Start assert):
+  DirectSound{8,3DBuffer,3DListener,Buffer,Capture,CaptureBuffer,Notify,PrimaryBuffer}Imp ctors;
+  Buffer::Initialize; CaptureBuffer8Imp::Start (unique ::Start message);
+  AudioCapture/RenderClientImp; MMDeviceCollection/EnumeratorImp; PropertyStoreImp ctors.
+  SKIP: OpenAL shutdown leftovers (shared message); Primary Driver string helper.
+
+Track 4 — leave alone (unchanged):
+  FileSystem/Varyings/GetDlgItem; module_hex multi-sig; ambiguous splits; breakpad stub;
+  remaining inline-only d3d9device_* thunks.
+
+Applied via PyGhidra MCP (batch34). Scoreboard 2,448 / 9,221.

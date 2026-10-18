@@ -628,7 +628,7 @@ entry,name
 0400e440,FUN_0400e440
 0400e4c0,FUN_0400e4c0
 0400eb20,FUN_0400eb20
-0400ec30,FUN_0400ec30
+0400ec30,eON_Cursor::eON_Cursor
 0400ecd0,FUN_0400ecd0
 0400edb0,FUN_0400edb0
 0400ee20,FUN_0400ee20
@@ -2364,7 +2364,7 @@ entry,name
 040b3280,FUN_040b3280
 040b3370,FUN_040b3370
 040b3a60,FUN_040b3a60
-040b4000,FUN_040b4000
+040b4000,Direct3DVertexDeclaration9Imp::Initialize
 040b4090,Direct3DVertexDeclaration9Imp::Direct3DVertexDeclaration9Imp
 040b46f0,FUN_040b46f0
 040b4940,FUN_040b4940
@@ -2993,7 +2993,7 @@ entry,name
 040fbc80,DirectSound3DBuffer8Imp::SetConeOutsideVolume
 040fbd10,DirectSound3DBuffer8Imp::SetConeAngles
 040fbdc0,FUN_040fbdc0
-040fbdf0,FUN_040fbdf0
+040fbdf0,DirectSound3DBuffer8Imp::DirectSound3DBuffer8Imp
 040fbe80,FUN_040fbe80
 040fbf80,DirectSound3DBuffer8Imp::SetAllParameters
 040fc150,DirectSound3DBuffer8Imp::SetConeOrientation
@@ -3014,7 +3014,7 @@ entry,name
 040fcc30,FUN_040fcc30
 040fccb0,FUN_040fccb0
 040fcd40,FUN_040fcd40
-040fcd70,FUN_040fcd70
+040fcd70,DirectSound3DListener8Imp::DirectSound3DListener8Imp
 040fcdf0,FUN_040fcdf0
 040fce20,FUN_040fce20
 040fcee0,FUN_040fcee0
@@ -3026,7 +3026,7 @@ entry,name
 040fd110,FUN_040fd110
 040fd190,FUN_040fd190
 040fd1b0,FUN_040fd1b0
-040fd1f0,FUN_040fd1f0
+040fd1f0,DirectSound8Imp::DirectSound8Imp
 040fd2a0,FUN_040fd2a0
 040fd2c0,FUN_040fd2c0
 040fd2e0,FUN_040fd2e0
@@ -3126,8 +3126,8 @@ entry,name
 040fe7f0,DirectSoundBuffer8Imp::GetFormat
 040fe880,DirectSoundBuffer8Imp::QueryInterface
 040fea90,FUN_040fea90
-040fed00,FUN_040fed00
-040fed70,FUN_040fed70
+040fed00,DirectSoundBuffer8Imp::DirectSoundBuffer8Imp
+040fed70,DirectSoundBuffer8Imp::Initialize
 040feea0,FUN_040feea0
 040feec0,FUN_040feec0
 040feee0,FUN_040feee0
@@ -3172,7 +3172,7 @@ entry,name
 040ff690,FUN_040ff690
 040ff790,FUN_040ff790
 040ff7e0,FUN_040ff7e0
-040ff840,FUN_040ff840
+040ff840,DirectSoundCapture8Imp::DirectSoundCapture8Imp
 040ff880,FUN_040ff880
 040ff8a0,FUN_040ff8a0
 040ff8d0,FUN_040ff8d0
@@ -3202,13 +3202,13 @@ entry,name
 040ffd80,FUN_040ffd80
 040ffdf0,FUN_040ffdf0
 040fff20,FUN_040fff20
-040fff70,FUN_040fff70
+040fff70,DirectSoundCaptureBuffer8Imp::Start
 040ffff0,FUN_040ffff0
-04100070,FUN_04100070
+04100070,DirectSoundCaptureBuffer8Imp::DirectSoundCaptureBuffer8Imp
 041000c0,FUN_041000c0
 04100130,FUN_04100130
 04100150,FUN_04100150
-04100180,FUN_04100180
+04100180,DirectSoundNotifyImp::DirectSoundNotifyImp
 041001c0,FUN_041001c0
 041001e0,FUN_041001e0
 04100200,FUN_04100200
@@ -3233,7 +3233,7 @@ entry,name
 04100720,FUN_04100720
 041007b0,FUN_041007b0
 04100800,FUN_04100800
-04100870,FUN_04100870
+04100870,DirectSoundPrimaryBuffer8Imp::DirectSoundPrimaryBuffer8Imp
 041008d0,FUN_041008d0
 04100950,eON_DirectSoundCreate8
 04100b10,FUN_04100b10
@@ -6079,7 +6079,7 @@ entry,name
 04188ef0,FUN_04188ef0
 04188f10,AudioCaptureClientImp::QueryInterface
 04188fc0,FUN_04188fc0
-04188ff0,FUN_04188ff0
+04188ff0,AudioCaptureClientImp::AudioCaptureClientImp
 04189030,FUN_04189030
 04189060,FUN_04189060
 041890c0,FUN_041890c0
@@ -6124,7 +6124,7 @@ entry,name
 0418a520,AudioRenderClientImp::QueryInterface
 0418a5d0,FUN_0418a5d0
 0418a690,FUN_0418a690
-0418a6d0,FUN_0418a6d0
+0418a6d0,AudioRenderClientImp::AudioRenderClientImp
 0418a720,FUN_0418a720
 0418a750,FUN_0418a750
 0418a760,FUN_0418a760
@@ -6193,7 +6193,7 @@ entry,name
 0418c600,FUN_0418c600
 0418c670,MMDeviceCollectionImp::QueryInterface
 0418c720,FUN_0418c720
-0418c790,FUN_0418c790
+0418c790,MMDeviceCollectionImp::MMDeviceCollectionImp
 0418c7e0,FUN_0418c7e0
 0418c840,FUN_0418c840
 0418c870,FUN_0418c870
@@ -6209,7 +6209,7 @@ entry,name
 0418cdc0,FUN_0418cdc0
 0418cde0,MMDeviceEnumeratorImp::QueryInterface
 0418ce90,FUN_0418ce90
-0418cec0,FUN_0418cec0
+0418cec0,MMDeviceEnumeratorImp::MMDeviceEnumeratorImp
 0418cf00,FUN_0418cf00
 0418cf30,FUN_0418cf30
 0418cf70,FUN_0418cf70
@@ -6256,7 +6256,7 @@ entry,name
 0418e140,FUN_0418e140
 0418e1e0,PropertyStoreImp::QueryInterface
 0418e290,FUN_0418e290
-0418e330,FUN_0418e330
+0418e330,PropertyStoreImp::PropertyStoreImp
 0418e380,FUN_0418e380
 0418e4f0,FUN_0418e4f0
 0418e520,FUN_0418e520
@@ -8225,16 +8225,16 @@ entry,name
 042ac890,png_read_update_info
 042ac900,png_start_read_image
 042ac930,FUN_042ac930
-042ace80,FUN_042ace80
+042ace80,png_image_read_direct
 042ad580,FUN_042ad580
 042adcc0,FUN_042adcc0
 042adff0,FUN_042adff0
 042ae210,FUN_042ae210
 042ae610,FUN_042ae610
-042ae6e0,FUN_042ae6e0
+042ae6e0,png_read_image
 042ae7b0,FUN_042ae7b0
 042aec80,zstream_shutdown
-042aee50,FUN_042aee50
+042aee50,png_image_read_colormapped
 042af020,FUN_042af020
 042af040,png_read_png
 042af340,png_image_begin_read_from_stdio
@@ -8271,7 +8271,7 @@ entry,name
 042b13e0,FUN_042b13e0
 042b1400,FUN_042b1400
 042b2360,FUN_042b2360
-042b2670,FUN_042b2670
+042b2670,png_do_read_transformations
 042b5b30,FUN_042b5b30
 042b5b70,FUN_042b5b70
 042b5ba0,FUN_042b5ba0
@@ -8351,7 +8351,7 @@ entry,name
 042bc690,FUN_042bc690
 042bc7f0,FUN_042bc7f0
 042bc880,FUN_042bc880
-042bc8a0,FUN_042bc8a0
+042bc8a0,png_set_keep_unknown_chunks
 042bcb70,FUN_042bcb70
 042bcb90,FUN_042bcb90
 042bcc00,FUN_042bcc00
@@ -8418,7 +8418,7 @@ entry,name
 042bff20,FUN_042bff20
 042bff60,FUN_042bff60
 042bff80,FUN_042bff80
-042bffa0,FUN_042bffa0
+042bffa0,png_write_image
 042c01a0,png_image_write_to_stdio
 042c03b0,file_write_contents
 042c0530,FUN_042c0530
