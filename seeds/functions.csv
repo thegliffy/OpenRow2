@@ -6603,8 +6603,8 @@ entry,name
 041c4b10,TiXmlNode::Accept
 041c4b70,TiXmlAttribute::Next
 041c4ba0,TiXmlAttribute::Previous
-041c4bd0,FUN_041c4bd0
-041c4de0,FUN_041c4de0
+041c4bd0,TiXmlAttribute::Print
+041c4de0,TiXmlAttribute::Print_ToStream
 041c4f50,TiXmlAttribute::QueryIntValue
 041c4f90,TiXmlAttribute::QueryDoubleValue
 041c4fd0,TiXmlAttribute::SetIntValue
@@ -6686,7 +6686,7 @@ entry,name
 041c67f0,FUN_041c67f0
 041c6870,FUN_041c6870
 041c6930,TiXmlBase::StringEqual
-041c6aa0,FUN_041c6aa0
+041c6aa0,TiXmlBase::ConvertUTF32ToUTF8
 041c6ba0,TiXmlBase::IsAlpha
 041c6bd0,TiXmlBase::IsWhiteSpace
 041c6c00,TiXmlParsingData::Stamp
@@ -6697,12 +6697,12 @@ entry,name
 041c7820,TiXmlBase::StringEqual
 041c7910,TiXmlBase::ReadText
 041c7dd0,TiXmlDocument::SetError
-041c7eb0,FUN_041c7eb0
+041c7eb0,TiXmlAttribute::Parse
 041c8110,TiXmlNode::Identify
 041c8330,TiXmlDocument::Parse
 041c8680,TiXmlElement::ReadValue
-041c88c0,FUN_041c88c0
-041c8d90,FUN_041c8d90
+041c88c0,TiXmlElement::Parse_Attrs
+041c8d90,TiXmlUnknown::Parse
 041c8ef0,TiXmlComment::Parse
 041c90c0,TiXmlText::Parse
 041c9360,TiXmlDeclaration::Parse

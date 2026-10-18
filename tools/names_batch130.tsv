@@ -1,0 +1,7 @@
+addr	old	new	lock
+041c4bd0	FUN_041c4bd0	TiXmlAttribute::Print	body: EncodeString name='value' print
+041c4de0	FUN_041c4de0	TiXmlAttribute::Print_ToStream	body: append attr to string stream
+041c7eb0	FUN_041c7eb0	TiXmlAttribute::Parse	body: SkipWhiteSpace+ReadName+ReadText
+041c88c0	FUN_041c88c0	TiXmlElement::Parse_Attrs	body: parse element attributes body
+041c8d90	FUN_041c8d90	TiXmlUnknown::Parse	body: unknown node parse
+041c6aa0	FUN_041c6aa0	TiXmlBase::ConvertUTF32ToUTF8	body: UTF-32→UTF-8 encode
