@@ -18,6 +18,7 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
+| 173 | RegisterClassExA core (`tools/decomp_notes_wave173_registerclass_core.md`). | 1 | 0 |
 | 172 | AudioClient dtor + GetClassInfoA (`tools/decomp_notes_wave172_audioclient_dtor_getclassinfo.md`). | 2 | 1 |
 | 171 | AudioUnit Pause/Stop (`tools/decomp_notes_wave171_audiounit_pause_stop.md`). | 2 | 2 |
 | 170 | AudioUnit Start/Drain (`tools/decomp_notes_wave170_audiounit_start_drain.md`). | 3 | 3 |
@@ -212,6 +213,8 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 `python3 tools/test_llm_work.py` runs the checker against the seeds.
 
 ## Next
+
+Wave 173 applied (3,431): RegisterClassExA core qualify. See `tools/decomp_notes_wave173_registerclass_core.md`.
 
 Wave 172 applied (3,431): AudioClientImp dtor + GetClassInfoA. See `tools/decomp_notes_wave172_audioclient_dtor_getclassinfo.md`.
 

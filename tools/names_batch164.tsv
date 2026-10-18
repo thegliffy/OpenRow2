@@ -1,0 +1,2 @@
+addr	old	new	lock
+04180960	RegisterClassExA	eON_Int_RegisterClassExA_Core	body: atom intern + class table store; called by eON_RegisterClass*
