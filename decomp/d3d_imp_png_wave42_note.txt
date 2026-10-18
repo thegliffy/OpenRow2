@@ -1,0 +1,26 @@
+Wave 42 — d3d9device→Imp hand-read + libpng unique APIs; fs/vpfs A/W drained; leave-alones (34 names)
+
+Track 1 — d3d9device_* thunks → Imp (filter MT-guard/log helpers; unique work callee):
+  Direct3DDevice9Imp::{SetGammaRamp,SetLight,SetVertexDeclaration,SetVertexShader,
+    SetPixelShader,EvictManagedResources,SetIndices}
+  Resource Imp ctors (vtable + class-name string): Cube/Volume/Texture/VertexBuffer/
+    IndexBuffer/PixelShader/VertexShader/Query/StateBlock ::Class
+  Initialize twins: IndexBuffer/VertexBuffer/PixelShader/VertexShader/Query::Initialize
+  SKIP: GetAvailableTextureMem's FUN_04022380 (tiny field getter, not the Imp method);
+    ShowCursor multi-helper; Create* pairs beyond ctor/Initialize; thunks that only
+    inline into d3d9device_* without a separate FUN_.
+
+Track 2 — fs_/vpfs_ A/W by body:
+  No remaining multi-owner fs_/vpfs_ asserts still on FUN_ (drained in waves 37–40).
+  Confirmed empty this wave.
+
+Track 3 — upstream source-match leftovers:
+  13 unique png_* APIs (image begin/finish/write, set_*, data_freer, write_row).
+  SKIP: png_do_* triple on one FUN_; shared png_read_image/write_image clusters;
+    FUN_0400939e breakpad assert stub (already closed); zlib deflateEnd one-liner.
+
+Track 4 — leave alone (unchanged):
+  Shared eON_FileSystem/Varyings/GetDlgItem; module_hex multi-sig; ambiguous splits
+  (split_confirmed empty); ADC/MUL tables; OGLC already named PrintHelp.
+
+Applied via PyGhidra MCP (batch33). Scoreboard 2,425 / 9,221.
