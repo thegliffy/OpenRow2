@@ -1,0 +1,10 @@
+addr	old	new	lock
+041c1200	FUN_041c1200	TiXmlString::operator+_SS	body: concat TiXmlString+TiXmlString
+041c1300	FUN_041c1300	TiXmlString::operator+_SC	body: concat TiXmlString+char*
+041c13f0	FUN_041c13f0	TiXmlString::operator+_CS	body: concat char*+TiXmlString
+041c14f0	FUN_041c14f0	TiXmlString::~TiXmlString	body: free non-null buffer
+041c1be0	FUN_041c1be0	TiXmlDeclaration::Print	body: <?xml version=…
+041c1de0	FUN_041c1de0	TiXmlComment::Clone	body: new comment node type2
+041c1e90	FUN_041c1e90	TiXmlText::Clone	body: new text node type3
+041c2330	FUN_041c2330	TiXmlNode::~TiXmlNode	body: delete children via vtable
+041c1640	FUN_041c1640	TiXmlUnknown::Print	body: indent + <%s>
