@@ -5139,11 +5139,11 @@ entry,name
 04161240,FUN_04161240
 04161270,MallocImp::MallocImp
 041612b0,FUN_041612b0
-041612e0,FUN_041612e0
-041617f0,FUN_041617f0
-04161ad0,FUN_04161ad0
+041612e0,PropVariantCopy
+041617f0,PropVariantClear
+04161ad0,FreePropVariantArray
 04161b30,eON_GetCOMObjects
-04161c20,FUN_04161c20
+04161c20,eON_Int_GetThreadOleScratch
 04161c80,eON_CoInitializeEx
 04161dd0,eON_CoInitialize
 04161e00,eON_CoInitializeSecurity
@@ -6120,10 +6120,10 @@ entry,name
 0418a3b0,FUN_0418a3b0
 0418a3e0,FUN_0418a3e0
 0418a410,AudioRenderClientImp::ReleaseBuffer
-0418a4e0,FUN_0418a4e0
+0418a4e0,AudioRenderClientImp::~AudioRenderClientImp
 0418a520,AudioRenderClientImp::QueryInterface
 0418a5d0,AudioRenderClientImp::GetBuffer
-0418a690,FUN_0418a690
+0418a690,AudioRenderClientImp::scalar_deleting_destructor
 0418a6d0,AudioRenderClientImp::AudioRenderClientImp
 0418a720,FUN_0418a720
 0418a750,FUN_0418a750
@@ -6141,7 +6141,7 @@ entry,name
 0418aa10,eON_Int_AudioDevice_QueryIOFlags
 0418aa90,eON_Int_DefaultAudioDevice_Ensure
 0418ab30,eON_Int_AudioDevice_LookupByEndpointId
-0418ac80,FUN_0418ac80
+0418ac80,eON_Int_CopyAnsiFieldToWide
 0418ad30,eON_Int_AudioDevice_CopyNameW
 0418ad90,audioRenderCaptureOpenALsoft_0418ad90
 0418b010,AudioUnit_DetermineDefaultMixFormat
@@ -6157,7 +6157,7 @@ entry,name
 0418b640,FUN_0418b640
 0418b650,FUN_0418b650
 0418b660,FUN_0418b660
-0418b690,FUN_0418b690
+0418b690,AudioUnit_ClearOwnedPointers
 0418b6f0,eONMemoryReader::IsValidHandle
 0418b730,FUN_0418b730
 0418b760,AudioUnit_FindByALSource

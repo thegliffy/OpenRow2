@@ -18,6 +18,7 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
+| 189 | PropVariant + AudioRenderClient (`tools/decomp_notes_wave189_propvariant_audiorender.md`). | 8 | 8 |
 | 188 | LoadStringW + cursor warp (`tools/decomp_notes_wave188_loadstringw_cursorwarp.md`). | 9 | 9 |
 | 187 | MapWindowPoints + Enum/Dialog (`tools/decomp_notes_wave187_mapwindow_enum_dialog.md`). | 10 | 10 |
 | 186 | GetActiveWindow + GetUpdateRect (`tools/decomp_notes_wave186_activewindow_updaterect.md`). | 7 | 7 |
@@ -228,6 +229,8 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 `python3 tools/test_llm_work.py` runs the checker against the seeds.
 
 ## Next
+
+Wave 189 applied (3,528): PropVariant* + AudioRenderClient dtor. See `tools/decomp_notes_wave189_propvariant_audiorender.md`.
 
 Wave 188 applied (3,520): LoadStringW + cursor warp. See `tools/decomp_notes_wave188_loadstringw_cursorwarp.md`.
 

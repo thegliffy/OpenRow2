@@ -1,0 +1,9 @@
+addr	old	new	lock
+041612e0	FUN_041612e0	PropVariantCopy	body: PROPVARIANT type copy
+041617f0	FUN_041617f0	PropVariantClear	body: PROPVARIANT free by vt
+04161ad0	FUN_04161ad0	FreePropVariantArray	body: loop PropVariantClear
+04161c20	FUN_04161c20	eON_Int_GetThreadOleScratch	body: TLS HeapAlloc 0xc
+0418ac80	FUN_0418ac80	eON_Int_CopyAnsiFieldToWide	body: +8 ANSI → WideChar
+0418a4e0	FUN_0418a4e0	AudioRenderClientImp::~AudioRenderClientImp	body: free buffer + base dtor
+0418a690	FUN_0418a690	AudioRenderClientImp::scalar_deleting_destructor	body: dtor + delete
+0418b690	FUN_0418b690	AudioUnit_ClearOwnedPointers	body: delete pointer vector
