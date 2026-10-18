@@ -4189,7 +4189,7 @@ entry,name
 0412e180,eON_CreateFileMappingW
 0412e2d0,eON_OpenFileMappingA
 0412e2f0,FUN_0412e2f0
-0412e300,FUN_0412e300
+0412e300,eON_MapViewOfFile
 0412e3d0,FUN_0412e3d0
 0412e4b0,eON_UnmapViewOfFile
 0412e4d0,FUN_0412e4d0
@@ -4203,8 +4203,8 @@ entry,name
 0412e8d0,FUN_0412e8d0
 0412e8e0,eON_GetFileSize
 0412e910,eON_GetFileSizeEx
-0412e940,FUN_0412e940
-0412ea20,FUN_0412ea20
+0412e940,eON_GetFileAttributesA
+0412ea20,eON_GetFileType
 0412eaa0,fs_files_0412eaa0
 0412ebc0,FUN_0412ebc0
 0412ec40,eON_CancelIo
@@ -4214,7 +4214,7 @@ entry,name
 0412f960,fs_WriteFile
 0412fcd0,FUN_0412fcd0
 0412fce0,fs_SetFilePointer
-0412ffb0,FUN_0412ffb0
+0412ffb0,eON_SetFilePointer
 04130070,fs_SetFilePointerEx
 04130320,FUN_04130320
 041303e0,FUN_041303e0

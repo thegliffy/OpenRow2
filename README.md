@@ -14,10 +14,11 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 ## Scoreboard
 
-**2,897 / 9,221 functions carry a project name (31.4%).** A name is kept when that function references a matching assert signature, a single source file, or a D3D9 vtable slot locked by those signatures. Module prefixes name the file, not the function. Message-style strings do not replace a signature name.
+**2,901 / 9,221 functions carry a project name (31.5%).** A name is kept when that function references a matching assert signature, a single source file, or a D3D9 vtable slot locked by those signatures. Module prefixes name the file, not the function. Message-style strings do not replace a signature name.
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
+| 75 | MapViewOfFile + GetFileAttributesA + SetFilePointer (`tools/decomp_notes_wave75_mapview_fileattrs.md`). | 4 | 4 |
 | 74 | CreateFileMapping/MapView/Unmap + GetFileSize (`tools/decomp_notes_wave74_mapping_filesize.md`). | 11 | 11 |
 | 73 | GetACP/OEMCP/CPInfo + overlapped/file-mapping (`tools/decomp_notes_wave73_acp_overlapped.md`). | 8 | 6 (+2 renames) |
 | 72 | QPC + GetTickCount/timeGetTime + RtlGetNtVersionNumbers (`tools/decomp_notes_wave72_qpc_tick.md`). | 8 | 8 |
@@ -114,6 +115,8 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 `python3 tools/test_llm_work.py` runs the checker against the seeds.
 
 ## Next
+
+Wave 75 applied (2,901): MapViewOfFile, GetFileAttributesA, SetFilePointer, GetFileType. See `tools/decomp_notes_wave75_mapview_fileattrs.md`.
 
 Wave 74 applied (2,897): CreateFileMapping/MapView/Unmap, GetFileSize, directories, CancelIo. See `tools/decomp_notes_wave74_mapping_filesize.md`.
 

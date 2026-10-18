@@ -1,0 +1,4 @@
+FUN_0412e300	eON_MapViewOfFile
+FUN_0412e940	eON_GetFileAttributesA
+FUN_0412ffb0	eON_SetFilePointer
+FUN_0412ea20	eON_GetFileType
