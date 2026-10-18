@@ -1,0 +1,12 @@
+FUN_0413a240	eON_HeapFree
+FUN_0413a270	eON_HeapSize
+FUN_0413a2a0	eON_HeapCreate
+FUN_0413a2d0	eON_HeapDestroy
+FUN_0413a490	eON_GetProcessHeap
+FUN_0413a4a0	eON_GetProcessHeaps
+FUN_041392a0	Heap_Lock
+FUN_041392f0	Heap_Unlock
+FUN_0413a450	eON_HeapLock
+FUN_0413a470	eON_HeapUnlock
+FUN_04139330	Heap_QueryInformation
+FUN_0413a3a0	eON_HeapQueryInformation
