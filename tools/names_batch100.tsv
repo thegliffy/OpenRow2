@@ -1,0 +1,4 @@
+addr	old	new	lock
+0402d030	FUN_0402d030	eON_WarnUnimplementedStub	body: unimplemented stub logger
+04123ab0	FUN_04123ab0	eON_GetPixel	body: read 32bpp pixel from memDC selected bitmap
+04124390	FUN_04124390	eON_GetFontLanguageInfo	body: default GCP_ERROR 0x8000; font flag bits

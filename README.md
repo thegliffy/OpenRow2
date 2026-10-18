@@ -18,6 +18,7 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
+| 109 | WarnUnimplementedStub + GetPixel + GetFontLanguageInfo (`tools/decomp_notes_wave109_unimplemented_getpixel_fontlang.md`). | 3 | 3 |
 | 108 | WarnIncompleteStub + PS3 GLSL inputs + ExtTextOutW gate + Get/SetROP2 (`tools/decomp_notes_wave108_stub_ps3_rop2.md`). | 5 | 5 |
 | 107 | WaveInDevice_Start* + MsgQueue_Post (+ socket CSV sync) (`tools/decomp_notes_wave107_wavein_msgpost_csv_sync.md`). | 3 | 3 |
 | 106 | CreateRectRgn + SaveDC/RestoreDC + Gdi_IsValidDC (`tools/decomp_notes_wave106_rectrgn_savedc.md`). | 4 | 4 |
@@ -164,6 +165,8 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 `python3 tools/test_llm_work.py` runs the checker against the seeds.
 
 ## Next
+
+Wave 109 applied (3,074): WarnUnimplementedStub, GetPixel, GetFontLanguageInfo. See `tools/decomp_notes_wave109_unimplemented_getpixel_fontlang.md`.
 
 Wave 108 applied (3,071): WarnIncompleteStub, EmitPS3Inputs, ExtTextOutW_OptionsGate, Get/SetROP2. See `tools/decomp_notes_wave108_stub_ps3_rop2.md`.
 
