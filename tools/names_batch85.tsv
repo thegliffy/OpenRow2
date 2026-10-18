@@ -1,0 +1,10 @@
+addr	old	new	lock
+04182a40	FUN_04182a40	eON_GetDesktopWindow	body: return const HWND 0x271a desktop sentinel
+041818e0	FUN_041818e0	eON_GetWindowRect	body: desktop work area or HWND+0x14..0x20 LTRB; null RECT => ERROR_INVALID_WINDOW_HANDLE
+041819b0	FUN_041819b0	eON_GetClientRect	body: desktop work area dims or client size from HWND+0xc/0x10 - +4/+8; origin 0,0
+04182c80	FUN_04182c80	eON_SetForegroundWindow	body: mutates DAT_0451c0d8 FG HWND; SendMessageA desktop/broadcast asserts
+04182db0	FUN_04182db0	eON_GetForegroundWindow	body: return DAT_0451c0d8
+04183700	FUN_04183700	eON_ScreenToClient	body: POINT -= HWND+4/+8 client origin
+04183790	FUN_04183790	eON_ClientToScreen	body: POINT += HWND+4/+8 client origin
+04183e00	FUN_04183e00	eON_GetWindowPlacement	body: WINDOWPLACEMENT for desktop 0x271a via OpenGLDisplayWorkArea; ERROR_INVALID_PARAMETER 0x3e6
+04187210	FUN_04187210	eON_GetWindowInfo	body: requires *WINDOWINFO==0x3c; fills rcWindow/rcClient from HWND or desktop work area

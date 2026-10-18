@@ -14,10 +14,11 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 ## Scoreboard
 
-**2,995 / 9,221 functions carry a project name (32.5%).** A name is kept when that function references a matching assert signature, a single source file, or a D3D9 vtable slot locked by those signatures. Module prefixes name the file, not the function. Message-style strings do not replace a signature name.
+**3,004 / 9,221 functions carry a project name (32.6%).** A name is kept when that function references a matching assert signature, a single source file, or a D3D9 vtable slot locked by those signatures. Module prefixes name the file, not the function. Message-style strings do not replace a signature name.
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
+| 94 | GetDesktopWindow + Get/SetForeground + Window/Client rect + Screen/ClientToScreen + Placement/Info (`tools/decomp_notes_wave94_window_rect_fg_placement.md`). | 9 | 9 |
 | 93 | GetParent + GetDlgCtrlID (`tools/decomp_notes_wave93_getparent_dlgctrlid.md`). | 2 | 2 |
 | 92 | IsWindow / Visible / Enabled (`tools/decomp_notes_wave92_iswindow.md`). | 3 | 3 |
 | 91 | RegisterClassW + GetClassInfoW (`tools/decomp_notes_wave91_registerclass_getclassinfo.md`). | 2 | 2 |
@@ -44,6 +45,22 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 | 70 | Get/SetLastError + thread id + unique Imp (`tools/decomp_notes_wave70_lasterror_imp.md`). | 9 | 4 (+5 placeholder upgrades) |
 | 69 | Wait/Sleep + InitCriticalSection + SList (`tools/decomp_notes_wave69_wait_cs_slist.md`). | 15 | 13 (+2 placeholder upgrades) |
 | 68 | Virtual* + Sync Event/Mutex/Interlocked (`tools/decomp_notes_wave68_virtual_sync_interlocked.md`). | 35 | 32 (+3 placeholder upgrades) |
+| 67 | eON_Heap* thin wrappers + Lock/QueryInformation (`tools/decomp_notes_wave67_heap_wrappers.md`). | 12 | 12 |
+| 66 | Global*/Local* via MemoryHandleManager (`tools/decomp_notes_wave66_global_local.md`). | 16 | 16 |
+| 65 | SetupRenderPipeline + OpenGL dtor/gamma/WorkArea + AddResourceToPool (`tools/decomp_notes_wave65_setuppipeline_opengl.md`). | 6 | 0 (placeholder upgrades) |
+| 64 | MemoryHandleManager Global* surface (`tools/decomp_notes_wave64_memoryhandlemanager.md`). | 10 | 8 |
+| 63 | VirtualQuery/Ex + MemoryHandleManager_Destroy (`tools/decomp_notes_wave63_virtualquery_memhandle.md`). | 3 | 2 |
+| 62 | clipboard Open/Close/Data + LongPathA (`tools/decomp_notes_wave62_clipboard_longpath.md`). | 11 | 11 |
+| 61 | GL enum/table, XAudio graph thread, hostname (`tools/decomp_notes_wave61_gl_xaudio_host.md`). | 5 | 5 |
+| 60 | GL loaders, ForcedOpenGL, PE/registry helpers (`tools/decomp_notes_wave60_gl_loaders_vfs.md`). | 13 | 13 |
+| 59 | dumps, exception unwind, display/class APIs (`tools/decomp_notes_wave59_dumps_exception_display.md`). | 25 | 25 |
+| 58 | shader emit/convert_*, GUID/D3D dump logs (`tools/decomp_notes_wave58_shader_emit_convert_logs.md`). | 41 | 41 |
+| 57 | kernel32 lifecycle, D3D* ToString, audio/DI (`tools/decomp_notes_wave57_kernel32_d3d_tostring_audio.md`). | 28 | 28 |
+| 56 | eON paths, texm* stubs, kernel32 attach (`tools/decomp_notes_wave56_paths_texm_kernel32.md`). | 31 | 31 |
+| 55 | keycodes, shader convert_*, XAudio mastering stubs, Imp ctors (`tools/decomp_notes_wave55_keycode_shader_xaudio_imps.md`). | 32 | 32 |
+| 54 | CheckDeviceFormat, ShaderData preparsing, VPFS_CloseHandle, winsock (`tools/decomp_notes_wave54_shader_checkdevice_winsock.md`). | 19 | 19 |
+| 53 | eON_Startup/window/log, gamepad/udev, DrawPrimitive_RenderArrays, WaveIn (`tools/decomp_notes_wave53_eon_gamepad_udev_draw.md`). | 21 | 21 |
+| 52 | DirectInput8Create/A/W, KeyDown/Up, shader_pch_load, GTRACE, stream bounds (`tools/decomp_notes_wave52_di_keycode_shader_gtrace.md`). | 10 | 10 |
 | 51 | OpenGL thread/error + shader_pch savers + FreeLibrary (`decomp/opengl_pch_freelibrary_note.txt`). OpenGLThreadStart; ReportError; 5 pch savers; FreeLibrary(+AndExitThread); d3d9 GetAdapterIdentifier thunk. | 10 | 10 |
 | 50 | Registry Ex leftovers + thin wrappers + Stdout debug writer (`decomp/registry_ex_wrappers_note.txt`). Delete/Enum/Query/Set/Open/QueryInfo Ex; Open/Delete/Enum/Close/DeleteValue; OpenGLDebugWriter_Stdout::Write. | 20 | 20 |
 | 49 | Heap_Create/Validate + RegCreateKeyEx A/W + crumbs (`decomp/heap_reg_crumbs_note.txt`). Heap pair; RegCreateKey(Ex) A/W; OpenGLDebugWriter_File::Write; WindowLinux SetWindowPosition; GamepadLinux UpdateControlValues; DSC Initialize. | 10 | 10 |
@@ -133,6 +150,8 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 `python3 tools/test_llm_work.py` runs the checker against the seeds.
 
 ## Next
+
+Wave 94 applied (3,004): GetDesktopWindow, GetWindowRect, GetClientRect, Set/GetForegroundWindow, ScreenToClient, ClientToScreen, GetWindowPlacement, GetWindowInfo. See `tools/decomp_notes_wave94_window_rect_fg_placement.md`.
 
 Wave 93 applied (2,995): GetParent, GetDlgCtrlID. See `tools/decomp_notes_wave93_getparent_dlgctrlid.md`.
 
