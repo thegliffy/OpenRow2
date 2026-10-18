@@ -18,6 +18,7 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
+| 198 | MsgExtra + QueueStatus_Flags (`tools/decomp_notes_wave198_msgextra_queuestatus.md`). | 7 | 7 |
 | 197 | Shader ALU/token (`tools/decomp_notes_wave197_shader_alu_token.md`). | 4 | 4 |
 | 196 | ShaderData regs/caps (`tools/decomp_notes_wave196_shaderdata_regs.md`). | 10 | 10 |
 | 195 | ShaderData varyings (`tools/decomp_notes_wave195_shaderdata_varyings.md`). | 13 | 13 |
@@ -237,6 +238,8 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 `python3 tools/test_llm_work.py` runs the checker against the seeds.
 
 ## Next
+
+Wave 198 applied (3,614): GetMessageExtraInfo + GetQueueStatus_Flags. See `tools/decomp_notes_wave198_msgextra_queuestatus.md`.
 
 Wave 197 applied (3,607): ShaderData ALU table convert + token reader. See `tools/decomp_notes_wave197_shader_alu_token.md`.
 

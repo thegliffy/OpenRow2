@@ -1223,7 +1223,7 @@ entry,name
 0404ebb0,FUN_0404ebb0
 0404ecd0,FUN_0404ecd0
 0404ed20,FUN_0404ed20
-0404eda0,FUN_0404eda0
+0404eda0,eON_Int_Wnd_SetModalQueueFlag
 0404ee00,FUN_0404ee00
 0404ee40,FUN_0404ee40
 0404ef30,FUN_0404ef30
@@ -4960,7 +4960,7 @@ entry,name
 0415b240,thread_SuspendPoint
 0415b310,thread_init
 0415b390,FUN_0415b390
-0415b3b0,FUN_0415b3b0
+0415b3b0,eON_Int_ThreadMsgState_Find
 0415b450,FUN_0415b450
 0415b4f0,FUN_0415b4f0
 0415b510,FUN_0415b510
@@ -5599,9 +5599,9 @@ entry,name
 041703e0,user32_MessageToString
 04170960,eON_Int_MsgMatchesInputFilter
 04170a80,eON_Int_ThreadHasQueuedInputMatchingFilter
-04170e20,FUN_04170e20
-04170e70,FUN_04170e70
-041712a0,FUN_041712a0
+04170e20,eON_Int_Thread_AdjustMsgQueueCounter
+04170e70,eON_GetQueueStatus_Flags
+041712a0,eON_GetMessageExtraInfo
 041712f0,eON_Int_ThreadKeyStateBit
 04171340,eON_GetKeyboardState
 04171430,eON_GetQueueStatus
@@ -5625,7 +5625,7 @@ entry,name
 04172840,eON_Int_SendMessage_Enqueue
 04172ad0,eON_Int_DestroyWindow_PurgeQueue
 04172d10,eON_Int_MsgQueue_PumpSend
-04172ee0,FUN_04172ee0
+04172ee0,eON_Int_MsgFilter_EraseRange
 04173030,eON_PeekMessageA
 04173d30,eON_GetMessageA
 041741c0,FUN_041741c0
@@ -5636,7 +5636,7 @@ entry,name
 041749b0,FUN_041749b0
 04174b40,FUN_04174b40
 04174cd0,FUN_04174cd0
-04174e20,FUN_04174e20
+04174e20,eON_Int_MsgFilterTree_EraseRange
 04174f00,FUN_04174f00
 04175000,FUN_04175000
 04175120,FUN_04175120

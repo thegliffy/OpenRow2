@@ -1,0 +1,8 @@
+addr	old	new	lock
+041712a0	FUN_041712a0	eON_GetMessageExtraInfo	body: thread state +0x24
+04170e70	FUN_04170e70	eON_GetQueueStatus_Flags	body: QS_* flags → HIWORD present
+04170e20	FUN_04170e20	eON_Int_Thread_AdjustMsgQueueCounter	body: thread +0x28 += delta
+0404eda0	FUN_0404eda0	eON_Int_Wnd_SetModalQueueFlag	body: +0x58 modal + adjust counter
+04172ee0	FUN_04172ee0	eON_Int_MsgFilter_EraseRange	body: erase msg min/max in thread filter
+04174e20	FUN_04174e20	eON_Int_MsgFilterTree_EraseRange	body: rb-tree erase helper
+0415b3b0	FUN_0415b3b0	eON_Int_ThreadMsgState_Find	body: tid → thread msg state*
