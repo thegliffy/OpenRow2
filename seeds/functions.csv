@@ -738,7 +738,7 @@ entry,name
 0401bb90,LinuxDevice::UpdateControlValues
 0401bef0,FUN_0401bef0
 0401bf20,eON_GamepadLinux::UpdateControlValues
-0401c7c0,FUN_0401c7c0
+0401c7c0,GamepadForceFeedback_Shutdown
 0401c970,FUN_0401c970
 0401c9c0,GamepadControl::SetInitialMinMaxValues
 0401d9b0,FUN_0401d9b0
@@ -1415,7 +1415,7 @@ entry,name
 040665b0,D3DPOOL_ToString
 04066610,FUN_04066610
 04066c70,FUN_04066c70
-04066c90,FUN_04066c90
+04066c90,Direct3DDevice9_LogPresentParameters
 04067200,Direct3D9Imp::Direct3D9Imp
 04067250,FUN_04067250
 04067260,FUN_04067260
@@ -2034,7 +2034,7 @@ entry,name
 0409a0a0,Direct3DDevice9Imp::LogMemoryStats
 0409a1d0,FUN_0409a1d0
 0409a270,GetMultisamplingOptionForLevel
-0409a5f0,FUN_0409a5f0
+0409a5f0,Direct3DSurface9Imp_ClampRenderbufferSamples
 0409a7c0,direct3ddevice9imp_0409a7c0
 0409a900,direct3ddevice9imp_0409a900
 0409a9b0,Direct3DDevice9Imp::OpenGLSide_InitThread
@@ -5854,7 +5854,7 @@ entry,name
 0417f040,eON_IsCharAlphaA
 0417f070,FUN_0417f070
 0417f0a0,eON_IsCharAlphaW
-0417f0d0,FUN_0417f0d0
+0417f0d0,eON_IsCharLowerA
 0417f100,eON_IsCharLowerW
 0417f130,eON_Int_GetCharWidth
 04180350,FUN_04180350

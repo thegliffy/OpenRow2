@@ -18,6 +18,7 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
+| 102 | IsCharLowerA + GamepadForceFeedback_Shutdown + D3D present/MSAA helpers (`tools/decomp_notes_wave102_ischarlower_ff_d3d.md`). | 4 | 4 |
 | 101 | WaitMessage + TranslateMessage + PostQuitMessage (`tools/decomp_notes_wave101_wait_translate_postquit.md`). | 3 | 3 |
 | 100 | DI Gamepad/Keyboard/Mouse dtors + GamepadMapping_ParsePlatformBinding (`tools/decomp_notes_wave100_di_dtors_gamepadmap.md`). | 4 | 4 |
 | 99 | CreateCompatibleDC + VPFS Close/IsArchived/Convert + BitBlt + Gdi_GetDCForWindow (`tools/decomp_notes_wave99_createdc_vpfs_bitblt.md`). | 6 | 5 (+1 rename) |
@@ -157,6 +158,8 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 `python3 tools/test_llm_work.py` runs the checker against the seeds.
 
 ## Next
+
+Wave 102 applied (3,051): IsCharLowerA, GamepadForceFeedback_Shutdown, ClampRenderbufferSamples, LogPresentParameters. See `tools/decomp_notes_wave102_ischarlower_ff_d3d.md`.
 
 Wave 101 applied (3,047): WaitMessage, TranslateMessage, PostQuitMessage. See `tools/decomp_notes_wave101_wait_translate_postquit.md`.
 
