@@ -1,0 +1,3 @@
+addr	old	new	lock
+041220a0	FUN_041220a0	eON_CreatePen	body: malloc GDI obj type 1; style/width/color fields
+04122040	FUN_04122040	eON_CreateBrushIndirect	body: malloc GDI obj type 2 from LOGBRUSH*

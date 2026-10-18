@@ -18,6 +18,7 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
+| 104 | CreatePen + CreateBrushIndirect (`tools/decomp_notes_wave104_createpen_brush.md`). | 2 | 2 |
 | 103 | GetMessageA (`tools/decomp_notes_wave103_getmessage.md`). | 1 | 1 |
 | 102 | IsCharLowerA + GamepadForceFeedback_Shutdown + D3D present/MSAA helpers (`tools/decomp_notes_wave102_ischarlower_ff_d3d.md`). | 4 | 4 |
 | 101 | WaitMessage + TranslateMessage + PostQuitMessage (`tools/decomp_notes_wave101_wait_translate_postquit.md`). | 3 | 3 |
@@ -159,6 +160,8 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 `python3 tools/test_llm_work.py` runs the checker against the seeds.
 
 ## Next
+
+Wave 104 applied (3,054): CreatePen, CreateBrushIndirect. See `tools/decomp_notes_wave104_createpen_brush.md`.
 
 Wave 103 applied (3,052): GetMessageA. See `tools/decomp_notes_wave103_getmessage.md`.
 
