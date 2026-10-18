@@ -1,0 +1,16 @@
+Wave 51 — OpenGL thread/error + precompiled-shader savers + FreeLibrary (10 names)
+
+Track 1 — OpenGL:
+  Direct3DDevice9Imp::OpenGLThreadStart (unique thread-start log → OpenGLThreadRunloop).
+  OpenGL_ReportError (glGetError → writer; unique GL_* error strings).
+
+Track 2 — shader_pch savers (unique open/save-fail messages; peer shader_pch_write):
+  shader_pch_save_{vertex,fragment,emulated_vertex,emulated_fragment}_program,
+  shader_pch_save_linked_program_info.
+
+Track 3 — Win32 DLL:
+  eON_FreeLibrary (map lookup; not-found log).
+  eON_FreeLibraryAndExitThread (same log path then ExitThread).
+  d3d9_GetAdapterIdentifier (thin COM thunk → Direct3D9Imp::GetAdapterIdentifier).
+
+Applied via PyGhidra MCP (batch42). Scoreboard 2,541 / 9,221 (+10).

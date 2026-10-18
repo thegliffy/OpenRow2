@@ -1270,7 +1270,7 @@ entry,name
 04050440,FUN_04050440
 04050470,FUN_04050470
 040504b0,FUN_040504b0
-040504e0,FUN_040504e0
+040504e0,d3d9_GetAdapterIdentifier
 04050510,FUN_04050510
 04050530,FUN_04050530
 04050560,FUN_04050560
@@ -1892,7 +1892,7 @@ entry,name
 040806a0,direct3ddevice9imp_040806a0
 04080760,direct3ddevice9imp_04080760
 04080890,Direct3DDevice9Imp::OpenGLThreadRunloop
-04080b90,FUN_04080b90
+04080b90,Direct3DDevice9Imp::OpenGLThreadStart
 04080bd0,FUN_04080bd0
 04080c30,d3dstructs_04080c30
 04080d80,FUN_04080d80
@@ -2547,7 +2547,7 @@ entry,name
 040d8520,OGLC_DumpBuffer
 040d9ba0,FUN_040d9ba0
 040d9c50,FUN_040d9c50
-040d9d60,FUN_040d9d60
+040d9d60,OpenGL_ReportError
 040d9ee0,OpenGL_LogState_Polygons
 040dd5f0,openGlDebugFunctions_040dd5f0
 040dd6e0,FUN_040dd6e0
@@ -2645,11 +2645,11 @@ entry,name
 040e9460,FUN_040e9460
 040e94b0,FUN_040e94b0
 040e9600,FUN_040e9600
-040e9720,FUN_040e9720
-040e9870,FUN_040e9870
-040e99c0,FUN_040e99c0
-040e9b40,FUN_040e9b40
-040e9c90,FUN_040e9c90
+040e9720,shader_pch_save_vertex_program
+040e9870,shader_pch_save_fragment_program
+040e99c0,shader_pch_save_emulated_vertex_program
+040e9b40,shader_pch_save_emulated_fragment_program
+040e9c90,shader_pch_save_linked_program_info
 040ea280,ShaderCache::FillInProgramConstants
 040ea600,FUN_040ea600
 040ea6a0,FUN_040ea6a0
@@ -4775,8 +4775,8 @@ entry,name
 0414ffe0,InitializeTLS
 041502f0,FUN_041502f0
 04150330,FUN_04150330
-04150590,FUN_04150590
-04150630,FUN_04150630
+04150590,eON_FreeLibrary
+04150630,eON_FreeLibraryAndExitThread
 041506e0,GetProcAddress
 04150cd0,FUN_04150cd0
 04150d30,FUN_04150d30
