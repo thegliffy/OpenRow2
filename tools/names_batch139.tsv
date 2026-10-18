@@ -1,0 +1,8 @@
+addr	old	new	lock
+04193c40	FUN_04193c40	eON_ntohs	body: identical 16-bit endian swap (htons twin)
+04193770	FUN_04193770	eON_WSACreateEvent	body: CreateEventA(0,1,0,0) manual-reset
+04196070	FUN_04196070	eON_WSASetEvent	body: thin SetEvent
+04193bb0	FUN_04193bb0	eON_WSAGetLastError	body: thin GetLastError
+04193c00	FUN_04193c00	eON_WSASetLastError	body: thin SetLastError
+04193730	FUN_04193730	eON_WSACloseEvent	body: thin → CloseHandle
+04136760	FUN_04136760	eON_CloseHandle	body: Synchronisation_CloseHandle + SetLastError
