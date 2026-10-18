@@ -1,0 +1,14 @@
+FUN_0417d560	eON_GetSystemMetrics
+FUN_041238d0	eON_GetObjectW
+FUN_04180f00	eON_SendMessageW
+FUN_04129b90	eON_GlobalAddAtom
+FUN_041222a0	eON_CreateBitmapIndirect
+FUN_041221f0	eON_SetBitmapBits
+FUN_0401f220	OpenURLInDefaultBrowser
+FUN_0416db10	eON_SetClipboardData
+FUN_0416dfa0	eON_IsClipboardFormatAvailable
+FUN_0416d9a0	eON_ChangeClipboardChain
+FUN_04176530	eON_SetClipboardText
+FUN_04176970	eON_IsScreenSaverEnabled
+FUN_04176990	eON_SetScreenSaverEnabled
+FUN_04065f90	Direct3D9Imp::GetAdapterIdentifier

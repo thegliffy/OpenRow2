@@ -1,0 +1,24 @@
+Wave 48 — user32/GDI leftovers + clipboard/OpenURL/screensaver + GetAdapterIdentifier (14 names)
+
+Track 1 — user32/GDI (unique messages / A-W peers):
+  eON_GetSystemMetrics; eON_GetObjectW (peer GetObjectA);
+  eON_SendMessageW (peer SendMessageA; wait-loop logs);
+  eON_GlobalAddAtom; eON_CreateBitmapIndirect; eON_SetBitmapBits (peer GetBitmapBits).
+
+Track 2 — misc C-APIs:
+  OpenURLInDefaultBrowser (xdg-open spawn; url-too-long message);
+  eON_SetClipboardData / eON_IsClipboardFormatAvailable / eON_ChangeClipboardChain;
+  eON_SetClipboardText (Wide→SDL_SetClipboardText, callee of SetClipboardData);
+  eON_IsScreenSaverEnabled / eON_SetScreenSaverEnabled (SPI helpers via SDL).
+  SKIP: FUN_041763d0 — SDL clipboard sync into HGLOBAL (not a unique Win32 entry).
+
+Track 3 — Direct3D9Imp::GetAdapterIdentifier:
+  Unique WHQL warning; fills D3DADAPTER_IDENTIFIER9 (Driver/Description/etc.).
+  Thin COM thunk FUN_040504e0 (this+4) left unnamed.
+
+Track 4 — leave alone (unchanged):
+  Shared GetLongPathNameA log; shared SetForcedOpenGLDisplay; cursor workers;
+  Present logger; capture-devices stub; 8 d3d9device_* wrappers;
+  FileSystem/Varyings/GetDlgItem; module_hex; splits; breakpad stub.
+
+Applied via PyGhidra MCP (batch39). Scoreboard 2,501 / 9,221 (+14).
