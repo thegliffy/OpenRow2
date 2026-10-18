@@ -1,0 +1,9 @@
+FUN_04175ce0	eON_SetWindowsHookExA
+FUN_04175d90	eON_SetWindowsHookExW
+FUN_04171ab0	eON_DefWindowProcW
+FUN_04176910	eON_GetDoubleClickTime
+FUN_04176610	eON_GetAsyncKeyState
+FUN_04175c90	eON_GetKeyState
+FUN_04016a90	eON_LoadStandardCursor
+FUN_0416e6c0	eON_LoadCursorW
+FUN_040f62a0	KeyboardEventReceiver::ProcessKeyUp

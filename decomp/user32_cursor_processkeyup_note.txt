@@ -1,0 +1,27 @@
+Wave 47 — user32 leftovers + cursor internals + ProcessKeyUp; leave-alones (9 names)
+
+Track 1 — user32 C-API leftovers (unique messages / body-lock):
+  eON_SetWindowsHookExA / eON_SetWindowsHookExW
+  eON_DefWindowProcW (peer eON_DefWindowProcA already named; unhandled-message logs)
+  eON_GetDoubleClickTime (returns 500; once-per-run log)
+  eON_GetAsyncKeyState (SDL keyboard/mouse/mod → 0x8000 bit)
+  eON_GetKeyState (thin forwarder to GetAsyncKeyState)
+
+Track 2 — cursor internals:
+  eON_LoadStandardCursor (IDC_* → SDL_CreateSystemCursor / eON_CursorLinux factory;
+    called from LoadCursor A/W when hInstance is null)
+  eON_LoadCursorW (WideChar twin of eON_LoadCursor; same load-failure messages)
+  SKIP: FUN_04027480 / FUN_04027550 — shared screen-pos / warp workers used by
+    Get/SetCursorPos and GetCursorInfo; not unique Win32 entries.
+
+Track 3 — KeyboardEventReceiver::ProcessKeyUp:
+  Unique “DirectInput8's ProcessKeyUp” message; translates keycode then calls
+  already-named Internal_ProcessKeyUp. Twin of ProcessKeyDown.
+
+Track 4 — leave alone (reconfirmed):
+  Eight d3d9device_* same-method wrappers; FUN_0418a8c0 capture-devices stub
+  (message ≠ API name); FUN_04066c90 Present/params logger; shared
+  FileSystem/Varyings/GetDlgItem; module_hex multi-sig; ambiguous splits;
+  breakpad FUN_0400939e.
+
+Applied via PyGhidra MCP (batch38). Scoreboard 2,487 / 9,221 (+9).
