@@ -1,0 +1,8 @@
+addr	old	new	lock
+041c5820	FUN_041c5820	TiXmlElement::TiXmlElement	body: type1 element ctor from name
+041c5a20	FUN_041c5a20	TiXmlElement::TiXmlElement_Empty	body: type1 empty element ctor
+041c5970	FUN_041c5970	TiXmlElement::~TiXmlElement	body: Clear + string teardown
+041c55e0	FUN_041c55e0	TiXmlDeclaration::TiXmlDeclaration	body: type5 empty ctor
+041c5450	FUN_041c5450	TiXmlDeclaration::CopyTo	body: copy declaration fields
+041c5280	FUN_041c5280	TiXmlComment::CopyTo	body: copy comment value fields
+041c5af0	FUN_041c5af0	TiXmlElement::~TiXmlElement_Alt	body: Clear dtor variant

@@ -18,6 +18,7 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
+| 137 | Element/Declaration ctors (`tools/decomp_notes_wave137_tixml_element_ctors.md`). | 7 | 7 |
 | 136 | ReplaceChild/InsertEndChild/Clones (`tools/decomp_notes_wave136_tixml_replace_clone.md`). | 9 | 9 |
 | 135 | TiXmlUnknown::Clone + CopyValueFieldsTo (`tools/decomp_notes_wave135_tixml_unknown_clone.md`). | 2 | 2 |
 | 134 | TiXml ByName siblings + Attr Print (`tools/decomp_notes_wave134_tixml_siblings.md`). | 7 | 7 |
@@ -192,6 +193,8 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 `python3 tools/test_llm_work.py` runs the checker against the seeds.
 
 ## Next
+
+Wave 137 applied (3,246): TiXml Element/Declaration/Comment ctors. See `tools/decomp_notes_wave137_tixml_element_ctors.md`.
 
 Wave 136 applied (3,239): ReplaceChild, InsertEndChild, AttributeSet Find, more Clones. See `tools/decomp_notes_wave136_tixml_replace_clone.md`.
 
