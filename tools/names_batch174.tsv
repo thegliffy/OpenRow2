@@ -1,0 +1,5 @@
+addr	old	new	lock
+040273c0	FUN_040273c0	eON_GetFocus	body: SDL_GetKeyboardFocus → eON_Window data
+04026cf0	FUN_04026cf0	eON_Int_Wnd_EnsureTitleSynced	body: shown window title sync
+04026e70	FUN_04026e70	eON_WindowLinux_InitVtable	body: set IsVisible vtable + clear SDL
+04026d90	FUN_04026d90	eON_Int_LoadPngIconSurface	body: png_image → SDL_CreateRGBSurface

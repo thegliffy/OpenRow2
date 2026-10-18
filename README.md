@@ -18,6 +18,7 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
+| 183 | GetFocus + WindowLinux (`tools/decomp_notes_wave183_getfocus_wndlinux.md`). | 4 | 4 |
 | 182 | SetFocus + SDL wnd (`tools/decomp_notes_wave182_setfocus_sdl_wnd.md`). | 6 | 6 |
 | 181 | IsIconic/Show/SetText (`tools/decomp_notes_wave181_isiconic_show_settext.md`). | 7 | 7 |
 | 180 | Wnd SDL sync (`tools/decomp_notes_wave180_wnd_sdl_sync.md`). | 4 | 4 |
@@ -222,6 +223,8 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 `python3 tools/test_llm_work.py` runs the checker against the seeds.
 
 ## Next
+
+Wave 183 applied (3,474): GetFocus + WindowLinux helpers. See `tools/decomp_notes_wave183_getfocus_wndlinux.md`.
 
 Wave 182 applied (3,470): SetFocus + SDL window helpers. See `tools/decomp_notes_wave182_setfocus_sdl_wnd.md`.
 
