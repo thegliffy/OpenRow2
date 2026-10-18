@@ -1,0 +1,4 @@
+addr	old	new	lock
+04171490	FUN_04171490	eON_WaitMessage	body: WaitForMultipleObjects(INFINITE, QS mask 0x4ff); return TRUE
+041714e0	FUN_041714e0	eON_TranslateMessage	body: true for WM_KEY*/WM_SYSKEY* (0x100-101,0x104-105)
+041722f0	FUN_041722f0	eON_PostQuitMessage	body: post WM_QUIT (0x12) to current thread with nExitCode
