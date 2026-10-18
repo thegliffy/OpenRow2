@@ -1,0 +1,8 @@
+addr	old	new	lock
+04182a50	FUN_04182a50	eON_GetActiveWindow	body: GetHeadWindow + same-thread gate
+041829a0	FUN_041829a0	eON_GetActiveWindow_Thunk	body: thin → GetHeadWindow
+04183820	FUN_04183820	eON_GetUpdateRect	body: RECT + erase bool → vtable+0xa4
+04121dc0	FUN_04121dc0	eON_TextOutW	body: FontCache + ExtTextOutW origin 0
+0416f970	FUN_0416f970	eON_EnumDisplaySettingsA_Thunk	body: thin → EnumDisplaySettingsA
+0416f9b0	FUN_0416f9b0	eON_EnumDisplaySettingsW_Thunk	body: thin → EnumDisplaySettingsW
+0418d8d0	FUN_0418d8d0	eON_MemoryReader_GetHandleInfo	body: IsValidHandle + Read/Seek size

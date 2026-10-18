@@ -3827,7 +3827,7 @@ entry,name
 04120e20,eON_GetTextExtentPointI
 04120e80,eON_ExtTextOutW
 04121d00,eON_ExtTextOutW_OptionsGate
-04121dc0,FUN_04121dc0
+04121dc0,eON_TextOutW
 04121e40,eON_ExtTextOutA
 04121fc0,eON_TextOutA
 04122030,FUN_04122030
@@ -5584,8 +5584,8 @@ entry,name
 0416f2b0,EnumDisplayDevicesW
 0416f450,EnumDisplaySettingsA
 0416f750,EnumDisplaySettingsW
-0416f970,FUN_0416f970
-0416f9b0,FUN_0416f9b0
+0416f970,eON_EnumDisplaySettingsA_Thunk
+0416f9b0,eON_EnumDisplaySettingsW_Thunk
 0416f9f0,ChangeDisplaySettingsExA
 0416fb50,ChangeDisplaySettingsA
 0416fba0,ChangeDisplaySettingsExW
@@ -5921,10 +5921,10 @@ entry,name
 04182870,eON_SetParent
 04182910,FUN_04182910
 04182920,eON_GetParent
-041829a0,FUN_041829a0
+041829a0,eON_GetActiveWindow_Thunk
 041829b0,eON_GetWindowThreadProcessId
 04182a40,eON_GetDesktopWindow
-04182a50,FUN_04182a50
+04182a50,eON_GetActiveWindow
 04182ad0,eON_GetDlgItem
 04182b60,FUN_04182b60
 04182b70,eON_FindWindow_LogLookup
@@ -5952,7 +5952,7 @@ entry,name
 04183680,FUN_04183680
 04183700,eON_ScreenToClient
 04183790,eON_ClientToScreen
-04183820,FUN_04183820
+04183820,eON_GetUpdateRect
 041838d0,FUN_041838d0
 041838e0,eON_SendDlgItemMessageA
 04183a40,eON_SendDlgItemMessageW
@@ -6234,7 +6234,7 @@ entry,name
 0418d6d0,FUN_0418d6d0
 0418d700,eON_mmioOpenA
 0418d830,eON_mmioClose
-0418d8d0,FUN_0418d8d0
+0418d8d0,eON_MemoryReader_GetHandleInfo
 0418d990,eON_mmioDescend
 0418dba0,FUN_0418dba0
 0418dbb0,eON_mmioGetInfo
