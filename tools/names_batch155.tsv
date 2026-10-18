@@ -1,0 +1,4 @@
+addr	old	new	lock
+0418c580	FUN_0418c580	MMDeviceCollectionImp::GetCount	body: out ← count at +0x1c
+0418c5a0	FUN_0418c5a0	MMDeviceCollectionImp::Item	body: index → AddRef device iface
+0418c7e0	FUN_0418c7e0	MMDeviceCollectionImp::AddDevice	body: realloc vector push device*
