@@ -1,0 +1,7 @@
+addr	old	new	lock
+04123130	FUN_04123130	eON_CreateCompatibleDC	body: alloc DC slot type 10; SelectObject(GetStockObject(9))
+04042f30	FUN_04042f30	eON_VPFS_Close	assert: Invalid handle given to VPFS_Close()
+04043100	FUN_04043100	eON_VPFS_IsArchivedFile	assert: Invalid handle given to VPFS_IsArchivedFile()
+04046c50	FUN_04046c50	eON_VPFS_ConvertDiskFileToWriteableLocation	assert: VPFS_ConvertDiskFileToWriteableLocation() error
+041247c0	gdi32_041247c0	eON_BitBlt	body: gdi32 blit; SRCCOPY callers pass 0x00CC0020; DC handle decode +0x68686869
+04122fd0	FUN_04122fd0	eON_Gdi_GetDCForWindow	body: find/alloc DC bound to HWND; called by eON_GetDC
