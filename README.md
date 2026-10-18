@@ -200,6 +200,8 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 ## Next
 
+Wave 159 applied (3,385): GetKeyboardState, ToAscii, thread keystate internals. See `tools/decomp_notes_wave159_keyboard_toascii.md`.
+
 Wave 158 applied (3,378): PostMessage A/W, MessageBoxW, SyncClipboardFromSDL, MsgWaitEx. See `tools/decomp_notes_wave158_postmessage_msgboxw.md`.
 
 Wave 157 applied (3,373): RegisterWindowMessage A/W, MapVirtualKey A/W. See `tools/decomp_notes_wave157_registermessage_mapvk.md`.

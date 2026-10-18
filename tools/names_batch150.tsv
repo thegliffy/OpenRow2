@@ -1,0 +1,8 @@
+addr	old	new	lock
+04171340	FUN_04171340	eON_GetKeyboardState	body: copy 256-byte thread key array
+04175c60	FUN_04175c60	eON_GetKeyboardState_Checked	body: null-check → GetKeyboardState
+04176790	FUN_04176790	eON_Int_VkToUnicodeChar	body: VK→WCHAR table lookup
+04176040	FUN_04176040	eON_ToAscii	body: optional GetKeyboardState + VkToUnicode
+041760f0	FUN_041760f0	eON_ToAscii_WithState	body: VkToUnicode + WideCharToMultiByte
+041712f0	FUN_041712f0	eON_Int_ThreadKeyStateBit	body: per-thread key high-bit
+04175cb0	FUN_04175cb0	eON_Int_GetThreadKeyState	body: vk<0x100 → ThreadKeyStateBit
