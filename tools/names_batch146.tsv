@@ -1,0 +1,5 @@
+addr	old	new	lock
+04182870	FUN_04182870	eON_SetParent	body: vtable SetParent; clears self-parent
+04181860	FUN_04181860	eON_AdjustWindowRectEx	body: AdjustRectForCaption on style
+041818a0	FUN_041818a0	eON_AdjustWindowRect	body: AdjustRectForCaption menu=0
+04027430	FUN_04027430	eON_Int_AdjustRectForCaption	body: WS_CAPTION → subtract SM_CYCAPTION
