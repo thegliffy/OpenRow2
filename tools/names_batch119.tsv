@@ -1,0 +1,15 @@
+addr	old	new	lock
+041c3580	FUN_041c3580	TiXmlNode::FirstChildElement	body: first element child via vtable IsElement
+041c35d0	FUN_041c35d0	TiXmlNode::FirstChildElement_ByName	body: FirstChildElement(const char*)
+041c3660	FUN_041c3660	TiXmlNode::NextSiblingElement	body: next element sibling
+041c36b0	FUN_041c36b0	TiXmlNode::NextSiblingElement_ByName	body: NextSiblingElement(const char*)
+041c3800	FUN_041c3800	TiXmlElement::Attribute	body: lookup attr value C string
+041c3860	FUN_041c3860	TiXmlElement::Attribute_WithDefault	body: Attribute(name, default)
+041c3e50	FUN_041c3e50	TiXmlElement::SetAttribute_StrStr	body: FindOrCreate + assign value
+041c4270	FUN_041c4270	TiXmlDocument::SaveFile	body: fopen value path; Print; UTF-8 BOM
+041c4750	FUN_041c4750	TiXmlDocument::SaveFile_Path	body: SaveFile(const char*)
+041c4720	FUN_041c4720	TiXmlDocument::SaveFile_ToValuePath	body: SaveFile via document value
+041c4f50	FUN_041c4f50	TiXmlAttribute::QueryIntValue	body: sscanf %d
+041c4f90	FUN_041c4f90	TiXmlAttribute::QueryDoubleValue	body: sscanf double
+041c4b70	FUN_041c4b70	TiXmlAttribute::Next	body: next attr or null sentinel
+041c4ba0	FUN_041c4ba0	TiXmlAttribute::Previous	body: prev attr or null sentinel

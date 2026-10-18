@@ -18,6 +18,7 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
+| 128 | TiXml nav/Attribute/SaveFile (`tools/decomp_notes_wave128_tixml_api.md`). | 14 | 14 |
 | 127 | GL begin-mode + glyph list (`tools/decomp_notes_wave127_glbegin_glyphlist.md`). | 3 | 3 |
 | 126 | Registry XML SetValue + hex encode (`tools/decomp_notes_wave126_registry_xml_setvalue.md`). | 4 | 4 |
 | 125 | Registry XML nav + hex codecs (`tools/decomp_notes_wave125_registry_xml_values.md`). | 11 | 11 |
@@ -183,6 +184,8 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 `python3 tools/test_llm_work.py` runs the checker against the seeds.
 
 ## Next
+
+Wave 128 applied (3,178): TiXml First/NextChildElement, Attribute, SaveFile, QueryInt/Double, attr Next/Previous. See `tools/decomp_notes_wave128_tixml_api.md`.
 
 Wave 127 applied (3,164): OpenGL_BeginMode_ToString, FontCache glyph list push/sort. See `tools/decomp_notes_wave127_glbegin_glyphlist.md`.
 
