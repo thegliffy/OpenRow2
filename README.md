@@ -18,6 +18,7 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
+| 199 | SetTimer/KillTimer (`tools/decomp_notes_wave199_settimer_killtimer.md`). | 8 | 6 new + 2 renames |
 | 198 | MsgExtra + QueueStatus_Flags (`tools/decomp_notes_wave198_msgextra_queuestatus.md`). | 7 | 7 |
 | 197 | Shader ALU/token (`tools/decomp_notes_wave197_shader_alu_token.md`). | 4 | 4 |
 | 196 | ShaderData regs/caps (`tools/decomp_notes_wave196_shaderdata_regs.md`). | 10 | 10 |
@@ -238,6 +239,8 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 `python3 tools/test_llm_work.py` runs the checker against the seeds.
 
 ## Next
+
+Wave 199 applied (3,620): SetTimer/KillTimer (+ fix MsgFilter misnames). See `tools/decomp_notes_wave199_settimer_killtimer.md`.
 
 Wave 198 applied (3,614): GetMessageExtraInfo + GetQueueStatus_Flags. See `tools/decomp_notes_wave198_msgextra_queuestatus.md`.
 

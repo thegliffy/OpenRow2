@@ -1,0 +1,9 @@
+addr	old	new	lock
+04172ee0	eON_Int_MsgFilter_EraseRange	eON_KillTimer	body: hwnd+id erase from timer tree (fix)
+04174e20	eON_Int_MsgFilterTree_EraseRange	eON_Int_TimerTree_EraseRange	body: timer tree erase (fix)
+04174450	FUN_04174450	eON_SetTimer	body: timeGetTime + elapse + TIMERPROC
+04175120	FUN_04175120	eON_Int_TimerTree_InsertHint	body: rb insert-with-hint
+04175000	FUN_04175000	eON_Int_TimerTree_FindInsertPos	body: lower_bound insert pos
+04174f00	FUN_04174f00	eON_Int_TimerTree_InsertNode	body: new 0x28 timer node
+04174cd0	FUN_04174cd0	eON_Int_TimerTree_LowerBound	body: find erase range start
+04174820	FUN_04174820	eON_Int_TimerTree_DestroySubtree	body: recursive node delete

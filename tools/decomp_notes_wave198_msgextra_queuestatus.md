@@ -5,7 +5,7 @@ Scoreboard: 3,614 / 9,221.
 ## Named
 
 GetMessageExtraInfo; GetQueueStatus_Flags; Thread AdjustMsgQueueCounter; SetModalQueueFlag;
-MsgFilter EraseRange + tree helper; ThreadMsgState_Find.
+KillTimer tree erase (later corrected in wave 199); ThreadMsgState_Find.
 
 ## LEAVE
 
