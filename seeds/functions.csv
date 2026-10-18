@@ -1986,7 +1986,7 @@ entry,name
 04092e00,Direct3DDevice9Imp::VertexArrays_EnableArrays
 04093480,Direct3DDevice9Imp::SetupVertexAttributeArrays
 04093810,OpenGLContextCache::UpdateTextureMatrices
-040972b0,FUN_040972b0
+040972b0,OpenGL_BeginMode_ToString
 040972d0,FUN_040972d0
 040975f0,Direct3DDevice9Imp::DrawPrimitive_RenderArrays
 04097b90,FUN_04097b90
@@ -3775,8 +3775,8 @@ entry,name
 0411ca30,FUN_0411ca30
 0411ca40,eON_Gdi_SetDCSelectedObject
 0411ca70,eON_Gdi_GetDCSelectedObject
-0411caa0,FUN_0411caa0
-0411cb30,FUN_0411cb30
+0411caa0,FontCache_GlyphList_Push
+0411cb30,FontCache_GlyphList_SortByX
 0411cc40,eON_SetTextColor
 0411cc80,eON_SetBkColor
 0411ccd0,eON_CreateRectRgn

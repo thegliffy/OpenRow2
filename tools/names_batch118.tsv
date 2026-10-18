@@ -1,0 +1,4 @@
+addr	old	new	lock
+040972b0	FUN_040972b0	OpenGL_BeginMode_ToString	body: GL_POINTS… table; !!!unknown!!!
+0411caa0	FUN_0411caa0	FontCache_GlyphList_Push	body: grow 16-byte glyph records
+0411cb30	FUN_0411cb30	FontCache_GlyphList_SortByX	body: selection-sort glyph x
