@@ -1,0 +1,8 @@
+addr	old	new	lock
+04025ec0	FUN_04025ec0	eON_IsIconic	body: SDL_WINDOW_MINIMIZED flag
+04025f90	FUN_04025f90	eON_Int_DefWindowProc_AorW	body: A/W DefWindowProc by charset
+040262b0	FUN_040262b0	eON_Int_Wnd_ShowOrHide	body: WM_SHOWWINDOW + SDL Show/Hide
+040263f0	FUN_040263f0	eON_Int_Wnd_RaiseIfNotMinimized	body: RaiseWindow when not minimized
+04026440	FUN_04026440	eON_SetWindowTextW	body: WideChar→SDL_SetWindowTitle
+04025e00	FUN_04025e00	eON_Int_Wnd_SetPos_CW_USEDEFAULT	body: SetWindowPos 0x2FFF0000 defaults
+04026280	FUN_04026280	eON_Int_SDL_SetWindowTitle_Thunk	body: thin SDL_SetWindowTitle

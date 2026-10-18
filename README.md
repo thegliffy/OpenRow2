@@ -18,6 +18,7 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
+| 181 | IsIconic/Show/SetText (`tools/decomp_notes_wave181_isiconic_show_settext.md`). | 7 | 7 |
 | 180 | Wnd SDL sync (`tools/decomp_notes_wave180_wnd_sdl_sync.md`). | 4 | 4 |
 | 179 | Wnd SetPosition/SetSize (`tools/decomp_notes_wave179_wnd_setpos_size.md`). | 2 | 2 |
 | 178 | MouseMove/Wheel/buttons (`tools/decomp_notes_wave178_mousemove_wheel_buttons.md`). | 5 | 5 |
@@ -220,6 +221,8 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 `python3 tools/test_llm_work.py` runs the checker against the seeds.
 
 ## Next
+
+Wave 181 applied (3,464): IsIconic/ShowHide/SetWindowTextW. See `tools/decomp_notes_wave181_isiconic_show_settext.md`.
 
 Wave 180 applied (3,457): Wnd SDL size/pos sync helpers. See `tools/decomp_notes_wave180_wnd_sdl_sync.md`.
 
