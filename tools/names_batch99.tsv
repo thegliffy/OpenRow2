@@ -1,0 +1,6 @@
+addr	old	new	lock
+0402d070	FUN_0402d070	eON_WarnIncompleteStub	body: logs incomplete/d3d11 stub with func/file/line/thread
+0405a780	FUN_0405a780	D3DBytecodeToGLSL_EmitPS3Inputs	body: PS 3.0 input register → GLSL varyings; unique PS3 warns
+04121d00	FUN_04121d00	eON_ExtTextOutW_OptionsGate	body: warns on unimplemented ETO flags then ExtTextOutW
+04124fa0	FUN_04124fa0	eON_GetROP2	body: read DC ROP2 field +0xad8 (SaveDC seeds 0x0d=R2_COPYPEN)
+04124fd0	FUN_04124fd0	eON_SetROP2	body: write DC ROP2 field +0xad8
