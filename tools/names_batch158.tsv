@@ -1,0 +1,3 @@
+addr	old	new	lock
+0418d480	FUN_0418d480	MMDeviceImp::OpenPropertyStore	body: STGM_READ → PropertyStoreImp + fill
+0418d380	FUN_0418d380	MMDeviceImp::Int_FillPropertyStore	body: seed PKEY_* from device into store

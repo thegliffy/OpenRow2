@@ -18,6 +18,7 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
+| 167 | OpenPropertyStore (`tools/decomp_notes_wave167_openpropertystore.md`). | 2 | 2 |
 | 166 | SPIW + PropertyStore GetValue (`tools/decomp_notes_wave166_spi_w_propstore.md`). | 2 | 2 |
 | 165 | MMDeviceImp Activate/GetId (`tools/decomp_notes_wave165_mmdevice_activate_getid.md`). | 3 | 3 |
 | 164 | MMDeviceCollection (`tools/decomp_notes_wave164_mmdevice_collection.md`). | 3 | 3 |
@@ -206,6 +207,8 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 `python3 tools/test_llm_work.py` runs the checker against the seeds.
 
 ## Next
+
+Wave 167 applied (3,418): MMDeviceImp OpenPropertyStore. See `tools/decomp_notes_wave167_openpropertystore.md`.
 
 Wave 166 applied (3,416): SystemParametersInfoW + PropertyStore GetValue. See `tools/decomp_notes_wave166_spi_w_propstore.md`.
 
