@@ -18,6 +18,7 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
+| 187 | MapWindowPoints + Enum/Dialog (`tools/decomp_notes_wave187_mapwindow_enum_dialog.md`). | 10 | 10 |
 | 186 | GetActiveWindow + GetUpdateRect (`tools/decomp_notes_wave186_activewindow_updaterect.md`). | 7 | 7 |
 | 185 | WindowLinux + SendDlgItemMessage (`tools/decomp_notes_wave185_wnd_dlgitem_frameextents.md`). | 14 | 14 |
 | 184 | CursorPos + SetFocus_Checked (`tools/decomp_notes_wave184_cursor_setfocus_checked.md`). | 6 | 6 |
@@ -226,6 +227,8 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 `python3 tools/test_llm_work.py` runs the checker against the seeds.
 
 ## Next
+
+Wave 187 applied (3,511): MapWindowPoints + Enum* + DialogBoxParamA. See `tools/decomp_notes_wave187_mapwindow_enum_dialog.md`.
 
 Wave 186 applied (3,501): GetActiveWindow + GetUpdateRect + TextOutW. See `tools/decomp_notes_wave186_activewindow_updaterect.md`.
 

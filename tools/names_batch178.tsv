@@ -1,0 +1,11 @@
+addr	old	new	lock
+04184050	FUN_04184050	eON_MapWindowPoints	body: POINT array hwnd↔hwnd transform
+04184f90	FUN_04184f90	eON_GetWindow	body: GW_HWNDNEXT/PREV/CHILD walk
+041852e0	FUN_041852e0	eON_Int_Wnd_Reparent	body: GetWindow+vtable+0x68 set parent
+041876b0	FUN_041876b0	eON_EnumChildWindows	body: collect kids + callback
+04187820	FUN_04187820	eON_WindowFromPoint	body: point-in-rect over window list
+04187a90	FUN_04187a90	eON_GetTopWindow	body: first child from collect/vtable
+04187d20	FUN_04187d20	eON_EnumWindows	body: top-level collect + callback
+04188880	FUN_04188880	eON_DialogBoxParamA	body: FindResource+msg loop+Destroy
+04186db0	FUN_04186db0	eON_PrintWindow	body: GetDC+BitBlt client
+04027740	FUN_04027740	eON_Int_Wnd_CollectWindowList	body: build HWND vector from global list
