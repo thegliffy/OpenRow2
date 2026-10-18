@@ -1,0 +1,4 @@
+addr	old	new	lock
+041c6410	FUN_041c6410	TiXmlAttribute::~TiXmlAttribute	body: free name/value/string slots
+041c6470	FUN_041c6470	TiXmlAttribute::~TiXmlAttribute_Alt	body: attribute dtor variant
+04126f60	FUN_04126f60	eON_IntPtr_Compare	body: qsort *a-*b comparator

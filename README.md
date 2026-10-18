@@ -18,6 +18,7 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
+| 141 | Attribute dtor + IntPtr compare (`tools/decomp_notes_wave141_tixml_attr_dtor.md`). | 3 | 3 |
 | 140 | TiXmlHandle nav + Element Print (`tools/decomp_notes_wave140_tixml_handle.md`). | 9 | 9 |
 | 139 | Attribute Print/Parse + UTF8 (`tools/decomp_notes_wave139_tixml_parse_print.md`). | 6 | 6 |
 | 138 | Attribute ctor + dtors/CopyTo (`tools/decomp_notes_wave138_tixml_attr_dtors.md`). | 6 | 6 |
@@ -196,6 +197,8 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 `python3 tools/test_llm_work.py` runs the checker against the seeds.
 
 ## Next
+
+Wave 141 applied (3,270): TiXmlAttribute dtor, IntPtr compare. See `tools/decomp_notes_wave141_tixml_attr_dtor.md`.
 
 Wave 140 applied (3,267): TiXmlHandle navigation + Element::Print_ToString. See `tools/decomp_notes_wave140_tixml_handle.md`.
 

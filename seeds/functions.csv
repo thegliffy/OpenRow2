@@ -4061,7 +4061,7 @@ entry,name
 04126f30,FUN_04126f30
 04126f40,FUN_04126f40
 04126f50,FUN_04126f50
-04126f60,FUN_04126f60
+04126f60,eON_IntPtr_Compare
 04126f90,eON_GetPhysicalInterfaceAddress
 04127160,FUN_04127160
 04127330,eON_Int_GetIpForwardTable
@@ -6675,8 +6675,8 @@ entry,name
 041c63c0,FUN_041c63c0
 041c63d0,FUN_041c63d0
 041c63f0,FUN_041c63f0
-041c6410,FUN_041c6410
-041c6470,FUN_041c6470
+041c6410,TiXmlAttribute::~TiXmlAttribute
+041c6470,TiXmlAttribute::~TiXmlAttribute_Alt
 041c64e0,TiXmlComment::~TiXmlComment
 041c6560,TiXmlDeclaration::~TiXmlDeclaration
 041c6620,FUN_041c6620
