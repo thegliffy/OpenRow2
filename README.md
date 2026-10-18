@@ -14,7 +14,7 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 ## Scoreboard
 
-**2,591 / 9,221 functions carry a project name (28.1%).** A name is kept when that function references a matching assert signature, a single source file, or a D3D9 vtable slot locked by those signatures. Module prefixes name the file, not the function. Message-style strings do not replace a signature name.
+**2,623 / 9,221 functions carry a project name (28.4%).** A name is kept when that function references a matching assert signature, a single source file, or a D3D9 vtable slot locked by those signatures. Module prefixes name the file, not the function. Message-style strings do not replace a signature name.
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
@@ -107,6 +107,8 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 `python3 tools/test_llm_work.py` runs the checker against the seeds.
 
 ## Next
+
+Wave 55 applied (2,623): keycodes, shader convert_*, XAudio mastering stubs, Imp ctors. See `tools/decomp_notes_wave55_keycode_shader_xaudio_imps.md`.
 
 Wave 54 applied (2,591): CheckDeviceFormat, ShaderData preparsing, VPFS_CloseHandle, wvsnprintf, sockets. See `tools/decomp_notes_wave54_shader_checkdevice_winsock.md`.
 

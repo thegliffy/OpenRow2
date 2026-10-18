@@ -605,7 +605,7 @@ entry,name
 0400ce40,FUN_0400ce40
 0400d040,FUN_0400d040
 0400d240,FUN_0400d240
-0400d250,FUN_0400d250
+0400d250,eON_SetThreadName
 0400d2e0,FUN_0400d2e0
 0400d300,Exit_eON
 0400d370,FUN_0400d370
@@ -626,7 +626,7 @@ entry,name
 0400e240,FUN_0400e240
 0400e290,FUN_0400e290
 0400e440,FUN_0400e440
-0400e4c0,FUN_0400e4c0
+0400e4c0,eON_CursorLinux::DecodeCursorFromOpenFile
 0400eb20,eON_CursorLinux::LoadCursorImageFromFile
 0400ec30,eON_Cursor::eON_Cursor
 0400ecd0,FUN_0400ecd0
@@ -724,7 +724,7 @@ entry,name
 04019bd0,FUN_04019bd0
 04019d90,FUN_04019d90
 04019f50,FUN_04019f50
-0401a060,FUN_0401a060
+0401a060,eON_GetEonRegistryPath
 0401a1a0,eON_FileSystem::windowsRegistryPathMacPlist
 0401a1d0,FUN_0401a1d0
 0401a1e0,LinuxDevice::UpdateForceFeedback
@@ -755,8 +755,8 @@ entry,name
 0401ebc0,udev_EnumerateInputDevices
 0401ed00,FUN_0401ed00
 0401edd0,FUN_0401edd0
-0401edf0,FUN_0401edf0
-0401ee40,FUN_0401ee40
+0401edf0,KeycodeToWindowsScancode
+0401ee40,KeycodeToVirtualKeyCode
 0401ee80,KeycodeToDirectInputCode
 0401eec0,FUN_0401eec0
 0401eee0,BringMainGameWindowToFront
@@ -1035,7 +1035,7 @@ entry,name
 04030320,FUN_04030320
 04030340,IUnknownImp::QueryInterface
 04030380,FUN_04030380
-040303a0,FUN_040303a0
+040303a0,IUnknownImp::IUnknownImp
 040303d0,FUN_040303d0
 04030400,FUN_04030400
 04030420,FUN_04030420
@@ -1329,11 +1329,11 @@ entry,name
 04055520,FUN_04055520
 04055650,FUN_04055650
 04055780,FUN_04055780
-04055890,FUN_04055890
-04055a60,FUN_04055a60
+04055890,eON_ShaderData_convert_compare
+04055a60,eON_ShaderData_convert_map2gl
 04055d90,FUN_04055d90
-04055f10,FUN_04055f10
-040560f0,FUN_040560f0
+04055f10,eON_ShaderData_convert_matmul
+040560f0,eON_ShaderData_convert_math
 04056220,FUN_04056220
 04056490,FUN_04056490
 04056820,FUN_04056820
@@ -1350,7 +1350,7 @@ entry,name
 0405b060,FUN_0405b060
 0405b220,eON_ShaderData::GenerateGLSLDeclarations
 0405bf50,eON_ShaderData::GeneratePixelShaderInputs
-0405c930,FUN_0405c930
+0405c930,eON_ShaderData::GenerateVertexShaderOutputs
 0405cc40,FUN_0405cc40
 0405cc50,FUN_0405cc50
 0405cf60,FUN_0405cf60
@@ -1964,7 +1964,7 @@ entry,name
 0408b270,FUN_0408b270
 0408b2b0,FUN_0408b2b0
 0408b2e0,FUN_0408b2e0
-0408c880,FUN_0408c880
+0408c880,Direct3DDevice9Imp::ApplyColorWriteEnable
 0408cc90,OpenGLContextCache::PointAttenuation
 0408d720,FUN_0408d720
 0408d740,FUN_0408d740
@@ -2352,7 +2352,7 @@ entry,name
 040b1780,Direct3DVertexBuffer9Imp::Lock
 040b1900,Direct3DVertexBuffer9Imp::Direct3DVertexBuffer9Imp
 040b1960,Direct3DVertexBuffer9Imp::Initialize
-040b1a30,FUN_040b1a30
+040b1a30,VertexDeclaration_AdvanceByType
 040b1a90,FUN_040b1a90
 040b2e80,FUN_040b2e80
 040b2f00,FUN_040b2f00
@@ -2594,7 +2594,7 @@ entry,name
 040e1130,PixelFormatData::MapTextureFormatToGL
 040e1960,PixelFormatData::PrepareTexture
 040e21a0,PixelFormatData::PrepareRenderbuffer
-040e2570,FUN_040e2570
+040e2570,PixelFormatData::MapDeviceFormat
 040e2840,FUN_040e2840
 040e28a0,FUN_040e28a0
 040e28d0,PixelFormatData::PrepareVolumeTexture
@@ -2652,7 +2652,7 @@ entry,name
 040e9c90,shader_pch_save_linked_program_info
 040ea280,ShaderCache::FillInProgramConstants
 040ea600,FUN_040ea600
-040ea6a0,FUN_040ea6a0
+040ea6a0,shader_pch_PrecompilationStart
 040ea710,eON_LinkedProgramData::SetCachedLocation
 040ea820,eON_LinkedProgramData::CheckCachedLocation
 040ea8a0,FUN_040ea8a0
@@ -2669,7 +2669,7 @@ entry,name
 040ec280,FUN_040ec280
 040ec430,FUN_040ec430
 040ec550,shader_pch_load
-040ec9d0,FUN_040ec9d0
+040ec9d0,shader_pch_PrepareFixedPipelineFragment
 040ecb20,FUN_040ecb20
 040ed260,FUN_040ed260
 040ed2d0,FUN_040ed2d0
@@ -2908,7 +2908,7 @@ entry,name
 040f5f60,FUN_040f5f60
 040f62a0,KeyboardEventReceiver::ProcessKeyUp
 040f6310,DirectInputKeyboardDeviceImp::DirectInputKeyboardDeviceImp
-040f64c0,FUN_040f64c0
+040f64c0,DirectInputKeyboardDeviceImp::LogKeysStillDown
 040f6590,DirectInputKeyboardDeviceImp::SetDataFormat
 040f6850,DirectInputKeyboardDeviceImp::Release
 040f6880,FUN_040f6880
@@ -3228,7 +3228,7 @@ entry,name
 04100370,FUN_04100370
 041003b0,FUN_041003b0
 04100420,DirectSoundPrimaryBuffer8Imp::QueryInterface
-04100590,FUN_04100590
+04100590,DirectSoundBufferImp::InitializePrimary
 041006b0,FUN_041006b0
 04100720,FUN_04100720
 041007b0,FUN_041007b0
@@ -3273,7 +3273,7 @@ entry,name
 04101210,FUN_04101210
 04101230,FUN_04101230
 04101250,FUN_04101250
-04101280,FUN_04101280
+04101280,KsPropertySetImp::KsPropertySetImp
 041012b0,FUN_041012b0
 041012e0,FUN_041012e0
 04101320,FUN_04101320
@@ -3447,15 +3447,15 @@ entry,name
 04108a30,FUN_04108a30
 04108b20,FUN_04108b20
 04108c10,FUN_04108c10
-04108c30,FUN_04108c30
-04108c50,FUN_04108c50
-04108c70,FUN_04108c70
-04108c90,FUN_04108c90
-04108cb0,FUN_04108cb0
-04108cd0,FUN_04108cd0
-04108cf0,FUN_04108cf0
-04108d10,FUN_04108d10
-04108d30,FUN_04108d30
+04108c30,XAudio2MasteringVoiceImp::GetOutputMatrix
+04108c50,XAudio2MasteringVoiceImp::SetOutputMatrix
+04108c70,XAudio2MasteringVoiceImp::GetChannelVolumes
+04108c90,XAudio2MasteringVoiceImp::SetChannelVolumes
+04108cb0,XAudio2MasteringVoiceImp::GetOutputFilterParameters
+04108cd0,XAudio2MasteringVoiceImp::SetOutputFilterParameters
+04108cf0,XAudio2MasteringVoiceImp::GetFilterParameters
+04108d10,XAudio2MasteringVoiceImp::SetFilterParameters
+04108d30,XAudio2MasteringVoiceImp::SetOutputVoices
 04108d50,FUN_04108d50
 04108d70,FUN_04108d70
 04108da0,XAudio2MasteringVoiceImp::XAudio2MasteringVoiceImp
@@ -3694,7 +3694,7 @@ entry,name
 04119910,FUN_04119910
 04119950,FUN_04119950
 041199d0,FUN_041199d0
-04119a40,FUN_04119a40
+04119a40,Registry_ForceRemoveOpenKey
 04119ad0,FUN_04119ad0
 04119c40,FUN_04119c40
 04119c50,Registry_Load
@@ -3890,7 +3890,7 @@ entry,name
 041250c0,FUN_041250c0
 04125110,FUN_04125110
 04125120,FUN_04125120
-04125130,FUN_04125130
+04125130,eON_UnrealizeObject
 04125180,FUN_04125180
 04125250,FUN_04125250
 04125260,CalculateKerningPairsTable
@@ -5927,7 +5927,7 @@ entry,name
 04182a50,FUN_04182a50
 04182ad0,FUN_04182ad0
 04182b60,FUN_04182b60
-04182b70,FUN_04182b70
+04182b70,eON_FindWindow_LogLookup
 04182bc0,FUN_04182bc0
 04182bd0,eON_FindWindowExA
 04182c10,eON_FindWindowExW
@@ -6230,7 +6230,7 @@ entry,name
 0418d580,FUN_0418d580
 0418d5a0,MMEndpointImp::QueryInterface
 0418d650,FUN_0418d650
-0418d680,FUN_0418d680
+0418d680,MMEndpointImp::MMEndpointImp
 0418d6d0,FUN_0418d6d0
 0418d700,FUN_0418d700
 0418d830,FUN_0418d830
