@@ -1,0 +1,8 @@
+addr	old	new	lock
+04065b10	FUN_04065b10	Direct3D9Imp::GetAdapterMonitor	body: thin → OpenGLDisplay_GetByIndex
+04066610	FUN_04066610	Direct3D9Imp::Int_D3DUSAGE_FlagsToString	body: D3DUSAGE_* bit names
+04066c70	FUN_04066c70	Direct3D9Imp::Int_D3DRTYPE_ToString	body: D3DRTYPE_* name table
+04067260	FUN_04067260	Direct3D9Imp::Int_MapDisplayModeToD3D	body: SDL mode → D3DDISPLAYMODE
+04067b40	FUN_04067b40	Direct3D9Imp::CheckDeviceType	body: MapDeviceFormat + cache
+04067800	FUN_04067800	Direct3D9Imp::Int_AllocDeviceFormatCacheEntry	body: new format cache node
+040676a0	FUN_040676a0	Direct3D9Imp::Int_FindDeviceFormatCacheEntry	body: find-or-create format cache
