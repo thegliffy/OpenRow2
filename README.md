@@ -1,0 +1,467 @@
+# OpenRow2
+
+Decompilation of the **Saints Row 2** PC executable — continuation of the original [KairiFey/OpenRow2](https://github.com/KairiFey/OpenRow2) hub (which was a README-only placeholder; this repo is where the work happens).
+
+**Working binary:** the Steam **Linux** build's engine binary, `saintsrow2.i386` (32-bit ELF, stripped, 9,221 functions). It turned out to be better terrain than the Windows `SR2.exe`: the binary leaks its own structure through assert strings, and its data archives parse cleanly.
+
+## What the binary revealed
+
+- The engine is **eON** — Volition's cross-platform engine (`Exit_eON`, `eON_FileSystem::*`, dev paths like `/home/peterm/Development/Projects/eon2-sr2/...` baked into asserts).
+- The PC port is not native: it's a full **Win32 emulation layer** (gdi32, registry, threads, winsock, XAudio2-on-OpenAL) with a **D3D9-on-OpenGL shim** whose vtables follow the documented D3D9 method order — plus a HLSL→GLSL translator (`D3DBytecodeToGLSLText`).
+- **VPFS is a writable overlay filesystem** with its own on-disk database (`vpfsdb`), not an archive: `VPFS_Open`, `VPFS_ArchiveRead`, `VPFS_FindInVirtualFilesystem`, `VPFS_CreateFolder`, `WriteDatabase`.
+- **zstream** (Volition's own name, from debug strings) is a zlib 1.2.3.4 wrapper. VPFS does not call it. The archive directory and the file bodies are AES blocks (`decomp/vpfs_zstream_note.txt`).
+- All 18 VPP package indexes parse (53,969 asset names) via a Python port of gibbed's reader. Entry bytes start after the aligned extension pool.
+
+## Scoreboard
+
+**3,040 / 9,221 functions carry a project name (33.0%).** A name is kept when that function references a matching assert signature, a single source file, or a D3D9 vtable slot locked by those signatures. Module prefixes name the file, not the function. Message-style strings do not replace a signature name.
+
+| Wave | Method | Applied | New functions |
+|---|---|---|---|
+| 143 | htons/gethostname/AsyncSelect (`tools/decomp_notes_wave143_winsock_htons_async.md`). | 5 | 5 |
+| 142 | socket/SocketWait/htonl (`tools/decomp_notes_wave142_socket_wait_htonl.md`). | 8 | 8 |
+| 141 | Attribute dtor + IntPtr compare (`tools/decomp_notes_wave141_tixml_attr_dtor.md`). | 3 | 3 |
+| 140 | TiXmlHandle nav + Element Print (`tools/decomp_notes_wave140_tixml_handle.md`). | 9 | 9 |
+| 139 | Attribute Print/Parse + UTF8 (`tools/decomp_notes_wave139_tixml_parse_print.md`). | 6 | 6 |
+| 138 | Attribute ctor + dtors/CopyTo (`tools/decomp_notes_wave138_tixml_attr_dtors.md`). | 6 | 6 |
+| 137 | Element/Declaration ctors (`tools/decomp_notes_wave137_tixml_element_ctors.md`). | 7 | 7 |
+| 136 | ReplaceChild/InsertEndChild/Clones (`tools/decomp_notes_wave136_tixml_replace_clone.md`). | 9 | 9 |
+| 135 | TiXmlUnknown::Clone + CopyValueFieldsTo (`tools/decomp_notes_wave135_tixml_unknown_clone.md`). | 2 | 2 |
+| 134 | TiXml ByName siblings + Attr Print (`tools/decomp_notes_wave134_tixml_siblings.md`). | 7 | 7 |
+| 133 | TiXml visitor/indent (`tools/decomp_notes_wave133_tixml_visitor_indent.md`). | 8 | 8 |
+| 132 | TiXml Accept/CopyTo (`tools/decomp_notes_wave132_tixml_copyto_accept.md`). | 4 | 4 |
+| 131 | TiXmlString ops + Clone/Print (`tools/decomp_notes_wave131_tixml_string_clone.md`). | 9 | 9 |
+| 130 | TiXml Clone/Accept/DeleteChildren (`tools/decomp_notes_wave130_tixml_clone_accept.md`). | 8 | 8 |
+| 129 | TiXml Clear/Document/QueryAttr (`tools/decomp_notes_wave129_tixml_doc_attr.md`). | 14 | 14 |
+| 128 | TiXml nav/Attribute/SaveFile (`tools/decomp_notes_wave128_tixml_api.md`). | 14 | 14 |
+| 127 | GL begin-mode + glyph list (`tools/decomp_notes_wave127_glbegin_glyphlist.md`). | 3 | 3 |
+| 126 | Registry XML SetValue + hex encode (`tools/decomp_notes_wave126_registry_xml_setvalue.md`). | 4 | 4 |
+| 125 | Registry XML nav + hex codecs (`tools/decomp_notes_wave125_registry_xml_values.md`). | 11 | 11 |
+| 124 | Registry open-key refs + XML (`tools/decomp_notes_wave124_registry_xml.md`). | 7 | 7 |
+| 123 | PrimitiveType + FontCache lifecycle (`tools/decomp_notes_wave123_primtype_fontcache.md`). | 8 | 8 |
+| 122 | FontCache remove/get + TextMetrics (`tools/decomp_notes_wave122_fontcache_textmetrics.md`). | 6 | 6 |
+| 121 | Rectangle + AddFontMem + FontCache (`tools/decomp_notes_wave121_rectangle_fontmem.md`). | 6 | 6 |
+| 120 | DC slot/DeviceCaps/Charset/Gamma (`tools/decomp_notes_wave120_dcslot_charset_gamma.md`). | 5 | 5 |
+| 119 | VPFS path/unpack + MSAA ToString + DrawIconEx (`tools/decomp_notes_wave119_vpfs_d3dmsaa_drawicon.md`). | 4 | 4 |
+| 118 | SysColor/SolidBrush/MsgWait/LoadIcon (`tools/decomp_notes_wave118_syscolor_solidbrush.md`). | 5 | 5 |
+| 117 | SetPixel/FillRect/TextOutA (`tools/decomp_notes_wave117_setpixel_fillrect.md`). | 6 | 6 |
+| 116 | MapMode/Viewport/PenIndirect/fonts (`tools/decomp_notes_wave116_mapmode_viewport_pen.md`). | 10 | 10 |
+| 115 | CreateCompatibleBitmap + CreateBitmap (`tools/decomp_notes_wave115_createcompatiblebitmap.md`). | 2 | 2 |
+| 114 | CreatePalette + Gdi_AllocDC (`tools/decomp_notes_wave114_createpalette_allocdc.md`). | 2 | 2 |
+| 113 | GlobalFindAtom A/W + Atom_Intern (`tools/decomp_notes_wave113_globalfindatom.md`). | 3 | 3 |
+| 112 | CancelDC + GlobalGetAtomNameA (`tools/decomp_notes_wave112_canceldc_globalatom.md`). | 2 | 2 |
+| 111 | GetCharABCWidthsI + Gdi Get/SetDCSelectedObject (`tools/decomp_notes_wave111_abcwidthsi_dc_selected.md`). | 3 | 3 |
+| 110 | GetCharABCWidthsW/FloatW + GetCharWidth32W (`tools/decomp_notes_wave110_char_abc_width.md`). | 3 | 3 |
+| 109 | WarnUnimplementedStub + GetPixel + GetFontLanguageInfo (`tools/decomp_notes_wave109_unimplemented_getpixel_fontlang.md`). | 3 | 3 |
+| 108 | WarnIncompleteStub + PS3 GLSL inputs + ExtTextOutW gate + Get/SetROP2 (`tools/decomp_notes_wave108_stub_ps3_rop2.md`). | 5 | 5 |
+| 107 | WaveInDevice_Start* + MsgQueue_Post (+ socket CSV sync) (`tools/decomp_notes_wave107_wavein_msgpost_csv_sync.md`). | 3 | 3 |
+| 106 | CreateRectRgn + SaveDC/RestoreDC + Gdi_IsValidDC (`tools/decomp_notes_wave106_rectrgn_savedc.md`). | 4 | 4 |
+| 105 | SetTextColor/SetBkColor/SetBkMode + Get/SetTextAlign (`tools/decomp_notes_wave105_dc_text_bk.md`). | 5 | 5 |
+| 104 | CreatePen + CreateBrushIndirect (`tools/decomp_notes_wave104_createpen_brush.md`). | 2 | 2 |
+| 103 | GetMessageA (`tools/decomp_notes_wave103_getmessage.md`). | 1 | 1 |
+| 102 | IsCharLowerA + GamepadForceFeedback_Shutdown + D3D present/MSAA helpers (`tools/decomp_notes_wave102_ischarlower_ff_d3d.md`). | 4 | 4 |
+| 101 | WaitMessage + TranslateMessage + PostQuitMessage (`tools/decomp_notes_wave101_wait_translate_postquit.md`). | 3 | 3 |
+| 100 | DI Gamepad/Keyboard/Mouse dtors + GamepadMapping_ParsePlatformBinding (`tools/decomp_notes_wave100_di_dtors_gamepadmap.md`). | 4 | 4 |
+| 99 | CreateCompatibleDC + VPFS Close/IsArchived/Convert + BitBlt + Gdi_GetDCForWindow (`tools/decomp_notes_wave99_createdc_vpfs_bitblt.md`). | 6 | 5 (+1 rename) |
+| 98 | GetMessageTime + MessageBoxA + MapVirtualKey(Ex) + GetKeyboardLayout (`tools/decomp_notes_wave98_msgtime_msgbox_mapvk.md`). | 5 | 5 |
+| 97 | IntersectRect + CharUpper/Lower(A/W/Buff) + IsCharAlpha(A/W) + IsCharLowerW (`tools/decomp_notes_wave97_intersect_char.md`). | 12 | 12 |
+| 96 | RECT helpers Copy/Equal/PtIn/Set/Empty/Offset/IsEmpty/Inflate (`tools/decomp_notes_wave96_rect_apis.md`). | 8 | 8 |
+| 95 | GetDlgItem + GetWindowTextA + GetClassNameA + EnableWindow + MoveWindow + GetWindowThreadProcessId (`tools/decomp_notes_wave95_dlgitem_text_enable_move.md`). | 6 | 6 |
+| 94 | GetDesktopWindow + Get/SetForeground + Window/Client rect + Screen/ClientToScreen + Placement/Info (`tools/decomp_notes_wave94_window_rect_fg_placement.md`). | 9 | 9 |
+| 93 | GetParent + GetDlgCtrlID (`tools/decomp_notes_wave93_getparent_dlgctrlid.md`). | 2 | 2 |
+| 92 | IsWindow / Visible / Enabled (`tools/decomp_notes_wave92_iswindow.md`). | 3 | 3 |
+| 91 | RegisterClassW + GetClassInfoW (`tools/decomp_notes_wave91_registerclass_getclassinfo.md`). | 2 | 2 |
+| 90 | LoadImage A/W + LoadBitmapA + LoadIconA type fix (`tools/decomp_notes_wave90_loadimage_icon_bitmap.md`). | 4 | 3 (+1 rename fix) |
+| 89 | ReleaseDC + CreateFont A/W + font/charset (`tools/decomp_notes_wave89_font_dc_charset.md`). | 9 | 9 |
+| 88 | GDI DeleteDC + ExtTextOutA + text-extent (`tools/decomp_notes_wave88_gdi_text_dc.md`). | 6 | 6 |
+| 87 | MoveFile(Ex)/ReplaceFile/GetFullPathName (`tools/decomp_notes_wave87_move_replace_fullpath.md`). | 7 | 7 |
+| 86 | DiskFree/TempFile A + env/volume/VPFS (`tools/decomp_notes_wave86_disk_temp_env.md`). | 8 | 8 |
+| 85 | CoTaskMem* + display/resource A/W + winpe/MSAA (`tools/decomp_notes_wave85_com_display_resource.md`). | 18 | 17 (+1 rename) |
+| 84 | Co* + GetExitCodeThread + SetThreadPriority (`tools/decomp_notes_wave84_com_thread.md`). | 7 | 2 (+5 renames) |
+| 83 | Get/Free EnvironmentStrings (`tools/decomp_notes_wave83_envstrings.md`). | 3 | 3 |
+| 82 | GetCommandLine A/W + Set/BuildCommandLineA (`tools/decomp_notes_wave82_cmdline.md`). | 4 | 4 |
+| 81 | ExitThread/Process + TerminateProcess + ResumeThread (`tools/decomp_notes_wave81_exit_resume.md`). | 4 | 2 (+2 renames) |
+| 80 | GetCurrentProcess(Id) + SetEnvironmentVariableA + GetVersion (`tools/decomp_notes_wave80_process_env.md`). | 4 | 4 |
+| 79 | FindClose + DeleteFile + GetTempPath (`tools/decomp_notes_wave79_findclose_delete_temppath.md`). | 6 | 6 |
+| 78 | CreateDirectory A/W + CopyFileW (`tools/decomp_notes_wave78_mkdir_copyw.md`). | 3 | 3 |
+| 77 | ReadFile/WriteFile + attrs Ex + CreateFileW/Move/Copy (`tools/decomp_notes_wave77_readwrite_copy.md`). | 8 | 8 |
+| 76 | SetFilePointerEx + file times/attrs + CreateFileA (`tools/decomp_notes_wave76_filetime_createfile.md`). | 6 | 6 |
+| 75 | MapViewOfFile + GetFileAttributesA + SetFilePointer (`tools/decomp_notes_wave75_mapview_fileattrs.md`). | 4 | 4 |
+| 74 | CreateFileMapping/MapView/Unmap + GetFileSize (`tools/decomp_notes_wave74_mapping_filesize.md`). | 11 | 11 |
+| 73 | GetACP/OEMCP/CPInfo + overlapped/file-mapping (`tools/decomp_notes_wave73_acp_overlapped.md`). | 8 | 6 (+2 renames) |
+| 72 | QPC + GetTickCount/timeGetTime + RtlGetNtVersionNumbers (`tools/decomp_notes_wave72_qpc_tick.md`). | 8 | 8 |
+| 71 | LoadLibrary + GetModuleHandleEx + time APIs (`tools/decomp_notes_wave71_loadlibrary_time.md`). | 10 | 5 (+5 renames) |
+| 70 | Get/SetLastError + thread id + unique Imp (`tools/decomp_notes_wave70_lasterror_imp.md`). | 9 | 4 (+5 placeholder upgrades) |
+| 69 | Wait/Sleep + InitCriticalSection + SList (`tools/decomp_notes_wave69_wait_cs_slist.md`). | 15 | 13 (+2 placeholder upgrades) |
+| 68 | Virtual* + Sync Event/Mutex/Interlocked (`tools/decomp_notes_wave68_virtual_sync_interlocked.md`). | 35 | 32 (+3 placeholder upgrades) |
+| 67 | eON_Heap* thin wrappers + Lock/QueryInformation (`tools/decomp_notes_wave67_heap_wrappers.md`). | 12 | 12 |
+| 66 | Global*/Local* via MemoryHandleManager (`tools/decomp_notes_wave66_global_local.md`). | 16 | 16 |
+| 65 | SetupRenderPipeline + OpenGL dtor/gamma/WorkArea + AddResourceToPool (`tools/decomp_notes_wave65_setuppipeline_opengl.md`). | 6 | 0 (placeholder upgrades) |
+| 64 | MemoryHandleManager Global* surface (`tools/decomp_notes_wave64_memoryhandlemanager.md`). | 10 | 8 |
+| 63 | VirtualQuery/Ex + MemoryHandleManager_Destroy (`tools/decomp_notes_wave63_virtualquery_memhandle.md`). | 3 | 2 |
+| 62 | clipboard Open/Close/Data + LongPathA (`tools/decomp_notes_wave62_clipboard_longpath.md`). | 11 | 11 |
+| 61 | GL enum/table, XAudio graph thread, hostname (`tools/decomp_notes_wave61_gl_xaudio_host.md`). | 5 | 5 |
+| 60 | GL loaders, ForcedOpenGL, PE/registry helpers (`tools/decomp_notes_wave60_gl_loaders_vfs.md`). | 13 | 13 |
+| 59 | dumps, exception unwind, display/class APIs (`tools/decomp_notes_wave59_dumps_exception_display.md`). | 25 | 25 |
+| 58 | shader emit/convert_*, GUID/D3D dump logs (`tools/decomp_notes_wave58_shader_emit_convert_logs.md`). | 41 | 41 |
+| 57 | kernel32 lifecycle, D3D* ToString, audio/DI (`tools/decomp_notes_wave57_kernel32_d3d_tostring_audio.md`). | 28 | 28 |
+| 56 | eON paths, texm* stubs, kernel32 attach (`tools/decomp_notes_wave56_paths_texm_kernel32.md`). | 31 | 31 |
+| 55 | keycodes, shader convert_*, XAudio mastering stubs, Imp ctors (`tools/decomp_notes_wave55_keycode_shader_xaudio_imps.md`). | 32 | 32 |
+| 54 | CheckDeviceFormat, ShaderData preparsing, VPFS_CloseHandle, winsock (`tools/decomp_notes_wave54_shader_checkdevice_winsock.md`). | 19 | 19 |
+| 53 | eON_Startup/window/log, gamepad/udev, DrawPrimitive_RenderArrays, WaveIn (`tools/decomp_notes_wave53_eon_gamepad_udev_draw.md`). | 21 | 21 |
+| 52 | DirectInput8Create/A/W, KeyDown/Up, shader_pch_load, GTRACE, stream bounds (`tools/decomp_notes_wave52_di_keycode_shader_gtrace.md`). | 10 | 10 |
+| 51 | OpenGL thread/error + shader_pch savers + FreeLibrary (`decomp/opengl_pch_freelibrary_note.txt`). OpenGLThreadStart; ReportError; 5 pch savers; FreeLibrary(+AndExitThread); d3d9 GetAdapterIdentifier thunk. | 10 | 10 |
+| 50 | Registry Ex leftovers + thin wrappers + Stdout debug writer (`decomp/registry_ex_wrappers_note.txt`). Delete/Enum/Query/Set/Open/QueryInfo Ex; Open/Delete/Enum/Close/DeleteValue; OpenGLDebugWriter_Stdout::Write. | 20 | 20 |
+| 49 | Heap_Create/Validate + RegCreateKeyEx A/W + crumbs (`decomp/heap_reg_crumbs_note.txt`). Heap pair; RegCreateKey(Ex) A/W; OpenGLDebugWriter_File::Write; WindowLinux SetWindowPosition; GamepadLinux UpdateControlValues; DSC Initialize. | 10 | 10 |
+| 48 | user32/GDI leftovers + clipboard/OpenURL/screensaver + GetAdapterIdentifier (`decomp/gdi_clipboard_adapterid_note.txt`). 6 GDI/user32; clipboard chain; OpenURL; SPI screensaver; Direct3D9Imp::GetAdapterIdentifier. | 14 | 14 |
+| 47 | user32 leftovers + cursor internals + ProcessKeyUp (`decomp/user32_cursor_processkeyup_note.txt`). HookEx A/W, DefWindowProcW, GetDoubleClickTime, GetAsync/GetKeyState; LoadStandardCursor + LoadCursorW; KeyboardEventReceiver::ProcessKeyUp. | 9 | 9 |
+| 46 | Same-method d3d9device wrappers LEAVE + cursor C-API + leave-alones (`decomp/wrappers_cursor_leave_note.txt`). 11 eON_* cursor APIs; 8 Imp wrappers stay d3d9device_*. | 11 | 11 |
+| 45 | Bulk inline d3d9device→Imp + Set*ShaderConstant* + ShowCursor helpers (`decomp/inline_device_shader_showcursor_note.txt`). 81 COM→Imp; 6 Constant wrappers; 2 eON cursor helpers. 8 same-method wrappers left as d3d9device_*. | 89 | 2 (+87 renames) |
+| 44 | Imp ctors + png_image_write + inline device→Imp (`decomp/imp_ctors_png_write_inline_device_note.txt`). 15 ctors; 2 png write; 4 inline Get/Set/Test. | 21 | 17 (+4 renames) |
+| 43 | Harder D3D crumbs + libpng body-lock + DirectSound/Audio/MM Imp ctors (`decomp/d3d_png_com_wave43_note.txt`). | 23 | 23 |
+| 42 | d3d9device→Imp hand-read + libpng unique APIs (`decomp/d3d_imp_png_wave42_note.txt`). 7 Device Imp methods; 9 resource ctors; 5 Initialize; 13 png_*. fs/vpfs A/W empty. | 34 | 34 |
+| 41 | Shared-cluster LEAVE + Direct3DDevice9Imp::SetRenderState + OGLC_PrintHelp + LinkedProgramData cache pair (`decomp/shared_clusters_setrenderstate_oglc_note.txt`). Splits still empty. | 4 | 4 |
+| 40 | ToUnicodeEx/ToAsciiEx + GetUserObjectInformation A/W + fs_unlink (`decomp/tounicode_userobject_unlink_note.txt`). | 5 | 5 |
+| 39 | File version A/W/Ex stubs + fs/vpfs SetFilePointer/GetFileAttributesEx/CreateFile (`decomp/versioninfo_fs_pointer_note.txt`). | 13 | 13 |
+| 38 | thread/window/fileinfo + sync CreateMutex/Semaphore/WaitableTimer (`decomp/thread_window_sync_timer_note.txt`). | 10 | 7 (+3 renames) |
+| 37 | VPFS_OpenExec + FatalExit + D3D9_FormatToPixelSize + CreateMutex/Event/Semaphore A/W (`decomp/vpfs_openexec_sync_creates_note.txt`). | 9 | 9 |
+| 36 | Remaining sockets + VirtualProtect + clipboard/console + WSAWaitResultToString (`decomp/sockets_virtualprotect_clipboard_note.txt`). | 7 | 7 |
+| 34 | Win32 C-API district + DeterminePrimitiveType (`decomp/win32_capi_and_primitive_type_note.txt`). 34 unique ApiName logs (eON_/ole32); primitive-type switch hand-read; leave-alones confirmed. | 35 | 35 |
+| 33 | VPFS handle district + CoSetProxyBlanket; leave-alones confirmed (`decomp/vpfs_handles_and_cosetproxy_note.txt`). 10 unique invalid-handle VPFS_* wrappers; CoSetProxyBlanket stub; dropped VPFS_registry.vpfsdb filename. | 11 | 11 |
+| 32 | eON_GetCOMObjects + CoInitializeEx/Security + 25 module_hex assert upgrades + 16 unique eON_* C wrappers (`decomp/eon_comobjects_and_module_upgrades_note.txt`). Dropped ambiguous Surface UploadOpenGLObjectData. | 44 | 19 (+25 renames) |
+| 31 | COT COM tracker + XAudio leftovers (`decomp/cot_and_xaudio_leftovers_note.txt`). Cot::{Create,AddRef,Release,Destroy,ReportLeaks} from COT messages; GetAudioGraphMutex assert upgrade; CancelOperations pair. Largest FUN_ tables stay SKIP. | 8 | 7 (+1 rename) |
+| 30 | XAudio2 opcodes 0–6 + Imp ctor (`decomp/xaudio_opcodes_0_6_note.txt`). Jumptable locks Real_SetFilterParameters/ChannelVolumes/OutputMatrix/Volume; Enable/DisableEffect and SetEffectParameters wrappers; XAudio2Imp::XAudio2Imp. Accelerators PLT cluster SKIP (STL helpers). | 8 | 8 |
+| 29 | XAudio2 GetVoiceDetails / GetOutputFilterParameters / SetSourceSampleRate (`decomp/xaudio_voice_details_note.txt`). Details copies 3 voice fields; GetOutputFilterParameters is the read twin of the named setter; SetSourceSampleRate writes the +0xc4 field GetSamplesNeeded reads. Return-0 stubs, constant-1 stub, and GLSL producers stay SKIP. | 3 | 3 |
+| 28 | XAudio2 Start/Stop/Discontinuity (`decomp/xaudio_opcodes_7910_note.txt`). Opcodes 7/9/10 locked via jumptable wiring: Start (buffer-pending play flag), Discontinuity (zero SamplesPlayed), Stop (clear play flag + release; Flags bit 0x20 = XAUDIO2_PLAY_TAILS). 6 names. | 6 | 6 |
+| 27 | XAudio2 FrequencyRatio pair (`decomp/xaudio_frequency_ratio_note.txt`). Opcode 8 locked without the rest of the private enum: float-clamp queue wrapper queues op 8 -> ExecuteOperation case 8 passes the float into the commit stub that stores voice+4; adjacent Get reads voice+4. 3 names: `SetFrequencyRatio`, `GetFrequencyRatio`, `Real_SetFrequencyRatio`. Other opcode-7/9/10 wrappers stay unnamed. | 3 | 3 |
+| 26 | DirectInput class-prefix resolution (renames, not new names): per-class vtable anchors in `agent/vtables/dinputgamepad.tsv` pin the gamepad/keyboard/mouse runs to their concrete classes; shared slots claimed by multiple runs keep the base class. 27 renames `DirectInputDeviceImp::X` → `DirectInput{Gamepad,Keyboard,Mouse}DeviceImp::X`, applied through the PyGhidra MCP gateway. Evidence: `decomp/vtable_class_prefix_note.txt`. Seeds re-synced from the live project. | 27 | 0 (scoreboard corrected to 2,243) |
+| 25 | Breakpad source match, completed (`decomp/breakpad_source_match_note4.txt`; 3 names, body-verified against the era-appropriate upstream revision 9f150ee33e99 where the constructor asserts sit at lines 0x8c/0x8d): `WriteMinidumpImpl` (blob-size test = `sizeof(CrashContext)`, the five copied words = si_addr/si_signo/tid), `WriteMinidump` (path,pid,blob,size — builds the dumper, owns two empty lists), `WriteMinidump` (path,mappings,appmem,dumper — takes the dumper as an arg, owns no lists). `0400939e` stays `FUN_`: it is the cold assert stub for the inlined constructor. | 3 | 3 |
+| 24 | XAudio2 completion pass (14 bodies hand-read, `agent/wave24_decompiles.txt`). 2 names: `SubmitSampleBuffer` (pushes a 9-dword XAUDIO2_BUFFER into the buffer vector under the voice mutex — source-voice-only storage) and `GetState` (sums packet counts across the pending/queued/playing buffer vectors, ÷36 element math, fills the state struct). The `ExecuteOperation` opcode switch (`agent/wave24_executeop.txt`) pairs queued opcodes with commit stubs but the opcode→method enum is Volition-private, so the four queue wrappers (opcodes 7–10) and the trivial field getters stay unnamed. | 2 | 2 |
+| 23 | XAudio2 hand-read (12 names): engine methods locked by assert-named constructors (`CreateMasteringVoice`/`CreateSourceVoice`/`CreateSubmixVoice` call the named ctors; `DestroyMasteringVoice` nulls the stored voice; `CommitChanges` drains the op queue through the named `ExecuteOperation`); voice Set/Get pairs locked by assert anchors (`SetVolume`/`GetVolume` on field +0x5c, `SetChannelVolumes`/`GetChannelVolumes`, `SetOutputMatrix`/`GetOutputMatrix` — documented pair adjacency, cross-checked against the vtable run at shift −9); `SetFilterParameters` carries its own upstream assert string; `QueueOperation` is the op-queue appender the setters call. The aligner's ≥3-anchor rule can't fire on this run (implementation vtable order ≠ documented IDL order; anchors sit at slots 1–6, needing a negative shift). | 12 | 12 |
+| 22 | Hand-read decompiles: OpenGL context dump helpers (`agent/wave22_decompiles.txt`, 15 bodies). All SKIP under the rules — an instruction/call mix is not a name; none has a `Class::Method` assert. Evidence kept, no names. | 0 | 0 |
+| 21 | Tinyxml source match, continued (`decomp/tinyxml_source_match_note3.txt`; 2 names, both source-match rows; checker holds them — the FindOrCreate signature belongs to the inlined callee) | 2 | 2 |
+| 20 | Tinyxml source match, continued (`decomp/tinyxml_source_match_note2.txt`; 15 rows, 9 new names — 6 were module-prefix upgrades; assert-line matches verified against upstream) | 15 | 9 |
+| 19 | GLEW 2012-era sweep (glew-1.8.0 pinned specs; modern gl.xml misses extensions whose lists changed since; bodies verified) | 20 | 20 |
+| 18 | GLEW extension-init sweep (all remaining exact gl.xml require-block matches; bodies verified by spot-check) | 62 | 62 |
+| 17 | GLEW extension-init completion (string sets match gl.xml require blocks exactly; bodies load exactly those functions) | 8 | 8 |
+| 16 | libpng source match (upstream pngread.c bodies) | 2 | 2 |
+| 15 | Breakpad source match (upstream bodies; 4 assert-only stubs stay unnamed) | 2 | 2 |
+| 14 | Tinyxml source match (upstream bodies verified against SourceForge tinyxml git master; inlined-assert collisions resolved by body) | 5 | 5 |
+| 13 | Hand-read decompiles: GLEW extension sets completed (`_glewInit_GL_VERSION_1_4`, `_glewInit_GL_NV_half_float` — string sets match the Khronos registry exactly), enum-to-string decoders (`OpenGL_DataTypeToString`, `OpenGL_BufferToString`, `OpenGL_InternalFormatToString`, `D3D9_FormatToString`, `user32_MessageToString`), `OpenGL_LogState_CompressedTexture`, `eON_ShaderData::GenerateVaryingAssignments` | 9 | 9 |
+| 12 | GLEW loader identification: the extension-set init functions match GLEW's generated `_glewInit_*`/`glxewInit`/`glewInit` bodies (string sets match the Khronos registry per extension; verified against GLEW master) | 10 | 10 |
+| 11 | Empty batch — `names_batch11.tsv` has no rows. | 0 | 0 |
+| 10 | COM vtable alignment, parser fixed (IDL `[id(N)]` attrs, `IDirectSound3DBuffer` alias, `module_Method` anchors, ≥3-anchor rule enforced) | 102 | 49 (53 rows hit wave-9 names) |
+| 9 | COM vtable alignment (DirectInputDevice8 runs, ≥3-anchor rule) | 119 | 53 |
+| 8 | Local-model loop (`llm_work.py`, checker-verified) | 25 | 25 |
+| 7 | Short names qualified to `Class::Method` when that method is the only matching signature | 249 | 0 (renames) |
+| 6 | D3D9 vtable alignment (assert anchors, documented method order) | 102 | 15 |
+| 5 | Message-style asserts | 103 | 103 |
+| 4 | Binary-wide signature asserts | 462 | 2 |
+| 3 | Assert signatures (VPFS district) | 22 | 0 (renames) |
+| 2 | Source-path asserts → module prefixes | 721 | 721 |
+| 1 | Hand-read decompiles (zstream, tinyxml, shader PCH) | 10 | 10 |
+
+10 + 721 + 2 + 103 + 15 + 53 + 49 = 953. Wave 5's file originally had 32 extra rows aimed at functions wave 4 had already named (`GetLight` over `StateBlock_GetTextureStageState`, `glCheckFramebufferStatus` over `GetFramebufferHash`, and similar). Those rows did not apply and have been removed. The scoreboard counts the live Ghidra project after all waves were applied and re-dumped; `seeds/functions.csv` and `seeds/string_refs.csv` are that dump. Wave 9's 119 proposal rows collapse to 53 unique functions (keyboard/mouse/gamepad runs share slots on the same interface); the 11 two-anchor `iaudioclient` proposals were held below the ≥3-anchor trust floor. Wave 10's 102 rows are the unique remainder after wave 9 (conflicting class prefixes resolved to the base class — shared implementations); the aligner now enforces ≥3 anchors, so the two-anchor MMDevice/MMEndpoint/IAudioCapture/IAudioRender runs stay held.
+
+64 functions reference more than one `Class::Method` (`seeds/ambiguous_signatures.tsv`). The usual extra is an inlined helper such as `Direct3DDevice9Imp::MultithreadedGuard_Enter`. The published name is the signature whose method matches; split the Ghidra body before treating that name as the whole function. Split check batches 1–9 are done (`seeds/splitcheck_batch*.tsv`, classified in `seeds/split_classified.tsv`): 54 candidate boundaries were false refs (data reads, not flow) and 15 were jump-table entries — `seeds/split_confirmed.tsv` has no confirmed real entry yet, so no body has been split.
+
+## Tooling
+
+- `tools/volition_hash.py` — Volition rot-left-6 string hash (ported from gibbed's StringHelpers); wordlist → hash→string seeds.
+- `tools/vpp.py` — VPP package parser (Python port of gibbed's `PackageFile`). Index layout verified against `common.vpp_pc`. Data offsets are relative to the first byte after the aligned extension pool.
+- `tools/hash_scan.py` — scan binaries for seed-hash dwords.
+- `tools/DumpStringRefs.java` — map every embedded string to its referencing function (the naming anchors).
+- `tools/DumpFunctions.java` / `tools/Stats.java` — function maps and scoreboard.
+- `tools/ApplyNames.java` / `tools/ApplyComments.java` — batch-apply evidence-based names and source attributions to the Ghidra project.
+- `tools/DecompileList.java` — batch-decompile function lists.
+- `tools/names_batch*.tsv` — rename batches. `ApplyNames` matches the function's current name, so re-apply in order. `names_batch7.tsv` qualifies 249 short names to `Class::Method`.
+- `seeds/` — verified seeds (53,969), string refs (16,692), function map, PLT call edges (14,318), and `ambiguous_signatures.tsv` (64 functions that reference more than one signature).
+- `tools/win_rdata_paths.py` — list `__FILE__` markers in the Windows exe. `.text` is encrypted (byte entropy 8.0), so a path is a file offset plus its two neighboring strings, not a range of owned strings.
+- `seeds/win_rdata_paths.csv` — 71 markers from `SR2_pc.exe`. `.\geom\color_pool.cpp` sits between `Color_Entry` and `.rig_pc`. The next path is not the end of that file's strings.
+- `seeds/win_rdata_sourcepaths.txt` — the same 71 paths, one per line.
+- `seeds/rejected/win_string_module_map.csv` — do not use. It treated the span until the next path as that `.cpp`. `color_pool.cpp` was given 2,194 strings, including melee finisher names and weapon anim names.
+- `mcp/` — PyGhidra MCP server (`server.py`, FastMCP, port 8191, Docker on moneta at `/dock/openrow2`): the resident single-writer gateway that owns the live Ghidra project — `decompile`, `rename`, `set_comment`, `list_functions`, `list_strings`, `callers`, `scoreboard`. Waves 27+ apply through it; its `scoreboard` is the live authority.
+- `decomp/` — raw decompilation output (evidence for applied names).
+- `vendor/` — reference RE tooling, cloned not committed: [gibbed/Gibbed.SaintsRow2](https://github.com/gibbed/Gibbed.SaintsRow2) (zlib-style license) and the [saintsrowmods2](https://github.com/saintsrowmods2/SaintsRow2Tools) fork (PegTool, StringHashTool, save editor).
+
+## Pipeline
+
+1. Ghidra headless import + auto-analysis (done — project on disk, not committed).
+2. `DumpStringRefs` → `DumpFunctions` → regenerate maps.
+3. Extractor rules (assert-signature / message-style / vtable alignment) → `names_batchN.tsv` → `ApplyNames`.
+4. A later pass may add a class qualifier. It must not replace a signature-derived name with a shorter string found in the same function.
+5. Re-apply `names_batch7.tsv` on the local Ghidra project. `seeds/functions.csv` already contains those qualified names.
+
+## Local model
+
+`AGENTS.md` is the work loop. `python3 tools/llm_work.py next` prints one unnamed function and the strings it references. `check` allows a name only when that function alone has one assert message of the form `Class::Method` plus the text around it. `accept` appends a passing row to `tools/names_batch_llm.tsv` (`current<TAB>proposed`) for `ApplyNames` after batches 2–7. `ask` sends the packet to a local OpenAI-compatible server (`OPENROW_LLM_URL`, default `http://127.0.0.1:18280/v1`) and stops at the checker.
+
+`python3 tools/test_llm_work.py` runs the checker against the seeds.
+
+## Next
+
+Wave 157 applied (3,373): RegisterWindowMessage A/W, MapVirtualKey A/W. See `tools/decomp_notes_wave157_registermessage_mapvk.md`.
+
+Wave 156 applied (3,369): CreateWindowEx A/W, DestroyWindow, SetWindowPlacement, ShowWindow_Checked. See `tools/decomp_notes_wave156_create_destroy_placement.md`.
+
+Wave 155 applied (3,364): SetParent, AdjustWindowRect(Ex), AdjustRectForCaption. See `tools/decomp_notes_wave155_setparent_adjustrect.md`.
+
+Wave 154 applied (3,360): GlobalDeleteAtom A/W, Begin/EndPaint, CallWindowProc A/W, GetWindowTextW. See `tools/decomp_notes_wave154_atom_paint_wndproc.md`.
+
+Wave 153 applied (3,352): GetNumberOfInterfaces (PDWORD) + Int count rename, GAA address fill, GetStdHandle, FindAtomA. See `tools/decomp_notes_wave153_ifcount_stdhandle_atom.md`.
+
+Wave 152 applied (3,348): GetAdaptersAddresses, IP tables, GetBestInterface(Ex). See `tools/decomp_notes_wave152_iphlpapi_adapters.md`.
+
+Wave 151 applied (3,338): GetGlyphIndicesW, EnumFontFamiliesExW, AddFontResourceExA, Ipv4AddressToString. See `tools/decomp_notes_wave151_glyph_font_ipv4.md`.
+
+Wave 150 applied (3,334): eONMemoryReader IsValidHandle/GetEntry/Close/SeekToFourCC/OpenMemory. See `tools/decomp_notes_wave150_memoryreader_mmio.md`.
+
+Wave 149 applied (3,329): mmioOpen A/W, Seek, Read, Ascend, Close, GetInfo. See `tools/decomp_notes_wave149_mmio_open_rw.md`.
+
+Wave 148 applied (3,322): ntohs, WSACreate/Set/CloseEvent, WSAGet/SetLastError, CloseHandle. See `tools/decomp_notes_wave148_wsa_ntohs_closehandle.md`.
+
+Wave 147 applied (3,315): closesocket, timeSetEvent/KillEvent/GetDevCaps, TimeEvents mutex CRT. See `tools/decomp_notes_wave147_closesocket_time.md`.
+
+Wave 146 applied (3,310): waveIn GetNumDevs/GetDevCaps A/W, WaveInDevice Init/Open/ReturnQueuedBuffers/Thunk. See `tools/decomp_notes_wave146_wavein_caps_init.md`.
+
+Wave 145 applied (3,303): MSG/FD ToString, waveIn Prepare/Unprepare/AddBuffer/Open/Stop/Reset/Close, WaveInDevice Destroy/IsRegistered. See `tools/decomp_notes_wave145_msg_fd_wavein.md`.
+
+Wave 144 applied (3,292): inet_ntoa/inet_addr, getprotobyname, MapSocketOptname_WinToPosix, EventSelect remove/clear, WSAEventSelect. See `tools/decomp_notes_wave144_inet_proto_eventselect.md`.
+
+Wave 143 applied (3,283): htons, gethostname, WSAAsyncSelect_Enable, WSAWaitForMultipleEvents, FD_ISSET. See `tools/decomp_notes_wave143_winsock_htons_async.md`.
+
+Wave 142 applied (3,278): eON_socket, SocketWait flags, htonl/ntohl. See `tools/decomp_notes_wave142_socket_wait_htonl.md`.
+
+Wave 141 applied (3,270): TiXmlAttribute dtor, IntPtr compare. See `tools/decomp_notes_wave141_tixml_attr_dtor.md`.
+
+Wave 140 applied (3,267): TiXmlHandle navigation + Element::Print_ToString. See `tools/decomp_notes_wave140_tixml_handle.md`.
+
+Wave 139 applied (3,258): TiXml Attribute Print/Parse, Unknown::Parse, UTF32→UTF8. See `tools/decomp_notes_wave139_tixml_parse_print.md`.
+
+Wave 138 applied (3,252): TiXmlAttribute ctor, Declaration/Comment dtors, more CopyTo. See `tools/decomp_notes_wave138_tixml_attr_dtors.md`.
+
+Wave 137 applied (3,246): TiXml Element/Declaration/Comment ctors. See `tools/decomp_notes_wave137_tixml_element_ctors.md`.
+
+Wave 136 applied (3,239): ReplaceChild, InsertEndChild, AttributeSet Find, more Clones. See `tools/decomp_notes_wave136_tixml_replace_clone.md`.
+
+Wave 135 applied (3,230): TiXmlUnknown::Clone, CopyValueFieldsTo. See `tools/decomp_notes_wave135_tixml_unknown_clone.md`.
+
+Wave 134 applied (3,228): TiXml ByName child/sibling nav + Attribute Print. See `tools/decomp_notes_wave134_tixml_siblings.md`.
+
+Wave 133 applied (3,221): TiXml visitor dispatch + indent helpers. See `tools/decomp_notes_wave133_tixml_visitor_indent.md`.
+
+Wave 132 applied (3,213): TiXml Element Accept/CopyTo, Document CopyTo. See `tools/decomp_notes_wave132_tixml_copyto_accept.md`.
+
+Wave 131 applied (3,209): TiXmlString operators, Declaration::Print, Comment/Text Clone, Node dtor. See `tools/decomp_notes_wave131_tixml_string_clone.md`.
+
+Wave 130 applied (3,200): TiXml Attribute outs, Clone, Accept, DeleteChildren. See `tools/decomp_notes_wave130_tixml_clone_accept.md`.
+
+Wave 129 applied (3,192): TiXml Clear/CopyTo/Document/Load/Print + Attribute value helpers. See `tools/decomp_notes_wave129_tixml_doc_attr.md`.
+
+Wave 128 applied (3,178): TiXml First/NextChildElement, Attribute, SaveFile, QueryInt/Double, attr Next/Previous. See `tools/decomp_notes_wave128_tixml_api.md`.
+
+Wave 127 applied (3,164): OpenGL_BeginMode_ToString, FontCache glyph list push/sort. See `tools/decomp_notes_wave127_glbegin_glyphlist.md`.
+
+Wave 126 applied (3,161): RegistryXml EncodeHex, FindAttributeByName, SetValue, DecodeHexToBuffer. See `tools/decomp_notes_wave126_registry_xml_setvalue.md`.
+
+Wave 125 applied (3,157): Registry XML child/attr nav + hex value codecs. See `tools/decomp_notes_wave125_registry_xml_values.md`.
+
+Wave 124 applied (3,146): Registry Is/AddRef/Release open key, OpenPredefinedKey, FindOrCreateKeyNode, Xml RemoveChild/Attribute. See `tools/decomp_notes_wave124_registry_xml.md`.
+
+Wave 123 applied (3,139): D3DPRIMITIVETYPE_ToString, FontCache lifecycle/find, Heap ProcessHeap helpers. See `tools/decomp_notes_wave123_primtype_fontcache.md`.
+
+Wave 122 applied (3,131): FontCache get/remove, RemoveFontMemResourceEx, Gdi object lists, GetTextMetrics. See `tools/decomp_notes_wave122_fontcache_textmetrics.md`.
+
+Wave 121 applied (3,125): Rectangle, AddFontMemResourceEx, FontCache helpers, Gdi_ReleaseObject, Font_GetCharIndex. See `tools/decomp_notes_wave121_rectangle_fontmem.md`.
+
+Wave 120 applied (3,119): FindFreeDCSlot, DeviceCaps_IndexToString, TranslateCharsetInfo, Get/SetDeviceGammaRamp. See `tools/decomp_notes_wave120_dcslot_charset_gamma.md`.
+
+Wave 119 applied (3,114): VPFS_IsArchivedPath, UnpackArchivedFile, D3DMULTISAMPLETYPE_ToString, DrawIconEx. See `tools/decomp_notes_wave119_vpfs_d3dmsaa_drawicon.md`.
+
+Wave 118 applied (3,110): CreateSolidBrush, GetSysColor/Brush, MsgWaitForMultipleObjects, LoadIcon. See `tools/decomp_notes_wave118_syscolor_solidbrush.md`.
+
+Wave 117 applied (3,105): SetViewportExtEx, SetPixel, Gdi_Init/InitDC, FillRect, TextOutA. See `tools/decomp_notes_wave117_setpixel_fillrect.md`.
+
+Wave 116 applied (3,099): MapMode, Viewport, CreatePenIndirect, GetDIBColorTable, GetTextFace, AddFontResourceA, Gdi_EnsureInitialized. See `tools/decomp_notes_wave116_mapmode_viewport_pen.md`.
+
+Wave 115 applied (3,089): CreateCompatibleBitmap, CreateBitmap. See `tools/decomp_notes_wave115_createcompatiblebitmap.md`.
+
+Wave 114 applied (3,087): CreatePalette, Gdi_AllocDC. See `tools/decomp_notes_wave114_createpalette_allocdc.md`.
+
+Wave 113 applied (3,085): GlobalFindAtomA/W, Atom_Intern. See `tools/decomp_notes_wave113_globalfindatom.md`.
+
+Wave 112 applied (3,082): CancelDC, GlobalGetAtomNameA. See `tools/decomp_notes_wave112_canceldc_globalatom.md`.
+
+Wave 111 applied (3,080): GetCharABCWidthsI, Gdi_Set/GetDCSelectedObject. See `tools/decomp_notes_wave111_abcwidthsi_dc_selected.md`.
+
+Wave 110 applied (3,077): GetCharABCWidthsW, GetCharABCWidthsFloatW, GetCharWidth32W. See `tools/decomp_notes_wave110_char_abc_width.md`.
+
+Wave 109 applied (3,074): WarnUnimplementedStub, GetPixel, GetFontLanguageInfo. See `tools/decomp_notes_wave109_unimplemented_getpixel_fontlang.md`.
+
+Wave 108 applied (3,071): WarnIncompleteStub, EmitPS3Inputs, ExtTextOutW_OptionsGate, Get/SetROP2. See `tools/decomp_notes_wave108_stub_ps3_rop2.md`.
+
+Wave 107 applied (3,066): WaveInDevice_Start, WaveInDevice_StartIfRegistered, MsgQueue_Post. See `tools/decomp_notes_wave107_wavein_msgpost_csv_sync.md`.
+
+Wave 106 applied (3,063): CreateRectRgn, SaveDC, RestoreDC, Gdi_IsValidDC. See `tools/decomp_notes_wave106_rectrgn_savedc.md`.
+
+Wave 105 applied (3,059): SetTextColor, SetBkColor, SetBkMode, Get/SetTextAlign. See `tools/decomp_notes_wave105_dc_text_bk.md`.
+
+Wave 104 applied (3,054): CreatePen, CreateBrushIndirect. See `tools/decomp_notes_wave104_createpen_brush.md`.
+
+Wave 103 applied (3,052): GetMessageA. See `tools/decomp_notes_wave103_getmessage.md`.
+
+Wave 102 applied (3,051): IsCharLowerA, GamepadForceFeedback_Shutdown, ClampRenderbufferSamples, LogPresentParameters. See `tools/decomp_notes_wave102_ischarlower_ff_d3d.md`.
+
+Wave 101 applied (3,047): WaitMessage, TranslateMessage, PostQuitMessage. See `tools/decomp_notes_wave101_wait_translate_postquit.md`.
+
+Wave 100 applied (3,044): DirectInput Gamepad/Keyboard/Mouse destructors + GamepadMapping_ParsePlatformBinding. See `tools/decomp_notes_wave100_di_dtors_gamepadmap.md`.
+
+Wave 99 applied (3,040): CreateCompatibleDC, VPFS_Close, VPFS_IsArchivedFile, VPFS_ConvertDiskFileToWriteableLocation, BitBlt, Gdi_GetDCForWindow. See `tools/decomp_notes_wave99_createdc_vpfs_bitblt.md`.
+
+Wave 98 applied (3,035): GetMessageTime, MessageBoxA, MapVirtualKey, MapVirtualKeyEx, GetKeyboardLayout. See `tools/decomp_notes_wave98_msgtime_msgbox_mapvk.md`.
+
+Wave 97 applied (3,030): IntersectRect, CharUpper/Lower A/W + Buff, IsCharAlpha A/W, IsCharLowerW. See `tools/decomp_notes_wave97_intersect_char.md`.
+
+Wave 96 applied (3,018): CopyRect, EqualRect, PtInRect, SetRect, SetRectEmpty, OffsetRect, IsRectEmpty, InflateRect. See `tools/decomp_notes_wave96_rect_apis.md`.
+
+Wave 95 applied (3,010): GetDlgItem, GetWindowTextA, GetClassNameA, EnableWindow, MoveWindow, GetWindowThreadProcessId. See `tools/decomp_notes_wave95_dlgitem_text_enable_move.md`.
+
+Wave 94 applied (3,004): GetDesktopWindow, GetWindowRect, GetClientRect, Set/GetForegroundWindow, ScreenToClient, ClientToScreen, GetWindowPlacement, GetWindowInfo. See `tools/decomp_notes_wave94_window_rect_fg_placement.md`.
+
+Wave 93 applied (2,995): GetParent, GetDlgCtrlID. See `tools/decomp_notes_wave93_getparent_dlgctrlid.md`.
+
+Wave 92 applied (2,993): IsWindow, IsWindowVisible, IsWindowEnabled. See `tools/decomp_notes_wave92_iswindow.md`.
+
+Wave 91 applied (2,990): RegisterClassW, GetClassInfoW. See `tools/decomp_notes_wave91_registerclass_getclassinfo.md`.
+
+Wave 90 applied (2,988): LoadImage A/W, LoadBitmapA (type 0), LoadIconA fix (was mislabeled LoadBitmapA). See `tools/decomp_notes_wave90_loadimage_icon_bitmap.md`.
+
+Wave 89 applied (2,985): ReleaseDC, CreateFont(Indirect) A/W, AddFontResourceW, EnumFontFamiliesW, LoadBitmapA, CharToOem*. See `tools/decomp_notes_wave89_font_dc_charset.md`.
+
+Wave 88 applied (2,976): DeleteDC, ExtTextOutA, GetTextExtentExPointW, GetTextExtentPoint32 A/W, GetTextExtentPointI. See `tools/decomp_notes_wave88_gdi_text_dc.md`.
+
+Wave 87 applied (2,970): MoveFileW, MoveFileEx A/W, ReplaceFile A/W, GetFullPathName A/W. See `tools/decomp_notes_wave87_move_replace_fullpath.md`.
+
+Wave 86 applied (2,963): GetDiskFreeSpace(Ex)A, GetTempFileNameA, GetEnvironmentStringsW, GetVolumeInformationA, GetDriveTypeW, GetSystemDirectoryW, VPFS_GetFirstSubelement. See `tools/decomp_notes_wave86_disk_temp_env.md`.
+
+Wave 85 applied (2,955): CoTaskMem*, Enum/ChangeDisplay Settings A/W, Find/EnumResource A/W, GetComputerName A/W, winpe_LoadFromFile, GetMultisamplingOptionForLevel. See `tools/decomp_notes_wave85_com_display_resource.md`.
+
+Wave 84 applied (2,938): Co* prefixes, GetExitCodeThread, SetThreadPriority. See `tools/decomp_notes_wave84_com_thread.md`.
+
+Wave 83 applied (2,936): Get/Free EnvironmentStrings. See `tools/decomp_notes_wave83_envstrings.md`.
+
+Wave 82 applied (2,933): GetCommandLine A/W, Set/BuildCommandLineA. See `tools/decomp_notes_wave82_cmdline.md`.
+
+Wave 81 applied (2,929): ExitThread/Process, TerminateProcess, ResumeThread. See `tools/decomp_notes_wave81_exit_resume.md`.
+
+Wave 80 applied (2,928): GetCurrentProcess(Id), SetEnvironmentVariableA, GetVersion. See `tools/decomp_notes_wave80_process_env.md`.
+
+Wave 79 applied (2,924): FindClose, DeleteFile A/W, GetTempPath A/W. See `tools/decomp_notes_wave79_findclose_delete_temppath.md`.
+
+Wave 78 applied (2,918): CreateDirectory A/W, CopyFileW. See `tools/decomp_notes_wave78_mkdir_copyw.md`.
+
+Wave 77 applied (2,915): ReadFile/WriteFile, GetFileAttributesEx, CreateFileW, Move/CopyFileA. See `tools/decomp_notes_wave77_readwrite_copy.md`.
+
+Wave 76 applied (2,907): SetFilePointerEx, Get/SetFileTime, SetFileAttributesA, CreateFileA, GetOverlappedResult. See `tools/decomp_notes_wave76_filetime_createfile.md`.
+
+Wave 75 applied (2,901): MapViewOfFile, GetFileAttributesA, SetFilePointer, GetFileType. See `tools/decomp_notes_wave75_mapview_fileattrs.md`.
+
+Wave 74 applied (2,897): CreateFileMapping/MapView/Unmap, GetFileSize, directories, CancelIo. See `tools/decomp_notes_wave74_mapping_filesize.md`.
+
+Wave 73 applied (2,886): GetACP/OEMCP/CPInfo, CompareStringW, overlapped events, OpenFileMappingA. See `tools/decomp_notes_wave73_acp_overlapped.md`.
+
+Wave 72 applied (2,880): QueryPerformance*, GetTickCount/timeGetTime, RtlGetNtVersionNumbers, IsEqualGUID. See `tools/decomp_notes_wave72_qpc_tick.md`.
+
+Wave 71 applied (2,872): LoadLibrary A/W/ExW, GetModuleHandleEx, GetSystem/LocalTime + FILETIME helpers. See `tools/decomp_notes_wave71_loadlibrary_time.md`.
+
+Wave 70 applied (2,864): Get/SetLastError, SwitchToThread, GetCurrentThreadId, unique D3D Imp upgrades. See `tools/decomp_notes_wave70_lasterror_imp.md`.
+
+Wave 69 applied (2,860): Wait/Sleep C-API, InitializeCriticalSection(+AndSpinCount), SList Interlocked*. See `tools/decomp_notes_wave69_wait_cs_slist.md`.
+
+Wave 68 applied (2,847): VirtualAlloc/Free/Lock/Unlock, MemoryHandleManager_Init, Sync Event/Mutex/Semaphore Open/Set/Reset/Pulse/Release, Interlocked*. See `tools/decomp_notes_wave68_virtual_sync_interlocked.md`.
+
+Wave 67 applied (2,815): eON_Heap* wrappers + Lock/QueryInformation. See `tools/decomp_notes_wave67_heap_wrappers.md`.
+
+Wave 66 applied (2,803): Global*/Local* via MemoryHandleManager. See `tools/decomp_notes_wave66_global_local.md`.
+
+Wave 65 applied (2,787): SetupRenderPipeline, OpenGL dtor/gamma/WorkArea, AddResourceToPool. See `tools/decomp_notes_wave65_setuppipeline_opengl.md`.
+
+Wave 64 applied (2,787): MemoryHandleManager Global* surface. See `tools/decomp_notes_wave64_memoryhandlemanager.md`.
+
+Wave 63 applied (2,779): VirtualQuery/Ex, MemoryHandleManager_Destroy. See `tools/decomp_notes_wave63_virtualquery_memhandle.md`.
+
+Wave 62 applied (2,777): clipboard Open/Close/Data + LongPathA. See `tools/decomp_notes_wave62_clipboard_longpath.md`.
+
+Wave 61 applied (2,766): GL enum/table, XAudio graph thread, hostname. See `tools/decomp_notes_wave61_gl_xaudio_host.md`.
+
+Wave 60 applied (2,761): GL loaders, ForcedOpenGL, PE/registry helpers. See `tools/decomp_notes_wave60_gl_loaders_vfs.md`.
+
+Wave 59 applied (2,748): dumps, exception unwind, display/class APIs. See `tools/decomp_notes_wave59_dumps_exception_display.md`.
+
+Wave 58 applied (2,723): shader emit/convert_*, GUID/D3D dump logs. See `tools/decomp_notes_wave58_shader_emit_convert_logs.md`.
+
+Wave 57 applied (2,682): kernel32 lifecycle, D3D* ToString, audio/DI. See `tools/decomp_notes_wave57_kernel32_d3d_tostring_audio.md`.
+
+Wave 56 applied (2,654): eON paths, texm* stubs, kernel32 attach. See `tools/decomp_notes_wave56_paths_texm_kernel32.md`.
+
+Wave 55 applied (2,623): keycodes, shader convert_*, XAudio mastering stubs, Imp ctors. See `tools/decomp_notes_wave55_keycode_shader_xaudio_imps.md`.
+
+Wave 54 applied (2,591): CheckDeviceFormat, ShaderData preparsing, VPFS_CloseHandle, wvsnprintf, sockets. See `tools/decomp_notes_wave54_shader_checkdevice_winsock.md`.
+
+Wave 53 applied (2,572): eON_Startup/window/log, gamepad/udev, DrawPrimitive_RenderArrays, WaveIn. See `tools/decomp_notes_wave53_eon_gamepad_udev_draw.md`.
+
+Wave 52 applied (2,551): DirectInput8Create/A/W, eON_KeyDown/Up, shader_pch_load, BringMainGameWindowToFront, GTRACE SetTexture/Sampler, ValidateStreamSourceBounds. See `tools/decomp_notes_wave52_di_keycode_shader_gtrace.md`.
+
+
+The assert-signature naming queue is empty (`python3 tools/llm_work.py queue` prints `0 functions`). A new name still has to be a `Class::Method` that one function alone takes from an assert. The checker is the authority. Do not hand-edit `tools/names_batch*.tsv`, and do not invent a name from a call mix.
+
+Closed, do not restart:
+
+- Ambiguous splits. The 64 functions in `seeds/ambiguous_signatures.tsv` were checked. `seeds/split_confirmed.tsv` has no real boundary. A split needs a call or a data reference from outside the function. A jump inside the same function does not count.
+- Windows `.rdata` paths. All 71 paths in `seeds/win_rdata_sourcepaths.txt` are absent from the Linux binary, filenames included (`decomp/win_rdata_match_note.txt`, `seeds/win_rdata_matches.tsv`). Leave `seeds/rejected/win_string_module_map.csv` unused.
+- String-reference catalog of unnamed `FUN_` bodies: `decomp/largest_fun_strings_note.txt` through `note94.txt` (937 functions).
+- D3D9 and COM slots that already have an anchor. Do not name an unanchored slot to fill a gap.
+- XAudio2 voice/engine surface: ExecuteOperation opcodes 0-10, voice/source vtable locks, Imp ctor, CancelOperations, GetAudioGraphMutex (waves 23-31). Remaining helpers are STL tree/vector bodies.
+- Largest no-string `FUN_` bodies (`decomp/largest_fun_calls_note.txt`): ADC/MUL data tables — not names.
+- GLSL producers: `decomp/shader_glsl_note.txt`. `FUN_04052100` and `FUN_0405ac10` stay unnamed (IdentifyInstruction assert is the callee).
+- COT COM object tracker: Cot::{Create,AddRef,Release,Destroy,ReportLeaks} (wave 31).
+- eON COM bootstrap + unique eON_* C district + module_hex assert upgrades (wave 32).
+- VPFS invalid-handle wrappers + CoSetProxyBlanket; shared eON_FileSystem/Varyings and remaining module_hex leftovers confirmed leave-alone (wave 33).
+- Win32 C-API district + DeterminePrimitiveType (wave 34).
+- Sockets eON_* leftovers + Query Issue (wave 35).
+- Sockets/VirtualProtect/clipboard wave (wave 36).
+- VPFS_OpenExec + sync Create* A/W (wave 37).
+- thread/window/fileinfo + WaitableTimer (wave 38).
+- versioninfo + fs/vpfs pointer/attrs (wave 39).
+- ToUnicode/ToAscii + GetUserObjectInformation + fs_unlink (wave 40).
+- Shared-cluster verdicts + SetRenderState + OGLC/LinkedProgramData (wave 41).
+- d3d9device→Imp + libpng unique APIs (wave 42).
+- Harder D3D + png body-lock + COM Imp ctors (wave 43).
+- Imp ctors + png_image_write + inline device Imp (wave 44).
+- Bulk inline d3d9device→Imp + Set*ShaderConstant* + ShowCursor helpers (wave 45).
+- Same-method d3d9device wrappers LEAVE + cursor C-API district + leave-alones (wave 46).
+- user32 leftovers + cursor internals + ProcessKeyUp (wave 47).
+- user32/GDI leftovers + clipboard/OpenURL/screensaver + GetAdapterIdentifier (wave 48).
+- Heap_Create/Validate + RegCreateKeyEx + OpenGLDebugWriter/Window/Gamepad/DSC crumbs (wave 49).
+- Registry Ex leftovers + thin wrappers + Stdout debug writer (wave 50).
+- OpenGL thread/error + shader_pch savers + FreeLibrary (wave 51).
+
+Closed, continued:
+
+- VPFS decrypt and extract. `tools/vpfs_extract.py` follows the AES path (`decomp/vpfs_aes_plain.txt`) and writes `decomp/vpfs_dir_records.tsv`. The 15 files check out as PE32 or the VC80 manifest (`decomp/vpfs_extract_check.txt`). `language_setup.exe` is UPX. Extracted files stay out of the tree. The `tools/vpfs_*.py` probes other than `vpfs_extract.py` still search for zlib or import `Crypto`. Do not extend them.
+- Call catalog of unnamed `FUN_` bodies: `decomp/largest_fun_calls_note.txt` through `note625.txt` (6,248 functions). Note 625 holds the last 8. An instruction mix is not a `Class::Method` name.
+- Breakpad `{anonymous}` writers: `decomp/breakpad_writers_note.txt`. One `FUN_` entry stays unnamed: `0400939e`, the assert-only stub for the inlined constructor.
+- Subsystem map: `decomp/subsystem_map_note.txt`. Buckets are library-call prefixes from `tools/subsystem_map.py`, not names.
+- VPFS extracted files: `decomp/vpfs_files_note.txt`. The 15 files stay in `/tmp` and out of the tree.
+
+Open:
+
+- Assert queue empty; message/C-API harvest drained (waves 32–61). Remaining unique-string `FUN_` are leave-alones (breakpad/assert/unimplemented/STL/Present logger).
+- Shared helpers: cursor workers; clipboard SDL→HGLOBAL sync; GetLongPathNameA log; SetForcedOpenGLDisplay pair; DrawPrimitive pipeline helper; VirtualFreeEx twin; GetSampleFunction_OpenGLCore shared log.
+- Leave-alone closed: 8 same-method `d3d9device_*` wrappers; capture-devices stub; Present/params logger; FileSystem/Varyings/GetDlgItem; module_hex; ambiguous splits; breakpad stub.
+
+The extracted `sr2_pc.exe` contains the 71 Windows paths. That does not add a Linux assert the checker can name. Leave `seeds/rejected/win_string_module_map.csv` unused.
+
+## License
+
+MIT — covers this project's own contributions (tooling, analysis, naming data). No game binaries or assets are committed; you need your own legal copy of Saints Row 2. Nothing was copied from the original KairiFey/OpenRow2 repo (it carries no license).
