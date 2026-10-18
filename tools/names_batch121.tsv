@@ -1,0 +1,9 @@
+addr	old	new	lock
+041c38f0	FUN_041c38f0	TiXmlElement::Attribute_IntOut	body: Attribute(name, int*)
+041c3a90	FUN_041c3a90	TiXmlElement::QueryValueAttribute	body: typed attr query into out
+041c3ee0	FUN_041c3ee0	TiXmlNode::CopyChildrenTo	body: deep-copy children into node
+041c4940	FUN_041c4940	TiXmlNode::DeleteChildren	body: vtable delete each child
+041c4a40	FUN_041c4a40	TiXmlDocument::Clone	body: new Document + copy
+041c4b10	FUN_041c4b10	TiXmlNode::Accept	body: visitor Accept recurse
+041c5140	FUN_041c5140	TiXmlAttribute::TiXmlAttribute_Copy	body: copy ctor from attr
+041c4990	FUN_041c4990	TiXmlDocument::TiXmlDocument_Empty	body: empty document ctor
