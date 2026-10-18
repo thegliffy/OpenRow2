@@ -14,10 +14,11 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 ## Scoreboard
 
-**2,993 / 9,221 functions carry a project name (32.5%).** A name is kept when that function references a matching assert signature, a single source file, or a D3D9 vtable slot locked by those signatures. Module prefixes name the file, not the function. Message-style strings do not replace a signature name.
+**2,995 / 9,221 functions carry a project name (32.5%).** A name is kept when that function references a matching assert signature, a single source file, or a D3D9 vtable slot locked by those signatures. Module prefixes name the file, not the function. Message-style strings do not replace a signature name.
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
+| 93 | GetParent + GetDlgCtrlID (`tools/decomp_notes_wave93_getparent_dlgctrlid.md`). | 2 | 2 |
 | 92 | IsWindow / Visible / Enabled (`tools/decomp_notes_wave92_iswindow.md`). | 3 | 3 |
 | 91 | RegisterClassW + GetClassInfoW (`tools/decomp_notes_wave91_registerclass_getclassinfo.md`). | 2 | 2 |
 | 90 | LoadImage A/W + LoadBitmapA + LoadIconA type fix (`tools/decomp_notes_wave90_loadimage_icon_bitmap.md`). | 4 | 3 (+1 rename fix) |
@@ -132,6 +133,8 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 `python3 tools/test_llm_work.py` runs the checker against the seeds.
 
 ## Next
+
+Wave 93 applied (2,995): GetParent, GetDlgCtrlID. See `tools/decomp_notes_wave93_getparent_dlgctrlid.md`.
 
 Wave 92 applied (2,993): IsWindow, IsWindowVisible, IsWindowEnabled. See `tools/decomp_notes_wave92_iswindow.md`.
 
