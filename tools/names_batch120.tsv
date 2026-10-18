@@ -1,0 +1,15 @@
+addr	old	new	lock
+041c3780	FUN_041c3780	TiXmlNode::Clear	body: delete all children
+041c4080	FUN_041c4080	TiXmlNode::CountChildren	body: count child linked list
+041c4050	FUN_041c4050	TiXmlNode::CopyTo	body: Clear dst; clone from src
+041c40b0	FUN_041c40b0	TiXmlDocument::TiXmlDocument	body: document ctor defaults
+041c4180	FUN_041c4180	TiXmlDocument::TiXmlDocument_Filename	body: ctor + set value filename
+041c45e0	FUN_041c45e0	TiXmlDocument::LoadFile_Path	body: fopen+read+Parse path
+041c4800	FUN_041c4800	TiXmlDocument::Print_FILE	body: UTF-8 BOM + Print to FILE
+041c50e0	FUN_041c50e0	TiXmlAttribute::IntValue	body: strtol value
+041c5110	FUN_041c5110	TiXmlAttribute::DoubleValue	body: strtod value
+041c4fd0	FUN_041c4fd0	TiXmlAttribute::SetIntValue	body: snprintf int → value
+041c5050	FUN_041c5050	TiXmlAttribute::SetDoubleValue	body: snprintf double → value
+041c3980	FUN_041c3980	TiXmlElement::QueryIntAttribute	body: QueryIntValue on attr
+041c3a00	FUN_041c3a00	TiXmlElement::QueryDoubleAttribute	body: QueryDoubleValue on attr
+041c3c10	FUN_041c3c10	TiXmlElement::QueryStringAttribute	body: string attr query
