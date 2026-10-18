@@ -1,0 +1,11 @@
+addr	old	new	lock
+0415c020	FUN_0415c020	eON_Int_IsMainThread	body: pthread_self==thread_init DAT_0451bd64
+0415c060	FUN_0415c060	eON_Int_HasHelperThreadHandle	body: DAT_04410a0c!=-1 EnterRunLoop
+0415d7c0	FUN_0415d7c0	eON_SetErrorMode	body: get/set DAT_04410a18 cookie SetErrorMode
+0415a440	FUN_0415a440	eON_Int_ThreadPthreadVec_Insert	body: vector insert pthread_t list
+0415da50	FUN_0415da50	eON_Int_ThreadMap_DestroySubtree	body: rb destroy used by EraseThreadInfo
+0415dbe0	FUN_0415dbe0	eON_Int_ThreadMap_Clear	body: destroy from root+8
+04026b50	FUN_04026b50	eON_WindowLinux::DestroySDL_ThreadGate	body: IsMainThread gate DestroyWindow
+04026c80	FUN_04026c80	eON_WindowLinux::~WindowLinux_ThreadGate	body: dtor+delete ThreadGate
+0402d1f0	FUN_0402d1f0	eON_Int_SetMainWindowDisplayMode	body: defer display mode assert
+0402d360	FUN_0402d360	eON_Int_ApplyDeferredMainWindowDisplayMode	body: apply deferred mode
