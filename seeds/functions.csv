@@ -789,7 +789,7 @@ entry,name
 040204c0,FUN_040204c0
 04020660,FUN_04020660
 04020970,OpenGLDisplay::OpenGLDisplay
-04020cd0,FUN_04020cd0
+04020cd0,SetForcedOpenGLDisplay
 04020d10,TestSurfaceCompatibility
 04021050,DetermineMaxSamplesForFormat
 04021ee0,FUN_04021ee0
@@ -3561,7 +3561,7 @@ entry,name
 04111df0,FUN_04111df0
 04111e80,FUN_04111e80
 04111e90,FUN_04111e90
-04111ea0,FUN_04111ea0
+04111ea0,FindPEModuleByName
 04111ef0,FUN_04111ef0
 04111f50,FUN_04111f50
 04111fa0,FUN_04111fa0
@@ -3651,7 +3651,7 @@ entry,name
 04115440,FUN_04115440
 04115510,FUN_04115510
 041155f0,FUN_041155f0
-04115780,FUN_04115780
+04115780,InitFakeWindowsRegistryKeys
 04117760,eON_RegCreateKeyExW
 04117a40,eON_RegCreateKeyExA
 04117ba0,eON_RegCreateKeyA
@@ -3721,7 +3721,7 @@ entry,name
 0411ad00,FUN_0411ad00
 0411ad10,FUN_0411ad10
 0411ad20,FUN_0411ad20
-0411ad30,FUN_0411ad30
+0411ad30,UnDecorateSymbolName
 0411ae20,FUN_0411ae20
 0411ae30,FUN_0411ae30
 0411ae40,FUN_0411ae40
@@ -4316,7 +4316,7 @@ entry,name
 04134a80,FUN_04134a80
 04134a90,FUN_04134a90
 04134d00,FUN_04134d00
-04134e80,FUN_04134e80
+04134e80,RemapImportDllName
 04134f50,eON_GetLongPathNameW
 041351a0,FUN_041351a0
 041351f0,FUN_041351f0
@@ -4488,7 +4488,7 @@ entry,name
 0413ef10,FUN_0413ef10
 0413ef80,FUN_0413ef80
 0413eff0,FUN_0413eff0
-0413f350,FUN_0413f350
+0413f350,eON_VirtualFreeEx_CurrentProcessOnly
 0413f3e0,FUN_0413f3e0
 0413f440,FUN_0413f440
 0413f4b0,MemoryHandleManager_0413f4b0
@@ -4790,7 +4790,7 @@ entry,name
 041521b0,winpe_LinkImports
 04152350,winpe_LoadFromMemory
 04152eb0,FUN_04152eb0
-04152fd0,FUN_04152fd0
+04152fd0,LoadLibraryA_Resolve
 041531d0,windll_041531d0
 04153230,GetModuleHandleExA
 04153380,windll_04153380
@@ -6408,7 +6408,7 @@ entry,name
 04198140,_glewInit_GL_VERSION_3_0
 04198620,_glewInit_GL_VERSION_4_0
 041986b0,_glewInit_GL_AMD_performance_monitor
-041987c0,FUN_041987c0
+041987c0,LoadGL_ANGLE_timer_query
 041988d0,_glewInit_GL_APPLE_element_array
 04198960,_glewInit_GL_APPLE_fence
 04198a30,_glewInit_GL_APPLE_vertex_program_evaluators
@@ -6417,7 +6417,7 @@ entry,name
 04198d00,_glewInit_GL_VERSION_4_5
 04199520,_glewInit_GL_ARB_framebuffer_object
 04199700,_glewInit_GL_ARB_gpu_shader_fp64
-041998b0,FUN_041998b0
+041998b0,LoadGL_ARB_imaging
 04199bb0,_glewInit_GL_ARB_invalidate_subdata
 04199c50,_glewInit_GL_ARB_matrix_palette
 04199ce0,_glewInit_GL_ARB_multi_bind
@@ -6466,7 +6466,7 @@ entry,name
 0419f020,_glewInit_GL_HP_image_transform
 0419f0c0,_glewInit_GL_IBM_vertex_array_lists
 0419f190,_glewInit_GL_INTEL_performance_query
-0419f290,FUN_0419f290
+0419f290,LoadGL_KHR_debug
 0419f390,_glewInit_GL_KTX_buffer_region
 0419f420,_glewInit_GL_MESA_window_pos
 0419f650,_glewInit_GL_NV_bindless_texture
@@ -6490,8 +6490,8 @@ entry,name
 041a10d0,_glewInit_GL_NV_vertex_program
 041a1670,_glewInit_GL_NV_video_capture
 041a17a0,_glewInit_GL_OES_single_precision
-041a1840,FUN_041a1840
-041a1b10,FUN_041a1b10
+041a1840,LoadGL_OES_fixed_point
+041a1b10,LoadGL_OES_single_precision
 041a1c50,_glewInit_GL_SGIX_async
 041a1cf0,_glewInit_GL_SGIX_fragment_specular_lighting
 041a1e90,_glewInit_GL_SGI_color_table
@@ -6518,7 +6518,7 @@ entry,name
 041a5db0,FUN_041a5db0
 041a5dd0,glewInit
 041b9b20,FUN_041b9b20
-041bfc60,FUN_041bfc60
+041bfc60,ParseGLExtensionString
 041c1000,TiXmlString::reserve
 041c10b0,TiXmlString::assign
 041c1190,TiXmlString::append

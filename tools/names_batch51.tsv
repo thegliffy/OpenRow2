@@ -1,0 +1,13 @@
+FUN_04020cd0	SetForcedOpenGLDisplay
+FUN_04134e80	RemapImportDllName
+FUN_0413f350	eON_VirtualFreeEx_CurrentProcessOnly
+FUN_041987c0	LoadGL_ANGLE_timer_query
+FUN_041998b0	LoadGL_ARB_imaging
+FUN_0419f290	LoadGL_KHR_debug
+FUN_041a1840	LoadGL_OES_fixed_point
+FUN_041a1b10	LoadGL_OES_single_precision
+FUN_041bfc60	ParseGLExtensionString
+FUN_0411ad30	UnDecorateSymbolName
+FUN_04111ea0	FindPEModuleByName
+FUN_04152fd0	LoadLibraryA_Resolve
+FUN_04115780	InitFakeWindowsRegistryKeys
