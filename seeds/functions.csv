@@ -5824,7 +5824,7 @@ entry,name
 0417c970,FUN_0417c970
 0417c980,FUN_0417c980
 0417c9a0,eON_SystemParametersInfoA
-0417ce90,FUN_0417ce90
+0417ce90,eON_SystemParametersInfoW
 0417d0f0,FUN_0417d0f0
 0417d100,eON_GetUserObjectInformationA
 0417d3f0,eON_GetUserObjectInformationW
@@ -6257,7 +6257,7 @@ entry,name
 0418e1e0,PropertyStoreImp::QueryInterface
 0418e290,FUN_0418e290
 0418e330,PropertyStoreImp::PropertyStoreImp
-0418e380,FUN_0418e380
+0418e380,PropertyStoreImp::GetValue
 0418e4f0,FUN_0418e4f0
 0418e520,FUN_0418e520
 0418e7a0,eON_Int_TimerThreadRoutine
