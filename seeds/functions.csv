@@ -4187,7 +4187,7 @@ entry,name
 0412e030,FUN_0412e030
 0412e110,FUN_0412e110
 0412e180,FUN_0412e180
-0412e2d0,FUN_0412e2d0
+0412e2d0,eON_OpenFileMappingA
 0412e2f0,FUN_0412e2f0
 0412e300,FUN_0412e300
 0412e3d0,FUN_0412e3d0
@@ -4503,10 +4503,10 @@ entry,name
 0413fbe0,MemoryHandleManager::Alloc
 0413fc80,MemoryHandleManager::ReAlloc
 0413fef0,MemoryHandleManager::FreeSlot
-0413ff90,FUN_0413ff90
-0413ffa0,FUN_0413ffa0
+0413ff90,eON_GetACP
+0413ffa0,eON_GetOEMCP
 0413ffb0,FUN_0413ffb0
-0413ffc0,GetCPInfo
+0413ffc0,eON_GetCPInfo
 041400d0,FUN_041400d0
 041400e0,FUN_041400e0
 041400f0,FUN_041400f0
@@ -4556,7 +4556,7 @@ entry,name
 04143120,FUN_04143120
 041433d0,FUN_041433d0
 041433e0,FUN_041433e0
-041433f0,CompareStringW
+041433f0,eON_CompareStringW
 04143a60,eON_CompareStringA
 04143d60,FUN_04143d60
 04143d70,FUN_04143d70
@@ -4705,9 +4705,9 @@ entry,name
 0414c240,Synchronisation_OpenWaitableTimer
 0414c280,Synchronisation_CommitHandleTable
 0414c2b0,FUN_0414c2b0
-0414c380,FUN_0414c380
-0414c3c0,FUN_0414c3c0
-0414c440,FUN_0414c440
+0414c380,Synchronisation_OpenNamedObject
+0414c3c0,Synchronisation_SetOverlappedEvent
+0414c440,Synchronisation_ResetOverlappedEvent
 0414c4a0,Synchronisation_CloseHandle
 0414c8e0,Synchronisation_WaitForSingleObject
 0414cac0,Synchronisation_WaitForMultipleObjects

@@ -1,0 +1,8 @@
+FUN_0413ff90	eON_GetACP
+FUN_0413ffa0	eON_GetOEMCP
+GetCPInfo	eON_GetCPInfo
+CompareStringW	eON_CompareStringW
+FUN_0414c3c0	Synchronisation_SetOverlappedEvent
+FUN_0414c440	Synchronisation_ResetOverlappedEvent
+FUN_0412e2d0	eON_OpenFileMappingA
+FUN_0414c380	Synchronisation_OpenNamedObject
