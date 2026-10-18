@@ -1,0 +1,4 @@
+addr	old	new	lock
+0418d010	FUN_0418d010	MMDeviceImp::GetId	body: device name → CoTaskMem WCHAR id
+0418d0c0	FUN_0418d0c0	MMDeviceImp::Activate	body: IID match → AudioClientImp
+0418ad30	FUN_0418ad30	eON_Int_AudioDevice_CopyNameW	body: device+0xc char→WCHAR buf

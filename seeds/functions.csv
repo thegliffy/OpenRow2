@@ -6142,7 +6142,7 @@ entry,name
 0418aa90,eON_Int_DefaultAudioDevice_Ensure
 0418ab30,eON_Int_AudioDevice_LookupByEndpointId
 0418ac80,FUN_0418ac80
-0418ad30,FUN_0418ad30
+0418ad30,eON_Int_AudioDevice_CopyNameW
 0418ad90,audioRenderCaptureOpenALsoft_0418ad90
 0418b010,AudioUnit_DetermineDefaultMixFormat
 0418b090,AudioUnit_IsFormatSupported
@@ -6216,8 +6216,8 @@ entry,name
 0418cfa0,FUN_0418cfa0
 0418cfd0,FUN_0418cfd0
 0418d000,FUN_0418d000
-0418d010,FUN_0418d010
-0418d0c0,FUN_0418d0c0
+0418d010,MMDeviceImp::GetId
+0418d0c0,MMDeviceImp::Activate
 0418d170,MMDeviceImp::QueryInterface
 0418d280,FUN_0418d280
 0418d2a0,FUN_0418d2a0

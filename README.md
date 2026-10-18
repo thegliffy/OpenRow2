@@ -18,6 +18,7 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
+| 165 | MMDeviceImp Activate/GetId (`tools/decomp_notes_wave165_mmdevice_activate_getid.md`). | 3 | 3 |
 | 164 | MMDeviceCollection (`tools/decomp_notes_wave164_mmdevice_collection.md`). | 3 | 3 |
 | 163 | MMDeviceEnumerator helpers (`tools/decomp_notes_wave163_mmdevice_enum_helpers.md`). | 6 | 5 |
 | 162 | mixer + EnumAudioEndpoints (`tools/decomp_notes_wave162_mixer_mmeenum.md`). | 4 | 4 |
@@ -204,6 +205,8 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 `python3 tools/test_llm_work.py` runs the checker against the seeds.
 
 ## Next
+
+Wave 165 applied (3,414): MMDeviceImp Activate/GetId. See `tools/decomp_notes_wave165_mmdevice_activate_getid.md`.
 
 Wave 164 applied (3,411): MMDeviceCollection GetCount/Item/AddDevice. See `tools/decomp_notes_wave164_mmdevice_collection.md`.
 
