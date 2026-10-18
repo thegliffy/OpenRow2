@@ -1914,7 +1914,7 @@ entry,name
 04084100,FUN_04084100
 04084810,Direct3DDevice9Imp::OpenGLSide_StretchRect_SimpleRenderbuffer2Texture
 04085020,FUN_04085020
-04085580,direct3ddevice9imp_04085580
+04085580,Direct3DDevice9Imp::UpdateViewportAndScissorDimensions_D3D9
 04085610,FUN_04085610
 04085710,FUN_04085710
 04085890,FUN_04085890
@@ -1953,7 +1953,7 @@ entry,name
 0408a250,FUN_0408a250
 0408a4d0,FUN_0408a4d0
 0408a650,Direct3DDevice9Imp::GTRACE_SetTextureStageState
-0408a960,direct3ddevice9imp_0408a960
+0408a960,Direct3DDevice9Imp::GetCurrentFragmentCompileArgs
 0408ab60,Direct3DDevice9Imp::OpenGLSide_SetTextureStageState
 0408ad40,FUN_0408ad40
 0408ad60,FUN_0408ad60
@@ -2053,7 +2053,7 @@ entry,name
 0409e800,Direct3DDevice9Imp::OpenGLSide_ShutdownDevice
 0409eff0,d3d9device_EvictManagedResources
 0409f240,Direct3DDevice9Imp::Reset
-040a0090,direct3ddevice9imp_040a0090
+040a0090,Direct3DDevice9Imp::PrepareVertexArraysForInstancedDraw
 040a05a0,Direct3DDevice9Imp::OpenGLSide_DrawIndexedPrimitive
 040a1600,FUN_040a1600
 040a1610,FUN_040a1610
@@ -2313,7 +2313,7 @@ entry,name
 040adec0,Direct3DSurface9Imp::TransferToOpenGLTextureInDifferentSurface
 040ae0b0,Direct3DSurface9Imp::TransferToDifferentSurface
 040ae280,Direct3DSurface9Imp::TransferToOpenGLThroughDrawPixels
-040ae5d0,direct3dsurface9imp_040ae5d0
+040ae5d0,Direct3DSurface9Imp::TransferFromOpenGLThroughReadPixels
 040ae840,Direct3DSurface9Imp::TransferDataFromPBO
 040ae900,direct3dsurface9imp_040ae900
 040aed60,direct3dsurface9imp_040aed60
@@ -2325,7 +2325,7 @@ entry,name
 040afd70,Direct3DSurface9Imp::TransferBetweenOpenGLTexturesInDifferentSurfaces
 040b0120,Direct3DSurface9Imp::OpenGLSide_TransferToOpenGLTextureInDifferentSurface
 040b0920,direct3dsurface9imp_040b0920
-040b0a40,direct3dsurface9imp_040b0a40
+040b0a40,Direct3DSurface9Imp::MainOpenGLObjectDataUpdated
 040b0b30,FUN_040b0b30
 040b0b60,FUN_040b0b60
 040b0b80,FUN_040b0b80
@@ -4985,9 +4985,9 @@ entry,name
 0415c590,FUN_0415c590
 0415c5d0,eON_SuspendThread
 0415c7e0,FUN_0415c7e0
-0415c8d0,FUN_0415c8d0
+0415c8d0,eON_SwitchToThread
 0415c8f0,FUN_0415c8f0
-0415c900,FUN_0415c900
+0415c900,eON_GetCurrentThreadId
 0415c910,FUN_0415c910
 0415c920,FUN_0415c920
 0415c9f0,SetThreadPriority
@@ -4997,8 +4997,8 @@ entry,name
 0415cd00,FUN_0415cd00
 0415cd80,fillContextForThread
 0415cea0,FUN_0415cea0
-0415ceb0,FUN_0415ceb0
-0415cec0,FUN_0415cec0
+0415ceb0,eON_GetLastError
+0415cec0,eON_SetLastError
 0415cee0,FUN_0415cee0
 0415d080,FUN_0415d080
 0415d1e0,FUN_0415d1e0

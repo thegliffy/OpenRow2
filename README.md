@@ -14,10 +14,11 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 ## Scoreboard
 
-**2,860 / 9,221 functions carry a project name (31.0%).** A name is kept when that function references a matching assert signature, a single source file, or a D3D9 vtable slot locked by those signatures. Module prefixes name the file, not the function. Message-style strings do not replace a signature name.
+**2,864 / 9,221 functions carry a project name (31.1%).** A name is kept when that function references a matching assert signature, a single source file, or a D3D9 vtable slot locked by those signatures. Module prefixes name the file, not the function. Message-style strings do not replace a signature name.
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
+| 70 | Get/SetLastError + thread id + unique Imp (`tools/decomp_notes_wave70_lasterror_imp.md`). | 9 | 4 (+5 placeholder upgrades) |
 | 69 | Wait/Sleep + InitCriticalSection + SList (`tools/decomp_notes_wave69_wait_cs_slist.md`). | 15 | 13 (+2 placeholder upgrades) |
 | 68 | Virtual* + Sync Event/Mutex/Interlocked (`tools/decomp_notes_wave68_virtual_sync_interlocked.md`). | 35 | 32 (+3 placeholder upgrades) |
 | 51 | OpenGL thread/error + shader_pch savers + FreeLibrary (`decomp/opengl_pch_freelibrary_note.txt`). OpenGLThreadStart; ReportError; 5 pch savers; FreeLibrary(+AndExitThread); d3d9 GetAdapterIdentifier thunk. | 10 | 10 |
@@ -109,6 +110,8 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 `python3 tools/test_llm_work.py` runs the checker against the seeds.
 
 ## Next
+
+Wave 70 applied (2,864): Get/SetLastError, SwitchToThread, GetCurrentThreadId, unique D3D Imp upgrades. See `tools/decomp_notes_wave70_lasterror_imp.md`.
 
 Wave 69 applied (2,860): Wait/Sleep C-API, InitializeCriticalSection(+AndSpinCount), SList Interlocked*. See `tools/decomp_notes_wave69_wait_cs_slist.md`.
 
