@@ -1,0 +1,16 @@
+Wave 50 — registry Ex leftovers + thin wrappers + stdout debug writer (20 names)
+
+Track 1 — Reg*Ex with unique messages / clear A↔W:
+  RegDeleteKeyExW/A, RegEnumKeyExW/A, RegQueryValueExA, RegSetValueExW/A,
+  RegOpenKeyExA, RegQueryInfoKeyW/A.
+
+Track 2 — thin wrappers (zeroed Ex options / A MultiByte→Wide):
+  RegOpenKeyW/A, RegDeleteKeyW/A, RegEnumKeyW/A, RegCloseKey,
+  RegDeleteValueW/A.
+
+Track 3 — crumb:
+  OpenGLDebugWriter_Stdout::Write (vfprintf stdout twin of File::Write).
+
+SKIP stubs returning 0; shared leave-alones unchanged.
+
+Applied via PyGhidra MCP (batch41). Scoreboard 2,531 / 9,221 (+20).
