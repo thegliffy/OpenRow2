@@ -1,0 +1,6 @@
+addr	old	new	lock
+04196e10	FUN_04196e10	eON_closesocket	body: EventSelect_RemoveSocket + close
+0418ee00	FUN_0418ee00	eON_timeSetEvent	body: timer thread + event list insert
+0418f0a0	FUN_0418f0a0	eON_timeKillEvent	body: flag kill + optional wait
+0418eb00	FUN_0418eb00	eON_timeGetDevCaps	body: TIMECAPS min=1 max=1000000
+0418bf50	FUN_0418bf50	TimeEvents_Mutex_CRTInit	body: init/destroy DAT_0451c108 mutex

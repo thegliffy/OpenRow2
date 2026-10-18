@@ -200,6 +200,8 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 ## Next
 
+Wave 147 applied (3,315): closesocket, timeSetEvent/KillEvent/GetDevCaps, TimeEvents mutex CRT. See `tools/decomp_notes_wave147_closesocket_time.md`.
+
 Wave 146 applied (3,310): waveIn GetNumDevs/GetDevCaps A/W, WaveInDevice Init/Open/ReturnQueuedBuffers/Thunk. See `tools/decomp_notes_wave146_wavein_caps_init.md`.
 
 Wave 145 applied (3,303): MSG/FD ToString, waveIn Prepare/Unprepare/AddBuffer/Open/Stop/Reset/Close, WaveInDevice Destroy/IsRegistered. See `tools/decomp_notes_wave145_msg_fd_wavein.md`.
