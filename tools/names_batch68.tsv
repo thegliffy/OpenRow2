@@ -1,0 +1,8 @@
+FUN_041320a0	eON_WriteFile
+FUN_04131f00	eON_ReadFile
+FUN_04132540	eON_GetFileAttributesExA
+FUN_04132580	eON_GetFileAttributesExW
+FUN_041328b0	eON_GetFileInformationByHandle
+FUN_04133610	eON_MoveFileA
+FUN_04131d80	eON_CreateFileW
+FUN_041334d0	eON_CopyFileA
