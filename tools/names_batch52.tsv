@@ -1,0 +1,5 @@
+FUN_040cc470	GL_ColorAttachment_ToString
+FUN_04107480	XAudio2Imp_GraphUpdateThread
+FUN_04194100	ResolveHostname
+FUN_041a5d90	GLXError_ToString
+FUN_041b9b20	GLExtensionNameTable

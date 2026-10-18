@@ -14,7 +14,7 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 ## Scoreboard
 
-**2,761 / 9,221 functions carry a project name (29.9%).** A name is kept when that function references a matching assert signature, a single source file, or a D3D9 vtable slot locked by those signatures. Module prefixes name the file, not the function. Message-style strings do not replace a signature name.
+**2,766 / 9,221 functions carry a project name (30.0%).** A name is kept when that function references a matching assert signature, a single source file, or a D3D9 vtable slot locked by those signatures. Module prefixes name the file, not the function. Message-style strings do not replace a signature name.
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
@@ -108,6 +108,8 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 ## Next
 
+Wave 61 applied (2,766): GL enum/table, XAudio graph thread, hostname. See `tools/decomp_notes_wave61_gl_xaudio_host.md`.
+
 Wave 60 applied (2,761): GL loaders, ForcedOpenGL, PE/registry helpers. See `tools/decomp_notes_wave60_gl_loaders_vfs.md`.
 
 Wave 59 applied (2,748): dumps, exception unwind, display/class APIs. See `tools/decomp_notes_wave59_dumps_exception_display.md`.
@@ -170,7 +172,7 @@ Closed, continued:
 
 Open:
 
-- Assert queue empty; message/C-API harvest drained (waves 32–51).
+- Assert queue empty; message/C-API harvest drained (waves 32–61). Remaining unique-string `FUN_` are leave-alones (breakpad/assert/unimplemented/STL/Present logger).
 - Shared helpers: cursor workers; clipboard SDL→HGLOBAL sync; GetLongPathNameA log; SetForcedOpenGLDisplay pair; DrawPrimitive pipeline helper; VirtualFreeEx twin; GetSampleFunction_OpenGLCore shared log.
 - Leave-alone closed: 8 same-method `d3d9device_*` wrappers; capture-devices stub; Present/params logger; FileSystem/Varyings/GetDlgItem; module_hex; ambiguous splits; breakpad stub.
 

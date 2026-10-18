@@ -2523,7 +2523,7 @@ entry,name
 040caf20,OpenGLContextCache::OpenGLContextCache
 040cc080,OpenGL_DataTypeToString
 040cc450,FUN_040cc450
-040cc470,FUN_040cc470
+040cc470,GL_ColorAttachment_ToString
 040cc640,OpenGL_BufferToString
 040cc800,OpenGL_LogState_VertexArrays
 040ccdf0,OpenGL_LogState_BufferObjectBindings
@@ -3364,7 +3364,7 @@ entry,name
 04106ee0,FUN_04106ee0
 04106f90,XAudio2Imp::CommitChanges
 04107130,XAudio2Imp::Update
-04107480,FUN_04107480
+04107480,XAudio2Imp_GraphUpdateThread
 041074e0,FUN_041074e0
 04107500,FUN_04107500
 04107520,FUN_04107520
@@ -6354,7 +6354,7 @@ entry,name
 04193c50,eON_WSAStartup
 04193e00,eON_sendto
 041940e0,FUN_041940e0
-04194100,FUN_04194100
+04194100,ResolveHostname
 04194240,FUN_04194240
 04194260,eON_shutdown
 04194370,FUN_04194370
@@ -6514,10 +6514,10 @@ entry,name
 041a2c70,glewGetExtension
 041a2d70,FUN_041a2d70
 041a2e50,glxewInit
-041a5d90,FUN_041a5d90
+041a5d90,GLXError_ToString
 041a5db0,FUN_041a5db0
 041a5dd0,glewInit
-041b9b20,FUN_041b9b20
+041b9b20,GLExtensionNameTable
 041bfc60,ParseGLExtensionString
 041c1000,TiXmlString::reserve
 041c10b0,TiXmlString::assign
