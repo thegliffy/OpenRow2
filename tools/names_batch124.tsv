@@ -1,0 +1,9 @@
+addr	old	new	lock
+041c15a0	FUN_041c15a0	TiXmlNode::Accept_VisitEnter	body: visitor vtable +0x20
+041c15c0	FUN_041c15c0	TiXmlNode::Accept_VisitExit	body: visitor vtable +0x1c
+041c15e0	FUN_041c15e0	TiXmlNode::Accept_Visit	body: visitor vtable +0x18
+041c1600	FUN_041c1600	TiXmlNode::Accept_VisitEnterAlt	body: visitor vtable +0x24
+041c1620	FUN_041c1620	TiXmlElement::Type_IsElement	body: return 1
+041c1630	FUN_041c1630	TiXmlNode::Type_AlwaysTrue	body: return 1 stub
+041c1fd0	FUN_041c1fd0	TiXmlBase::AppendIndent_ToString	body: depth×indent append to string
+041c2240	FUN_041c2240	TiXmlBase::PutIndent_Conditional	body: indent if not compact

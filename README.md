@@ -18,6 +18,7 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
+| 133 | TiXml visitor/indent (`tools/decomp_notes_wave133_tixml_visitor_indent.md`). | 8 | 8 |
 | 132 | TiXml Accept/CopyTo (`tools/decomp_notes_wave132_tixml_copyto_accept.md`). | 4 | 4 |
 | 131 | TiXmlString ops + Clone/Print (`tools/decomp_notes_wave131_tixml_string_clone.md`). | 9 | 9 |
 | 130 | TiXml Clone/Accept/DeleteChildren (`tools/decomp_notes_wave130_tixml_clone_accept.md`). | 8 | 8 |
@@ -188,6 +189,8 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 `python3 tools/test_llm_work.py` runs the checker against the seeds.
 
 ## Next
+
+Wave 133 applied (3,221): TiXml visitor dispatch + indent helpers. See `tools/decomp_notes_wave133_tixml_visitor_indent.md`.
 
 Wave 132 applied (3,213): TiXml Element Accept/CopyTo, Document CopyTo. See `tools/decomp_notes_wave132_tixml_copyto_accept.md`.
 
