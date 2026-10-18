@@ -3768,7 +3768,7 @@ entry,name
 0411c5a0,eON_Int_EnumerateFontFamilies
 0411c780,FUN_0411c780
 0411c840,eON_Gdi_IsValidDC
-0411c860,FUN_0411c860
+0411c860,eON_Gdi_FindFreeDCSlot
 0411c8b0,HDC_AddRef
 0411c910,HDC_Release
 0411c9a0,gdi32_0411c9a0
@@ -3802,9 +3802,9 @@ entry,name
 0411ee70,eON_GetTextAlign
 0411eea0,eON_SetTextAlign
 0411eee0,eON_CreateSolidBrush
-0411ef30,FUN_0411ef30
-0411f0f0,FUN_0411f0f0
-0411f240,FUN_0411f240
+0411ef30,eON_TranslateCharsetInfo
+0411f0f0,eON_SetDeviceGammaRamp
+0411f240,eON_GetDeviceGammaRamp
 0411f380,eON_CreateFontIndirectW
 0411f840,eON_CreateFontIndirectA
 0411f8e0,eON_CreateFontA
@@ -3812,7 +3812,7 @@ entry,name
 0411fac0,FUN_0411fac0
 0411fad0,FUN_0411fad0
 0411fae0,FUN_0411fae0
-0411faf0,FUN_0411faf0
+0411faf0,eON_DeviceCaps_IndexToString
 0411fbd0,eON_GetDeviceCaps
 04120030,FUN_04120030
 04120040,FUN_04120040

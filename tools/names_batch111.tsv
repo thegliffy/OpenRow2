@@ -1,0 +1,6 @@
+addr	old	new	lock
+0411c860	FUN_0411c860	eON_Gdi_FindFreeDCSlot	assert: Can't assign unused DC! Maximum number of resources reached!
+0411faf0	FUN_0411faf0	eON_DeviceCaps_IndexToString	body: HORZRES/BITSPIXEL/… switch
+0411ef30	FUN_0411ef30	eON_TranslateCharsetInfo	body: TCI_SRCCHARSET→CHARSETINFO table
+0411f0f0	FUN_0411f0f0	eON_SetDeviceGammaRamp	body: WORD[768] → float ramp SetGammaRamp
+0411f240	FUN_0411f240	eON_GetDeviceGammaRamp	body: GetGammaRamp → WORD[768]
