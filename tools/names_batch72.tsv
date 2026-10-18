@@ -1,0 +1,4 @@
+ExitThread	eON_ExitThread
+FUN_0415c7e0	eON_ResumeThread
+ExitProcess	eON_ExitProcess
+TerminateProcess	eON_TerminateProcess
