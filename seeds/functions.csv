@@ -6137,10 +6137,10 @@ entry,name
 0418a8a0,FUN_0418a8a0
 0418a8b0,FUN_0418a8b0
 0418a8c0,GetAudioDevices
-0418aa00,FUN_0418aa00
-0418aa10,FUN_0418aa10
-0418aa90,FUN_0418aa90
-0418ab30,FUN_0418ab30
+0418aa00,eON_Int_AudioDeviceList_Free
+0418aa10,eON_Int_AudioDevice_QueryIOFlags
+0418aa90,eON_Int_DefaultAudioDevice_Ensure
+0418ab30,eON_Int_AudioDevice_LookupByEndpointId
 0418ac80,FUN_0418ac80
 0418ad30,FUN_0418ad30
 0418ad90,audioRenderCaptureOpenALsoft_0418ad90
@@ -6203,8 +6203,8 @@ entry,name
 0418c930,FUN_0418c930
 0418c960,FUN_0418c960
 0418c970,FUN_0418c970
-0418c980,FUN_0418c980
-0418ca30,GetDefaultAudioEndpoint
+0418c980,MMDeviceEnumeratorImp::GetDevice
+0418ca30,MMDeviceEnumeratorImp::GetDefaultAudioEndpoint
 0418cb00,MMDeviceEnumeratorImp::EnumAudioEndpoints
 0418cdc0,FUN_0418cdc0
 0418cde0,MMDeviceEnumeratorImp::QueryInterface

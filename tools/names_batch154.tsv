@@ -1,0 +1,7 @@
+addr	old	new	lock
+0418c980	FUN_0418c980	MMDeviceEnumeratorImp::GetDevice	body: endpoint id → MMDeviceImp
+0418ca30	GetDefaultAudioEndpoint	MMDeviceEnumeratorImp::GetDefaultAudioEndpoint	body: qualify existing + DefaultAudioDevice_Ensure
+0418aa90	FUN_0418aa90	eON_Int_DefaultAudioDevice_Ensure	body: lazy "Default audio device" singleton
+0418ab30	FUN_0418ab30	eON_Int_AudioDevice_LookupByEndpointId	body: WideChar id match in device list
+0418aa10	FUN_0418aa10	eON_Int_AudioDevice_QueryIOFlags	body: render/capture/default flags from device
+0418aa00	FUN_0418aa00	eON_Int_AudioDeviceList_Free	body: free GetAudioDevices list

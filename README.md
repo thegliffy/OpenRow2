@@ -18,6 +18,7 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
+| 163 | MMDeviceEnumerator helpers (`tools/decomp_notes_wave163_mmdevice_enum_helpers.md`). | 6 | 5 |
 | 162 | mixer + EnumAudioEndpoints (`tools/decomp_notes_wave162_mixer_mmeenum.md`). | 4 | 4 |
 | 161 | Invalidate/Redraw/IsChild (`tools/decomp_notes_wave161_invalidate_redraw_ischild.md`). | 5 | 5 |
 | 160 | GetQueueStatus/hooks/msg-queue (`tools/decomp_notes_wave160_queue_hooks_msgint.md`). | 9 | 9 |
@@ -202,6 +203,8 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 `python3 tools/test_llm_work.py` runs the checker against the seeds.
 
 ## Next
+
+Wave 163 applied (3,408): MMDeviceEnumerator GetDevice + audio device helpers. See `tools/decomp_notes_wave163_mmdevice_enum_helpers.md`.
 
 Wave 162 applied (3,403): mixerOpen/Close/GetLineInfoA + EnumAudioEndpoints. See `tools/decomp_notes_wave162_mixer_mmeenum.md`.
 
