@@ -1,0 +1,7 @@
+addr	old	new	lock
+04183060	FUN_04183060	eON_Int_SendMessageA_Checked	body: HWND validate → SendMessageA
+04026aa0	FUN_04026aa0	eON_Int_Wnd_GetClientRectFromSDL	body: SDL pos+size → RECT
+04026b20	FUN_04026b20	eON_Int_Wnd_DestroySDLWindow	body: SDL_DestroyWindow + null handle
+04026bd0	FUN_04026bd0	eON_SetFocus	body: keyboard focus track + SDL_RaiseWindow
+04026c30	FUN_04026c30	eON_Int_Wnd_SyncTitleToSDL	body: strcmp title → SetWindowTitle
+04026970	FUN_04026970	eON_Int_Wnd_GetWMInfo	body: SDL_GetWindowWMInfo

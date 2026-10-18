@@ -910,12 +910,12 @@ entry,name
 040265d0,eON_WindowLinux::Platform_GetSizeOfDisplayTheWindowIsOn
 040266f0,eON_WindowLinux::Platform_GetOriginOfDisplayTheWindowIsOn
 04026790,eON_Window_ClampToKnownDisplays
-04026970,FUN_04026970
-04026aa0,FUN_04026aa0
-04026b20,FUN_04026b20
+04026970,eON_Int_Wnd_GetWMInfo
+04026aa0,eON_Int_Wnd_GetClientRectFromSDL
+04026b20,eON_Int_Wnd_DestroySDLWindow
 04026b50,FUN_04026b50
-04026bd0,FUN_04026bd0
-04026c30,FUN_04026c30
+04026bd0,eON_SetFocus
+04026c30,eON_Int_Wnd_SyncTitleToSDL
 04026c80,FUN_04026c80
 04026cf0,FUN_04026cf0
 04026d90,FUN_04026d90
@@ -5940,7 +5940,7 @@ entry,name
 04182ea0,eON_BeginPaint
 04182fc0,eON_EndPaint
 04183050,FUN_04183050
-04183060,FUN_04183060
+04183060,eON_Int_SendMessageA_Checked
 04183140,FUN_04183140
 04183220,eON_DispatchMessageA
 04183360,eON_DispatchMessageW
