@@ -1,0 +1,6 @@
+addr	old	new	lock
+04172190	FUN_04172190	eON_PostMessageA	body: window lookup + MsgQueue_Post
+04172240	FUN_04172240	eON_PostMessageW	body: identical twin of PostMessageA
+041779c0	FUN_041779c0	eON_MessageBoxW	body: Wide→A then MessageBoxA
+041763d0	FUN_041763d0	eON_Int_SyncClipboardFromSDL	body: SDL_GetClipboardText → SetClipboard
+041776f0	FUN_041776f0	eON_MsgWaitForMultipleObjectsEx	body: WaitForMultipleObjects arg remap
