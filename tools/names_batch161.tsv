@@ -1,0 +1,4 @@
+addr	old	new	lock
+0418b200	FUN_0418b200	AudioUnit_Start	body: alSourcePlay if not AL_PLAYING
+0418b520	FUN_0418b520	AudioUnit_DrainProcessedBuffers	body: unqueue AL buffers + padding out
+0418b760	FUN_0418b760	AudioUnit_FindByALSource	body: scan unit list by source id

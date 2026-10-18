@@ -6147,11 +6147,11 @@ entry,name
 0418b010,AudioUnit_DetermineDefaultMixFormat
 0418b090,AudioUnit_IsFormatSupported
 0418b0f0,AudioUnit_Create
-0418b200,FUN_0418b200
+0418b200,AudioUnit_Start
 0418b250,FUN_0418b250
 0418b2f0,FUN_0418b2f0
 0418b3b0,AudioUnit_SubmitData
-0418b520,FUN_0418b520
+0418b520,AudioUnit_DrainProcessedBuffers
 0418b620,FUN_0418b620
 0418b630,FUN_0418b630
 0418b640,FUN_0418b640
@@ -6160,7 +6160,7 @@ entry,name
 0418b690,FUN_0418b690
 0418b6f0,eONMemoryReader::IsValidHandle
 0418b730,FUN_0418b730
-0418b760,FUN_0418b760
+0418b760,AudioUnit_FindByALSource
 0418b7b0,eONMemoryReader::GetEntry
 0418b850,eONMemoryReader::Close
 0418b930,eON_DumpMemoryHandle
