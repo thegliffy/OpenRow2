@@ -1,0 +1,10 @@
+FUN_04152170	eON_LoadLibraryA
+FUN_04153ae0	eON_LoadLibraryW
+FUN_04152080	eON_LoadLibraryExW
+GetModuleHandleExA	eON_GetModuleHandleExA
+GetModuleHandleExW	eON_GetModuleHandleExW
+FUN_0415e020	eON_GetSystemTimeAsFileTime
+FUN_0415dee0	eON_GetSystemTime
+FUN_0415df80	eON_GetLocalTime
+FUN_0415ddd0	eON_FileTimeFromTimeval
+FUN_0415de30	eON_LocalFileTimeFromTimeval
