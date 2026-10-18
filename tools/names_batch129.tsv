@@ -1,0 +1,7 @@
+addr	old	new	lock
+041c5700	FUN_041c5700	TiXmlAttribute::TiXmlAttribute	body: attribute object ctor
+041c6560	FUN_041c6560	TiXmlDeclaration::~TiXmlDeclaration	body: free version/encoding strings
+041c64e0	FUN_041c64e0	TiXmlComment::~TiXmlComment	body: delete children + node dtor
+041c5590	FUN_041c5590	TiXmlDeclaration::DeleteChildren	body: delete child list
+041c56a0	FUN_041c56a0	TiXmlUnknown::CopyTo	body: copy unknown value fields
+041c52e0	FUN_041c52e0	TiXmlText::CopyTo	body: copy text value fields
