@@ -200,6 +200,8 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 ## Next
 
+Wave 156 applied (3,369): CreateWindowEx A/W, DestroyWindow, SetWindowPlacement, ShowWindow_Checked. See `tools/decomp_notes_wave156_create_destroy_placement.md`.
+
 Wave 155 applied (3,364): SetParent, AdjustWindowRect(Ex), AdjustRectForCaption. See `tools/decomp_notes_wave155_setparent_adjustrect.md`.
 
 Wave 154 applied (3,360): GlobalDeleteAtom A/W, Begin/EndPaint, CallWindowProc A/W, GetWindowTextW. See `tools/decomp_notes_wave154_atom_paint_wndproc.md`.

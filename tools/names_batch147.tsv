@@ -1,0 +1,6 @@
+addr	old	new	lock
+04185b70	FUN_04185b70	eON_CreateWindowExA	body: CreateWindowEx_Common + A strings; "Window %p created"
+04185eb0	FUN_04185eb0	eON_CreateWindowExW	body: CreateWindowEx_Common W path; "Window %p created"
+04187e20	FUN_04187e20	eON_DestroyWindow	body: teardown + SendMessageA HWND_BROADCAST note
+04186f50	FUN_04186f50	eON_SetWindowPlacement	body: WINDOWPLACEMENT length 0x2c apply
+04181130	FUN_04181130	eON_ShowWindow_Checked	body: IsWindow gate → eON_ShowWindow
