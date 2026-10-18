@@ -1,0 +1,8 @@
+addr	old	new	lock
+04172330	FUN_04172330	eON_Int_MsgQueue_PostFiltered	body: filter kbd/mouse hooks → MsgQueue_Post
+041723d0	FUN_041723d0	eON_Int_PostMessage_IfWindow	body: IsWindow → PostFiltered
+0404d970	FUN_0404d970	eON_Int_Wnd_LButtonDownOrDblClk	body: WM_NCCALCSIZE + WM_LBUTTONDOWN/DBLCLK
+0404db10	FUN_0404db10	eON_Int_Wnd_NCCalcSize_Flag2	body: OR flag 2 + WM_NCCALCSIZE delta
+0404dc60	FUN_0404dc60	eON_Int_Wnd_NCCalcSize_Flag10	body: OR flag 0x10 + WM_NCCALCSIZE delta
+0404ddb0	FUN_0404ddb0	eON_Int_Wnd_NCCalcSize_Flag20	body: OR flag 0x20 + WM_NCCALCSIZE delta
+0404df00	FUN_0404df00	eON_Int_Wnd_NCCalcSize_Flag40	body: OR flag 0x40 + WM_NCCALCSIZE delta

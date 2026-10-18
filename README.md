@@ -18,6 +18,7 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
+| 176 | MsgPost + NCCalcSize (`tools/decomp_notes_wave176_msgpost_nccalcsize.md`). | 7 | 7 |
 | 175 | Class atom table (`tools/decomp_notes_wave175_class_atom_table.md`). | 2 | 2 |
 | 174 | PropStore insert + time thunk (`tools/decomp_notes_wave174_propstore_insert_time_thunk.md`). | 2 | 2 |
 | 173 | RegisterClassExA core (`tools/decomp_notes_wave173_registerclass_core.md`). | 1 | 0 |
@@ -215,6 +216,8 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 `python3 tools/test_llm_work.py` runs the checker against the seeds.
 
 ## Next
+
+Wave 176 applied (3,442): MsgQueue post filter + NCCalcSize/LButton helpers. See `tools/decomp_notes_wave176_msgpost_nccalcsize.md`.
 
 Wave 175 applied (3,435): Class atom table lookup helpers. See `tools/decomp_notes_wave175_class_atom_table.md`.
 
