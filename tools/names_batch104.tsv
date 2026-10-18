@@ -1,0 +1,4 @@
+addr	old	new	lock
+04129820	FUN_04129820	eON_GlobalFindAtomW	body: WideChar→ANSI then atom table lookup
+04129730	FUN_04129730	eON_GlobalFindAtomA	body: atom table lookup / #nnn integer atoms
+04129510	FUN_04129510	eON_Atom_Intern	body: core intern used by GlobalAddAtom

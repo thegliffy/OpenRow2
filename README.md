@@ -18,6 +18,7 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
+| 113 | GlobalFindAtom A/W + Atom_Intern (`tools/decomp_notes_wave113_globalfindatom.md`). | 3 | 3 |
 | 112 | CancelDC + GlobalGetAtomNameA (`tools/decomp_notes_wave112_canceldc_globalatom.md`). | 2 | 2 |
 | 111 | GetCharABCWidthsI + Gdi Get/SetDCSelectedObject (`tools/decomp_notes_wave111_abcwidthsi_dc_selected.md`). | 3 | 3 |
 | 110 | GetCharABCWidthsW/FloatW + GetCharWidth32W (`tools/decomp_notes_wave110_char_abc_width.md`). | 3 | 3 |
@@ -168,6 +169,8 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 `python3 tools/test_llm_work.py` runs the checker against the seeds.
 
 ## Next
+
+Wave 113 applied (3,085): GlobalFindAtomA/W, Atom_Intern. See `tools/decomp_notes_wave113_globalfindatom.md`.
 
 Wave 112 applied (3,082): CancelDC, GlobalGetAtomNameA. See `tools/decomp_notes_wave112_canceldc_globalatom.md`.
 
