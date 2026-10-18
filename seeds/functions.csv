@@ -6180,10 +6180,10 @@ entry,name
 0418bf40,FUN_0418bf40
 0418bf50,TimeEvents_Mutex_CRTInit
 0418bfa0,FUN_0418bfa0
-0418bfb0,FUN_0418bfb0
-0418c040,FUN_0418c040
+0418bfb0,eON_mixerOpen
+0418c040,eON_mixerClose
 0418c080,MMDevice_GetMainVolume
-0418c390,FUN_0418c390
+0418c390,eON_mixerGetLineInfoA
 0418c500,FUN_0418c500
 0418c510,FUN_0418c510
 0418c520,FUN_0418c520
@@ -6205,7 +6205,7 @@ entry,name
 0418c970,FUN_0418c970
 0418c980,FUN_0418c980
 0418ca30,GetDefaultAudioEndpoint
-0418cb00,FUN_0418cb00
+0418cb00,MMDeviceEnumeratorImp::EnumAudioEndpoints
 0418cdc0,FUN_0418cdc0
 0418cde0,MMDeviceEnumeratorImp::QueryInterface
 0418ce90,FUN_0418ce90

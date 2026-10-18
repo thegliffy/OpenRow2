@@ -1,0 +1,5 @@
+addr	old	new	lock
+0418bfb0	FUN_0418bfb0	eON_mixerOpen	body: MIXER_OBJECTF_WAVEIN + HMIXER tag 0xf67e
+0418c040	FUN_0418c040	eON_mixerClose	body: delete HMIXER 0xf67e
+0418c390	FUN_0418c390	eON_mixerGetLineInfoA	body: fill Mute/Volume MIXERLINE (cb=0x18)
+0418cb00	FUN_0418cb00	MMDeviceEnumeratorImp::EnumAudioEndpoints	body: GetAudioEndpoints→MMDeviceCollection
