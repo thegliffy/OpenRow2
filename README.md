@@ -18,6 +18,7 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
+| 160 | GetQueueStatus/hooks/msg-queue (`tools/decomp_notes_wave160_queue_hooks_msgint.md`). | 9 | 9 |
 | 143 | htons/gethostname/AsyncSelect (`tools/decomp_notes_wave143_winsock_htons_async.md`). | 5 | 5 |
 | 142 | socket/SocketWait/htonl (`tools/decomp_notes_wave142_socket_wait_htonl.md`). | 8 | 8 |
 | 141 | Attribute dtor + IntPtr compare (`tools/decomp_notes_wave141_tixml_attr_dtor.md`). | 3 | 3 |
@@ -199,6 +200,8 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 `python3 tools/test_llm_work.py` runs the checker against the seeds.
 
 ## Next
+
+Wave 160 applied (3,394): GetQueueStatus, GetKeyNameTextW, CallNextHookEx, UnhookWindowsHookEx, msg-queue internals. See `tools/decomp_notes_wave160_queue_hooks_msgint.md`.
 
 Wave 159 applied (3,385): GetKeyboardState, ToAscii, thread keystate internals. See `tools/decomp_notes_wave159_keyboard_toascii.md`.
 

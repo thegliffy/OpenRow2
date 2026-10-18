@@ -1,0 +1,10 @@
+addr	old	new	lock
+04171430	FUN_04171430	eON_GetQueueStatus	body: pack thread QS flags HIWORD|LOWORD
+04175a90	FUN_04175a90	eON_GetKeyNameTextW	body: scan-code→WCHAR table (bit24 extended)
+04175e00	FUN_04175e00	eON_CallNextHookEx	body: hook vtable+4 dispatch
+04175e60	FUN_04175e60	eON_UnhookWindowsHookEx	body: unlink type-2 hook / deadbabe
+04172840	FUN_04172840	eON_Int_SendMessage_Enqueue	body: SendMessageA/W → queue MSG+cursor+time
+04172d10	FUN_04172d10	eON_Int_MsgQueue_PumpSend	body: SendMessage/Wait path pump pending
+04172ad0	FUN_04172ad0	eON_Int_DestroyWindow_PurgeQueue	body: DestroyWindow thread queue purge
+04174270	FUN_04174270	eON_Int_DestroyWindow_ClearMaps	body: DestroyWindow rb-tree msg maps clear
+04171e60	FUN_04171e60	eON_Int_ThreadMsgLists_Free	body: thread_EraseThreadInfo free msg vectors
