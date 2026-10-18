@@ -14,10 +14,11 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 ## Scoreboard
 
-**2,938 / 9,221 functions carry a project name (31.9%).** A name is kept when that function references a matching assert signature, a single source file, or a D3D9 vtable slot locked by those signatures. Module prefixes name the file, not the function. Message-style strings do not replace a signature name.
+**2,955 / 9,221 functions carry a project name (32.0%).** A name is kept when that function references a matching assert signature, a single source file, or a D3D9 vtable slot locked by those signatures. Module prefixes name the file, not the function. Message-style strings do not replace a signature name.
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
+| 85 | CoTaskMem* + display/resource A/W + winpe/MSAA (`tools/decomp_notes_wave85_com_display_resource.md`). | 18 | 17 (+1 rename) |
 | 84 | Co* + GetExitCodeThread + SetThreadPriority (`tools/decomp_notes_wave84_com_thread.md`). | 7 | 2 (+5 renames) |
 | 83 | Get/Free EnvironmentStrings (`tools/decomp_notes_wave83_envstrings.md`). | 3 | 3 |
 | 82 | GetCommandLine A/W + Set/BuildCommandLineA (`tools/decomp_notes_wave82_cmdline.md`). | 4 | 4 |
@@ -124,6 +125,8 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 `python3 tools/test_llm_work.py` runs the checker against the seeds.
 
 ## Next
+
+Wave 85 applied (2,955): CoTaskMem*, Enum/ChangeDisplay Settings A/W, Find/EnumResource A/W, GetComputerName A/W, winpe_LoadFromFile, GetMultisamplingOptionForLevel. See `tools/decomp_notes_wave85_com_display_resource.md`.
 
 Wave 84 applied (2,938): Co* prefixes, GetExitCodeThread, SetThreadPriority. See `tools/decomp_notes_wave84_com_thread.md`.
 
