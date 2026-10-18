@@ -1,0 +1,3 @@
+addr	old	new	lock
+041810b0	FUN_041810b0	eON_Int_ClassAtomTable_Lookup	body: atom→registered WNDCLASSEX* slot
+041810e0	FUN_041810e0	eON_Int_ClassAtom_GetStyle	body: atom→style if cbSize==0x30

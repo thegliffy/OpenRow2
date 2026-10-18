@@ -5874,8 +5874,8 @@ entry,name
 04180960,eON_Int_RegisterClassExA_Core
 04180d50,eON_SendMessageA
 04180f00,eON_SendMessageW
-041810b0,FUN_041810b0
-041810e0,FUN_041810e0
+041810b0,eON_Int_ClassAtomTable_Lookup
+041810e0,eON_Int_ClassAtom_GetStyle
 04181130,eON_ShowWindow_Checked
 041811b0,FUN_041811b0
 04181220,FUN_04181220

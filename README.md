@@ -18,6 +18,7 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
+| 175 | Class atom table (`tools/decomp_notes_wave175_class_atom_table.md`). | 2 | 2 |
 | 174 | PropStore insert + time thunk (`tools/decomp_notes_wave174_propstore_insert_time_thunk.md`). | 2 | 2 |
 | 173 | RegisterClassExA core (`tools/decomp_notes_wave173_registerclass_core.md`). | 1 | 0 |
 | 172 | AudioClient dtor + GetClassInfoA (`tools/decomp_notes_wave172_audioclient_dtor_getclassinfo.md`). | 2 | 1 |
@@ -214,6 +215,8 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 `python3 tools/test_llm_work.py` runs the checker against the seeds.
 
 ## Next
+
+Wave 175 applied (3,435): Class atom table lookup helpers. See `tools/decomp_notes_wave175_class_atom_table.md`.
 
 Wave 174 applied (3,433): PropertyStore insert + timeGetTime thunk. See `tools/decomp_notes_wave174_propstore_insert_time_thunk.md`.
 
