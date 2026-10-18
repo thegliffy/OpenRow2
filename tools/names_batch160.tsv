@@ -1,0 +1,4 @@
+addr	old	new	lock
+0418a200	FUN_0418a200	AudioClientImp::Int_GetQueuedPaddingFrames	body: sum packet queue − consumed
+0418a180	FUN_0418a180	AudioClientImp::Int_EnsureDefaultMixFormat	body: AudioUnit_DetermineDefaultMixFormat cache
+0418a0e0	FUN_0418a0e0	AudioClientImp::Int_ClearPacketQueues	body: free render/capture packet lists
