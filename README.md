@@ -18,6 +18,7 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
+| 115 | CreateCompatibleBitmap + CreateBitmap (`tools/decomp_notes_wave115_createcompatiblebitmap.md`). | 2 | 2 |
 | 114 | CreatePalette + Gdi_AllocDC (`tools/decomp_notes_wave114_createpalette_allocdc.md`). | 2 | 2 |
 | 113 | GlobalFindAtom A/W + Atom_Intern (`tools/decomp_notes_wave113_globalfindatom.md`). | 3 | 3 |
 | 112 | CancelDC + GlobalGetAtomNameA (`tools/decomp_notes_wave112_canceldc_globalatom.md`). | 2 | 2 |
@@ -170,6 +171,8 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 `python3 tools/test_llm_work.py` runs the checker against the seeds.
 
 ## Next
+
+Wave 115 applied (3,089): CreateCompatibleBitmap, CreateBitmap. See `tools/decomp_notes_wave115_createcompatiblebitmap.md`.
 
 Wave 114 applied (3,087): CreatePalette, Gdi_AllocDC. See `tools/decomp_notes_wave114_createpalette_allocdc.md`.
 

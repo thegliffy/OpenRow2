@@ -3838,7 +3838,7 @@ entry,name
 041221e0,FUN_041221e0
 041221f0,eON_SetBitmapBits
 041222a0,eON_CreateBitmapIndirect
-041224e0,FUN_041224e0
+041224e0,eON_CreateBitmap
 04122550,eON_CreateDIBSection
 04122920,eON_GetStockObject
 04122dc0,FUN_04122dc0
@@ -3846,7 +3846,7 @@ entry,name
 04122fd0,eON_Gdi_GetDCForWindow
 041230d0,FUN_041230d0
 04123130,eON_CreateCompatibleDC
-041231e0,FUN_041231e0
+041231e0,eON_CreateCompatibleBitmap
 04123420,eON_GetBitmapBits
 04123510,eON_ValidateBitmapSize
 04123640,eON_GetObjectA
