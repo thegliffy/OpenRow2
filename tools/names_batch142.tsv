@@ -1,0 +1,5 @@
+addr	old	new	lock
+04125ac0	FUN_04125ac0	eON_GetGlyphIndicesW	body: DC cookie + Font_GetCharIndex loop
+04126390	FUN_04126390	eON_EnumFontFamiliesExW	body: lfCharSet==1 gate → EnumerateFontFamilies
+04126ab0	FUN_04126ab0	eON_AddFontResourceExA	body: AddFontResourceA(path,0,0)
+041276a0	FUN_041276a0	eON_Ipv4AddressToString	body: inet_ntoa + strncpy 16
