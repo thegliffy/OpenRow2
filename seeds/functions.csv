@@ -5814,7 +5814,7 @@ entry,name
 0417af50,FUN_0417af50
 0417b380,eON_Int_LoadBitmap
 0417c1a0,eON_LoadImageA
-0417c2e0,eON_LoadBitmapA
+0417c2e0,eON_LoadBitmapA_SharedDefaultSize
 0417c410,eON_LoadIconA
 0417c490,eON_LoadBitmapA
 0417c5b0,eON_LoadImageW
