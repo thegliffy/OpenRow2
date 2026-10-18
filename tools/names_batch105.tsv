@@ -1,0 +1,3 @@
+addr	old	new	lock
+041246f0	FUN_041246f0	eON_CreatePalette	body: GDI type 5 PAL; copy LOGPALETTE entries
+04122f20	FUN_04122f20	eON_Gdi_AllocDC	body: allocate free DC slot; type flag 1; pool exhausted warn
