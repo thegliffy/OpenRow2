@@ -1,0 +1,8 @@
+addr	old	new	lock
+0418d700	FUN_0418d700	eON_mmioOpenA	body: CreateFileA / memory reader open
+0418dce0	FUN_0418dce0	eON_mmioOpenW	body: WideChar→OpenA
+0418dc70	FUN_0418dc70	eON_mmioSeek	body: MemoryReader Seek + origin map
+0418ddc0	FUN_0418ddc0	eON_mmioRead	body: MemoryReader Read
+0418de40	FUN_0418de40	eON_mmioAscend	body: seek to ckend from MMCKINFO
+0418d830	FUN_0418d830	eON_mmioClose	body: free buffer + close reader
+0418dbb0	FUN_0418dbb0	eON_mmioGetInfo	body: fill MMIOINFO 0x48
