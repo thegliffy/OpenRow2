@@ -4487,10 +4487,10 @@ entry,name
 0413ea10,eON_VirtualProtect
 0413ef10,FUN_0413ef10
 0413ef80,FUN_0413ef80
-0413eff0,FUN_0413eff0
-0413f350,eON_VirtualFreeEx_CurrentProcessOnly
+0413eff0,eON_VirtualQuery
+0413f350,eON_VirtualQueryEx
 0413f3e0,FUN_0413f3e0
-0413f440,FUN_0413f440
+0413f440,MemoryHandleManager_Destroy
 0413f4b0,MemoryHandleManager_0413f4b0
 0413f660,MemoryHandleManager::Lock
 0413f770,FUN_0413f770

@@ -1,6 +1,6 @@
 FUN_04020cd0	SetForcedOpenGLDisplay
 FUN_04134e80	RemapImportDllName
-FUN_0413f350	eON_VirtualFreeEx_CurrentProcessOnly
+FUN_0413f350	eON_VirtualQueryEx
 FUN_041987c0	LoadGL_ANGLE_timer_query
 FUN_041998b0	LoadGL_ARB_imaging
 FUN_0419f290	LoadGL_KHR_debug
