@@ -18,6 +18,7 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
+| 121 | Rectangle + AddFontMem + FontCache (`tools/decomp_notes_wave121_rectangle_fontmem.md`). | 6 | 6 |
 | 120 | DC slot/DeviceCaps/Charset/Gamma (`tools/decomp_notes_wave120_dcslot_charset_gamma.md`). | 5 | 5 |
 | 119 | VPFS path/unpack + MSAA ToString + DrawIconEx (`tools/decomp_notes_wave119_vpfs_d3dmsaa_drawicon.md`). | 4 | 4 |
 | 118 | SysColor/SolidBrush/MsgWait/LoadIcon (`tools/decomp_notes_wave118_syscolor_solidbrush.md`). | 5 | 5 |
@@ -176,6 +177,8 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 `python3 tools/test_llm_work.py` runs the checker against the seeds.
 
 ## Next
+
+Wave 121 applied (3,125): Rectangle, AddFontMemResourceEx, FontCache helpers, Gdi_ReleaseObject, Font_GetCharIndex. See `tools/decomp_notes_wave121_rectangle_fontmem.md`.
 
 Wave 120 applied (3,119): FindFreeDCSlot, DeviceCaps_IndexToString, TranslateCharsetInfo, Get/SetDeviceGammaRamp. See `tools/decomp_notes_wave120_dcslot_charset_gamma.md`.
 
