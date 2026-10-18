@@ -18,6 +18,7 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
+| 143 | htons/gethostname/AsyncSelect (`tools/decomp_notes_wave143_winsock_htons_async.md`). | 5 | 5 |
 | 142 | socket/SocketWait/htonl (`tools/decomp_notes_wave142_socket_wait_htonl.md`). | 8 | 8 |
 | 141 | Attribute dtor + IntPtr compare (`tools/decomp_notes_wave141_tixml_attr_dtor.md`). | 3 | 3 |
 | 140 | TiXmlHandle nav + Element Print (`tools/decomp_notes_wave140_tixml_handle.md`). | 9 | 9 |
@@ -198,6 +199,8 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 `python3 tools/test_llm_work.py` runs the checker against the seeds.
 
 ## Next
+
+Wave 143 applied (3,283): htons, gethostname, WSAAsyncSelect_Enable, WSAWaitForMultipleEvents, FD_ISSET. See `tools/decomp_notes_wave143_winsock_htons_async.md`.
 
 Wave 142 applied (3,278): eON_socket, SocketWait flags, htonl/ntohl. See `tools/decomp_notes_wave142_socket_wait_htonl.md`.
 

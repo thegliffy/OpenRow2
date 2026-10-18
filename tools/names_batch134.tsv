@@ -1,0 +1,6 @@
+addr	old	new	lock
+04194d10	FUN_04194d10	eON_htons	body: 16-bit endian swap
+04194d80	FUN_04194d80	eON_gethostname	body: gethostname wrap
+041943a0	FUN_041943a0	eON_WSAAsyncSelect_Enable	body: FIONBIO + AsyncSelect_AddEvent
+04192890	FUN_04192890	eON_WSAWaitForMultipleEvents	body: WaitForMultipleObjects n<=64
+04194d30	FUN_04194d30	eON_FD_ISSET	body: scan fd_set for socket
