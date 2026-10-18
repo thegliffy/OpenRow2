@@ -6036,7 +6036,7 @@ entry,name
 041871f0,FUN_041871f0
 04187200,FUN_04187200
 04187210,eON_GetWindowInfo
-04187360,GetClassInfoA
+04187360,eON_GetClassInfoA
 04187480,eON_GetClassInfoW
 04187650,FUN_04187650
 04187660,FUN_04187660
@@ -6106,7 +6106,7 @@ entry,name
 041897f0,AudioClientImp::IsFormatSupported
 041899d0,AudioClientImp::GetMixFormat
 04189ad0,AudioClientImp::GetCurrentPadding
-04189b60,FUN_04189b60
+04189b60,AudioClientImp::~AudioClientImp
 04189c70,FUN_04189c70
 04189c90,AudioClientImp::Reset
 04189d60,AudioClientImp::RequestPackets

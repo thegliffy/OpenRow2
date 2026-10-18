@@ -18,6 +18,7 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
+| 172 | AudioClient dtor + GetClassInfoA (`tools/decomp_notes_wave172_audioclient_dtor_getclassinfo.md`). | 2 | 1 |
 | 171 | AudioUnit Pause/Stop (`tools/decomp_notes_wave171_audiounit_pause_stop.md`). | 2 | 2 |
 | 170 | AudioUnit Start/Drain (`tools/decomp_notes_wave170_audiounit_start_drain.md`). | 3 | 3 |
 | 169 | AudioClientImp Int helpers (`tools/decomp_notes_wave169_audioclient_int_helpers.md`). | 3 | 3 |
@@ -211,6 +212,8 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 `python3 tools/test_llm_work.py` runs the checker against the seeds.
 
 ## Next
+
+Wave 172 applied (3,431): AudioClientImp dtor + GetClassInfoA. See `tools/decomp_notes_wave172_audioclient_dtor_getclassinfo.md`.
 
 Wave 171 applied (3,430): AudioUnit Pause/Stop. See `tools/decomp_notes_wave171_audiounit_pause_stop.md`.
 
