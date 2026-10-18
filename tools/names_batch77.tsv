@@ -1,0 +1,8 @@
+FUN_041362c0	eON_GetDiskFreeSpaceA
+FUN_04136530	eON_GetDiskFreeSpaceExA
+FUN_04135670	eON_GetTempFileNameA
+FUN_04157380	eON_GetEnvironmentStringsW
+FUN_04045ce0	VPFS_GetFirstSubelement
+FUN_041359a0	eON_GetSystemDirectoryW
+FUN_04135d90	eON_GetVolumeInformationA
+FUN_04135ca0	eON_GetDriveTypeW
