@@ -18,6 +18,7 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
+| 135 | TiXmlUnknown::Clone + CopyValueFieldsTo (`tools/decomp_notes_wave135_tixml_unknown_clone.md`). | 2 | 2 |
 | 134 | TiXml ByName siblings + Attr Print (`tools/decomp_notes_wave134_tixml_siblings.md`). | 7 | 7 |
 | 133 | TiXml visitor/indent (`tools/decomp_notes_wave133_tixml_visitor_indent.md`). | 8 | 8 |
 | 132 | TiXml Accept/CopyTo (`tools/decomp_notes_wave132_tixml_copyto_accept.md`). | 4 | 4 |
@@ -190,6 +191,8 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 `python3 tools/test_llm_work.py` runs the checker against the seeds.
 
 ## Next
+
+Wave 135 applied (3,230): TiXmlUnknown::Clone, CopyValueFieldsTo. See `tools/decomp_notes_wave135_tixml_unknown_clone.md`.
 
 Wave 134 applied (3,228): TiXml ByName child/sibling nav + Attribute Print. See `tools/decomp_notes_wave134_tixml_siblings.md`.
 

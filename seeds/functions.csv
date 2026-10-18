@@ -6546,14 +6546,14 @@ entry,name
 041c2150,TiXmlAttributeSet::FindOrCreate
 041c2240,TiXmlBase::PutIndent_Conditional
 041c2330,TiXmlNode::~TiXmlNode
-041c23a0,FUN_041c23a0
+041c23a0,TiXmlUnknown::Clone
 041c24a0,FUN_041c24a0
 041c2670,TiXmlText::Print
 041c2790,TiXmlText::~TiXmlText
 041c2810,FUN_041c2810
 041c2820,TiXmlBase::EncodeString
 041c2ab0,TiXmlNode::TiXmlNode
-041c2b10,FUN_041c2b10
+041c2b10,TiXmlNode::CopyValueFieldsTo
 041c2b70,TiXmlNode::ClearChildren
 041c2bb0,TiXmlNode::LinkEndChild
 041c2d90,FUN_041c2d90

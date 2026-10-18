@@ -1,0 +1,3 @@
+addr	old	new	lock
+041c23a0	FUN_041c23a0	TiXmlUnknown::Clone	body: type4 UNKNOWN clone
+041c2b10	FUN_041c2b10	TiXmlNode::CopyValueFieldsTo	body: copy value+row/col fields
