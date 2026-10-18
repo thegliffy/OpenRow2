@@ -1,0 +1,11 @@
+addr	old	new	lock
+04128f50	FUN_04128f50	eON_GetAdaptersAddresses	body: GAA flags; EnumIf + DNS list
+041278b0	FUN_041278b0	eON_GetNumberOfInterfaces	body: if_nameindex count; string GetNumberOfInterfaces
+041276d0	FUN_041276d0	eON_Int_EnumNetworkInterfaces	body: if_nameindex + ioctl enum
+04127160	FUN_04127160	eON_Int_GetDnsServerList	body: resolv nameserver inet_aton list
+041287a0	FUN_041287a0	eON_GetIpForwardTable	body: Int_GetIpForwardTable size/copy
+04128830	FUN_04128830	eON_GetIpAddrTable	body: Int_GetIpAddressTable size/copy
+041288f0	FUN_041288f0	eON_Int_LookupRoute	body: forward-table route lookup
+04128a70	FUN_04128a70	eON_GetBestInterfaceEx	body: sockaddr AF_INET → LookupRoute
+04128ae0	FUN_04128ae0	eON_GetBestInterface	body: IPv4 → LookupRoute
+04127670	FUN_04127670	IpAddrEntry_Compare	body: qsort key compare
