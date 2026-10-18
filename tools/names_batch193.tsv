@@ -1,0 +1,12 @@
+addr	old	new	lock
+0415c8f0	FUN_0415c8f0	eON_GetCurrentThread	body: return -2 pseudo-handle
+0415c920	FUN_0415c920	eON_GetThreadPriority	body: thread map +0x8c
+0415a5d0	FUN_0415a5d0	eON_Int_Thread_ExitCleanup	body: ExitThread teardown + exitcode +0x58
+0415b9d0	FUN_0415b9d0	eON_Int_Thread_StartThunk	body: PrepareTEB + call start + ExitCleanup
+0415c590	FUN_0415c590	eON_TerminateThread	body: stub NOT_SUPPORTED/INVALID
+0415cd00	eON_SetThreadPriority	eON_SetThreadPriority_Stub	body: incomplete stub (fix)
+0415c9f0	SetThreadPriority	eON_SetThreadPriority	body: setpriority niceness real impl
+0415c3a0	FUN_0415c3a0	eON_Int_Thread_StartHelperFromMain	body: thread_StartMain helper CreateThread
+0415a410	FUN_0415a410	eON_Int_TLSHelperThread_Proc	body: sets DAT_0451bd68 + TLS cb
+0415c040	FUN_0415c040	eON_Int_IsTLSHelperThread	body: pthread_self==DAT_0451bd68
+0415c000	FUN_0415c000	eON_Int_Thread_SetStateRunning	body: thread+0x4c = 1
