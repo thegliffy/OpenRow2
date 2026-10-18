@@ -1,0 +1,11 @@
+FUN_0416d7f0	eON_OpenClipboard
+FUN_0416d850	eON_CloseClipboard
+FUN_0416d890	eON_GetClipboardOwner
+FUN_0416da70	eON_GetClipboardData
+FUN_0416dc60	eON_EmptyClipboard
+FUN_0416dd40	eON_Clipboard_SyncFromSDL
+FUN_0416de60	eON_Clipboard_Init
+FUN_041351a0	eON_GetLongPathNameA
+FUN_041351f0	eON_CopyWideStringBounded
+FUN_0416dff0	eON_Clipboard_SetSDLText
+FUN_0416e5c0	eON_Clipboard_SetSDLTextW
