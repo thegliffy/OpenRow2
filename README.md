@@ -14,10 +14,11 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 ## Scoreboard
 
-**2,988 / 9,221 functions carry a project name (32.4%).** A name is kept when that function references a matching assert signature, a single source file, or a D3D9 vtable slot locked by those signatures. Module prefixes name the file, not the function. Message-style strings do not replace a signature name.
+**2,990 / 9,221 functions carry a project name (32.4%).** A name is kept when that function references a matching assert signature, a single source file, or a D3D9 vtable slot locked by those signatures. Module prefixes name the file, not the function. Message-style strings do not replace a signature name.
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
+| 91 | RegisterClassW + GetClassInfoW (`tools/decomp_notes_wave91_registerclass_getclassinfo.md`). | 2 | 2 |
 | 90 | LoadImage A/W + LoadBitmapA + LoadIconA type fix (`tools/decomp_notes_wave90_loadimage_icon_bitmap.md`). | 4 | 3 (+1 rename fix) |
 | 89 | ReleaseDC + CreateFont A/W + font/charset (`tools/decomp_notes_wave89_font_dc_charset.md`). | 9 | 9 |
 | 88 | GDI DeleteDC + ExtTextOutA + text-extent (`tools/decomp_notes_wave88_gdi_text_dc.md`). | 6 | 6 |
@@ -130,6 +131,8 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 `python3 tools/test_llm_work.py` runs the checker against the seeds.
 
 ## Next
+
+Wave 91 applied (2,990): RegisterClassW, GetClassInfoW. See `tools/decomp_notes_wave91_registerclass_getclassinfo.md`.
 
 Wave 90 applied (2,988): LoadImage A/W, LoadBitmapA (type 0), LoadIconA fix (was mislabeled LoadBitmapA). See `tools/decomp_notes_wave90_loadimage_icon_bitmap.md`.
 
