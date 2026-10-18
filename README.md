@@ -14,10 +14,11 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 ## Scoreboard
 
-**2,815 / 9,221 functions carry a project name (30.5%).** A name is kept when that function references a matching assert signature, a single source file, or a D3D9 vtable slot locked by those signatures. Module prefixes name the file, not the function. Message-style strings do not replace a signature name.
+**2,847 / 9,221 functions carry a project name (30.9%).** A name is kept when that function references a matching assert signature, a single source file, or a D3D9 vtable slot locked by those signatures. Module prefixes name the file, not the function. Message-style strings do not replace a signature name.
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
+| 68 | Virtual* + Sync Event/Mutex/Interlocked (`tools/decomp_notes_wave68_virtual_sync_interlocked.md`). | 35 | 32 (+3 placeholder upgrades) |
 | 51 | OpenGL thread/error + shader_pch savers + FreeLibrary (`decomp/opengl_pch_freelibrary_note.txt`). OpenGLThreadStart; ReportError; 5 pch savers; FreeLibrary(+AndExitThread); d3d9 GetAdapterIdentifier thunk. | 10 | 10 |
 | 50 | Registry Ex leftovers + thin wrappers + Stdout debug writer (`decomp/registry_ex_wrappers_note.txt`). Delete/Enum/Query/Set/Open/QueryInfo Ex; Open/Delete/Enum/Close/DeleteValue; OpenGLDebugWriter_Stdout::Write. | 20 | 20 |
 | 49 | Heap_Create/Validate + RegCreateKeyEx A/W + crumbs (`decomp/heap_reg_crumbs_note.txt`). Heap pair; RegCreateKey(Ex) A/W; OpenGLDebugWriter_File::Write; WindowLinux SetWindowPosition; GamepadLinux UpdateControlValues; DSC Initialize. | 10 | 10 |
@@ -107,6 +108,8 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 `python3 tools/test_llm_work.py` runs the checker against the seeds.
 
 ## Next
+
+Wave 68 applied (2,847): VirtualAlloc/Free/Lock/Unlock, MemoryHandleManager_Init, Sync Event/Mutex/Semaphore Open/Set/Reset/Pulse/Release, Interlocked*. See `tools/decomp_notes_wave68_virtual_sync_interlocked.md`.
 
 Wave 67 applied (2,815): eON_Heap* wrappers + Lock/QueryInformation. See `tools/decomp_notes_wave67_heap_wrappers.md`.
 
