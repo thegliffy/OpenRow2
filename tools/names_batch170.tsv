@@ -1,0 +1,3 @@
+addr	old	new	lock
+0404d630	FUN_0404d630	eON_Int_Wnd_SetPosition	body: update HWND x/y + notify
+0404d770	FUN_0404d770	eON_Int_Wnd_SetSize	body: update HWND width/height + notify

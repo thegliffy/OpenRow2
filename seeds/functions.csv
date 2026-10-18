@@ -1200,8 +1200,8 @@ entry,name
 0404d040,eON_KeyDown
 0404d170,eON_KeyUp
 0404d220,eON_Window_ApplyFlagChange
-0404d630,FUN_0404d630
-0404d770,FUN_0404d770
+0404d630,eON_Int_Wnd_SetPosition
+0404d770,eON_Int_Wnd_SetSize
 0404d8b0,FUN_0404d8b0
 0404d8d0,FUN_0404d8d0
 0404d8f0,eON_Int_Wnd_MouseMove
