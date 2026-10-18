@@ -1,0 +1,4 @@
+FUN_04156920	eON_GetCurrentProcessId
+FUN_04156f80	eON_GetCurrentProcess
+FUN_04157170	eON_SetEnvironmentVariableA
+FUN_04156f60	eON_GetVersion

@@ -14,10 +14,11 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 ## Scoreboard
 
-**2,924 / 9,221 functions carry a project name (31.7%).** A name is kept when that function references a matching assert signature, a single source file, or a D3D9 vtable slot locked by those signatures. Module prefixes name the file, not the function. Message-style strings do not replace a signature name.
+**2,928 / 9,221 functions carry a project name (31.8%).** A name is kept when that function references a matching assert signature, a single source file, or a D3D9 vtable slot locked by those signatures. Module prefixes name the file, not the function. Message-style strings do not replace a signature name.
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
+| 80 | GetCurrentProcess(Id) + SetEnvironmentVariableA + GetVersion (`tools/decomp_notes_wave80_process_env.md`). | 4 | 4 |
 | 79 | FindClose + DeleteFile + GetTempPath (`tools/decomp_notes_wave79_findclose_delete_temppath.md`). | 6 | 6 |
 | 78 | CreateDirectory A/W + CopyFileW (`tools/decomp_notes_wave78_mkdir_copyw.md`). | 3 | 3 |
 | 77 | ReadFile/WriteFile + attrs Ex + CreateFileW/Move/Copy (`tools/decomp_notes_wave77_readwrite_copy.md`). | 8 | 8 |
@@ -119,6 +120,8 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 `python3 tools/test_llm_work.py` runs the checker against the seeds.
 
 ## Next
+
+Wave 80 applied (2,928): GetCurrentProcess(Id), SetEnvironmentVariableA, GetVersion. See `tools/decomp_notes_wave80_process_env.md`.
 
 Wave 79 applied (2,924): FindClose, DeleteFile A/W, GetTempPath A/W. See `tools/decomp_notes_wave79_findclose_delete_temppath.md`.
 
