@@ -1,0 +1,5 @@
+addr	old	new	lock
+041780f0	FUN_041780f0	eON_Int_Mouse_FilterActive	body: mouse hook eat flag
+04178110	FUN_04178110	eON_Int_Keyboard_FilterActive	body: keyboard hook eat flag
+0404dd20	FUN_0404dd20	eON_Int_Wnd_MButtonUp	body: clear flag0x10 + WM_MBUTTONUP
+0404dfc0	FUN_0404dfc0	eON_Int_Wnd_XButtonUp	body: clear flag0x40 + WM_XBUTTONUP
