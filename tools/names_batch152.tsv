@@ -1,0 +1,6 @@
+addr	old	new	lock
+04184300	FUN_04184300	eON_InvalidateRect	body: HWND gate → vtable+0xa8(erase)
+04184670	FUN_04184670	eON_ValidateRect	body: HWND gate → vtable+0xac(rect)
+04184530	FUN_04184530	eON_RedrawWindow	body: RDW_* flags → Invalidate/Update path
+041812e0	FUN_041812e0	eON_UpdateWindow	body: HWND gate → vtable+0x78 paint
+04184700	FUN_04184700	eON_IsChild	body: walk parent chain HWND compare

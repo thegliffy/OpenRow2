@@ -18,6 +18,7 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
+| 161 | Invalidate/Redraw/IsChild (`tools/decomp_notes_wave161_invalidate_redraw_ischild.md`). | 5 | 5 |
 | 160 | GetQueueStatus/hooks/msg-queue (`tools/decomp_notes_wave160_queue_hooks_msgint.md`). | 9 | 9 |
 | 143 | htons/gethostname/AsyncSelect (`tools/decomp_notes_wave143_winsock_htons_async.md`). | 5 | 5 |
 | 142 | socket/SocketWait/htonl (`tools/decomp_notes_wave142_socket_wait_htonl.md`). | 8 | 8 |
@@ -200,6 +201,8 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 `python3 tools/test_llm_work.py` runs the checker against the seeds.
 
 ## Next
+
+Wave 161 applied (3,399): InvalidateRect, ValidateRect, RedrawWindow, UpdateWindow, IsChild. See `tools/decomp_notes_wave161_invalidate_redraw_ischild.md`.
 
 Wave 160 applied (3,394): GetQueueStatus, GetKeyNameTextW, CallNextHookEx, UnhookWindowsHookEx, msg-queue internals. See `tools/decomp_notes_wave160_queue_hooks_msgint.md`.
 
