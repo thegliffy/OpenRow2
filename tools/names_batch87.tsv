@@ -1,0 +1,9 @@
+addr	old	new	lock
+04175440	FUN_04175440	eON_CopyRect	body: copy RECT 4 dwords; null → 0
+04175480	FUN_04175480	eON_EqualRect	body: compare LTRB equality
+041754d0	FUN_041754d0	eON_PtInRect	body: left<=x<right && top<=y<bottom
+04175500	FUN_04175500	eON_SetRect	body: write L,T,R,B into RECT
+04175530	FUN_04175530	eON_SetRectEmpty	body: zero RECT
+04175560	FUN_04175560	eON_OffsetRect	body: add dx,dy to all edges
+04175590	FUN_04175590	eON_IsRectEmpty	body: empty if left>=right or bottom<=top
+041755e0	FUN_041755e0	eON_InflateRect	body: ±dx/±dy on edges
