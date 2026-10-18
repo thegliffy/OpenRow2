@@ -18,6 +18,7 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
+| 185 | WindowLinux + SendDlgItemMessage (`tools/decomp_notes_wave185_wnd_dlgitem_frameextents.md`). | 14 | 14 |
 | 184 | CursorPos + SetFocus_Checked (`tools/decomp_notes_wave184_cursor_setfocus_checked.md`). | 6 | 6 |
 | 183 | GetFocus + WindowLinux (`tools/decomp_notes_wave183_getfocus_wndlinux.md`). | 4 | 4 |
 | 182 | SetFocus + SDL wnd (`tools/decomp_notes_wave182_setfocus_sdl_wnd.md`). | 6 | 6 |
@@ -224,6 +225,8 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 `python3 tools/test_llm_work.py` runs the checker against the seeds.
 
 ## Next
+
+Wave 185 applied (3,494): WindowLinux helpers + SendDlgItemMessage. See `tools/decomp_notes_wave185_wnd_dlgitem_frameextents.md`.
 
 Wave 184 applied (3,480): CursorPos core + SetFocus_Checked. See `tools/decomp_notes_wave184_cursor_setfocus_checked.md`.
 

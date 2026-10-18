@@ -1,0 +1,15 @@
+addr	old	new	lock
+04027100	FUN_04027100	eON_Int_Wnd_CreateWindow_Thunk	body: thin → CreateWindow
+04027110	FUN_04027110	eON_Int_Wnd_SyncWindowTitle	body: Get/SetWindowTitle vs cached
+04027350	FUN_04027350	eON_Int_Wnd_SetWindowPosition_Thunk	body: thin → SetWindowPosition
+04026ea0	FUN_04026ea0	eON_Int_Wnd_DestroySDLWindow_Body	body: SDL_DestroyWindow slot 0x7c
+04027370	FUN_04027370	eON_WindowLinux::ctor	body: new 0x80 + IsVisible vtable
+040275f0	FUN_040275f0	eON_WindowLinux::GetFrameExtents	body: _NET_FRAME_EXTENTS
+040273f0	FUN_040273f0	eON_Int_Wnd_GetHeadWindow	body: window list head
+041811b0	FUN_041811b0	eON_Int_Wnd_QueryIsVisible	body: vtable[0] IsVisible
+04183f90	FUN_04183f90	eON_SetFocus_SameThread	body: GetFocus + vtable+0xb0 same TID
+04182dc0	FUN_04182dc0	eON_Int_FlushPendingForegroundSendMessageA	body: DAT_0451c0d8 → SendMessageA
+041838e0	FUN_041838e0	eON_SendDlgItemMessageA	assert: GetDlgItem + SendMessageA
+04183a40	FUN_04183a40	eON_SendDlgItemMessageW	assert: GetDlgItem + SendMessageW
+04017210	FUN_04017210	eON_Int_Cursor_UpdateShowHideFromFocus	body: mouse-focus → ShowCursor
+04180890	FUN_04180890	eON_Int_GetClassLongFromAtom	body: GCL_* negative indices
