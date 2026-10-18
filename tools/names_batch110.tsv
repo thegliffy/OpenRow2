@@ -1,0 +1,5 @@
+addr	old	new	lock
+04043190	FUN_04043190	eON_VPFS_IsArchivedPath	assert: path open→IsArchivedFile/Close handle check
+04049e60	FUN_04049e60	VPFS_UnpackArchivedFile	assert: VPFS_ArchiveSeek() error in file read!
+04066590	FUN_04066590	D3DMULTISAMPLETYPE_ToString	body: D3DMULTISAMPLE_* table; !!!unknown!!!
+041757b0	FUN_041757b0	eON_DrawIconEx	body: flags==4 → CompatibleDC+BitBlt SRCCOPY
