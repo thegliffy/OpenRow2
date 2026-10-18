@@ -1,0 +1,6 @@
+addr	old	new	lock
+041278b0	eON_GetNumberOfInterfaces	eON_Int_CountNetworkInterfaces	body: returns count; not PDWORD API
+04128750	FUN_04128750	eON_GetNumberOfInterfaces	body: if_nameindex → *PDWORD
+04127d10	FUN_04127d10	eON_Int_FillAdapterUnicastAddresses	body: GAA unicast fill from IpAddrTable
+04129e20	FUN_04129e20	eON_GetStdHandle	body: -10/-11/-12 → stdin/out/err objects
+04129c60	FUN_04129c60	eON_FindAtomA	body: #n or strcasecmp atom table

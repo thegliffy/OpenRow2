@@ -200,7 +200,9 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 ## Next
 
-Wave 152 applied (3,348): GetAdaptersAddresses, GetNumberOfInterfaces, GetIpForward/AddrTable, GetBestInterface(Ex). See `tools/decomp_notes_wave152_iphlpapi_adapters.md`.
+Wave 153 applied (3,352): GetNumberOfInterfaces (PDWORD) + Int count rename, GAA address fill, GetStdHandle, FindAtomA. See `tools/decomp_notes_wave153_ifcount_stdhandle_atom.md`.
+
+Wave 152 applied (3,348): GetAdaptersAddresses, IP tables, GetBestInterface(Ex). See `tools/decomp_notes_wave152_iphlpapi_adapters.md`.
 
 Wave 151 applied (3,338): GetGlyphIndicesW, EnumFontFamiliesExW, AddFontResourceExA, Ipv4AddressToString. See `tools/decomp_notes_wave151_glyph_font_ipv4.md`.
 
