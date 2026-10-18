@@ -1,0 +1,6 @@
+addr	old	new	lock
+0418b6f0	FUN_0418b6f0	eONMemoryReader::IsValidHandle	body: HMMIO magic 0xfafa check
+0418b7b0	FUN_0418b7b0	eONMemoryReader::GetEntry	body: lookup entry ptrs for handle
+0418b850	FUN_0418b850	eONMemoryReader::Close	body: free entry + remove from table
+0418bc00	FUN_0418bc00	eONMemoryReader::SeekToFourCC	body: scan buffer for FOURCC
+0418bcb0	FUN_0418bcb0	eONMemoryReader::OpenMemory	body: alloc entry from memory buffer
