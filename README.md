@@ -14,10 +14,11 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 ## Scoreboard
 
-**2,901 / 9,221 functions carry a project name (31.5%).** A name is kept when that function references a matching assert signature, a single source file, or a D3D9 vtable slot locked by those signatures. Module prefixes name the file, not the function. Message-style strings do not replace a signature name.
+**2,907 / 9,221 functions carry a project name (31.5%).** A name is kept when that function references a matching assert signature, a single source file, or a D3D9 vtable slot locked by those signatures. Module prefixes name the file, not the function. Message-style strings do not replace a signature name.
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
+| 76 | SetFilePointerEx + file times/attrs + CreateFileA (`tools/decomp_notes_wave76_filetime_createfile.md`). | 6 | 6 |
 | 75 | MapViewOfFile + GetFileAttributesA + SetFilePointer (`tools/decomp_notes_wave75_mapview_fileattrs.md`). | 4 | 4 |
 | 74 | CreateFileMapping/MapView/Unmap + GetFileSize (`tools/decomp_notes_wave74_mapping_filesize.md`). | 11 | 11 |
 | 73 | GetACP/OEMCP/CPInfo + overlapped/file-mapping (`tools/decomp_notes_wave73_acp_overlapped.md`). | 8 | 6 (+2 renames) |
@@ -115,6 +116,8 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 `python3 tools/test_llm_work.py` runs the checker against the seeds.
 
 ## Next
+
+Wave 76 applied (2,907): SetFilePointerEx, Get/SetFileTime, SetFileAttributesA, CreateFileA, GetOverlappedResult. See `tools/decomp_notes_wave76_filetime_createfile.md`.
 
 Wave 75 applied (2,901): MapViewOfFile, GetFileAttributesA, SetFilePointer, GetFileType. See `tools/decomp_notes_wave75_mapview_fileattrs.md`.
 

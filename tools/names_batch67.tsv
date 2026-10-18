@@ -1,0 +1,6 @@
+FUN_04130320	eON_SetFilePointerEx
+FUN_04130f90	eON_SetFileAttributesA
+FUN_04131440	eON_GetFileTime
+FUN_041317d0	eON_SetFileTime
+FUN_04131ca0	eON_GetOverlappedResult
+FUN_04131d10	eON_CreateFileA
