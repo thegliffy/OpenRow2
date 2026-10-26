@@ -3461,12 +3461,12 @@ entry,name
 04108da0,XAudio2MasteringVoiceImp::XAudio2MasteringVoiceImp
 04108e60,FUN_04108e60
 04108e80,audioallocator_04108e80
-04109090,FUN_04109090
+04109090,XAudio2SourceVoiceImp::ExitLoop
 041090a0,XAudio2SourceVoiceImp::GetState
-04109130,FUN_04109130
+04109130,XAudio2SourceVoiceImp::FlushSourceBuffers
 04109140,XAudio2SourceVoiceImp::GetFrequencyRatio
 04109160,XAudio2SourceVoiceImp::SetSourceSampleRate
-04109180,FUN_04109180
+04109180,XAudio2SourceVoiceImp::DestroyVoice
 04109190,XAudio2SourceVoiceImp::SetFrequencyRatio
 04109210,XAudio2SourceVoiceImp::Start
 04109270,XAudio2SourceVoiceImp::Stop
@@ -3490,7 +3490,7 @@ entry,name
 0410afc0,FUN_0410afc0
 0410b020,FUN_0410b020
 0410b050,FUN_0410b050
-0410b060,FUN_0410b060
+0410b060,XAudio2VoiceImp::DestroyVoice
 0410b070,XAudio2VoiceImp::GetVoiceDetails
 0410b0e0,XAudio2VoiceImp::GetEffectState
 0410b180,XAudio2VoiceImp::GetSamplesNeeded

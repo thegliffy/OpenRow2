@@ -1,0 +1,5 @@
+addr	old	new	lock
+0410b060	FUN_0410b060	XAudio2VoiceImp::DestroyVoice	vtable-pin
+04109180	FUN_04109180	XAudio2SourceVoiceImp::DestroyVoice	vtable-pin
+04109130	FUN_04109130	XAudio2SourceVoiceImp::FlushSourceBuffers	vtable-pin
+04109090	FUN_04109090	XAudio2SourceVoiceImp::ExitLoop	vtable-pin

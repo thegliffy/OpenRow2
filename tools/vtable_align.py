@@ -53,25 +53,38 @@ MANUAL_ORDER = {
     # The IDL parser only counts HRESULT-returning one-line signatures, but
     # void methods occupy vtable slots too. Full documented order pinned here
     # (IXAudio2Voice has no IUnknown base; slots 0-14 per MSDN/XAudio2Voice.h).
-    "IXAudio2Voice": ["GetVoiceDetails", "SetOutputVoices", "SetEffectChain",
-                      "EnableEffect", "DisableEffect", "GetEffectState",
-                      "SetEffectParameters", "GetEffectParameters", "SetVolume",
-                      "GetVolume", "SetChannelVolumes", "GetChannelVolumes",
-                      "SetOutputMatrix", "DestroyVoices", "GetOutputVoices"],
-    "IXAudio2SourceVoice": ["GetVoiceDetails", "SetOutputVoices", "SetEffectChain",
-                      "EnableEffect", "DisableEffect", "GetEffectState",
-                      "SetEffectParameters", "GetEffectParameters", "SetVolume",
-                      "GetVolume", "SetChannelVolumes", "GetChannelVolumes",
-                      "SetOutputMatrix", "DestroyVoices", "GetOutputVoices",
-                      "Start", "Stop", "SubmitSourceBuffer", "FlushSourceBuffers",
-                      "Discontinuity", "ExitLoop", "GetState", "SetFrequencyRatio",
-                      "GetFrequencyRatio", "SetSourceSampleRate"],
-    "IXAudio2MasteringVoice": ["GetVoiceDetails", "SetOutputVoices", "SetEffectChain",
-                      "EnableEffect", "DisableEffect", "GetEffectState",
-                      "SetEffectParameters", "GetEffectParameters", "SetVolume",
-                      "GetVolume", "SetChannelVolumes", "GetChannelVolumes",
-                      "SetOutputMatrix", "DestroyVoices", "GetOutputVoices",
-                      "GetChannelMask"],
+    # Wave 206 pin: eON's OBSERVED layout (checker-lane single-assert anchors
+    # at fixed positions; single gap = the only documented chain method that
+    # fits exactly; documented chain from SetOutputFilterParameters@1 through
+    # GetOutputMatrix@8 is contiguous (documented 10-17) and terminates at the
+    # gap slot (documented 18 = DestroyVoice). GetSamplesNeeded@10 is an
+    # eON-internal slot (audioallocator.h).
+    "IXAudio2Voice": ["GetVoiceDetails", "SetOutputFilterParameters",
+                      "GetOutputFilterParameters", "SetVolume", "GetVolume",
+                      "SetChannelVolumes", "GetChannelVolumes",
+                      "SetOutputMatrix", "GetOutputMatrix", "DestroyVoice",
+                      "GetSamplesNeeded"],
+    # Wave 206 pin: eON observed source-voice vtable (0x4310f14): shared block
+    # as pinned for IXAudio2Voice, then source-specific slots in OBSERVED order
+    # (eON permutes documented: Discontinuity@11, Start@16). The two gaps are
+    # the only documented source methods left unplaced (FlushSourceBuffers,
+    # ExitLoop) - exactly two for two slots, documented relative order kept.
+    "IXAudio2SourceVoice": ["GetVoiceDetails", "SetOutputFilterParameters",
+                      "GetOutputFilterParameters", "SetVolume", "GetVolume",
+                      "SetChannelVolumes", "GetChannelVolumes",
+                      "SetOutputMatrix", "GetOutputMatrix", "DestroyVoice",
+                      "GetSamplesNeeded",
+                      "Discontinuity", "Stop", "SubmitSampleBuffer",
+                      "FlushSourceBuffers", "ExitLoop", "Start", "GetState",
+                      "SetFrequencyRatio", "GetFrequencyRatio",
+                      "SetSourceSampleRate"],
+    # Wave 206 pin: identical shared block (eON mastering vtable has no
+    # GetChannelMask slot - the two 11-slot vtables share all implementations).
+    "IXAudio2MasteringVoice": ["GetVoiceDetails", "SetOutputFilterParameters",
+                      "GetOutputFilterParameters", "SetVolume", "GetVolume",
+                      "SetChannelVolumes", "GetChannelVolumes",
+                      "SetOutputMatrix", "GetOutputMatrix", "DestroyVoice",
+                      "GetSamplesNeeded"],
 }
 
 
