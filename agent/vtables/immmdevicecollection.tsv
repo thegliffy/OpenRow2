@@ -4,6 +4,6 @@ NOTPOINTER	043eab10
 0434c7ec	1	0418c720	FUN_0418c720
 0434c7f0	2	0418c670	MMDeviceCollectionImp::QueryInterface
 0434c7f4	3	04030460	Direct3DDevice9Imp::AddRef
-0434c7f8	4	0418c840	FUN_0418c840
+0434c7f8	4	0418c840	MMDeviceCollectionImp::Release
 0434c7fc	5	0418c580	MMDeviceCollectionImp::GetCount
 0434c800	6	0418c5a0	MMDeviceCollectionImp::Item

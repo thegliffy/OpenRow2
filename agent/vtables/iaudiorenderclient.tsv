@@ -4,6 +4,6 @@ NOTPOINTER	043e9f24
 0434c22c	1	0418a690	AudioRenderClientImp::scalar_deleting_destructor
 0434c230	2	0418a520	AudioRenderClientImp::QueryInterface
 0434c234	3	04030460	Direct3DDevice9Imp::AddRef
-0434c238	4	0418a720	FUN_0418a720
+0434c238	4	0418a720	AudioRenderClientImp::Release
 0434c23c	5	0418a5d0	AudioRenderClientImp::GetBuffer
 0434c240	6	0418a410	AudioRenderClientImp::ReleaseBuffer
