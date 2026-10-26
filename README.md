@@ -14,10 +14,11 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 ## Scoreboard
 
-**4,890 / 9,221 functions carry a project name (53.0%).** A name is kept when that function references a matching assert signature, a single source file, or a D3D9 vtable slot locked by those signatures. Module prefixes name the file, not the function. Message-style strings do not replace a signature name.
+**4,923 / 9,221 functions carry a project name (53.4%).** A name is kept when that function references a matching assert signature, a single source file, or a D3D9 vtable slot locked by those signatures. Module prefixes name the file, not the function. Message-style strings do not replace a signature name.
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
+| 210 | pngwriter side + simple-API reader sweep vs v1.6.0 (`tools/decomp_notes_wave210_pngwriter_side.md`). | 33 | 33 |
 | 209 | Libpng reader district completion: pngrutil handler bodies vs v1.6.0 via call-graph anchors + distinctive-string locks (`tools/decomp_notes_wave209_pngrutil_completion.md`). | 18 | 18 |
 | 208 | Libpng reader district source match vs v1.6.0: 6 chunk handlers + 7 pngset setters + 8 error/crc helpers vs v1.6.0 (`tools/decomp_notes_wave208_libpng_chunk_district.md`). | 21 | 21 |
 | 207 | Vtable aligner unfreeze: dumps refreshed from live, MM*/AudioRenderClient lanes re-gated, 7 slots (`tools/decomp_notes_wave207_vtable_unfreeze.md`). | 7 | 7 |
@@ -29,9 +30,8 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 | 201 | Local/Dos FileTime + GetThreadTimes (`tools/decomp_notes_wave201_filetime_threadtimes.md`). | 11 | 11 |
 | 200 | ExitCodeThread + TLS + ThreadMap (`tools/decomp_notes_wave200_exitcode_tls_threadmap.md`). | 17 | 16 new + 1 rename |
 | 199 | SetTimer/KillTimer (`tools/decomp_notes_wave199_settimer_killtimer.md`). | 8 | 6 new + 2 renames |
-| 198 | MsgExtra + QueueStatus_Flags (`tools/decomp_notes_wave198_msgextra_queuestatus.md`). | 7 | 7 |
 
-…and 180 earlier waves in [`tools/SCOREBOARD.md`](tools/SCOREBOARD.md).
+…and 181 earlier waves in [`tools/SCOREBOARD.md`](tools/SCOREBOARD.md).
 
 10 + 721 + 2 + 103 + 15 + 53 + 49 = 953. Wave 5's file originally had 32 extra rows aimed at functions wave 4 had already named (`GetLight` over `StateBlock_GetTextureStageState`, `glCheckFramebufferStatus` over `GetFramebufferHash`, and similar). Those rows did not apply and have been removed. The scoreboard counts the live Ghidra project after all waves were applied and re-dumped; `seeds/functions.csv` and `seeds/string_refs.csv` are that dump. Wave 9's 119 proposal rows collapse to 53 unique functions (keyboard/mouse/gamepad runs share slots on the same interface); the 11 two-anchor `iaudioclient` proposals were held below the ≥3-anchor trust floor. Wave 10's 102 rows are the unique remainder after wave 9 (conflicting class prefixes resolved to the base class — shared implementations); the aligner now enforces ≥3 anchors, so the two-anchor MMDevice/MMEndpoint/IAudioCapture/IAudioRender runs stay held.
 
@@ -72,6 +72,8 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 ## Next
 
+Wave 210 applied (4,923): pngwriter side + simple-API reader sweep vs v1.6.0 — png_write_IHDR/tRNS/bKGD/tEXt/zTXt/iTXt/sRGB/sPLT/sBIT/oFFs/pHYs/tIME/compress paths, png_read_info/end/buffer/sig, png_combine_row, png_set_longjmp_fn; 33 names, seed-uniqueness gated. See `tools/decomp_notes_wave210_pngwriter_side.md`.
+
 Wave 209 applied (4,890): pngrutil reader district completed against v1.6.0 — PLTE/gAMA/cHRM/sRGB/iCCP/sPLT/tRNS/bKGD/pCAL/sCAL/tIME/tEXt/zTXt/iTXt handlers + png_handle_unknown + png_check_chunk_name + png_read_chunk_header; 18 names, call-graph cross-locks clean. See `tools/decomp_notes_wave209_pngrutil_completion.md`.
 
 Wave 208 applied (4,872): libpng reader-district source match vs v1.6.0 — chunk handlers IHDR/IEND/sBIT/hIST/pHYs/oFFs, pngset sCAL/pHYs/oFFs/compression-window setters, and the pngerror cluster (png_error/png_warning/png_benign_error/png_chunk_error/png_chunk_benign_error/png_safecat/png_longjmp) + crc helpers; 21 names, all read-back verified. See `tools/decomp_notes_wave208_libpng_chunk_district.md`.
@@ -79,8 +81,6 @@ Wave 208 applied (4,872): libpng reader-district source match vs v1.6.0 — chun
 Wave 207 applied (4,851): vtable-aligner lanes unfrozen for MMDevice/Collection/Enumerator + AudioRenderClient via live-refreshed dumps; 7 renames. See `tools/decomp_notes_wave207_vtable_unfreeze.md`.
 
 Wave 206 applied (4,844): XAudio2 MANUAL_ORDER pinned to eON observed layout, 4 gap slots named via aligner shift-0 fits. See `tools/decomp_notes_wave206_xaudio2_pinned.md`.
-
-Wave 205 applied (4,840): loader name-table mega-batch, 1,166 names via gateway; name table now fully harvested. See `tools/decomp_notes_wave205_loader_name_table.md`.
 
 Older wave notes: [`tools/SCOREBOARD.md`](tools/SCOREBOARD.md) and `tools/decomp_notes_wave*.md`.
 
