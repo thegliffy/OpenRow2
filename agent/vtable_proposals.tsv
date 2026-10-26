@@ -1,7 +1,0 @@
-0418a720	FUN_0418a720	AudioRenderClientImp::Release	vtable_align	audioclient.idl IAudioRenderClient shift=2 anchors=4
-0418d500	FUN_0418d500	MMDeviceImp::Release	vtable_align	mmdeviceapi.idl IMMDevice shift=2 anchors=5
-0418d000	FUN_0418d000	MMDeviceImp::GetState	vtable_align	mmdeviceapi.idl IMMDevice shift=2 anchors=5
-0418c840	FUN_0418c840	MMDeviceCollectionImp::Release	vtable_align	mmdeviceapi.idl IMMDeviceCollection shift=2 anchors=4
-0418cf00	FUN_0418cf00	MMDeviceEnumeratorImp::Release	vtable_align	mmdeviceapi.idl IMMDeviceEnumerator shift=2 anchors=5
-0418c960	FUN_0418c960	MMDeviceEnumeratorImp::RegisterEndpointNotificationCallback	vtable_align	mmdeviceapi.idl IMMDeviceEnumerator shift=2 anchors=5
-0418c970	FUN_0418c970	MMDeviceEnumeratorImp::UnregisterEndpointNotificationCallback	vtable_align	mmdeviceapi.idl IMMDeviceEnumerator shift=2 anchors=5
