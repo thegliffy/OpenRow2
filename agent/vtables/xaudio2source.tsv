@@ -8,13 +8,13 @@ slot_addr	index	target	target_name
 04310f2c	6	0410b8e0	XAudio2VoiceImp::GetChannelVolumes
 04310f30	7	0410df00	XAudio2VoiceImp::SetOutputMatrix
 04310f34	8	0410e1e0	XAudio2VoiceImp::GetOutputMatrix
-04310f38	9	04109180	FUN_04109180
+04310f38	9	04109180	XAudio2SourceVoiceImp::DestroyVoice
 04310f3c	10	0410b180	XAudio2VoiceImp::GetSamplesNeeded
 04310f40	11	041092d0	XAudio2SourceVoiceImp::Discontinuity
 04310f44	12	04109270	XAudio2SourceVoiceImp::Stop
 04310f48	13	04109980	XAudio2SourceVoiceImp::SubmitSampleBuffer
-04310f4c	14	04109130	FUN_04109130
-04310f50	15	04109090	FUN_04109090
+04310f4c	14	04109130	XAudio2SourceVoiceImp::FlushSourceBuffers
+04310f50	15	04109090	XAudio2SourceVoiceImp::ExitLoop
 04310f54	16	04109210	XAudio2SourceVoiceImp::Start
 04310f58	17	041090a0	XAudio2SourceVoiceImp::GetState
 04310f5c	18	04109190	XAudio2SourceVoiceImp::SetFrequencyRatio

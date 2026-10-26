@@ -8,5 +8,5 @@ slot_addr	index	target	target_name
 0431166c	6	0410b8e0	XAudio2VoiceImp::GetChannelVolumes
 04311670	7	0410df00	XAudio2VoiceImp::SetOutputMatrix
 04311674	8	0410e1e0	XAudio2VoiceImp::GetOutputMatrix
-04311678	9	0410b060	FUN_0410b060
+04311678	9	0410b060	XAudio2VoiceImp::DestroyVoice
 0431167c	10	0410b180	XAudio2VoiceImp::GetSamplesNeeded
