@@ -18,6 +18,8 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
+| 215 | per-function source sets + body-string verification; 10 held for control-flow (`tools/decomp_notes_wave215_perfunction_source_match.md`). | 22 | 22 |
+| 214 | zlib district probe: dead end, documented (`tools/decomp_notes_wave214_zlib_dead_end.md`). | 0 | 0 |
 | 213 | v1.6.40-only string matches + compression-setter struct-field split (`tools/decomp_notes_wave213_v1640_stragglers.md`). | 8 | 8 |
 | 212 | png_crc_error + png_default_read_data body matches (`tools/decomp_notes_wave212_crc_error_and_default_read.md`). | 2 | 2 |
 | 211 | png.c/pngerror.c helper bodies line-by-line (`tools/decomp_notes_wave211_helper_bodies.md`). | 4 | 4 |
@@ -28,8 +30,6 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 | 206 | XAudio2 MANUAL_ORDER pinned to eON observed layout; aligner shift-0 fits named the 4 gap slots (`tools/decomp_notes_wave206_xaudio2_pinned.md`). | 4 | 4 |
 | 205 | Loader name-table mega-batch: static-binary dispatch tables, single-ref gates, ~420 checker-name agreements (`tools/decomp_notes_wave205_loader_name_table.md`). | 1,166 | 1,166 |
 | 204 | TranslateAccelerator + DeleteTimerQueue (`tools/decomp_notes_wave204_accel_timerqueue.md`). | 8 | 8 |
-| 203 | IsMainThread + SetErrorMode + Wnd gates (`tools/decomp_notes_wave203_mainthread_errormode.md`). | 10 | 10 |
-| 202 | Thread APIs GetCurrent/Priority/Terminate (`tools/decomp_notes_wave202_thread_apis.md`). | 11 | 9 new + 2 renames |
 
 …and 186 earlier waves in [`tools/SCOREBOARD.md`](tools/SCOREBOARD.md).
 
