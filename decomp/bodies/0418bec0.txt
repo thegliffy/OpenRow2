@@ -1,0 +1,5 @@
+undefined4 FUN_0418bec0(void)
+
+{
+  return 0;
+}

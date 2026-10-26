@@ -14,10 +14,11 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 ## Scoreboard
 
-**3,674 / 9,221 functions carry a project name (39.8%).** A name is kept when that function references a matching assert signature, a single source file, or a D3D9 vtable slot locked by those signatures. Module prefixes name the file, not the function. Message-style strings do not replace a signature name.
+**4,840 / 9,221 functions carry a project name (52.5%).** A name is kept when that function references a matching assert signature, a single source file, or a D3D9 vtable slot locked by those signatures. Module prefixes name the file, not the function. Message-style strings do not replace a signature name.
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
+| 205 | Loader name-table mega-batch: static-binary dispatch tables, single-ref gates, ~420 checker-name agreements (`tools/decomp_notes_wave205_loader_name_table.md`). | 1,166 | 1,166 |
 | 204 | TranslateAccelerator + DeleteTimerQueue (`tools/decomp_notes_wave204_accel_timerqueue.md`). | 8 | 8 |
 | 203 | IsMainThread + SetErrorMode + Wnd gates (`tools/decomp_notes_wave203_mainthread_errormode.md`). | 10 | 10 |
 | 202 | Thread APIs GetCurrent/Priority/Terminate (`tools/decomp_notes_wave202_thread_apis.md`). | 11 | 9 new + 2 renames |
@@ -29,7 +30,6 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 | 196 | ShaderData regs/caps (`tools/decomp_notes_wave196_shaderdata_regs.md`). | 10 | 10 |
 | 195 | ShaderData varyings (`tools/decomp_notes_wave195_shaderdata_varyings.md`). | 13 | 13 |
 | 194 | Direct3D9ExImp thunks (`tools/decomp_notes_wave194_d3d9ex_thunks.md`). | 15 | 15 |
-| 193 | D3D9 CheckDeviceType/helpers (`tools/decomp_notes_wave193_d3d9_checkdevicetype.md`). | 7 | 7 |
 
 …and 175 earlier waves in [`tools/SCOREBOARD.md`](tools/SCOREBOARD.md).
 
@@ -71,6 +71,8 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 `python3 tools/test_llm_work.py` runs the checker against the seeds.
 
 ## Next
+
+Wave 205 applied (4,840): loader name-table mega-batch, 1,166 names via gateway; name table now fully harvested. See `tools/decomp_notes_wave205_loader_name_table.md`.
 
 Wave 204 applied (3,674): TranslateAccelerator + DeleteTimerQueue. See `tools/decomp_notes_wave204_accel_timerqueue.md`.
 

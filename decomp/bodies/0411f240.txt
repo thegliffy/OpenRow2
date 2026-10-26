@@ -1,0 +1,52 @@
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+undefined4 eON_GetDeviceGammaRamp(undefined4 param_1,int param_2)
+
+{
+  float fVar1;
+  float fVar2;
+  undefined4 uVar3;
+  int iVar4;
+  uint uVar5;
+  float fVar6;
+  float local_c10 [769];
+  
+  uVar3 = OpenGLDisplay_GetPrimary();
+  GetGammaRamp(uVar3,local_c10);
+  fVar2 = _DAT_042e09f0;
+  fVar1 = _DAT_042dbf50;
+  iVar4 = 0;
+  do {
+    fVar6 = local_c10[iVar4] * fVar2;
+    uVar5 = (uint)(fVar1 <= fVar6);
+    uVar5 = (int)(fVar6 - (float)((uint)fVar1 & -uVar5)) ^ uVar5 * -0x80000000;
+    if (0xffff < uVar5) {
+      uVar5 = 0xffff;
+    }
+    *(short *)(param_2 + iVar4 * 2) = (short)uVar5;
+    iVar4 = iVar4 + 1;
+  } while (iVar4 != 0x100);
+  iVar4 = 0x100;
+  do {
+    fVar6 = local_c10[iVar4] * fVar2;
+    uVar5 = (uint)(fVar1 <= fVar6);
+    uVar5 = (int)(fVar6 - (float)((uint)fVar1 & -uVar5)) ^ uVar5 * -0x80000000;
+    if (0xffff < uVar5) {
+      uVar5 = 0xffff;
+    }
+    *(short *)(param_2 + iVar4 * 2) = (short)uVar5;
+    iVar4 = iVar4 + 1;
+  } while (iVar4 != 0x200);
+  iVar4 = 0x200;
+  do {
+    fVar6 = local_c10[iVar4] * fVar2;
+    uVar5 = (uint)(fVar1 <= fVar6);
+    uVar5 = (int)(fVar6 - (float)((uint)fVar1 & -uVar5)) ^ uVar5 * -0x80000000;
+    if (0xffff < uVar5) {
+      uVar5 = 0xffff;
+    }
+    *(short *)(param_2 + iVar4 * 2) = (short)uVar5;
+    iVar4 = iVar4 + 1;
+  } while (iVar4 != 0x300);
+  return 1;
+}

@@ -1,0 +1,5 @@
+{
+  "addr": "041712a0",
+  "name": "eON_GetMessageExtraInfo",
+  "c": "\nundefined4 eON_GetMessageExtraInfo(void)\n\n{\n  undefined4 uVar1;\n  int iVar2;\n  undefined4 uVar3;\n  \n  uVar1 = eON_GetCurrentThreadId();\n  pthread_mutex_lock((pthread_mutex_t *)&DAT_0451be20);\n  uVar3 = 0;\n  iVar2 = eON_Int_ThreadMsgState_Find(uVar1);\n  if (iVar2 != 0) {\n    uVar3 = *(undefined4 *)(iVar2 + 0x24);\n  }\n  pthread_mutex_unlock((pthread_mutex_t *)&DAT_0451be20);\n  return uVar3;\n}\n\n"
+}
