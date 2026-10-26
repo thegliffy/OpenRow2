@@ -1,0 +1,5 @@
+{
+  "addr": "042b9720",
+  "name": "FUN_042b9720",
+  "c": "\nundefined4 FUN_042b9720(int param_1)\n\n{\n  undefined4 uVar1;\n  undefined1 local_14 [4];\n  byte local_10;\n  byte local_f;\n  byte local_e;\n  byte local_d;\n  \n  *(undefined4 *)(param_1 + 800) = 0x21;\n  FUN_042af7a0(param_1,local_14,8);\n  uVar1 = png_get_uint_31(param_1,local_14);\n  *(uint *)(param_1 + 0x178) =\n       (uint)local_10 << 0x18 | (uint)local_f << 0x10 | (uint)local_d | (uint)local_e << 8;\n  FUN_042a52b0(param_1);\n  FUN_042a52e0(param_1,&local_10,4);\n  FUN_042b96d0(param_1,*(undefined4 *)(param_1 + 0x178));\n  *(undefined4 *)(param_1 + 800) = 0x41;\n  return uVar1;\n}\n\n"
+}

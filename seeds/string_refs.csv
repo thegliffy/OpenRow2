@@ -15951,11 +15951,11 @@ missing LZ dictionary,FUN_042a6270,042a6270
 zlib IO error,FUN_042a6270,042a6270
 bad parameters to zlib,FUN_042a6270,042a6270
 damaged LZ stream,FUN_042a6270,042a6270
-insufficient memory,FUN_042b9200,042b9200
-insufficient memory,FUN_042b8ff0,042b8ff0
+insufficient memory,png_handle_iTXt,042b9200
+insufficient memory,png_handle_zTXt,042b8ff0
 insufficient memory,FUN_042a6270,042a6270
-insufficient memory,FUN_042b8ff0,042b8ff0
-insufficient memory,FUN_042b9200,042b9200
+insufficient memory,png_handle_zTXt,042b8ff0
+insufficient memory,png_handle_iTXt,042b9200
 unsupported zlib version,FUN_042a6270,042a6270
 unexpected zlib return,FUN_042a6270,042a6270
 length does not match profile,FUN_042a6450,042a6450
@@ -15979,18 +15979,18 @@ invalid sRGB rendering intent,FUN_042a7b90,042a7b90
 known incorrect sRGB profile,FUN_042a7d60,042a7d60
 gamma value out of range,FUN_042a80e0,042a80e0
 gamma value out of range,FUN_042a80e0,042a80e0
-duplicate,FUN_042b8d40,042b8d40
-duplicate,FUN_042b8ab0,042b8ab0
+duplicate,png_handle_tIME,042b8d40
+duplicate,png_handle_sCAL,042b8ab0
 duplicate,png_handle_pHYs,042b8430
 duplicate,png_handle_oFFs,042b8590
-duplicate,FUN_042b8750,042b8750
-duplicate,FUN_042b8080,042b8080
+duplicate,png_handle_pCAL,042b8750
+duplicate,png_handle_bKGD,042b8080
 duplicate,FUN_042a80e0,042a80e0
 duplicate,png_handle_hIST,042b82c0
-duplicate,FUN_042b7de0,042b7de0
-duplicate,FUN_042b7150,042b7150
+duplicate,png_handle_tRNS,042b7de0
+duplicate,png_handle_cHRM,042b7150
 duplicate,png_handle_sBIT,042b6f30
-duplicate,FUN_042b6b40,042b6b40
+duplicate,png_handle_PLTE,042b6b40
 duplicate,FUN_042a80e0,042a80e0
 fixed point overflow ignored,FUN_042a8190,042a8190
 invalid end points,FUN_042a8710,042a8710
@@ -16105,101 +16105,101 @@ Uninitialized row,png_do_read_transformations,042b2670
 1.2.3.4,zstream_init,042b5da0
 zstream unclaimed,zstream_inflate_stream,042b6560
 zstream unclaimed,zstream_inflate_buffer,042b5f80
-extra compressed data,FUN_042b74d0,042b74d0
+extra compressed data,png_handle_iCCP,042b74d0
 extra compressed data,zstream_decompress,042b60c0
-extra compressed data,FUN_042b74d0,042b74d0
+extra compressed data,png_handle_iCCP,042b74d0
 Not a PNG file,FUN_042b6420,042b6420
 CRC error,png_crc_finish,042b6760
-out of place,FUN_042b8ab0,042b8ab0
+out of place,png_handle_sCAL,042b8ab0
 out of place,png_handle_pHYs,042b8430
 out of place,png_handle_oFFs,042b8590
-out of place,FUN_042b8750,042b8750
-out of place,FUN_042b8080,042b8080
+out of place,png_handle_pCAL,042b8750
+out of place,png_handle_bKGD,042b8080
 out of place,png_handle_hIST,042b82c0
-out of place,FUN_042b7de0,042b7de0
-out of place,FUN_042b7b00,042b7b00
-out of place,FUN_042b74d0,042b74d0
-out of place,FUN_042b7150,042b7150
-out of place,FUN_042b73a0,042b73a0
+out of place,png_handle_tRNS,042b7de0
+out of place,png_handle_sPLT,042b7b00
+out of place,png_handle_iCCP,042b74d0
+out of place,png_handle_cHRM,042b7150
+out of place,png_handle_sRGB,042b73a0
 out of place,png_handle_IEND,042b6db0
-out of place,FUN_042b6e30,042b6e30
+out of place,png_handle_gAMA,042b6e30
 out of place,png_handle_sBIT,042b6f30
 out of place,png_handle_IHDR,042b6960
-out of place,FUN_042b6b40,042b6b40
-invalid,FUN_042b8d40,042b8d40
-invalid,FUN_042b8ab0,042b8ab0
+out of place,png_handle_PLTE,042b6b40
+invalid,png_handle_tIME,042b8d40
+invalid,png_handle_sCAL,042b8ab0
 invalid,png_handle_pHYs,042b8430
 invalid,png_handle_oFFs,042b8590
-invalid,FUN_042b8750,042b8750
-invalid,FUN_042b8080,042b8080
+invalid,png_handle_pCAL,042b8750
+invalid,png_handle_bKGD,042b8080
 invalid,png_handle_hIST,042b82c0
-invalid,FUN_042b7de0,042b7de0
-invalid,FUN_042b7150,042b7150
-invalid,FUN_042b73a0,042b73a0
+invalid,png_handle_tRNS,042b7de0
+invalid,png_handle_cHRM,042b7150
+invalid,png_handle_sRGB,042b73a0
 invalid,png_handle_IEND,042b6db0
-invalid,FUN_042b6e30,042b6e30
+invalid,png_handle_gAMA,042b6e30
 invalid,png_handle_sBIT,042b6f30
 invalid,png_handle_sBIT,042b6f30
 invalid,png_handle_IHDR,042b6960
-invalid,FUN_042b6b40,042b6b40
-missing IHDR,FUN_042b9200,042b9200
-missing IHDR,FUN_042b8d40,042b8d40
-missing IHDR,FUN_042b8e70,042b8e70
-missing IHDR,FUN_042b8ff0,042b8ff0
-missing IHDR,FUN_042b8ab0,042b8ab0
+invalid,png_handle_PLTE,042b6b40
+missing IHDR,png_handle_iTXt,042b9200
+missing IHDR,png_handle_tIME,042b8d40
+missing IHDR,png_handle_tEXt,042b8e70
+missing IHDR,png_handle_zTXt,042b8ff0
+missing IHDR,png_handle_sCAL,042b8ab0
 missing IHDR,png_handle_pHYs,042b8430
 missing IHDR,png_handle_oFFs,042b8590
-missing IHDR,FUN_042b8750,042b8750
-missing IHDR,FUN_042b8080,042b8080
+missing IHDR,png_handle_pCAL,042b8750
+missing IHDR,png_handle_bKGD,042b8080
 missing IHDR,png_handle_hIST,042b82c0
-missing IHDR,FUN_042b7de0,042b7de0
-missing IHDR,FUN_042b7b00,042b7b00
-missing IHDR,FUN_042b74d0,042b74d0
-missing IHDR,FUN_042b7150,042b7150
-missing IHDR,FUN_042b73a0,042b73a0
-missing IHDR,FUN_042b6e30,042b6e30
+missing IHDR,png_handle_tRNS,042b7de0
+missing IHDR,png_handle_sPLT,042b7b00
+missing IHDR,png_handle_iCCP,042b74d0
+missing IHDR,png_handle_cHRM,042b7150
+missing IHDR,png_handle_sRGB,042b73a0
+missing IHDR,png_handle_gAMA,042b6e30
 missing IHDR,png_handle_sBIT,042b6f30
-missing IHDR,FUN_042b6b40,042b6b40
-ignored in grayscale PNG,FUN_042b6b40,042b6b40
-tRNS must be after,FUN_042b6b40,042b6b40
-tRNS must be after,FUN_042b6b40,042b6b40
-hIST must be after,FUN_042b6b40,042b6b40
-bKGD must be after,FUN_042b6b40,042b6b40
-invalid values,FUN_042b7150,042b7150
-too many profiles,FUN_042b74d0,042b74d0
-too many profiles,FUN_042b73a0,042b73a0
-too many profiles,FUN_042b74d0,042b74d0
-bad compression method,FUN_042b74d0,042b74d0
-bad keyword,FUN_042b9200,042b9200
-bad keyword,FUN_042b8ff0,042b8ff0
-bad keyword,FUN_042b74d0,042b74d0
-bad keyword,FUN_042b8ff0,042b8ff0
-bad keyword,FUN_042b9200,042b9200
-malformed sPLT chunk,FUN_042b7b00,042b7b00
-sPLT chunk has bad length,FUN_042b7b00,042b7b00
-sPLT chunk too long,FUN_042b7b00,042b7b00
-invalid with alpha channel,FUN_042b7de0,042b7de0
-invalid index,FUN_042b8080,042b8080
-invalid parameter count,FUN_042b8750,042b8750
-unrecognized equation type,FUN_042b8750,042b8750
-invalid data,FUN_042b8750,042b8750
-invalid unit,FUN_042b8ab0,042b8ab0
-bad width format,FUN_042b8ab0,042b8ab0
-non-positive width,FUN_042b8ab0,042b8ab0
-bad height format,FUN_042b8ab0,042b8ab0
-non-positive height,FUN_042b8ab0,042b8ab0
-no space in chunk cache,FUN_042b94e0,042b94e0
-no space in chunk cache,FUN_042b9200,042b9200
-no space in chunk cache,FUN_042b8e70,042b8e70
-no space in chunk cache,FUN_042b8ff0,042b8ff0
-unknown compression type,FUN_042b8ff0,042b8ff0
-unknown compression type,FUN_042b8ff0,042b8ff0
-bad compression info,FUN_042b9200,042b9200
-bad compression info,FUN_042b9200,042b9200
-error in user chunk,FUN_042b94e0,042b94e0
-Saving unknown chunk:,FUN_042b94e0,042b94e0
-unhandled critical chunk,FUN_042b94e0,042b94e0
-invalid chunk type,FUN_042b96d0,042b96d0
+missing IHDR,png_handle_PLTE,042b6b40
+ignored in grayscale PNG,png_handle_PLTE,042b6b40
+tRNS must be after,png_handle_PLTE,042b6b40
+tRNS must be after,png_handle_PLTE,042b6b40
+hIST must be after,png_handle_PLTE,042b6b40
+bKGD must be after,png_handle_PLTE,042b6b40
+invalid values,png_handle_cHRM,042b7150
+too many profiles,png_handle_iCCP,042b74d0
+too many profiles,png_handle_sRGB,042b73a0
+too many profiles,png_handle_iCCP,042b74d0
+bad compression method,png_handle_iCCP,042b74d0
+bad keyword,png_handle_iTXt,042b9200
+bad keyword,png_handle_zTXt,042b8ff0
+bad keyword,png_handle_iCCP,042b74d0
+bad keyword,png_handle_zTXt,042b8ff0
+bad keyword,png_handle_iTXt,042b9200
+malformed sPLT chunk,png_handle_sPLT,042b7b00
+sPLT chunk has bad length,png_handle_sPLT,042b7b00
+sPLT chunk too long,png_handle_sPLT,042b7b00
+invalid with alpha channel,png_handle_tRNS,042b7de0
+invalid index,png_handle_bKGD,042b8080
+invalid parameter count,png_handle_pCAL,042b8750
+unrecognized equation type,png_handle_pCAL,042b8750
+invalid data,png_handle_pCAL,042b8750
+invalid unit,png_handle_sCAL,042b8ab0
+bad width format,png_handle_sCAL,042b8ab0
+non-positive width,png_handle_sCAL,042b8ab0
+bad height format,png_handle_sCAL,042b8ab0
+non-positive height,png_handle_sCAL,042b8ab0
+no space in chunk cache,png_handle_unknown,042b94e0
+no space in chunk cache,png_handle_iTXt,042b9200
+no space in chunk cache,png_handle_tEXt,042b8e70
+no space in chunk cache,png_handle_zTXt,042b8ff0
+unknown compression type,png_handle_zTXt,042b8ff0
+unknown compression type,png_handle_zTXt,042b8ff0
+bad compression info,png_handle_iTXt,042b9200
+bad compression info,png_handle_iTXt,042b9200
+error in user chunk,png_handle_unknown,042b94e0
+Saving unknown chunk:,png_handle_unknown,042b94e0
+unhandled critical chunk,png_handle_unknown,042b94e0
+invalid chunk type,png_check_chunk_name,042b96d0
 internal row logic error,FUN_042b97d0,042b97d0
 internal row width error,FUN_042b97d0,042b97d0
 Not enough image data,zstream_decompress_image,042ba340
@@ -16208,11 +16208,11 @@ Too much image data,zstream_decompress_image,042ba340
 insufficient memory to read chunk,FUN_042b5ee0,042b5ee0
 PNG unsigned integer out of range,png_get_uint_31,042b6350
 PNG file corrupted by ASCII conversion,FUN_042b6420,042b6420
-unknown chunk exceeds memory limits,FUN_042b6830,042b6830
-No space in chunk cache for sPLT,FUN_042b7b00,042b7b00
-sPLT chunk requires too much memory,FUN_042b7b00,042b7b00
-Insufficient memory to process text chunk,FUN_042b8e70,042b8e70
-forcing save of an unhandled chunk; please call png_set_keep_unknown_chunks,FUN_042b94e0,042b94e0
+unknown chunk exceeds memory limits,png_cache_unknown_chunk,042b6830
+No space in chunk cache for sPLT,png_handle_sPLT,042b7b00
+sPLT chunk requires too much memory,png_handle_sPLT,042b7b00
+Insufficient memory to process text chunk,png_handle_tEXt,042b8e70
+forcing save of an unhandled chunk; please call png_set_keep_unknown_chunks,png_handle_unknown,042b94e0
 internal row size calculation error,FUN_042b97d0,042b97d0
 invalid user transform pixel depth,FUN_042b97d0,042b97d0
 Row has too many bytes to allocate in memory,FUN_042ba6f0,042ba6f0
