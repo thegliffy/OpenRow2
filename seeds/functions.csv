@@ -8227,9 +8227,9 @@ entry,name
 042ac930,FUN_042ac930
 042ace80,png_image_read_direct
 042ad580,png_image_read_background
-042adcc0,FUN_042adcc0
+042adcc0,png_image_read_composite
 042adff0,png_image_read_colormapped
-042ae210,FUN_042ae210
+042ae210,png_image_read_and_map
 042ae610,FUN_042ae610
 042ae6e0,png_read_image
 042ae7b0,png_read_end
@@ -8378,7 +8378,7 @@ entry,name
 042bd120,FUN_042bd120
 042bd390,FUN_042bd390
 042bd490,FUN_042bd490
-042bd650,FUN_042bd650
+042bd650,png_set_user_transform_info
 042bd6a0,FUN_042bd6a0
 042bd6c0,FUN_042bd6c0
 042bd6e0,FUN_042bd6e0
@@ -8409,13 +8409,13 @@ entry,name
 042bfd60,FUN_042bfd60
 042bfd80,FUN_042bfd80
 042bfda0,FUN_042bfda0
-042bfdc0,FUN_042bfdc0
-042bfe20,FUN_042bfe20
+042bfdc0,png_set_compression_window_bits
+042bfe20,png_set_compression_method
 042bfe60,FUN_042bfe60
 042bfe80,FUN_042bfe80
 042bfea0,FUN_042bfea0
-042bfec0,FUN_042bfec0
-042bff20,FUN_042bff20
+042bfec0,png_set_text_compression_window_bits
+042bff20,png_set_text_compression_method
 042bff60,FUN_042bff60
 042bff80,FUN_042bff80
 042bffa0,png_write_image
@@ -8435,7 +8435,7 @@ entry,name
 042c1940,FUN_042c1940
 042c19b0,png_write_compressed_data_out
 042c1a20,FUN_042c1a20
-042c1a80,FUN_042c1a80
+042c1a80,png_write_complete_chunk
 042c1af0,FUN_042c1af0
 042c1b30,FUN_042c1b30
 042c1b70,png_write_IHDR

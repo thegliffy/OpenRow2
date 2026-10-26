@@ -1,0 +1,8 @@
+FUN_042adcc0	png_image_read_composite
+FUN_042ae210	png_image_read_and_map
+FUN_042bd650	png_set_user_transform_info
+FUN_042bfdc0	png_set_compression_window_bits
+FUN_042bfe20	png_set_compression_method
+FUN_042bfec0	png_set_text_compression_window_bits
+FUN_042bff20	png_set_text_compression_method
+FUN_042c1a80	png_write_complete_chunk

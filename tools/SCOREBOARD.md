@@ -4,6 +4,7 @@ Full history of naming waves. The README scoreboard keeps only the latest 12 row
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
+| 213 | v1.6.40-only string matches + compression-setter struct-field split + image pair body-read (`tools/decomp_notes_wave213_v1640_stragglers.md`). | 8 | 8 |
 | 212 | png_crc_error + png_default_read_data body matches (v1.6.0) (`tools/decomp_notes_wave212_crc_error_and_default_read.md`). | 2 | 2 |
 | 211 | png.c/pngerror.c helper bodies line-by-line (reset_crc/calculate_crc/read_data/format_number) (`tools/decomp_notes_wave211_helper_bodies.md`). | 4 | 4 |
 | 210 | pngwriter side + simple-API reader sweep vs v1.6.0 (unique literal-set matches, seed-uniqueness gate) (`tools/decomp_notes_wave210_pngwriter_side.md`). | 33 | 33 |
