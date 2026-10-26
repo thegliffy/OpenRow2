@@ -16071,7 +16071,7 @@ png_image_begin_read_from_memory: incorrect PNG_IMAGE_VERSION,png_image_begin_re
 png_image_finish_read[color-map]: no color-map,png_image_finish_read,042af580
 png_image_finish_read: invalid argument,png_image_finish_read,042af580
 png_image_finish_read: damaged PNG_IMAGE_VERSION,png_image_finish_read,042af580
-Read Error,FUN_042af740,042af740
+Read Error,png_default_read_data,042af740
 Call to NULL read function,png_read_data,042af7a0
 Can't set both read_data_fn and write_data_fn in the same structure,FUN_042af7d0,042af7d0
 Can't set both read_data_fn and write_data_fn in the same structure,FUN_042c60d0,042c60d0

@@ -8241,7 +8241,7 @@ entry,name
 042af3e0,png_image_begin_read_from_file
 042af4c0,png_image_begin_read_from_memory
 042af580,png_image_finish_read
-042af740,FUN_042af740
+042af740,png_default_read_data
 042af7a0,png_read_data
 042af7d0,FUN_042af7d0
 042af830,FUN_042af830
@@ -8289,7 +8289,7 @@ entry,name
 042b6420,png_read_sig
 042b6500,png_crc_read
 042b6560,zstream_inflate_stream
-042b66a0,FUN_042b66a0
+042b66a0,png_crc_error
 042b6760,png_crc_finish
 042b6830,png_cache_unknown_chunk
 042b6960,png_handle_IHDR
