@@ -31,7 +31,7 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 | 203 | IsMainThread + SetErrorMode + Wnd gates (`tools/decomp_notes_wave203_mainthread_errormode.md`). | 10 | 10 |
 | 202 | Thread APIs GetCurrent/Priority/Terminate (`tools/decomp_notes_wave202_thread_apis.md`). | 11 | 9 new + 2 renames |
 
-…and 184 earlier waves in [`tools/SCOREBOARD.md`](tools/SCOREBOARD.md).
+…and 186 earlier waves in [`tools/SCOREBOARD.md`](tools/SCOREBOARD.md).
 
 10 + 721 + 2 + 103 + 15 + 53 + 49 = 953. Wave 5's file originally had 32 extra rows aimed at functions wave 4 had already named (`GetLight` over `StateBlock_GetTextureStageState`, `glCheckFramebufferStatus` over `GetFramebufferHash`, and similar). Those rows did not apply and have been removed. The scoreboard counts the live Ghidra project after all waves were applied and re-dumped; `seeds/functions.csv` and `seeds/string_refs.csv` are that dump. Wave 9's 119 proposal rows collapse to 53 unique functions (keyboard/mouse/gamepad runs share slots on the same interface); the 11 two-anchor `iaudioclient` proposals were held below the ≥3-anchor trust floor. Wave 10's 102 rows are the unique remainder after wave 9 (conflicting class prefixes resolved to the base class — shared implementations); the aligner now enforces ≥3 anchors, so the two-anchor MMDevice/MMEndpoint/IAudioCapture/IAudioRender runs stay held.
 
@@ -72,6 +72,8 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 ## Next
 
+Wave 215 applied (4,959): matcher upgraded to per-function parsed source sets with body-string verification before apply — the libpng lane was NOT dry after all (column-parsing bug in earlier joins). 22 names. See `tools/decomp_notes_wave215_perfunction_source_match.md`.
+
 Wave 213 applied (4,937): v1.6.40-only string matches, compression-setter pairs split on pngstruct.h field order, image pair on the channels computation; libpng district now dry for both matcher eras. See `tools/decomp_notes_wave213_v1640_stragglers.md`.
 
 Wave 212 applied (4,929): png_crc_error + png_default_read_data body-matched vs v1.6.0; write-side io twins confirmed not linked. See `tools/decomp_notes_wave212_crc_error_and_default_read.md`.
@@ -79,8 +81,6 @@ Wave 212 applied (4,929): png_crc_error + png_default_read_data body-matched vs 
 Wave 211 applied (4,927): png.c/pngerror.c helper bodies line-by-line — png_reset_crc, png_calculate_crc, png_read_data, png_format_number. See `tools/decomp_notes_wave211_helper_bodies.md`.
 
 Wave 210 applied (4,923): pngwriter side + simple-API reader sweep vs v1.6.0 — png_write_IHDR/tRNS/bKGD/tEXt/zTXt/iTXt/sRGB/sPLT/sBIT/oFFs/pHYs/tIME/compress paths, png_read_info/end/buffer/sig, png_combine_row, png_set_longjmp_fn; 33 names, seed-uniqueness gated. See `tools/decomp_notes_wave210_pngwriter_side.md`.
-
-Wave 209 applied (4,890): pngrutil reader district completed against v1.6.0 — PLTE/gAMA/cHRM/sRGB/iCCP/sPLT/tRNS/bKGD/pCAL/sCAL/tIME/tEXt/zTXt/iTXt handlers + png_handle_unknown + png_check_chunk_name + png_read_chunk_header; 18 names, call-graph cross-locks clean. See `tools/decomp_notes_wave209_pngrutil_completion.md`.
 
 Older wave notes: [`tools/SCOREBOARD.md`](tools/SCOREBOARD.md) and `tools/decomp_notes_wave*.md`.
 
