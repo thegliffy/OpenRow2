@@ -1,0 +1,5 @@
+{
+  "addr": "042b6350",
+  "name": "FUN_042b6350",
+  "c": "\nvoid FUN_042b6350(undefined4 param_1,byte *param_2)\n\n{\n  if (-1 < (int)((uint)param_2[2] * 0x100 +\n                (uint)*param_2 * 0x1000000 + (uint)param_2[1] * 0x10000 + (uint)param_2[3])) {\n    return;\n  }\n                    /* WARNING: Subroutine does not return */\n  FUN_042a9b90(param_1,\"PNG unsigned integer out of range\");\n}\n\n"
+}

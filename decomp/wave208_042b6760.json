@@ -1,0 +1,5 @@
+{
+  "addr": "042b6760",
+  "name": "FUN_042b6760",
+  "c": "\nundefined4 FUN_042b6760(int param_1,uint param_2)\n\n{\n  int iVar1;\n  bool bVar2;\n  undefined1 local_40c [1024];\n  \n  if (param_2 != 0) {\n    do {\n      if (param_2 < 0x400) {\n        FUN_042b6500(param_1,local_40c,param_2);\n        break;\n      }\n      param_2 = param_2 - 0x400;\n      FUN_042b6500(param_1,local_40c,0x400);\n    } while (param_2 != 0);\n  }\n  iVar1 = FUN_042b66a0(param_1);\n  if (iVar1 == 0) {\n    return 0;\n  }\n  if ((*(byte *)(param_1 + 0x17b) & 0x20) == 0) {\n    bVar2 = (*(byte *)(param_1 + 0xd5) & 4) != 0;\n  }\n  else {\n    bVar2 = (*(byte *)(param_1 + 0xd5) & 2) == 0;\n  }\n  if (bVar2) {\n    FUN_042a9a30();\n    return 1;\n  }\n                    /* WARNING: Subroutine does not return */\n  FUN_042a9d70(param_1,\"CRC error\");\n}\n\n"
+}

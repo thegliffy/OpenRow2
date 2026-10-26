@@ -15981,30 +15981,30 @@ gamma value out of range,FUN_042a80e0,042a80e0
 gamma value out of range,FUN_042a80e0,042a80e0
 duplicate,FUN_042b8d40,042b8d40
 duplicate,FUN_042b8ab0,042b8ab0
-duplicate,FUN_042b8430,042b8430
-duplicate,FUN_042b8590,042b8590
+duplicate,png_handle_pHYs,042b8430
+duplicate,png_handle_oFFs,042b8590
 duplicate,FUN_042b8750,042b8750
 duplicate,FUN_042b8080,042b8080
 duplicate,FUN_042a80e0,042a80e0
-duplicate,FUN_042b82c0,042b82c0
+duplicate,png_handle_hIST,042b82c0
 duplicate,FUN_042b7de0,042b7de0
 duplicate,FUN_042b7150,042b7150
-duplicate,FUN_042b6f30,042b6f30
+duplicate,png_handle_sBIT,042b6f30
 duplicate,FUN_042b6b40,042b6b40
 duplicate,FUN_042a80e0,042a80e0
 fixed point overflow ignored,FUN_042a8190,042a8190
 invalid end points,FUN_042a8710,042a8710
 invalid chromaticities,FUN_042a8a90,042a8a90
 gamma table being rebuilt,FUN_042a8f60,042a8f60
-libpng warning: %s,FUN_042a97a0,042a97a0
-undefined,FUN_042a9b90,042a9b90
-undefined,FUN_042a9b90,042a9b90
-libpng error: %s,FUN_042a9b90,042a9b90
+libpng warning: %s,png_warning,042a97a0
+undefined,png_error,042a9b90
+undefined,png_error,042a9b90
+libpng error: %s,png_error,042a9b90
 bad longjmp: ,FUN_042a9f60,042a9f60
 0123456789ABCDEF,FUN_042a9640,042a9640
 0123456789ABCDEF,FUN_042a9640,042a9640
-0123456789ABCDEF,FUN_042a9510,042a9510
-0123456789ABCDEF,FUN_042a9510,042a9510
+0123456789ABCDEF,png_safecat,042a9510
+0123456789ABCDEF,png_safecat,042a9510
 Libpng jmp_buf still allocated,FUN_042a9c00,042a9c00
 Application jmp_buf size changed,FUN_042a9c00,042a9c00
 internal error: array alloc,FUN_042aa150,042aa150
@@ -16109,56 +16109,56 @@ extra compressed data,FUN_042b74d0,042b74d0
 extra compressed data,zstream_decompress,042b60c0
 extra compressed data,FUN_042b74d0,042b74d0
 Not a PNG file,FUN_042b6420,042b6420
-CRC error,FUN_042b6760,042b6760
+CRC error,png_crc_finish,042b6760
 out of place,FUN_042b8ab0,042b8ab0
-out of place,FUN_042b8430,042b8430
-out of place,FUN_042b8590,042b8590
+out of place,png_handle_pHYs,042b8430
+out of place,png_handle_oFFs,042b8590
 out of place,FUN_042b8750,042b8750
 out of place,FUN_042b8080,042b8080
-out of place,FUN_042b82c0,042b82c0
+out of place,png_handle_hIST,042b82c0
 out of place,FUN_042b7de0,042b7de0
 out of place,FUN_042b7b00,042b7b00
 out of place,FUN_042b74d0,042b74d0
 out of place,FUN_042b7150,042b7150
 out of place,FUN_042b73a0,042b73a0
-out of place,FUN_042b6db0,042b6db0
+out of place,png_handle_IEND,042b6db0
 out of place,FUN_042b6e30,042b6e30
-out of place,FUN_042b6f30,042b6f30
-out of place,FUN_042b6960,042b6960
+out of place,png_handle_sBIT,042b6f30
+out of place,png_handle_IHDR,042b6960
 out of place,FUN_042b6b40,042b6b40
 invalid,FUN_042b8d40,042b8d40
 invalid,FUN_042b8ab0,042b8ab0
-invalid,FUN_042b8430,042b8430
-invalid,FUN_042b8590,042b8590
+invalid,png_handle_pHYs,042b8430
+invalid,png_handle_oFFs,042b8590
 invalid,FUN_042b8750,042b8750
 invalid,FUN_042b8080,042b8080
-invalid,FUN_042b82c0,042b82c0
+invalid,png_handle_hIST,042b82c0
 invalid,FUN_042b7de0,042b7de0
 invalid,FUN_042b7150,042b7150
 invalid,FUN_042b73a0,042b73a0
-invalid,FUN_042b6db0,042b6db0
+invalid,png_handle_IEND,042b6db0
 invalid,FUN_042b6e30,042b6e30
-invalid,FUN_042b6f30,042b6f30
-invalid,FUN_042b6f30,042b6f30
-invalid,FUN_042b6960,042b6960
+invalid,png_handle_sBIT,042b6f30
+invalid,png_handle_sBIT,042b6f30
+invalid,png_handle_IHDR,042b6960
 invalid,FUN_042b6b40,042b6b40
 missing IHDR,FUN_042b9200,042b9200
 missing IHDR,FUN_042b8d40,042b8d40
 missing IHDR,FUN_042b8e70,042b8e70
 missing IHDR,FUN_042b8ff0,042b8ff0
 missing IHDR,FUN_042b8ab0,042b8ab0
-missing IHDR,FUN_042b8430,042b8430
-missing IHDR,FUN_042b8590,042b8590
+missing IHDR,png_handle_pHYs,042b8430
+missing IHDR,png_handle_oFFs,042b8590
 missing IHDR,FUN_042b8750,042b8750
 missing IHDR,FUN_042b8080,042b8080
-missing IHDR,FUN_042b82c0,042b82c0
+missing IHDR,png_handle_hIST,042b82c0
 missing IHDR,FUN_042b7de0,042b7de0
 missing IHDR,FUN_042b7b00,042b7b00
 missing IHDR,FUN_042b74d0,042b74d0
 missing IHDR,FUN_042b7150,042b7150
 missing IHDR,FUN_042b73a0,042b73a0
 missing IHDR,FUN_042b6e30,042b6e30
-missing IHDR,FUN_042b6f30,042b6f30
+missing IHDR,png_handle_sBIT,042b6f30
 missing IHDR,FUN_042b6b40,042b6b40
 ignored in grayscale PNG,FUN_042b6b40,042b6b40
 tRNS must be after,FUN_042b6b40,042b6b40
@@ -16206,7 +16206,7 @@ Not enough image data,zstream_decompress_image,042ba340
 Extra compressed data,zstream_decompress_image,042ba340
 Too much image data,zstream_decompress_image,042ba340
 insufficient memory to read chunk,FUN_042b5ee0,042b5ee0
-PNG unsigned integer out of range,FUN_042b6350,042b6350
+PNG unsigned integer out of range,png_get_uint_31,042b6350
 PNG file corrupted by ASCII conversion,FUN_042b6420,042b6420
 unknown chunk exceeds memory limits,FUN_042b6830,042b6830
 No space in chunk cache for sPLT,FUN_042b7b00,042b7b00
@@ -16225,7 +16225,7 @@ Insufficient memory for pCAL purpose,FUN_042bb3c0,042bb3c0
 Insufficient memory for pCAL units,FUN_042bb3c0,042bb3c0
 Insufficient memory for pCAL params,FUN_042bb3c0,042bb3c0
 Insufficient memory for pCAL parameter,FUN_042bb3c0,042bb3c0
-Memory allocation failed while processing sCAL,FUN_042bb6c0,042bb6c0
+Memory allocation failed while processing sCAL,png_set_sCAL_s,042bb6c0
 Invalid iCCP compression method,FUN_042bbcf0,042bbcf0
 Insufficient memory to process iCCP chunk,FUN_042bbcf0,042bbcf0
 Insufficient memory to process iCCP profile,FUN_042bbcf0,042bbcf0
@@ -16259,13 +16259,13 @@ cHRM Red Z,FUN_042baec0,042baec0
 png_set_gAMA,png_set_gAMA,042bb130
 Invalid pCAL equation type,FUN_042bb3c0,042bb3c0
 Invalid pCAL parameter count,FUN_042bb3c0,042bb3c0
-Invalid sCAL unit,FUN_042bb6c0,042bb6c0
-Invalid sCAL width,FUN_042bb6c0,042bb6c0
-Invalid sCAL height,FUN_042bb6c0,042bb6c0
-Invalid sCAL width ignored,FUN_042bb880,042bb880
-Invalid sCAL width ignored,FUN_042bb990,042bb990
-Invalid sCAL height ignored,FUN_042bb880,042bb880
-Invalid sCAL height ignored,FUN_042bb990,042bb990
+Invalid sCAL unit,png_set_sCAL_s,042bb6c0
+Invalid sCAL width,png_set_sCAL_s,042bb6c0
+Invalid sCAL height,png_set_sCAL_s,042bb6c0
+Invalid sCAL width ignored,png_set_sCAL,042bb880
+Invalid sCAL width ignored,png_set_sCAL_fixed,042bb990
+Invalid sCAL height ignored,png_set_sCAL,042bb880
+Invalid sCAL height ignored,png_set_sCAL_fixed,042bb990
 Invalid palette length,FUN_042bbaa0,042bbaa0
 Invalid palette length,FUN_042bbaa0,042bbaa0
 Invalid palette,FUN_042bbaa0,042bbaa0

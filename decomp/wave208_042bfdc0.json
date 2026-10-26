@@ -1,0 +1,5 @@
+{
+  "addr": "042bfdc0",
+  "name": "FUN_042bfdc0",
+  "c": "\nvoid FUN_042bfdc0(int param_1,int param_2)\n\n{\n  if (param_1 != 0) {\n    if (param_2 < 0x10) {\n      if (param_2 < 8) {\n        FUN_042a97a0(param_1,\"Only compression windows >= 256 supported by PNG\");\n        param_2 = 8;\n      }\n    }\n    else {\n      FUN_042a97a0(param_1,\"Only compression windows <= 32k supported by PNG\");\n      param_2 = 0xf;\n    }\n    *(int *)(param_1 + 0x128) = param_2;\n  }\n  return;\n}\n\n"
+}

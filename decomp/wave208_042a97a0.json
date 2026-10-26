@@ -1,0 +1,5 @@
+{
+  "addr": "042a97a0",
+  "name": "FUN_042a97a0",
+  "c": "\nvoid FUN_042a97a0(int param_1,char *param_2)\n\n{\n  char *pcVar1;\n  int iVar2;\n  \n  pcVar1 = param_2;\n  if (param_1 != 0) {\n    if (*param_2 == '#') {\n      iVar2 = 1;\n      do {\n        pcVar1 = pcVar1 + 1;\n        if (*pcVar1 == ' ') goto LAB_042a97b5;\n        iVar2 = iVar2 + 1;\n      } while (iVar2 != 0xf);\n      pcVar1 = param_2 + 0xf;\n    }\nLAB_042a97b5:\n    if (*(code **)(param_1 + 0xac) != (code *)0x0) {\n                    /* WARNING: Could not recover jumptable at 0x042a97cb. Too many branches */\n                    /* WARNING: Treating indirect jump as call */\n      (**(code **)(param_1 + 0xac))();\n      return;\n    }\n  }\n  fprintf(stderr,\"libpng warning: %s\",pcVar1);\n  fputc(10,stderr);\n  return;\n}\n\n"
+}

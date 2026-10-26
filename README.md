@@ -14,10 +14,11 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 ## Scoreboard
 
-**4,851 / 9,221 functions carry a project name (52.6%).** A name is kept when that function references a matching assert signature, a single source file, or a D3D9 vtable slot locked by those signatures. Module prefixes name the file, not the function. Message-style strings do not replace a signature name.
+**4,872 / 9,221 functions carry a project name (52.8%).** A name is kept when that function references a matching assert signature, a single source file, or a D3D9 vtable slot locked by those signatures. Module prefixes name the file, not the function. Message-style strings do not replace a signature name.
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
+| 208 | Libpng reader district source match: 6 chunk handlers + 7 pngset setters + 8 error/crc helpers vs v1.6.0 (`tools/decomp_notes_wave208_libpng_chunk_district.md`). | 21 | 21 |
 | 207 | Vtable aligner unfreeze: dumps refreshed from live, MM*/AudioRenderClient lanes re-gated, 7 slots (`tools/decomp_notes_wave207_vtable_unfreeze.md`). | 7 | 7 |
 | 206 | XAudio2 MANUAL_ORDER pinned to eON observed layout; aligner shift-0 fits named the 4 gap slots (`tools/decomp_notes_wave206_xaudio2_pinned.md`). | 4 | 4 |
 | 205 | Loader name-table mega-batch: static-binary dispatch tables, single-ref gates, ~420 checker-name agreements (`tools/decomp_notes_wave205_loader_name_table.md`). | 1,166 | 1,166 |
@@ -29,9 +30,8 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 | 199 | SetTimer/KillTimer (`tools/decomp_notes_wave199_settimer_killtimer.md`). | 8 | 6 new + 2 renames |
 | 198 | MsgExtra + QueueStatus_Flags (`tools/decomp_notes_wave198_msgextra_queuestatus.md`). | 7 | 7 |
 | 197 | Shader ALU/token (`tools/decomp_notes_wave197_shader_alu_token.md`). | 4 | 4 |
-| 196 | ShaderData regs/caps (`tools/decomp_notes_wave196_shaderdata_regs.md`). | 10 | 10 |
 
-…and 175 earlier waves in [`tools/SCOREBOARD.md`](tools/SCOREBOARD.md).
+…and 176 earlier waves in [`tools/SCOREBOARD.md`](tools/SCOREBOARD.md).
 
 10 + 721 + 2 + 103 + 15 + 53 + 49 = 953. Wave 5's file originally had 32 extra rows aimed at functions wave 4 had already named (`GetLight` over `StateBlock_GetTextureStageState`, `glCheckFramebufferStatus` over `GetFramebufferHash`, and similar). Those rows did not apply and have been removed. The scoreboard counts the live Ghidra project after all waves were applied and re-dumped; `seeds/functions.csv` and `seeds/string_refs.csv` are that dump. Wave 9's 119 proposal rows collapse to 53 unique functions (keyboard/mouse/gamepad runs share slots on the same interface); the 11 two-anchor `iaudioclient` proposals were held below the ≥3-anchor trust floor. Wave 10's 102 rows are the unique remainder after wave 9 (conflicting class prefixes resolved to the base class — shared implementations); the aligner now enforces ≥3 anchors, so the two-anchor MMDevice/MMEndpoint/IAudioCapture/IAudioRender runs stay held.
 
@@ -71,6 +71,8 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 `python3 tools/test_llm_work.py` runs the checker against the seeds.
 
 ## Next
+
+Wave 208 applied (4,872): libpng reader-district source match vs v1.6.0 — chunk handlers IHDR/IEND/sBIT/hIST/pHYs/oFFs, pngset sCAL/pHYs/oFFs/compression-window setters, and the pngerror cluster (png_error/png_warning/png_benign_error/png_chunk_error/png_chunk_benign_error/png_safecat/png_longjmp) + crc helpers; 21 names, all read-back verified. See `tools/decomp_notes_wave208_libpng_chunk_district.md`.
 
 Wave 207 applied (4,851): vtable-aligner lanes unfrozen for MMDevice/Collection/Enumerator + AudioRenderClient via live-refreshed dumps; 7 renames. See `tools/decomp_notes_wave207_vtable_unfreeze.md`.
 

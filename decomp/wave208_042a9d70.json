@@ -1,0 +1,5 @@
+{
+  "addr": "042a9d70",
+  "name": "FUN_042a9d70",
+  "c": "\nvoid FUN_042a9d70(int param_1,undefined4 param_2)\n\n{\n  undefined1 local_e2 [218];\n  \n  if (param_1 != 0) {\n    FUN_042a9510();\n                    /* WARNING: Subroutine does not return */\n    FUN_042a9b90(param_1,local_e2);\n  }\n                    /* WARNING: Subroutine does not return */\n  FUN_042a9b90(0,param_2);\n}\n\n"
+}

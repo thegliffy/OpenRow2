@@ -1,0 +1,5 @@
+{
+  "addr": "042bb380",
+  "name": "FUN_042bb380",
+  "c": "\nvoid FUN_042bb380(int param_1,int param_2,undefined4 param_3,undefined4 param_4,undefined1 param_5)\n\n{\n  if ((param_2 != 0) && (param_1 != 0)) {\n    *(uint *)(param_2 + 8) = *(uint *)(param_2 + 8) | 0x100;\n    *(undefined4 *)(param_2 + 0xb4) = param_3;\n    *(undefined4 *)(param_2 + 0xb8) = param_4;\n    *(undefined1 *)(param_2 + 0xbc) = param_5;\n  }\n  return;\n}\n\n"
+}

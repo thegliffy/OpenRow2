@@ -1,0 +1,5 @@
+{
+  "addr": "042a9b90",
+  "name": "FUN_042a9b90",
+  "c": "\nvoid FUN_042a9b90(int param_1,char *param_2)\n\n{\n  if ((param_1 != 0) && (*(code **)(param_1 + 0xa8) != (code *)0x0)) {\n    (**(code **)(param_1 + 0xa8))(param_1,param_2);\n  }\n  if (param_2 == (char *)0x0) {\n    param_2 = \"undefined\";\n  }\n  fprintf(stderr,\"libpng error: %s\",param_2);\n  fputc(10,stderr);\n                    /* WARNING: Subroutine does not return */\n  FUN_042a9b50(param_1,1);\n}\n\n"
+}

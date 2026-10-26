@@ -1,0 +1,5 @@
+{
+  "addr": "042bb990",
+  "name": "FUN_042bb990",
+  "c": "\nvoid FUN_042bb990(undefined4 param_1,undefined4 param_2,undefined4 param_3,int param_4,int param_5)\n\n{\n  undefined1 local_30 [18];\n  undefined1 local_1e [18];\n  \n  if (param_4 < 1) {\n    FUN_042a97a0(param_1,\"Invalid sCAL width ignored\");\n  }\n  else {\n    if (param_5 < 1) {\n      FUN_042a97a0(param_1,\"Invalid sCAL height ignored\");\n      return;\n    }\n    FUN_042a7430(param_1,local_30,0x12,param_4);\n    FUN_042a7430(param_1,local_1e,0x12,param_5);\n    FUN_042bb6c0(param_1,param_2,param_3,local_30,local_1e);\n  }\n  return;\n}\n\n"
+}
