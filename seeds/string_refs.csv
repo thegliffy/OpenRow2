@@ -16001,8 +16001,8 @@ undefined,png_error,042a9b90
 undefined,png_error,042a9b90
 libpng error: %s,png_error,042a9b90
 bad longjmp: ,png_set_strip_error_numbers,042a9f60
-0123456789ABCDEF,FUN_042a9640,042a9640
-0123456789ABCDEF,FUN_042a9640,042a9640
+0123456789ABCDEF,png_format_number,042a9640
+0123456789ABCDEF,png_format_number,042a9640
 0123456789ABCDEF,png_safecat,042a9510
 0123456789ABCDEF,png_safecat,042a9510
 Libpng jmp_buf still allocated,png_set_longjmp_fn,042a9c00
@@ -16072,7 +16072,7 @@ png_image_finish_read[color-map]: no color-map,png_image_finish_read,042af580
 png_image_finish_read: invalid argument,png_image_finish_read,042af580
 png_image_finish_read: damaged PNG_IMAGE_VERSION,png_image_finish_read,042af580
 Read Error,FUN_042af740,042af740
-Call to NULL read function,FUN_042af7a0,042af7a0
+Call to NULL read function,png_read_data,042af7a0
 Can't set both read_data_fn and write_data_fn in the same structure,FUN_042af7d0,042af7d0
 Can't set both read_data_fn and write_data_fn in the same structure,FUN_042c60d0,042c60d0
 invalid after png_start_read_image or png_read_update_info,FUN_042aff30,042aff30

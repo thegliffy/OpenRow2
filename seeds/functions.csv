@@ -8111,8 +8111,8 @@ entry,name
 042a4fe0,FUN_042a4fe0
 042a51e0,FUN_042a51e0
 042a5220,FUN_042a5220
-042a52b0,FUN_042a52b0
-042a52e0,FUN_042a52e0
+042a52b0,png_reset_crc
+042a52e0,png_calculate_crc
 042a5350,FUN_042a5350
 042a54a0,FUN_042a54a0
 042a55e0,FUN_042a55e0
@@ -8173,7 +8173,7 @@ entry,name
 042a94d0,FUN_042a94d0
 042a9510,png_safecat
 042a95f0,FUN_042a95f0
-042a9640,FUN_042a9640
+042a9640,png_format_number
 042a97a0,png_warning
 042a9830,FUN_042a9830
 042a9870,FUN_042a9870
@@ -8242,7 +8242,7 @@ entry,name
 042af4c0,png_image_begin_read_from_memory
 042af580,png_image_finish_read
 042af740,FUN_042af740
-042af7a0,FUN_042af7a0
+042af7a0,png_read_data
 042af7d0,FUN_042af7d0
 042af830,FUN_042af830
 042af9e0,FUN_042af9e0

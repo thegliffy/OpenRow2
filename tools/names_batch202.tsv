@@ -1,0 +1,4 @@
+FUN_042a52b0	png_reset_crc
+FUN_042a52e0	png_calculate_crc
+FUN_042a9640	png_format_number
+FUN_042af7a0	png_read_data
