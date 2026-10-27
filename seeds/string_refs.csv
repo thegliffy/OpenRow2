@@ -15942,9 +15942,9 @@ internal error checking chromaticities,FUN_042a8710,042a8710
 inconsistent chromaticities,FUN_042a4e50,042a4e50
 profile ',FUN_042a4fe0,042a4fe0
  but running with ,FUN_042a5350,042a5350
- +0000,FUN_042a5e30,042a5e30
-Ignoring invalid time value,FUN_042bc2c0,042bc2c0
-Ignoring invalid time value,png_set_tIME,042a6070
+ +0000,png_convert_to_rfc1123_buffer,042a5e30
+Ignoring invalid time value,png_set_tIME,042bc2c0
+Ignoring invalid time value,png_convert_to_rfc1123,042a6070
 unexpected zlib return code,FUN_042a6270,042a6270
 unexpected end of LZ stream,FUN_042a6270,042a6270
 missing LZ dictionary,FUN_042a6270,042a6270
@@ -16077,8 +16077,8 @@ Can't set both read_data_fn and write_data_fn in the same structure,FUN_042af7d0
 Can't set both read_data_fn and write_data_fn in the same structure,FUN_042c60d0,042c60d0
 invalid after png_start_read_image or png_read_update_info,png_rtran_ok,042aff30
 invalid before the PNG header has been read,png_rtran_ok,042aff30
-Can't discard critical data on CRC error,FUN_042b00a0,042b00a0
-Application must supply a known background gamma,FUN_042b01b0,042b01b0
+Can't discard critical data on CRC error,png_set_crc_action,042b00a0
+Application must supply a known background gamma,png_set_background_fixed,042b01b0
 output gamma out of expected range,png_set_alpha_mode_fixed,042b03a0
 conflicting calls to set alpha mode and background,png_set_alpha_mode_fixed,042b03a0
 invalid file gamma in png_set_gamma,png_set_gamma,042b0fe0
@@ -16218,17 +16218,17 @@ invalid user transform pixel depth,png_combine_row,042b97d0
 Row has too many bytes to allocate in memory,png_read_start_row,042ba6f0
 png_set_unknown_chunks now expects a valid location,png_set_unknown_chunks,042baad0
 invalid location in png_set_unknown_chunks,png_set_unknown_chunks,042baad0
-"Invalid palette size, hIST allocation skipped",FUN_042bb180,042bb180
-Insufficient memory for hIST chunk data,FUN_042bb180,042bb180
-Invalid format for pCAL parameter,FUN_042bb3c0,042bb3c0
-Insufficient memory for pCAL purpose,FUN_042bb3c0,042bb3c0
-Insufficient memory for pCAL units,FUN_042bb3c0,042bb3c0
-Insufficient memory for pCAL params,FUN_042bb3c0,042bb3c0
-Insufficient memory for pCAL parameter,FUN_042bb3c0,042bb3c0
+"Invalid palette size, hIST allocation skipped",png_set_hIST,042bb180
+Insufficient memory for hIST chunk data,png_set_hIST,042bb180
+Invalid format for pCAL parameter,png_set_pCAL,042bb3c0
+Insufficient memory for pCAL purpose,png_set_pCAL,042bb3c0
+Insufficient memory for pCAL units,png_set_pCAL,042bb3c0
+Insufficient memory for pCAL params,png_set_pCAL,042bb3c0
+Insufficient memory for pCAL parameter,png_set_pCAL,042bb3c0
 Memory allocation failed while processing sCAL,png_set_sCAL_s,042bb6c0
-Invalid iCCP compression method,FUN_042bbcf0,042bbcf0
-Insufficient memory to process iCCP chunk,FUN_042bbcf0,042bbcf0
-Insufficient memory to process iCCP profile,FUN_042bbcf0,042bbcf0
+Invalid iCCP compression method,png_set_iCCP,042bbcf0
+Insufficient memory to process iCCP chunk,png_set_iCCP,042bbcf0
+Insufficient memory to process iCCP profile,png_set_iCCP,042bbcf0
 text compression mode is out of range,png_set_text_2,042bbeb0
 Insufficient memory to store text,png_set_text,042bc270
 tRNS chunk has out-of-range samples for bit_depth,png_set_tRNS,042bc350
@@ -16236,9 +16236,9 @@ invalid unknown chunk location,png_set_unknown_chunk_location,042bc7f0
 png_set_keep_unknown_chunks: invalid keep,png_set_keep_unknown_chunks,042bc8a0
 png_set_keep_unknown_chunks: no chunk list,png_set_keep_unknown_chunks,042bc8a0
 png_set_keep_unknown_chunks: too many chunks,png_set_keep_unknown_chunks,042bc8a0
-invalid compression buffer size,FUN_042bcc00,042bcc00
-Compression buffer size cannot be changed because it is in use,FUN_042bcc00,042bcc00
-Compression buffer size cannot be reduced below 6,FUN_042bcc00,042bcc00
+invalid compression buffer size,png_set_compression_buffer_size,042bcc00
+Compression buffer size cannot be changed because it is in use,png_set_compression_buffer_size,042bcc00
+Compression buffer size cannot be reduced below 6,png_set_compression_buffer_size,042bcc00
 cHRM Blue Y,png_set_cHRM,042bacf0
 cHRM Blue X,png_set_cHRM,042bacf0
 cHRM Green Y,png_set_cHRM,042bacf0
@@ -16257,8 +16257,8 @@ cHRM Red Z,png_set_cHRM_XYZ,042baec0
 cHRM Red Z,png_set_cHRM_XYZ,042baec0
 cHRM Red Z,png_set_cHRM_XYZ,042baec0
 png_set_gAMA,png_set_gAMA,042bb130
-Invalid pCAL equation type,FUN_042bb3c0,042bb3c0
-Invalid pCAL parameter count,FUN_042bb3c0,042bb3c0
+Invalid pCAL equation type,png_set_pCAL,042bb3c0
+Invalid pCAL parameter count,png_set_pCAL,042bb3c0
 Invalid sCAL unit,png_set_sCAL_s,042bb6c0
 Invalid sCAL width,png_set_sCAL_s,042bb6c0
 Invalid sCAL height,png_set_sCAL_s,042bb6c0
@@ -16274,8 +16274,8 @@ text chunk: out of memory,png_set_text_2,042bbeb0
 too many sPLT chunks,png_set_sPLT,042bc4c0
 png_set_sPLT: invalid sPLT,png_set_sPLT,042bc4c0
 sPLT out of memory,png_set_sPLT,042bc4c0
-too many unknown chunks,FUN_042bc690,042bc690
-unknown chunk: out of memory,FUN_042bc690,042bc690
+too many unknown chunks,png_set_unknown_chunks,042bc690
+unknown chunk: out of memory,png_set_unknown_chunks,042bc690
 png_set_filler is invalid for low bit depth gray output,png_set_filler,042bce80
 png_set_filler: inappropriate color type,png_set_filler,042bce80
 info change after png_start_read_image or png_read_update_info,png_set_user_transform_info,042bd650
@@ -16287,10 +16287,10 @@ Wrote palette index exceeding num_palette,png_write_end,042be4e0
 png_write_info was never called before png_write_row,png_write_row,042be880
 internal write transform logic error,png_write_row,042be880
 png_write_image: internal call error,png_image_write_to_memory,042beee0
-Unknown row filter for method 0,FUN_042bf380,042bf380
-Can't add Up filter after starting,FUN_042bf380,042bf380
-Can't add Average filter after starting,FUN_042bf380,042bf380
-Can't add Paeth filter after starting,FUN_042bf380,042bf380
+Unknown row filter for method 0,png_set_filter,042bf380
+Can't add Up filter after starting,png_set_filter,042bf380
+Can't add Average filter after starting,png_set_filter,042bf380
+Can't add Paeth filter after starting,png_set_filter,042bf380
 no color-map for color-mapped image,png_image_write,042bf5f0
 png_write_image: unsupported transformation,png_image_write,042bf5f0
 Only compression windows <= 32k supported by PNG,png_set_compression_window_bits,042bfdc0
@@ -16307,7 +16307,7 @@ png_image_write_to_stdio: incorrect PNG_IMAGE_VERSION,png_image_write_to_stdio,0
 png_image_write_to_file: invalid argument,file_write_contents,042c03b0
 png_image_write_to_file: incorrect PNG_IMAGE_VERSION,file_write_contents,042c03b0
 No IDATs written into file,png_write_end,042be4e0
-Unknown custom filter method,FUN_042bf380,042bf380
+Unknown custom filter method,png_set_filter,042bf380
 in use by IDAT,FUN_042c12c0,042c12c0
 deflateEnd failed (ignored),FUN_042c12c0,042c12c0
 compressed data too long,png_text_compress,042c1680
@@ -16351,7 +16351,7 @@ zTXt: invalid compression type,png_write_zTXt,042c2c70
 iTXt: uncompressed text too long,png_write_iTXt,042c2da0
 Unrecognized unit type for oFFs chunk,png_write_oFFs,042c3080
 Unrecognized equation type for pCAL chunk,png_write_pCAL,042c3100
-Can't write sCAL (buffer too small),FUN_042c33d0,042c33d0
+Can't write sCAL (buffer too small),png_write_sCAL_s,042c33d0
 Unrecognized unit type for pHYs chunk,png_write_pHYs,042c3480
 Invalid time specified for tIME chunk,png_write_tIME,042c3530
 Call to NULL write function,png_write_data,042c6080

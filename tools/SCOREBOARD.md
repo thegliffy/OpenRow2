@@ -4,6 +4,8 @@ Full history of naming waves. The README scoreboard keeps only the latest 12 row
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
+| 217 | held png_set_* family body-matched vs vendor source; 042a6070 corrected to png_convert_to_rfc1123; +042a5e30 png_convert_to_rfc1123_buffer (`tools/decomp_notes_wave217_pngset_family.md`). | 12 | 11 |
+| 216 | full-ledger audit of all named functions: 0 contradictions; 1,500/1,674 string-tier body-confirmed (`tools/decomp_notes_wave216_full_audit.md`). | 0 | 0 |
 | 215 | per-function source sets + body-string verification (22 applied, 10 held for control-flow) (`tools/decomp_notes_wave215_perfunction_source_match.md`). | 22 | 22 |
 | 214 | zlib district probe: matcher + call-graph dead end, documented (`tools/decomp_notes_wave214_zlib_dead_end.md`). | 0 | 0 |
 | 213 | v1.6.40-only string matches + compression-setter struct-field split + image pair body-read (`tools/decomp_notes_wave213_v1640_stragglers.md`). | 8 | 8 |

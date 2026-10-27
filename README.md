@@ -14,10 +14,12 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 ## Scoreboard
 
-**4,923 / 9,221 functions carry a project name (53.4%).** A name is kept when that function references a matching assert signature, a single source file, or a D3D9 vtable slot locked by those signatures. Module prefixes name the file, not the function. Message-style strings do not replace a signature name.
+**4,970 / 9,221 functions carry a project name (53.9%).** A name is kept when that function references a matching assert signature, a single source file, or a D3D9 vtable slot locked by those signatures. Module prefixes name the file, not the function. Message-style strings do not replace a signature name.
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
+| 217 | held png_set_* family body-matched; 042a6070 corrected to png_convert_to_rfc1123 (`tools/decomp_notes_wave217_pngset_family.md`). | 12 | 11 |
+| 216 | full-ledger audit: 0 contradictions, 1,500 body-confirmed (`tools/decomp_notes_wave216_full_audit.md`). | 0 | 0 |
 | 215 | per-function source sets + body-string verification; 10 held for control-flow (`tools/decomp_notes_wave215_perfunction_source_match.md`). | 22 | 22 |
 | 214 | zlib district probe: dead end, documented (`tools/decomp_notes_wave214_zlib_dead_end.md`). | 0 | 0 |
 | 213 | v1.6.40-only string matches + compression-setter struct-field split (`tools/decomp_notes_wave213_v1640_stragglers.md`). | 8 | 8 |
@@ -73,6 +75,10 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 ## Next
 
 Wave 215 applied (4,959): matcher upgraded to per-function parsed source sets with body-string verification before apply — the libpng lane was NOT dry after all (column-parsing bug in earlier joins). 22 names. See `tools/decomp_notes_wave215_perfunction_source_match.md`.
+
+Wave 216: full-ledger audit of every named function — ledger↔DB consistent, 1,500/1,674 string-tier names body-confirmed, 0 contradictions. See `tools/decomp_notes_wave216_full_audit.md`.
+
+Wave 217 applied (4,970): all ten Wave-215 holds closed by direct body match against vendor source, plus `png_convert_to_rfc1123_buffer` and one correction (042a6070 is the deprecated rfc1123 wrapper, not png_set_tIME — the real png_set_tIME is 042bc2c0). See `tools/decomp_notes_wave217_pngset_family.md`.
 
 Wave 213 applied (4,937): v1.6.40-only string matches, compression-setter pairs split on pngstruct.h field order, image pair on the channels computation; libpng district now dry for both matcher eras. See `tools/decomp_notes_wave213_v1640_stragglers.md`.
 

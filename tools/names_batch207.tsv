@@ -1,0 +1,12 @@
+FUN_042a6070	png_convert_to_rfc1123
+FUN_042a5e30	png_convert_to_rfc1123_buffer
+FUN_042b00a0	png_set_crc_action
+FUN_042b01b0	png_set_background_fixed
+FUN_042bb180	png_set_hIST
+FUN_042bb3c0	png_set_pCAL
+FUN_042bbcf0	png_set_iCCP
+FUN_042bc2c0	png_set_tIME
+FUN_042bc690	png_set_unknown_chunks
+FUN_042bcc00	png_set_compression_buffer_size
+FUN_042bf380	png_set_filter
+FUN_042c33d0	png_write_sCAL_s
