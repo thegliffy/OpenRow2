@@ -338,7 +338,7 @@ entry,name
 04008470,__cxa_call_unexpected
 04008480,operator.delete[]
 04008490,pthread_mutexattr_init
-040084a0,__ostream_insert<char,std::char_traits<char>>
+040084a0,__ostream_insert<char,std::char_traits<char>>,std::char_traits<char>>
 040084b0,assign
 040084c0,glLoadIdentity
 040084d0,glCullFace
@@ -8113,7 +8113,7 @@ entry,name
 042a5220,FUN_042a5220
 042a52b0,png_reset_crc
 042a52e0,png_calculate_crc
-042a5350,FUN_042a5350
+042a5350,png_user_version_check
 042a54a0,FUN_042a54a0
 042a55e0,FUN_042a55e0
 042a5670,FUN_042a5670
@@ -8425,7 +8425,7 @@ entry,name
 042c0eb0,FUN_042c0eb0
 042c1080,FUN_042c1080
 042c1130,FUN_042c1130
-042c12c0,FUN_042c12c0
+042c12c0,png_deflate_claim
 042c15f0,FUN_042c15f0
 042c1680,png_text_compress
 042c1840,FUN_042c1840
@@ -9027,7 +9027,7 @@ entry,name
 0452653c,__cxa_call_unexpected
 04526540,operator.delete[]
 04526544,pthread_mutexattr_init
-04526548,__ostream_insert<char,std::char_traits<char>>
+04526548,__ostream_insert<char,std::char_traits<char>>,std::char_traits<char>>
 0452654c,assign
 04526550,glLoadIdentity
 04526554,glCullFace

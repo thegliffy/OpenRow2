@@ -15905,7 +15905,7 @@ test key 128bits,FUN_04248f80,04248f80
 0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz+/,FUN_0424c090,0424c090
 Potential overflow in png_zalloc(),png_zalloc,042a4d00
 Too many bytes for PNG signature,png_set_sig_bytes,042a51e0
-Application built with libpng-,FUN_042a5350,042a5350
+Application built with libpng-,png_user_version_check,042a5350
 Unknown freer parameter in png_data_freer,png_data_freer,042a5720
 "\nlibpng version 1.6.16 - December 22, 2014\nCopyright (c) 1998-2014 Glenn Randers-Pehrson\nCopyright (c) 1996-1997 Andreas Dilger\nCopyright (c) 1995-1996 Guy Eric Schalnat, Group 42, Inc.\n",FUN_042a60d0,042a60d0
 " libpng version 1.6.16 - December 22, 2014\n\n",FUN_042a6100,042a6100
@@ -15941,7 +15941,7 @@ internal error checking chromaticities,png_colorspace_set_chromaticities,042a8a9
 internal error checking chromaticities,png_colorspace_set_endpoints,042a8710
 inconsistent chromaticities,png_colorspace_set_xy_and_XYZ,042a4e50
 profile ',png_icc_profile_error,042a4fe0
- but running with ,FUN_042a5350,042a5350
+ but running with ,png_user_version_check,042a5350
  +0000,png_convert_to_rfc1123_buffer,042a5e30
 Ignoring invalid time value,png_set_tIME,042bc2c0
 Ignoring invalid time value,png_convert_to_rfc1123,042a6070
@@ -16099,9 +16099,9 @@ rgb to gray red coefficient,png_set_rgb_to_gray,042b1360
 invalid background gamma type,png_init_read_transformations,042b1400
 NULL row buffer,png_do_read_transformations,042b2670
 Uninitialized row,png_do_read_transformations,042b2670
- using zstream,FUN_042c12c0,042c12c0
+ using zstream,png_deflate_claim,042c12c0
  using zstream,zstream_init,042b5da0
-1.2.3.4,FUN_042c12c0,042c12c0
+1.2.3.4,png_deflate_claim,042c12c0
 1.2.3.4,zstream_init,042b5da0
 zstream unclaimed,zstream_inflate_stream,042b6560
 zstream unclaimed,zstream_inflate_buffer,042b5f80
@@ -16308,8 +16308,8 @@ png_image_write_to_file: invalid argument,file_write_contents,042c03b0
 png_image_write_to_file: incorrect PNG_IMAGE_VERSION,file_write_contents,042c03b0
 No IDATs written into file,png_write_end,042be4e0
 Unknown custom filter method,png_set_filter,042bf380
-in use by IDAT,FUN_042c12c0,042c12c0
-deflateEnd failed (ignored),FUN_042c12c0,042c12c0
+in use by IDAT,png_deflate_claim,042c12c0
+deflateEnd failed (ignored),png_deflate_claim,042c12c0
 compressed data too long,png_text_compress,042c1680
 length exceeds PNG maximum,png_write_complete_chunk,042c1a80
 Invalid filter type specified,png_write_IHDR,042c1b70
