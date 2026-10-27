@@ -1,0 +1,12 @@
+FUN_042a67f0	png_icc_check_tag_table
+FUN_042a6970	png_check_IHDR
+FUN_042a7b90	png_colorspace_set_sRGB
+FUN_042a7d60	png_compare_ICC_profile_with_sRGB
+FUN_042a6270	png_zstream_error
+FUN_042aa150	png_malloc_array
+FUN_042aa1c0	png_realloc_array
+FUN_042aa2c0	png_malloc
+FUN_042aa3a0	png_malloc_warn
+FUN_042aa350	png_malloc_default
+FUN_042a4fe0	png_icc_profile_error
+FUN_042a4fb0	is_ICC_signature_char

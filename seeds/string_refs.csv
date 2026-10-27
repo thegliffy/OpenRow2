@@ -15916,48 +15916,48 @@ invalid embedded Abstract ICC profile,png_icc_check_header,042a6450
 unexpected DeviceLink ICC profile class,png_icc_check_header,042a6450
 unexpected NamedColor ICC profile class,png_icc_check_header,042a6450
 unrecognized ICC profile class,png_icc_check_header,042a6450
-ICC profile tag start not a multiple of 4,FUN_042a67f0,042a67f0
-ICC profile tag outside profile,FUN_042a67f0,042a67f0
-Image width is too large for this architecture,FUN_042a6970,042a6970
-Image width exceeds user limit in IHDR,FUN_042a6970,042a6970
-Image height exceeds user limit in IHDR,FUN_042a6970,042a6970
-Invalid color type/bit depth combination in IHDR,FUN_042a6970,042a6970
-Unknown interlace method in IHDR,FUN_042a6970,042a6970
-Unknown compression method in IHDR,FUN_042a6970,042a6970
+ICC profile tag start not a multiple of 4,png_icc_check_tag_table,042a67f0
+ICC profile tag outside profile,png_icc_check_tag_table,042a67f0
+Image width is too large for this architecture,png_check_IHDR,042a6970
+Image width exceeds user limit in IHDR,png_check_IHDR,042a6970
+Image height exceeds user limit in IHDR,png_check_IHDR,042a6970
+Invalid color type/bit depth combination in IHDR,png_check_IHDR,042a6970
+Unknown interlace method in IHDR,png_check_IHDR,042a6970
+Unknown compression method in IHDR,png_check_IHDR,042a6970
 MNG features are not allowed in a PNG datastream,png_write_info_before_PLTE,042bdef0
-MNG features are not allowed in a PNG datastream,FUN_042a6970,042a6970
+MNG features are not allowed in a PNG datastream,png_check_IHDR,042a6970
 ASCII conversion buffer too small,png_ascii_from_fixed,042a7430
 ASCII conversion buffer too small,png_ascii_from_fp,042a6e60
 internal error handling cHRM coefficients,png_colorspace_set_rgb_coefficients,042a76e0
 internal error handling cHRM->XYZ,png_colorspace_set_rgb_coefficients,042a76e0
 gamma value does not match sRGB,png_colorspace_check_gamma,042a7ab0
 gamma value does not match libpng estimate,png_colorspace_check_gamma,042a7ab0
-inconsistent rendering intents,FUN_042a7b90,042a7b90
-duplicate sRGB information ignored,FUN_042a7b90,042a7b90
-cHRM chunk does not match sRGB,FUN_042a7b90,042a7b90
-out-of-date sRGB profile with no signature,FUN_042a7d60,042a7d60
-Not recognizing known sRGB profile that has been edited,FUN_042a7d60,042a7d60
+inconsistent rendering intents,png_colorspace_set_sRGB,042a7b90
+duplicate sRGB information ignored,png_colorspace_set_sRGB,042a7b90
+cHRM chunk does not match sRGB,png_colorspace_set_sRGB,042a7b90
+out-of-date sRGB profile with no signature,png_compare_ICC_profile_with_sRGB,042a7d60
+Not recognizing known sRGB profile that has been edited,png_compare_ICC_profile_with_sRGB,042a7d60
 internal error checking chromaticities,png_colorspace_set_chromaticities,042a8a90
 internal error checking chromaticities,png_colorspace_set_endpoints,042a8710
 inconsistent chromaticities,png_colorspace_set_xy_and_XYZ,042a4e50
-profile ',FUN_042a4fe0,042a4fe0
+profile ',png_icc_profile_error,042a4fe0
  but running with ,FUN_042a5350,042a5350
  +0000,png_convert_to_rfc1123_buffer,042a5e30
 Ignoring invalid time value,png_set_tIME,042bc2c0
 Ignoring invalid time value,png_convert_to_rfc1123,042a6070
-unexpected zlib return code,FUN_042a6270,042a6270
-unexpected end of LZ stream,FUN_042a6270,042a6270
-missing LZ dictionary,FUN_042a6270,042a6270
-zlib IO error,FUN_042a6270,042a6270
-bad parameters to zlib,FUN_042a6270,042a6270
-damaged LZ stream,FUN_042a6270,042a6270
+unexpected zlib return code,png_zstream_error,042a6270
+unexpected end of LZ stream,png_zstream_error,042a6270
+missing LZ dictionary,png_zstream_error,042a6270
+zlib IO error,png_zstream_error,042a6270
+bad parameters to zlib,png_zstream_error,042a6270
+damaged LZ stream,png_zstream_error,042a6270
 insufficient memory,png_handle_iTXt,042b9200
 insufficient memory,png_handle_zTXt,042b8ff0
-insufficient memory,FUN_042a6270,042a6270
+insufficient memory,png_zstream_error,042a6270
 insufficient memory,png_handle_zTXt,042b8ff0
 insufficient memory,png_handle_iTXt,042b9200
-unsupported zlib version,FUN_042a6270,042a6270
-unexpected zlib return,FUN_042a6270,042a6270
+unsupported zlib version,png_zstream_error,042a6270
+unexpected zlib return,png_zstream_error,042a6270
 length does not match profile,png_icc_check_header,042a6450
 invalid length,png_icc_check_header,042a6450
 tag count too large,png_icc_check_header,042a6450
@@ -15966,17 +15966,17 @@ intent outside defined range,png_icc_check_header,042a6450
 invalid signature,png_icc_check_header,042a6450
 PCS illuminant is not D50,png_icc_check_header,042a6450
 unexpected ICC PCS encoding,png_icc_check_header,042a6450
-Image width is zero in IHDR,FUN_042a6970,042a6970
-Invalid image width in IHDR,FUN_042a6970,042a6970
-Image height is zero in IHDR,FUN_042a6970,042a6970
-Invalid image height in IHDR,FUN_042a6970,042a6970
-Invalid bit depth in IHDR,FUN_042a6970,042a6970
-Invalid color type in IHDR,FUN_042a6970,042a6970
-Unknown filter method in IHDR,FUN_042a6970,042a6970
-Invalid filter method in IHDR,FUN_042a6970,042a6970
-Invalid IHDR data,FUN_042a6970,042a6970
-invalid sRGB rendering intent,FUN_042a7b90,042a7b90
-known incorrect sRGB profile,FUN_042a7d60,042a7d60
+Image width is zero in IHDR,png_check_IHDR,042a6970
+Invalid image width in IHDR,png_check_IHDR,042a6970
+Image height is zero in IHDR,png_check_IHDR,042a6970
+Invalid image height in IHDR,png_check_IHDR,042a6970
+Invalid bit depth in IHDR,png_check_IHDR,042a6970
+Invalid color type in IHDR,png_check_IHDR,042a6970
+Unknown filter method in IHDR,png_check_IHDR,042a6970
+Invalid filter method in IHDR,png_check_IHDR,042a6970
+Invalid IHDR data,png_check_IHDR,042a6970
+invalid sRGB rendering intent,png_colorspace_set_sRGB,042a7b90
+known incorrect sRGB profile,png_compare_ICC_profile_with_sRGB,042a7d60
 gamma value out of range,png_colorspace_set_gamma,042a80e0
 gamma value out of range,png_colorspace_set_gamma,042a80e0
 duplicate,png_handle_tIME,042b8d40
@@ -16007,11 +16007,11 @@ bad longjmp: ,png_set_strip_error_numbers,042a9f60
 0123456789ABCDEF,png_safecat,042a9510
 Libpng jmp_buf still allocated,png_set_longjmp_fn,042a9c00
 Application jmp_buf size changed,png_set_longjmp_fn,042a9c00
-internal error: array alloc,FUN_042aa150,042aa150
-internal error: array realloc,FUN_042aa1c0,042aa1c0
-Out of memory,FUN_042aa2c0,042aa2c0
-Out of memory,FUN_042aa3a0,042aa3a0
-Out of Memory,FUN_042aa350,042aa350
+internal error: array alloc,png_malloc_array,042aa150
+internal error: array realloc,png_realloc_array,042aa1c0
+Out of memory,png_malloc,042aa2c0
+Out of memory,png_malloc_warn,042aa3a0
+Out of Memory,png_malloc_default,042aa350
 color-map index out of range,png_create_colormap_entry,042aa680
 bad encoding (internal error),png_create_colormap_entry,042aa680
 read beyond end of data,png_image_memory_read,042aadf0
