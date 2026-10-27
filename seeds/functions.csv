@@ -8189,7 +8189,7 @@ entry,name
 042a9dc0,png_chunk_benign_error
 042a9df0,FUN_042a9df0
 042a9e20,FUN_042a9e20
-042a9e50,FUN_042a9e50
+042a9e50,png_chunk_report
 042a9ea0,png_benign_error
 042a9f10,FUN_042a9f10
 042a9f40,FUN_042a9f40
@@ -8527,7 +8527,7 @@ entry,name
 042c5fd0,FUN_042c5fd0
 042c5fe0,FUN_042c5fe0
 042c6000,FUN_042c6000
-042c6020,FUN_042c6020
+042c6020,png_default_write_data
 042c6080,png_write_data
 042c60b0,FUN_042c60b0
 042c60d0,FUN_042c60d0
