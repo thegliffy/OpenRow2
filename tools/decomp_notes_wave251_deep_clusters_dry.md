@@ -34,3 +34,8 @@ game-sourced).
 ## Held pool recap (waves 248–251, body-read, would need descriptive naming approval)
 `0400a810` (assert implementation — format string + abort), `0400d2e0`
 (cleanup+exit), plus ~35 listed in waves 248–250 notes.
+
+## POLICY (user decision 2026-10-27)
+Descriptive (analyst-chosen) naming was proposed at the wave-251 decision point and DECLINED.
+Naming stays evidence-only: body/source/assert/runtime/game-table grounded. Board parked at
+5,197 / 9,221. Future waves must not batch-rename on body semantics alone.
