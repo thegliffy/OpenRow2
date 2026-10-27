@@ -3289,7 +3289,7 @@ entry,name
 041018a0,FUN_041018a0
 041018c0,AudioConverter::AudioConverter
 04101b40,AudioConverter::Convert
-04101c50,FUN_04101c50
+04101c50,vector::_M_range_insert
 04101ec0,FUN_04101ec0
 04101ed0,xaudio2_full_DllGetClassObject
 04102220,FUN_04102220
@@ -3544,7 +3544,7 @@ entry,name
 0410f360,FUN_0410f360
 0410f4f0,FUN_0410f4f0
 0410f670,FUN_0410f670
-0410f860,FUN_0410f860
+0410f860,vector<bool>::_M_insert_aux
 0410fc10,FUN_0410fc10
 0410fd50,FUN_0410fd50
 0410fea0,FUN_0410fea0

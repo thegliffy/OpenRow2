@@ -18,6 +18,7 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
+| 221 | libstdc++ lane from wave-215 Next: vector::_M_range_insert + vector<bool>::_M_insert_aux body-verified vs vendor/gcc 4.3.4 (throw-site strings inline); basic_string::substr hold stands (0400bfd0 not pure — 3 inlined sites + game strings) (`tools/decomp_notes_wave221_libstdcxx_lane.md`). | 2 | 2 |
 | 220 | Checker-lane review, pngerror.c formatter cluster: 042a95f0→png_safecat (wave-219 held), 042a9510→png_format_buffer, 042a9a30→png_chunk_warning, FUN_042a9ea0→png_benign_error; all bodies verbatim vs pinned tags, call graph closes, seeds re-synced (`tools/decomp_notes_wave220_pngerror_cluster.md`). | 4 | 2 |
 | 219 | ICC csstatics: relaxed matcher (body-verified individually); malloc family split by error/warning/NULL-base paths (`tools/decomp_notes_wave219_icc_malloc.md`). | 12 | 12 |
 | 218 | colorspace/ICC statics district, matcher across both tags + pair split by control flow (`tools/decomp_notes_wave218_colorspace_district.md`). | 12 | 12 |

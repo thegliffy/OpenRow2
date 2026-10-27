@@ -9910,7 +9910,7 @@ Available libav codecs:,AudioConverter::AudioConverter,041018c0
 	(%s) %s,AudioConverter::AudioConverter,041018c0
 mCodec,AudioConverter::AudioConverter,041018c0
 ret == 0,AudioConverter::AudioConverter,041018c0
-vector::_M_range_insert,FUN_04101c50,04101c50
+vector::_M_range_insert,vector::_M_range_insert,04101c50
 !Decoding error,AudioConverter::Convert,04101b40
 /home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/xaudio2_full/audioconverter.cpp,AudioConverter::AudioConverter,041018c0
 /home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/xaudio2_full/audioconverter.cpp,AudioConverter::AudioConverter,041018c0
@@ -10185,7 +10185,7 @@ mEngine,XAudio2VoiceImp::GetAudioGraphMutex,0410cf50
 effect.pEffect,XAudio2VoiceImp::SetEffectChain,0410d930
 effect.pEffect,xaudio2voiceimpl_0410d400,0410d400
 effect.pEffect,xaudio2voiceimpl_0410d140,0410d140
-vector<bool>::_M_insert_aux,FUN_0410f860,0410f860
+vector<bool>::_M_insert_aux,vector<bool>::_M_insert_aux,0410f860
 descriptor.pEffect,XAudio2VoiceImp::SetEffectChain,0410d930
 void XAudio2VoiceImp::DeleteEffectChain(),XAudio2VoiceImp::SetEffectChain,0410d930
 void XAudio2VoiceImp::DeleteEffectChain(),xaudio2voiceimpl_0410d400,0410d400
