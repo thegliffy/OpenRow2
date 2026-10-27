@@ -1,0 +1,71 @@
+
+void DSBCAPS_LogFlags(undefined4 param_1,int param_2)
+
+{
+  uint uVar1;
+  
+  FUN_0402cd10(5,"    flags:");
+  uVar1 = *(uint *)(param_2 + 4);
+  if ((uVar1 & 1) != 0) {
+    FUN_0402cd10(param_1,"        DSBCAPS_PRIMARYBUFFER");
+    uVar1 = *(uint *)(param_2 + 4);
+  }
+  if ((uVar1 & 2) != 0) {
+    FUN_0402cd10(param_1,"        DSBCAPS_STATIC");
+    uVar1 = *(uint *)(param_2 + 4);
+  }
+  if ((uVar1 & 4) != 0) {
+    FUN_0402cd10(param_1,"        DSBCAPS_LOCHARDWARE");
+    uVar1 = *(uint *)(param_2 + 4);
+  }
+  if ((uVar1 & 8) != 0) {
+    FUN_0402cd10(param_1,"        DSBCAPS_LOCSOFTWARE");
+    uVar1 = *(uint *)(param_2 + 4);
+  }
+  if ((uVar1 & 0x10) != 0) {
+    FUN_0402cd10(param_1,"        DSBCAPS_CTRL3D");
+    uVar1 = *(uint *)(param_2 + 4);
+  }
+  if ((uVar1 & 0x20) != 0) {
+    FUN_0402cd10(param_1,"        DSBCAPS_CTRLFREQUENCY");
+    uVar1 = *(uint *)(param_2 + 4);
+  }
+  if ((uVar1 & 0x40) != 0) {
+    FUN_0402cd10(param_1,"        DSBCAPS_CTRLPAN");
+    uVar1 = *(uint *)(param_2 + 4);
+  }
+  if ((uVar1 & 0x80) != 0) {
+    FUN_0402cd10(param_1,"        DSBCAPS_CTRLVOLUME");
+    uVar1 = *(uint *)(param_2 + 4);
+  }
+  if ((uVar1 & 0x100) != 0) {
+    FUN_0402cd10(param_1,"        DSBCAPS_CTRLPOSITIONNOTIFY");
+    uVar1 = *(uint *)(param_2 + 4);
+  }
+  if ((uVar1 & 0x200) != 0) {
+    FUN_0402cd10(param_1,"        DSBCAPS_CTRLFX");
+    uVar1 = *(uint *)(param_2 + 4);
+  }
+  if ((uVar1 & 0x4000) != 0) {
+    FUN_0402cd10(param_1,"        DSBCAPS_STICKYFOCUS");
+    uVar1 = *(uint *)(param_2 + 4);
+  }
+  if ((uVar1 & 0x8000) != 0) {
+    FUN_0402cd10(param_1,"        DSBCAPS_GLOBALFOCUS");
+    uVar1 = *(uint *)(param_2 + 4);
+  }
+  if ((uVar1 & 0x10000) != 0) {
+    FUN_0402cd10(param_1,"        DSBCAPS_GETCURRENTPOSITION2");
+    uVar1 = *(uint *)(param_2 + 4);
+  }
+  if ((uVar1 & 0x20000) != 0) {
+    FUN_0402cd10(param_1,"        DSBCAPS_MUTE3DATMAXDISTANCE");
+    uVar1 = *(uint *)(param_2 + 4);
+  }
+  if ((uVar1 & 0x40000) == 0) {
+    return;
+  }
+  FUN_0402cd10();
+  return;
+}
+

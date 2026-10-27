@@ -1,0 +1,19 @@
+
+void fs_DeleteFileHandle(void *param_1)
+
+{
+  int iVar1;
+  int *piVar2;
+  
+  iVar1 = close(*(int *)((int)param_1 + 4));
+  if (iVar1 != -1) {
+    free(param_1);
+    return;
+  }
+  piVar2 = __errno_location();
+  FUN_0402cd10(0xf,"fs_DeleteFileHandle() - close() failed, fd was %d, errno %d",
+               *(undefined4 *)((int)param_1 + 4),*piVar2);
+  free(param_1);
+  return;
+}
+

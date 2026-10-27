@@ -1,0 +1,250 @@
+
+undefined4 png_image_read_direct(int *param_1)
+
+{
+  int *piVar1;
+  int iVar2;
+  byte *pbVar3;
+  uint uVar4;
+  int iVar5;
+  int iVar6;
+  undefined4 uVar7;
+  undefined *puVar8;
+  int iVar9;
+  undefined1 uVar10;
+  int iVar11;
+  uint uVar12;
+  bool bVar13;
+  bool bVar14;
+  uint local_58;
+  uint local_54;
+  uint local_44;
+  undefined1 local_2e [2];
+  ushort local_2c;
+  ushort local_2a;
+  ushort local_28;
+  ushort local_26;
+  undefined4 local_24;
+  undefined2 local_1e;
+  
+  piVar1 = (int *)*param_1;
+  local_54 = piVar1[4];
+  iVar2 = *(int *)*piVar1;
+  iVar11 = ((int *)*piVar1)[1];
+  bVar13 = (local_54 & 4) != 0;
+  FUN_042b10f0(iVar2);
+  uVar4 = *(byte *)(iVar2 + 0x1b3) & 2;
+  if ((*(byte *)(iVar2 + 0x1b3) & 4) == 0) {
+    if (*(short *)(iVar2 + 0x1ac) != 0) {
+      uVar4 = uVar4 | 1;
+    }
+  }
+  else {
+    uVar4 = uVar4 | 1;
+  }
+  if (*(char *)(iVar2 + 0x1b4) == '\x10') {
+    uVar4 = uVar4 | 4;
+  }
+  uVar12 = local_54 ^ uVar4;
+  local_58 = 0;
+  if ((uVar12 & 2) != 0) {
+    if ((local_54 & 2) == 0) {
+      local_58 = uVar4 & 1;
+      png_set_rgb_to_gray_fixed(iVar2,1,0xffffffff,0xffffffff);
+    }
+    else {
+      FUN_042b11e0(iVar2);
+    }
+    uVar12 = uVar12 & 0xfffffffd;
+  }
+  iVar5 = -1;
+  if ((uVar4 & 4) != 0) {
+    iVar5 = (-(uint)((piVar1[5] & 4U) == 0) & 0x186a1) - 1;
+  }
+  png_set_alpha_mode_fixed(iVar2,0,iVar5);
+  puVar8 = (undefined *)0xffffffff;
+  if (bVar13) {
+    puVar8 = &DAT_000186a0;
+  }
+  uVar10 = bVar13 && (uVar4 & 1) != 0;
+  if (local_58 != 0) {
+    iVar5 = FUN_042a75f0(&local_24,puVar8,*(undefined4 *)(iVar2 + 0x338),&DAT_000186a0);
+    if (iVar5 != 0) {
+      iVar5 = FUN_042a8b40(local_24);
+      local_58 = 0;
+      if (iVar5 == 0) goto LAB_042acfae;
+    }
+    if ((bool)uVar10) {
+      local_58 = 2;
+      uVar10 = false;
+    }
+    else {
+      local_58 = 1;
+      uVar10 = false;
+    }
+  }
+LAB_042acfae:
+  if ((uVar12 & 4) != 0) {
+    if (bVar13) {
+      FUN_042b11b0(iVar2);
+    }
+    else {
+      FUN_042b0310();
+    }
+    uVar12 = uVar12 & 0xfffffffb;
+  }
+  local_44 = 0;
+  if ((uVar12 & 1) != 0) {
+    if ((uVar4 & 1) == 0) {
+      bVar14 = (local_54 & 0x20) != 0;
+      if (bVar14) {
+        uVar12 = uVar12 & 0xffffffdf;
+      }
+      FUN_042bcf40(iVar2,(-(uint)!bVar13 & 0xffff0100) + 0xffff,!bVar14);
+      local_44 = 0;
+    }
+    else if (local_58 == 0) {
+      if (bVar13) {
+        FUN_042b0370(iVar2);
+        local_44 = local_58;
+      }
+      else {
+        pbVar3 = (byte *)param_1[4];
+        if (pbVar3 == (byte *)0x0) {
+          uVar10 = 2;
+          local_44 = 1;
+        }
+        else {
+          local_2e[0] = 0;
+          local_2c = (ushort)*pbVar3;
+          local_2a = (ushort)pbVar3[1];
+          local_28 = (ushort)pbVar3[2];
+          local_26 = local_2a;
+          FUN_042b01b0(iVar2,local_2e,1,0,0);
+          local_44 = 0;
+        }
+      }
+    }
+    else {
+      local_58 = 2;
+    }
+    uVar12 = uVar12 & 0xfffffffe;
+  }
+  png_set_alpha_mode_fixed(iVar2,uVar10,puVar8);
+  if ((uVar12 & 0x10) != 0) {
+    if ((local_54 & 2) == 0) {
+      local_54 = local_54 & 0xffffffef;
+    }
+    else {
+      FUN_042bcd90(iVar2);
+    }
+    uVar12 = uVar12 & 0xffffffef;
+  }
+  if ((uVar12 & 0x20) != 0) {
+    if ((local_54 & 1) == 0) {
+      local_54 = local_54 & 0xffffffdf;
+    }
+    else if (local_58 != 2) {
+      FUN_042bcf80(iVar2);
+    }
+    uVar12 = uVar12 & 0xffffffdf;
+  }
+  if (bVar13) {
+    local_1e = 1;
+    FUN_042bcdb0(iVar2);
+  }
+  if (uVar12 != 0) {
+                    /* WARNING: Subroutine does not return */
+    png_error(iVar2,"png_read_image: unsupported transformation");
+  }
+  FUN_042aa580();
+  if ((local_58 == 2) || (local_44 != 0)) {
+    iVar5 = 0;
+  }
+  else {
+    iVar5 = FUN_042bce50(iVar2);
+  }
+  png_read_update_info(iVar2,iVar11);
+  uVar4 = *(byte *)(iVar11 + 0x19) & 2;
+  if ((*(byte *)(iVar11 + 0x19) & 4) == 0) {
+    if (local_44 != 0) {
+                    /* WARNING: Subroutine does not return */
+      png_error(iVar2,"png_image_read: alpha channel lost");
+    }
+  }
+  else if ((local_44 == 0) && ((local_58 != 2 || ((local_54 & 1) != 0)))) {
+    uVar4 = uVar4 | 1;
+  }
+  if (*(char *)(iVar11 + 0x18) == '\x10') {
+    uVar4 = uVar4 | 4;
+  }
+  uVar12 = *(uint *)(iVar2 + 0xd8);
+  if ((uVar12 & 1) != 0) {
+    uVar4 = uVar4 | 0x10;
+  }
+  if ((local_58 == 2) && ((local_54 & 0x20) != 0)) {
+    uVar4 = uVar4 | 0x20;
+  }
+  if (((uVar12 & 0x20000) != 0) ||
+     (((uVar12 & 0x1000000) != 0 && ((*(byte *)(iVar2 + 0xd4) & 0x80) == 0)))) {
+    if (local_58 == 2) {
+                    /* WARNING: Subroutine does not return */
+      png_error(iVar2,"unexpected alpha swap transformation");
+    }
+    uVar4 = uVar4 | 0x20;
+  }
+  if (uVar4 != local_54) {
+                    /* WARNING: Subroutine does not return */
+    png_error(iVar2,"png_read_image: invalid transformations");
+  }
+  iVar6 = param_1[2];
+  if (bVar13) {
+    iVar6 = param_1[2] * 2;
+  }
+  if (iVar6 < 0) {
+    iVar9 = piVar1[3];
+    param_1[7] = iVar6;
+    param_1[6] = param_1[1] + (1 - iVar9) * iVar6;
+  }
+  else {
+    param_1[6] = param_1[1];
+    param_1[7] = iVar6;
+  }
+  if (local_44 != 0) {
+    uVar7 = FUN_042c4b60(iVar2,iVar11);
+    iVar11 = FUN_042aa2c0(iVar2,uVar7);
+    param_1[5] = iVar11;
+    uVar7 = FUN_042aa050(piVar1,png_image_read_composite,param_1);
+    param_1[5] = 0;
+    FUN_042aa410(iVar2,iVar11);
+    return uVar7;
+  }
+  if (local_58 == 2) {
+    uVar7 = FUN_042c4b60(iVar2,iVar11);
+    iVar11 = FUN_042aa2c0(iVar2,uVar7);
+    param_1[5] = iVar11;
+    uVar7 = FUN_042aa050(piVar1,png_image_read_background,param_1);
+    param_1[5] = 0;
+    FUN_042aa410(iVar2,iVar11);
+  }
+  else {
+    while (iVar5 = iVar5 + -1, -1 < iVar5) {
+      while( true ) {
+        iVar11 = piVar1[3];
+        iVar9 = param_1[6];
+        if (iVar11 == 0) break;
+        do {
+          png_read_row(iVar2,iVar9,0);
+          iVar9 = iVar9 + iVar6;
+          iVar11 = iVar11 + -1;
+        } while (iVar11 != 0);
+        iVar5 = iVar5 + -1;
+        if (iVar5 < 0) goto LAB_042ad288;
+      }
+    }
+LAB_042ad288:
+    uVar7 = 1;
+  }
+  return uVar7;
+}
+

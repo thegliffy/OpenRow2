@@ -1,0 +1,71 @@
+
+/* source: mem_vm */
+
+undefined4 eON_VirtualFreeEx(int param_1,uint param_2,int param_3,int param_4)
+
+{
+  byte bVar1;
+  int iVar2;
+  
+  if (param_1 != -1) {
+    FUN_0402cd10(0xf,"VirtualFreeEx() called with hProcess %p !!",param_1);
+    eON_SetLastError(6);
+    return 0;
+  }
+  pthread_mutex_lock((pthread_mutex_t *)&DAT_04515bf4);
+  iVar2 = FUN_0413c980();
+  if (iVar2 == 0) {
+    FUN_0402cd10(10,
+                 "VirtualFree() fail: encompassing reserved region not found for address %#X, size %#X"
+                 ,param_2,param_3);
+  }
+  else {
+    bVar1 = *(byte *)(iVar2 + 0x1c);
+    if (((bVar1 & 3) == 0) && (*(int *)(iVar2 + 0x10) == 0)) {
+      if (param_4 == 0x8000) {
+        if ((param_2 + 0xfff + param_3 & 0xfffff000) == (param_2 & 0xfffff000)) {
+          if (*(uint *)(iVar2 + 8) == (param_2 & 0xfffff000)) {
+            vmm_DeleteReservedRegion();
+            goto LAB_0413e91a;
+          }
+          FUN_0402cd10(10,
+                       "VirtualFree() fail: MEM_RELEASE specified, address given not equal to region start address!"
+                      );
+        }
+        else {
+          FUN_0402cd10(10,"VirtualFree() fail: MEM_RELEASE specified, non-zero size!");
+        }
+      }
+      else {
+        if (param_4 == 0x4000) {
+          custom_munmap();
+LAB_0413e91a:
+          pthread_mutex_unlock((pthread_mutex_t *)&DAT_04515bf4);
+          return 1;
+        }
+        FUN_0402cd10(10,"VirtualFree() fail: unknown free flag specified: %u (%#x)",param_4,param_4)
+        ;
+      }
+    }
+    else if ((bVar1 & 1) == 0) {
+      if ((bVar1 & 2) == 0) {
+        if (*(int *)(iVar2 + 0x10) == 0) {
+          FUN_0400a810("region->Mapping",
+                       "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/mem_vm.cpp"
+                       ,0x937,"WINBOOL eON_VirtualFreeEx(HANDLE, LPVOID, SIZE_T, DWORD)");
+        }
+        FUN_0402cd10(10,"VirtualFree() fail: region has mapping");
+      }
+      else {
+        FUN_0402cd10(10,"VirtualFree() fail: region is special region");
+      }
+    }
+    else {
+      FUN_0402cd10(10,"VirtualFree() fail: region is image region");
+    }
+  }
+  pthread_mutex_unlock((pthread_mutex_t *)&DAT_04515bf4);
+  eON_SetLastError(0x57);
+  return 0;
+}
+

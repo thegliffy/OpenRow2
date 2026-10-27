@@ -1,0 +1,95 @@
+
+/* source: audioallocator */
+
+void audioallocator_04105480(undefined4 *param_1,uint param_2)
+
+{
+  uint uVar1;
+  undefined4 *puVar2;
+  undefined4 *puVar3;
+  uint uVar4;
+  uint uVar5;
+  undefined4 *puVar6;
+  undefined4 *puVar7;
+  size_t local_28;
+  undefined4 *local_24;
+  undefined4 *local_20;
+  
+  if (param_2 == 0) {
+    return;
+  }
+  puVar3 = (undefined4 *)param_1[1];
+  puVar2 = puVar3;
+  uVar4 = param_2;
+  if (param_2 <= (uint)(param_1[2] - (int)puVar3 >> 2)) {
+    do {
+      if (puVar2 != (undefined4 *)0x0) {
+        *puVar2 = 0;
+      }
+      uVar4 = uVar4 - 1;
+      puVar2 = puVar2 + 1;
+    } while (uVar4 != 0);
+    param_1[1] = puVar3 + param_2;
+    return;
+  }
+  local_24 = (undefined4 *)*param_1;
+  uVar4 = (int)puVar3 - (int)local_24 >> 2;
+  if (0x3fffffff - uVar4 < param_2) {
+                    /* WARNING: Subroutine does not return */
+    std::__throw_length_error("vector::_M_default_append");
+  }
+  local_28 = 0xfffffffc;
+  uVar5 = param_2;
+  if (param_2 <= uVar4) {
+    uVar5 = uVar4;
+  }
+  uVar1 = uVar4 + uVar5;
+  if ((!CARRY4(uVar4,uVar5)) && (uVar1 < 0x40000000)) {
+    local_28 = 0;
+    local_20 = (undefined4 *)0x0;
+    if (uVar1 == 0) goto LAB_0410553a;
+    local_28 = uVar1 * 4;
+  }
+  local_20 = (undefined4 *)memalign(0x10,local_28);
+  if (local_20 == (undefined4 *)0x0) {
+    FUN_0400a810("memory",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/xaudio2_full/audioallocator.h"
+                 ,0x4b,
+                 "T* AudioAllocator<T>::allocate(AudioAllocator<T>::size_type, const void*) [with T = float, AudioAllocator<T>::pointer = float*, AudioAllocator<T>::size_type = unsigned int]"
+                );
+  }
+  bzero(local_20,local_28);
+  local_24 = (undefined4 *)*param_1;
+  puVar3 = (undefined4 *)param_1[1];
+LAB_0410553a:
+  puVar2 = local_20;
+  uVar4 = param_2;
+  puVar6 = local_24;
+  puVar7 = local_20;
+  if (puVar3 != local_24) {
+    do {
+      if (puVar2 != (undefined4 *)0x0) {
+        *puVar2 = *puVar6;
+      }
+      puVar6 = puVar6 + 1;
+      puVar2 = puVar2 + 1;
+    } while (puVar3 != puVar6);
+    puVar2 = (undefined4 *)((int)local_20 + ((int)puVar3 - (int)(local_24 + 1) & 0xfffffffcU) + 4);
+    puVar7 = puVar2;
+  }
+  do {
+    if (puVar2 != (undefined4 *)0x0) {
+      *puVar2 = 0;
+    }
+    uVar4 = uVar4 - 1;
+    puVar2 = puVar2 + 1;
+  } while (uVar4 != 0);
+  if (local_24 != (undefined4 *)0x0) {
+    free(local_24);
+  }
+  param_1[1] = puVar7 + param_2;
+  *param_1 = local_20;
+  param_1[2] = (int)local_20 + local_28;
+  return;
+}
+

@@ -1,0 +1,63 @@
+
+void eON_ShaderData_emit_for_loop_const(int *param_1)
+
+{
+  int *piVar1;
+  uint uVar2;
+  int iVar3;
+  ushort *puVar4;
+  int iVar5;
+  undefined4 uVar6;
+  undefined1 local_11c [128];
+  undefined1 local_9c [140];
+  
+  uVar2 = param_1[7];
+  iVar3 = *param_1;
+  if ((((uVar2 & 0x1800) >> 8 | (uVar2 & 0x70000000) >> 0x1c) == 7) &&
+     (*(int *)(iVar3 + 0x2c0) != 0)) {
+    puVar4 = *(ushort **)(iVar3 + 700);
+    if ((uint)*puVar4 != (uVar2 & 0x7ff)) {
+      iVar5 = 0;
+      do {
+        puVar4 = puVar4 + 0x12;
+        iVar5 = iVar5 + 1;
+        if (iVar5 == *(int *)(iVar3 + 0x2c0)) goto LAB_0405293e;
+      } while ((uint)*puVar4 != (uVar2 & 0x7ff));
+    }
+    uVar6 = *(undefined4 *)(iVar3 + 0x2d0);
+    if (puVar4 != (ushort *)0xfffffffc) {
+      iVar3 = *(int *)(puVar4 + 6);
+      if (iVar3 == 0) {
+        eON_AppendShaderCompileMessage
+                  (param_1[0xe],
+                   "for( Loop%u = %d, LoopTemp%u = 0; LoopTemp%u < %d; LoopTemp%u++ ) {\n",uVar6,
+                   *(undefined4 *)(puVar4 + 4),uVar6,uVar6,*(undefined4 *)(puVar4 + 2),uVar6);
+      }
+      else {
+        eON_AppendShaderCompileMessage
+                  (param_1[0xe],"for( Loop%u = %d; Loop%u %c ( %d * %d + %d ); Loop%u += %d ) {\n",
+                   uVar6,*(undefined4 *)(puVar4 + 4),uVar6,0x3c,*(undefined4 *)(puVar4 + 2),iVar3,
+                   *(undefined4 *)(puVar4 + 4),uVar6,iVar3);
+      }
+      goto LAB_040529b0;
+    }
+  }
+  else {
+LAB_0405293e:
+    uVar6 = *(undefined4 *)(iVar3 + 0x2d0);
+  }
+  eON_ShaderData_ApplySourceModifier(0xf0000,local_11c);
+  eON_AppendShaderCompileMessage
+            (param_1[0xe],
+             "for( LoopTemp%u = 0, Loop%u = %s.y; LoopTemp%u < %s.x; LoopTemp%u++, Loop%u += %s.z ) {\n"
+             ,uVar6,*(undefined4 *)(*param_1 + 0x2d4),local_9c,uVar6,local_9c,uVar6,
+             *(undefined4 *)(*param_1 + 0x2d4),local_9c);
+LAB_040529b0:
+  iVar3 = *param_1;
+  piVar1 = (int *)(iVar3 + 0x2d4);
+  *piVar1 = *piVar1 + 1;
+  piVar1 = (int *)(iVar3 + 0x2d0);
+  *piVar1 = *piVar1 + 1;
+  return;
+}
+

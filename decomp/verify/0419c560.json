@@ -1,0 +1,181 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+bool _glewInit_GL_ATI_vertex_streams(void)
+
+{
+  int iVar1;
+  bool bVar2;
+  bool bVar3;
+  bool bVar4;
+  bool bVar5;
+  bool bVar6;
+  bool bVar7;
+  bool bVar8;
+  bool bVar9;
+  bool bVar10;
+  bool bVar11;
+  bool bVar12;
+  bool bVar13;
+  bool bVar14;
+  bool bVar15;
+  bool bVar16;
+  bool bVar17;
+  bool bVar18;
+  bool bVar19;
+  bool bVar20;
+  bool bVar21;
+  bool bVar22;
+  bool bVar23;
+  bool bVar24;
+  bool bVar25;
+  bool bVar26;
+  bool bVar27;
+  bool bVar28;
+  bool bVar29;
+  bool bVar30;
+  bool bVar31;
+  bool bVar32;
+  bool bVar33;
+  bool bVar34;
+  bool bVar35;
+  bool bVar36;
+  bool bVar37;
+  bool bVar38;
+  bool bVar39;
+  bool bVar40;
+  bool bVar41;
+  bool bVar42;
+  bool bVar43;
+  bool bVar44;
+  
+  iVar1 = glXGetProcAddressARB("glClientActiveVertexStreamATI");
+  _DAT_0451dd3c = iVar1;
+  _DAT_0451dd38 = glXGetProcAddressARB("glNormalStream3bATI");
+  bVar2 = _DAT_0451dd38 == 0;
+  _DAT_0451dd34 = glXGetProcAddressARB("glNormalStream3bvATI");
+  bVar3 = _DAT_0451dd34 == 0;
+  _DAT_0451dd30 = glXGetProcAddressARB("glNormalStream3dATI");
+  bVar4 = _DAT_0451dd30 == 0;
+  _DAT_0451dd2c = glXGetProcAddressARB("glNormalStream3dvATI");
+  bVar5 = _DAT_0451dd2c == 0;
+  _DAT_0451dd28 = glXGetProcAddressARB("glNormalStream3fATI");
+  bVar6 = _DAT_0451dd28 == 0;
+  _DAT_0451dd24 = glXGetProcAddressARB("glNormalStream3fvATI");
+  bVar7 = _DAT_0451dd24 == 0;
+  _DAT_0451dd20 = glXGetProcAddressARB("glNormalStream3iATI");
+  bVar8 = _DAT_0451dd20 == 0;
+  _DAT_0451dd1c = glXGetProcAddressARB("glNormalStream3ivATI");
+  bVar9 = _DAT_0451dd1c == 0;
+  _DAT_0451dd18 = glXGetProcAddressARB("glNormalStream3sATI");
+  bVar10 = _DAT_0451dd18 == 0;
+  _DAT_0451dd14 = glXGetProcAddressARB("glNormalStream3svATI");
+  bVar11 = _DAT_0451dd14 == 0;
+  _DAT_0451dd10 = glXGetProcAddressARB("glVertexBlendEnvfATI");
+  bVar12 = _DAT_0451dd10 == 0;
+  _DAT_0451dd0c = glXGetProcAddressARB("glVertexBlendEnviATI");
+  bVar13 = _DAT_0451dd0c == 0;
+  _DAT_0451dd08 = glXGetProcAddressARB("glVertexStream1dATI");
+  bVar14 = _DAT_0451dd08 == 0;
+  _DAT_0451dd04 = glXGetProcAddressARB("glVertexStream1dvATI");
+  bVar15 = _DAT_0451dd04 == 0;
+  _DAT_0451dd00 = glXGetProcAddressARB("glVertexStream1fATI");
+  bVar16 = _DAT_0451dd00 == 0;
+  _DAT_0451dcfc = glXGetProcAddressARB("glVertexStream1fvATI");
+  bVar17 = _DAT_0451dcfc == 0;
+  _DAT_0451dcf8 = glXGetProcAddressARB("glVertexStream1iATI");
+  bVar18 = _DAT_0451dcf8 == 0;
+  _DAT_0451dcf4 = glXGetProcAddressARB("glVertexStream1ivATI");
+  bVar19 = _DAT_0451dcf4 == 0;
+  _DAT_0451dcf0 = glXGetProcAddressARB("glVertexStream1sATI");
+  bVar20 = _DAT_0451dcf0 == 0;
+  _DAT_0451dcec = glXGetProcAddressARB("glVertexStream1svATI");
+  bVar21 = _DAT_0451dcec == 0;
+  _DAT_0451dce8 = glXGetProcAddressARB("glVertexStream2dATI");
+  bVar22 = _DAT_0451dce8 == 0;
+  _DAT_0451dce4 = glXGetProcAddressARB("glVertexStream2dvATI");
+  bVar23 = _DAT_0451dce4 == 0;
+  _DAT_0451dce0 = glXGetProcAddressARB("glVertexStream2fATI");
+  bVar24 = _DAT_0451dce0 == 0;
+  _DAT_0451dcdc = glXGetProcAddressARB("glVertexStream2fvATI");
+  bVar25 = _DAT_0451dcdc == 0;
+  _DAT_0451dcd8 = glXGetProcAddressARB("glVertexStream2iATI");
+  bVar26 = _DAT_0451dcd8 == 0;
+  _DAT_0451dcd4 = glXGetProcAddressARB("glVertexStream2ivATI");
+  bVar27 = _DAT_0451dcd4 == 0;
+  _DAT_0451dcd0 = glXGetProcAddressARB("glVertexStream2sATI");
+  bVar28 = _DAT_0451dcd0 == 0;
+  _DAT_0451dccc = glXGetProcAddressARB("glVertexStream2svATI");
+  bVar29 = _DAT_0451dccc == 0;
+  _DAT_0451dcc8 = glXGetProcAddressARB("glVertexStream3dATI");
+  bVar30 = _DAT_0451dcc8 == 0;
+  _DAT_0451dcc4 = glXGetProcAddressARB("glVertexStream3dvATI");
+  bVar31 = _DAT_0451dcc4 == 0;
+  _DAT_0451dcc0 = glXGetProcAddressARB("glVertexStream3fATI");
+  bVar32 = _DAT_0451dcc0 == 0;
+  _DAT_0451dcbc = glXGetProcAddressARB("glVertexStream3fvATI");
+  bVar33 = _DAT_0451dcbc == 0;
+  _DAT_0451dcb8 = glXGetProcAddressARB("glVertexStream3iATI");
+  bVar34 = _DAT_0451dcb8 == 0;
+  _DAT_0451dcb4 = glXGetProcAddressARB("glVertexStream3ivATI");
+  bVar35 = _DAT_0451dcb4 == 0;
+  _DAT_0451dcb0 = glXGetProcAddressARB("glVertexStream3sATI");
+  bVar36 = _DAT_0451dcb0 == 0;
+  _DAT_0451dcac = glXGetProcAddressARB("glVertexStream3svATI");
+  bVar37 = _DAT_0451dcac == 0;
+  _DAT_0451dca8 = glXGetProcAddressARB("glVertexStream4dATI");
+  bVar38 = _DAT_0451dca8 == 0;
+  _DAT_0451dca4 = glXGetProcAddressARB("glVertexStream4dvATI");
+  bVar39 = _DAT_0451dca4 == 0;
+  _DAT_0451dca0 = glXGetProcAddressARB("glVertexStream4fATI");
+  bVar40 = _DAT_0451dca0 == 0;
+  _DAT_0451dc9c = glXGetProcAddressARB("glVertexStream4fvATI");
+  bVar41 = _DAT_0451dc9c == 0;
+  _DAT_0451dc98 = glXGetProcAddressARB("glVertexStream4iATI");
+  bVar42 = _DAT_0451dc98 == 0;
+  _DAT_0451dc94 = glXGetProcAddressARB("glVertexStream4ivATI");
+  bVar43 = _DAT_0451dc94 == 0;
+  _DAT_0451dc90 = glXGetProcAddressARB("glVertexStream4sATI");
+  bVar44 = _DAT_0451dc90 == 0;
+  _DAT_0451dc8c = glXGetProcAddressARB("glVertexStream4svATI");
+  return _DAT_0451dc8c == 0 ||
+         (bVar44 ||
+         (bVar43 ||
+         (bVar42 ||
+         (bVar41 ||
+         (bVar40 ||
+         (bVar39 ||
+         (bVar38 ||
+         (bVar37 ||
+         (bVar36 ||
+         (bVar35 ||
+         (bVar34 ||
+         (bVar33 ||
+         (bVar32 ||
+         (bVar31 ||
+         (bVar30 ||
+         (bVar29 ||
+         (bVar28 ||
+         (bVar27 ||
+         (bVar26 ||
+         (bVar25 ||
+         (bVar24 ||
+         (bVar23 ||
+         (bVar22 ||
+         (bVar21 ||
+         (bVar20 ||
+         (bVar19 ||
+         (bVar18 ||
+         (bVar17 ||
+         (bVar16 ||
+         (bVar15 ||
+         (bVar14 ||
+         (bVar13 ||
+         (bVar12 ||
+         (bVar11 ||
+         (bVar10 ||
+         (bVar9 || (bVar8 || (bVar7 || (bVar6 || (bVar5 || (bVar4 || (bVar3 || (bVar2 || iVar1 == 0)
+                                                                     )))))))))))))))))))))))))))))))
+         )))))))))));
+}
+

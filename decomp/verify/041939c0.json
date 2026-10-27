@@ -1,0 +1,75 @@
+
+int eON_ioctlsocket(int param_1,int param_2,uint *param_3)
+
+{
+  uint *puVar1;
+  uint uVar2;
+  int *piVar3;
+  char *pcVar4;
+  int iVar5;
+  uint uVar6;
+  uint local_24 [4];
+  undefined4 *local_14;
+  
+  puVar1 = param_3;
+  iVar5 = param_1;
+  local_14 = &param_1;
+  if (param_1 == -1) {
+LAB_04193b30:
+    eON_SetLastError(0x2736);
+  }
+  else {
+    if (param_3 == (uint *)0x0) goto LAB_04193b50;
+    if (param_2 == 0x40047307) {
+      iVar5 = ioctl(param_1,0x8905,local_24);
+      if (iVar5 == 0) {
+        *puVar1 = (uint)(local_24[0] != 0);
+        return 0;
+      }
+LAB_04193a88:
+      piVar3 = __errno_location();
+LAB_04193a8f:
+      iVar5 = *piVar3;
+      if (iVar5 == 9) goto LAB_04193b30;
+      if (iVar5 == 0xe) {
+LAB_04193b50:
+        eON_SetLastError(0x271e);
+        return -1;
+      }
+      pcVar4 = strerror(iVar5);
+      FUN_0402cd10(0xf,"SOCKETS: ioctlsocket() - unhandled errno: (%u) %s",*piVar3,pcVar4);
+    }
+    else {
+      if (param_2 == -0x7ffb9982) {
+        uVar2 = fcntl(param_1,3,0);
+        if (uVar2 != 0xffffffff) {
+          uVar6 = uVar2 | 0x800;
+          if (*puVar1 == 0) {
+            uVar6 = uVar2 & 0xfffff7ff;
+          }
+          iVar5 = fcntl(iVar5,4,uVar6);
+          if (iVar5 != -1) {
+            return iVar5;
+          }
+          goto LAB_04193a88;
+        }
+        piVar3 = __errno_location();
+        pcVar4 = strerror(*piVar3);
+        FUN_0402cd10(0xf,"SOCKETS: ioctlsocket() fcntl(%d, F_GETFL) failed (%u) %s",iVar5,*piVar3,
+                     pcVar4);
+        goto LAB_04193a8f;
+      }
+      if (param_2 == 0x4004667f) {
+        iVar5 = ioctl(param_1,0x541b,local_24);
+        if (iVar5 == 0) {
+          *puVar1 = local_24[0];
+          return 0;
+        }
+        goto LAB_04193a88;
+      }
+    }
+    eON_SetLastError(0x277b);
+  }
+  return -1;
+}
+

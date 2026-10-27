@@ -1,0 +1,48 @@
+
+/* source: AES */
+
+void AES__Encrypt(int *param_1,int param_2,void *param_3,int param_4,int param_5)
+
+{
+  byte *pbVar1;
+  size_t sVar2;
+  size_t __n;
+  byte local_5c [76];
+  
+  if (param_4 != 0) {
+    __n = *param_1 * 4;
+    if (param_5 != 0) {
+      if (param_5 == 1) {
+        bzero(local_5c,0x40);
+        do {
+          if (__n != 0) {
+            sVar2 = 0;
+            do {
+              pbVar1 = local_5c + sVar2;
+              *pbVar1 = *pbVar1 ^ *(byte *)(param_2 + sVar2);
+              sVar2 = sVar2 + 1;
+            } while (__n != sVar2);
+            param_2 = param_2 + __n;
+          }
+          FUN_04031630(param_1,local_5c,param_3);
+          memcpy(local_5c,param_3,__n);
+          param_3 = (void *)((int)param_3 + __n);
+          param_4 = param_4 + -1;
+        } while (param_4 != 0);
+        return;
+      }
+      FUN_0400a810("false && \"Unknown mode!\"",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/vpfs/AES.cpp",0x308,
+                   "void AES::Encrypt(const uint8_t*, uint8_t*, uint32_t, AES::BlockMode)");
+      return;
+    }
+    do {
+      FUN_04031630(param_1,param_2,param_3);
+      param_2 = param_2 + __n;
+      param_3 = (void *)((int)param_3 + __n);
+      param_4 = param_4 + -1;
+    } while (param_4 != 0);
+  }
+  return;
+}
+

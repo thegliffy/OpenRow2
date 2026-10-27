@@ -1,0 +1,19 @@
+
+void FlushRegistrySave(void)
+
+{
+  char cVar1;
+  undefined4 uVar2;
+  
+  if (DAT_04512a70 == '\0') {
+    return;
+  }
+  uVar2 = eON_GetEonRegistryPath(0);
+  cVar1 = TiXmlDocument__SaveFile_Path(DAT_04512a6c,uVar2);
+  if (cVar1 == '\0') {
+    FUN_0402cd10(0xf,"Failed to save to registry - fix it!");
+  }
+  DAT_04512a70 = 0;
+  return;
+}
+

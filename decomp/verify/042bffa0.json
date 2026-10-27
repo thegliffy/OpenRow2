@@ -1,0 +1,54 @@
+
+void png_write_image(int param_1,int param_2,uint param_3)
+
+{
+  if ((param_2 != 0) && (param_1 != 0)) {
+    if ((*(byte *)(param_2 + 9) & 0x80) != 0) {
+      png_write_info(param_1,param_2);
+      if ((param_3 & 0x20) != 0) {
+        FUN_042bcfc0(param_1);
+      }
+      if (((param_3 & 0x40) != 0) && ((*(byte *)(param_2 + 8) & 2) != 0)) {
+        FUN_042bce20(param_1,param_2 + 0x94);
+      }
+      if ((param_3 & 4) != 0) {
+        FUN_042bcdd0(param_1);
+      }
+      if ((param_3 & 0x100) != 0) {
+        FUN_042bcf80(param_1);
+      }
+      if ((param_3 & 0x1800) != 0) {
+        if ((param_3 & 0x1000) == 0) {
+          if ((param_3 & 0x800) != 0) {
+            png_set_filler(param_1,0,0);
+          }
+        }
+        else {
+          if ((param_3 & 0x800) != 0) {
+            FUN_042a9df0(param_1,"PNG_TRANSFORM_STRIP_FILLER: BEFORE+AFTER not supported");
+          }
+          png_set_filler(param_1,0,1);
+        }
+      }
+      if ((param_3 & 0x80) != 0) {
+        FUN_042bcd90(param_1);
+      }
+      if ((param_3 & 0x200) != 0) {
+        FUN_042bcdb0(param_1);
+      }
+      if ((param_3 & 8) != 0) {
+        FUN_042bce00(param_1);
+      }
+      if ((param_3 & 0x400) != 0) {
+        FUN_042bcfa0(param_1);
+      }
+      FUN_042bf0c0(param_1,*(undefined4 *)(param_2 + 0x108));
+      png_write_end();
+      return;
+    }
+    FUN_042a9df0();
+    return;
+  }
+  return;
+}
+

@@ -1,0 +1,28 @@
+
+/* source: openGlDebugFunctions */
+
+void OGLC_StopOnProgramUpdatePresent(void)
+
+{
+  int iVar1;
+  
+  iVar1 = eON_Int_GL_NoteCurrentContext();
+  if (iVar1 == 0) {
+    puts("No valid OpenGL context in calling thread!.");
+    return;
+  }
+  if (DAT_044dac80 == 0) {
+    FUN_040d9ba0();
+  }
+  DAT_044db0a0 = 4;
+  glGetIntegerv(0x8b8d,&DAT_044db0ac);
+  iVar1 = glGetError();
+  if (iVar1 == 0) {
+    return;
+  }
+  FUN_0400a810("glGetError() == 0",
+               "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+               ,0x1543,"void OGLC_StopOnProgramUpdatePresent(int32_t)");
+  return;
+}
+

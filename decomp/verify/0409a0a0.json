@@ -1,0 +1,49 @@
+
+void Direct3DDevice9Imp__LogMemoryStats
+               (undefined4 param_1,int *param_2,undefined4 param_3,pthread_mutex_t *param_4)
+
+{
+  int iVar1;
+  int iVar2;
+  int iVar3;
+  int *piVar4;
+  int local_34;
+  int local_30;
+  undefined4 local_24;
+  undefined4 local_20 [4];
+  
+  iVar3 = 0;
+  local_24 = 0;
+  local_20[0] = 0;
+  pthread_mutex_lock(param_4);
+  piVar4 = (int *)param_2[2];
+  local_34 = 0;
+  local_30 = 0;
+  for (; param_2 != piVar4; piVar4 = (int *)piVar4[2]) {
+    while( true ) {
+      iVar1 = *piVar4;
+      iVar2 = *(int *)(iVar1 + 0x24);
+      if ((iVar2 != 3) && (iVar2 != 5)) break;
+      iVar3 = iVar3 + 1;
+      FUN_0406dd50(iVar1 + 4,&local_24,local_20);
+      piVar4 = (int *)piVar4[2];
+      if (param_2 == piVar4) goto LAB_0409a122;
+    }
+    if ((iVar2 == 1) && (*(int *)(iVar1 + 0x90) != 2)) {
+      iVar2 = 0;
+      if (*(int *)(iVar1 + 0xcc) != 0) {
+        iVar2 = *(int *)(iVar1 + 0xc0);
+      }
+      local_34 = local_34 + 1;
+      local_30 = local_30 + iVar2;
+    }
+  }
+LAB_0409a122:
+  pthread_mutex_unlock(param_4);
+  FUN_0402cd10(0x14,"%s pool",param_3);
+  FUN_0402cd10(0x14,"    textures (%u): %u bytes in memory, %u bytes in OpenGL",iVar3,local_24,
+               local_20[0]);
+  FUN_0402cd10(0x14,"    other surfaces (%u): %u bytes in memory",local_34,local_30);
+  return;
+}
+

@@ -1,0 +1,68 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+bool _glewInit_GL_EXT_secondary_color(void)
+
+{
+  int iVar1;
+  bool bVar2;
+  bool bVar3;
+  bool bVar4;
+  bool bVar5;
+  bool bVar6;
+  bool bVar7;
+  bool bVar8;
+  bool bVar9;
+  bool bVar10;
+  bool bVar11;
+  bool bVar12;
+  bool bVar13;
+  bool bVar14;
+  bool bVar15;
+  bool bVar16;
+  
+  iVar1 = glXGetProcAddressARB("glSecondaryColor3bEXT");
+  _DAT_0451d6a0 = iVar1;
+  _DAT_0451d69c = glXGetProcAddressARB("glSecondaryColor3bvEXT");
+  bVar2 = _DAT_0451d69c == 0;
+  _DAT_0451d698 = glXGetProcAddressARB("glSecondaryColor3dEXT");
+  bVar3 = _DAT_0451d698 == 0;
+  _DAT_0451d694 = glXGetProcAddressARB("glSecondaryColor3dvEXT");
+  bVar4 = _DAT_0451d694 == 0;
+  _DAT_0451d690 = glXGetProcAddressARB("glSecondaryColor3fEXT");
+  bVar5 = _DAT_0451d690 == 0;
+  _DAT_0451d68c = glXGetProcAddressARB("glSecondaryColor3fvEXT");
+  bVar6 = _DAT_0451d68c == 0;
+  _DAT_0451d688 = glXGetProcAddressARB("glSecondaryColor3iEXT");
+  bVar7 = _DAT_0451d688 == 0;
+  _DAT_0451d684 = glXGetProcAddressARB("glSecondaryColor3ivEXT");
+  bVar8 = _DAT_0451d684 == 0;
+  _DAT_0451d680 = glXGetProcAddressARB("glSecondaryColor3sEXT");
+  bVar9 = _DAT_0451d680 == 0;
+  _DAT_0451d67c = glXGetProcAddressARB("glSecondaryColor3svEXT");
+  bVar10 = _DAT_0451d67c == 0;
+  _DAT_0451d678 = glXGetProcAddressARB("glSecondaryColor3ubEXT");
+  bVar11 = _DAT_0451d678 == 0;
+  _DAT_0451d674 = glXGetProcAddressARB("glSecondaryColor3ubvEXT");
+  bVar12 = _DAT_0451d674 == 0;
+  _DAT_0451d670 = glXGetProcAddressARB("glSecondaryColor3uiEXT");
+  bVar13 = _DAT_0451d670 == 0;
+  _DAT_0451d66c = glXGetProcAddressARB("glSecondaryColor3uivEXT");
+  bVar14 = _DAT_0451d66c == 0;
+  _DAT_0451d668 = glXGetProcAddressARB("glSecondaryColor3usEXT");
+  bVar15 = _DAT_0451d668 == 0;
+  _DAT_0451d664 = glXGetProcAddressARB("glSecondaryColor3usvEXT");
+  bVar16 = _DAT_0451d664 == 0;
+  _DAT_0451d660 = glXGetProcAddressARB("glSecondaryColorPointerEXT");
+  return _DAT_0451d660 == 0 ||
+         (bVar16 ||
+         (bVar15 ||
+         (bVar14 ||
+         (bVar13 ||
+         (bVar12 ||
+         (bVar11 ||
+         (bVar10 ||
+         (bVar9 || (bVar8 || (bVar7 || (bVar6 || (bVar5 || (bVar4 || (bVar3 || (bVar2 || iVar1 == 0)
+                                                                     ))))))))))))));
+}
+

@@ -1,0 +1,52 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+bool _glewInit_GL_NV_register_combiners(void)
+
+{
+  int iVar1;
+  bool bVar2;
+  bool bVar3;
+  bool bVar4;
+  bool bVar5;
+  bool bVar6;
+  bool bVar7;
+  bool bVar8;
+  bool bVar9;
+  bool bVar10;
+  bool bVar11;
+  bool bVar12;
+  
+  iVar1 = glXGetProcAddressARB("glCombinerInputNV");
+  _DAT_0451d020 = iVar1;
+  _DAT_0451d01c = glXGetProcAddressARB("glCombinerOutputNV");
+  bVar2 = _DAT_0451d01c == 0;
+  _DAT_0451d018 = glXGetProcAddressARB("glCombinerParameterfNV");
+  bVar3 = _DAT_0451d018 == 0;
+  _DAT_0451d014 = glXGetProcAddressARB("glCombinerParameterfvNV");
+  bVar4 = _DAT_0451d014 == 0;
+  _DAT_0451d010 = glXGetProcAddressARB("glCombinerParameteriNV");
+  bVar5 = _DAT_0451d010 == 0;
+  _DAT_0451d00c = glXGetProcAddressARB("glCombinerParameterivNV");
+  bVar6 = _DAT_0451d00c == 0;
+  _DAT_0451d008 = glXGetProcAddressARB("glFinalCombinerInputNV");
+  bVar7 = _DAT_0451d008 == 0;
+  _DAT_0451d004 = glXGetProcAddressARB("glGetCombinerInputParameterfvNV");
+  bVar8 = _DAT_0451d004 == 0;
+  _DAT_0451d000 = glXGetProcAddressARB("glGetCombinerInputParameterivNV");
+  bVar9 = _DAT_0451d000 == 0;
+  _DAT_0451cffc = glXGetProcAddressARB("glGetCombinerOutputParameterfvNV");
+  bVar10 = _DAT_0451cffc == 0;
+  _DAT_0451cff8 = glXGetProcAddressARB("glGetCombinerOutputParameterivNV");
+  bVar11 = _DAT_0451cff8 == 0;
+  _DAT_0451cff4 = glXGetProcAddressARB("glGetFinalCombinerInputParameterfvNV");
+  bVar12 = _DAT_0451cff4 == 0;
+  _DAT_0451cff0 = glXGetProcAddressARB("glGetFinalCombinerInputParameterivNV");
+  return _DAT_0451cff0 == 0 ||
+         (bVar12 ||
+         (bVar11 ||
+         (bVar10 ||
+         (bVar9 || (bVar8 || (bVar7 || (bVar6 || (bVar5 || (bVar4 || (bVar3 || (bVar2 || iVar1 == 0)
+                                                                     ))))))))));
+}
+

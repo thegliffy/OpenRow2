@@ -1,0 +1,148 @@
+
+void DumpUniformBuffers(void)
+
+{
+  int iVar1;
+  char local_36 [32];
+  char local_16 [10];
+  
+  iVar1 = eON_Int_GL_NoteCurrentContext();
+  if (iVar1 != 0) {
+    if (DAT_044dac80 == 0) {
+      FUN_040d9ba0();
+    }
+    sprintf(local_16,"UB%d",0);
+    sprintf(local_36,"uniformBuffer%d.txt",0);
+    iVar1 = eON_Int_GL_NoteCurrentContext();
+    if (iVar1 == 0) {
+      puts("No valid OpenGL context in calling thread!.");
+    }
+    else {
+      if (DAT_044dac80 == 0) {
+        FUN_040d9ba0();
+      }
+      OGLC_DumpBuffer();
+    }
+    sprintf(local_16,"UB%d",1);
+    sprintf(local_36,"uniformBuffer%d.txt",1);
+    iVar1 = eON_Int_GL_NoteCurrentContext();
+    if (iVar1 == 0) {
+      puts("No valid OpenGL context in calling thread!.");
+    }
+    else {
+      if (DAT_044dac80 == 0) {
+        FUN_040d9ba0();
+      }
+      OGLC_DumpBuffer();
+    }
+    sprintf(local_16,"UB%d",2);
+    sprintf(local_36,"uniformBuffer%d.txt",2);
+    iVar1 = eON_Int_GL_NoteCurrentContext();
+    if (iVar1 == 0) {
+      puts("No valid OpenGL context in calling thread!.");
+    }
+    else {
+      if (DAT_044dac80 == 0) {
+        FUN_040d9ba0();
+      }
+      OGLC_DumpBuffer();
+    }
+    sprintf(local_16,"UB%d",3);
+    sprintf(local_36,"uniformBuffer%d.txt",3);
+    iVar1 = eON_Int_GL_NoteCurrentContext();
+    if (iVar1 == 0) {
+      puts("No valid OpenGL context in calling thread!.");
+    }
+    else {
+      if (DAT_044dac80 == 0) {
+        FUN_040d9ba0();
+      }
+      OGLC_DumpBuffer();
+    }
+    sprintf(local_16,"UB%d",4);
+    sprintf(local_36,"uniformBuffer%d.txt",4);
+    iVar1 = eON_Int_GL_NoteCurrentContext();
+    if (iVar1 == 0) {
+      puts("No valid OpenGL context in calling thread!.");
+    }
+    else {
+      if (DAT_044dac80 == 0) {
+        FUN_040d9ba0();
+      }
+      OGLC_DumpBuffer();
+    }
+    sprintf(local_16,"UB%d",5);
+    sprintf(local_36,"uniformBuffer%d.txt",5);
+    iVar1 = eON_Int_GL_NoteCurrentContext();
+    if (iVar1 == 0) {
+      puts("No valid OpenGL context in calling thread!.");
+    }
+    else {
+      if (DAT_044dac80 == 0) {
+        FUN_040d9ba0();
+      }
+      OGLC_DumpBuffer();
+    }
+    sprintf(local_16,"UB%d",6);
+    sprintf(local_36,"uniformBuffer%d.txt",6);
+    iVar1 = eON_Int_GL_NoteCurrentContext();
+    if (iVar1 == 0) {
+      puts("No valid OpenGL context in calling thread!.");
+    }
+    else {
+      if (DAT_044dac80 == 0) {
+        FUN_040d9ba0();
+      }
+      OGLC_DumpBuffer();
+    }
+    sprintf(local_16,"UB%d",7);
+    sprintf(local_36,"uniformBuffer%d.txt",7);
+    iVar1 = eON_Int_GL_NoteCurrentContext();
+    if (iVar1 == 0) {
+      puts("No valid OpenGL context in calling thread!.");
+    }
+    else {
+      if (DAT_044dac80 == 0) {
+        FUN_040d9ba0();
+      }
+      OGLC_DumpBuffer();
+    }
+    sprintf(local_16,"UB%d",8);
+    sprintf(local_36,"uniformBuffer%d.txt",8);
+    iVar1 = eON_Int_GL_NoteCurrentContext();
+    if (iVar1 == 0) {
+      puts("No valid OpenGL context in calling thread!.");
+    }
+    else {
+      if (DAT_044dac80 == 0) {
+        FUN_040d9ba0();
+      }
+      OGLC_DumpBuffer();
+    }
+    sprintf(local_16,"UB%d",9);
+    sprintf(local_36,"uniformBuffer%d.txt",9);
+    iVar1 = eON_Int_GL_NoteCurrentContext();
+    if (iVar1 == 0) {
+      puts("No valid OpenGL context in calling thread!.");
+    }
+    else {
+      if (DAT_044dac80 == 0) {
+        FUN_040d9ba0();
+      }
+      OGLC_DumpBuffer();
+    }
+    sprintf(local_16,"UB%d",10);
+    sprintf(local_36,"uniformBuffer%d.txt",10);
+    iVar1 = eON_Int_GL_NoteCurrentContext();
+    if (iVar1 != 0) {
+      if (DAT_044dac80 == 0) {
+        FUN_040d9ba0();
+      }
+      OGLC_DumpBuffer();
+      return;
+    }
+  }
+  puts("No valid OpenGL context in calling thread!.");
+  return;
+}
+

@@ -1,0 +1,14 @@
+
+void Direct3DVolumeTexture9Imp__Direct3DVolumeTexture9Imp(undefined4 *param_1,undefined4 param_2)
+
+{
+  Direct3DBaseTexture9Imp__Direct3DBaseTexture9Imp(param_1,param_2);
+  *param_1 = &PTR_FUN_042fa768;
+  param_1[0xa9] = 0;
+  param_1[0xaa] = 0;
+  param_1[0xab] = 0;
+  param_1[1] = "Direct3DVolumeTexture9Imp";
+  param_1[8] = 4;
+  return;
+}
+

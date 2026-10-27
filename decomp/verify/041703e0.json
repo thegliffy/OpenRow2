@@ -1,0 +1,303 @@
+
+char * user32_MessageToString(uint param_1)
+
+{
+  char *pcVar1;
+  
+  if (param_1 == 0xc2) {
+    return "EM_REPLACESEL";
+  }
+  if (param_1 < 0xc3) {
+    if (param_1 == 0x24) {
+      return "WM_GETMINMAXINFO";
+    }
+    if (param_1 < 0x25) {
+      if (param_1 == 0xb) {
+        return "WM_SETREDRAW";
+      }
+      if (param_1 < 0xc) {
+        if (param_1 == 5) {
+          return "WM_SIZE";
+        }
+        if (param_1 < 6) {
+          if (param_1 == 2) {
+            return "WM_DESTROY";
+          }
+          if (param_1 == 3) {
+            return "WM_MOVE";
+          }
+          if (param_1 == 1) {
+            return "WM_CREATE";
+          }
+        }
+        else {
+          if (param_1 == 7) {
+            return "WM_SETFOCUS";
+          }
+          if (param_1 < 7) {
+            return "WM_ACTIVATE";
+          }
+          if (param_1 == 8) {
+            return "WM_KILLFOCUS";
+          }
+        }
+      }
+      else {
+        if (param_1 == 0x10) {
+          return "WM_CLOSE";
+        }
+        if (param_1 < 0x11) {
+          if (param_1 == 0xe) {
+            return "WM_GETTEXTLENGTH";
+          }
+          if (0xe < param_1) {
+            return "WM_PAINT";
+          }
+          if (param_1 == 0xd) {
+            return "WM_GETTEXT";
+          }
+        }
+        else {
+          if (param_1 == 0x18) {
+            return "WM_SHOWWINDOW";
+          }
+          if (param_1 < 0x19) {
+            if (param_1 == 0x12) {
+              return "WM_QUIT";
+            }
+          }
+          else {
+            if (param_1 == 0x1c) {
+              return "WM_ACTIVATEAPP";
+            }
+            if (param_1 == 0x20) {
+              return "WM_SETCURSOR";
+            }
+          }
+        }
+      }
+    }
+    else {
+      if (param_1 == 0x84) {
+        return "WM_NCHITTEST";
+      }
+      if (param_1 < 0x85) {
+        if (param_1 == 0x7c) {
+          return "WM_STYLECHANGING";
+        }
+        if (param_1 < 0x7d) {
+          if (param_1 == 0x46) {
+            return "WM_WINDOWPOSCHANGING";
+          }
+          if (param_1 == 0x47) {
+            return "WM_WINDOWPOSCHANGED";
+          }
+          if (param_1 == 0x30) {
+            return "WM_SETFONT";
+          }
+        }
+        else {
+          if (param_1 == 0x80) {
+            return "WM_SETICON";
+          }
+          if (param_1 < 0x81) {
+            if (param_1 == 0x7d) {
+              return "WM_STYLECHANGED";
+            }
+          }
+          else {
+            if (param_1 == 0x81) {
+              return "WM_NCCREATE";
+            }
+            if (param_1 == 0x82) {
+              return "WM_NCDESTROY";
+            }
+          }
+        }
+      }
+      else {
+        if (param_1 == 0xb1) {
+          return "EM_SETSEL";
+        }
+        if (param_1 < 0xb2) {
+          if (param_1 == 0x86) {
+            return "WM_NCACTIVATE";
+          }
+          if (param_1 < 0x86) {
+            return "WM_NCPAINT";
+          }
+          if (param_1 == 0x87) {
+            return "WM_GETDLGCODE";
+          }
+        }
+        else {
+          if (param_1 == 0xba) {
+            return "EM_GETLINECOUNT";
+          }
+          if (param_1 < 0xbb) {
+            if (param_1 == 0xb9) {
+              return "EM_SETMODIFY";
+            }
+          }
+          else {
+            if (param_1 == 0xbb) {
+              return "EM_LINEINDEX";
+            }
+            if (param_1 == 0xc1) {
+              return "EM_LINELENGTH";
+            }
+          }
+        }
+      }
+    }
+  }
+  else {
+    if (param_1 == 0x201) {
+      return "WM_LBUTTONDOWN";
+    }
+    if (param_1 < 0x202) {
+      if (param_1 == 0x113) {
+        return "WM_TIMER";
+      }
+      if (param_1 < 0x114) {
+        if (param_1 == 0x100) {
+          return "WM_KEYDOWN";
+        }
+        if (param_1 < 0x101) {
+          if (param_1 == 0xfe) {
+            return "WM_INPUT_DEVICE_CHANGE";
+          }
+          if (0xfe < param_1) {
+            return "WM_INPUT";
+          }
+          if (param_1 == 0xc5) {
+            return "EM_LIMITTEXT";
+          }
+        }
+        else {
+          if (param_1 == 0x102) {
+            return "WM_CHAR";
+          }
+          if (param_1 < 0x102) {
+            return "WM_KEYUP";
+          }
+          if (param_1 == 0x111) {
+            return "WM_COMMAND";
+          }
+          if (param_1 == 0x112) {
+            return "WM_SYSCOMMAND";
+          }
+        }
+      }
+      else {
+        if (param_1 == 0x147) {
+          return "CB_GETCURSEL";
+        }
+        if (param_1 < 0x148) {
+          if (param_1 == 0x128) {
+            return "WM_UPDATEUISTATE";
+          }
+          if (param_1 == 0x143) {
+            return "CB_ADDSTRING";
+          }
+          if (param_1 == 0x127) {
+            return "WM_CHANGEUISTATE";
+          }
+        }
+        else {
+          if (param_1 == 0x14e) {
+            return "CB_SETCURSEL";
+          }
+          if (param_1 < 0x14f) {
+            if (param_1 == 0x14b) {
+              return "CB_RESETCONTENT";
+            }
+          }
+          else {
+            if (param_1 == 0x151) {
+              return "CB_SETITEMDATA";
+            }
+            if (param_1 == 0x200) {
+              return "WM_MOUSEMOVE";
+            }
+          }
+        }
+      }
+    }
+    else {
+      if (param_1 == 0x20a) {
+        return "WM_MOUSEWHEEL";
+      }
+      if (param_1 < 0x20b) {
+        if (param_1 == 0x205) {
+          return "WM_RBUTTONUP";
+        }
+        if (param_1 < 0x206) {
+          if (param_1 == 0x203) {
+            return "WM_LBUTTONDBLCLK";
+          }
+          if (param_1 < 0x204) {
+            return "WM_LBUTTONUP";
+          }
+          return "WM_RBUTTONDOWN";
+        }
+        if (param_1 == 0x207) {
+          return "WM_MBUTTONDOWN";
+        }
+        if (param_1 < 0x207) {
+          return "WM_RBUTTONDBLCLK";
+        }
+        if (param_1 == 0x208) {
+          return "WM_MBUTTONUP";
+        }
+        if (param_1 == 0x209) {
+          return "WM_MBUTTONDBLCLK";
+        }
+      }
+      else {
+        if (param_1 == 0x210) {
+          return "WM_PARENTNOTIFY";
+        }
+        if (param_1 < 0x211) {
+          if (param_1 == 0x20c) {
+            return "WM_XBUTTONUP";
+          }
+          if (param_1 < 0x20c) {
+            return "WM_XBUTTONDOWN";
+          }
+          if (param_1 == 0x20d) {
+            return "WM_XBUTTONDBLCLK";
+          }
+        }
+        else {
+          if (param_1 == 0x308) {
+            return "WM_DRAWCLIPBOARD";
+          }
+          if (param_1 < 0x309) {
+            if (param_1 == 0x215) {
+              return "WM_CAPTURECHANGED";
+            }
+          }
+          else {
+            if (param_1 == 0x30d) {
+              return "WM_CHANGECBCHAIN";
+            }
+            if (param_1 == 0x80000000) {
+              return "(eon internal message)";
+            }
+          }
+        }
+      }
+    }
+  }
+  pcVar1 = "WM_USER+";
+  if (param_1 < 0x400) {
+    FUN_0402cd10(10,
+                 "Unknown message ( %u ). Please check what it is and add it to eON_Int_MessageToString function."
+                 ,param_1);
+    sprintf(&DAT_0451be40,"unknown (%u)",param_1);
+    pcVar1 = &DAT_0451be40;
+  }
+  return pcVar1;
+}
+

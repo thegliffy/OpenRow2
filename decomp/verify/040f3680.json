@@ -1,0 +1,22 @@
+
+undefined4 DirectInputGamepadDeviceImp__GetProperty(int param_1,int param_2,int param_3)
+
+{
+  undefined4 uVar1;
+  
+  uVar1 = 0x80070057;
+  if ((param_3 != 0) && (*(int *)(param_3 + 4) == 0x10)) {
+    if (param_2 != 7) {
+      FUN_0402cd10(0xf,
+                   "DirectInputGamepadDeviceImp::GetProperty requested unsupported property %p! Handle it."
+                   ,param_2);
+      return 0x80070057;
+    }
+    if ((*(int *)(param_3 + 0xc) == 0) && (*(int *)(param_3 + 8) == 0)) {
+      *(undefined4 *)(param_3 + 0x10) = *(undefined4 *)(param_1 + 0x38);
+      uVar1 = 0;
+    }
+  }
+  return uVar1;
+}
+

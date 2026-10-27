@@ -1,0 +1,109 @@
+
+void eON_ShaderData_convert_matmul(int *param_1)
+
+{
+  char cVar1;
+  int iVar2;
+  int *piVar3;
+  uint uVar4;
+  uint uVar5;
+  int iVar6;
+  uint uVar7;
+  int local_60;
+  int local_58;
+  int *local_54;
+  int local_50;
+  uint local_4c;
+  int local_48;
+  int local_44;
+  int local_40;
+  int local_3c;
+  int local_38;
+  int local_34;
+  int local_30;
+  int local_2c;
+  int local_28;
+  int local_24;
+  int local_20;
+  
+  local_48 = param_1[4];
+  local_58 = *param_1;
+  local_50 = param_1[2];
+  local_44 = param_1[5];
+  local_54 = (int *)param_1[1];
+  local_4c = param_1[3];
+  local_40 = param_1[6];
+  uVar5 = local_4c & 0xfff0ffff;
+  local_3c = param_1[7];
+  local_38 = param_1[8];
+  local_34 = param_1[9];
+  local_30 = param_1[10];
+  local_2c = param_1[0xb];
+  local_28 = param_1[0xc];
+  local_24 = param_1[0xd];
+  local_20 = param_1[0xe];
+  switch(*local_54) {
+  case 0x14:
+    iVar6 = 9;
+    local_60 = 4;
+    break;
+  case 0x15:
+    iVar6 = 9;
+    local_60 = 3;
+    break;
+  case 0x16:
+    iVar6 = 8;
+    local_60 = 4;
+    break;
+  case 0x17:
+    iVar6 = 8;
+    local_60 = 3;
+    break;
+  case 0x18:
+    iVar6 = 8;
+    local_60 = 2;
+    break;
+  default:
+    FUN_0402cd10(0xf,"Unrecognized instruction in convert_matmul!!");
+    iVar6 = 0;
+    local_60 = 0;
+  }
+  iVar2 = *param_1;
+  cVar1 = *(char *)(*(int **)(iVar2 + 0x2d8))[1];
+  piVar3 = *(int **)(iVar2 + 0x2d8);
+  while (cVar1 != '\0') {
+    if (iVar6 == *piVar3) {
+      if (piVar3[5] == 0) {
+        uVar4 = piVar3[6];
+        if (uVar4 == 0) goto LAB_04055ff0;
+        uVar7 = *(uint *)(iVar2 + 4);
+      }
+      else {
+        uVar7 = *(uint *)(iVar2 + 4);
+        if (uVar7 < (uint)piVar3[5]) goto LAB_04055fc8;
+        uVar4 = piVar3[6];
+      }
+      if (uVar7 <= uVar4) goto LAB_04055ff0;
+    }
+LAB_04055fc8:
+    cVar1 = *(char *)piVar3[8];
+    piVar3 = piVar3 + 7;
+  }
+  FUN_0402cd10(0xf,
+               "Unsupported asm opcode in ShaderData::IdentifyInstruction() !!!. Opcode %#x, shader version %#x"
+               ,iVar6,*(undefined4 *)(iVar2 + 4));
+  piVar3 = (int *)0x0;
+LAB_04055ff0:
+  if (local_60 != 0) {
+    iVar6 = 0;
+    local_54 = piVar3;
+    do {
+      local_4c = 0x10000 << ((byte)iVar6 & 0x1f) | uVar5;
+      local_3c = iVar6 + param_1[7];
+      eON_ShaderData_convert_dp(&local_58);
+      iVar6 = iVar6 + 1;
+    } while (iVar6 != local_60);
+  }
+  return;
+}
+

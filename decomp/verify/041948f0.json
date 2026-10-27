@@ -1,0 +1,76 @@
+
+int eON_send(int param_1,void *param_2,size_t param_3,int param_4)
+
+{
+  int iVar1;
+  ssize_t sVar2;
+  int *piVar3;
+  
+  eON_SetLastError(0);
+  EventSelect_ClearFlags(param_1,2);
+  if (param_1 == -1) {
+switchD_041949b0_caseD_9:
+    eON_SetLastError(0x2736);
+  }
+  else {
+    sVar2 = send(param_1,param_2,param_3,param_4);
+    if (sVar2 != -1) {
+      return sVar2;
+    }
+    piVar3 = __errno_location();
+    iVar1 = *piVar3;
+    if (iVar1 == 0xb) {
+      eON_SetLastError(0x2733);
+      return -1;
+    }
+    param_1 = -1;
+    switch(iVar1) {
+    default:
+      FUN_0402cd10(0xf,"SOCKETS: unknown send() error: %d",iVar1);
+      break;
+    case 2:
+    case 0xc:
+    case 0x14:
+      break;
+    case 4:
+      eON_SetLastError(0x2714);
+      break;
+    case 9:
+    case 0x58:
+      goto switchD_041949b0_caseD_9;
+    case 0xd:
+      eON_SetLastError(0x271d);
+      break;
+    case 0xe:
+      eON_SetLastError(0x271e);
+      break;
+    case 0x20:
+    case 0x68:
+      eON_SetLastError(0x2746);
+      break;
+    case 0x59:
+      eON_SetLastError(0x2737);
+      break;
+    case 0x5a:
+      eON_SetLastError(0x2738);
+      break;
+    case 0x5f:
+      eON_SetLastError(0x273d);
+      break;
+    case 100:
+      eON_SetLastError(0x2742);
+      break;
+    case 0x65:
+    case 0x71:
+      eON_SetLastError(0x2751);
+      break;
+    case 0x69:
+      eON_SetLastError(0x2747);
+      break;
+    case 0x6b:
+      eON_SetLastError(0x2749);
+    }
+  }
+  return param_1;
+}
+

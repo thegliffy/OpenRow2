@@ -1,0 +1,48 @@
+
+undefined4 fillContextForThread(int param_1,void *param_2)
+
+{
+  undefined4 *puVar1;
+  undefined *puVar2;
+  int iVar3;
+  undefined *puVar4;
+  undefined *puVar5;
+  int in_FS_OFFSET;
+  uint local_18;
+  int local_14 [3];
+  
+  if ((param_2 == (void *)0x0) || (param_1 == 0)) {
+    *(undefined4 *)(*(int *)(in_FS_OFFSET + 0x18) + 0x34) = 0x57;
+    return 0;
+  }
+  iVar3 = Synchronisation_GetObjectInfo(param_1,&local_18,local_14);
+  if ((iVar3 == 0) || (local_14[0] != 2)) {
+    *(undefined4 *)(*(int *)(in_FS_OFFSET + 0x18) + 0x34) = 6;
+    return 0;
+  }
+  pthread_mutex_lock((pthread_mutex_t *)&DAT_0451bd4c);
+  puVar2 = DAT_0451bd3c;
+  puVar4 = &DAT_0451bd38;
+  if (DAT_0451bd3c != (undefined *)0x0) {
+    do {
+      while (puVar5 = puVar2, local_18 <= *(uint *)(puVar5 + 0x10)) {
+        puVar2 = *(undefined **)(puVar5 + 8);
+        puVar4 = puVar5;
+        if (*(undefined **)(puVar5 + 8) == (undefined *)0x0) goto LAB_0415ce25;
+      }
+      puVar1 = (undefined4 *)(puVar5 + 0xc);
+      puVar2 = (undefined *)*puVar1;
+      puVar5 = puVar4;
+    } while ((undefined *)*puVar1 != (undefined *)0x0);
+LAB_0415ce25:
+    if ((puVar5 != &DAT_0451bd38) && (*(uint *)(puVar5 + 0x10) <= local_18)) goto LAB_0415ce4b;
+  }
+  FUN_0415af30();
+LAB_0415ce4b:
+  pthread_mutex_unlock((pthread_mutex_t *)&DAT_0451bd4c);
+  bzero(param_2,0x2cc);
+  FUN_0402cd10(5,"fillContextForThread() not implemented for Linux");
+  *(undefined4 *)(*(int *)(in_FS_OFFSET + 0x18) + 0x34) = 0x32;
+  return 0;
+}
+

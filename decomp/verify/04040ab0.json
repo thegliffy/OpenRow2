@@ -1,0 +1,102 @@
+
+/* WARNING: Type propagation algorithm not settling */
+
+int VPFS_EnumerateDiskFolderEntries(undefined4 param_1,undefined4 *param_2)
+
+{
+  int iVar1;
+  size_t sVar2;
+  int iVar3;
+  int iVar4;
+  int *piVar5;
+  uint *puVar6;
+  char *pcVar7;
+  bool bVar8;
+  byte bVar9;
+  int local_588 [3];
+  undefined4 local_574;
+  char local_55c [1024];
+  uint local_15c;
+  undefined4 local_158;
+  undefined4 local_154;
+  undefined4 local_150;
+  undefined4 local_14c;
+  undefined4 local_148;
+  undefined4 local_144;
+  undefined4 local_140;
+  undefined4 local_13c;
+  uint local_130 [72];
+  
+  bVar9 = 0;
+  local_574 = param_1;
+  local_588[2] = 0x4040ae2;
+  sprintf(local_55c,"%s\\*");
+  local_588[2] = 0x4040af4;
+  iVar1 = fs_FindFirstFileA();
+  piVar5 = local_588 + 1;
+  if (iVar1 != -1) {
+    do {
+      if ((((short)local_130[0] != 0x2e) && ((local_130[0] & 0xffffff) != 0x2e2e)) &&
+         (bVar8 = (short)local_130[0] == 0x5f2e, !bVar8)) {
+        iVar4 = 10;
+        puVar6 = local_130;
+        pcVar7 = ".DS_Store";
+        do {
+          if (iVar4 == 0) break;
+          iVar4 = iVar4 + -1;
+          bVar8 = (char)*puVar6 == *pcVar7;
+          puVar6 = (uint *)((int)puVar6 + (uint)bVar9 * -2 + 1);
+          pcVar7 = pcVar7 + (uint)bVar9 * -2 + 1;
+        } while (bVar8);
+        if (!bVar8) {
+          *piVar5 = (int)(param_2 + 10);
+          piVar5[1] = (int)local_130;
+          piVar5[-1] = 0x4040bb1;
+          strcpy((char *)*piVar5,(char *)piVar5[1]);
+          param_2[1] = local_158;
+          param_2[2] = local_154;
+          param_2[7] = local_15c;
+          param_2[9] = local_140;
+          param_2[5] = local_150;
+          param_2[6] = local_14c;
+          param_2[3] = local_148;
+          param_2[4] = local_144;
+          param_2[8] = local_13c;
+          if ((local_15c & 0x10) != 0) {
+            *param_2 = 0;
+            return iVar1;
+          }
+          *piVar5 = (int)(param_2 + 10);
+          piVar5[-1] = 0x4040c20;
+          sVar2 = strlen((char *)*piVar5);
+          if (3 < sVar2) {
+            iVar4 = (int)param_2 + sVar2 + 0x24;
+            piVar5[1] = (int)&DAT_043434fd;
+            *piVar5 = iVar4;
+            piVar5[-1] = 0x4040c3f;
+            iVar3 = strcasecmp((char *)*piVar5,(char *)piVar5[1]);
+            if (iVar3 != 0) {
+              piVar5[1] = (int)&DAT_0432a199;
+              *piVar5 = iVar4;
+              piVar5[-1] = 0x4040c64;
+              iVar4 = strcasecmp((char *)*piVar5,(char *)piVar5[1]);
+              if (iVar4 != 0) goto LAB_04040c6e;
+            }
+            *param_2 = 2;
+            return iVar1;
+          }
+LAB_04040c6e:
+          *param_2 = 1;
+          return iVar1;
+        }
+      }
+      piVar5[1] = (int)&local_15c;
+      *piVar5 = iVar1;
+      piVar5[-1] = 0x4040b6a;
+      iVar4 = fs_FindNextFileA();
+      piVar5 = piVar5 + -2;
+    } while (iVar4 != 0);
+  }
+  return 0;
+}
+

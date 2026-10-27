@@ -1,0 +1,42 @@
+
+void eON_ShaderData_emit_if_compare(int param_1)
+
+{
+  char *pcVar1;
+  undefined1 local_20c [128];
+  undefined1 local_18c [128];
+  undefined1 local_10c [128];
+  undefined1 local_8c [132];
+  
+  eON_ShaderData_ApplySourceModifier(0x10000,local_20c);
+  eON_ShaderData_ApplySourceModifier(0x10000,local_10c);
+  switch((*(uint *)(param_1 + 8) & 0xff0000) >> 0x10) {
+  default:
+    FUN_0402cd10(0xf,
+                 "Unrecognized opcode-specific control, can\'t choose comparison operator !!!. Opcode %#x"
+                 ,*(uint *)(param_1 + 8) & 0xffff);
+    pcVar1 = "";
+    break;
+  case 1:
+    pcVar1 = ">";
+    break;
+  case 2:
+    pcVar1 = "==";
+    break;
+  case 3:
+    pcVar1 = ">=";
+    break;
+  case 4:
+    pcVar1 = "<";
+    break;
+  case 5:
+    pcVar1 = "!=";
+    break;
+  case 6:
+    pcVar1 = "<=";
+  }
+  eON_AppendShaderCompileMessage
+            (*(undefined4 *)(param_1 + 0x38),"if( %s %s %s ) {\n",local_18c,pcVar1,local_8c);
+  return;
+}
+

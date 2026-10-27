@@ -1,0 +1,37 @@
+
+undefined4 VPFS_CancelIo(int param_1)
+
+{
+  int iVar1;
+  undefined4 *puVar2;
+  undefined4 uVar3;
+  undefined4 uStackY_20;
+  
+  puVar2 = (undefined4 *)&stack0xffffffe4;
+  uVar3 = 0;
+  if (param_1 != 0) {
+    if (param_1 + 0x54545455U < 0x2801) {
+      uStackY_20 = 0x40464d7;
+      pthread_mutex_lock((pthread_mutex_t *)&DAT_0441804c);
+      iVar1 = (&DAT_04418280)[(param_1 + 0x54545454) * 8];
+      if ((iVar1 == 7) || (iVar1 == 5)) {
+        uStackY_20 = 0x404653b;
+        uVar3 = FUN_041319b0();
+        puVar2 = &uStackY_20;
+      }
+      else if (iVar1 == 3) {
+        uStackY_20 = 0x4046553;
+        uVar3 = FUN_041319b0();
+        puVar2 = &uStackY_20;
+      }
+      *puVar2 = &DAT_0441804c;
+      puVar2[-1] = 0x4046501;
+      pthread_mutex_unlock((pthread_mutex_t *)*puVar2);
+      return uVar3;
+    }
+    uStackY_20 = 0x4046524;
+    FUN_0402cd10();
+  }
+  return 0;
+}
+

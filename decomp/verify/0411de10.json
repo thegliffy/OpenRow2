@@ -1,0 +1,30 @@
+
+/* source: gdi32 */
+
+int HDC_GetCurrentPixelFormat(int param_1)
+
+{
+  int iVar1;
+  uint uVar2;
+  
+  if (param_1 == 0) {
+    uVar2 = 0xffffffff;
+  }
+  else {
+    uVar2 = param_1 + 0x68686869;
+    if (uVar2 < 0x80) goto LAB_0411de29;
+  }
+  FUN_0400a810("number < 128",
+               "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/gdi32/gdi32.cpp",
+               0x6af,"const PIXELFORMATDESCRIPTOR* HDC_GetCurrentPixelFormat(HDC)");
+LAB_0411de29:
+  iVar1 = uVar2 * 0x60;
+  if (0 < *(int *)(&DAT_04512ab8 + iVar1)) {
+    return *(int *)(&DAT_04512ac0 + iVar1) + (*(int *)(&DAT_04512ab8 + iVar1) * 5 + -5) * 8;
+  }
+  FUN_0400a810("context->PixelFormatID > 0",
+               "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/gdi32/gdi32.cpp",
+               0x6b1,"const PIXELFORMATDESCRIPTOR* HDC_GetCurrentPixelFormat(HDC)");
+  return *(int *)(&DAT_04512ac0 + iVar1) + (*(int *)(&DAT_04512ab8 + iVar1) * 5 + -5) * 8;
+}
+

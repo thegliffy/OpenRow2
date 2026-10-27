@@ -1,0 +1,55 @@
+
+/* source: vpfsdb */
+
+void VPFSDB_ReleaseObject(undefined4 *param_1)
+
+{
+  undefined4 *puVar1;
+  char cVar2;
+  int iVar3;
+  
+  if ((param_1[4] == 0) && (param_1[2] == 0)) {
+    puVar1 = (undefined4 *)param_1[1];
+    if (param_1 == puVar1) {
+      FUN_0400a810("entry->Parent != entry",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/vpfs/vpfsdb.cpp",0x24f,
+                   "void VPFSDB_ReleaseObject(VPFSDBObject)");
+    }
+    if (puVar1 == (undefined4 *)0x0) {
+      iVar3 = param_1[3];
+      DAT_04468ab0 = iVar3;
+    }
+    else if (param_1 == (undefined4 *)puVar1[3]) {
+      puVar1[3] = param_1[3];
+      iVar3 = param_1[3];
+    }
+    else {
+      if (param_1 != (undefined4 *)puVar1[2]) {
+        FUN_0400a810("parent->FirstChild == entry",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/vpfs/vpfsdb.cpp",599,
+                     "void VPFSDB_ReleaseObject(VPFSDBObject)");
+      }
+      iVar3 = param_1[3];
+      puVar1[2] = iVar3;
+    }
+    if (iVar3 != 0) {
+      *(undefined4 **)(iVar3 + 4) = puVar1;
+    }
+    free((void *)*param_1);
+    free(param_1);
+    DAT_04468ab8 = '\x01';
+    if (puVar1 == (undefined4 *)0x0) goto LAB_0404c220;
+    VPFSDB_ReleaseObject(puVar1);
+  }
+  if (DAT_04468ab8 == '\0') {
+    return;
+  }
+LAB_0404c220:
+  cVar2 = WriteDatabase();
+  if (cVar2 != '\0') {
+    return;
+  }
+  FUN_0402cd10(0xf,"Failed to write VPFS database! (2)");
+  return;
+}
+

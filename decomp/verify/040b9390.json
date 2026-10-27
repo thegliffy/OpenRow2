@@ -1,0 +1,147 @@
+
+/* source: display */
+
+undefined4 Direct3DDevice9Imp__DetermineSharedContextCapabilities(int param_1)
+
+{
+  char cVar1;
+  int iVar2;
+  bool bVar3;
+  
+  iVar2 = eON_Int_GL_NoteCurrentContext();
+  if (iVar2 == 0) {
+    FUN_0400a810("GetRawCurrentOpenGLContext()",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/display.cpp"
+                 ,0x32,"bool Direct3DDevice9Imp::DetermineSharedContextCapabilities()");
+  }
+  *(undefined1 *)(param_1 + 0xeb4e) = 1;
+  cVar1 = DAT_0451cad2;
+  if (*(char *)(param_1 + 0xeb4c) == '\0') {
+    bVar3 = false;
+    if ((DAT_0451ca65 == '\0') &&
+       ((((DAT_0451c9c0 == '\0' || (DAT_0451c9c3 == '\0')) || (DAT_0451c9c2 == '\0')) ||
+        (DAT_0451c9b2 == '\0')))) {
+      bVar3 = true;
+      FUN_0402cd10(0x14,"OpenGL doesn\'t support required OpenGL extensions:");
+      FUN_0402cd10(0x14,
+                   "    GL_ARB_framebuffer_object || ( GL_EXT_framebuffer_object && GL_EXT_framebuffer_blit && GL_EXT_framebuffer_multisample && GL_EXT_packed_depth_stencil )"
+                  );
+    }
+    if (DAT_0451ca5e == '\0') {
+      if (!bVar3) {
+        bVar3 = true;
+        FUN_0402cd10(0x14,"OpenGL doesn\'t support required OpenGL extensions:");
+      }
+      FUN_0402cd10(0x14,"    GL_ARB_half_float_pixel");
+    }
+    if (DAT_0451ca17 == '\0') {
+      if (!bVar3) {
+        bVar3 = true;
+        FUN_0402cd10(0x14,"OpenGL doesn\'t support required OpenGL extensions:");
+      }
+      FUN_0402cd10(0x14,"    GL_ARB_texture_float");
+    }
+    if (DAT_0451c993 == '\0') {
+      if (!bVar3) {
+        bVar3 = true;
+        FUN_0402cd10(0x14,"OpenGL doesn\'t support required OpenGL extensions:");
+      }
+      FUN_0402cd10(0x14,"    GL_EXT_texture_compression_s3tc");
+    }
+    if (DAT_0451c985 == '\0') {
+      if (!bVar3) {
+        bVar3 = true;
+        FUN_0402cd10(0x14,"OpenGL doesn\'t support required OpenGL extensions:");
+      }
+      FUN_0402cd10(0x14,"    GL_EXT_texture_sRGB");
+    }
+    if (DAT_0451c984 == '\0') {
+      if (!bVar3) {
+        bVar3 = true;
+        FUN_0402cd10(0x14,"OpenGL doesn\'t support required OpenGL extensions:");
+      }
+      FUN_0402cd10(0x14,"    GL_EXT_texture_sRGB_decode");
+    }
+    if (DAT_0451c985 == '\0') {
+      if (!bVar3) {
+        bVar3 = true;
+        FUN_0402cd10(0x14,"OpenGL doesn\'t support required OpenGL extensions:");
+      }
+      FUN_0402cd10(0x14,"    GL_EXT_texture_sRGB");
+    }
+    if ((DAT_0451ca5c == '\0') && (DAT_0451c9da == '\0')) {
+      if (!bVar3) {
+        FUN_0402cd10(0x14,"OpenGL doesn\'t support required OpenGL extensions:");
+      }
+      FUN_0402cd10(0x14,"    GL_ARB_imaging || GL_EXT_blend_color");
+    }
+    else if (!bVar3) {
+      bVar3 = DAT_0451ca9b != '\0';
+      *(undefined1 *)(param_1 + 0xeb4f) = 1;
+      *(undefined1 *)(param_1 + 0xeb51) = 0;
+      *(bool *)(param_1 + 0xeb4d) = bVar3;
+      cVar1 = DAT_0451cad2;
+      goto joined_r0x040b9616;
+    }
+    FUN_0402cfd0();
+    return 0;
+  }
+  *(undefined1 *)(param_1 + 0xeb4f) = 1;
+  *(undefined1 *)(param_1 + 0xeb51) = 1;
+joined_r0x040b9616:
+  bVar3 = true;
+  if ((cVar1 == '\0') && (bVar3 = true, DAT_0451ca65 == '\0')) {
+    bVar3 = DAT_0451c9c2 != '\0';
+  }
+  *(bool *)(param_1 + 0xeb50) = bVar3;
+  FUN_0402cd10(0x14,"OpenGL backend to Direct3D9: SUMMARY OF FALLBACKS AND INEFFICIENCIES:");
+  if (*(char *)(param_1 + 0xeb4c) == '\0') {
+    FUN_0402cd10(0x14,
+                 " - OpenGL Core context not selected or not available from OpenGL driver. Selected old OpenGL 2.1 context. This will likely result in slowdown due to automatic selection of fallback paths for some rendering pipeline elements."
+                );
+  }
+  if (*(char *)(param_1 + 0xeb50) == '\0') {
+    FUN_0402cd10(0x14,
+                 " - EXT_framebuffer_multisample OpenGL extension not supported. This may actually cause the game to be faster, but the rendering results may be jagged and edgy due to inability to use multisampled surfaced where the game requests them."
+                );
+  }
+  if (DAT_0451ca5a == '\0') {
+    FUN_0402cd10(0x14,
+                 " - ARB_instanced_arrays OpenGL extension not supported. This may cause the game to be much slower, if it\'s using many instanced draws, as we then have to use a series of normal draws instead of a single instanced draw."
+                );
+  }
+  if (DAT_0451ca41 == '\0') {
+    FUN_0402cd10(0x14,
+                 " - ARB_sampler_objects OpenGL extension not supported. This may cause the game to be much slower, if it\'s using the same Direct3D9 texture with different sampler settings, as then we have to make copies of the texture for the draw to give correct results."
+                );
+  }
+  cVar1 = FUN_04021f50();
+  if (cVar1 == '\0') {
+    FUN_0402cd10(0x14,
+                 " - ARB_texture_storage OpenGL extension not supported or disabled. This may cause the game to be slower, because we have no way of telling OpenGL driver simply that textures are complete, and it has to check all the time."
+                );
+  }
+  if (DAT_0451ca88 == '\0') {
+    FUN_0402cd10(0x14,
+                 " - ARB_buffer_storage OpenGL extension not supported. This may cause the game to be slower, because we have no way of telling OpenGL driver exactly how we plan to use buffers, and it has to guess, and it doesn\'t always guess optimally."
+                );
+  }
+  if (DAT_0451ca7c == '\0') {
+    FUN_0402cd10(0x14,
+                 " - ARB_copy_buffer OpenGL extension not supported. For safety, creating all buffers which could have to be converted to dynamic buffers later as dynamic buffer right from the start. This may cause the game to be a bit slower."
+                );
+  }
+  if ((*(char *)(param_1 + 0xeb4c) == '\0') && (DAT_0451c9c8 == '\0')) {
+    FUN_0402cd10(0x14,
+                 " - Indexed color masks not supported in OpenGL, can\'t simulate separate color masks for different render targets! Will try to work around it, but it could be impossible in some cases."
+                );
+  }
+  if (DAT_0451c98c == '\0') {
+    FUN_0402cd10(0x14,
+                 " - Anisotropic texture filtering not supported in OpenGL! This may produce incorrect rendering results in game, as other texture filtering modes will be used instead."
+                );
+  }
+  FUN_0402cd10(0x14,"OpenGL backend to Direct3D9: END OF SUMMARY");
+  return 1;
+}
+

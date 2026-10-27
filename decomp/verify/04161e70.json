@@ -1,0 +1,57 @@
+
+void eON_CoUninitialize(void)
+
+{
+  int *piVar1;
+  int iVar2;
+  undefined4 uVar3;
+  undefined4 *puVar4;
+  int in_FS_OFFSET;
+  undefined1 auStack_2c [8];
+  undefined4 local_24;
+  undefined4 local_20;
+  undefined4 local_1c;
+  undefined4 local_18;
+  undefined1 *local_10;
+  
+  local_10 = &stack0x00000004;
+  puVar4 = &local_20;
+  if (*(int *)(*(int *)(in_FS_OFFSET + 0x18) + 0xf80) == 0) {
+    iVar2 = *(int *)(in_FS_OFFSET + 0x18);
+    local_24 = 0x4161f4c;
+    local_20 = eON_GetProcessHeap();
+    local_18 = 0xc;
+    local_1c = 8;
+    local_24 = 0x4161f64;
+    uVar3 = HeapAlloc();
+    puVar4 = (undefined4 *)auStack_2c;
+    *(undefined4 *)(iVar2 + 0xf80) = uVar3;
+  }
+  piVar1 = *(int **)(*(int *)(in_FS_OFFSET + 0x18) + 0xf80);
+  if (piVar1 != (int *)0x0) {
+    if (*piVar1 == 0) {
+      puVar4[1] = "CoUninitialize() without CoInitialize() on this thread!";
+      *puVar4 = 0xf;
+      puVar4[-1] = 0x4161efc;
+      FUN_0402cd10();
+      return;
+    }
+    *piVar1 = *piVar1 + -1;
+    puVar4[1] = 0xffffffff;
+    *puVar4 = &DAT_0451bd90;
+    puVar4[-1] = 0x4161ec9;
+    iVar2 = eON_InterlockedExchangeAdd();
+    if ((iVar2 != 1) && (iVar2 < 1)) {
+      puVar4[-1] = "CoUninitialize() without CoInitialize() eON-wide!";
+      puVar4[-2] = 0xf;
+      puVar4[-3] = 0x4161f24;
+      FUN_0402cd10();
+      puVar4[-1] = 1;
+      puVar4[-2] = &DAT_0451bd90;
+      puVar4[-3] = 0x4161f38;
+      eON_InterlockedExchangeAdd();
+    }
+  }
+  return;
+}
+

@@ -1,0 +1,361 @@
+
+void __regparm3 Gamepads_TryAddDevice(char *param_1,int param_2)
+
+{
+  int iVar1;
+  uint uVar2;
+  uint uVar3;
+  uint *puVar4;
+  char *pcVar5;
+  int iVar6;
+  uint *puVar7;
+  uint uVar8;
+  ssize_t sVar9;
+  uint uVar10;
+  uint *puVar11;
+  bool bVar12;
+  byte bVar13;
+  uint uVar14;
+  uint *local_274;
+  undefined1 local_26c [10];
+  byte local_262;
+  byte local_260;
+  char local_1ec [128];
+  stat64 local_16c;
+  uint local_10c [8];
+  uint local_ec;
+  uint auStack_e8 [15];
+  undefined2 local_ac;
+  short local_aa;
+  undefined2 local_9c;
+  undefined2 local_9a;
+  undefined1 local_80 [4];
+  uint local_7c;
+  uint local_78;
+  uint local_70;
+  uint local_68;
+  uint local_64;
+  uint local_60;
+  uint local_5c;
+  uint local_58;
+  undefined4 local_54;
+  uint local_50;
+  uint local_4c;
+  undefined1 local_48 [8];
+  undefined2 local_40;
+  short local_3e;
+  undefined4 local_3c;
+  uint local_38 [4];
+  ushort local_28;
+  ushort local_26;
+  ushort local_24;
+  ushort local_22;
+  uint local_20 [4];
+  
+  bVar13 = 0;
+  puVar4 = DAT_044114c4;
+  if (param_2 == 0) {
+    for (; puVar4 != (uint *)0x0; puVar4 = (uint *)puVar4[0x13d]) {
+      iVar1 = strcmp((char *)puVar4[0x137],param_1);
+      if (iVar1 == 0) {
+        *(undefined1 *)((int)puVar4 + 0x2d) = 1;
+        if (*(char *)((int)puVar4 + 0x4f3) == '\0') {
+          pthread_mutex_lock((pthread_mutex_t *)&DAT_044114e0);
+          FUN_0401a590();
+          pthread_mutex_unlock((pthread_mutex_t *)&DAT_044114e0);
+        }
+        DAT_04411525 = 1;
+        return;
+      }
+    }
+  }
+  else {
+    FUN_0402cd10(0x14,"Gamepads: New potential device at device file \'%s\'",param_1);
+    iVar1 = __xstat64(3,param_1,&local_16c);
+    puVar4 = DAT_044114c4;
+    if (iVar1 == -1) {
+      FUN_0402cd10(0x14,
+                   "Gamepads:     New potential device rejected, couldn\'t examine device file \'%s\'"
+                   ,param_1);
+    }
+    else {
+      for (; puVar4 != (uint *)0x0; puVar4 = (uint *)puVar4[0x13d]) {
+        if (puVar4[9] == local_16c.st_rdev._4_4_ && puVar4[8] == (uint)local_16c.st_rdev) {
+          *(undefined1 *)((int)puVar4 + 0x2d) = 0;
+          return;
+        }
+      }
+      uVar2 = open64(param_1,0,0);
+      if ((int)uVar2 < 0) {
+        FUN_0402cd10(0x14,
+                     "Gamepads:     New potential device rejected, couldn\'t open device file \'%s\' for reading"
+                     ,param_1);
+      }
+      else {
+        iVar1 = ioctl(uVar2,0x80804506,local_1ec);
+        if (iVar1 < 0) {
+          close(uVar2);
+          FUN_0402cd10(0x14,
+                       "Gamepads:     New potential device rejected, couldn\'t get device name for device under path \'%s\'"
+                       ,param_1);
+        }
+        else {
+          FUN_0402cd10(0x14,"Gamepads:     New potential device under path \'%s\' is \'%s\'",param_1
+                       ,local_1ec);
+          puVar4 = local_10c;
+          for (iVar1 = 0x18; iVar1 != 0; iVar1 = iVar1 + -1) {
+            *puVar4 = 0;
+            puVar4 = puVar4 + (uint)bVar13 * -2 + 1;
+          }
+          local_20[0] = 0;
+          local_38[0] = 0;
+          local_38[1] = 0;
+          iVar1 = ioctl(uVar2,0x80044520,local_20);
+          if (((iVar1 < 0) || (iVar1 = ioctl(uVar2,0x80604521,local_10c), iVar1 < 0)) ||
+             (iVar1 = ioctl(uVar2,0x80084523,local_38), iVar1 < 0)) {
+            close(uVar2);
+            FUN_0402cd10(0x14,
+                         "Gamepads:     New potential device rejected, couldn\'t get device characteristics for device \'%s\'"
+                         ,local_1ec);
+          }
+          else if ((((local_20[0] & 10) == 10) && ((local_38[0] & 1) != 0)) &&
+                  ((local_38[0] & 2) != 0)) {
+            iVar1 = ioctl(uVar2,0x80084502,&local_28);
+            if (iVar1 < 0) {
+              close(uVar2);
+              FUN_0402cd10(0x14,
+                           "Gamepads:     New potential device rejected, couldn\'t get device info (EVIOCGID) for device \'%s\'"
+                           ,local_1ec);
+            }
+            else {
+              bzero(&local_68,0x10);
+              local_68 = (uint)local_28;
+              if (((local_26 == 0) || (local_24 == 0)) || (local_22 == 0)) {
+                strncpy((char *)&local_64,local_1ec,0xb);
+              }
+              else {
+                local_64 = (uint)local_26;
+                local_60 = (uint)local_24;
+                local_5c = (uint)local_22;
+              }
+              uVar3 = local_64 & 0xff;
+              uVar14 = local_68 >> 0x18;
+              FUN_0402cd10(0x14,
+                           "Gamepads:     Device GUID calculated as: %02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x"
+                           ,local_68 & 0xff,local_68 >> 8 & 0xff,local_68 >> 0x10 & 0xff,uVar14,
+                           uVar3,local_64 >> 8 & 0xff,local_64 >> 0x10 & 0xff,local_64 >> 0x18,
+                           local_60 & 0xff,local_60 >> 8 & 0xff,local_60 >> 0x10 & 0xff,
+                           local_60 >> 0x18,local_5c & 0xff,local_5c >> 8 & 0xff,
+                           local_5c >> 0x10 & 0xff,local_5c >> 0x18);
+              bzero(&local_58,0x10);
+              local_58 = 0xfeedfacf;
+              local_4c = local_16c.st_rdev._4_4_;
+              local_54 = CONCAT22(local_24,local_26);
+              local_50 = (uint)local_16c.st_rdev;
+              puVar4 = operator_new(0x4f8);
+              puVar4[8] = 0;
+              puVar4[9] = 0;
+              puVar4[10] = 0;
+              *(undefined1 *)(puVar4 + 0xb) = 1;
+              *(undefined1 *)((int)puVar4 + 0x2d) = 0;
+              puVar4[0xc] = 0;
+              puVar4[0xad] = 0;
+              puVar4[0x12e] = 0;
+              puVar4[0x137] = 0;
+              puVar4[0x138] = 0;
+              *(undefined1 *)(puVar4 + 0x139) = 0;
+              *(undefined1 *)((int)puVar4 + 0x4e5) = 0;
+              puVar4[0x13a] = 0xffffffff;
+              *(undefined2 *)(puVar4 + 0x13b) = 0xffff;
+              *(undefined2 *)((int)puVar4 + 0x4ee) = 0x7fff;
+              *(undefined2 *)(puVar4 + 0x13c) = 0x7fff;
+              *(undefined1 *)((int)puVar4 + 0x4f2) = 0;
+              *(undefined1 *)((int)puVar4 + 0x4f3) = 0;
+              puVar4[0x13d] = 0;
+              bzero(puVar4,0x10);
+              bzero(puVar4 + 4,0x10);
+              puVar4[8] = (uint)local_16c.st_rdev;
+              puVar4[9] = local_16c.st_rdev._4_4_;
+              pcVar5 = strdup(local_1ec);
+              puVar4[10] = (uint)pcVar5;
+              pcVar5 = strdup(param_1);
+              uVar10 = 0x120;
+              puVar4[0x137] = (uint)pcVar5;
+              puVar4[0x138] = uVar2;
+              *puVar4 = local_68;
+              puVar4[1] = local_64;
+              puVar4[2] = local_60;
+              puVar4[3] = local_5c;
+              puVar4[4] = local_58;
+              puVar4[5] = local_54;
+              puVar4[6] = local_50;
+              puVar4[7] = local_4c;
+              do {
+                if ((local_10c[uVar10 >> 5] >> ((byte)uVar10 & 0x1f) & 1) != 0) {
+                  uVar8 = puVar4[0xad];
+                  *(char *)((int)puVar4 + uVar10 + 0x1b8) = (char)uVar8;
+                  puVar4[0xad] = uVar8 + 1;
+                }
+                uVar10 = uVar10 + 1;
+              } while (uVar10 != 0x2ff);
+              iVar1 = 0x100;
+              do {
+                if ((local_ec >> ((byte)iVar1 & 0x1f) & 1) != 0) {
+                  uVar10 = puVar4[0xad];
+                  *(char *)((int)puVar4 + iVar1 + 0x1b8) = (char)uVar10;
+                  puVar4[0xad] = uVar10 + 1;
+                }
+                iVar1 = iVar1 + 1;
+              } while (iVar1 != 0x120);
+              uVar10 = 0;
+              do {
+                while( true ) {
+                  iVar1 = uVar10 + 3;
+                  *(undefined1 *)(puVar4 + iVar1 * 4 + 1) = 0xff;
+                  *(undefined1 *)((int)puVar4 + iVar1 * 0x10 + 5) = 0;
+                  if (uVar10 != 0x10) break;
+                  uVar10 = 0x18;
+                }
+                if (((local_38[uVar10 >> 5] >> ((byte)uVar10 & 0x1f) & 1) != 0) &&
+                   (iVar6 = ioctl(uVar2,uVar10 + 0x40 | 0x80184500,local_80), -1 < iVar6)) {
+                  uVar8 = puVar4[0xc];
+                  *(char *)(puVar4 + iVar1 * 4 + 1) = (char)uVar8;
+                  bVar12 = DAT_04411209 != '\0';
+                  puVar4[0xc] = uVar8 + 1;
+                  if (bVar12) {
+                    uVar14 = local_78;
+                    uVar3 = local_70;
+                    FUN_0402cd10(0x14,
+                                 "Gamepad axis %d (mapping %d) gives us input_absinfo: min %d, max %d, flat %d"
+                                 ,uVar10,uVar8 & 0xff,local_7c,local_78,local_70);
+                  }
+                  if ((DAT_04411208 == '\0') && (local_7c != local_78)) {
+                    *(undefined1 *)((int)puVar4 + iVar1 * 0x10 + 5) = 1;
+                    puVar4[iVar1 * 4 + 2] = local_70 * -2 + local_7c + local_78;
+                    puVar4[uVar10 * 4 + 0xf] = local_7c + local_78 + local_70 * 2;
+                    uVar8 = 0;
+                    iVar6 = local_70 * -2 + (local_78 - local_7c);
+                    if (iVar6 != 0) {
+                      uVar8 = (uint)(0x10000000 / (longlong)iVar6);
+                    }
+                    bVar12 = DAT_04411209 != '\0';
+                    puVar4[uVar10 * 4 + 0x10] = uVar8;
+                    if (bVar12) {
+                      FUN_0402cd10(0x14,"Scaler data determined to be %d, %d, %d",
+                                   puVar4[iVar1 * 4 + 2],puVar4[uVar10 * 4 + 0xf],uVar8,uVar14,uVar3
+                                  );
+                    }
+                  }
+                }
+                uVar10 = uVar10 + 1;
+              } while ((int)uVar10 < 0x28);
+              if (((local_38[0] & 0x10000) != 0) || ((local_38[0] & 0x20000) != 0)) {
+                uVar2 = puVar4[0x12e];
+                puVar4[uVar2 * 2 + 0x12f] = 0;
+                puVar4[uVar2 * 2 + 0x130] = 0;
+                puVar4[0x12e] = uVar2 + 1;
+              }
+              if (((local_38[0] & 0x40000) != 0) || ((local_38[0] & 0x80000) != 0)) {
+                uVar2 = puVar4[0x12e];
+                puVar4[uVar2 * 2 + 0x12f] = 0;
+                puVar4[uVar2 * 2 + 0x130] = 0;
+                puVar4[0x12e] = uVar2 + 1;
+              }
+              if (((local_38[0] & 0x100000) != 0) || ((local_38[0] & 0x200000) != 0)) {
+                uVar2 = puVar4[0x12e];
+                puVar4[uVar2 * 2 + 0x12f] = 0;
+                puVar4[uVar2 * 2 + 0x130] = 0;
+                puVar4[0x12e] = uVar2 + 1;
+              }
+              if (((local_38[0] & 0x400000) != 0) || ((local_38[0] & 0x800000) != 0)) {
+                uVar2 = puVar4[0x12e];
+                puVar4[uVar2 * 2 + 0x12f] = 0;
+                puVar4[uVar2 * 2 + 0x130] = 0;
+                puVar4[0x12e] = uVar2 + 1;
+              }
+              fcntl(puVar4[0x138],4,0x800);
+              iVar1 = open64(param_1,2,0);
+              if (-1 < iVar1) {
+                iVar6 = ioctl(iVar1,0x80804535,local_26c);
+                if ((-1 < iVar6) && ((local_262 & 1) != 0)) {
+                  FUN_0402cd10(0x14,
+                               "Gamepads:     Device \'%s\' reports supporting FF_RUMBLE force feedback effect"
+                               ,local_1ec);
+                  *(byte *)((int)puVar4 + 0x4e5) = local_260 & 1;
+                  bzero(&local_ac,0x2c);
+                  local_ac = 0x50;
+                  local_aa = -1;
+                  local_9c = 0x7fff;
+                  local_9a = 0x7fff;
+                  iVar6 = ioctl(iVar1,0x402c4580,&local_ac);
+                  if (iVar6 < 0) {
+                    FUN_0402cd10(0x14,
+                                 "Gamepads:     FF_RUMBLE effect creation attempt failed, device can\'t support our force feedback"
+                                );
+                  }
+                  else {
+                    local_40 = 0x15;
+                    local_3c = 0x7fffffff;
+                    local_3e = local_aa;
+                    sVar9 = write(iVar1,local_48,0x10);
+                    if (sVar9 < 0) {
+                      FUN_0402cd10(0x14,
+                                   "Gamepads:     FF_RUMBLE effect run attempt failed, device can\'t support our force feedback"
+                                  );
+                    }
+                    else {
+                      local_3c = 0;
+                      sVar9 = write(iVar1,local_48,0x10);
+                      if (sVar9 < 0) {
+                        FUN_0402cd10(10,"Force feedback effect stop failed!");
+                      }
+                      *(undefined1 *)(puVar4 + 0x139) = 1;
+                    }
+                    ioctl(iVar1,0x40044581,(int)local_aa);
+                  }
+                }
+                close(iVar1);
+              }
+              pthread_mutex_lock((pthread_mutex_t *)&DAT_044114c8);
+              puVar7 = DAT_044114c4;
+              puVar11 = puVar4;
+              if (DAT_044114c4 != (uint *)0x0) {
+                do {
+                  puVar11 = puVar7;
+                  puVar7 = (uint *)puVar11[0x13d];
+                } while (puVar7 != (uint *)0x0);
+                puVar11[0x13d] = (uint)puVar4;
+                puVar11 = DAT_044114c4;
+              }
+              DAT_044114c4 = puVar11;
+              pthread_mutex_lock((pthread_mutex_t *)&DAT_044114e0);
+              uVar2 = puVar4[0x138];
+              for (puVar7 = *(uint **)(DAT_04411508 + (uVar2 % DAT_0441150c) * 4);
+                  puVar7 != (uint *)0x0; puVar7 = (uint *)puVar7[2]) {
+                if (uVar2 == *puVar7) goto LAB_0401b205;
+              }
+              local_38[3] = 0;
+              local_38[2] = uVar2;
+              FUN_0401a6b0(uVar2);
+              puVar7 = local_274;
+LAB_0401b205:
+              puVar7[1] = (uint)puVar4;
+              pthread_mutex_unlock((pthread_mutex_t *)&DAT_044114e0);
+              DAT_04411524 = 1;
+              FUN_0402cd10(0x14,"Gamepads: New device added to gamepads list.");
+              pthread_mutex_unlock((pthread_mutex_t *)&DAT_044114c8);
+            }
+          }
+          else {
+            close(uVar2);
+            FUN_0402cd10(0x14,
+                         "Gamepads:     New potential device rejected, device \'%s\' doesn\'t have any buttons or main analog stick"
+                         ,local_1ec);
+          }
+        }
+      }
+    }
+  }
+  return;
+}
+

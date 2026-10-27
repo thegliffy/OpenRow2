@@ -1,0 +1,206 @@
+
+int * eON_CreateWindowExA(undefined4 param_1,uint param_2,int param_3,uint param_4,uint param_5,
+                         uint param_6,uint param_7,uint param_8,uint param_9,uint param_10,
+                         uint param_11,uint param_12)
+
+{
+  code *pcVar1;
+  char cVar2;
+  int iVar3;
+  int iVar4;
+  void *pvVar5;
+  uint *puVar6;
+  uint *puVar7;
+  uint *puVar8;
+  void *pvVar9;
+  uint uVar10;
+  undefined1 local_d4 [28];
+  undefined4 local_b8;
+  uint local_b0;
+  uint local_ac;
+  undefined4 local_a8;
+  void *local_a4;
+  size_t local_a0;
+  undefined4 local_9c;
+  undefined4 local_98;
+  int *local_80;
+  uint local_7c;
+  uint local_78;
+  uint local_74;
+  uint local_70;
+  uint local_6c;
+  uint local_68;
+  undefined4 local_64;
+  uint local_60;
+  uint local_5c;
+  uint local_58;
+  uint local_54;
+  uint local_50;
+  uint local_4c;
+  uint local_48;
+  uint local_44;
+  uint local_40;
+  uint local_3c;
+  uint local_38;
+  uint local_34;
+  uint local_30;
+  int local_2c;
+  uint local_28;
+  undefined4 local_24;
+  undefined4 *local_18;
+  
+  iVar4 = param_3;
+  local_18 = &param_1;
+  pvVar5 = (void *)0x0;
+  puVar6 = &local_b0;
+  local_64 = param_1;
+  local_54 = param_2;
+  local_58 = param_4;
+  local_5c = param_5;
+  local_60 = param_6;
+  local_68 = param_7;
+  local_6c = param_8;
+  local_70 = param_9;
+  local_74 = param_10;
+  local_78 = param_11;
+  local_7c = param_12;
+  if ((param_2 & 0xffff0000) != 0) {
+    local_b0 = param_2;
+    iVar3 = FUN_0415a040();
+    local_b8 = 0x4185dd9;
+    pvVar5 = malloc(iVar3 + 1U);
+    local_98 = 0;
+    local_9c = 0;
+    local_a8 = 0xffffffff;
+    local_ac = local_54;
+    local_b0 = 0;
+    local_b8 = 0x4185e16;
+    local_a4 = pvVar5;
+    local_a0 = iVar3 + 1U;
+    eON_WideCharToMultiByte();
+    puVar6 = (uint *)local_d4;
+  }
+  pvVar9 = (void *)0x0;
+  if (iVar4 != 0) {
+    *puVar6 = iVar4;
+    puVar6[-1] = 0x4185be8;
+    iVar3 = FUN_0415a040();
+    local_80 = (int *)(iVar3 + 1);
+    puVar6[-1] = (uint)local_80;
+    puVar6[-2] = 0x4185bf9;
+    pvVar9 = malloc(puVar6[-1]);
+    puVar6[6] = 0;
+    puVar6[5] = 0;
+    puVar6[3] = (uint)pvVar9;
+    puVar6[2] = -1;
+    puVar6[4] = (uint)local_80;
+    puVar6[1] = iVar4;
+    *puVar6 = 0;
+    puVar6[-1] = 0;
+    puVar6[-2] = 0x4185c36;
+    eON_WideCharToMultiByte();
+    puVar6 = puVar6 + -9;
+  }
+  puVar6[8] = local_7c;
+  puVar6[7] = local_78;
+  puVar6[6] = local_74;
+  puVar6[5] = local_70;
+  puVar6[4] = local_6c;
+  puVar6[3] = local_68;
+  puVar6[2] = local_60;
+  puVar6[1] = local_5c;
+  *puVar6 = local_58;
+  puVar6[-1] = 0x4185c89;
+  local_80 = (int *)CreateWindowEx_Common();
+  puVar7 = puVar6 + -9;
+  if (pvVar9 != (void *)0x0) {
+    puVar6[-9] = (uint)pvVar9;
+    puVar6[-10] = 0x4185c9d;
+    free((void *)puVar6[-9]);
+  }
+  if (pvVar5 != (void *)0x0) {
+    puVar6[-9] = (uint)pvVar5;
+    puVar6[-10] = 0x4185caf;
+    free((void *)puVar6[-9]);
+  }
+  if (local_80 == (int *)0x0) {
+    return (int *)0x0;
+  }
+  local_80[0x17] = 1;
+  uVar10 = 5;
+  if (local_5c == 0x80000000) {
+    if (((int)local_58 < 0) || ((local_58 & 0x40000000) != 0)) {
+      uVar10 = 5;
+    }
+    else if (local_60 != 0x80000000) {
+      uVar10 = local_60;
+    }
+  }
+  pcVar1 = (code *)local_80[9];
+  if (pcVar1 == (code *)0x0) {
+LAB_04185d7c:
+    if (((local_58 & 0x10000000) != 0) && (local_80 != (int *)0x271a)) {
+      *puVar7 = (uint)local_80;
+      puVar7[-1] = 0x4185e57;
+      cVar2 = FUN_0404ecd0();
+      if (cVar2 == '\0') {
+        *puVar7 = 0x578;
+        puVar7[-1] = 0x4185e94;
+        eON_SetLastError();
+        puVar7 = puVar7 + -1;
+      }
+      else {
+        *puVar7 = (uint)local_80;
+        puVar7[1] = uVar10;
+        puVar7[-1] = 0x4185e6d;
+        eON_ShowWindow();
+      }
+    }
+    puVar7[2] = (uint)local_80;
+    puVar7[1] = (uint)"Window %p created.";
+    *puVar7 = 5;
+    puVar7[-1] = 0x4185da4;
+    FUN_0402cd10();
+  }
+  else {
+    puVar6[-9] = (uint)local_80;
+    local_2c = iVar4;
+    puVar6[-6] = (uint)&local_50;
+    local_50 = local_7c;
+    puVar6[-7] = 0;
+    puVar6[-8] = 0x81;
+    local_4c = local_78;
+    local_48 = local_74;
+    local_44 = local_70;
+    local_40 = local_6c;
+    local_3c = local_68;
+    local_38 = local_60;
+    local_34 = local_5c;
+    local_30 = local_58;
+    local_28 = local_54;
+    local_24 = local_64;
+    puVar6[-10] = 0x4185d42;
+    iVar4 = (*pcVar1)();
+    puVar8 = puVar6 + -0xd;
+    if (iVar4 != 0) {
+      puVar6[-0xd] = (uint)local_80;
+      puVar6[-10] = (uint)&local_50;
+      puVar6[-0xb] = 0;
+      puVar6[-0xc] = 1;
+      pcVar1 = (code *)local_80[9];
+      puVar6[-0xe] = 0x4185d6d;
+      iVar4 = (*pcVar1)();
+      puVar7 = puVar6 + -0x11;
+      puVar8 = puVar6 + -0x11;
+      if (iVar4 != -1) goto LAB_04185d7c;
+    }
+    iVar4 = *local_80;
+    *puVar8 = (uint)local_80;
+    pcVar1 = *(code **)(iVar4 + 8);
+    puVar8[-1] = 0x4185ea8;
+    (*pcVar1)();
+    local_80 = (int *)0x0;
+  }
+  return local_80;
+}
+

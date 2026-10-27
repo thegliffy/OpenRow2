@@ -1,0 +1,46 @@
+
+/* source: mapOfBits */
+
+void eON_MapOfBits__ClearRange(uint *param_1,uint param_2,uint param_3)
+
+{
+  byte *__s;
+  byte *pbVar1;
+  uint uVar2;
+  
+  if (param_3 == 0) {
+    FUN_0400a810("count","/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/mapOfBits.cpp",
+                 0x52,"void eON_MapOfBits::ClearRange(DWORD, DWORD)");
+  }
+  if (*param_1 < param_3 + param_2) {
+    FUN_0400a810("start + count <= Size",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/mapOfBits.cpp",0x53,
+                 "void eON_MapOfBits::ClearRange(DWORD, DWORD)");
+  }
+  if ((param_3 != 0) && (param_3 + param_2 <= *param_1)) {
+    __s = (byte *)((param_2 >> 3) + param_1[1]);
+    param_2 = param_2 & 7;
+    if (param_2 != 0) {
+      if (param_3 < 8) {
+        uVar2 = ~((uint)(byte)(&DAT_042e21ab)[param_3] << (sbyte)param_2);
+        *__s = *__s & (byte)uVar2;
+        __s[1] = __s[1] & (byte)(uVar2 >> 8);
+        return;
+      }
+      param_3 = (param_2 - 8) + param_3;
+      *__s = *__s & ~(byte)(0xff << (sbyte)param_2);
+      __s = __s + 1;
+    }
+    uVar2 = param_3 >> 3;
+    pbVar1 = __s;
+    if (uVar2 != 0) {
+      pbVar1 = __s + uVar2;
+      bzero(__s,uVar2);
+    }
+    if ((param_3 & 7) != 0) {
+      *pbVar1 = *pbVar1 & ~(&DAT_042e21ab)[param_3 & 7];
+    }
+  }
+  return;
+}
+

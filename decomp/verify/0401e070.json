@@ -1,0 +1,368 @@
+
+undefined4 udev_InitializeLibrary(void)
+
+{
+  undefined4 uVar1;
+  undefined *puVar2;
+  int iVar3;
+  code *pcVar4;
+  undefined **ppuVar5;
+  undefined1 local_4c;
+  undefined4 local_4b;
+  undefined4 local_47;
+  uint local_43;
+  undefined4 local_3f;
+  undefined *local_3b;
+  undefined *local_37;
+  undefined *local_33;
+  uint local_2f;
+  undefined4 local_2b;
+  undefined4 local_27;
+  undefined4 local_23;
+  undefined *local_1f;
+  
+  uVar1 = 1;
+  if ((DAT_04411534 == 0) && (uVar1 = 0, DAT_04411548 == '\0')) {
+    if (PTR_s_libudev_so_1_04408b50 != (undefined *)0x0) {
+      ppuVar5 = &PTR_s_libudev_so_1_04408b50;
+      puVar2 = PTR_s_libudev_so_1_04408b50;
+      do {
+        DAT_04411534 = dlopen(puVar2,2);
+        if (DAT_04411534 != 0) {
+          iVar3 = dlsym(DAT_04411534,"udev_device_get_action");
+          if (iVar3 == 0) {
+            local_4c = 0x5f;
+            local_4b = 0x76656475;
+            local_47 = 0x7665645f;
+            local_43 = 0x5f656369;
+            local_3f = 0x5f746567;
+            local_3b = (undefined *)0x69746361;
+            local_37 = (undefined *)CONCAT13(local_37._3_1_,0x6e6f);
+            DAT_0441155c = dlsym(DAT_04411534,&local_4c);
+            iVar3 = DAT_0441155c;
+            if (DAT_0441155c != 0) goto LAB_0401e0ea;
+          }
+          else {
+LAB_0401e0ea:
+            DAT_0441155c = iVar3;
+            iVar3 = dlsym(DAT_04411534,"udev_device_get_devnode");
+            if (iVar3 == 0) {
+              local_4c = 0x5f;
+              local_4b = 0x76656475;
+              local_47 = 0x7665645f;
+              local_43 = 0x5f656369;
+              local_3f = 0x5f746567;
+              local_3b = (undefined *)0x6e766564;
+              local_37 = &DAT_0065646f;
+              DAT_04411560 = dlsym(DAT_04411534,&local_4c);
+              iVar3 = DAT_04411560;
+              if (DAT_04411560 == 0) goto LAB_0401e430;
+            }
+            DAT_04411560 = iVar3;
+            iVar3 = dlsym(DAT_04411534,"udev_device_get_subsystem");
+            if (iVar3 == 0) {
+              local_4c = 0x5f;
+              local_4b = 0x76656475;
+              local_47 = 0x7665645f;
+              local_43 = 0x5f656369;
+              local_3f = 0x5f746567;
+              local_3b = (undefined *)0x73627573;
+              local_37 = (undefined *)0x65747379;
+              local_33 = (undefined *)CONCAT22(local_33._2_2_,0x6d);
+              DAT_04411564 = dlsym(DAT_04411534,&local_4c);
+              iVar3 = DAT_04411564;
+              if (DAT_04411564 == 0) goto LAB_0401e430;
+            }
+            DAT_04411564 = iVar3;
+            iVar3 = dlsym(DAT_04411534,"udev_device_get_property_value");
+            if (iVar3 == 0) {
+              local_4c = 0x5f;
+              local_4b = 0x76656475;
+              local_47 = 0x7665645f;
+              local_43 = 0x5f656369;
+              local_3f = 0x5f746567;
+              local_3b = (undefined *)0x706f7270;
+              local_37 = (undefined *)0x79747265;
+              local_33 = (undefined *)0x6c61765f;
+              local_2f = CONCAT13(local_2f._3_1_,0x6575);
+              DAT_04411568 = dlsym(DAT_04411534,&local_4c);
+              iVar3 = DAT_04411568;
+              if (DAT_04411568 == 0) goto LAB_0401e430;
+            }
+            DAT_04411568 = iVar3;
+            iVar3 = dlsym(DAT_04411534,"udev_device_new_from_syspath");
+            if (iVar3 == 0) {
+              local_4c = 0x5f;
+              local_4b = 0x76656475;
+              local_47 = 0x7665645f;
+              local_43 = 0x5f656369;
+              local_3f = 0x5f77656e;
+              local_3b = (undefined *)0x6d6f7266;
+              local_37 = (undefined *)0x7379735f;
+              local_33 = (undefined *)0x68746170;
+              local_2f = local_2f & 0xffffff00;
+              DAT_0441156c = dlsym(DAT_04411534,&local_4c);
+              iVar3 = DAT_0441156c;
+              if (DAT_0441156c == 0) goto LAB_0401e430;
+            }
+            DAT_0441156c = iVar3;
+            iVar3 = dlsym(DAT_04411534,"udev_device_unref");
+            if (iVar3 == 0) {
+              local_4c = 0x5f;
+              local_4b = 0x76656475;
+              local_47 = 0x7665645f;
+              local_43 = 0x5f656369;
+              local_3f = 0x65726e75;
+              local_3b = (undefined *)CONCAT22(local_3b._2_2_,0x66);
+              DAT_04411570 = dlsym(DAT_04411534,&local_4c);
+              iVar3 = DAT_04411570;
+              if (DAT_04411570 == 0) goto LAB_0401e430;
+            }
+            DAT_04411570 = iVar3;
+            iVar3 = dlsym(DAT_04411534,"udev_enumerate_add_match_subsystem");
+            if (iVar3 == 0) {
+              local_4c = 0x5f;
+              local_4b = 0x76656475;
+              local_47 = 0x756e655f;
+              local_43 = 0x6172656d;
+              local_3f = 0x615f6574;
+              local_3b = (undefined *)0x6d5f6464;
+              local_37 = (undefined *)0x68637461;
+              local_33 = (undefined *)0x6275735f;
+              local_2f = 0x74737973;
+              local_2b = CONCAT13(local_2b._3_1_,0x6d65);
+              DAT_04411574 = dlsym(DAT_04411534,&local_4c);
+              iVar3 = DAT_04411574;
+              if (DAT_04411574 == 0) goto LAB_0401e430;
+            }
+            DAT_04411574 = iVar3;
+            iVar3 = dlsym(DAT_04411534,"udev_enumerate_get_list_entry");
+            if (iVar3 == 0) {
+              local_4c = 0x5f;
+              local_4b = 0x76656475;
+              local_47 = 0x756e655f;
+              local_43 = 0x6172656d;
+              local_3f = 0x675f6574;
+              local_3b = (undefined *)0x6c5f7465;
+              local_37 = (undefined *)0x5f747369;
+              local_33 = (undefined *)0x72746e65;
+              local_2f = CONCAT22(local_2f._2_2_,0x79);
+              DAT_04411578 = dlsym(DAT_04411534,&local_4c);
+              iVar3 = DAT_04411578;
+              if (DAT_04411578 == 0) goto LAB_0401e430;
+            }
+            DAT_04411578 = iVar3;
+            iVar3 = dlsym(DAT_04411534,"udev_enumerate_new");
+            if (iVar3 == 0) {
+              local_4c = 0x5f;
+              local_4b = 0x76656475;
+              local_47 = 0x756e655f;
+              local_43 = 0x6172656d;
+              local_3f = 0x6e5f6574;
+              local_3b = (undefined *)CONCAT13(local_3b._3_1_,0x7765);
+              DAT_0441157c = dlsym(DAT_04411534,&local_4c);
+              iVar3 = DAT_0441157c;
+              if (DAT_0441157c == 0) goto LAB_0401e430;
+            }
+            DAT_0441157c = iVar3;
+            iVar3 = dlsym(DAT_04411534,"udev_enumerate_scan_devices");
+            if (iVar3 == 0) {
+              local_4c = 0x5f;
+              local_4b = 0x76656475;
+              local_47 = 0x756e655f;
+              local_43 = 0x6172656d;
+              local_3f = 0x735f6574;
+              local_3b = (undefined *)0x5f6e6163;
+              local_37 = (undefined *)0x69766564;
+              local_33 = &DAT_00736563;
+              DAT_04411580 = dlsym(DAT_04411534,&local_4c);
+              iVar3 = DAT_04411580;
+              if (DAT_04411580 == 0) goto LAB_0401e430;
+            }
+            DAT_04411580 = iVar3;
+            iVar3 = dlsym(DAT_04411534,"udev_enumerate_unref");
+            if (iVar3 == 0) {
+              local_4c = 0x5f;
+              local_4b = 0x76656475;
+              local_47 = 0x756e655f;
+              local_43 = 0x6172656d;
+              local_3f = 0x755f6574;
+              local_3b = (undefined *)0x6665726e;
+              local_37 = (undefined *)((uint)local_37 & 0xffffff00);
+              DAT_04411584 = dlsym(DAT_04411534,&local_4c);
+              iVar3 = DAT_04411584;
+              if (DAT_04411584 == 0) goto LAB_0401e430;
+            }
+            DAT_04411584 = iVar3;
+            iVar3 = dlsym(DAT_04411534,"udev_list_entry_get_name");
+            if (iVar3 == 0) {
+              local_4c = 0x5f;
+              local_4b = 0x76656475;
+              local_47 = 0x73696c5f;
+              local_43 = 0x6e655f74;
+              local_3f = 0x5f797274;
+              local_3b = (undefined *)0x5f746567;
+              local_37 = (undefined *)0x656d616e;
+              local_33 = (undefined *)((uint)local_33 & 0xffffff00);
+              DAT_04411588 = dlsym(DAT_04411534,&local_4c);
+              iVar3 = DAT_04411588;
+              if (DAT_04411588 == 0) goto LAB_0401e430;
+            }
+            DAT_04411588 = iVar3;
+            iVar3 = dlsym(DAT_04411534,"udev_list_entry_get_next");
+            if (iVar3 == 0) {
+              local_4c = 0x5f;
+              local_4b = 0x76656475;
+              local_47 = 0x73696c5f;
+              local_43 = 0x6e655f74;
+              local_3f = 0x5f797274;
+              local_3b = (undefined *)0x5f746567;
+              local_37 = (undefined *)0x7478656e;
+              local_33 = (undefined *)((uint)local_33 & 0xffffff00);
+              DAT_0441158c = dlsym(DAT_04411534,&local_4c);
+              iVar3 = DAT_0441158c;
+              if (DAT_0441158c == 0) goto LAB_0401e430;
+            }
+            DAT_0441158c = iVar3;
+            pcVar4 = (code *)dlsym(DAT_04411534,"udev_monitor_enable_receiving");
+            if (pcVar4 == (code *)0x0) {
+              local_4c = 0x5f;
+              local_4b = 0x76656475;
+              local_47 = 0x6e6f6d5f;
+              local_43 = 0x726f7469;
+              local_3f = 0x616e655f;
+              local_3b = (undefined *)0x5f656c62;
+              local_37 = (undefined *)0x65636572;
+              local_33 = (undefined *)0x6e697669;
+              local_2f = CONCAT22(local_2f._2_2_,0x67);
+              DAT_04411558 = (code *)dlsym(DAT_04411534,&local_4c);
+              pcVar4 = DAT_04411558;
+              if (DAT_04411558 == (code *)0x0) goto LAB_0401e430;
+            }
+            DAT_04411558 = pcVar4;
+            pcVar4 = (code *)dlsym(DAT_04411534,"udev_monitor_filter_add_match_subsystem_devtype");
+            if (pcVar4 == (code *)0x0) {
+              local_4c = 0x5f;
+              local_4b = 0x76656475;
+              local_47 = 0x6e6f6d5f;
+              local_43 = 0x726f7469;
+              local_3f = 0x6c69665f;
+              local_3b = (undefined *)0x5f726574;
+              local_37 = (undefined *)0x5f646461;
+              local_33 = (undefined *)0x6374616d;
+              local_2f = 0x75735f68;
+              local_2b = 0x73797362;
+              local_27 = 0x5f6d6574;
+              local_23 = 0x74766564;
+              local_1f = &DAT_00657079;
+              DAT_04411554 = (code *)dlsym(DAT_04411534,&local_4c);
+              pcVar4 = DAT_04411554;
+              if (DAT_04411554 == (code *)0x0) goto LAB_0401e430;
+            }
+            DAT_04411554 = pcVar4;
+            iVar3 = dlsym(DAT_04411534,"udev_monitor_get_fd");
+            if (iVar3 == 0) {
+              local_4c = 0x5f;
+              local_4b = 0x76656475;
+              local_47 = 0x6e6f6d5f;
+              local_43 = 0x726f7469;
+              local_3f = 0x7465675f;
+              local_3b = &DAT_0064665f;
+              DAT_04411590 = dlsym(DAT_04411534,&local_4c);
+              iVar3 = DAT_04411590;
+              if (DAT_04411590 == 0) goto LAB_0401e430;
+            }
+            DAT_04411590 = iVar3;
+            pcVar4 = (code *)dlsym(DAT_04411534,"udev_monitor_new_from_netlink");
+            if (pcVar4 == (code *)0x0) {
+              local_4c = 0x5f;
+              local_4b = 0x76656475;
+              local_47 = 0x6e6f6d5f;
+              local_43 = 0x726f7469;
+              local_3f = 0x77656e5f;
+              local_3b = (undefined *)0x6f72665f;
+              local_37 = (undefined *)0x656e5f6d;
+              local_33 = (undefined *)0x6e696c74;
+              local_2f = CONCAT22(local_2f._2_2_,0x6b);
+              DAT_04411550 = (code *)dlsym(DAT_04411534,&local_4c);
+              pcVar4 = DAT_04411550;
+              if (DAT_04411550 == (code *)0x0) goto LAB_0401e430;
+            }
+            DAT_04411550 = pcVar4;
+            iVar3 = dlsym(DAT_04411534,"udev_monitor_receive_device");
+            if (iVar3 == 0) {
+              local_4c = 0x5f;
+              local_4b = 0x76656475;
+              local_47 = 0x6e6f6d5f;
+              local_43 = 0x726f7469;
+              local_3f = 0x6365725f;
+              local_3b = (undefined *)0x65766965;
+              local_37 = (undefined *)0x7665645f;
+              local_33 = &DAT_00656369;
+              DAT_04411594 = dlsym(DAT_04411534,&local_4c);
+              iVar3 = DAT_04411594;
+              if (DAT_04411594 == 0) goto LAB_0401e430;
+            }
+            DAT_04411594 = iVar3;
+            iVar3 = dlsym(DAT_04411534,"udev_monitor_unref");
+            if (iVar3 == 0) {
+              local_4c = 0x5f;
+              local_4b = 0x76656475;
+              local_47 = 0x6e6f6d5f;
+              local_43 = 0x726f7469;
+              local_3f = 0x726e755f;
+              local_3b = (undefined *)CONCAT13(local_3b._3_1_,0x6665);
+              DAT_0441153c = dlsym(DAT_04411534,&local_4c);
+              iVar3 = DAT_0441153c;
+              if (DAT_0441153c == 0) goto LAB_0401e430;
+            }
+            DAT_0441153c = iVar3;
+            pcVar4 = (code *)dlsym(DAT_04411534,"udev_new");
+            if (pcVar4 == (code *)0x0) {
+              local_4c = 0x5f;
+              local_4b = 0x76656475;
+              local_47 = 0x77656e5f;
+              local_43 = local_43 & 0xffffff00;
+              DAT_0441154c = (code *)dlsym(DAT_04411534,&local_4c);
+              pcVar4 = DAT_0441154c;
+              if (DAT_0441154c == (code *)0x0) goto LAB_0401e430;
+            }
+            DAT_0441154c = pcVar4;
+            pcVar4 = (code *)dlsym(DAT_04411534,"udev_unref");
+            if (pcVar4 == (code *)0x0) {
+              local_4c = 0x5f;
+              local_4b = 0x76656475;
+              local_47 = 0x726e755f;
+              local_43 = CONCAT13(local_43._3_1_,0x6665);
+              DAT_04411544 = (code *)dlsym(DAT_04411534,&local_4c);
+              pcVar4 = DAT_04411544;
+              if (DAT_04411544 == (code *)0x0) goto LAB_0401e430;
+            }
+            DAT_04411544 = pcVar4;
+            DAT_04411540 = (*DAT_0441154c)();
+            if (DAT_04411540 != 0) {
+              DAT_04411538 = (*DAT_04411550)(DAT_04411540,&DAT_042ddbb0);
+              if (DAT_04411538 != 0) {
+                (*DAT_04411554)(DAT_04411538,&DAT_042dd9d8,0);
+                (*DAT_04411558)(DAT_04411538);
+                return 1;
+              }
+              (*DAT_04411544)(DAT_04411540);
+              DAT_04411540 = 0;
+            }
+          }
+LAB_0401e430:
+          dlclose(DAT_04411534);
+          DAT_04411534 = 0;
+        }
+        ppuVar5 = ppuVar5 + 1;
+        puVar2 = *ppuVar5;
+      } while (puVar2 != (undefined *)0x0);
+    }
+    DAT_04411548 = '\x01';
+    FUN_0402cd10(0xf,"Couldn\'t initialize udev library - input devices won\'t be detected!");
+    uVar1 = 0;
+  }
+  return uVar1;
+}
+

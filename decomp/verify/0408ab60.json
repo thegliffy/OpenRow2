@@ -1,0 +1,72 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+/* source: direct3ddevice9imp */
+
+undefined4
+Direct3DDevice9Imp__OpenGLSide_SetTextureStageState(int param_1,undefined4 param_2,int *param_3)
+
+{
+  char cVar1;
+  int iVar2;
+  uint uVar3;
+  int iVar4;
+  float fVar5;
+  float fVar6;
+  int iVar7;
+  
+  iVar2 = *param_3;
+  iVar7 = param_1 + 0x82c0 + iVar2 * 0x1c;
+  switch(param_3[1]) {
+  case 7:
+    *(int *)(iVar7 + 0xc) = param_3[2];
+    break;
+  case 8:
+    *(int *)(iVar7 + 0x10) = param_3[2];
+    break;
+  case 9:
+    *(int *)(iVar7 + 0x14) = param_3[2];
+    break;
+  case 10:
+    *(int *)(iVar7 + 0x18) = param_3[2];
+    break;
+  default:
+    FUN_0400a810("false",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+                 ,0x212a,"DWORD Direct3DDevice9Imp::OpenGLSide_SetTextureStageState(DWORD, LPVOID)")
+    ;
+    break;
+  case 0x16:
+    iVar4 = param_3[2];
+    *(int *)(iVar7 + 0x1c) = iVar4;
+    if (*(char *)(param_1 + 0xeb4c) != '\0') {
+      *(int *)(*(int *)(param_1 + 0xeb78) + 0xc + (iVar2 + 0x65) * 0x10) = iVar4;
+      *(int *)(param_1 + 0xc644) = *(int *)(param_1 + 0xc644) + 1;
+    }
+    break;
+  case 0x17:
+    iVar4 = param_3[2];
+    *(int *)(iVar7 + 0x20) = iVar4;
+    if (*(char *)(param_1 + 0xeb4c) != '\0') {
+      *(int *)(*(int *)(param_1 + 0xeb78) + 0x10 + (iVar2 + 0x65) * 0x10) = iVar4;
+      *(int *)(param_1 + 0xc644) = *(int *)(param_1 + 0xc644) + 1;
+    }
+    break;
+  case 0x20:
+    uVar3 = param_3[2];
+    cVar1 = *(char *)(param_1 + 0xeb4c);
+    *(uint *)(iVar7 + 0x24) = uVar3;
+    fVar6 = _DAT_042dc5a0;
+    fVar5 = DAT_042dbf34;
+    if (cVar1 != '\0') {
+      iVar7 = (iVar2 + 0x5c) * 0x10 + *(int *)(param_1 + 0xeb78);
+      *(float *)(iVar7 + 0xc) = (DAT_042dbf34 * 0.0 + (float)(uVar3 >> 0x10 & 0xff)) / _DAT_042dc5a0
+      ;
+      *(float *)(iVar7 + 0x10) = (fVar5 * 0.0 + (float)(uVar3 >> 8 & 0xff)) / fVar6;
+      *(float *)(iVar7 + 0x14) = (fVar5 * 0.0 + (float)(uVar3 & 0xff)) / fVar6;
+      *(float *)(iVar7 + 0x18) = ((float)(uVar3 >> 0x18) + 0.0) / fVar6;
+      *(int *)(param_1 + 0xc644) = *(int *)(param_1 + 0xc644) + 1;
+    }
+  }
+  return 0xc;
+}
+

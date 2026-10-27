@@ -1,0 +1,31 @@
+
+undefined4 eON_Int_FlushPendingForegroundSendMessageA(void)
+
+{
+  int iVar1;
+  char cVar2;
+  int in_FS_OFFSET;
+  
+  iVar1 = DAT_0451c0d8;
+  if (DAT_0451c0d8 != 0) {
+    DAT_0451c0d8 = 0;
+    if (iVar1 == 0x271a) {
+      FUN_0402cd10(10,"Desktop HWND supplied in SendMessageA().");
+    }
+    else {
+      if (iVar1 == 0xffff) {
+        FUN_0402cd10(0xf,"HWND_BROADCAST not supported in SendMessageA(). Add it.");
+      }
+      thread_SuspendPoint(*(undefined4 *)(*(int *)(in_FS_OFFSET + 0x18) + 0x130));
+      cVar2 = FUN_0404ecd0(iVar1);
+      if (cVar2 == '\0') {
+        eON_SetLastError(0x578);
+      }
+      else {
+        eON_SendMessageA(0);
+      }
+    }
+  }
+  return 1;
+}
+

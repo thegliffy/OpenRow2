@@ -1,0 +1,91 @@
+
+undefined4
+eON_RegSetValueExA(int param_1,char *param_2,int param_3,int param_4,void *param_5,size_t param_6)
+
+{
+  bool bVar1;
+  char cVar2;
+  size_t sVar3;
+  undefined *puVar4;
+  int iVar5;
+  int *piVar6;
+  undefined *puVar7;
+  undefined4 uVar8;
+  undefined1 auStackY_90 [20];
+  undefined4 uStackY_7c;
+  size_t local_2c;
+  void *local_24;
+  
+  local_24 = param_5;
+  local_2c = param_6;
+  if (param_2 == (char *)0x0) {
+    sVar3 = 2;
+  }
+  else {
+    sVar3 = strlen(param_2);
+    sVar3 = (sVar3 + 1) * 2;
+  }
+  puVar4 = malloc(sVar3);
+  eON_MultiByteToWideChar();
+  piVar6 = (int *)&stack0xffffff88;
+  bVar1 = param_4 - 1U < 2 || param_4 == 7;
+  if (bVar1) {
+    local_2c = param_6 * 2;
+    uStackY_7c = 0x4118640;
+    local_24 = malloc(local_2c);
+    uStackY_7c = 0x411866c;
+    eON_MultiByteToWideChar();
+    piVar6 = (int *)auStackY_90;
+  }
+  puVar7 = &DAT_04345db0;
+  if (puVar4 != (undefined *)0x0) {
+    puVar7 = puVar4;
+  }
+  piVar6[-1] = 0x411859b;
+  cVar2 = Registry_IsLoaded();
+  if (cVar2 == '\0') {
+    piVar6[-1] = 0x41185a4;
+    Registry_Load();
+    piVar6[-1] = 0x41185a9;
+    InitFakeWindowsRegistryKeys();
+    piVar6[-1] = 0x41185ae;
+    FlushRegistrySave();
+  }
+  if (param_1 != 0) {
+    *piVar6 = param_1;
+    piVar6[-1] = 0x41185c0;
+    iVar5 = Registry_OpenPredefinedKey();
+    if (iVar5 != 0) {
+      if (param_3 != 0) {
+        piVar6[1] = (int)"Warning! Non-zero lpReserved given to RegSetValueExW. Some problem?";
+        *piVar6 = 5;
+        piVar6[-1] = 0x4118697;
+        FUN_0402cd10();
+      }
+      piVar6[1] = (int)puVar7;
+      uVar8 = 0;
+      *piVar6 = iVar5;
+      piVar6[5] = 0;
+      piVar6[2] = param_4;
+      piVar6[4] = local_2c;
+      piVar6[3] = (int)local_24;
+      piVar6[-1] = 0x41185f7;
+      RegistryXml_SetValue();
+      piVar6[-1] = 0x41185fc;
+      FlushRegistrySave();
+      goto LAB_041185fc;
+    }
+  }
+  uVar8 = 6;
+LAB_041185fc:
+  *piVar6 = (int)puVar4;
+  piVar6[-1] = 0x4118604;
+  free((void *)*piVar6);
+  if (bVar1) {
+    *piVar6 = (int)local_24;
+    piVar6[-1] = 0x4118615;
+    free((void *)*piVar6);
+  }
+  return uVar8;
+}
+

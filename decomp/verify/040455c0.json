@@ -1,0 +1,94 @@
+
+/* source: vpfs */
+
+undefined4 __regparm1 vpfs_040455c0(int param_1,uint *param_2)
+
+{
+  uint *puVar1;
+  uint uVar2;
+  char *__s;
+  char cVar3;
+  undefined4 uVar4;
+  int iVar5;
+  char *pcVar6;
+  undefined4 *puVar7;
+  uint local_20;
+  
+  puVar7 = (undefined4 *)&stack0xfffff7a4;
+  if (param_1 == 0) {
+    return 0;
+  }
+  if (0x2800 < param_1 + 0x54545455U) {
+    FUN_0402cd10();
+    return 0;
+  }
+  pthread_mutex_lock((pthread_mutex_t *)&DAT_0441804c);
+  param_1 = param_1 + 0x54545454;
+  iVar5 = (&DAT_04418280)[param_1 * 8];
+  if ((((iVar5 == 4) || (iVar5 == 0)) || (iVar5 == 6)) || (iVar5 == 1)) goto LAB_040457d0;
+  if (iVar5 - 2U < 2) {
+    iVar5 = VPFS_ConvertToDiskFile();
+    if (iVar5 == 0) {
+      uVar4 = 0;
+      goto LAB_040456be;
+    }
+  }
+  else if (iVar5 == 5) {
+    iVar5 = FUN_0403c9d0();
+    if (iVar5 == 0) {
+      FUN_0400a810();
+    }
+    __s = *(char **)(&DAT_04418284 + param_1 * 0x20);
+    iVar5 = VPFS_PathToPathInArchive();
+    if (iVar5 == 0) {
+      FUN_0400a810();
+    }
+    cVar3 = FUN_0404c4c0();
+    if (cVar3 == '\0') {
+      pcVar6 = strrchr(__s,0x2f);
+      if (pcVar6 != (char *)0x0) {
+        *pcVar6 = '\0';
+        if (*__s == '\0') {
+          *pcVar6 = '/';
+        }
+        else {
+          iVar5 = VPFS_MakeSureFolderExistsOnDisk();
+          *pcVar6 = '/';
+          if (iVar5 == 0) {
+            FUN_0402cd10();
+            goto LAB_040457b0;
+          }
+        }
+      }
+      iVar5 = VPFS_ConvertDiskFileToWriteableLocation();
+      if (iVar5 != 0) goto LAB_04045662;
+    }
+    else {
+      FUN_0402cd10();
+    }
+LAB_040457b0:
+    FUN_0402cd10();
+LAB_040457d0:
+    pthread_mutex_unlock((pthread_mutex_t *)&DAT_0441804c);
+    return 0;
+  }
+LAB_04045662:
+  pthread_mutex_unlock((pthread_mutex_t *)&DAT_0441804c);
+  uVar4 = fs_WriteFile();
+  pthread_mutex_lock((pthread_mutex_t *)&DAT_0441804c);
+  puVar1 = &DAT_0441828c + param_1 * 8;
+  uVar2 = *puVar1;
+  *puVar1 = *puVar1 + local_20;
+  (&DAT_04418290)[param_1 * 8] = (&DAT_04418290)[param_1 * 8] + (uint)CARRY4(uVar2,local_20);
+  puVar7 = (undefined4 *)&stack0xfffff790;
+  if (param_2 != (uint *)0x0) {
+    *param_2 = local_20;
+    puVar7 = (undefined4 *)&stack0xfffff790;
+  }
+LAB_040456be:
+  *puVar7 = &DAT_0441804c;
+  puVar7[-1] = 0x40456ca;
+  pthread_mutex_unlock((pthread_mutex_t *)*puVar7);
+  return uVar4;
+}
+

@@ -1,0 +1,90 @@
+
+void png_handle_zTXt(int param_1,undefined4 param_2,uint param_3)
+
+{
+  uint uVar1;
+  char *pcVar2;
+  int iVar3;
+  uint uVar4;
+  char *pcVar5;
+  undefined4 local_3c;
+  int local_38;
+  int local_34;
+  int local_30;
+  undefined4 local_2c;
+  undefined4 local_28;
+  undefined4 local_24;
+  int local_20 [4];
+  
+  iVar3 = *(int *)(param_1 + 0x2f4);
+  if (iVar3 != 0) {
+    if (iVar3 == 1) {
+      png_crc_finish(param_1,param_3);
+      return;
+    }
+    *(int *)(param_1 + 0x2f4) = iVar3 + -1;
+    if (iVar3 + -1 == 1) {
+      png_crc_finish(param_1,param_3);
+      png_chunk_benign_error(param_1,"no space in chunk cache");
+      return;
+    }
+  }
+  uVar1 = *(uint *)(param_1 + 0xd0);
+  if ((uVar1 & 1) == 0) {
+                    /* WARNING: Subroutine does not return */
+    png_chunk_error(param_1,"missing IHDR");
+  }
+  if ((uVar1 & 4) != 0) {
+    *(uint *)(param_1 + 0xd0) = uVar1 | 8;
+  }
+  pcVar2 = (char *)png_read_buffer();
+  if (pcVar2 == (char *)0x0) {
+    png_crc_finish(param_1,param_3);
+    png_chunk_benign_error(param_1,"out of memory");
+  }
+  else {
+    png_crc_read(param_1,pcVar2,param_3);
+    iVar3 = png_crc_finish(param_1,0);
+    if (iVar3 == 0) {
+      if ((param_3 != 0) && (uVar1 = 0, *pcVar2 != '\0')) {
+        do {
+          uVar4 = uVar1;
+          uVar1 = uVar4 + 1;
+          if (uVar1 == param_3) break;
+        } while (pcVar2[uVar4 + 1] != '\0');
+        if (uVar4 < 0x4f) {
+          pcVar5 = "truncated";
+          if ((uVar4 + 4 <= param_3) &&
+             (pcVar5 = "unknown compression type", pcVar2[uVar4 + 2] == '\0')) {
+            local_20[0] = -1;
+            iVar3 = zstream_decompress(local_20);
+            if (iVar3 == 1) {
+              local_38 = *(int *)(param_1 + 0x314);
+              *(undefined1 *)(uVar1 + local_38 + local_20[0] + 2) = 0;
+              local_34 = local_38 + uVar4 + 3;
+              local_3c = 0;
+              local_2c = 0;
+              local_28 = 0;
+              local_30 = local_20[0];
+              local_24 = 0;
+              pcVar2 = (char *)png_set_text_2(param_1,param_2,&local_3c,1);
+              pcVar5 = "insufficient memory";
+            }
+            else {
+              pcVar5 = *(char **)(param_1 + 0xf8);
+              pcVar2 = pcVar5;
+            }
+            if (pcVar2 == (char *)0x0) {
+              return;
+            }
+          }
+          png_chunk_benign_error(param_1,pcVar5);
+          return;
+        }
+      }
+      png_chunk_benign_error(param_1,"bad keyword");
+    }
+  }
+  return;
+}
+

@@ -1,0 +1,146 @@
+
+void png_write_row(int param_1,void *param_2)
+
+{
+  char *pcVar1;
+  uint uVar2;
+  int iVar3;
+  int iVar4;
+  uint uVar5;
+  int local_34;
+  int local_28;
+  size_t local_24;
+  byte local_20;
+  char local_1f;
+  char local_1e;
+  byte local_1d;
+  
+  if (param_1 == 0) {
+    return;
+  }
+  if ((*(int *)(param_1 + 0x174) == 0) && (*(char *)(param_1 + 0x1b1) == '\0')) {
+    if ((*(byte *)(param_1 + 0xd1) & 4) == 0) {
+                    /* WARNING: Subroutine does not return */
+      png_error(param_1,"png_write_info was never called before png_write_row");
+    }
+    FUN_042c35f0(param_1);
+  }
+  if ((*(char *)(param_1 + 0x1b0) != '\0') && ((*(byte *)(param_1 + 0xd8) & 2) != 0)) {
+    switch(*(undefined1 *)(param_1 + 0x1b1)) {
+    case 0:
+      if ((*(byte *)(param_1 + 0x174) & 7) != 0) goto LAB_042beaa0;
+      break;
+    case 1:
+      if (((*(byte *)(param_1 + 0x174) & 7) != 0) || (*(uint *)(param_1 + 0x15c) < 5))
+      goto LAB_042beaa0;
+      break;
+    case 2:
+      if ((*(uint *)(param_1 + 0x174) & 7) != 4) goto LAB_042beaa0;
+      break;
+    case 3:
+      if (((*(byte *)(param_1 + 0x174) & 3) != 0) || (*(uint *)(param_1 + 0x15c) < 3))
+      goto LAB_042beaa0;
+      break;
+    case 4:
+      if ((*(uint *)(param_1 + 0x174) & 3) != 2) goto LAB_042beaa0;
+      break;
+    case 5:
+      if (((*(byte *)(param_1 + 0x174) & 1) != 0) || (*(uint *)(param_1 + 0x15c) < 2))
+      goto LAB_042beaa0;
+      break;
+    case 6:
+      if ((*(byte *)(param_1 + 0x174) & 1) == 0) goto LAB_042beaa0;
+    }
+  }
+  local_20 = *(byte *)(param_1 + 0x1b3);
+  local_1e = *(char *)(param_1 + 0x1b8);
+  local_28 = *(int *)(param_1 + 0x168);
+  local_1f = *(char *)(param_1 + 0x1b5);
+  local_1d = local_1f * local_1e;
+  if (local_1d < 8) {
+    local_24 = (uint)local_1d * local_28 + 7 >> 3;
+  }
+  else {
+    local_24 = (uint)(local_1d >> 3) * local_28;
+  }
+  memcpy((void *)(*(int *)(param_1 + 0x180) + 1),param_2,local_24);
+  if (*(char *)(param_1 + 0x1b0) == '\0') {
+LAB_042bea30:
+    uVar2 = *(uint *)(param_1 + 0xd8);
+  }
+  else {
+    uVar2 = *(uint *)(param_1 + 0xd8);
+    if ((*(byte *)(param_1 + 0x1b1) < 6) && ((uVar2 & 2) != 0)) {
+      FUN_042c3930(&local_28,*(int *)(param_1 + 0x180) + 1,*(byte *)(param_1 + 0x1b1));
+      if (local_28 == 0) {
+LAB_042beaa0:
+        FUN_042c37c0(param_1);
+        return;
+      }
+      goto LAB_042bea30;
+    }
+  }
+  if (uVar2 != 0) {
+    FUN_042c0530(param_1,&local_28);
+  }
+  if ((local_1d != *(byte *)(param_1 + 0x1b6)) || (local_1d != *(byte *)(param_1 + 0x1bb))) {
+                    /* WARNING: Subroutine does not return */
+    png_error(param_1,"internal write transform logic error");
+  }
+  if ((((*(byte *)(param_1 + 0x2c4) & 4) != 0) && (*(char *)(param_1 + 0x2c8) == '@')) &&
+     ((local_20 & 2) != 0)) {
+    pcVar1 = (char *)(*(int *)(param_1 + 0x180) + 1);
+    if (local_1f == '\b') {
+      if (local_20 == 2) {
+        iVar4 = 3;
+      }
+      else {
+        iVar4 = 4;
+        if (local_20 != 6) goto LAB_042be9ae;
+      }
+      if (local_28 != 0) {
+        iVar3 = 0;
+        do {
+          iVar3 = iVar3 + 1;
+          *pcVar1 = *pcVar1 - pcVar1[1];
+          pcVar1[2] = pcVar1[2] - pcVar1[1];
+          pcVar1 = pcVar1 + iVar4;
+        } while (iVar3 != local_28);
+      }
+    }
+    else if (local_1f == '\x10') {
+      if (local_20 == 2) {
+        local_34 = 6;
+      }
+      else {
+        if (local_20 != 6) goto LAB_042be9ae;
+        local_34 = 8;
+      }
+      if (local_28 != 0) {
+        iVar4 = 0;
+        do {
+          iVar4 = iVar4 + 1;
+          uVar5 = (uint)CONCAT11(*pcVar1,pcVar1[1]) - (uint)CONCAT11(pcVar1[2],pcVar1[3]) & 0xffff;
+          uVar2 = (uint)CONCAT11(pcVar1[4],pcVar1[5]) - (uint)CONCAT11(pcVar1[2],pcVar1[3]) & 0xffff
+          ;
+          *pcVar1 = (char)(uVar5 >> 8);
+          pcVar1[1] = (char)uVar5;
+          pcVar1[4] = (char)(uVar2 >> 8);
+          pcVar1[5] = (char)uVar2;
+          pcVar1 = pcVar1 + local_34;
+        } while (iVar4 != local_28);
+      }
+    }
+  }
+LAB_042be9ae:
+  if ((local_20 == 3) && (-1 < *(int *)(param_1 + 0x1a8))) {
+    FUN_042bd490(param_1,&local_28);
+  }
+  FUN_042c3c20(param_1,&local_28);
+  if (*(code **)(param_1 + 0x224) != (code *)0x0) {
+    (**(code **)(param_1 + 0x224))
+              (param_1,*(undefined4 *)(param_1 + 0x174),*(undefined1 *)(param_1 + 0x1b1));
+  }
+  return;
+}
+

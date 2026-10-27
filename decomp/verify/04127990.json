@@ -1,0 +1,127 @@
+
+/* source: iphlpapi */
+
+undefined4 __regparm3 eON_Int_GetIpAddressTable(int *param_1)
+
+{
+  short *psVar1;
+  void *pvVar2;
+  undefined4 uVar3;
+  int iVar4;
+  uint *puVar5;
+  void *pvVar6;
+  int iVar7;
+  int iVar8;
+  uint uVar9;
+  bool bVar10;
+  int local_54;
+  char local_44 [20];
+  uint local_30;
+  size_t local_24;
+  void *local_20;
+  
+  if (param_1 == (int *)0x0) {
+    FUN_0400a810("ipAddressTable",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/iphlpapi/iphlpapi.cpp"
+                 ,0xd4,"HRESULT eON_Int_GetIpAddressTable(MIB_IPADDRTABLE**)");
+  }
+  iVar4 = socket(2,2,0);
+  if (iVar4 == -1) {
+LAB_041279c6:
+    uVar9 = 0;
+  }
+  else {
+    local_24 = 0x8000;
+    local_20 = malloc(0x8000);
+    iVar8 = ioctl(iVar4,0x8912,&local_24);
+    close(iVar4);
+    if (iVar8 != 0) {
+      free(local_20);
+      goto LAB_041279c6;
+    }
+    if (0x8000 < (int)local_24) {
+      FUN_0400a810("ifConfig->ifc_len <= initialLength",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/iphlpapi/iphlpapi.cpp"
+                   ,0xa8,"HRESULT eON_EnumerateIPAddresses(ifconf*, DWORD*)");
+    }
+    if ((int)local_24 < 0x8000) {
+      local_20 = realloc(local_20,local_24);
+    }
+    pvVar2 = (void *)((int)local_20 + (local_24 - 0x20));
+    uVar9 = 0;
+    pvVar6 = local_20;
+    if (local_20 <= pvVar2) {
+      do {
+        psVar1 = (short *)((int)pvVar6 + 0x10);
+        pvVar6 = (void *)((int)pvVar6 + 0x20);
+        uVar9 = uVar9 + (*psVar1 == 2);
+      } while (pvVar6 <= pvVar2);
+      if (1 < uVar9) {
+        puVar5 = malloc(uVar9 * 0x18 + 4);
+        *param_1 = (int)puVar5;
+        goto joined_r0x04127aa2;
+      }
+    }
+  }
+  puVar5 = malloc(0x1c);
+  *param_1 = (int)puVar5;
+joined_r0x04127aa2:
+  if (puVar5 == (uint *)0x0) {
+    free(local_20);
+    return 0xe;
+  }
+  *puVar5 = uVar9;
+  if (uVar9 != 0) {
+    iVar4 = socket(2,2,0);
+    if (iVar4 == -1) {
+      FUN_0400a810("sock != -1",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/iphlpapi/iphlpapi.cpp"
+                   ,0xec,"HRESULT eON_Int_GetIpAddressTable(MIB_IPADDRTABLE**)");
+    }
+    pvVar2 = (void *)((int)local_20 + (local_24 - 0x20));
+    if (local_20 <= pvVar2) {
+      local_54 = 0;
+      pvVar6 = (void *)((int)local_20 + 0x20);
+      do {
+        while (*(short *)((int)pvVar6 + -0x10) == 2) {
+          iVar8 = local_54 * 0x18 + *param_1;
+          uVar9 = if_nametoindex((char *)((int)pvVar6 + -0x20));
+          *(uint *)(iVar8 + 8) = uVar9;
+          if (uVar9 == 0) {
+            FUN_0400a810("record->dwIndex",
+                         "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/iphlpapi/iphlpapi.cpp"
+                         ,0x106,"HRESULT eON_Int_GetIpAddressTable(MIB_IPADDRTABLE**)");
+          }
+          uVar3 = *(undefined4 *)((int)pvVar6 + -0xc);
+          *(undefined4 *)(iVar8 + 0xc) = 0xffffffff;
+          *(undefined4 *)(iVar8 + 4) = uVar3;
+          strncpy(local_44,(char *)((int)pvVar6 + -0x20),0x10);
+          iVar7 = ioctl(iVar4,0x891b,local_44);
+          if (iVar7 == 0) {
+            *(uint *)(iVar8 + 0xc) = local_30;
+          }
+          iVar7 = ioctl(iVar4,0x8919,local_44);
+          uVar9 = 0;
+          if (iVar7 == 0) {
+            uVar9 = (uint)((local_30 & *(uint *)(iVar8 + 0xc)) != 0);
+          }
+          local_54 = local_54 + 1;
+          *(undefined4 *)(iVar8 + 0x14) = 0xffff;
+          bVar10 = pvVar2 < pvVar6;
+          *(uint *)(iVar8 + 0x10) = uVar9;
+          *(undefined2 *)(iVar8 + 0x18) = 0;
+          *(undefined2 *)(iVar8 + 0x1a) = 0;
+          pvVar6 = (void *)((int)pvVar6 + 0x20);
+          if (bVar10) goto LAB_04127c00;
+        }
+        bVar10 = pvVar6 <= pvVar2;
+        pvVar6 = (void *)((int)pvVar6 + 0x20);
+      } while (bVar10);
+    }
+LAB_04127c00:
+    close(iVar4);
+  }
+  free(local_20);
+  return 0;
+}
+

@@ -1,0 +1,531 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+void __regparm3 eON_Window_HandleSDLEvent(uint *param_1)
+
+{
+  code *pcVar1;
+  byte bVar2;
+  char cVar3;
+  undefined1 uVar4;
+  int iVar5;
+  int iVar6;
+  int *piVar7;
+  int *piVar8;
+  uint uVar9;
+  undefined4 uVar10;
+  uint uVar11;
+  float fVar12;
+  uint local_38;
+  uint local_34;
+  uint local_30;
+  uint local_2c;
+  float local_28;
+  float local_24;
+  undefined2 local_20 [8];
+  
+  uVar11 = *param_1;
+  if (uVar11 == 0x303) {
+    if (param_1[2] == 0) {
+      return;
+    }
+    iVar5 = SDL_GetWindowFromID(param_1[2]);
+    if (iVar5 == 0) {
+      return;
+    }
+    iVar5 = SDL_GetWindowData(iVar5,"eON_Window");
+    if (iVar5 == 0) {
+      return;
+    }
+    iVar6 = eON_MultiByteToWideChar(0,0,param_1 + 3,0xffffffff,local_20,2);
+    if (iVar6 != 0) {
+      FUN_0404d010(iVar5,local_20[0]);
+      return;
+    }
+    FUN_0402cd10(10,
+                 "SDL_TEXTINPUT - failed to convert \'%s\' to utf16 char, ignoring character input."
+                 ,param_1 + 3);
+    return;
+  }
+  if (0x303 < uVar11) {
+    if (uVar11 == 0x402) {
+      bVar2 = (char)param_1[4] - 1;
+      if ((bVar2 < 9) && (uVar11 = *(uint *)(&DAT_042e0c80 + (uint)bVar2 * 4), uVar11 != 0xffffffff)
+         ) {
+        iVar5 = FUN_041780b0();
+        if (iVar5 != 0) {
+          FUN_04179030(uVar11,0);
+        }
+        if ((DAT_0451be38 != (int *)0x0) &&
+           (iVar6 = FUN_0400f3a0(), iVar5 = DAT_04408c5c, iVar6 != 0)) {
+          DAT_04408c5c = DAT_04408c5c + 1;
+          (**(code **)(*DAT_0451be38 + 8))(DAT_0451be38,iVar5,uVar11 & 0xff);
+        }
+      }
+      if (param_1[2] == 0) {
+        return;
+      }
+      iVar5 = SDL_GetWindowFromID(param_1[2]);
+      if (iVar5 == 0) {
+        return;
+      }
+      iVar5 = SDL_GetWindowData(iVar5,"eON_Window");
+      if (iVar5 == 0) {
+        return;
+      }
+      if (DAT_04411638 == 1) {
+        local_30 = DAT_04411630;
+        local_2c = DAT_04411634;
+      }
+      else {
+        SDL_GetMouseState(&local_30,&local_2c);
+      }
+      uVar9 = local_2c;
+      uVar11 = local_30;
+      iVar6 = FUN_0402d650(iVar5);
+      if (iVar6 != 0) {
+        local_24 = (float)(int)uVar11;
+        local_28 = (float)(int)uVar9;
+        FUN_0402d700(&local_24,&local_28);
+        uVar11 = (uint)local_24;
+        uVar9 = (uint)local_28;
+      }
+      switch((char)param_1[4]) {
+      default:
+        return;
+      case '\x01':
+        eON_Int_Wnd_LButtonOrRButtonUp(iVar5,uVar11,uVar9);
+        return;
+      case '\x02':
+        eON_Int_Wnd_MButtonUp(iVar5,uVar11,uVar9);
+        return;
+      case '\x03':
+        eON_Int_Wnd_RButtonUp(iVar5,uVar11,uVar9);
+        return;
+      case '\x04':
+      case '\b':
+        eON_Int_Wnd_XButton1Up(iVar5,uVar11,uVar9);
+        return;
+      case '\x05':
+      case '\t':
+        eON_Int_Wnd_XButtonUp(iVar5,uVar11,uVar9);
+        return;
+      }
+    }
+    if (0x402 < uVar11) {
+      if (uVar11 != 0x403) {
+        if (uVar11 != 0x900) {
+          return;
+        }
+        eON_Clipboard_SyncFromSDL(1);
+        return;
+      }
+      if (param_1[5] == 0) {
+        return;
+      }
+      fVar12 = ((float)(int)param_1[5] * DAT_042e0cc4) / _DAT_042e0cc8;
+      iVar5 = FUN_041780b0();
+      if (iVar5 != 0) {
+        FUN_04179c80(_DAT_042e0ccc * fVar12);
+      }
+      if ((DAT_0451be38 != (int *)0x0) && (iVar6 = FUN_0400f3a0(), iVar5 = DAT_04408c5c, iVar6 != 0)
+         ) {
+        DAT_04408c5c = DAT_04408c5c + 1;
+        (**(code **)(*DAT_0451be38 + 0xc))(DAT_0451be38,iVar5,(int)fVar12);
+      }
+      if (param_1[2] == 0) {
+        return;
+      }
+      iVar5 = SDL_GetWindowFromID(param_1[2]);
+      if (iVar5 == 0) {
+        return;
+      }
+      iVar5 = SDL_GetWindowData(iVar5,"eON_Window");
+      if (iVar5 == 0) {
+        return;
+      }
+      if (DAT_04411638 == 1) {
+        local_2c = DAT_04411630;
+        local_30 = DAT_04411634;
+      }
+      else {
+        SDL_GetMouseState(&local_2c,&local_30);
+      }
+      uVar9 = local_2c;
+      uVar11 = local_30;
+      iVar6 = FUN_0402d650(iVar5);
+      if (iVar6 != 0) {
+        local_28 = (float)(int)uVar9;
+        local_24 = (float)(int)uVar11;
+        FUN_0402d700(&local_28,&local_24);
+        uVar9 = (uint)local_28;
+        uVar11 = (uint)local_24;
+      }
+      eON_Int_Wnd_MouseWheel(iVar5,uVar9,uVar11,(float)(int)param_1[5] * _DAT_042e0ccc);
+      return;
+    }
+    if (uVar11 != 0x400) {
+      if (uVar11 != 0x401) {
+        return;
+      }
+      bVar2 = (char)param_1[4] - 1;
+      if ((bVar2 < 9) && (uVar11 = *(uint *)(&DAT_042e0c40 + (uint)bVar2 * 4), uVar11 != 0xffffffff)
+         ) {
+        iVar5 = FUN_041780b0();
+        if (iVar5 != 0) {
+          FUN_04179030(uVar11,1);
+        }
+        if ((DAT_0451be38 != (int *)0x0) &&
+           (iVar6 = FUN_0400f3a0(), iVar5 = DAT_04408c5c, iVar6 != 0)) {
+          DAT_04408c5c = DAT_04408c5c + 1;
+          (**(code **)(*DAT_0451be38 + 4))(DAT_0451be38,iVar5,uVar11 & 0xff);
+        }
+      }
+      if (param_1[2] == 0) {
+        return;
+      }
+      iVar5 = SDL_GetWindowFromID(param_1[2]);
+      if (iVar5 == 0) {
+        return;
+      }
+      iVar5 = SDL_GetWindowData(iVar5,"eON_Window");
+      if (iVar5 == 0) {
+        return;
+      }
+      if (DAT_04411638 == 1) {
+        local_2c = DAT_04411630;
+        local_30 = DAT_04411634;
+      }
+      else {
+        SDL_GetMouseState(&local_2c,&local_30);
+      }
+      uVar9 = local_2c;
+      uVar11 = local_30;
+      iVar6 = FUN_0402d650(iVar5);
+      if (iVar6 != 0) {
+        local_28 = (float)(int)uVar9;
+        local_24 = (float)(int)uVar11;
+        FUN_0402d700(&local_28,&local_24);
+        uVar9 = (uint)local_28;
+        uVar11 = (uint)local_24;
+      }
+      switch((char)param_1[4]) {
+      default:
+        return;
+      case '\x01':
+        eON_Int_Wnd_LButtonDownOrDblClk(iVar5,uVar9,uVar11,0,0);
+        return;
+      case '\x02':
+        eON_Int_Wnd_NCCalcSize_Flag10(iVar5,uVar9,uVar11,0);
+        return;
+      case '\x03':
+        eON_Int_Wnd_NCCalcSize_Flag2(iVar5,uVar9,uVar11,0);
+        return;
+      case '\x04':
+      case '\b':
+        eON_Int_Wnd_NCCalcSize_Flag20(iVar5,uVar9,uVar11,0);
+        return;
+      case '\x05':
+      case '\t':
+        eON_Int_Wnd_NCCalcSize_Flag40(iVar5,uVar9,uVar11,0);
+        return;
+      }
+    }
+    local_34 = param_1[5];
+    local_38 = param_1[6];
+    local_30 = param_1[7];
+    local_2c = param_1[8];
+    cVar3 = eON_Int_RelativeMouse_UpdateDeltas(&local_2c);
+    if (cVar3 == '\0') {
+      return;
+    }
+    FUN_0402e850((float)(int)local_30,(float)(int)local_2c);
+    iVar5 = FUN_041780b0();
+    if (iVar5 != 0) {
+      FUN_04178eb0();
+    }
+    iVar5 = DAT_04408c5c;
+    if (DAT_0451be38 != (int *)0x0) {
+      DAT_04408c5c = DAT_04408c5c + 1;
+      (**(code **)*DAT_0451be38)(DAT_0451be38,iVar5);
+    }
+    if (param_1[4] == 0) {
+      FUN_0400f430(1);
+    }
+    if (param_1[2] == 0) {
+      return;
+    }
+    iVar5 = SDL_GetWindowFromID(param_1[2]);
+    if (iVar5 == 0) {
+      return;
+    }
+    iVar5 = SDL_GetWindowData(iVar5,"eON_Window");
+    uVar9 = local_34;
+    uVar11 = local_38;
+    if (iVar5 == 0) {
+      return;
+    }
+    iVar6 = FUN_0402d650(iVar5);
+    if (iVar6 != 0) {
+      local_24 = (float)(int)uVar9;
+      local_28 = (float)(int)uVar11;
+      FUN_0402d700(&local_24,&local_28);
+      uVar9 = (uint)local_24;
+      uVar11 = (uint)local_28;
+    }
+    eON_Int_Wnd_MouseMove(iVar5,uVar9,uVar11);
+    return;
+  }
+  if (uVar11 == 0x200) {
+    if (param_1[2] == 0) {
+      return;
+    }
+    iVar5 = SDL_GetWindowFromID(param_1[2]);
+    if (iVar5 == 0) {
+      return;
+    }
+    piVar7 = (int *)SDL_GetWindowData(iVar5,"eON_Window");
+    if (piVar7 == (int *)0x0) {
+      return;
+    }
+    switch((char)param_1[3]) {
+    default:
+      return;
+    case '\x01':
+    case '\x02':
+      iVar5 = FUN_0402d650(piVar7);
+      if ((iVar5 != 0) && (cVar3 = FUN_0402d680(), cVar3 != '\0')) {
+        return;
+      }
+      if ((char)param_1[3] != '\x01') {
+        FUN_041724b0(piVar7,0x18,0,0);
+        piVar7[10] = piVar7[10] & 0xefffffff;
+        return;
+      }
+      FUN_041724b0(piVar7,0x18,1,0);
+      piVar7[10] = piVar7[10] | 0x10000000;
+      return;
+    case '\x04':
+      (**(code **)(*piVar7 + 0x14))(piVar7);
+      return;
+    case '\x06':
+      (**(code **)(*piVar7 + 0x18))(piVar7);
+      return;
+    case '\a':
+      iVar5 = FUN_0402d650(piVar7);
+      if ((iVar5 != 0) && (cVar3 = FUN_0402d680(), cVar3 != '\0')) {
+        return;
+      }
+      piVar7[10] = piVar7[10] | 0x20000000;
+      return;
+    case '\b':
+      iVar5 = FUN_0402d650(piVar7);
+      if ((iVar5 != 0) && (cVar3 = FUN_0402d680(), cVar3 != '\0')) {
+        return;
+      }
+      piVar7[10] = piVar7[10] | 0x1000000;
+      return;
+    case '\t':
+      iVar5 = FUN_0402d650(piVar7);
+      if ((iVar5 != 0) && (cVar3 = FUN_0402d680(), cVar3 != '\0')) {
+        return;
+      }
+      piVar7[10] = piVar7[10] & 0xdeffffff;
+      return;
+    case '\n':
+    case '\v':
+      piVar8 = (int *)eON_GetFocus();
+      if (piVar8 != piVar7) {
+        return;
+      }
+      eON_Int_GetMouseState_XY(&local_38,&local_34);
+      iVar5 = FUN_0402d650(piVar7);
+      if (iVar5 != 0) {
+        local_28 = (float)(int)local_38;
+        local_24 = (float)(int)local_34;
+        FUN_0402d700(&local_28,&local_24);
+        local_38 = (uint)local_28;
+        local_34 = (uint)local_24;
+      }
+      eON_Int_Wnd_MouseMove(piVar8,local_38,local_34);
+      return;
+    case '\f':
+      goto switchD_04024e13_caseD_c;
+    case '\r':
+      iVar5 = FUN_0402d650(piVar7);
+      if ((iVar5 != 0) && (cVar3 = FUN_0402d680(), cVar3 != '\0')) {
+        return;
+      }
+      pcVar1 = *(code **)(*piVar7 + 0x10);
+      uVar4 = (**(code **)(*piVar7 + 0x8c))(piVar7);
+      (*pcVar1)(piVar7,uVar4);
+      FUN_041724b0(piVar7,8,DAT_04468bf0,0);
+      return;
+    case '\x0e':
+      (**(code **)(*piVar7 + 0x1c))(piVar7);
+      return;
+    }
+  }
+  if (uVar11 < 0x201) {
+    if (uVar11 != 0x100) {
+      return;
+    }
+    Exit_eON(0);
+    return;
+  }
+  if (uVar11 == 0x300) {
+    uVar11 = param_1[4];
+    if ((((uVar11 == 9) && (uVar9 = param_1[6], (uVar9 & 0xc0) != 0)) && ((uVar9 & 0xc00) != 0)) &&
+       ((uVar9 & 0x4303) == 0)) {
+      FUN_0402d1c0();
+      uVar11 = param_1[4];
+    }
+    iVar5 = FUN_041780d0();
+    if (iVar5 != 0) {
+      FUN_041791d0(uVar11,1);
+    }
+    if (DAT_0451be3c != (int *)0x0) {
+      (**(code **)*DAT_0451be3c)(DAT_0451be3c,DAT_04408c5c,uVar11 & 0xffff);
+      DAT_04408c5c = DAT_04408c5c + 1;
+    }
+    iVar5 = 0;
+    if ((param_1[2] != 0) && (iVar6 = SDL_GetWindowFromID(param_1[2]), iVar6 != 0)) {
+      iVar5 = SDL_GetWindowData(iVar6,"eON_Window");
+    }
+    uVar11 = param_1[4];
+    if (uVar11 == 0xe3) {
+      uVar10 = 1;
+    }
+    else if (uVar11 < 0xe4) {
+      if (uVar11 == 0xe0) {
+        uVar10 = 7;
+      }
+      else if (uVar11 < 0xe1) {
+        if (uVar11 != 0x39) {
+LAB_040249bf:
+          if (iVar5 == 0) {
+            return;
+          }
+          eON_KeyDown(iVar5,uVar11,0,0);
+          return;
+        }
+        uVar10 = 9;
+      }
+      else if (uVar11 == 0xe1) {
+        uVar10 = 3;
+      }
+      else {
+        if (uVar11 != 0xe2) goto LAB_040249bf;
+        uVar10 = 5;
+      }
+    }
+    else if (uVar11 == 0xe5) {
+      uVar10 = 4;
+    }
+    else {
+      uVar10 = 8;
+      if (0xe4 < uVar11) {
+        if (uVar11 == 0xe6) {
+          uVar10 = 6;
+        }
+        else {
+          uVar10 = 2;
+          if (uVar11 != 0xe7) goto LAB_040249bf;
+        }
+      }
+    }
+    eON_Window_ApplyFlagChange(uVar10,1,iVar5);
+    return;
+  }
+  if (uVar11 != 0x301) {
+    return;
+  }
+  if ((param_1[6] & 0xc0) == 0) {
+LAB_0402481f:
+    uVar11 = param_1[4];
+  }
+  else {
+    uVar11 = param_1[4];
+    if ((param_1[6] & 3) != 0) {
+      if (uVar11 == 0x24) {
+        DAT_0441163d = DAT_0441163d ^ 1;
+      }
+      else if (uVar11 == 0x1e) {
+        (*DAT_044116ac)();
+        uVar11 = param_1[4];
+      }
+      else if (uVar11 == 0x1f) {
+        (*DAT_044116b0)();
+        goto LAB_0402481f;
+      }
+    }
+  }
+  iVar5 = FUN_041780d0();
+  if (iVar5 != 0) {
+    FUN_041791d0(uVar11,0);
+  }
+  if (DAT_0451be3c != (int *)0x0) {
+    (**(code **)(*DAT_0451be3c + 4))(DAT_0451be3c,DAT_04408c5c,uVar11 & 0xffff);
+    DAT_04408c5c = DAT_04408c5c + 1;
+  }
+  iVar5 = 0;
+  if ((param_1[2] != 0) && (iVar6 = SDL_GetWindowFromID(param_1[2]), iVar6 != 0)) {
+    iVar5 = SDL_GetWindowData(iVar6,"eON_Window");
+  }
+  uVar11 = param_1[4];
+  if (uVar11 == 0xe3) {
+    uVar10 = 1;
+  }
+  else if (uVar11 < 0xe4) {
+    if (uVar11 == 0xe0) {
+      uVar10 = 7;
+    }
+    else if (uVar11 < 0xe1) {
+      if (uVar11 != 0x39) {
+LAB_040248af:
+        if (iVar5 == 0) {
+          return;
+        }
+        eON_KeyUp(iVar5,uVar11);
+        return;
+      }
+      uVar10 = 9;
+    }
+    else if (uVar11 == 0xe1) {
+      uVar10 = 3;
+    }
+    else {
+      if (uVar11 != 0xe2) goto LAB_040248af;
+      uVar10 = 5;
+    }
+  }
+  else if (uVar11 == 0xe5) {
+    uVar10 = 4;
+  }
+  else {
+    uVar10 = 8;
+    if (0xe4 < uVar11) {
+      if (uVar11 == 0xe6) {
+        uVar10 = 6;
+      }
+      else {
+        uVar10 = 2;
+        if (uVar11 != 0xe7) goto LAB_040248af;
+      }
+    }
+  }
+  eON_Window_ApplyFlagChange(uVar10,0,iVar5);
+  return;
+switchD_04024e13_caseD_c:
+  iVar5 = FUN_0402d650(piVar7);
+  if (((iVar5 != 0) && (cVar3 = FUN_0402d680(), cVar3 != '\0')) &&
+     (cVar3 = FUN_0402d2c0(), cVar3 == '\0')) {
+    return;
+  }
+  pcVar1 = *(code **)(*piVar7 + 0xc);
+  uVar4 = (**(code **)(*piVar7 + 0x8c))(piVar7);
+  (*pcVar1)(piVar7,uVar4);
+  FUN_041724b0(piVar7,7,DAT_04468bf4,0);
+  return;
+}
+

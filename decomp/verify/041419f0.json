@@ -1,0 +1,375 @@
+
+undefined4 __regparm3 localeInfoAsString(uint param_1,char *param_2)
+
+{
+  if (param_1 == 0x37) {
+    std::string::assign(param_2,0x432d84c);
+    return 1;
+  }
+  if (param_1 < 0x38) {
+    if (param_1 == 0x1e) {
+      std::string::assign(param_2,0x42d6ae0);
+      return 1;
+    }
+    if (param_1 < 0x1f) {
+      if (param_1 == 0x13) {
+        std::string::assign(param_2,0x432d895);
+        return 1;
+      }
+      if (param_1 < 0x14) {
+        if (param_1 == 0xe) {
+LAB_04142330:
+          std::string::assign(param_2,0x4303958);
+          return 1;
+        }
+        if (param_1 < 0xf) {
+          if (param_1 == 2) {
+            std::string::assign(param_2,0x432d775);
+            return 1;
+          }
+          if (param_1 < 3) {
+            if (param_1 == 1) {
+              std::string::assign(param_2,0x432d76c);
+              return 1;
+            }
+          }
+          else {
+            if (param_1 == 3) {
+              std::string::assign(param_2,0x432d78e);
+              return 1;
+            }
+            if (param_1 == 0xc) {
+LAB_04141bb4:
+              std::string::assign(param_2,0x43120cf);
+              return 1;
+            }
+          }
+        }
+        else {
+          if (param_1 == 0x10) goto LAB_04142110;
+          if (param_1 < 0x10) goto LAB_04141bb4;
+          if (param_1 == 0x11) goto LAB_041421cf;
+          if (param_1 == 0x12) goto LAB_04141d60;
+        }
+      }
+      else {
+        if (param_1 == 0x18) {
+LAB_04142110:
+          std::string::assign(param_2,0x432d891);
+          return 1;
+        }
+        if (param_1 < 0x19) {
+          if (param_1 == 0x15) {
+            std::string::assign(param_2,0x432d771);
+            return 1;
+          }
+          if (param_1 < 0x15) {
+            std::string::assign(param_2,0x432d792);
+            return 1;
+          }
+          if (param_1 == 0x16) goto LAB_04142330;
+          if (param_1 == 0x17) goto LAB_04141bb4;
+        }
+        else {
+          if (param_1 == 0x1b) goto LAB_04141da8;
+          if (param_1 < 0x1b) {
+LAB_041421cf:
+            std::string::assign(param_2,0x430a836);
+            return 1;
+          }
+          if (param_1 == 0x1c) goto LAB_04141d60;
+          if (param_1 == 0x1d) {
+            std::string::assign(param_2,0x42e5ca1);
+            return 1;
+          }
+        }
+      }
+    }
+    else {
+      if (param_1 == 0x2c) {
+        std::string::assign(param_2,0x432d85f);
+        return 1;
+      }
+      if (param_1 < 0x2d) {
+        if (param_1 == 0x25) {
+LAB_04141d60:
+          std::string::assign(param_2,0x439ca4d);
+          return 1;
+        }
+        if (param_1 < 0x26) {
+          if (param_1 == 0x20) {
+            std::string::assign(param_2,0x432d7a0);
+            return 1;
+          }
+          if (param_1 < 0x20) {
+            std::string::assign(param_2,0x432d795);
+            return 1;
+          }
+          if (param_1 - 0x22 < 2) goto LAB_04141d60;
+        }
+        else {
+          if (param_1 == 0x29) {
+            std::string::assign(param_2,0x42f65d8);
+            return 1;
+          }
+          if (param_1 < 0x2a) {
+            if (param_1 == 0x28) {
+              std::string::assign(param_2,0x42dc2da);
+              return 1;
+            }
+          }
+          else {
+            if (param_1 == 0x2a) {
+              std::string::assign(param_2,0x432d850);
+              return 1;
+            }
+            if (param_1 == 0x2b) {
+              std::string::assign(param_2,0x432d857);
+              return 1;
+            }
+          }
+        }
+      }
+      else {
+        if (param_1 == 0x31) {
+          std::string::assign(param_2,0x432d834);
+          return 1;
+        }
+        if (param_1 < 0x32) {
+          if (param_1 == 0x2e) {
+            std::string::assign(param_2,0x432d872);
+            return 1;
+          }
+          if (param_1 < 0x2e) {
+            std::string::assign(param_2,0x432d869);
+            return 1;
+          }
+          if (param_1 == 0x2f) {
+            std::string::assign(param_2,0x432d879);
+            return 1;
+          }
+          if (param_1 == 0x30) {
+            std::string::assign(param_2,0x432d882);
+            return 1;
+          }
+        }
+        else {
+          if (param_1 == 0x34) {
+            std::string::assign(param_2,0x432d840);
+            return 1;
+          }
+          if (param_1 < 0x35) {
+            if (param_1 == 0x32) {
+              std::string::assign(param_2,0x432d838);
+              return 1;
+            }
+            if (param_1 == 0x33) {
+              std::string::assign(param_2,0x432d83c);
+              return 1;
+            }
+          }
+          else {
+            if (param_1 == 0x35) {
+              std::string::assign(param_2,0x432d844);
+              return 1;
+            }
+            if (param_1 == 0x36) {
+              std::string::assign(param_2,0x432d848);
+              return 1;
+            }
+          }
+        }
+      }
+    }
+  }
+  else {
+    if (param_1 == 0x4c) {
+      std::string::assign(param_2,0x432d7d6);
+      return 1;
+    }
+    if (param_1 < 0x4d) {
+      if (param_1 == 0x41) {
+        std::string::assign(param_2,0x432d81a);
+        return 1;
+      }
+      if (param_1 < 0x42) {
+        if (param_1 == 0x3c) {
+LAB_04141e00:
+          std::string::assign(param_2,0x432d7c6);
+          return 1;
+        }
+        if (param_1 < 0x3d) {
+          if (param_1 == 0x39) {
+            std::string::assign(param_2,0x432d7ea);
+            return 1;
+          }
+          if (param_1 < 0x39) {
+            std::string::assign(param_2,0x432d7e2);
+            return 1;
+          }
+          if (param_1 == 0x3a) {
+            std::string::assign(param_2,0x432d7f3);
+            return 1;
+          }
+          if (param_1 == 0x3b) {
+            std::string::assign(param_2,0x432d7f9);
+            return 1;
+          }
+        }
+        else {
+          if (param_1 == 0x3e) {
+            std::string::assign(param_2,0x432d804);
+            return 1;
+          }
+          if (param_1 < 0x3e) {
+            std::string::assign(param_2,0x432d7ff);
+            return 1;
+          }
+          if (param_1 == 0x3f) {
+            std::string::assign(param_2,0x432d809);
+            return 1;
+          }
+          if (param_1 == 0x40) {
+            std::string::assign(param_2,0x432d810);
+            return 1;
+          }
+        }
+      }
+      else {
+        if (param_1 == 0x46) {
+          std::string::assign(param_2,0x432d7be);
+          return 1;
+        }
+        if (param_1 < 0x47) {
+          if (param_1 == 0x43) {
+            std::string::assign(param_2,0x432d82b);
+            return 1;
+          }
+          if (param_1 < 0x43) {
+            std::string::assign(param_2,0x432d822);
+            return 1;
+          }
+          if (param_1 == 0x44) {
+            std::string::assign(param_2,0x432d7b6);
+            return 1;
+          }
+          if (param_1 == 0x45) {
+            std::string::assign(param_2,0x432d7ba);
+            return 1;
+          }
+        }
+        else {
+          if (param_1 == 0x49) {
+            std::string::assign(param_2,0x432d7ca);
+            return 1;
+          }
+          if (param_1 < 0x4a) {
+            if (param_1 == 0x47) {
+              std::string::assign(param_2,0x432d7c2);
+              return 1;
+            }
+            if (param_1 == 0x48) goto LAB_04141e00;
+          }
+          else {
+            if (param_1 == 0x4a) {
+              std::string::assign(param_2,0x432d7ce);
+              return 1;
+            }
+            if (param_1 == 0x4b) {
+              std::string::assign(param_2,0x432d7d2);
+              return 1;
+            }
+          }
+        }
+      }
+    }
+    else {
+      if (param_1 == 0x57) goto LAB_04141da8;
+      if (param_1 < 0x58) {
+        if (param_1 == 0x51) {
+          std::string::assign(param_2,0x4361bee);
+          return 1;
+        }
+        if (param_1 < 0x52) {
+          if (param_1 == 0x4e) {
+            std::string::assign(param_2,0x432d7de);
+            return 1;
+          }
+          if (param_1 < 0x4e) {
+            std::string::assign(param_2,0x432d7da);
+            return 1;
+          }
+          if (param_1 == 0x4f) {
+            std::string::assign(param_2,0x434156f);
+            return 1;
+          }
+          if (param_1 == 0x50) {
+            std::string::assign(param_2,0x4328763);
+            return 1;
+          }
+        }
+        else {
+          if (param_1 == 0x54) goto LAB_04141d60;
+          if (param_1 < 0x55) {
+            if (param_1 == 0x52) {
+              std::string::assign(param_2,0x42f60aa);
+              return 1;
+            }
+            if (param_1 == 0x53) {
+LAB_04141da8:
+              std::string::assign(param_2,0x42dd794);
+              return 1;
+            }
+          }
+          else {
+            if (param_1 == 0x55) goto LAB_04141da8;
+            if (param_1 == 0x56) goto LAB_04141d60;
+          }
+        }
+      }
+      else {
+        if (param_1 == 0x1003) {
+          std::string::assign(param_2,0x432d7ad);
+          return 1;
+        }
+        if (param_1 < 0x1004) {
+          if (param_1 == 0x5a) {
+            std::string::assign(param_2,0x42e18f6);
+            return 1;
+          }
+          if (param_1 < 0x5b) {
+            if (param_1 == 0x59) {
+              std::string::assign(param_2,0x4340c24);
+              return 1;
+            }
+          }
+          else {
+            if (param_1 == 0x1001) {
+              std::string::assign(param_2,0x432d889);
+              return 1;
+            }
+            if (param_1 == 0x1002) {
+              std::string::assign(param_2,0x4313e10);
+              return 1;
+            }
+          }
+        }
+        else {
+          if (param_1 == 0x1009) goto LAB_04141d60;
+          if (param_1 < 0x100a) {
+            if (param_1 == 0x1004) {
+              std::string::assign(param_2,0x433f264);
+              return 1;
+            }
+            if (param_1 == 0x1005) goto LAB_04141da8;
+          }
+          else if ((param_1 == 0x1010) || (param_1 == 0x1014)) goto LAB_04141d60;
+        }
+      }
+    }
+  }
+  FUN_0402cd10(10,"localeInfoAsString() - unhandled LCType = %u",param_1);
+  eON_SetLastError(0x57);
+  return 0;
+}
+

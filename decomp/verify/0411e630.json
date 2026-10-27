@@ -1,0 +1,147 @@
+
+/* source: gdi32 */
+
+uint eON_GetDIBits(undefined4 param_1,int param_2,int param_3,uint param_4,void *param_5,
+                  uint *param_6,int param_7)
+
+{
+  short sVar1;
+  size_t sVar2;
+  undefined2 uVar3;
+  bool bVar4;
+  uint uVar5;
+  int iVar6;
+  void *__src;
+  size_t __n;
+  uint uVar7;
+  uint uVar8;
+  size_t local_30;
+  uint local_28;
+  uint local_24;
+  uint local_1c;
+  
+  if (param_7 != 0) {
+    FUN_0400a810("uUsage == 0",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/gdi32/gdi32.cpp",
+                 0x7f9,"INT eON_GetDIBits(HDC, HBITMAP, UINT, UINT, PVOID, LPBITMAPINFO, UINT)");
+  }
+  if ((param_6 == (uint *)0x0) || (param_2 == 0)) {
+    return 0;
+  }
+  if (*param_6 == 0xc) {
+    local_1c = (uint)(ushort)param_6[1];
+    local_28 = 0;
+    uVar3 = (undefined2)param_6[2];
+    local_24 = 0;
+    sVar1 = *(short *)((int)param_6 + 10);
+    bVar4 = false;
+    uVar7 = (uint)*(ushort *)((int)param_6 + 6);
+  }
+  else {
+    if (*param_6 < 0x28) {
+      FUN_0402cd10(0xf,"Unrecognized bitmap header!");
+      FUN_0402cd10(0xf,"Unrecognized bitmap format!");
+      return 0;
+    }
+    uVar3 = (undefined2)param_6[3];
+    bVar4 = true;
+    local_1c = param_6[1];
+    sVar1 = *(short *)((int)param_6 + 0xe);
+    local_24 = param_6[4];
+    uVar7 = param_6[2];
+    local_28 = param_6[5];
+  }
+  if ((sVar1 != 0x18) && (sVar1 != 0x20)) {
+    FUN_0402cd10(0xf,"Unhandled bpp (%u) in eON_GetDIBits()!",sVar1);
+    return 0;
+  }
+  if (param_6[4] == 3) {
+    param_6[10] = 0xff0000;
+    param_6[0xb] = 0xff00;
+    param_6[0xc] = 0xff;
+  }
+  uVar5 = (int)uVar7 >> 0x1f;
+  if ((param_5 == (void *)0x0) || (param_4 == 0)) {
+    param_4 = (uVar5 ^ uVar7) - uVar5;
+    goto joined_r0x0411e765;
+  }
+  if (*(int *)(param_2 + 0x20) != 0) {
+    FUN_0402cd10(0xf,"TODO - Process bits & lines - we have DIB!");
+    goto joined_r0x0411e765;
+  }
+  sVar2 = *(size_t *)(param_2 + 0x14);
+  if (sVar1 == 0x18) {
+    iVar6 = local_1c * 3 + 3;
+    if (iVar6 < 0) {
+      iVar6 = local_1c * 3 + 6;
+    }
+    uVar8 = iVar6 >> 2;
+LAB_0411eb73:
+    local_30 = uVar8 << 2;
+  }
+  else {
+    uVar8 = local_1c;
+    if (sVar1 == 0x20) goto LAB_0411eb73;
+    FUN_0402cd10(5,"Unsupported bitmap bits per pixel: %d",sVar1);
+    local_30 = 0;
+  }
+  iVar6 = *(int *)(param_2 + 0x1c);
+  if ((int)uVar7 < 1) {
+    FUN_0400a810("height > 0",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/gdi32/gdi32.cpp",
+                 0x84c,"INT eON_GetDIBits(HDC, HBITMAP, UINT, UINT, PVOID, LPBITMAPINFO, UINT)");
+  }
+  if (*(int *)(param_2 + 0x10) < 1) {
+    FUN_0400a810("gdiBitmap->Bitmap.bmHeight > 0",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/gdi32/gdi32.cpp",
+                 0x84d,"INT eON_GetDIBits(HDC, HBITMAP, UINT, UINT, PVOID, LPBITMAPINFO, UINT)");
+  }
+  if (*(short *)(param_2 + 0x1a) == sVar1) {
+    __src = (void *)(sVar2 * param_3 + iVar6);
+    __n = sVar2;
+    if ((int)local_30 <= (int)sVar2) {
+      __n = local_30;
+    }
+    uVar8 = 0;
+    do {
+      uVar8 = uVar8 + 1;
+      memcpy(param_5,__src,__n);
+      __src = (void *)((int)__src + sVar2);
+      param_5 = (void *)((int)param_5 + local_30);
+    } while (uVar8 < param_4);
+  }
+  else {
+    FUN_0402cd10(0xf,"Convert from:");
+    FUN_0402cd10(0xf,"    bmType = %d",*(undefined4 *)(param_2 + 8));
+    FUN_0402cd10(0xf,"    bmWidth = %d",*(undefined4 *)(param_2 + 0xc));
+    FUN_0402cd10(0xf,"    bmHeight = %d",*(undefined4 *)(param_2 + 0x10));
+    FUN_0402cd10(0xf,"    bmWidthBytes = %d",*(undefined4 *)(param_2 + 0x14));
+    FUN_0402cd10(0xf,"    bmPlanes = %u",*(undefined2 *)(param_2 + 0x18));
+    FUN_0402cd10(0xf,"    bmBitsPixel = %u",*(undefined2 *)(param_2 + 0x1a));
+    FUN_0402cd10(0xf,"Convert to:");
+    FUN_0402cd10(0xf,"    width = %d",local_1c);
+    FUN_0402cd10(0xf,"    height = %d",uVar7);
+    FUN_0402cd10(0xf,"    planes = %u",uVar3);
+    FUN_0402cd10(0xf,"    bpp = %u",sVar1);
+    FUN_0402cd10(0xf,"    compression = %u",local_24);
+    FUN_0402cd10(0xf,"    size = %u",local_28);
+  }
+joined_r0x0411e765:
+  if (bVar4) {
+    if (sVar1 == 0x18) {
+      iVar6 = local_1c * 3 + 3;
+      if (iVar6 < 0) {
+        iVar6 = local_1c * 3 + 6;
+      }
+      local_1c = iVar6 >> 2;
+    }
+    else if (sVar1 != 0x20) {
+      FUN_0402cd10(5,"Unsupported bitmap bits per pixel: %d",sVar1);
+      param_6[5] = 0;
+      return param_4;
+    }
+    param_6[5] = local_1c * 4 * ((uVar7 ^ uVar5) - uVar5);
+  }
+  return param_4;
+}
+

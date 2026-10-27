@@ -1,0 +1,84 @@
+
+void zstream_decompress_image(int param_1,int param_2,int param_3)
+
+{
+  int iVar1;
+  uint uVar2;
+  undefined4 uVar3;
+  int iVar4;
+  uint uVar5;
+  char *pcVar6;
+  undefined1 local_41c [1036];
+  
+  *(int *)(param_1 + 0xec) = param_2;
+  if (param_2 == 0) {
+    param_3 = 0;
+  }
+  *(undefined4 *)(param_1 + 0xf0) = 0;
+  while( true ) {
+    if (*(int *)(param_1 + 0xe4) == 0) {
+      uVar2 = *(uint *)(param_1 + 0x198);
+      while (uVar2 == 0) {
+        png_crc_finish(param_1,0);
+        uVar2 = png_read_chunk_header(param_1);
+        *(uint *)(param_1 + 0x198) = uVar2;
+        if (*(int *)(param_1 + 0x178) != 0x49444154) goto LAB_042ba530;
+      }
+      uVar5 = *(uint *)(param_1 + 0x31c);
+      if (uVar2 <= *(uint *)(param_1 + 0x31c)) {
+        uVar5 = uVar2;
+      }
+      uVar3 = png_read_buffer();
+      png_crc_read(param_1,uVar3,uVar5);
+      *(int *)(param_1 + 0x198) = *(int *)(param_1 + 0x198) - uVar5;
+      *(uint *)(param_1 + 0xe4) = uVar5;
+      *(undefined4 *)(param_1 + 0xe0) = uVar3;
+    }
+    if (param_2 == 0) {
+      *(undefined1 **)(param_1 + 0xec) = local_41c;
+      *(undefined4 *)(param_1 + 0xf0) = 0x400;
+      iVar4 = inflate(param_1 + 0xe0,0);
+      iVar1 = *(int *)(param_1 + 0xf0);
+      *(undefined4 *)(param_1 + 0xf0) = 0;
+      param_3 = (param_3 - iVar1) + 0x400;
+    }
+    else {
+      *(int *)(param_1 + 0xf0) = param_3;
+      iVar4 = inflate(param_1 + 0xe0,0);
+      param_3 = *(int *)(param_1 + 0xf0);
+      *(undefined4 *)(param_1 + 0xf0) = 0;
+    }
+    if (iVar4 == 1) break;
+    if (iVar4 != 0) {
+      FUN_042a6270(param_1,iVar4);
+      pcVar6 = *(char **)(param_1 + 0xf8);
+      if (param_2 != 0) {
+                    /* WARNING: Subroutine does not return */
+        png_chunk_error();
+      }
+      goto LAB_042ba4e6;
+    }
+    if (param_3 == 0) {
+      return;
+    }
+  }
+  *(uint *)(param_1 + 0xd0) = *(uint *)(param_1 + 0xd0) | 8;
+  *(uint *)(param_1 + 0xd4) = *(uint *)(param_1 + 0xd4) | 8;
+  *(undefined4 *)(param_1 + 0xec) = 0;
+  if ((*(int *)(param_1 + 0xe4) != 0) || (*(int *)(param_1 + 0x198) != 0)) {
+    png_chunk_benign_error(param_1,"Extra compressed data");
+  }
+  if (param_3 == 0) {
+    return;
+  }
+  if (param_2 != 0) {
+LAB_042ba530:
+                    /* WARNING: Subroutine does not return */
+    png_error(param_1,"Not enough image data");
+  }
+  pcVar6 = "Too much image data";
+LAB_042ba4e6:
+  png_chunk_benign_error(param_1,pcVar6);
+  return;
+}
+

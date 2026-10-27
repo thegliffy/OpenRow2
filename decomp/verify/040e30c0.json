@@ -1,0 +1,154 @@
+
+/* source: pixelformatdata */
+
+undefined1 PixelFormatData__TestSurfaceOrTexture(undefined4 *param_1,int *param_2)
+
+{
+  undefined4 *puVar1;
+  char cVar2;
+  undefined1 uVar3;
+  int iVar4;
+  undefined4 uVar5;
+  undefined4 uVar6;
+  int *piVar7;
+  undefined4 *puVar8;
+  undefined4 *puVar9;
+  undefined4 *puVar10;
+  int local_44;
+  undefined4 *local_40;
+  int local_3c;
+  int local_38;
+  undefined1 local_34;
+  int local_30;
+  int local_2c;
+  undefined1 local_28;
+  int local_24;
+  int local_20 [4];
+  
+  puVar1 = param_1 + 0xd;
+  puVar9 = puVar1;
+  puVar8 = (undefined4 *)param_1[0xe];
+  if ((undefined4 *)param_1[0xe] != (undefined4 *)0x0) {
+    do {
+      while (puVar10 = puVar8, iVar4 = memcmp(puVar10 + 4,param_2,8), -1 < iVar4) {
+        puVar9 = puVar10;
+        puVar8 = (undefined4 *)puVar10[2];
+        if ((undefined4 *)puVar10[2] == (undefined4 *)0x0) goto LAB_040e3113;
+      }
+      piVar7 = puVar10 + 3;
+      puVar10 = puVar9;
+      puVar8 = (undefined4 *)*piVar7;
+    } while ((undefined4 *)*piVar7 != (undefined4 *)0x0);
+LAB_040e3113:
+    if ((puVar1 != puVar10) && (iVar4 = memcmp(param_2,puVar10 + 4,8), -1 < iVar4)) {
+      return *(undefined1 *)(puVar10 + 6);
+    }
+  }
+  uVar5 = eON_Int_GL_NoteCurrentContext();
+  uVar6 = eON_Int_GL_NoteCurrentContext();
+  piVar7 = (int *)OpenGLWrapperLinux__ctor();
+  cVar2 = (**(code **)(*piVar7 + 8))(piVar7,*param_1,0,param_1 + 1);
+  if (cVar2 == '\0') {
+    (**(code **)(*piVar7 + 4))(piVar7);
+    eON_Int_GL_RestoreCachedMakeCurrent(uVar6);
+    puVar8 = puVar1;
+    puVar10 = puVar1;
+    puVar9 = (undefined4 *)param_1[0xe];
+    if ((undefined4 *)param_1[0xe] != (undefined4 *)0x0) {
+      do {
+        puVar8 = puVar9;
+        iVar4 = memcmp(puVar8 + 4,param_2,8);
+        if (iVar4 < 0) {
+          puVar9 = (undefined4 *)puVar8[3];
+          puVar8 = puVar10;
+        }
+        else {
+          puVar9 = (undefined4 *)puVar8[2];
+        }
+        puVar10 = puVar8;
+      } while (puVar9 != (undefined4 *)0x0);
+      if ((puVar1 != puVar8) && (iVar4 = memcmp(param_2,puVar8 + 4,8), -1 < iVar4))
+      goto LAB_040e3439;
+    }
+    local_3c = *param_2;
+    local_34 = 0;
+    local_38 = param_2[1];
+    FUN_040e3cd0(&local_40,param_1 + 0xc,puVar8,&local_3c);
+    puVar8 = local_40;
+LAB_040e3439:
+    *(undefined1 *)(puVar8 + 6) = 0;
+    return 0;
+  }
+  uVar6 = (**(code **)(*piVar7 + 0x10))(piVar7);
+  local_24 = 0;
+  if (*(char *)((int)param_2 + 5) == '\0') {
+    if (*param_2 == 0x4c4c554e) {
+LAB_040e334d:
+      local_24 = 0;
+      local_20[0] = 0;
+      uVar3 = 1;
+    }
+    else {
+      uVar3 = PixelFormatData__PrepareTexture((char)param_2[1],(char)param_2[1]);
+      local_20[0] = local_24;
+      if (local_24 != 0) {
+        glDeleteTextures(1,local_20);
+      }
+    }
+  }
+  else {
+    local_44 = *param_2;
+    if (local_44 == 0x4244564e) {
+      uVar3 = DAT_0451c9ca != '\0';
+    }
+    else {
+      cVar2 = (char)param_2[1];
+      if (cVar2 == '\0') {
+        FUN_0400a810("test.IsRenderTarget",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/pixelformatdata.cpp"
+                     ,0x102,
+                     "bool PixelFormatData::TestSurfaceOrTexture(const PixelFormatData::TextureOrSurfaceTest&)"
+                    );
+        local_44 = *param_2;
+        cVar2 = (char)param_2[1];
+      }
+      local_24 = 0;
+      if (local_44 == 0x4c4c554e) goto LAB_040e334d;
+      uVar3 = PixelFormatData__PrepareRenderbuffer(cVar2,0);
+      local_20[0] = local_24;
+      if (local_24 != 0) {
+        (*DAT_0451e680)(1,local_20);
+      }
+    }
+  }
+  (**(code **)(*piVar7 + 0x20))(piVar7,uVar6);
+  (**(code **)(*piVar7 + 4))(piVar7);
+  eON_Int_GL_RestoreCachedMakeCurrent(uVar5);
+  puVar8 = puVar1;
+  puVar10 = puVar1;
+  puVar9 = (undefined4 *)param_1[0xe];
+  if ((undefined4 *)param_1[0xe] != (undefined4 *)0x0) {
+    do {
+      puVar8 = puVar9;
+      iVar4 = memcmp(puVar8 + 4,param_2,8);
+      if (iVar4 < 0) {
+        puVar9 = (undefined4 *)puVar8[3];
+        puVar8 = puVar10;
+      }
+      else {
+        puVar9 = (undefined4 *)puVar8[2];
+      }
+      puVar10 = puVar8;
+    } while (puVar9 != (undefined4 *)0x0);
+    if ((puVar1 != puVar8) && (iVar4 = memcmp(param_2,puVar8 + 4,8), -1 < iVar4)) goto LAB_040e3341;
+  }
+  local_30 = *param_2;
+  local_28 = 0;
+  local_2c = param_2[1];
+  FUN_040e3cd0(&local_40,param_1 + 0xc,puVar8,&local_30);
+  puVar8 = local_40;
+LAB_040e3341:
+  *(undefined1 *)(puVar8 + 6) = uVar3;
+  return uVar3;
+}
+

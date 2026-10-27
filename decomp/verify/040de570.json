@@ -1,0 +1,93 @@
+
+/* source: openGlDebugFunctions */
+
+void OGLC_DumpFB(void)
+
+{
+  int iVar1;
+  char cVar2;
+  int iVar3;
+  int iVar4;
+  int iVar5;
+  bool bVar6;
+  char local_420 [1024];
+  int local_20 [4];
+  
+  iVar3 = eON_Int_GL_NoteCurrentContext();
+  if (iVar3 == 0) {
+    puts("No valid OpenGL context in calling thread!.");
+    return;
+  }
+  if (DAT_044dac80 == 0) {
+    FUN_040d9ba0();
+  }
+  glGetIntegerv(0x8ca6,local_20);
+  iVar3 = glGetError();
+  if (iVar3 != 0) {
+    FUN_0400a810("glGetError() == 0",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                 ,0x1205,"void OGLC_DumpFB()");
+  }
+  iVar3 = (-(uint)(local_20[0] == 0) & 0xfffffffe) + 4;
+  bVar6 = local_20[0] == 0;
+  iVar5 = 0;
+  do {
+    while( true ) {
+      sprintf(local_420,"%sfb%d.tiff",&DAT_044daca0,iVar5);
+      FUN_0401a1d0(local_420);
+      iVar1 = local_20[0];
+      if ((local_20[0] != 0) && (cVar2 = (*DAT_0451e654)(local_20[0]), cVar2 == '\0')) break;
+      iVar5 = iVar5 + 1;
+      openGlDebugFunctions_040d2a80(0,bVar6);
+      if (iVar3 <= iVar5) goto LAB_040de671;
+    }
+    iVar4 = glGetError();
+    if (iVar4 == 0) {
+      printf("Framebuffer ID %d is not a valid framebuffer ID!\n",iVar1);
+    }
+    else {
+      FUN_0400a810("glGetError() == 0",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                   ,0xe81,
+                   "void DumpFramebufferContent(OpenGlDebugWriter*, GLint, uint32_t, const char*, DataTypeToReceive, int32_t)"
+                  );
+      printf("Framebuffer ID %d is not a valid framebuffer ID!\n",iVar1);
+    }
+    iVar5 = iVar5 + 1;
+  } while (iVar5 < iVar3);
+LAB_040de671:
+  sprintf(local_420,"%sfbDepth.tiff",&DAT_044daca0);
+  FUN_0401a1d0(local_420);
+  iVar3 = local_20[0];
+  if ((local_20[0] == 0) || (cVar2 = (*DAT_0451e654)(local_20[0]), cVar2 != '\0')) {
+    openGlDebugFunctions_040d2a80(1,bVar6);
+  }
+  else {
+    iVar5 = glGetError();
+    if (iVar5 != 0) {
+      FUN_0400a810("glGetError() == 0",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                   ,0xe81,
+                   "void DumpFramebufferContent(OpenGlDebugWriter*, GLint, uint32_t, const char*, DataTypeToReceive, int32_t)"
+                  );
+    }
+    printf("Framebuffer ID %d is not a valid framebuffer ID!\n",iVar3);
+  }
+  sprintf(local_420,"%sfbStencil.tiff",&DAT_044daca0);
+  FUN_0401a1d0(local_420);
+  if ((local_20[0] != 0) && (cVar2 = (*DAT_0451e654)(local_20[0]), cVar2 == '\0')) {
+    iVar3 = glGetError();
+    if (iVar3 != 0) {
+      FUN_0400a810("glGetError() == 0",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                   ,0xe81,
+                   "void DumpFramebufferContent(OpenGlDebugWriter*, GLint, uint32_t, const char*, DataTypeToReceive, int32_t)"
+                  );
+    }
+    printf("Framebuffer ID %d is not a valid framebuffer ID!\n",local_20[0]);
+    return;
+  }
+  openGlDebugFunctions_040d2a80(2,bVar6);
+  return;
+}
+

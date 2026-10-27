@@ -1,0 +1,49 @@
+
+char * __regparm3 GL_ColorAttachment_ToString(int param_1,int param_2)
+
+{
+  char *pcVar1;
+  
+  if (param_1 == 0) {
+    pcVar1 = "GL_COLOR_ATTACHMENT0";
+    if ((((((param_2 != 0x8ce0) && (pcVar1 = "GL_COLOR_ATTACHMENT1", param_2 != 0x8ce1)) &&
+          (pcVar1 = "GL_COLOR_ATTACHMENT2", param_2 != 0x8ce2)) &&
+         (((pcVar1 = "GL_COLOR_ATTACHMENT3", param_2 != 0x8ce3 &&
+           (pcVar1 = "GL_COLOR_ATTACHMENT4", param_2 != 0x8ce4)) &&
+          ((pcVar1 = "GL_COLOR_ATTACHMENT5", param_2 != 0x8ce5 &&
+           ((pcVar1 = "GL_COLOR_ATTACHMENT6", param_2 != 0x8ce6 &&
+            (pcVar1 = "GL_COLOR_ATTACHMENT7", param_2 != 0x8ce7)))))))) &&
+        (pcVar1 = "GL_COLOR_ATTACHMENT8", param_2 != 0x8ce8)) &&
+       ((((pcVar1 = "GL_COLOR_ATTACHMENT9", param_2 != 0x8ce9 &&
+          (pcVar1 = "GL_COLOR_ATTACHMENT10", param_2 != 0x8cea)) &&
+         (pcVar1 = "GL_COLOR_ATTACHMENT11", param_2 != 0x8ceb)) &&
+        (((pcVar1 = "GL_COLOR_ATTACHMENT12", param_2 != 0x8cec &&
+          (pcVar1 = "GL_COLOR_ATTACHMENT13", param_2 != 0x8ced)) &&
+         ((pcVar1 = "GL_COLOR_ATTACHMENT14", param_2 != 0x8cee &&
+          ((pcVar1 = "GL_COLOR_ATTACHMENT15", param_2 != 0x8cef &&
+           (pcVar1 = "GL_DEPTH_ATTACHMENT", param_2 != 0x8d00)))))))))) {
+      pcVar1 = (char *)0x0;
+      if (param_2 == 0x8d20) {
+        pcVar1 = "GL_STENCIL_ATTACHMENT";
+      }
+      return pcVar1;
+    }
+  }
+  else {
+    pcVar1 = "GL_NONE";
+    if ((((((param_2 != 0) && (pcVar1 = "GL_FRONT_LEFT", param_2 != 0x400)) &&
+          (pcVar1 = "GL_FRONT_RIGHT", param_2 != 0x401)) &&
+         ((pcVar1 = "GL_BACK_LEFT", param_2 != 0x402 && (pcVar1 = "GL_BACK_RIGHT", param_2 != 0x403)
+          ))) && ((pcVar1 = "GL_FRONT", param_2 != 0x404 &&
+                  ((pcVar1 = "GL_BACK", param_2 != 0x405 && (pcVar1 = "GL_LEFT", param_2 != 0x406)))
+                  ))) &&
+       ((pcVar1 = "GL_RIGHT", param_2 != 0x407 &&
+        (((pcVar1 = "GL_FRONT_AND_BACK", param_2 != 0x408 &&
+          (pcVar1 = "GL_DEPTH", param_2 != 0x1801)) && (pcVar1 = (char *)0x0, param_2 == 0x1802)))))
+       ) {
+      pcVar1 = "GL_STENCIL";
+    }
+  }
+  return pcVar1;
+}
+

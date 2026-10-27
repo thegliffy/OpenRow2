@@ -1,0 +1,28 @@
+
+bool OpenURLInDefaultBrowser(char *param_1)
+
+{
+  size_t sVar1;
+  int iVar2;
+  char local_220 [512];
+  char *local_20;
+  undefined *local_1c;
+  char *local_18;
+  undefined4 local_14;
+  pid_t local_10 [2];
+  
+  sVar1 = strlen(param_1);
+  if (sVar1 + 0x2c < 0x201) {
+    sprintf(local_220,"%s %s","unset LD_LIBRARY_PATH && /usr/bin/xdg-open",param_1);
+    local_14 = 0;
+    local_20 = "/bin/sh";
+    local_1c = &DAT_042df01d;
+    local_18 = local_220;
+    iVar2 = posix_spawn(local_10,"/bin/sh",(posix_spawn_file_actions_t *)0x0,
+                        (posix_spawnattr_t *)0x0,&local_20,environ);
+    return iVar2 == 0;
+  }
+  FUN_0402cd10(0xf,"OpenURLInDefaultBrowser url is too long!");
+  return false;
+}
+

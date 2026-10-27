@@ -1,0 +1,43 @@
+
+void __regparm3 VPFS_UnpackFolderContents(int param_1)
+
+{
+  char cVar1;
+  uint uVar2;
+  int iVar3;
+  uint *puVar4;
+  
+  puVar4 = (uint *)(param_1 + 0x24 + (uint)*(ushort *)(DAT_04468a94 + 2 + param_1) + DAT_04468a94);
+  uVar2 = *puVar4;
+  if (uVar2 == 0) {
+    return;
+  }
+  iVar3 = 0;
+  do {
+    cVar1 = *(char *)(DAT_04468a94 + puVar4[iVar3 + 1]);
+    if (cVar1 == '\x01') {
+      VPFS_ConvertToDiskFile();
+      uVar2 = *puVar4;
+LAB_04045548:
+      if (uVar2 <= iVar3 + 1U) {
+        return;
+      }
+    }
+    else {
+      if (cVar1 == '\x02') {
+        FUN_0402cd10(0xf,"VPFS_UnpackFolderContents() - not unpacking executable: %s",
+                     (char *)(DAT_04468a94 + puVar4[iVar3 + 1]) + 0x24);
+        uVar2 = *puVar4;
+        goto LAB_04045548;
+      }
+      if (cVar1 != '\0') goto LAB_04045548;
+      VPFS_UnpackFolderContents();
+      uVar2 = *puVar4;
+      if (uVar2 <= iVar3 + 1U) {
+        return;
+      }
+    }
+    iVar3 = iVar3 + 1;
+  } while( true );
+}
+

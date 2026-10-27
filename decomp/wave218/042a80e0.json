@@ -1,0 +1,28 @@
+
+void FUN_042a80e0(int param_1,int *param_2,int param_3)
+
+{
+  int iVar1;
+  ushort uVar2;
+  
+  if (param_3 - 0x10U < 0x2540be31) {
+    uVar2 = *(ushort *)((int)param_2 + 0x4a);
+    if (((*(byte *)(param_1 + 0xd1) & 0x80) == 0) || ((uVar2 & 8) == 0)) {
+      if (-1 < (short)uVar2) {
+        iVar1 = FUN_042a7ab0(param_3,1);
+        if (iVar1 != 0) {
+          *(ushort *)((int)param_2 + 0x4a) = *(ushort *)((int)param_2 + 0x4a) | 9;
+          *param_2 = param_3;
+        }
+      }
+      return;
+    }
+  }
+  else {
+    uVar2 = *(ushort *)((int)param_2 + 0x4a);
+  }
+  *(ushort *)((int)param_2 + 0x4a) = uVar2 | 0x8000;
+  FUN_042a9e50();
+  return;
+}
+

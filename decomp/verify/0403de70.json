@@ -1,0 +1,126 @@
+
+undefined4 __regparm3
+VPFS_FileOrFolderExists
+          (char *param_1,char *param_2,undefined4 param_3,undefined4 *param_4,uint *param_5)
+
+{
+  char cVar1;
+  int iVar2;
+  int *piVar3;
+  int iVar4;
+  char local_180 [260];
+  stat64 local_7c;
+  
+  if (param_5 != (uint *)0x0) {
+    *param_5 = 0;
+  }
+  if (param_2 != (char *)0x0) {
+    strcpy(local_180,param_2);
+    iVar2 = VPFS_MakePathCaseSensitive(param_2,param_2 + 1,local_180);
+    if (iVar2 != 0) {
+      iVar2 = FUN_0403c400(param_2);
+      if (iVar2 != 0) {
+        SplitFile_GetStat(param_2,&local_7c);
+        goto LAB_0403dfd4;
+      }
+      iVar2 = __xstat64(3,param_2,&local_7c);
+      if (iVar2 != -1) goto LAB_0403dfd4;
+    }
+    piVar3 = __errno_location();
+    iVar2 = *piVar3;
+    if (iVar2 != 2) {
+      switch(iVar2) {
+      case 5:
+        FUN_0402cd10(0xf,"VPFS_FileOrFolderExists() error - io error accessing redirected path: %s",
+                     param_2);
+        return 2;
+      default:
+        FUN_0402cd10(0xf,
+                     "VPFS_FileOrFolderExists() error - unhandled error in stat(): %d for redirected path: %s"
+                     ,iVar2,param_2);
+        return 2;
+      case 0xd:
+        FUN_0402cd10(0xf,
+                     "VPFS_FileOrFolderExists() error - access to part of redirected path denied: %s"
+                     ,param_2);
+        return 2;
+      case 0x14:
+        FUN_0402cd10(0xf,
+                     "VPFS_FileOrFolderExists() error - redirected path part is not a folder: %s",
+                     param_2);
+        return 2;
+      case 0x24:
+        FUN_0402cd10(0xf,"VPFS_FileOrFolderExists() error - redirected path too long: %s",param_2);
+        return 2;
+      case 0x28:
+        FUN_0402cd10(0xf,"VPFS_FileOrFolderExists() error - loop in redirected path: %s",param_2);
+        return 2;
+      }
+    }
+  }
+  iVar2 = VPFS_PathToPathInArchive();
+  if ((iVar2 != 0) && (cVar1 = FUN_0404c4c0(param_3), cVar1 != '\0')) {
+    *param_4 = 1;
+    return 0;
+  }
+  *param_4 = 0;
+  iVar4 = VPFS_MakePathCaseSensitive(param_1,param_1 + 1,param_1);
+  if (iVar4 != 0) {
+    iVar4 = FUN_0403c400(param_1);
+    if (iVar4 == 0) {
+      iVar4 = __xstat64(3,param_1,&local_7c);
+      if (iVar4 == -1) goto LAB_0403df5b;
+    }
+    else {
+      SplitFile_GetStat(param_1,&local_7c);
+    }
+LAB_0403dfd4:
+    if (param_5 == (uint *)0x0) {
+      return 1;
+    }
+    *param_5 = (uint)((local_7c.st_mode & 0x3f000) == 0x4000);
+    return 1;
+  }
+LAB_0403df5b:
+  piVar3 = __errno_location();
+  iVar4 = *piVar3;
+  if ((iVar4 != 0x14) && (iVar4 != 2)) {
+    switch(iVar4) {
+    case 5:
+      FUN_0402cd10(0xf,"VPFS_FileOrFolderExists() error - io error accessing path: %s",param_1);
+      return 2;
+    default:
+      FUN_0402cd10(0xf,
+                   "VPFS_FileOrFolderExists() error - unhandled error in stat(): %d for path: %s",
+                   iVar4,param_1);
+      return 2;
+    case 0xd:
+      FUN_0402cd10(0xf,"VPFS_FileOrFolderExists() error - access to part of path denied: %s",param_1
+                  );
+      return 2;
+    case 0x14:
+    case 0x24:
+      FUN_0402cd10(0xf,"VPFS_FileOrFolderExists() error - path too long: %s",param_1);
+      return 2;
+    case 0x28:
+      FUN_0402cd10(0xf,"VPFS_FileOrFolderExists() error - loop in path: %s",param_1);
+      return 2;
+    }
+  }
+  if (iVar2 == 0) {
+    return 0;
+  }
+  iVar2 = VPFS_FindInVirtualFilesystem();
+  if (iVar2 == -1) {
+    return 0;
+  }
+  if (param_5 == (uint *)0x0) {
+    return 1;
+  }
+  if (*(char *)(DAT_04468a94 + iVar2) != '\0') {
+    return 1;
+  }
+  *param_5 = 1;
+  return 1;
+}
+

@@ -1,0 +1,115 @@
+
+/* source: openGlDebugFunctions */
+
+void __regparm3
+DumpTextureDataByIDBoundInTextureStages
+          (undefined4 *param_1,undefined4 param_2,int param_3,undefined4 param_4)
+
+{
+  int iVar1;
+  int iVar2;
+  int local_28;
+  undefined4 local_24;
+  int local_20 [4];
+  
+  if (param_3 == 0) {
+    (**(code **)*param_1)(param_1,"Texture ID 0 doesn\'t identify any texture!\n");
+  }
+  glGetIntegerv(0x8872,&local_28);
+  iVar1 = glGetError();
+  if (iVar1 != 0) {
+    FUN_0400a810("glGetError() == 0",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                 ,0xe48,
+                 "void DumpTextureDataByIDBoundInTextureStages(OpenGlDebugWriter*, const char*, GLint, GLint, GLint)"
+                );
+  }
+  glGetIntegerv(0x84e0,&local_24);
+  iVar1 = glGetError();
+  if (iVar1 != 0) {
+    FUN_0400a810("glGetError() == 0",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                 ,0xe4c,
+                 "void DumpTextureDataByIDBoundInTextureStages(OpenGlDebugWriter*, const char*, GLint, GLint, GLint)"
+                );
+  }
+  if (0 < local_28) {
+    iVar1 = 0;
+    do {
+      (*DAT_0451eeac)(iVar1 + 0x84c0);
+      iVar2 = glGetError();
+      if (iVar2 != 0) {
+        FUN_0400a810("glGetError() == 0",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                     ,0xe51,
+                     "void DumpTextureDataByIDBoundInTextureStages(OpenGlDebugWriter*, const char*, GLint, GLint, GLint)"
+                    );
+      }
+      glGetIntegerv(0x8068,local_20);
+      iVar2 = glGetError();
+      if (iVar2 != 0) {
+        FUN_0400a810("glGetError() == 0",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                     ,0xe55,
+                     "void DumpTextureDataByIDBoundInTextureStages(OpenGlDebugWriter*, const char*, GLint, GLint, GLint)"
+                    );
+      }
+      if (local_20[0] == param_3) {
+        SaveDDS(param_4);
+        break;
+      }
+      glGetIntegerv(0x8069,local_20);
+      iVar2 = glGetError();
+      if (iVar2 != 0) {
+        FUN_0400a810("glGetError() == 0",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                     ,0xe5c,
+                     "void DumpTextureDataByIDBoundInTextureStages(OpenGlDebugWriter*, const char*, GLint, GLint, GLint)"
+                    );
+      }
+      if (local_20[0] == param_3) {
+        SaveDDS(param_4);
+        break;
+      }
+      glGetIntegerv(0x806a,local_20);
+      iVar2 = glGetError();
+      if (iVar2 != 0) {
+        FUN_0400a810("glGetError() == 0",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                     ,0xe63,
+                     "void DumpTextureDataByIDBoundInTextureStages(OpenGlDebugWriter*, const char*, GLint, GLint, GLint)"
+                    );
+      }
+      if (local_20[0] == param_3) {
+        (**(code **)*param_1)
+                  (param_1,"Texture ID %d belongs to volume texture, can\'t save!",param_3);
+        break;
+      }
+      glGetIntegerv(0x8514,local_20);
+      iVar2 = glGetError();
+      if (iVar2 != 0) {
+        FUN_0400a810("glGetError() == 0",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                     ,0xe6a,
+                     "void DumpTextureDataByIDBoundInTextureStages(OpenGlDebugWriter*, const char*, GLint, GLint, GLint)"
+                    );
+      }
+      if (local_20[0] == param_3) {
+        SaveDDS(param_4);
+        break;
+      }
+      iVar1 = iVar1 + 1;
+    } while (iVar1 < local_28);
+  }
+  (*DAT_0451eeac)(local_24);
+  iVar1 = glGetError();
+  if (iVar1 != 0) {
+    FUN_0400a810("glGetError() == 0",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                 ,0xe73,
+                 "void DumpTextureDataByIDBoundInTextureStages(OpenGlDebugWriter*, const char*, GLint, GLint, GLint)"
+                );
+  }
+  return;
+}
+

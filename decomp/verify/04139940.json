@@ -1,0 +1,60 @@
+
+undefined4 GetComputerNameExA(uint param_1,char *param_2,uint *param_3)
+
+{
+  char *__dest;
+  uint *puVar1;
+  uint uVar2;
+  int iVar3;
+  uint uVar4;
+  uint *puVar5;
+  uint *puVar6;
+  char *pcVar7;
+  uint local_120 [66];
+  undefined4 *local_18;
+  
+  puVar1 = param_3;
+  __dest = param_2;
+  uVar2 = param_1;
+  local_18 = &param_1;
+  if (param_3 != (uint *)0x0) {
+    bzero(local_120,0x100);
+    if (uVar2 < 8) {
+      uVar2 = 1 << ((byte)uVar2 & 0x1f);
+      if (((uVar2 & 0x88) == 0) && ((uVar2 & 0x44) == 0)) {
+        if ((uVar2 & 0x33) == 0) goto LAB_04139994;
+        iVar3 = gethostname((char *)local_120,0x100);
+        puVar6 = local_120;
+        if (iVar3 == 0) {
+          do {
+            puVar5 = puVar6;
+            uVar4 = *puVar5 + 0xfefefeff & ~*puVar5;
+            uVar2 = uVar4 & 0x80808080;
+            puVar6 = puVar5 + 1;
+          } while (uVar2 == 0);
+          if ((uVar4 & 0x8080) == 0) {
+            puVar6 = (uint *)((int)puVar5 + 6);
+            uVar2 = uVar2 >> 0x10;
+          }
+          pcVar7 = (char *)((int)puVar6 +
+                           ((-3 - (uint)CARRY1((byte)uVar2,(byte)uVar2)) - (int)local_120));
+          if ((__dest != (char *)0x0) && (pcVar7 + 1 <= (char *)*puVar1)) {
+            strcpy(__dest,(char *)local_120);
+            *puVar1 = (uint)pcVar7;
+            FUN_0402cd10(5,"GetComputerNameExA() returns \'%s\' of length %u",__dest,pcVar7);
+            return 1;
+          }
+          *puVar1 = (uint)(pcVar7 + 1);
+          eON_SetLastError(0xea);
+          return 0;
+        }
+      }
+      eON_SetLastError(0x78);
+      return 0;
+    }
+  }
+LAB_04139994:
+  eON_SetLastError(0x57);
+  return 0;
+}
+

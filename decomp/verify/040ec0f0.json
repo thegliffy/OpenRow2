@@ -1,0 +1,59 @@
+
+/* source: shadercache */
+
+bool ShaderCache__LoadEmulatedVertexProgram(int param_1,FILE *param_2)
+
+{
+  char cVar1;
+  size_t sVar2;
+  int iVar3;
+  int *piVar4;
+  int *piVar5;
+  bool bVar6;
+  byte bVar7;
+  int local_54 [2];
+  int local_4c;
+  undefined1 local_48 [20];
+  undefined1 local_34 [16];
+  undefined4 local_24;
+  void *local_20 [4];
+  
+  bVar7 = 0;
+  bVar6 = false;
+  bzero(local_34,0x10);
+  sVar2 = fread(local_34,1,0x10,param_2);
+  if (sVar2 == 0x10) {
+    sVar2 = fread(local_48,1,0x14,param_2);
+    if (sVar2 == 0x14) {
+      cVar1 = FUN_040e94b0(param_1,param_2,&local_24,local_20);
+      if (cVar1 != '\0') {
+        FUN_040edb90(local_54,param_1 + 0x4c,local_34);
+        if (*(int *)(*(int *)(param_1 + 0x54) + *(int *)(param_1 + 0x58) * 4) == local_54[0]) {
+          local_4c = FUN_040e5a00(param_1,local_20[0],local_24,1,0);
+          free(local_20[0]);
+          piVar4 = (int *)FUN_040ee090(param_1 + 0x4c,local_34);
+          piVar5 = &local_4c;
+          for (iVar3 = 6; iVar3 != 0; iVar3 = iVar3 + -1) {
+            *piVar4 = *piVar5;
+            piVar5 = piVar5 + (uint)bVar7 * -2 + 1;
+            piVar4 = piVar4 + (uint)bVar7 * -2 + 1;
+          }
+          bVar6 = local_4c != -1;
+        }
+        else {
+          iVar3 = memcmp(local_48,(void *)(local_54[0] + 0x14),0x14);
+          if (iVar3 != 0) {
+            FUN_0400a810("!memcmp( p.ColorRegisters, (*i).second.ColorRegisters, sizeof(ColorRegisterAssignment) * 10 )"
+                         ,
+                         "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/shadercache.cpp"
+                         ,0x90e,"bool ShaderCache::LoadEmulatedVertexProgram(FILE*)");
+          }
+          bVar6 = true;
+          free(local_20[0]);
+        }
+      }
+    }
+  }
+  return bVar6;
+}
+

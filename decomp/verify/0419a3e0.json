@@ -1,0 +1,56 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+bool _glewInit_GL_ARB_sampler_objects(void)
+
+{
+  int iVar1;
+  bool bVar2;
+  bool bVar3;
+  bool bVar4;
+  bool bVar5;
+  bool bVar6;
+  bool bVar7;
+  bool bVar8;
+  bool bVar9;
+  bool bVar10;
+  bool bVar11;
+  bool bVar12;
+  bool bVar13;
+  
+  iVar1 = glXGetProcAddressARB("glBindSampler");
+  DAT_0451e3c4 = iVar1;
+  _DAT_0451e3c0 = glXGetProcAddressARB("glDeleteSamplers");
+  bVar2 = _DAT_0451e3c0 == 0;
+  DAT_0451e3bc = glXGetProcAddressARB("glGenSamplers");
+  bVar3 = DAT_0451e3bc == 0;
+  _DAT_0451e3b8 = glXGetProcAddressARB("glGetSamplerParameterIiv");
+  bVar4 = _DAT_0451e3b8 == 0;
+  _DAT_0451e3b4 = glXGetProcAddressARB("glGetSamplerParameterIuiv");
+  bVar5 = _DAT_0451e3b4 == 0;
+  DAT_0451e3b0 = glXGetProcAddressARB("glGetSamplerParameterfv");
+  bVar6 = DAT_0451e3b0 == 0;
+  DAT_0451e3ac = glXGetProcAddressARB("glGetSamplerParameteriv");
+  bVar7 = DAT_0451e3ac == 0;
+  _DAT_0451e3a8 = glXGetProcAddressARB("glIsSampler");
+  bVar8 = _DAT_0451e3a8 == 0;
+  _DAT_0451e3a4 = glXGetProcAddressARB("glSamplerParameterIiv");
+  bVar9 = _DAT_0451e3a4 == 0;
+  _DAT_0451e3a0 = glXGetProcAddressARB("glSamplerParameterIuiv");
+  bVar10 = _DAT_0451e3a0 == 0;
+  DAT_0451e39c = glXGetProcAddressARB("glSamplerParameterf");
+  bVar11 = DAT_0451e39c == 0;
+  DAT_0451e398 = glXGetProcAddressARB("glSamplerParameterfv");
+  bVar12 = DAT_0451e398 == 0;
+  DAT_0451e394 = glXGetProcAddressARB("glSamplerParameteri");
+  bVar13 = DAT_0451e394 == 0;
+  _DAT_0451e390 = glXGetProcAddressARB("glSamplerParameteriv");
+  return _DAT_0451e390 == 0 ||
+         (bVar13 ||
+         (bVar12 ||
+         (bVar11 ||
+         (bVar10 ||
+         (bVar9 || (bVar8 || (bVar7 || (bVar6 || (bVar5 || (bVar4 || (bVar3 || (bVar2 || iVar1 == 0)
+                                                                     )))))))))));
+}
+

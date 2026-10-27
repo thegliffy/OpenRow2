@@ -1,0 +1,518 @@
+
+undefined2 *
+eON_CreateIconBitmaps(int *param_1,uint param_2,int param_3,int param_4,int param_5,uint param_6)
+
+{
+  undefined2 uVar1;
+  short sVar2;
+  bool bVar3;
+  undefined4 uVar4;
+  int *__dest;
+  undefined2 *puVar5;
+  int iVar6;
+  size_t sVar7;
+  int iVar8;
+  uint uVar9;
+  int iVar10;
+  int *__src;
+  int *piVar11;
+  size_t *psVar12;
+  uint uVar13;
+  uint uVar14;
+  undefined1 local_e0 [24];
+  undefined4 local_c8;
+  undefined4 local_c4;
+  int local_c0;
+  undefined4 local_bc;
+  uint local_b8;
+  int *local_b4;
+  undefined2 local_74;
+  undefined2 local_72;
+  int *local_70;
+  int local_6c;
+  size_t local_60;
+  int local_5c;
+  int local_58;
+  int *local_54;
+  undefined1 local_50 [4];
+  undefined2 local_4c;
+  int local_48;
+  int local_44;
+  undefined1 local_40;
+  undefined1 local_3e;
+  undefined1 local_38 [8];
+  int local_30;
+  int local_2c;
+  undefined4 *local_18;
+  
+  uVar9 = param_2;
+  local_18 = &param_1;
+  local_58 = param_5;
+  if (param_4 != 0x30000) {
+    local_b4 = (int *)0x417acd6;
+    FUN_0402cd10();
+    return (undefined2 *)0x0;
+  }
+  if (param_3 == 0) {
+    local_74 = (undefined2)*param_1;
+    local_72 = *(undefined2 *)((int)param_1 + 2);
+    __src = param_1 + 1;
+    iVar10 = *__src;
+    if (iVar10 != 0xc) goto LAB_0417a42d;
+LAB_0417a897:
+    local_60 = 0xc;
+    if (*(ushort *)((int)__src + 10) < 9) {
+      local_60 = (1 << ((byte)*(ushort *)((int)__src + 10) & 0x1f)) * 3 + 0xc;
+    }
+  }
+  else {
+    iVar10 = *param_1;
+    local_72 = 0xbcbc;
+    local_74 = 0xbcbc;
+    __src = param_1;
+    if (iVar10 == 0xc) goto LAB_0417a897;
+LAB_0417a42d:
+    if (iVar10 != 0x28) {
+      return (undefined2 *)0x0;
+    }
+    if (__src[4] != 0) {
+      return (undefined2 *)0x0;
+    }
+    uVar13 = __src[8];
+    local_60 = 0x428;
+    if (uVar13 < 0x101) {
+      if (uVar13 == 0) {
+        local_60 = 0x28;
+        if (*(ushort *)((int)__src + 0xe) < 9) {
+          local_60 = (4 << ((byte)*(ushort *)((int)__src + 0xe) & 0x1f)) + 0x28;
+        }
+      }
+      else {
+        local_60 = uVar13 * 4 + 0x28;
+      }
+    }
+  }
+  if (param_5 == 0) {
+    local_58 = __src[1];
+  }
+  uVar13 = param_6;
+  if (param_6 == 0) {
+    uVar13 = __src[2] / 2;
+  }
+  local_b4 = (int *)0x417a49a;
+  uVar4 = FUN_0411ca30();
+  iVar10 = __src[1];
+  switch(*(undefined2 *)((int)__src + 0xe)) {
+  default:
+    local_b4 = (int *)0x417a4c9;
+    FUN_0402cd10();
+    uVar14 = __src[2];
+    iVar10 = __src[1];
+    local_54 = (int *)(((int)uVar14 >> 0x1f ^ uVar14) - ((int)uVar14 >> 0x1f));
+    iVar8 = iVar10 + 0x3e;
+    if (-1 < iVar10 + 0x1f) {
+      iVar8 = iVar10 + 0x1f;
+    }
+    iVar6 = 0;
+    iVar8 = iVar8 >> 5;
+    goto LAB_0417a4f0;
+  case 1:
+    iVar8 = iVar10 + 0x1f;
+    if (iVar10 + 0x1f < 0) {
+      iVar8 = iVar10 + 0x3e;
+    }
+    iVar8 = iVar8 >> 5;
+    local_6c = iVar8;
+    goto LAB_0417a990;
+  case 4:
+    local_6c = iVar10 + 7;
+    if (iVar10 + 7 < 0) {
+      local_6c = iVar10 + 0xe;
+    }
+    local_6c = local_6c >> 3;
+    break;
+  case 8:
+    local_6c = iVar10 + 3;
+    if (iVar10 + 3 < 0) {
+      local_6c = iVar10 + 6;
+    }
+    local_6c = local_6c >> 2;
+    break;
+  case 0xf:
+  case 0x10:
+    local_6c = (iVar10 + 1) / 2;
+    break;
+  case 0x18:
+    local_6c = iVar10 * 3 + 3;
+    if (local_6c < 0) {
+      local_6c = iVar10 * 3 + 6;
+    }
+    local_6c = local_6c >> 2;
+    break;
+  case 0x20:
+    iVar8 = iVar10 + 0x3e;
+    if (-1 < iVar10 + 0x1f) {
+      iVar8 = iVar10 + 0x1f;
+    }
+    iVar8 = iVar8 >> 5;
+    local_6c = iVar10;
+    goto LAB_0417a990;
+  }
+  iVar8 = iVar10 + 0x3e;
+  if (-1 < iVar10 + 0x1f) {
+    iVar8 = iVar10 + 0x1f;
+  }
+  iVar8 = iVar8 >> 5;
+LAB_0417a990:
+  uVar14 = __src[2];
+  local_54 = (int *)(((int)uVar14 >> 0x1f ^ uVar14) - ((int)uVar14 >> 0x1f));
+  iVar6 = local_6c * 4 * (int)local_54 >> 1;
+LAB_0417a4f0:
+  bVar3 = iVar6 + local_60 + (iVar8 * 4 * (int)local_54 >> 1) <= uVar9;
+  if (((int)uVar14 / 2 == uVar13) && (local_58 == iVar10)) {
+    if ((int)local_60 < 0x31) {
+      local_54 = (int *)0x0;
+      sVar7 = 0x30;
+      local_70 = (int *)(local_60 + (int)__src);
+    }
+    else {
+      local_54 = (int *)0x0;
+      local_70 = (int *)((int)__src + local_60);
+      sVar7 = local_60;
+    }
+    goto LAB_0417a60f;
+  }
+  uVar9 = (int)uVar13 >> 0x1f;
+  switch(*(undefined2 *)((int)__src + 0xe)) {
+  default:
+    local_b4 = (int *)0x417a544;
+    FUN_0402cd10();
+    iVar6 = (uVar9 ^ uVar13) - uVar9;
+    iVar10 = local_58 + 0x3e;
+    if (-1 < local_58 + 0x1f) {
+      iVar10 = local_58 + 0x1f;
+    }
+    sVar7 = 0x2c;
+    iVar10 = iVar10 >> 5;
+    iVar8 = 0;
+    goto LAB_0417a580;
+  case 1:
+    iVar8 = local_58 + 0x3e;
+    if (-1 < local_58 + 0x1f) {
+      iVar8 = local_58 + 0x1f;
+    }
+    iVar8 = iVar8 >> 5;
+    iVar10 = iVar8;
+    break;
+  case 4:
+    iVar8 = local_58 + 0xe;
+    if (-1 < local_58 + 7) {
+      iVar8 = local_58 + 7;
+    }
+    iVar8 = iVar8 >> 3;
+    goto LAB_0417aae7;
+  case 8:
+    iVar8 = local_58 + 6;
+    if (-1 < local_58 + 3) {
+      iVar8 = local_58 + 3;
+    }
+    iVar8 = iVar8 >> 2;
+    goto LAB_0417aae7;
+  case 0xf:
+  case 0x10:
+    iVar8 = (local_58 + 1) / 2;
+LAB_0417aae7:
+    iVar10 = local_58 + 0x3e;
+    if (-1 < local_58 + 0x1f) {
+      iVar10 = local_58 + 0x1f;
+    }
+    iVar10 = iVar10 >> 5;
+    break;
+  case 0x18:
+    iVar8 = local_58 * 3 + 3;
+    if (iVar8 < 0) {
+      iVar8 = local_58 * 3 + 6;
+    }
+    iVar8 = iVar8 >> 2;
+    iVar10 = local_58 + 0x3e;
+    if (-1 < local_58 + 0x1f) {
+      iVar10 = local_58 + 0x1f;
+    }
+    iVar10 = iVar10 >> 5;
+    break;
+  case 0x20:
+    iVar10 = local_58 + 0x3e;
+    if (-1 < local_58 + 0x1f) {
+      iVar10 = local_58 + 0x1f;
+    }
+    iVar8 = local_58;
+    iVar10 = iVar10 >> 5;
+  }
+  iVar6 = (uVar9 ^ uVar13) - uVar9;
+  iVar8 = iVar8 * 4 * iVar6;
+  sVar7 = iVar8 + 0x2c;
+LAB_0417a580:
+  if (bVar3) {
+    sVar7 = sVar7 + iVar6 * iVar10 * 4;
+  }
+  local_b4 = (int *)0x417a599;
+  local_54 = malloc(sVar7);
+  local_b4 = (int *)0x417a5ac;
+  bzero(local_54,0x2c);
+  local_54[1] = local_58;
+  local_54[2] = uVar13 * 2;
+  uVar1 = *(undefined2 *)((int)__src + 0xe);
+  *local_54 = 0x2c;
+  *(undefined2 *)(local_54 + 3) = 1;
+  local_54[5] = iVar8;
+  *(undefined2 *)((int)local_54 + 0xe) = uVar1;
+  if (*(short *)((int)__src + 0xe) == 0x20) {
+    local_b4 = (int *)0x417ad6a;
+    InterpolateRGBA();
+  }
+  else if (*(short *)((int)__src + 0xe) == 0x18) {
+    local_b4 = (int *)0x417adc8;
+    InterpolateRGB();
+  }
+  local_70 = local_54 + 0xb;
+  if (bVar3) {
+    switch(*(undefined2 *)((int)__src + 0xe)) {
+    default:
+      local_b4 = (int *)0x417ac34;
+      FUN_0402cd10();
+      break;
+    case 1:
+      break;
+    case 4:
+      break;
+    case 8:
+      break;
+    case 0xf:
+    case 0x10:
+      break;
+    case 0x18:
+      break;
+    case 0x20:
+    }
+    local_b4 = (int *)0x417ac93;
+    ScaleImage1();
+  }
+  local_60 = 0x2c;
+  sVar7 = 0x30;
+  __src = local_54;
+LAB_0417a60f:
+  local_b4 = (int *)0x417a617;
+  __dest = malloc(sVar7);
+  local_b4 = (int *)0x417a62c;
+  memcpy(__dest,__src,local_60);
+  sVar2 = *(short *)((int)__src + 0xe);
+  __dest[2] = __dest[2] / 2;
+  if (sVar2 == 1) {
+    local_b4 = (int *)0x417ab97;
+    iVar10 = FUN_0417a240();
+    if (iVar10 == 0) goto LAB_0417a646;
+    local_b4 = (int *)0x417abc6;
+    local_5c = eON_CreateBitmap();
+    local_b4 = local_70;
+    local_bc = 0;
+    local_c8 = 0x417abfa;
+    local_c4 = uVar4;
+    local_c0 = local_5c;
+    local_b8 = uVar13;
+    eON_SetDIBits();
+    piVar11 = (int *)local_e0;
+  }
+  else {
+LAB_0417a646:
+    local_b4 = (int *)0x417a670;
+    local_5c = eON_ValidateBitmapSize();
+    piVar11 = &local_c8;
+  }
+  if (local_5c == 0) {
+    *piVar11 = (int)__dest;
+    piVar11[-1] = 0x417aef7;
+    free((void *)*piVar11);
+    piVar11[1] = (int)"Failed to create XOR bitmap for icon";
+    *piVar11 = 5;
+    piVar11[-1] = 0x417af0b;
+    FUN_0402cd10();
+    return (undefined2 *)0x0;
+  }
+  if (!bVar3) {
+    *piVar11 = (int)__dest;
+    sVar7 = 0;
+    piVar11[-1] = 0x417a92a;
+    free((void *)*piVar11);
+    piVar11[1] = 0x18;
+    piVar11[2] = (int)local_50;
+    *piVar11 = local_5c;
+    piVar11[-1] = 0x417a944;
+    eON_GetObjectA();
+    psVar12 = (size_t *)(piVar11 + -3);
+    local_58 = 0;
+    iVar10 = local_48 * local_44;
+    goto LAB_0417a7b8;
+  }
+  if (*__dest == 0xc) {
+    *(undefined1 *)(__dest + 3) = 0;
+    *(undefined1 *)((int)__dest + 0xd) = 0;
+    *(undefined1 *)((int)__dest + 0xe) = 0;
+    *(undefined1 *)((int)__dest + 0xf) = 0xff;
+    *(undefined1 *)(__dest + 4) = 0xff;
+    *(undefined1 *)((int)__dest + 0x11) = 0xff;
+  }
+  else {
+    __dest[9] = 2;
+    __dest[8] = 2;
+    *(undefined1 *)((int)__dest + 0x2b) = 0;
+    *(undefined1 *)(__dest + 10) = 0;
+    *(undefined1 *)((int)__dest + 0x29) = 0;
+    *(undefined1 *)((int)__dest + 0x2a) = 0;
+    *(undefined1 *)((int)__dest + 0x2f) = 0;
+    *(undefined1 *)(__dest + 0xb) = 0xff;
+    *(undefined1 *)((int)__dest + 0x2d) = 0xff;
+    *(undefined1 *)((int)__dest + 0x2e) = 0xff;
+  }
+  *(undefined2 *)((int)__dest + 0xe) = 1;
+  piVar11[4] = 0;
+  piVar11[3] = 1;
+  piVar11[2] = 1;
+  piVar11[1] = uVar13;
+  *piVar11 = local_58;
+  piVar11[-1] = 0x417a6ef;
+  local_58 = eON_CreateBitmap();
+  if (local_58 == 0) {
+    piVar11[-5] = local_5c;
+    piVar11[-6] = 0x417aec7;
+    eON_DeleteObject();
+    piVar11[-6] = (int)__dest;
+    piVar11[-7] = 0x417aed4;
+    free((void *)piVar11[-6]);
+    piVar11[-5] = (int)"Failed to create mask bitmap for icon";
+    piVar11[-6] = 5;
+    piVar11[-7] = 0x417aee8;
+    FUN_0402cd10();
+    return (undefined2 *)0x0;
+  }
+  iVar10 = __src[1];
+  switch((uint)*(ushort *)((int)__src + 0xe)) {
+  default:
+    piVar11[-3] = (uint)*(ushort *)((int)__src + 0xe);
+    piVar11[-4] = (int)"Unsupported bitmap bits per pixel: %u";
+    piVar11[-5] = 5;
+    piVar11[-6] = 0x417a729;
+    FUN_0402cd10();
+    iVar10 = 0;
+    goto LAB_0417a730;
+  case 1:
+    iVar8 = iVar10 + 0x1f;
+    if (iVar10 + 0x1f < 0) {
+      iVar8 = iVar10 + 0x3e;
+    }
+    iVar10 = iVar8 >> 5;
+    break;
+  case 4:
+    iVar8 = iVar10 + 7;
+    if (iVar10 + 7 < 0) {
+      iVar8 = iVar10 + 0xe;
+    }
+    iVar10 = iVar8 >> 3;
+    break;
+  case 8:
+    iVar8 = iVar10 + 3;
+    if (iVar10 + 3 < 0) {
+      iVar8 = iVar10 + 6;
+    }
+    iVar10 = iVar8 >> 2;
+    break;
+  case 0xf:
+  case 0x10:
+    iVar10 = (iVar10 + 1) / 2;
+    break;
+  case 0x18:
+    iVar8 = iVar10 * 3 + 3;
+    if (iVar8 < 0) {
+      iVar8 = iVar10 * 3 + 6;
+    }
+    iVar10 = iVar8 >> 2;
+    break;
+  case 0x20:
+    break;
+  }
+  iVar10 = iVar10 * 4 * ((__src[2] ^ __src[2] >> 0x1f) - (__src[2] >> 0x1f)) >> 1;
+LAB_0417a730:
+  piVar11[-2] = uVar13;
+  piVar11[1] = 0;
+  *piVar11 = (int)__dest;
+  piVar11[-3] = 0;
+  piVar11[-4] = local_58;
+  piVar11[-1] = iVar10 + local_60 + (int)__src;
+  piVar11[-5] = uVar4;
+  piVar11[-6] = 0x417a763;
+  eON_SetDIBits();
+  piVar11[-0xc] = (int)__dest;
+  piVar11[-0xd] = 0x417a76e;
+  free((void *)piVar11[-0xc]);
+  piVar11[-0xb] = 0x18;
+  piVar11[-10] = (int)local_50;
+  piVar11[-0xc] = local_5c;
+  piVar11[-0xd] = 0x417a788;
+  eON_GetObjectA();
+  piVar11[-0xd] = (int)local_38;
+  piVar11[-0xe] = 0x18;
+  iVar10 = local_48 * local_44;
+  piVar11[-0xf] = local_58;
+  piVar11[-0x10] = 0x417a7ac;
+  eON_GetObjectA();
+  psVar12 = (size_t *)(piVar11 + -0x12);
+  sVar7 = local_30 * local_2c;
+LAB_0417a7b8:
+  *psVar12 = sVar7 + 0xc + iVar10;
+  psVar12[-1] = 0x417a7c8;
+  puVar5 = malloc(*psVar12);
+  if (puVar5 == (undefined2 *)0x0) {
+    *psVar12 = local_5c;
+    psVar12[-1] = 0x417ae9b;
+    eON_DeleteObject();
+    if (local_58 != 0) {
+      psVar12[-1] = local_58;
+      psVar12[-2] = 0x417aeb4;
+      eON_DeleteObject();
+    }
+  }
+  else {
+    *puVar5 = local_74;
+    puVar5[1] = local_72;
+    puVar5[2] = local_4c;
+    puVar5[3] = (undefined2)local_48;
+    puVar5[4] = (undefined2)local_44;
+    *(undefined1 *)(puVar5 + 5) = local_40;
+    *(undefined1 *)((int)puVar5 + 0xb) = local_3e;
+    if (local_58 != 0) {
+      psVar12[1] = sVar7;
+      psVar12[2] = (size_t)(puVar5 + 6);
+      *psVar12 = local_58;
+      psVar12[-1] = 0x417a821;
+      eON_GetBitmapBits();
+      psVar12[-3] = local_58;
+      psVar12[-4] = 0x417a82f;
+      eON_DeleteObject();
+      psVar12 = psVar12 + -4;
+    }
+    psVar12[1] = iVar10;
+    psVar12[2] = sVar7 + 0xc + (int)puVar5;
+    *psVar12 = local_5c;
+    psVar12[-1] = 0x417a84a;
+    eON_GetBitmapBits();
+    psVar12[-3] = local_5c;
+    psVar12[-4] = 0x417a858;
+    eON_DeleteObject();
+    if (local_54 != (int *)0x0) {
+      psVar12[-4] = (size_t)local_54;
+      psVar12[-5] = 0x417a86d;
+      free((void *)psVar12[-4]);
+    }
+  }
+  return puVar5;
+}
+

@@ -1,0 +1,87 @@
+
+/* source: direct3ddevice9imp */
+
+undefined4 Direct3DDevice9Imp__BeginStateBlock(int param_1)
+
+{
+  int iVar1;
+  uint uVar2;
+  int iVar3;
+  undefined4 uVar4;
+  undefined4 *puVar5;
+  int iVar6;
+  uint *puVar7;
+  undefined4 uStack_40;
+  int local_3c [6];
+  int local_24;
+  int *local_20 [4];
+  
+  puVar7 = (uint *)local_3c;
+  local_20[0] = &local_24;
+  iVar1 = *(int *)(param_1 + 0xc);
+  local_24 = iVar1;
+  if (iVar1 != 0) {
+    puVar7 = (uint *)local_3c;
+    if (*(char *)(iVar1 + 0xebbc) != '\0') {
+      local_3c[0] = iVar1 + 0xebc4;
+      uStack_40 = 0x4074a96;
+      EnterCriticalSection();
+      puVar7 = &uStack_40;
+    }
+    if (*(int *)(iVar1 + 0xec64) == 0) {
+      if (*(int *)(iVar1 + 0xebc0) != 0) {
+        puVar7[3] = (uint)"void Direct3DDevice9Imp::MultithreadedGuard_Enter()";
+        puVar7[2] = 0x3ae;
+        puVar7[1] = (uint)
+                    "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+        ;
+        *puVar7 = (uint)"!mCurrentD3D9Thread";
+        puVar7[-1] = 0x4074a3c;
+        FUN_0400a810();
+      }
+      puVar7[-1] = 0x40749ac;
+      uVar4 = FUN_0415b750();
+      *(undefined4 *)(iVar1 + 0xebc0) = uVar4;
+    }
+    else {
+      iVar3 = *(int *)(iVar1 + 0xebc0);
+      puVar7[-1] = 0x4074a53;
+      iVar6 = FUN_0415b750();
+      if (iVar3 != iVar6) {
+        puVar7[3] = (uint)"void Direct3DDevice9Imp::MultithreadedGuard_Enter()";
+        puVar7[2] = 0x3b3;
+        puVar7[1] = (uint)
+                    "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+        ;
+        *puVar7 = (uint)"mCurrentD3D9Thread == thread_GetCurrentThreadId()";
+        puVar7[-1] = 0x4074a7f;
+        FUN_0400a810();
+      }
+    }
+    *(int *)(iVar1 + 0xec64) = *(int *)(iVar1 + 0xec64) + 1;
+  }
+  if (*(int *)(param_1 + 0x75ec) == 0) {
+    uVar2 = *(uint *)(param_1 + 0xc);
+    *puVar7 = 0x12d4;
+                    /* try { // try from 040749d1 to 040749d5 has its CatchHandler @ 04074aaa */
+    puVar7[-1] = 0x40749d6;
+    puVar5 = operator_new(*puVar7);
+    *puVar5 = &PTR_FUN_042f6ee8;
+    puVar7[1] = (uint)puVar5;
+    puVar7[2] = uVar2;
+    *puVar7 = (uint)(puVar5 + 1);
+                    /* try { // try from 040749ec to 040749f0 has its CatchHandler @ 04074abf */
+    puVar7[-1] = 0x40749f1;
+    Direct3DStateBlock9Imp__Direct3DStateBlock9Imp();
+    *(undefined4 **)(param_1 + 0x75ec) = puVar5;
+    uVar4 = 0;
+  }
+  else {
+    uVar4 = 0x8876086c;
+  }
+  *puVar7 = (uint)local_20;
+  puVar7[-1] = 0x4074a04;
+  direct3ddevice9imp_040a2df0();
+  return uVar4;
+}
+

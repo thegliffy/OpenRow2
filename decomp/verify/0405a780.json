@@ -1,0 +1,193 @@
+
+void D3DBytecodeToGLSL_EmitPS3Inputs(int param_1,undefined4 param_2)
+
+{
+  byte bVar1;
+  uint uVar2;
+  char *pcVar3;
+  int iVar4;
+  int iVar5;
+  int iVar6;
+  char **ppcVar7;
+  byte bVar8;
+  char *local_9c [4];
+  char *local_8c;
+  char *local_88;
+  char *local_84;
+  char *local_80;
+  char *local_7c;
+  char *local_78;
+  char *local_74;
+  char *local_70;
+  char *local_6c;
+  char *local_68;
+  char *local_64;
+  char *local_60;
+  char *local_5c;
+  char *local_58;
+  char *local_54;
+  char *local_50;
+  undefined1 local_22 [18];
+  
+  bVar8 = 0;
+  if ((*(char *)(param_1 + 0x10) == '\0') || (*(int *)(param_1 + 8) < 3)) {
+    return;
+  }
+  iVar4 = 0;
+  iVar6 = param_1;
+LAB_0405a7c3:
+  do {
+    if (*(char *)(param_1 + 0x85 + iVar4) == '\0') goto LAB_0405a7b8;
+    ShaderData_AppendDestMask();
+    switch(*(undefined4 *)(iVar6 + 0x164)) {
+    case 0:
+    case 4:
+    case 9:
+      FUN_0402cd10(0xf,
+                   "Trying to use pixel shader 3.0 input register, which has been declared with usage that is never passed to pixel shader."
+                  );
+      break;
+    case 1:
+    case 2:
+    case 3:
+    case 6:
+    case 7:
+    case 8:
+    case 0xb:
+      pcVar3 = "eON_VaryingFog";
+      if (DAT_04468c04 == 0) {
+        pcVar3 = "gl_FogFragCoord";
+      }
+      eON_AppendShaderCompileMessage
+                (param_2,"IN[%u]%s = vec4(%s, 0.0, 0.0, 0.0)%s;\n",iVar4,local_22,pcVar3,local_22);
+      break;
+    case 5:
+      uVar2 = *(uint *)(iVar6 + 0x168);
+      if (uVar2 < 10) {
+        ppcVar7 = local_9c;
+        for (iVar5 = 0x1e; iVar5 != 0; iVar5 = iVar5 + -1) {
+          *ppcVar7 = (char *)0x0;
+          ppcVar7 = ppcVar7 + (uint)bVar8 * -2 + 1;
+        }
+        local_84 = "eON_Varyings[3]";
+        local_9c[0] = "eON_Varyings[0]";
+        local_9c[1] = "gl_TexCoord[0]";
+        local_9c[2] = "eON_Varyings[1]";
+        local_80 = "gl_TexCoord[3]";
+        local_9c[3] = "gl_TexCoord[1]";
+        local_8c = "eON_Varyings[2]";
+        local_88 = "gl_TexCoord[2]";
+        local_7c = "eON_Varyings[4]";
+        local_78 = "gl_TexCoord[4]";
+        local_74 = "eON_Varyings[5]";
+        local_70 = "gl_TexCoord[5]";
+        local_6c = "eON_Varyings[6]";
+        local_68 = "gl_TexCoord[6]";
+        local_64 = "eON_Varyings[7]";
+        local_60 = "gl_TexCoord[7]";
+        local_5c = "eON_Varyings[8]";
+        local_58 = "eON_Texcoord8";
+        local_54 = "eON_Varyings[9]";
+        local_50 = "eON_Texcoord9";
+        eON_AppendShaderCompileMessage
+                  (param_2,"IN[%u]%s = %s%s;\n",iVar4,local_22,
+                   local_9c[(DAT_04468c04 ^ 1) + uVar2 * 2],local_22);
+      }
+      else {
+        FUN_0402cd10(0xf,
+                     "Trying to use pixel shader 3.0 input register, which has been declared as texcoord with index > 9."
+                    );
+      }
+      break;
+    case 10:
+      uVar2 = *(uint *)(iVar6 + 0x168);
+      if (uVar2 == *(byte *)(param_1 + 0x2e0)) {
+        iVar5 = 0;
+      }
+      else if (uVar2 == *(byte *)(param_1 + 0x2e2)) {
+        iVar5 = 1;
+      }
+      else if (uVar2 == *(byte *)(param_1 + 0x2e4)) {
+        iVar5 = 2;
+      }
+      else if (uVar2 == *(byte *)(param_1 + 0x2e6)) {
+        iVar5 = 3;
+      }
+      else if (uVar2 == *(byte *)(param_1 + 0x2e8)) {
+        iVar5 = 4;
+      }
+      else if (uVar2 == *(byte *)(param_1 + 0x2ea)) {
+        iVar5 = 5;
+      }
+      else if (uVar2 == *(byte *)(param_1 + 0x2ec)) {
+        iVar5 = 6;
+      }
+      else if (uVar2 == *(byte *)(param_1 + 0x2ee)) {
+        iVar5 = 7;
+      }
+      else if (uVar2 == *(byte *)(param_1 + 0x2f0)) {
+        iVar5 = 8;
+      }
+      else {
+        if (uVar2 != *(byte *)(param_1 + 0x2f2)) {
+          eON_AppendShaderCompileMessage
+                    (param_2,"IN[%u]%s = vec4(0.0)%s;\n",iVar4,local_22,local_22);
+          break;
+        }
+        iVar5 = 9;
+      }
+      bVar1 = *(byte *)(param_1 + 0x2e1 + iVar5 * 2);
+      ppcVar7 = local_9c;
+      for (iVar5 = 0x1e; iVar5 != 0; iVar5 = iVar5 + -1) {
+        *ppcVar7 = (char *)0x0;
+        ppcVar7 = ppcVar7 + (uint)bVar8 * -2 + 1;
+      }
+      local_84 = "eON_Varyings[3]";
+      local_9c[0] = "eON_Varyings[0]";
+      local_9c[1] = "gl_Color";
+      local_9c[2] = "eON_Varyings[1]";
+      local_80 = "gl_TexCoord[6]";
+      local_9c[3] = "gl_SecondaryColor";
+      local_8c = "eON_Varyings[2]";
+      local_88 = "gl_TexCoord[7]";
+      local_7c = "eON_Varyings[4]";
+      local_78 = "gl_TexCoord[5]";
+      local_74 = "eON_Varyings[5]";
+      local_70 = "gl_TexCoord[4]";
+      local_6c = "eON_Varyings[6]";
+      local_68 = "gl_TexCoord[3]";
+      local_64 = "eON_Varyings[7]";
+      local_60 = "gl_TexCoord[2]";
+      local_5c = "eON_Varyings[8]";
+      local_58 = "gl_TexCoord[1]";
+      local_54 = "eON_Varyings[9]";
+      local_50 = "gl_TexCoord[0]";
+      eON_AppendShaderCompileMessage
+                (param_2,"IN[%u]%s = vec4(%s)%s;\n",iVar4,local_22,
+                 local_9c[(DAT_04468c04 ^ 1) + (uint)bVar1 * 2],local_22);
+      break;
+    default:
+      goto switchD_0405a846_default;
+    }
+LAB_0405a7b8:
+    iVar4 = iVar4 + 1;
+    iVar6 = iVar6 + 0xc;
+    if (iVar4 == 0xc) {
+      return;
+    }
+  } while( true );
+switchD_0405a846_default:
+  iVar6 = iVar6 + 0xc;
+  FUN_0402cd10(0xf,
+               "Trying to use pixel shader 3.0 input register, which has been declared with usage for which input GLSL register has not been defined. Assigning zero vector."
+              );
+  iVar5 = iVar4 + 1;
+  eON_AppendShaderCompileMessage
+            (param_2,"IN[%u]%s = vec4( 0.0, 0.0, 0.0, 0.0 )%s;\n",iVar4,local_22,local_22);
+  iVar4 = iVar5;
+  if (iVar5 == 0xc) {
+    return;
+  }
+  goto LAB_0405a7c3;
+}
+

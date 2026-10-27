@@ -1,0 +1,44 @@
+
+/* source: direct3ddevice9imp */
+
+void Direct3DDevice9Imp__PrepareVertexBufferForDrawQuad(int param_1)
+
+{
+  char cVar1;
+  undefined4 uVar2;
+  int iVar3;
+  char cVar4;
+  
+  cVar1 = DAT_0451ca88;
+  cVar4 = '\x01';
+  if (DAT_0451ca55 == '\0') {
+    cVar4 = *(char *)(param_1 + 0xeb4d);
+  }
+  if (*(int *)(param_1 + 0xe9a0) != 0) {
+    FUN_0400a810("!mOGLDeviceState.DrawQuadBufferID",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+                 ,0x8e3,"void Direct3DDevice9Imp::PrepareVertexBufferForDrawQuad()");
+  }
+  uVar2 = FUN_040ba100(param_1);
+  *(undefined4 *)(param_1 + 0xe9a0) = uVar2;
+  OpenGLContextCache____glewBindBuffer(*(undefined4 *)(param_1 + 0xeb48),0x8892,uVar2);
+  if (cVar4 != '\0') {
+    *(undefined4 *)(param_1 + 0xe9a4) = 0;
+    *(undefined4 *)(param_1 + 0xe9a8) = 0;
+    if (cVar1 != '\0') {
+      (*DAT_0451e894)(0x8892,0xff0,0,0xc2);
+      iVar3 = (*DAT_0451e520)(0x8892,0,0xff0,0xc2);
+      *(int *)(param_1 + 0xe9a8) = iVar3;
+      if (iVar3 != 0) {
+        return;
+      }
+      FUN_0400a810("mOGLDeviceState.DrawQuadBufferPtr",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+                   ,0x8f6,"void Direct3DDevice9Imp::PrepareVertexBufferForDrawQuad()");
+      return;
+    }
+  }
+  (*DAT_0451ed30)(0x8892,0xff0,0,0x88e0);
+  return;
+}
+

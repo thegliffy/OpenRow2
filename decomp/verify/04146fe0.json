@@ -1,0 +1,223 @@
+
+/* WARNING: Type propagation algorithm not settling */
+/* source: synch_timerqueue */
+
+undefined4 TimerQueueThreadFunction(int param_1)
+
+{
+  undefined4 *puVar1;
+  code *pcVar2;
+  int iVar3;
+  int iVar4;
+  undefined4 *puVar5;
+  undefined4 *puVar6;
+  int *piVar7;
+  int *piVar8;
+  undefined4 *puVar9;
+  int local_58 [2];
+  char *local_50;
+  int local_34;
+  undefined4 *local_30;
+  int local_2c;
+  int local_28;
+  int local_24;
+  undefined4 *local_18;
+  
+  local_18 = &param_1;
+  local_50 = "E.TQueue";
+  local_24 = param_1;
+  local_58[1] = 0x4147005;
+  eON_SetThreadName();
+  local_50 = (char *)(local_24 + 4);
+  local_58[1] = 0x4147016;
+  local_2c = (int)local_50;
+  EnterCriticalSection();
+  piVar7 = local_58 + 1;
+  do {
+    piVar7[0xffffffff] = 0x4147025;
+    local_34 = eON_GetTickCount();
+    if (*(undefined4 **)(local_24 + 0x24) == (undefined4 *)0x0) {
+LAB_041472f0:
+      iVar4 = -1;
+LAB_041471bb:
+      *piVar7 = local_2c;
+      piVar7[-1] = 0x41471c6;
+      LeaveCriticalSection();
+      *piVar7 = iVar4;
+      piVar7[-1] = *(undefined4 *)(local_24 + 0x20);
+      piVar7[-2] = 0x41471db;
+      eON_WaitForSingleObject();
+      piVar7[-3] = local_2c;
+      piVar7[-4] = 0x41471e9;
+      EnterCriticalSection();
+      piVar8 = piVar7 + -4;
+    }
+    else {
+      local_28 = 0x7fffffff;
+      local_30 = (undefined4 *)0x0;
+      puVar6 = (undefined4 *)0x0;
+      puVar9 = *(undefined4 **)(local_24 + 0x24);
+      do {
+        while (*(char *)(puVar9 + 7) != '\0') {
+          puVar1 = (undefined4 *)puVar9[6];
+          if (puVar6 == (undefined4 *)0x0) {
+            *(undefined4 **)(local_24 + 0x24) = puVar1;
+          }
+          else {
+            puVar6[6] = puVar1;
+          }
+          if (puVar9[4] != 0) {
+            *piVar7 = puVar9[4];
+            piVar7[-1] = 0x4147065;
+            eON_SetEvent();
+            piVar7 = piVar7 + -1;
+          }
+          *piVar7 = (int)puVar9;
+          piVar7[-1] = 0x4147072;
+          free((void *)*piVar7);
+          puVar9 = puVar1;
+          if (puVar1 == (undefined4 *)0x0) goto LAB_041470a9;
+        }
+        if (((*(char *)((int)puVar9 + 0x1d) == '\0') && (*(char *)((int)puVar9 + 0x1e) == '\0')) &&
+           (puVar9[5] - local_34 < local_28)) {
+          local_28 = puVar9[5] - local_34;
+          local_30 = puVar9;
+        }
+        piVar8 = puVar9 + 6;
+        puVar6 = puVar9;
+        puVar9 = (undefined4 *)*piVar8;
+      } while ((undefined4 *)*piVar8 != (undefined4 *)0x0);
+LAB_041470a9:
+      puVar6 = local_30;
+      if (0 < local_28) {
+        iVar4 = local_28;
+        if (local_30 == (undefined4 *)0x0) goto LAB_041472f0;
+        goto LAB_041471bb;
+      }
+      if (local_30 == (undefined4 *)0x0) goto LAB_041472f0;
+      if ((*(byte *)(local_30 + 3) & 0x20) == 0) {
+        piVar7[3] = (int)"DWORD TimerQueueThreadFunction(LPVOID)";
+        piVar7[2] = 0x9c;
+        piVar7[1] = (int)
+                    "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/synch_timerqueue.cpp"
+        ;
+        *piVar7 = (int)"nextTimer->Flags & 0x00000020";
+        piVar7[-1] = 0x414721c;
+        FUN_0400a810();
+      }
+      *(undefined1 *)((int)puVar6 + 0x1d) = 1;
+      *piVar7 = local_2c;
+      piVar7[-1] = 0x41470dd;
+      LeaveCriticalSection();
+      *piVar7 = 1;
+      piVar7[-1] = puVar6[1];
+      pcVar2 = (code *)*puVar6;
+      piVar7[-2] = 0x41470f0;
+      (*pcVar2)();
+      piVar7[-3] = local_2c;
+      piVar7[-4] = 0x41470fe;
+      EnterCriticalSection();
+      *(undefined1 *)((int)puVar6 + 0x1d) = 0;
+      piVar8 = piVar7 + -4;
+      if (*(char *)(puVar6 + 7) == '\0') {
+        if (puVar6[2] == 0) {
+          *(undefined1 *)((int)puVar6 + 0x1e) = 1;
+          piVar8 = piVar7 + -4;
+        }
+        else {
+          piVar7[-5] = 0x41472e5;
+          iVar4 = eON_GetTickCount();
+          puVar6[5] = iVar4 + puVar6[2];
+        }
+      }
+      else {
+        puVar9 = *(undefined4 **)(local_24 + 0x24);
+        if (puVar9 == (undefined4 *)0x0) {
+          piVar7[-1] = (int)"void RemoveTimerFromQueue(TimerQueue*, TimerQueueTimer*)";
+          piVar7[-2] = 0x4e;
+          piVar7[-3] = (int)
+                       "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/synch_timerqueue.cpp"
+          ;
+          piVar7[-4] = (int)"queue->TimersList";
+          piVar7[-5] = 0x414735f;
+          FUN_0400a810();
+          puVar9 = *(undefined4 **)(local_24 + 0x24);
+        }
+        if (puVar6 == puVar9) {
+          *(undefined4 *)(local_24 + 0x24) = puVar6[6];
+        }
+        else {
+          puVar1 = (undefined4 *)puVar9[6];
+          while (puVar5 = puVar1, puVar6 != puVar5) {
+            if (puVar5 == (undefined4 *)0x0) {
+              piVar7[-1] = (int)"void RemoveTimerFromQueue(TimerQueue*, TimerQueueTimer*)";
+              piVar7[-2] = 0x56;
+              piVar7[-3] = (int)
+                           "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/synch_timerqueue.cpp"
+              ;
+              piVar7[-4] = (int)"prev->Next";
+              piVar7[-5] = 0x414731e;
+              FUN_0400a810();
+              puVar5 = (undefined4 *)puVar9[6];
+            }
+            puVar9 = puVar5;
+            puVar1 = (undefined4 *)puVar5[6];
+          }
+          puVar9[6] = puVar6[6];
+        }
+        piVar8 = piVar7 + -4;
+        if (puVar6[4] != 0) {
+          piVar7[-4] = puVar6[4];
+          piVar7[-5] = 0x4147278;
+          eON_SetEvent();
+          piVar8 = piVar7 + -5;
+        }
+        *piVar8 = (int)puVar6;
+        piVar8[-1] = 0x4147283;
+        free((void *)*piVar8);
+      }
+    }
+    iVar4 = local_24;
+    piVar7 = piVar8;
+    if (*(char *)(local_24 + 0x28) != '\0') {
+      iVar3 = *(int *)(local_24 + 0x24);
+      while (iVar3 != 0) {
+        if (*(char *)(iVar3 + 0x1d) != '\0') {
+          piVar8[3] = (int)"DWORD TimerQueueThreadFunction(LPVOID)";
+          piVar8[2] = 0xcb;
+          piVar8[1] = (int)
+                      "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/synch_timerqueue.cpp"
+          ;
+          *piVar8 = (int)"!timer->InCallback";
+          piVar8[-1] = 0x4147197;
+          FUN_0400a810();
+        }
+        *(undefined4 *)(iVar4 + 0x24) = *(undefined4 *)(iVar3 + 0x18);
+        if (*(int *)(iVar3 + 0x10) != 0) {
+          *piVar8 = *(int *)(iVar3 + 0x10);
+          piVar8[-1] = 0x4147155;
+          eON_SetEvent();
+          piVar8 = piVar8 + -1;
+        }
+        *piVar8 = iVar3;
+        piVar8[-1] = 0x4147160;
+        free((void *)*piVar8);
+        iVar3 = *(int *)(iVar4 + 0x24);
+      }
+      *piVar8 = *(int *)(local_24 + 0x20);
+      piVar8[-1] = 0x414729e;
+      eON_CloseHandle();
+      piVar8[-1] = local_2c;
+      piVar8[-2] = 0x41472ac;
+      LeaveCriticalSection();
+      piVar8[-2] = local_2c;
+      piVar8[-3] = 0x41472ba;
+      eON_DeleteCriticalSection();
+      piVar8[-3] = local_24;
+      piVar8[-4] = 0x41472c8;
+      free((void *)piVar8[-3]);
+      return 0;
+    }
+  } while( true );
+}
+

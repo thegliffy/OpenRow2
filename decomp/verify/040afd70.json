@@ -1,0 +1,106 @@
+
+/* source: direct3dbasetexture9imp, direct3dsurface9imp */
+
+void Direct3DSurface9Imp__TransferBetweenOpenGLTexturesInDifferentSurfaces
+               (int param_1,int param_2,int *param_3,int *param_4)
+
+{
+  uint *puVar1;
+  char cVar2;
+  int iVar3;
+  int iVar4;
+  uint uVar5;
+  uint uVar6;
+  bool bVar7;
+  
+  if (*(int *)(param_1 + 0x6c) == 0x4c4c554e) {
+    FUN_0400a810("mDesc.Format != D3DFMT_NULL",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3dsurface9imp.cpp"
+                 ,0x385,
+                 "void Direct3DSurface9Imp::TransferBetweenOpenGLTexturesInDifferentSurfaces(Direct3DSurface9Imp&, const RECT&, const RECT&)"
+                );
+  }
+  bVar7 = false;
+  if (((*param_4 == 0) && (param_4[1] == 0)) && (param_4[2] == *(int *)(param_1 + 0x84))) {
+    bVar7 = param_4[3] == *(int *)(param_1 + 0x88);
+  }
+  iVar3 = *(int *)(param_1 + 0x90);
+  if (iVar3 == 0) {
+    FUN_0400a810("mTexture",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3dsurface9imp.cpp"
+                 ,0x38a,
+                 "void Direct3DSurface9Imp::TransferBetweenOpenGLTexturesInDifferentSurfaces(Direct3DSurface9Imp&, const RECT&, const RECT&)"
+                );
+    iVar3 = *(int *)(param_1 + 0x90);
+  }
+  if (*(int *)(iVar3 + 0x284) < 1) {
+    FUN_0400a810("(INT) mOpenGLTexturesCount > index",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3dbasetexture9imp.h"
+                 ,0x8c,"OpenGLTexture* Direct3DBaseTexture9Imp::GetOpenGLTexture(INT)");
+  }
+  iVar3 = *(int *)(iVar3 + 0x244);
+  if (iVar3 == 0) {
+    FUN_0400a810("dstTex",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3dsurface9imp.cpp"
+                 ,0x38c,
+                 "void Direct3DSurface9Imp::TransferBetweenOpenGLTexturesInDifferentSurfaces(Direct3DSurface9Imp&, const RECT&, const RECT&)"
+                );
+  }
+  cVar2 = *(char *)(param_1 + 0xb0);
+  if (*(char *)(param_2 + 0xb0) != cVar2) {
+    FUN_0400a810("sourceSurface.mCompressed == mCompressed",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3dsurface9imp.cpp"
+                 ,0x38e,
+                 "void Direct3DSurface9Imp::TransferBetweenOpenGLTexturesInDifferentSurfaces(Direct3DSurface9Imp&, const RECT&, const RECT&)"
+                );
+    cVar2 = *(char *)(param_1 + 0xb0);
+  }
+  if (cVar2 == '\0') {
+    iVar4 = Direct3DDevice9Imp__GetContextCache(*(int *)(param_1 + 0x1c) + 0x40);
+    FramebufferCache__GetFramebufferHash(iVar4 + 0x1f8,*(undefined4 *)(param_2 + 0xc),0,0,0,0,0);
+    FUN_0406d620(iVar3,iVar4);
+    iVar3 = *(int *)(param_1 + 0x1c);
+    iVar4 = *(int *)(iVar3 + 0xeb88);
+    if (((*(char *)(iVar4 + 0x424) != '\x0f') || (*(char *)(iVar4 + 0x425) != '\x0f')) ||
+       ((*(char *)(iVar4 + 0x426) != '\x0f' || (*(char *)(iVar4 + 0x427) != '\x0f')))) {
+      glColorMask(1,1,1,1);
+      *(undefined1 *)(iVar4 + 0x424) = 0xf;
+      *(undefined1 *)(iVar4 + 0x425) = 0xf;
+      *(undefined1 *)(iVar4 + 0x426) = 0xf;
+      *(undefined1 *)(iVar4 + 0x427) = 0xf;
+      puVar1 = (uint *)(iVar3 + 0xea44);
+      *puVar1 = *puVar1 | 4;
+    }
+    glCopyTexSubImage2D(*(undefined4 *)(param_1 + 0xc4),*(undefined4 *)(param_1 + 0xc0),*param_4,
+                        param_4[1],*param_3,param_3[1],param_3[2] - *param_3,param_3[3] - param_3[1]
+                       );
+    iVar3 = *(int *)(param_1 + 0x6c);
+  }
+  else {
+    iVar3 = *(int *)(param_1 + 0x6c);
+  }
+  if (iVar3 == 0x4c4c554e) {
+    FUN_0400a810("mDesc.Format != D3DFMT_NULL",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3dsurface9imp.cpp"
+                 ,0x5e6,"void Direct3DSurface9Imp::MainOpenGLObjectDataUpdated(bool, const RECT*)");
+    iVar3 = *(int *)(param_1 + 0x8c);
+  }
+  else {
+    iVar3 = *(int *)(param_1 + 0x8c);
+  }
+  if (iVar3 == 1) {
+    FUN_0400a810("mSurfaceType != EST_PlainSurface",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3dsurface9imp.cpp"
+                 ,0x5e7,"void Direct3DSurface9Imp::MainOpenGLObjectDataUpdated(bool, const RECT*)");
+  }
+  if ((*(int *)(param_1 + 0x90) != 0) && (1 < *(uint *)(*(int *)(param_1 + 0x90) + 0x284))) {
+    uVar5 = 1;
+    do {
+      uVar6 = uVar5 + 1;
+      Direct3DSurface9Imp__CopyOpenGLObjectData(param_1,uVar5,bVar7,param_4);
+      uVar5 = uVar6;
+    } while (uVar6 < *(uint *)(*(int *)(param_1 + 0x90) + 0x284));
+  }
+  return;
+}
+

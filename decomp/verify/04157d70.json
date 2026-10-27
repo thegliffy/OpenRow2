@@ -1,0 +1,461 @@
+
+/* source: winprofile */
+
+undefined4
+eON_WritePrivateProfileStringA(char *param_1,char *param_2,int param_3,undefined4 param_4)
+
+{
+  char *__s2;
+  char *__s2_00;
+  char cVar1;
+  char cVar2;
+  int iVar3;
+  void *__ptr;
+  char *pcVar4;
+  ushort **ppuVar5;
+  size_t sVar6;
+  char *pcVar7;
+  int iVar8;
+  char *pcVar9;
+  uint uVar10;
+  uint uVar11;
+  int iVar12;
+  uint *puVar13;
+  uint *puVar14;
+  undefined4 *puVar15;
+  int *piVar16;
+  int *piVar17;
+  int *piVar18;
+  undefined4 uVar19;
+  bool bVar20;
+  uint *local_44c;
+  char *local_448;
+  char *local_438;
+  uint local_430 [256];
+  char *local_30;
+  int local_2c;
+  char *local_28;
+  char *local_24;
+  undefined4 *local_18;
+  
+  uVar19 = param_4;
+  iVar8 = param_3;
+  __s2_00 = param_2;
+  __s2 = param_1;
+  local_18 = &param_1;
+  iVar3 = eON_CreateFileA();
+  if (iVar3 == -1) {
+    return 0;
+  }
+  iVar3 = FUN_041322c0();
+  if (iVar3 == 0) {
+    return 0;
+  }
+  if ((local_2c < 0) || ((local_2c < 1 && (local_30 == (char *)0x0)))) {
+    cVar2 = '\0';
+    __ptr = (void *)0x0;
+    local_438 = (char *)0x0;
+    puVar15 = (undefined4 *)&stack0xfffffb5c;
+    pcVar4 = (char *)0x0;
+  }
+  else {
+    __ptr = malloc((size_t)local_30);
+    local_28 = (char *)0x0;
+    iVar3 = eON_ReadFile();
+    eON_CloseHandle();
+    if ((iVar3 == 0) || (local_30 != local_24)) {
+      free(__ptr);
+      return 0;
+    }
+    local_448 = (char *)0x0;
+    while (pcVar4 = (char *)Profile_ReadNextLine(), pcVar4 != (char *)0x0) {
+      cVar2 = *pcVar4;
+      if (cVar2 != '\0') {
+        ppuVar5 = __ctype_b_loc();
+        pcVar7 = pcVar4;
+        cVar1 = cVar2;
+        do {
+          if ((*(byte *)((int)*ppuVar5 + cVar1 * 2 + 1) & 0x20) == 0) {
+            sVar6 = strlen(pcVar4);
+            if ((cVar2 == '[') && (pcVar4[sVar6 - 1] == ']')) {
+              pcVar7 = malloc(sVar6 - 1);
+              strncpy(pcVar7,pcVar4 + 1,sVar6 - 2);
+              pcVar7[sVar6 - 2] = '\0';
+              if (pcVar7 != (char *)0x0) {
+                iVar3 = strcasecmp(pcVar7,__s2);
+                if (iVar3 == 0) {
+                  free(pcVar7);
+                  free(pcVar4);
+                  local_438 = (char *)0x0;
+                  if (__s2_00 == (char *)0x0) {
+                    local_438 = local_448;
+                  }
+                  goto LAB_041581bf;
+                }
+                free(pcVar7);
+              }
+            }
+            break;
+          }
+          pcVar7 = pcVar7 + 1;
+          cVar1 = *pcVar7;
+        } while (cVar1 != '\0');
+      }
+      free(pcVar4);
+      local_448 = local_28;
+    }
+    cVar2 = '\0';
+    local_438 = local_448;
+    puVar15 = (undefined4 *)&stack0xfffffb44;
+    pcVar4 = local_448;
+  }
+  goto LAB_04157f99;
+LAB_041581bf:
+  pcVar7 = (char *)Profile_ReadNextLine();
+  if (pcVar7 == (char *)0x0) goto LAB_0415874e;
+  cVar2 = *pcVar7;
+  if (cVar2 != '\0') {
+    pcVar4 = pcVar7;
+    cVar1 = cVar2;
+    do {
+      if ((*(byte *)((int)*ppuVar5 + cVar1 * 2 + 1) & 0x20) == 0) {
+        sVar6 = strlen(pcVar7);
+        if ((cVar2 == '[') && (pcVar7[sVar6 - 1] == ']')) {
+          pcVar4 = malloc(sVar6 - 1);
+          strncpy(pcVar4,pcVar7 + 1,sVar6 - 2);
+          pcVar4[sVar6 - 2] = '\0';
+          if (pcVar4 != (char *)0x0) {
+            free(pcVar4);
+            free(pcVar7);
+            goto LAB_0415874e;
+          }
+        }
+        if (__s2_00 != (char *)0x0) {
+          pcVar4 = strchr(pcVar7,0x3d);
+          if (pcVar4 == (char *)0x0) {
+LAB_04158783:
+            pcVar4 = (char *)0x0;
+            FUN_0400a810();
+          }
+          else {
+            sVar6 = (int)pcVar4 - (int)pcVar7;
+            pcVar4 = malloc(sVar6 + 1);
+            strncpy(pcVar4,pcVar7,sVar6);
+            pcVar4[sVar6] = '\0';
+            FUN_04159ef0();
+            FUN_04159ea0();
+            if (pcVar4 == (char *)0x0) goto LAB_04158783;
+          }
+          iVar3 = strcasecmp(pcVar4,__s2_00);
+          if (iVar3 == 0) {
+            free(pcVar4);
+            pcVar4 = strchr(pcVar7,0x3d);
+            if (pcVar4 == (char *)0x0) {
+LAB_041587ae:
+              FUN_0400a810();
+              local_44c = (uint *)0x0;
+            }
+            else {
+              sVar6 = strlen(pcVar4 + 1);
+              local_44c = malloc(sVar6 + 1);
+              strcpy((char *)local_44c,pcVar4 + 1);
+              FUN_04159ef0();
+              FUN_04159ea0();
+              if (local_44c == (uint *)0x0) goto LAB_041587ae;
+            }
+            pcVar9 = strchr(pcVar7,0x3d);
+            if (pcVar9 == (char *)0x0) {
+              FUN_0400a810();
+            }
+            if (pcVar9[(int)__ptr + ((int)local_448 - (int)pcVar7)] != '=') {
+              FUN_0400a810();
+            }
+            cVar2 = pcVar9[1];
+            pcVar9 = pcVar9 + 1;
+            if (cVar2 == '\0') goto LAB_041583f4;
+            goto LAB_041583e0;
+          }
+          free(pcVar4);
+        }
+        break;
+      }
+      pcVar4 = pcVar4 + 1;
+      cVar1 = *pcVar4;
+    } while (cVar1 != '\0');
+  }
+  free(pcVar7);
+  local_448 = local_28;
+  goto LAB_041581bf;
+LAB_0415874e:
+  cVar2 = (-(__s2_00 == (char *)0x0) & 2U) + 1;
+  if (__s2_00 != (char *)0x0) {
+    local_438 = local_448;
+  }
+LAB_04158475:
+  puVar15 = (undefined4 *)&stack0xfffffb44;
+  pcVar4 = local_448;
+  if (local_448 == (char *)0x0) {
+    cVar2 = '\0';
+    puVar15 = (undefined4 *)&stack0xfffffb44;
+    local_438 = (char *)0x0;
+  }
+  goto LAB_04157f99;
+  while( true ) {
+    pcVar9 = pcVar9 + 1;
+    cVar2 = *pcVar9;
+    if (cVar2 == '\0') break;
+LAB_041583e0:
+    if ((*(byte *)((int)*ppuVar5 + cVar2 * 2 + 1) & 0x20) == 0) break;
+  }
+LAB_041583f4:
+  puVar14 = local_44c;
+  do {
+    puVar13 = puVar14;
+    uVar10 = *puVar13 + 0xfefefeff & ~*puVar13;
+    uVar11 = uVar10 & 0x80808080;
+    puVar14 = puVar13 + 1;
+  } while (uVar11 == 0);
+  if ((uVar10 & 0x8080) == 0) {
+    puVar14 = (uint *)((int)puVar13 + 6);
+    uVar11 = uVar11 >> 0x10;
+  }
+  pcVar4 = (char *)((int)puVar14 +
+                   (int)(pcVar9 + ((int)local_448 - (int)pcVar7) +
+                        ((-3 - (uint)CARRY1((byte)uVar11,(byte)uVar11)) - (int)local_44c)));
+  free(local_44c);
+  cVar2 = '\x02';
+  free(pcVar7);
+  puVar15 = (undefined4 *)&stack0xfffffb44;
+  local_438 = pcVar9 + ((int)local_448 - (int)pcVar7);
+  if (pcVar4 == (char *)0x0) {
+    cVar2 = '\x01';
+    local_438 = local_448;
+    goto LAB_04158475;
+  }
+LAB_04157f99:
+  puVar15[6] = 0;
+  puVar15[5] = 0;
+  puVar15[4] = 5;
+  puVar15[3] = 0;
+  puVar15[2] = 2;
+  puVar15[1] = 0x40000000;
+  *puVar15 = uVar19;
+  puVar15[-1] = 0x4157fd7;
+  iVar3 = eON_CreateFileA();
+  piVar18 = puVar15 + -7;
+  piVar16 = puVar15 + -7;
+  if (iVar3 == 0) {
+LAB_041584d6:
+    uVar19 = 0;
+  }
+  else {
+    if (local_438 != (char *)0x0) {
+      puVar15[-7] = iVar3;
+      puVar15[-3] = 0;
+      puVar15[-4] = 0;
+      puVar15[-5] = local_438;
+      puVar15[-6] = __ptr;
+      puVar15[-8] = 0x41584ba;
+      iVar12 = eON_WriteFile();
+      piVar16 = puVar15 + -0xc;
+      if (iVar12 == 0) {
+        puVar15[-0xc] = iVar3;
+        puVar15[-0xd] = 0x41584d3;
+        eON_CloseHandle();
+        piVar18 = puVar15 + -0xd;
+        goto LAB_041584d6;
+      }
+    }
+    if (cVar2 == '\x01') {
+      piVar16[1] = (int)"%s=%s\r\n";
+      piVar16[3] = iVar8;
+      piVar16[2] = (int)__s2_00;
+      *piVar16 = (int)local_430;
+      piVar16[-1] = 0x4158607;
+      sprintf((char *)*piVar16,(char *)piVar16[1]);
+      puVar14 = local_430;
+      do {
+        puVar13 = puVar14;
+        uVar10 = *puVar13 + 0xfefefeff & ~*puVar13;
+        uVar11 = uVar10 & 0x80808080;
+        puVar14 = puVar13 + 1;
+      } while (uVar11 == 0);
+      *piVar16 = iVar3;
+      bVar20 = (uVar10 & 0x8080) == 0;
+      if (bVar20) {
+        uVar11 = uVar11 >> 0x10;
+      }
+      piVar16[4] = 0;
+      piVar16[3] = 0;
+      if (bVar20) {
+        puVar14 = (uint *)((int)puVar13 + 6);
+      }
+      piVar16[1] = (int)local_430;
+      piVar16[2] = (int)puVar14 + ((-3 - (uint)CARRY1((byte)uVar11,(byte)uVar11)) - (int)local_430);
+      piVar16[-1] = 0x4158673;
+      iVar8 = eON_WriteFile();
+      piVar18 = piVar16 + -5;
+      if (iVar8 != 1) {
+        piVar16[-2] = (int)"WINBOOL eON_WritePrivateProfileStringA(LPCSTR, LPCSTR, LPCSTR, LPCSTR)";
+        piVar16[-3] = 0x241;
+        piVar16[-4] = (int)
+                      "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/winprofile.cpp"
+        ;
+        piVar16[-5] = (int)"eON_WriteFile( fileHandle, buffer, len, 0, __null ) == 1";
+        piVar16[-6] = 0x41586a9;
+        FUN_0400a810();
+        piVar18 = piVar16 + -5;
+      }
+    }
+    else if (cVar2 == '\x02') {
+      *piVar16 = iVar8;
+      piVar16[-1] = 0x4158564;
+      sVar6 = strlen((char *)*piVar16);
+      piVar16[4] = 0;
+      piVar16[2] = sVar6;
+      piVar16[3] = 0;
+      *piVar16 = iVar3;
+      piVar16[1] = iVar8;
+      piVar16[-1] = 0x4158590;
+      iVar8 = eON_WriteFile();
+      piVar18 = piVar16 + -5;
+      if (iVar8 != 1) {
+        piVar16[-2] = (int)"WINBOOL eON_WritePrivateProfileStringA(LPCSTR, LPCSTR, LPCSTR, LPCSTR)";
+        piVar16[-3] = 0x246;
+        piVar16[-4] = (int)
+                      "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/winprofile.cpp"
+        ;
+        piVar16[-5] = (int)
+                      "eON_WriteFile( fileHandle, lpString, (DWORD) strlen(lpString), 0, __null ) == 1"
+        ;
+        piVar16[-6] = 0x41585c6;
+        FUN_0400a810();
+        piVar18 = piVar16 + -5;
+      }
+    }
+    else {
+      piVar18 = piVar16;
+      if (cVar2 == '\0') {
+        if ((local_438 == (char *)0x0 && pcVar4 == (char *)0x0) && (__ptr != (void *)0x0)) {
+          *piVar16 = iVar3;
+          piVar16[4] = 0;
+          piVar16[3] = 0;
+          piVar16[2] = (int)local_30;
+          piVar16[1] = (int)__ptr;
+          piVar16[-1] = 0x41586fe;
+          iVar12 = eON_WriteFile();
+          piVar17 = piVar16 + -5;
+          pcVar4 = local_30;
+          if (iVar12 != 1) {
+            piVar16[-2] = (int)
+                          "WINBOOL eON_WritePrivateProfileStringA(LPCSTR, LPCSTR, LPCSTR, LPCSTR)";
+            piVar16[-3] = 0x22b;
+            piVar16[-4] = (int)
+                          "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/winprofile.cpp"
+            ;
+            piVar16[-5] = (int)
+                          "eON_WriteFile( fileHandle, fileContents, fileSize.LowPart, 0, __null ) == 1"
+            ;
+            piVar16[-6] = 0x4158730;
+            FUN_0400a810();
+            piVar17 = piVar16 + -5;
+            pcVar4 = local_30;
+          }
+        }
+        else {
+          piVar17 = piVar16;
+          if (local_438 != pcVar4) {
+            piVar16[3] = (int)
+                         "WINBOOL eON_WritePrivateProfileStringA(LPCSTR, LPCSTR, LPCSTR, LPCSTR)";
+            piVar16[2] = 0x231;
+            piVar16[1] = (int)
+                         "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/winprofile.cpp"
+            ;
+            *piVar16 = (int)"startOfCutting == endOfCutting";
+            piVar16[-1] = 0x415804c;
+            FUN_0400a810();
+          }
+        }
+        piVar17[1] = (int)&DAT_0433e439;
+        piVar17[4] = iVar8;
+        piVar17[3] = (int)__s2_00;
+        piVar17[2] = (int)__s2;
+        *piVar17 = (int)local_430;
+        piVar17[-1] = 0x4158092;
+        sprintf((char *)*piVar17,(char *)piVar17[1]);
+        puVar14 = local_430;
+        do {
+          puVar13 = puVar14;
+          uVar10 = *puVar13 + 0xfefefeff & ~*puVar13;
+          uVar11 = uVar10 & 0x80808080;
+          puVar14 = puVar13 + 1;
+        } while (uVar11 == 0);
+        *piVar17 = iVar3;
+        bVar20 = (uVar10 & 0x8080) == 0;
+        if (bVar20) {
+          uVar11 = uVar11 >> 0x10;
+        }
+        piVar17[4] = 0;
+        piVar17[3] = 0;
+        if (bVar20) {
+          puVar14 = (uint *)((int)puVar13 + 6);
+        }
+        piVar17[1] = (int)local_430;
+        piVar17[2] = (int)puVar14 +
+                     ((-3 - (uint)CARRY1((byte)uVar11,(byte)uVar11)) - (int)local_430);
+        piVar17[-1] = 0x41580fe;
+        iVar8 = eON_WriteFile();
+        piVar18 = piVar17 + -5;
+        if (iVar8 != 1) {
+          piVar17[-2] = (int)
+                        "WINBOOL eON_WritePrivateProfileStringA(LPCSTR, LPCSTR, LPCSTR, LPCSTR)";
+          piVar17[-3] = 0x238;
+          piVar17[-4] = (int)
+                        "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/winprofile.cpp"
+          ;
+          piVar17[-5] = (int)"eON_WriteFile( fileHandle, buffer, len, 0, __null ) == 1";
+          piVar17[-6] = 0x4158130;
+          FUN_0400a810();
+          piVar18 = piVar17 + -5;
+        }
+      }
+    }
+    piVar17 = piVar18;
+    if (pcVar4 < local_30) {
+      *piVar18 = iVar3;
+      piVar18[4] = 0;
+      piVar18[3] = 0;
+      piVar18[2] = (int)local_30 - (int)pcVar4;
+      piVar18[1] = (int)(pcVar4 + (int)__ptr);
+      piVar18[-1] = 0x415850f;
+      iVar8 = eON_WriteFile();
+      piVar17 = piVar18 + -5;
+      if (iVar8 != 1) {
+        piVar18[-2] = (int)"WINBOOL eON_WritePrivateProfileStringA(LPCSTR, LPCSTR, LPCSTR, LPCSTR)";
+        piVar18[-3] = 0x252;
+        piVar18[-4] = (int)
+                      "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/winprofile.cpp"
+        ;
+        piVar18[-5] = (int)
+                      "eON_WriteFile( fileHandle, fileContents + endOfCutting, fileSize.LowPart - endOfCutting, 0, __null ) == 1"
+        ;
+        piVar18[-6] = 0x4158545;
+        FUN_0400a810();
+        piVar17 = piVar18 + -5;
+      }
+    }
+    *piVar17 = iVar3;
+    uVar19 = 1;
+    piVar17[-1] = 0x4158158;
+    eON_CloseHandle();
+    piVar18 = piVar17 + -1;
+  }
+  if (__ptr == (void *)0x0) {
+    return uVar19;
+  }
+  *piVar18 = (int)__ptr;
+  piVar18[-1] = 0x415816b;
+  free((void *)*piVar18);
+  return uVar19;
+}
+

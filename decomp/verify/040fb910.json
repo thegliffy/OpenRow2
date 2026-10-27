@@ -1,0 +1,20 @@
+
+void DirectSound3DBuffer8Imp__QueryInterface(int param_1,void *param_2,undefined4 *param_3)
+
+{
+  int iVar1;
+  undefined1 local_44 [52];
+  
+  iVar1 = memcmp(param_2,&DAT_042db728,0x10);
+  if (iVar1 != 0) {
+    GUID_FormatLower(param_2,local_44);
+    FUN_0402cd10(5,"Unhandled - DirectSound3DBuffer8Imp::QueryInterface called with iid = %s",
+                 local_44);
+    *param_3 = 0xdeaddead;
+    IUnknownImp__QueryInterface(param_1,param_2,param_3);
+    return;
+  }
+  (**(code **)**(undefined4 **)(param_1 + 0x10))(*(undefined4 **)(param_1 + 0x10),param_2,param_3);
+  return;
+}
+

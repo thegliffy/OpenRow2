@@ -1,0 +1,124 @@
+
+/* source: direct3dbasetexture9imp, direct3ddevice9imp */
+
+undefined4
+Direct3DDevice9Imp__OpenGLSide_StretchRect_SimpleTexture2Texture
+          (int param_1,undefined4 param_2,int *param_3)
+
+{
+  int iVar1;
+  int iVar2;
+  int iVar3;
+  int iVar4;
+  int iVar5;
+  int iVar6;
+  int iVar7;
+  undefined1 uVar8;
+  int iVar9;
+  bool bVar10;
+  bool bVar11;
+  
+  bVar11 = false;
+  iVar1 = param_3[1];
+  iVar2 = *param_3;
+  iVar3 = param_3[8];
+  iVar4 = param_3[6];
+  iVar5 = param_3[9];
+  iVar9 = param_3[7];
+  if (((iVar4 == 0) && (bVar11 = false, iVar9 == 0)) &&
+     (bVar11 = false, iVar3 == *(int *)(iVar1 + 0x88))) {
+    bVar11 = iVar5 == *(int *)(iVar1 + 0x8c);
+  }
+  iVar6 = *(int *)(iVar1 + 0xc4);
+  if (iVar6 == 0) {
+    iVar3 = *(int *)(iVar2 + 0x94);
+    iVar4 = *(int *)(iVar1 + 0x94);
+    if (*(int *)(iVar3 + 0x284) < 1) {
+      FUN_0400a810("(INT) mOpenGLTexturesCount > index",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3dbasetexture9imp.h"
+                   ,0x8c,"OpenGLTexture* Direct3DBaseTexture9Imp::GetOpenGLTexture(INT)");
+      iVar5 = *(int *)(iVar3 + 0x244);
+      iVar9 = *(int *)(iVar5 + 0xc);
+    }
+    else {
+      iVar5 = *(int *)(iVar3 + 0x244);
+      iVar9 = *(int *)(iVar5 + 0xc);
+    }
+    if (iVar9 != 0xde1) {
+      FUN_0400a810("tex->GetGLTarget() == 0x0DE1",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+                   ,0x131a,
+                   "DWORD Direct3DDevice9Imp::OpenGLSide_StretchRect_SimpleTexture2Texture(DWORD, LPVOID)"
+                  );
+    }
+    FUN_0406d470(iVar5);
+    FUN_0406d620(iVar5,*(undefined4 *)(param_1 + 0xeb48));
+    if (DAT_0451ca41 == '\0') {
+      FUN_0406d530(iVar5,0);
+    }
+    else {
+      uVar8 = FUN_0406d510(iVar5);
+      iVar9 = FUN_040e4f70(param_1 + 0xeb9c,uVar8,0);
+      iVar5 = *(int *)(param_1 + 0xeb48);
+      if (iVar9 != *(int *)(iVar5 + 0x2b8)) {
+        (*DAT_0451e3c4)(0,iVar9);
+        *(int *)(iVar5 + 0x2b8) = iVar9;
+      }
+    }
+    if ((*(int *)(iVar3 + 0x218) == 0x140b) || (bVar10 = false, *(int *)(iVar3 + 0x218) == 0x1406))
+    {
+      iVar3 = *(int *)(iVar4 + 0x218);
+      bVar10 = iVar3 != 0x140b && iVar3 != 0x1406;
+    }
+    glDrawArrays(param_1,param_3[1],param_3 + 2,param_3 + 6,*(undefined4 *)(iVar2 + 0x88),
+                 *(undefined4 *)(iVar2 + 0x8c),1,0,bVar10);
+  }
+  else {
+    if (iVar6 < 1) {
+      FUN_0400a810("surfaceLevel > 0",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+                   ,0x1328,
+                   "DWORD Direct3DDevice9Imp::OpenGLSide_StretchRect_SimpleTexture2Texture(DWORD, LPVOID)"
+                  );
+    }
+    FramebufferCache__GetFramebufferHash
+              (*(int *)(param_1 + 0xeb48) + 0x1f8,*(undefined4 *)(iVar2 + 0x10),0,0,0,0,0);
+    iVar2 = *(int *)(iVar1 + 0x94);
+    if (*(int *)(iVar2 + 0x284) < 1) {
+      FUN_0400a810("(INT) mOpenGLTexturesCount > index",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3dbasetexture9imp.h"
+                   ,0x8c,"OpenGLTexture* Direct3DBaseTexture9Imp::GetOpenGLTexture(INT)");
+      iVar2 = *(int *)(iVar2 + 0x244);
+      iVar7 = *(int *)(iVar2 + 0xc);
+    }
+    else {
+      iVar2 = *(int *)(iVar2 + 0x244);
+      iVar7 = *(int *)(iVar2 + 0xc);
+    }
+    if (iVar7 != 0xde1) {
+      FUN_0400a810("tex->GetGLTarget() == 0x0DE1",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+                   ,0x132b,
+                   "DWORD Direct3DDevice9Imp::OpenGLSide_StretchRect_SimpleTexture2Texture(DWORD, LPVOID)"
+                  );
+    }
+    FUN_0406d620(iVar2,*(undefined4 *)(param_1 + 0xeb48));
+    iVar2 = *(int *)(param_1 + 0xeb48);
+    if (((*(char *)(iVar2 + 0x424) != '\x0f') || (*(char *)(iVar2 + 0x425) != '\x0f')) ||
+       ((*(char *)(iVar2 + 0x426) != '\x0f' || (*(char *)(iVar2 + 0x427) != '\x0f')))) {
+      glColorMask(1,1,1,1);
+      *(undefined1 *)(iVar2 + 0x424) = 0xf;
+      *(undefined1 *)(iVar2 + 0x425) = 0xf;
+      *(undefined1 *)(iVar2 + 0x426) = 0xf;
+      *(undefined1 *)(iVar2 + 0x427) = 0xf;
+      *(uint *)(param_1 + 0xea04) = *(uint *)(param_1 + 0xea04) | 4;
+    }
+    glCopyTexSubImage2D(0xde1,iVar6,param_3[6],param_3[7],param_3[2],param_3[3],iVar3 - iVar4,
+                        iVar5 - iVar9);
+  }
+  Direct3DSurface9Imp__MainOpenGLObjectDataUpdated(iVar1 + 4,bVar11,param_3 + 6);
+  (**(code **)(*(int *)*param_3 + 8))((int *)*param_3);
+  (**(code **)(*(int *)param_3[1] + 8))((int *)param_3[1]);
+  return 0x2c;
+}
+

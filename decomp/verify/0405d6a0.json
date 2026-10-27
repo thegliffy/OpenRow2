@@ -1,0 +1,29 @@
+
+void __regparm3 D3DTEXF_ToString(undefined4 param_1,undefined4 param_2,undefined4 param_3)
+
+{
+  switch(param_3) {
+  case 0:
+    FUN_0402cd10(param_1,"%s: D3DTEXF_NONE",param_2);
+    return;
+  case 1:
+    FUN_0402cd10(param_1,"%s: D3DTEXF_POINT",param_2);
+    return;
+  case 2:
+    FUN_0402cd10(param_1,"%s: D3DTEXF_LINEAR",param_2);
+    return;
+  case 3:
+    FUN_0402cd10(param_1,"%s: D3DTEXF_ANISOTROPIC",param_2);
+    return;
+  default:
+    FUN_0402cd10(param_1,"%s: !unhandled!",param_2);
+    return;
+  case 6:
+    FUN_0402cd10(param_1,"%s: D3DTEXF_PYRAMIDALQUAD",param_2);
+    return;
+  case 7:
+    FUN_0402cd10(param_1,"%s: D3DTEXF_GAUSSIANQUAD",param_2);
+    return;
+  }
+}
+

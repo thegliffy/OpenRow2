@@ -1,0 +1,196 @@
+
+/* WARNING: Function: __i686.get_pc_thunk.bx replaced with injection: get_pc_thunk_bx */
+
+uint google_breakpad__LinuxDumper__ElfFileIdentifierForMapping
+               (int param_1,int *param_2,uint param_3,uint param_4,undefined4 param_5)
+
+{
+  undefined4 *puVar1;
+  undefined4 uVar2;
+  code *pcVar3;
+  undefined1 uVar4;
+  int iVar5;
+  uint uVar6;
+  int *piVar7;
+  int iVar8;
+  byte bVar9;
+  undefined1 **ppuVar10;
+  undefined1 *puVar11;
+  undefined1 *puVar12;
+  int iVar13;
+  uint uVar14;
+  int in_GS_OFFSET;
+  undefined1 *puStack_14c;
+  undefined1 *puStack_148;
+  int local_144;
+  uint local_140;
+  uint local_13c;
+  int local_138;
+  undefined4 local_134;
+  int *local_130;
+  int local_128;
+  uint local_124;
+  undefined1 local_11f [255];
+  undefined4 local_20;
+  undefined4 uStack_14;
+  
+  puVar12 = &stack0xfffffffc;
+  uStack_14 = 0x42ca2fb;
+  local_130 = param_2;
+  local_13c = param_3;
+  local_20 = *(undefined4 *)(in_GS_OFFSET + 0x14);
+  local_138 = param_1;
+  local_134 = param_5;
+  if (((char)param_3 != '\0') &&
+     ((uint)(*(int *)(param_1 + 0x3c) - *(int *)(param_1 + 0x38) >> 2) <= param_4)) {
+                    /* WARNING: Subroutine does not return */
+    __assert_fail("!member || mapping_id < mappings_.size()",
+                  "src/client/linux/minidump_writer/linux_dumper.cc",100,
+                  "bool google_breakpad::LinuxDumper::ElfFileIdentifierForMapping(const google_breakpad::MappingInfo&, bool, unsigned int, uint8_t*)"
+                 );
+  }
+  uVar14 = 0;
+  FUN_042d46e0(param_5,0,0x10);
+  iVar13 = (int)local_130 + 0xd;
+  iVar5 = FUN_042d43f0(iVar13,"/dev/",5);
+  ppuVar10 = &puStack_14c;
+  puVar11 = &stack0xfffffffc;
+  if (iVar5 == 0) goto LAB_042ca385;
+  iVar5 = FUN_042d43a0(iVar13,"linux-gate.so");
+  if (iVar5 != 0) {
+    local_140 = FUN_042d4380(iVar13);
+    if (0xfe < local_140) {
+                    /* WARNING: Subroutine does not return */
+      __assert_fail("false","src/client/linux/minidump_writer/linux_dumper.cc",0x7a,
+                    "bool google_breakpad::LinuxDumper::ElfFileIdentifierForMapping(const google_breakpad::MappingInfo&, bool, unsigned int, uint8_t*)"
+                   );
+    }
+    __memcpy_chk(local_11f,iVar13,local_140,0xff);
+    local_11f[local_140] = 0;
+    uVar4 = FUN_042ca290(local_138,local_11f);
+    local_144 = CONCAT31(local_144._1_3_,uVar4);
+    FUN_042d4ad0(&local_128,local_11f,local_130[2]);
+    if ((local_128 != 0) && (3 < local_124)) {
+                    /* try { // try from 042ca44b to 042ca44f has its CatchHandler @ 042ca6d0 */
+      uVar14 = FUN_042d3d30(local_128,local_134);
+      bVar9 = (byte)local_13c & (byte)uVar14;
+      if ((bVar9 != 0) && (uVar14 = (uint)bVar9, (char)local_144 != '\0')) {
+        *(undefined1 *)(*(int *)(*(int *)(local_138 + 0x38) + param_4 * 4) + 3 + local_140) = 0;
+      }
+    }
+    FUN_042d48b0(&local_128);
+    ppuVar10 = &puStack_14c;
+    puVar11 = &stack0xfffffffc;
+    goto LAB_042ca385;
+  }
+  uVar14 = *(uint *)(local_138 + 4);
+  pcVar3 = (code *)swi(0x80);
+  uVar6 = (*pcVar3)();
+  ppuVar10 = &puStack_148;
+  if (0xfffff000 < uVar6) {
+    puStack_14c = (undefined1 *)0x42ca679;
+    piVar7 = __errno_location();
+    *piVar7 = -uVar6;
+    uVar6 = 0xffffffff;
+  }
+  if (uVar14 == uVar6) {
+    iVar13 = *local_130;
+    ppuVar10 = &puStack_148;
+    puVar12 = &stack0xfffffffc;
+  }
+  else {
+    uVar14 = local_130[1];
+    if (uVar14 == 0) {
+      uVar14 = 0;
+      iVar13 = 0;
+    }
+    else {
+      if (*(int *)(local_138 + 0x1c) == 0) {
+        uVar6 = *(uint *)(local_138 + 0x14);
+      }
+      else {
+        uVar6 = *(uint *)(local_138 + 0x14);
+        iVar5 = *(int *)(local_138 + 0x20);
+        if (uVar14 <= uVar6 - iVar5) {
+          iVar13 = *(int *)(local_138 + 0x1c) + iVar5;
+          *(uint *)(local_138 + 0x20) = iVar5 + uVar14;
+          ppuVar10 = &puStack_148;
+          puVar12 = &stack0xfffffffc;
+          if (uVar6 == iVar5 + uVar14) {
+            *(undefined4 *)(local_138 + 0x20) = 0;
+            *(undefined4 *)(local_138 + 0x1c) = 0;
+            ppuVar10 = &puStack_148;
+            puVar12 = &stack0xfffffffc;
+          }
+          goto LAB_042ca5a0;
+        }
+      }
+      local_144 = uVar14 + 8;
+      local_128 = 0;
+      local_124 = 0;
+      local_13c = (uVar6 + 7 + uVar14) / uVar6;
+      pcVar3 = (code *)swi(0x80);
+      puStack_14c = &stack0xfffffffc;
+      uVar14 = (*pcVar3)();
+      puVar12 = puStack_148;
+      *(uint *)(puStack_148 + -0x13c) = uVar14;
+      if (uVar14 < 0xfffff001) {
+        puVar1 = *(undefined4 **)(puStack_148 + -0x13c);
+        if (puVar1 != (undefined4 *)0xffffffff) {
+          iVar13 = *(int *)(puStack_148 + -0x134);
+          iVar5 = *(int *)(puStack_148 + -0x138);
+          uVar2 = *(undefined4 *)(iVar13 + 0x18);
+          puVar1[1] = iVar5;
+          *puVar1 = uVar2;
+          *(undefined4 **)(iVar13 + 0x18) = puVar1;
+          uVar14 = *(uint *)(iVar13 + 0x14);
+          iVar5 = iVar5 * uVar14;
+          uVar6 = ((*(int *)(puStack_148 + -0x140) + uVar14) - iVar5) % uVar14;
+          iVar8 = 0;
+          *(uint *)(iVar13 + 0x20) = uVar6;
+          if (uVar6 != 0) {
+            iVar8 = *(int *)(puStack_148 + -0x13c) + (iVar5 - uVar14);
+          }
+          iVar13 = *(int *)(puStack_148 + -0x13c);
+          *(int *)(*(int *)(puStack_148 + -0x134) + 0x1c) = iVar8;
+          iVar13 = iVar13 + 8;
+          uVar14 = *(uint *)(*(int *)(puStack_148 + -300) + 4);
+          ppuVar10 = (undefined1 **)&local_144;
+          goto LAB_042ca5a0;
+        }
+      }
+      else {
+        puStack_148 = (undefined1 *)0x42ca589;
+        piVar7 = __errno_location();
+        *piVar7 = -uVar14;
+      }
+      uVar14 = *(uint *)(*(int *)(puVar12 + -300) + 4);
+      iVar13 = 0;
+      ppuVar10 = (undefined1 **)&local_144;
+    }
+LAB_042ca5a0:
+    piVar7 = *(int **)(puVar12 + -0x134);
+    iVar5 = *piVar7;
+    *(uint *)((int)ppuVar10 + -0x10) = uVar14;
+    *(undefined4 *)((int)ppuVar10 + -0x14) = **(undefined4 **)(puVar12 + -300);
+    *(int *)((int)ppuVar10 + -0x18) = piVar7[1];
+    *(int *)((int)ppuVar10 + -0x1c) = iVar13;
+    *(int **)((int)ppuVar10 + -0x20) = piVar7;
+    pcVar3 = *(code **)(iVar5 + 0x1c);
+    *(undefined4 *)((int)ppuVar10 + -0x24) = 0x42ca5bc;
+    (*pcVar3)();
+  }
+  *(undefined4 *)((int)ppuVar10 + -0xc) = *(undefined4 *)(puVar12 + -0x130);
+  *(int *)((int)ppuVar10 + -0x10) = iVar13;
+  *(undefined4 *)((int)ppuVar10 + -0x14) = 0x42ca4e2;
+  uVar14 = FUN_042d3d30();
+  puVar11 = puVar12;
+LAB_042ca385:
+  if (*(int *)(puVar11 + -0x1c) != *(int *)(in_GS_OFFSET + 0x14)) {
+                    /* WARNING: Subroutine does not return */
+    *(undefined4 *)((int)ppuVar10 + -4) = 0x42ca698;
+    FUN_042d5e70();
+  }
+  return uVar14;
+}
+

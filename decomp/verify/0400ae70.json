@@ -1,0 +1,50 @@
+
+void Cot__Release(int param_1,uint param_2)
+
+{
+  pthread_mutex_t *__mutex;
+  int *piVar1;
+  uint uVar2;
+  int iVar3;
+  int iVar4;
+  int iVar5;
+  char *pcVar6;
+  uint uVar7;
+  
+  __mutex = (pthread_mutex_t *)(param_1 + 0x1c);
+  pthread_mutex_lock(__mutex);
+  if (*(int *)(param_1 + 8) != 0) {
+    iVar3 = *(int *)(param_1 + 8);
+    iVar4 = param_1 + 4;
+    do {
+      while (iVar5 = iVar3, *(uint *)(iVar5 + 0x10) < param_2) {
+        piVar1 = (int *)(iVar5 + 0xc);
+        iVar3 = *piVar1;
+        iVar5 = iVar4;
+        if (*piVar1 == 0) goto LAB_0400aeb5;
+      }
+      iVar3 = *(int *)(iVar5 + 8);
+      iVar4 = iVar5;
+    } while (*(int *)(iVar5 + 8) != 0);
+LAB_0400aeb5:
+    if ((iVar5 != param_1 + 4) && (*(uint *)(iVar5 + 0x10) <= param_2)) {
+      uVar2 = *(uint *)(iVar5 + 0x14);
+      if (0 < (int)uVar2) {
+        *(uint *)(iVar5 + 0x14) = uVar2 - 1;
+        pthread_mutex_unlock(__mutex);
+        return;
+      }
+      pcVar6 = "COT ERROR: Trying to release COM object %p with refcount = %d <= 0!\'";
+      uVar7 = param_2;
+      param_2 = uVar2;
+      goto LAB_0400aef3;
+    }
+  }
+  uVar7 = *(uint *)(param_2 + 4);
+  pcVar6 = "COT ERROR: Trying to release (with info \'%s\') COM object %p that doesn\'t exist!\'";
+LAB_0400aef3:
+  FUN_0402cd10(0xf,pcVar6,uVar7,param_2);
+  pthread_mutex_unlock(__mutex);
+  return;
+}
+

@@ -1,0 +1,12 @@
+
+/* source: filesystem */
+
+undefined4 eON_FileSystem__windowsRegistryPathMacPlist(void)
+
+{
+  FUN_0400a810("false",
+               "/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/linux/filesystem.cpp",0x1b2
+               ,"const char* eON_FileSystem::windowsRegistryPathMacPlist()");
+  return 0;
+}
+

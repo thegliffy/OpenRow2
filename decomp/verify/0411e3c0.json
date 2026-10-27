@@ -1,0 +1,101 @@
+
+/* source: gdi32 */
+
+int eON_ChoosePixelFormat(int param_1,short *param_2)
+
+{
+  char *pcVar1;
+  char cVar2;
+  short sVar3;
+  uint uVar4;
+  int iVar5;
+  undefined4 *puVar6;
+  int iVar7;
+  int iVar8;
+  undefined **ppuVar9;
+  byte bVar10;
+  
+  bVar10 = 0;
+  if (((param_2 != (short *)0x0) && (param_1 != 0)) && (param_1 + 0x68686869U < 0x80)) {
+    iVar7 = (param_1 + 0x68686869U) * 0x60;
+    if (*(int *)(&DAT_04512abc + iVar7) == 0) {
+      if (*(int *)(&DAT_04512ac0 + iVar7) != 0) {
+        FUN_0400a810("dc->PixelFormats == __null",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/gdi32/gdi32.cpp"
+                     ,0x133,"void MakeSurePixelFormatsInitialised(HDC_DrawingContext*)");
+      }
+      puVar6 = malloc(0x78);
+      *(undefined4 **)(&DAT_04512ac0 + iVar7) = puVar6;
+      ppuVar9 = &PTR_DAT_043186e0;
+      for (iVar8 = 0x1e; iVar8 != 0; iVar8 = iVar8 + -1) {
+        *puVar6 = *ppuVar9;
+        ppuVar9 = ppuVar9 + (uint)bVar10 * -2 + 1;
+        puVar6 = puVar6 + (uint)bVar10 * -2 + 1;
+      }
+      *(undefined4 *)(&DAT_04512abc + iVar7) = 3;
+      sVar3 = *param_2;
+    }
+    else {
+      sVar3 = *param_2;
+    }
+    if (((((sVar3 == 0x28) && (param_2[1] == 1)) &&
+         (((char)param_2[4] == '\0' && ((char)param_2[0xd] == '\0')))) &&
+        ((uVar4 = *(uint *)(param_2 + 2), (uVar4 & 1) != 0 || ((uVar4 & 0x40000000) != 0)))) &&
+       (((uVar4 & 2) == 0 || ((int)uVar4 < 0)))) {
+      if (*(byte *)((int)param_2 + 9) < 0x20) {
+        FUN_0400a810("ppfd->cColorBits >= 32",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/gdi32/gdi32.cpp"
+                     ,0x7a1,"INT eON_ChoosePixelFormat(HDC, const PIXELFORMATDESCRIPTOR*)");
+      }
+      cVar2 = (char)param_2[8];
+      if (cVar2 == '\x02') {
+        if (0 < *(int *)(&DAT_04512abc + iVar7)) {
+          iVar5 = 0;
+          iVar8 = *(int *)(&DAT_04512ac0 + iVar7);
+          if (*(char *)(*(int *)(&DAT_04512ac0 + iVar7) + 0x10) == '\x02') {
+            iVar5 = 0;
+          }
+          else {
+            do {
+              iVar5 = iVar5 + 1;
+              if (iVar5 == *(int *)(&DAT_04512abc + iVar7)) goto LAB_0411e558;
+              pcVar1 = (char *)(iVar8 + 0x38);
+              iVar8 = iVar8 + 0x28;
+            } while (*pcVar1 != '\x02');
+          }
+          return iVar5 + 1;
+        }
+      }
+      else if (cVar2 == '\b') {
+        if (0 < *(int *)(&DAT_04512abc + iVar7)) {
+          iVar8 = *(int *)(&DAT_04512ac0 + iVar7);
+          iVar5 = 0;
+          do {
+            iVar5 = iVar5 + 1;
+            if ((*(char *)(iVar8 + 9) == ' ') && (*(char *)(iVar8 + 0x10) == '\b')) {
+              return iVar5;
+            }
+            iVar8 = iVar8 + 0x28;
+          } while (iVar5 != *(int *)(&DAT_04512abc + iVar7));
+        }
+      }
+      else if ((cVar2 == '\0') && (0 < *(int *)(&DAT_04512abc + iVar7))) {
+        iVar8 = *(int *)(&DAT_04512ac0 + iVar7);
+        iVar5 = 0;
+        do {
+          iVar5 = iVar5 + 1;
+          if ((*(char *)(iVar8 + 9) == ' ') && (*(char *)(iVar8 + 0x10) == '\0')) {
+            return iVar5;
+          }
+          iVar8 = iVar8 + 0x28;
+        } while (iVar5 != *(int *)(&DAT_04512abc + iVar7));
+      }
+LAB_0411e558:
+      FUN_0400a810("false",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/gdi32/gdi32.cpp",
+                   0x7b9,"INT eON_ChoosePixelFormat(HDC, const PIXELFORMATDESCRIPTOR*)");
+    }
+  }
+  return 0;
+}
+

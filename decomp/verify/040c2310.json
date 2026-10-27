@@ -1,0 +1,1226 @@
+
+/* source: fixedPipelineEmulation */
+
+void * FragmentShaderCompiler__GenerateProgram(int param_1,byte *param_2)
+
+{
+  bool bVar1;
+  bool bVar2;
+  bool bVar3;
+  bool bVar4;
+  bool bVar5;
+  size_t __n;
+  size_t __n_00;
+  size_t __n_01;
+  byte bVar6;
+  uint uVar7;
+  char *pcVar8;
+  int iVar9;
+  char *pcVar10;
+  char *pcVar11;
+  void *__dest;
+  char *pcVar12;
+  undefined **ppuVar13;
+  int iVar14;
+  uint *puVar15;
+  bool bVar16;
+  byte bVar17;
+  char *local_bc;
+  char *local_b0;
+  char *local_a4;
+  uint local_90 [20];
+  void *local_40;
+  size_t local_3c;
+  undefined4 local_38;
+  void *local_34;
+  size_t local_30;
+  undefined4 local_2c;
+  void *local_28;
+  size_t local_24;
+  undefined4 local_20;
+  
+  bVar17 = 0;
+  local_40 = (void *)0x0;
+  local_3c = 0;
+  local_38 = 0;
+  local_34 = (void *)0x0;
+  local_30 = 0;
+  local_2c = 0;
+  local_28 = (void *)0x0;
+  local_24 = 0;
+  local_20 = 0;
+  if ((*param_2 & 0x40) != 0) {
+                    /* try { // try from 040c2383 to 040c2a9e has its CatchHandler @ 040c5200 */
+    eON_AppendShaderCompileMessage(&local_40,"#version 150\n");
+  }
+  eON_AppendShaderCompileMessage(&local_40,"\n// Fixed function fragment shader for eON\n\n");
+  bVar6 = *param_2;
+  if ((bVar6 & 0x40) != 0) {
+    eON_AppendShaderCompileMessage
+              (&local_40,
+               "layout(std140) uniform CommonVariables {\n\tvec4 PositionFix;\n\tvec4 GlFogcolor;\n\tfloat GlFogdensity;\n\tfloat GlFogend;\n\tfloat GlFogscale;\n\tfloat AlphaRef;\n\tvec4 ClipPlanes[6];\n};\n\n"
+              );
+    eON_AppendShaderCompileMessage
+              (&local_40,
+               "layout(std140) uniform FixedPipelinePixelOnly {\n\tvec4 TextureStageConstant[%d];\n\tvec4 TextureFactor;\n\tvec4 LuminanceScaleOffset[%d];\n\tvec4 BumpEnvMap[%d];\n};\n\n"
+               ,8,8,8);
+    bVar6 = *param_2;
+  }
+  if ((bVar6 & 0x20) != 0) {
+    pcVar11 = "in";
+    if ((bVar6 & 0x40) == 0) {
+      pcVar11 = "varying";
+    }
+    eON_AppendShaderCompileMessage(&local_40,"%s vec4 eON_Varyings[10];\n",pcVar11);
+    eON_AppendShaderCompileMessage(&local_40,"%s float eON_VaryingFog;\n",pcVar11);
+  }
+  eON_AppendShaderCompileMessage(&local_34,"\nvoid main( void )\n{\n");
+  if (param_2[1] != 1) {
+    eON_AppendShaderCompileMessage(&local_34,"\tvec4 StageArg1;\n");
+    eON_AppendShaderCompileMessage(&local_34,"\tvec4 StageArg2;\n");
+    eON_AppendShaderCompileMessage(&local_34,"\tvec4 StageArg0;\n");
+  }
+  pcVar11 = "gl_Color";
+  if ((*param_2 & 0x20) != 0) {
+    if (param_2[0x58] == 0) {
+      iVar9 = 0;
+    }
+    else {
+      pcVar11 = "vec4(0.0)";
+      if (param_2[0x58] == 0xff) goto LAB_040c256b;
+      if (param_2[0x5a] == 0) {
+        iVar9 = 1;
+      }
+      else {
+        if (param_2[0x5a] == 0xff) goto LAB_040c256b;
+        if (param_2[0x5c] == 0) {
+          iVar9 = 2;
+        }
+        else {
+          if (param_2[0x5c] == 0xff) goto LAB_040c256b;
+          if (param_2[0x5e] == 0) {
+            iVar9 = 3;
+          }
+          else {
+            if (param_2[0x5e] == 0xff) goto LAB_040c256b;
+            if (param_2[0x60] == 0) {
+              iVar9 = 4;
+            }
+            else {
+              if (param_2[0x60] == 0xff) goto LAB_040c256b;
+              if (param_2[0x62] == 0) {
+                iVar9 = 5;
+              }
+              else {
+                if (param_2[0x62] == 0xff) goto LAB_040c256b;
+                if (param_2[100] == 0) {
+                  iVar9 = 6;
+                }
+                else {
+                  if (param_2[100] == 0xff) goto LAB_040c256b;
+                  if (param_2[0x66] == 0) {
+                    iVar9 = 7;
+                  }
+                  else {
+                    if (param_2[0x66] == 0xff) goto LAB_040c256b;
+                    if (param_2[0x68] == 0) {
+                      iVar9 = 8;
+                    }
+                    else {
+                      if ((param_2[0x68] == 0xff) || (param_2[0x6a] != 0)) goto LAB_040c256b;
+                      iVar9 = 9;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    bVar6 = param_2[iVar9 * 2 + 0x59];
+    ppuVar13 = &PTR_s_eON_Varyings_0__042ff180;
+    puVar15 = local_90;
+    for (iVar9 = 0x14; iVar9 != 0; iVar9 = iVar9 + -1) {
+      *puVar15 = (uint)*ppuVar13;
+      ppuVar13 = ppuVar13 + (uint)bVar17 * -2 + 1;
+      puVar15 = puVar15 + (uint)bVar17 * -2 + 1;
+    }
+    pcVar11 = (char *)local_90[(uint)bVar6 * 2];
+  }
+LAB_040c256b:
+  eON_AppendShaderCompileMessage(&local_34,"\tvec4 currentRegister = %s;\n",pcVar11);
+  local_a4 = (char *)0x0;
+  bVar5 = false;
+  bVar3 = false;
+  bVar4 = false;
+  do {
+    if (param_2[(int)local_a4 * 10 + 1] == 1) break;
+    pcVar11 = local_a4;
+    eON_AppendShaderCompileMessage(&local_28,"\n\t// Texture stage %u\n",local_a4);
+    bVar2 = false;
+    if ((param_2[(int)local_a4 * 10 + 9] == 5) && (bVar2 = true, !bVar3)) {
+      eON_AppendShaderCompileMessage(&local_28,"\tvec4 tempRegister;\n",pcVar11);
+      bVar2 = true;
+      bVar3 = true;
+    }
+    bVar6 = param_2[(int)local_a4 * 10 + 1];
+    if ((bVar6 == param_2[(int)local_a4 * 10 + 2]) &&
+       (param_2[(int)local_a4 * 10 + 3] == param_2[(int)local_a4 * 10 + 6])) {
+      bVar16 = param_2[(int)local_a4 * 10 + 4] == param_2[(int)local_a4 * 10 + 7];
+      local_b0 = "";
+      if (!bVar16) {
+        local_b0 = ".rgb";
+      }
+      pcVar12 = (char *)(uint)bVar16;
+    }
+    else {
+      pcVar12 = (char *)0x0;
+      bVar16 = false;
+      local_b0 = ".rgb";
+    }
+    pcVar10 = local_b0;
+    pcVar8 = local_b0;
+    switch(bVar6) {
+    default:
+      FUN_0402cd10(0xf,
+                   "Unknown color operation ( %u ) while preparing fixed pipeline emulation fragment shader!"
+                   ,bVar6);
+      __dest = (void *)0x0;
+      goto LAB_040c2b21;
+    case 2:
+      pcVar8 = (char *)(uint)param_2[(int)local_a4 * 10 + 10];
+      fixedPipelineEmulation_040bd330
+                (param_2,local_a4,1,1,param_2[(int)local_a4 * 10 + 3],pcVar8,pcVar12);
+      pcVar11 = "temp";
+      if (!bVar2) {
+        pcVar11 = "current";
+      }
+      eON_AppendShaderCompileMessage
+                (&local_28,"\t%sRegister%s = StageArg1%s;\n",pcVar11,local_b0,local_b0);
+      break;
+    case 3:
+      pcVar8 = (char *)(uint)param_2[(int)local_a4 * 10 + 10];
+      fixedPipelineEmulation_040bd330
+                (param_2,local_a4,2,1,param_2[(int)local_a4 * 10 + 4],pcVar8,pcVar12);
+      pcVar11 = "temp";
+      if (!bVar2) {
+        pcVar11 = "current";
+      }
+      eON_AppendShaderCompileMessage
+                (&local_28,"\t%sRegister%s = StageArg2%s;\n",pcVar11,local_b0,local_b0);
+      break;
+    case 4:
+      fixedPipelineEmulation_040bd330
+                (param_2,local_a4,1,1,param_2[(int)local_a4 * 10 + 3],
+                 param_2[(int)local_a4 * 10 + 10],pcVar12);
+      fixedPipelineEmulation_040bd330
+                (param_2,local_a4,2,1,param_2[(int)local_a4 * 10 + 4],
+                 param_2[(int)local_a4 * 10 + 10],pcVar12);
+      pcVar11 = "temp";
+      if (!bVar2) {
+        pcVar11 = "current";
+      }
+      eON_AppendShaderCompileMessage
+                (&local_28,"\t%sRegister%s = StageArg1%s * StageArg2%s;\n",pcVar11,local_b0,local_b0
+                 ,local_b0);
+      break;
+    case 5:
+      fixedPipelineEmulation_040bd330
+                (param_2,local_a4,1,1,param_2[(int)local_a4 * 10 + 3],
+                 param_2[(int)local_a4 * 10 + 10],pcVar12);
+      fixedPipelineEmulation_040bd330
+                (param_2,local_a4,2,1,param_2[(int)local_a4 * 10 + 4],
+                 param_2[(int)local_a4 * 10 + 10],pcVar12);
+      pcVar11 = "temp";
+      if (!bVar2) {
+        pcVar11 = "current";
+      }
+      eON_AppendShaderCompileMessage
+                (&local_28,"\t%sRegister%s = 2.0 * StageArg1%s * StageArg2%s;\n",pcVar11,local_b0,
+                 local_b0,local_b0);
+      break;
+    case 6:
+      fixedPipelineEmulation_040bd330
+                (param_2,local_a4,1,1,param_2[(int)local_a4 * 10 + 3],
+                 param_2[(int)local_a4 * 10 + 10],pcVar12);
+      fixedPipelineEmulation_040bd330
+                (param_2,local_a4,2,1,param_2[(int)local_a4 * 10 + 4],
+                 param_2[(int)local_a4 * 10 + 10],pcVar12);
+      pcVar11 = "temp";
+      if (!bVar2) {
+        pcVar11 = "current";
+      }
+      eON_AppendShaderCompileMessage
+                (&local_28,"\t%sRegister%s = 4.0 * StageArg1%s * StageArg2%s;\n",pcVar11,local_b0,
+                 local_b0,local_b0);
+      break;
+    case 7:
+      fixedPipelineEmulation_040bd330
+                (param_2,local_a4,1,1,param_2[(int)local_a4 * 10 + 3],
+                 param_2[(int)local_a4 * 10 + 10],pcVar12);
+      fixedPipelineEmulation_040bd330
+                (param_2,local_a4,2,1,param_2[(int)local_a4 * 10 + 4],
+                 param_2[(int)local_a4 * 10 + 10],pcVar12);
+      pcVar11 = "temp";
+      if (!bVar2) {
+        pcVar11 = "current";
+      }
+      eON_AppendShaderCompileMessage
+                (&local_28,"\t%sRegister%s = StageArg1%s + StageArg2%s;\n",pcVar11,local_b0,local_b0
+                 ,local_b0);
+      break;
+    case 8:
+      fixedPipelineEmulation_040bd330
+                (param_2,local_a4,1,1,param_2[(int)local_a4 * 10 + 3],
+                 param_2[(int)local_a4 * 10 + 10],pcVar12);
+      fixedPipelineEmulation_040bd330
+                (param_2,local_a4,2,1,param_2[(int)local_a4 * 10 + 4],
+                 param_2[(int)local_a4 * 10 + 10],pcVar12);
+      pcVar11 = "temp";
+      pcVar12 = (char *)(4 - (uint)!bVar16);
+      if (!bVar2) {
+        pcVar11 = "current";
+      }
+      eON_AppendShaderCompileMessage
+                (&local_28,"\t%sRegister%s = StageArg1%s + StageArg2%s - vec%u(0.5);\n",pcVar11,
+                 local_b0,local_b0,local_b0,pcVar12);
+      break;
+    case 9:
+      fixedPipelineEmulation_040bd330
+                (param_2,local_a4,1,1,param_2[(int)local_a4 * 10 + 3],
+                 param_2[(int)local_a4 * 10 + 10],pcVar12);
+      fixedPipelineEmulation_040bd330
+                (param_2,local_a4,2,1,param_2[(int)local_a4 * 10 + 4],
+                 param_2[(int)local_a4 * 10 + 10],pcVar12);
+      pcVar11 = "temp";
+      pcVar12 = (char *)(4 - (uint)!bVar16);
+      if (!bVar2) {
+        pcVar11 = "current";
+      }
+      eON_AppendShaderCompileMessage
+                (&local_28,"\t%sRegister%s = 2.0 * ( StageArg1%s + StageArg2%s - vec%u(0.5) );\n",
+                 pcVar11,local_b0,local_b0,local_b0,pcVar12);
+      break;
+    case 10:
+      fixedPipelineEmulation_040bd330
+                (param_2,local_a4,1,1,param_2[(int)local_a4 * 10 + 3],
+                 param_2[(int)local_a4 * 10 + 10],pcVar12);
+      fixedPipelineEmulation_040bd330
+                (param_2,local_a4,2,1,param_2[(int)local_a4 * 10 + 4],
+                 param_2[(int)local_a4 * 10 + 10],pcVar12);
+      pcVar11 = "temp";
+      if (!bVar2) {
+        pcVar11 = "current";
+      }
+      eON_AppendShaderCompileMessage
+                (&local_28,"\t%sRegister%s = StageArg1%s - StageArg2%s;\n",pcVar11,local_b0,local_b0
+                 ,local_b0);
+      break;
+    case 0xb:
+      fixedPipelineEmulation_040bd330
+                (param_2,local_a4,1,1,param_2[(int)local_a4 * 10 + 3],
+                 param_2[(int)local_a4 * 10 + 10],pcVar12);
+      fixedPipelineEmulation_040bd330
+                (param_2,local_a4,2,1,param_2[(int)local_a4 * 10 + 4],
+                 param_2[(int)local_a4 * 10 + 10],pcVar12);
+      pcVar11 = "temp";
+      pcVar12 = (char *)(4 - (uint)!bVar16);
+      if (!bVar2) {
+        pcVar11 = "current";
+      }
+      eON_AppendShaderCompileMessage
+                (&local_28,
+                 "\t%sRegister%s = StageArg1%s + ( StageArg2%s * ( vec%u(1.0) - StageArg1%s );\n",
+                 pcVar11,local_b0,local_b0,local_b0,pcVar12,local_b0);
+      break;
+    case 0xc:
+      fixedPipelineEmulation_040bd330
+                (param_2,local_a4,1,1,param_2[(int)local_a4 * 10 + 3],
+                 param_2[(int)local_a4 * 10 + 10],pcVar12);
+      fixedPipelineEmulation_040bd330
+                (param_2,local_a4,2,1,param_2[(int)local_a4 * 10 + 4],
+                 param_2[(int)local_a4 * 10 + 10],pcVar12);
+      pcVar8 = "gl_Color";
+      local_bc = "gl_Color";
+      if ((*param_2 & 0x20) == 0) goto LAB_040c3480;
+      if (param_2[0x58] == 0) {
+        ppuVar13 = &PTR_s_eON_Varyings_0__042ff180;
+        puVar15 = local_90;
+        for (iVar9 = 0x14; iVar9 != 0; iVar9 = iVar9 + -1) {
+          *puVar15 = (uint)*ppuVar13;
+          ppuVar13 = ppuVar13 + (uint)bVar17 * -2 + 1;
+          puVar15 = puVar15 + (uint)bVar17 * -2 + 1;
+        }
+        local_bc = (char *)local_90[(uint)param_2[0x59] * 2];
+        iVar9 = 0;
+LAB_040c3458:
+        ppuVar13 = &PTR_s_eON_Varyings_0__042ff180;
+        puVar15 = local_90;
+        for (iVar14 = 0x14; iVar14 != 0; iVar14 = iVar14 + -1) {
+          *puVar15 = (uint)*ppuVar13;
+          ppuVar13 = ppuVar13 + (uint)bVar17 * -2 + 1;
+          puVar15 = puVar15 + (uint)bVar17 * -2 + 1;
+        }
+        pcVar8 = (char *)local_90[(uint)param_2[iVar9 * 2 + 0x59] * 2];
+      }
+      else {
+        pcVar8 = "vec4(0.0)";
+        local_bc = "vec4(0.0)";
+        if (param_2[0x58] == 0xff) goto LAB_040c3480;
+        bVar6 = param_2[0x5a];
+        if (bVar6 == 0) {
+          iVar9 = 1;
+LAB_040c50cc:
+          ppuVar13 = &PTR_s_eON_Varyings_0__042ff180;
+          puVar15 = local_90;
+          for (iVar14 = 0x14; iVar14 != 0; iVar14 = iVar14 + -1) {
+            *puVar15 = (uint)*ppuVar13;
+            ppuVar13 = ppuVar13 + (uint)bVar17 * -2 + 1;
+            puVar15 = puVar15 + (uint)bVar17 * -2 + 1;
+          }
+          local_bc = (char *)local_90[(uint)param_2[iVar9 * 2 + 0x59] * 2];
+        }
+        else if (bVar6 != 0xff) {
+          if (param_2[0x5c] == 0) {
+            iVar9 = 2;
+          }
+          else {
+            if (param_2[0x5c] == 0xff) goto LAB_040c33a5;
+            if (param_2[0x5e] == 0) {
+              iVar9 = 3;
+            }
+            else {
+              if (param_2[0x5e] == 0xff) goto LAB_040c33a5;
+              if (param_2[0x60] == 0) {
+                iVar9 = 4;
+              }
+              else {
+                if (param_2[0x60] == 0xff) goto LAB_040c33a5;
+                if (param_2[0x62] == 0) {
+                  iVar9 = 5;
+                }
+                else {
+                  if (param_2[0x62] == 0xff) goto LAB_040c33a5;
+                  if (param_2[100] == 0) {
+                    iVar9 = 6;
+                  }
+                  else {
+                    if (param_2[100] == 0xff) goto LAB_040c33a5;
+                    if (param_2[0x66] == 0) {
+                      iVar9 = 7;
+                    }
+                    else {
+                      if (param_2[0x66] == 0xff) goto LAB_040c33a5;
+                      if (param_2[0x68] == 0) {
+                        iVar9 = 8;
+                      }
+                      else if ((param_2[0x68] == 0xff) || (iVar9 = 9, param_2[0x6a] != 0))
+                      goto LAB_040c33a5;
+                    }
+                  }
+                }
+              }
+            }
+          }
+          goto LAB_040c50cc;
+        }
+LAB_040c33a5:
+        if (bVar6 == 0) {
+          iVar9 = 1;
+          goto LAB_040c3458;
+        }
+        pcVar8 = "vec4(0.0)";
+        if (bVar6 != 0xff) {
+          if (param_2[0x5c] == 0) {
+            iVar9 = 2;
+          }
+          else {
+            if (param_2[0x5c] == 0xff) goto LAB_040c3480;
+            if (param_2[0x5e] == 0) {
+              iVar9 = 3;
+            }
+            else {
+              if (param_2[0x5e] == 0xff) goto LAB_040c3480;
+              if (param_2[0x60] == 0) {
+                iVar9 = 4;
+              }
+              else {
+                if (param_2[0x60] == 0xff) goto LAB_040c3480;
+                if (param_2[0x62] == 0) {
+                  iVar9 = 5;
+                }
+                else {
+                  if (param_2[0x62] == 0xff) goto LAB_040c3480;
+                  if (param_2[100] == 0) {
+                    iVar9 = 6;
+                  }
+                  else {
+                    if (param_2[100] == 0xff) goto LAB_040c3480;
+                    if (param_2[0x66] == 0) {
+                      iVar9 = 7;
+                    }
+                    else {
+                      if (param_2[0x66] == 0xff) goto LAB_040c3480;
+                      if (param_2[0x68] == 0) {
+                        iVar9 = 8;
+                      }
+                      else {
+                        if ((param_2[0x68] == 0xff) || (param_2[0x6a] != 0)) goto LAB_040c3480;
+                        iVar9 = 9;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+          goto LAB_040c3458;
+        }
+      }
+LAB_040c3480:
+      pcVar11 = "temp";
+      if (!bVar2) {
+        pcVar11 = "current";
+      }
+      pcVar12 = local_b0;
+      eON_AppendShaderCompileMessage
+                (&local_28,
+                 "\t%sRegister%s = ( StageArg1%s * %s.a ) + ( StageArg2%s * ( 1.0 - %s.a ) );\n",
+                 pcVar11,local_b0,local_b0,pcVar8,local_b0,local_bc);
+      break;
+    case 0xd:
+      fixedPipelineEmulation_040bd330
+                (param_2,local_a4,1,1,param_2[(int)local_a4 * 10 + 3],
+                 param_2[(int)local_a4 * 10 + 10],pcVar12);
+      fixedPipelineEmulation_040bd330
+                (param_2,local_a4,2,1,param_2[(int)local_a4 * 10 + 4],
+                 param_2[(int)local_a4 * 10 + 10],pcVar12);
+      pcVar11 = "temp";
+      if (!bVar2) {
+        pcVar11 = "current";
+      }
+      pcVar8 = local_a4;
+      pcVar12 = local_b0;
+      eON_AppendShaderCompileMessage
+                (&local_28,
+                 "\t%sRegister%s = ( StageArg1%s * texSample%u.a ) + ( StageArg2%s * ( 1.0 - texSample%u.a ) );\n"
+                 ,pcVar11,local_b0,local_b0,local_a4,local_b0,local_a4);
+      *(byte *)(param_1 + 3) = *(byte *)(param_1 + 3) | (byte)(1 << ((byte)local_a4 & 0x1f));
+      bVar1 = false;
+      goto LAB_040c2c5a;
+    case 0xe:
+    case 0xf:
+    case 0x11:
+      FUN_0402cd10(0xf,
+                   "This operation ( %u ) is not implemented in fixed pipeline emulation fragment shader compiler. Add it."
+                   ,bVar6);
+      __dest = (void *)0x0;
+      goto LAB_040c2b21;
+    case 0x10:
+      fixedPipelineEmulation_040bd330
+                (param_2,local_a4,1,1,param_2[(int)local_a4 * 10 + 3],
+                 param_2[(int)local_a4 * 10 + 10],pcVar12);
+      fixedPipelineEmulation_040bd330
+                (param_2,local_a4,2,1,param_2[(int)local_a4 * 10 + 4],
+                 param_2[(int)local_a4 * 10 + 10],pcVar12);
+      pcVar11 = "temp";
+      if (!bVar2) {
+        pcVar11 = "current";
+      }
+      eON_AppendShaderCompileMessage
+                (&local_28,
+                 "\t%sRegister%s = StageArg1%s * currentRegister.a + StageArg2%s * ( 1.0 - currentRegister.a );\n"
+                 ,pcVar11,local_b0,local_b0,local_b0);
+      break;
+    case 0x12:
+      if (bVar16) {
+        FUN_0400a810("!colorOpSameAsAlphaOp",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/fixedPipelineEmulation.cpp"
+                     ,0x57f,
+                     "char* FragmentShaderCompiler::GenerateProgram(const FragmentShaderConfig&)");
+      }
+      fixedPipelineEmulation_040bd330
+                (param_2,local_a4,1,0,param_2[(int)local_a4 * 10 + 6],
+                 param_2[(int)local_a4 * 10 + 10],0);
+      fixedPipelineEmulation_040bd330
+                (param_2,local_a4,1,1,param_2[(int)local_a4 * 10 + 3],
+                 param_2[(int)local_a4 * 10 + 10],0);
+      pcVar12 = (char *)0x0;
+      pcVar8 = (char *)(uint)param_2[(int)local_a4 * 10 + 10];
+      pcVar10 = (char *)(uint)param_2[(int)local_a4 * 10 + 4];
+      local_b0 = (char *)0x1;
+      fixedPipelineEmulation_040bd330(param_2,local_a4,2,1,pcVar10,pcVar8,0);
+      pcVar11 = "temp";
+      if (!bVar2) {
+        pcVar11 = "current";
+      }
+      eON_AppendShaderCompileMessage
+                (&local_28,"\t%sRegister.rgb = StageArg1.rgb + StageArg1.a * StageArg2.rgb;\n",
+                 pcVar11);
+      goto LAB_040c3806;
+    case 0x13:
+      if (bVar16) {
+        FUN_0400a810("!colorOpSameAsAlphaOp",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/fixedPipelineEmulation.cpp"
+                     ,0x588,
+                     "char* FragmentShaderCompiler::GenerateProgram(const FragmentShaderConfig&)");
+      }
+      fixedPipelineEmulation_040bd330
+                (param_2,local_a4,1,0,param_2[(int)local_a4 * 10 + 6],
+                 param_2[(int)local_a4 * 10 + 10],0);
+      fixedPipelineEmulation_040bd330
+                (param_2,local_a4,1,1,param_2[(int)local_a4 * 10 + 3],
+                 param_2[(int)local_a4 * 10 + 10],0);
+      pcVar12 = (char *)0x0;
+      pcVar8 = (char *)(uint)param_2[(int)local_a4 * 10 + 10];
+      pcVar10 = (char *)(uint)param_2[(int)local_a4 * 10 + 4];
+      local_b0 = (char *)0x1;
+      fixedPipelineEmulation_040bd330(param_2,local_a4,2,1,pcVar10,pcVar8,0);
+      pcVar11 = "temp";
+      if (!bVar2) {
+        pcVar11 = "current";
+      }
+      eON_AppendShaderCompileMessage
+                (&local_28,"\t%sRegister.rgb = StageArg1.rgb * StageArg2.rgb + StageArg1.a;\n",
+                 pcVar11);
+      goto LAB_040c3806;
+    case 0x14:
+      if (bVar16) {
+        FUN_0400a810("!colorOpSameAsAlphaOp",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/fixedPipelineEmulation.cpp"
+                     ,0x591,
+                     "char* FragmentShaderCompiler::GenerateProgram(const FragmentShaderConfig&)");
+      }
+      fixedPipelineEmulation_040bd330
+                (param_2,local_a4,1,0,param_2[(int)local_a4 * 10 + 6],
+                 param_2[(int)local_a4 * 10 + 10],0);
+      fixedPipelineEmulation_040bd330
+                (param_2,local_a4,1,1,param_2[(int)local_a4 * 10 + 3],
+                 param_2[(int)local_a4 * 10 + 10],0);
+      pcVar12 = (char *)0x0;
+      pcVar8 = (char *)(uint)param_2[(int)local_a4 * 10 + 10];
+      pcVar10 = (char *)(uint)param_2[(int)local_a4 * 10 + 4];
+      local_b0 = (char *)0x1;
+      fixedPipelineEmulation_040bd330(param_2,local_a4,2,1,pcVar10,pcVar8,0);
+      pcVar11 = "temp";
+      if (!bVar2) {
+        pcVar11 = "current";
+      }
+      eON_AppendShaderCompileMessage
+                (&local_28,
+                 "\t%sRegister.rgb = ( 1.0 - StageArg1.a ) * StageArg2.rgb + StageArg1.rgb;\n",
+                 pcVar11);
+      goto LAB_040c3806;
+    case 0x15:
+      if (bVar16) {
+        FUN_0400a810("!colorOpSameAsAlphaOp",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/fixedPipelineEmulation.cpp"
+                     ,0x59a,
+                     "char* FragmentShaderCompiler::GenerateProgram(const FragmentShaderConfig&)");
+      }
+      fixedPipelineEmulation_040bd330
+                (param_2,local_a4,1,0,param_2[(int)local_a4 * 10 + 6],
+                 param_2[(int)local_a4 * 10 + 10],0);
+      fixedPipelineEmulation_040bd330
+                (param_2,local_a4,1,1,param_2[(int)local_a4 * 10 + 3],
+                 param_2[(int)local_a4 * 10 + 10],0);
+      pcVar12 = (char *)0x0;
+      pcVar8 = (char *)(uint)param_2[(int)local_a4 * 10 + 10];
+      pcVar10 = (char *)(uint)param_2[(int)local_a4 * 10 + 4];
+      local_b0 = (char *)0x1;
+      fixedPipelineEmulation_040bd330(param_2,local_a4,2,1,pcVar10,pcVar8,0);
+      pcVar11 = "temp";
+      if (!bVar2) {
+        pcVar11 = "current";
+      }
+      eON_AppendShaderCompileMessage
+                (&local_28,
+                 "\t%sRegister.rgb = ( vec3(1.0) - StageArg1.rgb ) * StageArg2.rgb + StageArg1.a;\n"
+                 ,pcVar11);
+LAB_040c3806:
+      bVar1 = true;
+      goto LAB_040c2c5a;
+    case 0x17:
+      if (bVar16) {
+        FUN_0400a810("!colorOpSameAsAlphaOp",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/fixedPipelineEmulation.cpp"
+                     ,0x5b7,
+                     "char* FragmentShaderCompiler::GenerateProgram(const FragmentShaderConfig&)");
+      }
+      if ((*param_2 & 0x40) == 0) {
+        eON_AppendShaderCompileMessage(&local_40,"uniform vec4 LuminanceScaleOffset%u;\n",local_a4);
+      }
+    case 0x16:
+      if (bVar16) {
+        FUN_0400a810("!colorOpSameAsAlphaOp",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/fixedPipelineEmulation.cpp"
+                     ,0x5bc,
+                     "char* FragmentShaderCompiler::GenerateProgram(const FragmentShaderConfig&)");
+      }
+      if ((*param_2 & 0x40) == 0) {
+        eON_AppendShaderCompileMessage(&local_40,"uniform vec4 BumpEnvMap%u;\n",local_a4);
+      }
+      pcVar8 = (char *)(uint)param_2[(int)local_a4 * 10 + 10];
+      pcVar10 = (char *)(uint)param_2[(int)local_a4 * 10 + 3];
+      local_b0 = (char *)0x1;
+      pcVar11 = (char *)0x1;
+      fixedPipelineEmulation_040bd330(param_2,local_a4,1,1,pcVar10,pcVar8,pcVar12);
+      if (!bVar5) {
+        eON_AppendShaderCompileMessage(&local_28,"vec4 bumpEnvMapPixel;\n");
+        bVar5 = true;
+      }
+      eON_AppendShaderCompileMessage(&local_28,"\tbumpEnvMapPixel.rgb = StageArg1.rgb;\n");
+      break;
+    case 0x18:
+      fixedPipelineEmulation_040bd330
+                (param_2,local_a4,1,1,param_2[(int)local_a4 * 10 + 3],
+                 param_2[(int)local_a4 * 10 + 10],pcVar12);
+      pcVar8 = (char *)(uint)param_2[(int)local_a4 * 10 + 10];
+      fixedPipelineEmulation_040bd330
+                (param_2,local_a4,2,1,param_2[(int)local_a4 * 10 + 4],pcVar8,pcVar12);
+      pcVar11 = "temp";
+      pcVar10 = (char *)(4 - (uint)!bVar16);
+      if (!bVar2) {
+        pcVar11 = "current";
+      }
+      eON_AppendShaderCompileMessage
+                (&local_28,
+                 "\t%sRegister%s = vec%d( dot( StageArg1.rgb - vec3( 0.5 ), StageArg2.rgb - vec3( 0.5 ) ) );\n"
+                 ,pcVar11,local_b0,pcVar10);
+      break;
+    case 0x19:
+      fixedPipelineEmulation_040bd330
+                (param_2,local_a4,1,1,param_2[(int)local_a4 * 10 + 3],
+                 param_2[(int)local_a4 * 10 + 10],pcVar12);
+      fixedPipelineEmulation_040bd330
+                (param_2,local_a4,2,1,param_2[(int)local_a4 * 10 + 4],
+                 param_2[(int)local_a4 * 10 + 10],pcVar12);
+      fixedPipelineEmulation_040bd330
+                (param_2,local_a4,0,1,param_2[(int)local_a4 * 10 + 5],
+                 param_2[(int)local_a4 * 10 + 10],pcVar12);
+      pcVar11 = "temp";
+      if (!bVar2) {
+        pcVar11 = "current";
+      }
+      pcVar12 = local_b0;
+      eON_AppendShaderCompileMessage
+                (&local_28,"\t%sRegister%s = StageArg1%s + StageArg2%s * StageArg0%s;\n",pcVar11,
+                 local_b0,local_b0,local_b0,local_b0);
+      break;
+    case 0x1a:
+      fixedPipelineEmulation_040bd330
+                (param_2,local_a4,1,1,param_2[(int)local_a4 * 10 + 3],
+                 param_2[(int)local_a4 * 10 + 10],pcVar12);
+      fixedPipelineEmulation_040bd330
+                (param_2,local_a4,2,1,param_2[(int)local_a4 * 10 + 4],
+                 param_2[(int)local_a4 * 10 + 10],pcVar12);
+      fixedPipelineEmulation_040bd330
+                (param_2,local_a4,0,1,param_2[(int)local_a4 * 10 + 5],
+                 param_2[(int)local_a4 * 10 + 10],pcVar12);
+      pcVar11 = "temp";
+      pcVar12 = (char *)(4 - (uint)!bVar16);
+      if (!bVar2) {
+        pcVar11 = "current";
+      }
+      eON_AppendShaderCompileMessage
+                (&local_28,
+                 "\t%sRegister%s = StageArg1%s * StageArg2%s + ( vec%u(1.0) - StageArg1%s ) * StageArg0%s;\n"
+                 ,pcVar11,local_b0,local_b0,local_b0,pcVar12,local_b0,local_b0);
+    }
+    bVar1 = false;
+LAB_040c2c5a:
+    if (bVar16) goto LAB_040c27f0;
+    bVar6 = param_2[(int)local_a4 * 10 + 2];
+    switch(bVar6) {
+    default:
+      FUN_0402cd10(0xf,
+                   "Unknown alpha operation ( %u ) while preparing fixed pipeline emulation fragment shader!"
+                   ,bVar6);
+      __dest = (void *)0x0;
+      goto LAB_040c2b21;
+    case 1:
+      bVar6 = *(byte *)(param_1 + 3);
+      goto LAB_040c27f7;
+    case 2:
+      if (!bVar1) {
+        pcVar12 = (char *)0x0;
+        pcVar8 = (char *)(uint)param_2[(int)local_a4 * 10 + 10];
+        pcVar10 = (char *)(uint)param_2[(int)local_a4 * 10 + 6];
+        local_b0 = (char *)0x0;
+        fixedPipelineEmulation_040bd330(param_2,local_a4,1,0,pcVar10,pcVar8,0);
+      }
+      pcVar11 = "temp";
+      if (!bVar2) {
+        pcVar11 = "current";
+      }
+      eON_AppendShaderCompileMessage
+                (&local_28,"\t%sRegister.a = StageArg1.a;\n",pcVar11,local_b0,pcVar10,pcVar8,pcVar12
+                );
+      break;
+    case 3:
+      pcVar12 = (char *)0x0;
+      pcVar8 = (char *)(uint)param_2[(int)local_a4 * 10 + 10];
+      pcVar10 = (char *)(uint)param_2[(int)local_a4 * 10 + 7];
+      local_b0 = (char *)0x0;
+      fixedPipelineEmulation_040bd330(param_2,local_a4,2,0,pcVar10,pcVar8,0);
+      pcVar11 = "temp";
+      if (!bVar2) {
+        pcVar11 = "current";
+      }
+      eON_AppendShaderCompileMessage(&local_28,"\t%sRegister.a = StageArg2.a;\n",pcVar11);
+      break;
+    case 4:
+      if (!bVar1) {
+        fixedPipelineEmulation_040bd330
+                  (param_2,local_a4,1,0,param_2[(int)local_a4 * 10 + 6],
+                   param_2[(int)local_a4 * 10 + 10],0);
+      }
+      pcVar12 = (char *)0x0;
+      pcVar8 = (char *)(uint)param_2[(int)local_a4 * 10 + 10];
+      pcVar10 = (char *)(uint)param_2[(int)local_a4 * 10 + 7];
+      local_b0 = (char *)0x0;
+      fixedPipelineEmulation_040bd330(param_2,local_a4,2,0,pcVar10,pcVar8,0);
+      pcVar11 = "temp";
+      if (!bVar2) {
+        pcVar11 = "current";
+      }
+      eON_AppendShaderCompileMessage
+                (&local_28,"\t%sRegister.a = StageArg1.a * StageArg2.a;\n",pcVar11);
+      break;
+    case 5:
+      if (!bVar1) {
+        fixedPipelineEmulation_040bd330
+                  (param_2,local_a4,1,0,param_2[(int)local_a4 * 10 + 6],
+                   param_2[(int)local_a4 * 10 + 10],0);
+      }
+      pcVar12 = (char *)0x0;
+      pcVar8 = (char *)(uint)param_2[(int)local_a4 * 10 + 10];
+      pcVar10 = (char *)(uint)param_2[(int)local_a4 * 10 + 7];
+      local_b0 = (char *)0x0;
+      fixedPipelineEmulation_040bd330(param_2,local_a4,2,0,pcVar10,pcVar8,0);
+      pcVar11 = "temp";
+      if (!bVar2) {
+        pcVar11 = "current";
+      }
+      eON_AppendShaderCompileMessage
+                (&local_28,"\t%sRegister.a = 2.0 * StageArg1.a * StageArg2.a;\n",pcVar11);
+      break;
+    case 6:
+      if (!bVar1) {
+        fixedPipelineEmulation_040bd330
+                  (param_2,local_a4,1,0,param_2[(int)local_a4 * 10 + 6],
+                   param_2[(int)local_a4 * 10 + 10],0);
+      }
+      pcVar12 = (char *)0x0;
+      pcVar8 = (char *)(uint)param_2[(int)local_a4 * 10 + 10];
+      pcVar10 = (char *)(uint)param_2[(int)local_a4 * 10 + 7];
+      local_b0 = (char *)0x0;
+      fixedPipelineEmulation_040bd330(param_2,local_a4,2,0,pcVar10,pcVar8,0);
+      pcVar11 = "temp";
+      if (!bVar2) {
+        pcVar11 = "current";
+      }
+      eON_AppendShaderCompileMessage
+                (&local_28,"\t%sRegister.a = 4.0 * StageArg1.a * StageArg2.a;\n",pcVar11);
+      break;
+    case 7:
+      if (!bVar1) {
+        fixedPipelineEmulation_040bd330
+                  (param_2,local_a4,1,0,param_2[(int)local_a4 * 10 + 6],
+                   param_2[(int)local_a4 * 10 + 10],0);
+      }
+      pcVar12 = (char *)0x0;
+      pcVar8 = (char *)(uint)param_2[(int)local_a4 * 10 + 10];
+      pcVar10 = (char *)(uint)param_2[(int)local_a4 * 10 + 7];
+      local_b0 = (char *)0x0;
+      fixedPipelineEmulation_040bd330(param_2,local_a4,2,0,pcVar10,pcVar8,0);
+      pcVar11 = "temp";
+      if (!bVar2) {
+        pcVar11 = "current";
+      }
+      eON_AppendShaderCompileMessage
+                (&local_28,"\t%sRegister.a = StageArg1.a + StageArg2.a;\n",pcVar11);
+      break;
+    case 8:
+      if (!bVar1) {
+        fixedPipelineEmulation_040bd330
+                  (param_2,local_a4,1,0,param_2[(int)local_a4 * 10 + 6],
+                   param_2[(int)local_a4 * 10 + 10],0);
+      }
+      pcVar12 = (char *)0x0;
+      pcVar8 = (char *)(uint)param_2[(int)local_a4 * 10 + 10];
+      pcVar10 = (char *)(uint)param_2[(int)local_a4 * 10 + 7];
+      local_b0 = (char *)0x0;
+      fixedPipelineEmulation_040bd330(param_2,local_a4,2,0,pcVar10,pcVar8,0);
+      pcVar11 = "temp";
+      if (!bVar2) {
+        pcVar11 = "current";
+      }
+      eON_AppendShaderCompileMessage
+                (&local_28,"\t%sRegister.a = StageArg1.a + StageArg2.a - 0.5;\n",pcVar11);
+      break;
+    case 9:
+      if (!bVar1) {
+        fixedPipelineEmulation_040bd330
+                  (param_2,local_a4,1,0,param_2[(int)local_a4 * 10 + 6],
+                   param_2[(int)local_a4 * 10 + 10],0);
+      }
+      pcVar12 = (char *)0x0;
+      pcVar8 = (char *)(uint)param_2[(int)local_a4 * 10 + 10];
+      pcVar10 = (char *)(uint)param_2[(int)local_a4 * 10 + 7];
+      local_b0 = (char *)0x0;
+      fixedPipelineEmulation_040bd330(param_2,local_a4,2,0,pcVar10,pcVar8,0);
+      pcVar11 = "temp";
+      if (!bVar2) {
+        pcVar11 = "current";
+      }
+      eON_AppendShaderCompileMessage
+                (&local_28,"\t%sRegister.a = 2.0 * ( StageArg1.a + StageArg2.a - 0.5 );\n",pcVar11);
+      break;
+    case 10:
+      if (!bVar1) {
+        fixedPipelineEmulation_040bd330
+                  (param_2,local_a4,1,0,param_2[(int)local_a4 * 10 + 6],
+                   param_2[(int)local_a4 * 10 + 10],0);
+      }
+      pcVar12 = (char *)0x0;
+      pcVar8 = (char *)(uint)param_2[(int)local_a4 * 10 + 10];
+      pcVar10 = (char *)(uint)param_2[(int)local_a4 * 10 + 7];
+      local_b0 = (char *)0x0;
+      fixedPipelineEmulation_040bd330(param_2,local_a4,2,0,pcVar10,pcVar8,0);
+      pcVar11 = "temp";
+      if (!bVar2) {
+        pcVar11 = "current";
+      }
+      eON_AppendShaderCompileMessage
+                (&local_28,"\t%sRegister.a = StageArg1.a - StageArg2.a;\n",pcVar11);
+      break;
+    case 0xb:
+      if (!bVar1) {
+        fixedPipelineEmulation_040bd330
+                  (param_2,local_a4,1,0,param_2[(int)local_a4 * 10 + 6],
+                   param_2[(int)local_a4 * 10 + 10],0);
+      }
+      pcVar12 = (char *)0x0;
+      pcVar8 = (char *)(uint)param_2[(int)local_a4 * 10 + 10];
+      pcVar10 = (char *)(uint)param_2[(int)local_a4 * 10 + 7];
+      local_b0 = (char *)0x0;
+      fixedPipelineEmulation_040bd330(param_2,local_a4,2,0,pcVar10,pcVar8,0);
+      pcVar11 = "temp";
+      if (!bVar2) {
+        pcVar11 = "current";
+      }
+      eON_AppendShaderCompileMessage
+                (&local_28,"\t%sRegister.a = StageArg1.a + ( StageArg2.a * ( 1.0 - StageArg1.a );\n"
+                 ,pcVar11);
+      break;
+    case 0xc:
+    case 0xe:
+    case 0xf:
+    case 0x11:
+    case 0x18:
+      FUN_0402cd10(0xf,
+                   "This operation ( %u ) is not implemented for alpha in fixed pipeline emulation fragment shader compiler. Add it."
+                   ,bVar6);
+      __dest = (void *)0x0;
+      goto LAB_040c2b21;
+    case 0xd:
+      if (!bVar1) {
+        fixedPipelineEmulation_040bd330
+                  (param_2,local_a4,1,0,param_2[(int)local_a4 * 10 + 6],
+                   param_2[(int)local_a4 * 10 + 10],0);
+      }
+      pcVar12 = (char *)0x0;
+      pcVar8 = (char *)(uint)param_2[(int)local_a4 * 10 + 10];
+      fixedPipelineEmulation_040bd330(param_2,local_a4,2,0,param_2[(int)local_a4 * 10 + 7],pcVar8,0)
+      ;
+      pcVar11 = "temp";
+      if (!bVar2) {
+        pcVar11 = "current";
+      }
+      local_b0 = local_a4;
+      pcVar10 = local_a4;
+      eON_AppendShaderCompileMessage
+                (&local_28,
+                 "\t%sRegister.a = ( StageArg1.a * texSample%u.a ) + ( StageArg2.a * ( 1.0 - texSample%u.a ) );\n"
+                 ,pcVar11,local_a4,local_a4);
+      bVar6 = (byte)(1 << ((byte)local_a4 & 0x1f)) | *(byte *)(param_1 + 3);
+      *(byte *)(param_1 + 3) = bVar6;
+      goto LAB_040c27f7;
+    case 0x10:
+      if (!bVar1) {
+        fixedPipelineEmulation_040bd330
+                  (param_2,local_a4,1,0,param_2[(int)local_a4 * 10 + 6],
+                   param_2[(int)local_a4 * 10 + 10],0);
+      }
+      pcVar12 = (char *)0x0;
+      pcVar8 = (char *)(uint)param_2[(int)local_a4 * 10 + 10];
+      pcVar10 = (char *)(uint)param_2[(int)local_a4 * 10 + 7];
+      local_b0 = (char *)0x0;
+      fixedPipelineEmulation_040bd330(param_2,local_a4,2,0,pcVar10,pcVar8,0);
+      pcVar11 = "temp";
+      if (!bVar2) {
+        pcVar11 = "current";
+      }
+      eON_AppendShaderCompileMessage
+                (&local_28,
+                 "\t%sRegister.a = StageArg1.a * currentRegister.a + StageArg2.a * ( 1.0 - currentRegister.a );\n"
+                 ,pcVar11);
+      break;
+    case 0x19:
+      if (!bVar1) {
+        fixedPipelineEmulation_040bd330
+                  (param_2,local_a4,1,0,param_2[(int)local_a4 * 10 + 6],
+                   param_2[(int)local_a4 * 10 + 10],0);
+      }
+      fixedPipelineEmulation_040bd330
+                (param_2,local_a4,2,0,param_2[(int)local_a4 * 10 + 7],
+                 param_2[(int)local_a4 * 10 + 10],0);
+      pcVar12 = (char *)0x0;
+      pcVar8 = (char *)(uint)param_2[(int)local_a4 * 10 + 10];
+      pcVar10 = (char *)(uint)param_2[(int)local_a4 * 10 + 8];
+      local_b0 = (char *)0x0;
+      fixedPipelineEmulation_040bd330(param_2,local_a4,0,0,pcVar10,pcVar8,0);
+      pcVar11 = "temp";
+      if (!bVar2) {
+        pcVar11 = "current";
+      }
+      eON_AppendShaderCompileMessage
+                (&local_28,"\t%sRegister.a = StageArg1.a + StageArg2.a * StageArg0.a;\n",pcVar11);
+      break;
+    case 0x1a:
+      if (!bVar1) {
+        fixedPipelineEmulation_040bd330
+                  (param_2,local_a4,1,0,param_2[(int)local_a4 * 10 + 6],
+                   param_2[(int)local_a4 * 10 + 10],0);
+      }
+      fixedPipelineEmulation_040bd330
+                (param_2,local_a4,2,0,param_2[(int)local_a4 * 10 + 7],
+                 param_2[(int)local_a4 * 10 + 10],0);
+      pcVar12 = (char *)0x0;
+      pcVar8 = (char *)(uint)param_2[(int)local_a4 * 10 + 10];
+      pcVar10 = (char *)(uint)param_2[(int)local_a4 * 10 + 8];
+      local_b0 = (char *)0x0;
+      fixedPipelineEmulation_040bd330(param_2,local_a4,0,0,pcVar10,pcVar8,0);
+      pcVar11 = "temp";
+      if (!bVar2) {
+        pcVar11 = "current";
+      }
+      eON_AppendShaderCompileMessage
+                (&local_28,
+                 "\t%sRegister.a = StageArg1.a * StageArg2.a + ( 1 - StageArg1.a ) * StageArg0.a;\n"
+                 ,pcVar11);
+    }
+LAB_040c27f0:
+    bVar6 = *(byte *)(param_1 + 3);
+LAB_040c27f7:
+    if ((bVar6 >> ((uint)local_a4 & 0x1f) & 1) != 0) {
+      if (!bVar4) {
+        eON_AppendShaderCompileMessage
+                  (&local_34,"\n\t// Required texture samples\n",pcVar11,local_b0,pcVar10,pcVar8,
+                   pcVar12);
+        bVar4 = true;
+      }
+      eON_AppendShaderCompileMessage
+                (&local_34,"\tvec4 texSample%u = ",local_a4,local_b0,pcVar10,pcVar8,pcVar12);
+      pcVar11 = "";
+      fixedPipelineEmulation_040bca60
+                (local_a4,param_2[(int)local_a4 * 10 + 10],&DAT_04328763,&DAT_04328763,
+                 (*param_2 & 0x20) != 0,(*param_2 & 0x40) != 0);
+      eON_AppendShaderCompileMessage(&local_34,";\n");
+    }
+    local_a4 = local_a4 + 1;
+  } while (local_a4 != (char *)0x8);
+  eON_AppendShaderCompileMessage(&local_28,"\n",pcVar11);
+  bVar6 = *param_2;
+  uVar7 = (uint)bVar6;
+  if ((bVar6 & 1) != 0) {
+    pcVar11 = "GlFog";
+    if ((bVar6 & 0x40) == 0) {
+      pcVar11 = "gl_Fog.";
+    }
+    iVar9 = (int)(uVar7 & 0x18) >> 3;
+    if (iVar9 == 2) {
+      pcVar12 = "eON_VaryingFog";
+      if ((bVar6 & 0x20) == 0) {
+        pcVar12 = "gl_FogFragCoord";
+      }
+      eON_AppendShaderCompileMessage
+                (&local_28,"\tfloat fogFactor = exp2( - %s * %s * %sdensity * %sdensity );\n",
+                 pcVar12,pcVar12,pcVar11,pcVar11);
+    }
+    else if (iVar9 == 3) {
+      pcVar12 = "gl_FogFragCoord";
+      if ((bVar6 & 0x20) != 0) {
+        pcVar12 = "eON_VaryingFog";
+      }
+      eON_AppendShaderCompileMessage
+                (&local_28,"\tfloat fogFactor = ( %send - %s ) * %sscale;\n",pcVar11,pcVar12,pcVar11
+                );
+    }
+    else {
+      pcVar12 = "eON_VaryingFog";
+      if (iVar9 == 1) {
+        if ((bVar6 & 0x20) == 0) {
+          pcVar12 = "gl_FogFragCoord";
+        }
+        eON_AppendShaderCompileMessage
+                  (&local_28,"\tfloat fogFactor = exp2( - %s * %sdensity );\n",pcVar12,pcVar11);
+      }
+      else {
+        if ((bVar6 & 0x20) == 0) {
+          pcVar12 = "gl_FogFragCoord";
+        }
+        eON_AppendShaderCompileMessage(&local_28,"\tfloat fogFactor = %s;\n",pcVar12);
+      }
+    }
+    eON_AppendShaderCompileMessage
+              (&local_28,
+               "\tcurrentRegister.rgb = mix( %scolor.rgb, currentRegister.rgb, clamp( fogFactor, 0.0, 1.0 ) );\n"
+               ,pcVar11);
+    uVar7 = (uint)*param_2;
+  }
+  if ((uVar7 & 4) == 0) goto LAB_040c2a40;
+  pcVar11 = "gl_SecondaryColor";
+  if ((uVar7 & 0x20) != 0) {
+    if (param_2[0x58] == 1) {
+      iVar9 = 0;
+    }
+    else {
+      pcVar11 = "vec4(0.0)";
+      if (param_2[0x58] == 0xff) goto LAB_040c2a26;
+      if (param_2[0x5a] == 1) {
+        iVar9 = 1;
+      }
+      else {
+        if (param_2[0x5a] == 0xff) goto LAB_040c2a26;
+        if (param_2[0x5c] == 1) {
+          iVar9 = 2;
+        }
+        else {
+          if (param_2[0x5c] == 0xff) goto LAB_040c2a26;
+          if (param_2[0x5e] == 1) {
+            iVar9 = 3;
+          }
+          else {
+            if (param_2[0x5e] == 0xff) goto LAB_040c2a26;
+            if (param_2[0x60] == 1) {
+              iVar9 = 4;
+            }
+            else {
+              if (param_2[0x60] == 0xff) goto LAB_040c2a26;
+              if (param_2[0x62] == 1) {
+                iVar9 = 5;
+              }
+              else {
+                if (param_2[0x62] == 0xff) goto LAB_040c2a26;
+                if (param_2[100] == 1) {
+                  iVar9 = 6;
+                }
+                else {
+                  if (param_2[100] == 0xff) goto LAB_040c2a26;
+                  if (param_2[0x66] == 1) {
+                    iVar9 = 7;
+                  }
+                  else {
+                    if (param_2[0x66] == 0xff) goto LAB_040c2a26;
+                    if (param_2[0x68] == 1) {
+                      iVar9 = 8;
+                    }
+                    else if ((param_2[0x68] == 0xff) || (iVar9 = 9, param_2[0x6a] != 1))
+                    goto LAB_040c2a26;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    ppuVar13 = &PTR_s_eON_Varyings_0__042ff180;
+    puVar15 = local_90;
+    for (iVar14 = 0x14; iVar14 != 0; iVar14 = iVar14 + -1) {
+      *puVar15 = (uint)*ppuVar13;
+      ppuVar13 = ppuVar13 + (uint)bVar17 * -2 + 1;
+      puVar15 = puVar15 + (uint)bVar17 * -2 + 1;
+    }
+    pcVar11 = (char *)local_90[(uint)param_2[iVar9 * 2 + 0x59] * 2];
+  }
+LAB_040c2a26:
+  eON_AppendShaderCompileMessage(&local_28,"\tcurrentRegister.rgb += %s.rgb;\n",pcVar11);
+LAB_040c2a40:
+  switch(*(undefined4 *)(param_2 + 0x54)) {
+  case 0x200:
+    eON_AppendShaderCompileMessage(&local_28,"\tdiscard;\n",pcVar11);
+    break;
+  case 0x201:
+    if ((*param_2 & 0x40) == 0) {
+      eON_AppendShaderCompileMessage(&local_40,"uniform float AlphaRef;\n",pcVar11);
+    }
+    eON_AppendShaderCompileMessage
+              (&local_28,"\tif( currentRegister.a >= AlphaRef ) discard;\n",pcVar11);
+    break;
+  case 0x202:
+    if ((*param_2 & 0x40) == 0) {
+      eON_AppendShaderCompileMessage(&local_40,"uniform float AlphaRef;\n",pcVar11);
+    }
+    eON_AppendShaderCompileMessage
+              (&local_28,"\tif( currentRegister.a != AlphaRef ) discard;\n",pcVar11);
+    break;
+  case 0x203:
+    if ((*param_2 & 0x40) == 0) {
+      eON_AppendShaderCompileMessage(&local_40,"uniform float AlphaRef;\n",pcVar11);
+    }
+    eON_AppendShaderCompileMessage
+              (&local_28,"\tif( currentRegister.a > AlphaRef ) discard;\n",pcVar11);
+    break;
+  case 0x204:
+    if ((*param_2 & 0x40) == 0) {
+      eON_AppendShaderCompileMessage(&local_40,"uniform float AlphaRef;\n",pcVar11);
+    }
+    eON_AppendShaderCompileMessage
+              (&local_28,"\tif( currentRegister.a <= AlphaRef ) discard;\n",pcVar11);
+    break;
+  case 0x205:
+    if ((*param_2 & 0x40) == 0) {
+      eON_AppendShaderCompileMessage(&local_40,"uniform float AlphaRef;\n",pcVar11);
+    }
+    eON_AppendShaderCompileMessage
+              (&local_28,"\tif( currentRegister.a == AlphaRef ) discard;\n",pcVar11);
+    break;
+  case 0x206:
+    if ((*param_2 & 0x40) == 0) {
+      eON_AppendShaderCompileMessage(&local_40,"uniform float AlphaRef;\n",pcVar11);
+    }
+    eON_AppendShaderCompileMessage
+              (&local_28,"\tif( currentRegister.a < AlphaRef ) discard;\n",pcVar11);
+  }
+  if ((*param_2 & 0x40) == 0) {
+                    /* try { // try from 040c2b71 to 040c4fe1 has its CatchHandler @ 040c5200 */
+    eON_AppendShaderCompileMessage(&local_28,"\tgl_FragColor = currentRegister;\n",pcVar11);
+  }
+  else {
+    eON_AppendShaderCompileMessage(&local_40,"out vec4 FragColor;\n",pcVar11);
+    eON_AppendShaderCompileMessage(&local_28,"\tFragColor = currentRegister;\n");
+  }
+  eON_AppendShaderCompileMessage(&local_28,&PTR_DAT_042fc048);
+  __n_01 = local_24;
+  __n_00 = local_30;
+  __n = local_3c;
+  iVar9 = local_3c + local_30;
+  iVar14 = iVar9 + local_24;
+  __dest = malloc(iVar14 + 1);
+  *(undefined1 *)((int)__dest + iVar14) = 0;
+  memcpy(__dest,local_40,__n);
+  memcpy((void *)(__n + (int)__dest),local_34,__n_00);
+  memcpy((void *)(iVar9 + (int)__dest),local_28,__n_01);
+LAB_040c2b21:
+                    /* try { // try from 040c2b2a to 040c2b2e has its CatchHandler @ 040c51c9 */
+  FUN_0402f590(&local_28);
+                    /* try { // try from 040c2b38 to 040c2b3c has its CatchHandler @ 040c5212 */
+  FUN_0402f590(&local_34);
+  FUN_0402f590(&local_40);
+  return __dest;
+}
+

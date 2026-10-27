@@ -1,0 +1,100 @@
+
+void png_write_IHDR(int param_1,int param_2,undefined4 param_3,uint param_4,int param_5,int param_6,
+                   int param_7,uint param_8)
+
+{
+  byte bVar1;
+  uint uVar2;
+  undefined1 local_34;
+  undefined1 local_2e;
+  
+  switch(param_5) {
+  case 0:
+    if ((0x10 < param_4) || ((1 << ((byte)param_4 & 0x1f) & 0x10116U) == 0)) {
+                    /* WARNING: Subroutine does not return */
+      png_error(param_1,"Invalid bit depth for grayscale image");
+    }
+    goto LAB_042c1e57;
+  default:
+                    /* WARNING: Subroutine does not return */
+    png_error(param_1,"Invalid image color type specified");
+  case 2:
+    if ((param_4 != 0x10) && (param_4 != 8)) {
+                    /* WARNING: Subroutine does not return */
+      png_error(param_1,"Invalid bit depth for RGB image");
+    }
+    *(undefined1 *)(param_1 + 0x1b7) = 3;
+    if (param_6 == 0) goto LAB_042c1bc6;
+    goto LAB_042c1d80;
+  case 3:
+    if ((8 < param_4) || ((1 << ((byte)param_4 & 0x1f) & 0x116U) == 0)) {
+                    /* WARNING: Subroutine does not return */
+      png_error(param_1,"Invalid bit depth for paletted image");
+    }
+LAB_042c1e57:
+    *(undefined1 *)(param_1 + 0x1b7) = 1;
+    break;
+  case 4:
+    if ((param_4 != 0x10) && (param_4 != 8)) {
+                    /* WARNING: Subroutine does not return */
+      png_error(param_1,"Invalid bit depth for grayscale+alpha image");
+    }
+    *(undefined1 *)(param_1 + 0x1b7) = 2;
+    break;
+  case 6:
+    if ((param_4 != 0x10) && (param_4 != 8)) {
+                    /* WARNING: Subroutine does not return */
+      png_error(param_1,"Invalid bit depth for RGBA image");
+    }
+    *(undefined1 *)(param_1 + 0x1b7) = 4;
+  }
+  if (param_6 != 0) {
+LAB_042c1d80:
+    png_warning(param_1,"Invalid compression type specified");
+  }
+LAB_042c1bc6:
+  if ((((((*(byte *)(param_1 + 0x2c4) & 4) == 0) || ((*(byte *)(param_1 + 0xd1) & 0x10) != 0)) ||
+       ((param_5 != 6 && (param_5 != 2)))) || (local_34 = 0x40, param_7 != 0x40)) &&
+     (local_34 = 0, param_7 != 0)) {
+    local_34 = 0;
+    png_warning(param_1,"Invalid filter type specified");
+  }
+  if (param_8 < 2) {
+    local_2e = (undefined1)param_8;
+  }
+  else {
+    png_warning(param_1,"Invalid interlace type specified");
+    local_2e = 1;
+  }
+  *(char *)(param_1 + 0x1b3) = (char)param_5;
+  *(undefined1 *)(param_1 + 0x2c8) = local_34;
+  *(undefined1 *)(param_1 + 0x2e8) = 0;
+  *(byte *)(param_1 + 0x1b4) = (byte)param_4;
+  *(undefined1 *)(param_1 + 0x1b0) = local_2e;
+  bVar1 = *(char *)(param_1 + 0x1b7) * (byte)param_4;
+  *(int *)(param_1 + 0x15c) = param_2;
+  *(undefined4 *)(param_1 + 0x160) = param_3;
+  *(byte *)(param_1 + 0x1b6) = bVar1;
+  if (bVar1 < 8) {
+    uVar2 = (uint)bVar1 * param_2 + 7 >> 3;
+  }
+  else {
+    uVar2 = (uint)(bVar1 >> 3) * param_2;
+  }
+  *(uint *)(param_1 + 0x16c) = uVar2;
+  *(char *)(param_1 + 0x1b8) = *(char *)(param_1 + 0x1b7);
+  *(byte *)(param_1 + 0x1b5) = (byte)param_4;
+  *(int *)(param_1 + 0x168) = param_2;
+  png_write_complete_chunk(0xd);
+  if (*(char *)(param_1 + 0x1b2) == '\0') {
+    if ((*(char *)(param_1 + 0x1b3) == '\x03') || (*(byte *)(param_1 + 0x1b4) < 8)) {
+      *(undefined1 *)(param_1 + 0x1b2) = 8;
+    }
+    else {
+      *(undefined1 *)(param_1 + 0x1b2) = 0xf8;
+    }
+  }
+  *(undefined4 *)(param_1 + 0xd0) = 1;
+  return;
+}
+

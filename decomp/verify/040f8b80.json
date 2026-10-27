@@ -1,0 +1,31 @@
+
+undefined4
+DirectInputMouseDeviceImp__SetCooperativeLevel(int param_1,undefined4 param_2,uint param_3)
+
+{
+  char cVar1;
+  undefined4 uVar2;
+  undefined1 *puVar3;
+  undefined1 local_8c [128];
+  
+  cVar1 = FUN_0404ecd0(param_2);
+  uVar2 = 0x80070006;
+  if (cVar1 != '\0') {
+    uVar2 = 0x80070057;
+    if (((((param_3 & 3) != 3) && ((param_3 & 0xc) != 0xc)) && ((param_3 & 3) != 0)) &&
+       (((param_3 & 0xc) != 0 && ((param_3 & 0x10) == 0)))) {
+      puVar3 = local_8c;
+      FUN_040f89b0(param_3,puVar3);
+      FUN_0402cd10(5,"Cooperative level on mouse device for game window set to: %s",puVar3);
+      if ((param_3 & 8) != 0) {
+        FUN_0402cd10(5,
+                     "Game wants mouse to be BACKGROUND, ie. receive input even when game window isn\'t in focus. Currently it doesn\'t work this way in eON."
+                     ,puVar3);
+      }
+      uVar2 = 0;
+      *(byte *)(param_1 + 0xa9) = (byte)param_3 & 1;
+    }
+  }
+  return uVar2;
+}
+

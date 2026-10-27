@@ -1,0 +1,72 @@
+
+undefined4 eON_RegOpenKeyExW(int param_1,short *param_2,int param_3,undefined4 param_4,int *param_5)
+
+{
+  char cVar1;
+  int iVar2;
+  int iVar3;
+  void *pvVar4;
+  void *__ptr;
+  size_t __size;
+  char *pcVar5;
+  undefined4 uVar6;
+  
+  cVar1 = Registry_IsLoaded();
+  if (cVar1 == '\0') {
+    Registry_Load();
+    InitFakeWindowsRegistryKeys();
+    FlushRegistrySave();
+  }
+  if ((param_2 == (short *)0x0) || (*param_2 == 0)) {
+    uVar6 = 0;
+    *param_5 = param_1;
+  }
+  else {
+    uVar6 = 6;
+    if ((param_1 != 0) && (iVar2 = Registry_OpenPredefinedKey(param_1), iVar2 != 0)) {
+      if (param_3 != 0) {
+        FUN_0402cd10(5,"Warning! Non-zero uiOptions given to RegOpenKeyExW. Some problem?");
+      }
+      iVar3 = FUN_0415a040(param_2);
+      pvVar4 = malloc(iVar3 * 2 + 2);
+      FUN_0415a150(pvVar4,param_2);
+      do {
+        __ptr = (void *)FUN_04115440();
+        if (__ptr == (void *)0x0) {
+          iVar2 = Registry_FindOrCreateKeyNode(iVar2,pvVar4,0);
+          free(pvVar4);
+          if (iVar2 != 0) {
+            Registry_AddRefOpenKey(iVar2);
+            *param_5 = iVar2;
+            return 0;
+          }
+          goto LAB_04117ddb;
+        }
+        iVar2 = Registry_FindOrCreateKeyNode(iVar2,__ptr,0);
+        free(__ptr);
+      } while (iVar2 != 0);
+      free(pvVar4);
+LAB_04117ddb:
+      __size = eON_WideCharToMultiByte(0,0,param_2,0xffffffff,0,0,0,0);
+      pvVar4 = malloc(__size);
+      eON_WideCharToMultiByte(0,0,param_2,0xffffffff,pvVar4,__size,0,0);
+      pcVar5 = "HKEY_CLASSES_ROOT";
+      if ((((param_1 != -0x80000000) && (pcVar5 = "HKEY_CURRENT_USER", param_1 != -0x7fffffff)) &&
+          (pcVar5 = "HKEY_LOCAL_MACHINE", param_1 != -0x7ffffffe)) &&
+         (((pcVar5 = "HKEY_USERS", param_1 != -0x7ffffffd &&
+           (pcVar5 = "HKEY_PERFORMANCE_DATA", param_1 != -0x7ffffffc)) &&
+          ((pcVar5 = "HKEY_LOCAL_MACHINE\\System\\CurrentControlSet\\Hardware Profiles\\Current",
+           param_1 != -0x7ffffffb && (pcVar5 = "HKEY_DYN_DATA", param_1 != -0x7ffffffa)))))) {
+        sprintf(&DAT_04512a40,"(%p)",param_1);
+        pcVar5 = &DAT_04512a40;
+      }
+      FUN_0402cd10(10,
+                   "REGISTRY OPERATION: RegOpenKeyExW() returns ERROR_NOT_FOUND (subkey not found) key = %s, subkey = %s"
+                   ,pcVar5,pvVar4);
+      uVar6 = 0x490;
+      free(pvVar4);
+    }
+  }
+  return uVar6;
+}
+

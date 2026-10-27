@@ -1,0 +1,50 @@
+
+/* source: pixelformatdata */
+
+bool PixelFormatData__PrepareVolumeTexture(undefined4 param_1,int param_2,int *param_3)
+
+{
+  char cVar1;
+  int iVar2;
+  undefined4 uVar3;
+  bool bVar4;
+  undefined4 local_2c;
+  undefined4 local_28;
+  undefined4 local_24;
+  char local_1e;
+  undefined1 local_1d [13];
+  
+  bVar4 = false;
+  *param_3 = 0;
+  if (param_2 != 0x4c4c554e) {
+    cVar1 = PixelFormatData__MapTextureFormatToGL
+                      (param_2,0,&local_2c,&local_28,&local_24,&local_1e,local_1d);
+    if (cVar1 != '\0') {
+      glGenTextures(1,param_3);
+      if (*param_3 != 0) {
+        glBindTexture(0x806f,*param_3);
+        glTexParameterf(0x806f,0x2801,0x46180400);
+        iVar2 = glGetError();
+        if (iVar2 != 0) {
+          FUN_0400a810("glGetError() == 0",
+                       "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/pixelformatdata.cpp"
+                       ,0x22d,"bool PixelFormatData::PrepareVolumeTexture(D3DFORMAT, GLuint&)");
+        }
+        if (local_1e == '\0') {
+          (*DAT_0451eeb4)(0x806f,0,local_24,0x40,0x40,0x40,0,local_28,local_2c,0);
+        }
+        else {
+          uVar3 = 0x20000;
+          if (param_2 != 0x31545844) {
+            uVar3 = 0x40000;
+          }
+          (*DAT_0451ee9c)(0x806f,0,local_28,0x40,0x40,0x40,0,uVar3,0);
+        }
+        iVar2 = glGetError();
+        bVar4 = iVar2 == 0;
+      }
+    }
+  }
+  return bVar4;
+}
+

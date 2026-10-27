@@ -1,0 +1,71 @@
+
+undefined4
+AudioClientImp__IsFormatSupported(int param_1,int param_2,short *param_3,undefined4 *param_4)
+
+{
+  short sVar1;
+  undefined4 uVar2;
+  char cVar3;
+  int iVar4;
+  undefined4 *puVar5;
+  undefined4 uVar6;
+  
+  if (param_3 == (short *)0x0) {
+    uVar6 = 0x80004003;
+  }
+  else if ((((param_4 != (undefined4 *)0x0) || (uVar6 = 0x80004003, param_2 != 0)) &&
+           (uVar6 = 0, param_2 == 0)) && (sVar1 = *param_3, *param_4 = 0, sVar1 == -2)) {
+    uVar6 = 0x88890008;
+    iVar4 = memcmp(param_3 + 0xc,&DAT_042db6d8,0x10);
+    if (iVar4 == 0) {
+      iVar4 = AudioUnit_IsFormatSupported
+                        (*(undefined4 *)(param_1 + 0x18),*(undefined1 *)(param_1 + 0x20),param_3);
+      uVar2 = DAT_042db6d8;
+      if (iVar4 == 0) {
+        *param_4 = 0;
+        uVar6 = 0;
+      }
+      else if (iVar4 == 1) {
+        if (*(char *)(param_1 + 0x24) == '\0') {
+          *(undefined2 *)(param_1 + 0x28) = 0xfffe;
+          *(undefined2 *)(param_1 + 0x38) = 0x16;
+          *(undefined4 *)(param_1 + 0x40) = uVar2;
+          *(undefined **)(param_1 + 0x44) = PTR_DAT_042db6dc;
+          *(undefined4 *)(param_1 + 0x48) = DAT_042db6e0;
+          *(undefined4 *)(param_1 + 0x4c) = DAT_042db6e4;
+          cVar3 = AudioUnit_DetermineDefaultMixFormat
+                            (*(undefined4 *)(param_1 + 0x18),*(undefined1 *)(param_1 + 0x20),
+                             param_1 + 0x28);
+          if (cVar3 == '\0') {
+            return 0x88890004;
+          }
+          *(undefined1 *)(param_1 + 0x24) = 1;
+        }
+        puVar5 = (undefined4 *)comalloc_0415fe10(0x28);
+        if (puVar5 == (undefined4 *)0x0) {
+          uVar6 = 0x8007000e;
+        }
+        else {
+          uVar6 = 1;
+          *puVar5 = *(undefined4 *)(param_1 + 0x28);
+          puVar5[1] = *(undefined4 *)(param_1 + 0x2c);
+          puVar5[2] = *(undefined4 *)(param_1 + 0x30);
+          puVar5[3] = *(undefined4 *)(param_1 + 0x34);
+          puVar5[4] = *(undefined4 *)(param_1 + 0x38);
+          puVar5[5] = *(undefined4 *)(param_1 + 0x3c);
+          puVar5[6] = *(undefined4 *)(param_1 + 0x40);
+          puVar5[7] = *(undefined4 *)(param_1 + 0x44);
+          puVar5[8] = *(undefined4 *)(param_1 + 0x48);
+          puVar5[9] = *(undefined4 *)(param_1 + 0x4c);
+          *param_4 = puVar5;
+        }
+      }
+      else {
+        FUN_0402cd10(0xf,"CoreAudio error when trying to set format of stream for device: %d",iVar4)
+        ;
+      }
+    }
+  }
+  return uVar6;
+}
+

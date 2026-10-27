@@ -1,0 +1,20 @@
+
+void DirectInputImp__DirectInputImp(undefined4 *param_1,undefined1 param_2,char param_3)
+
+{
+  undefined **ppuVar1;
+  
+  IUnknownImp__IUnknownImp(param_1,param_1 + 4);
+  *param_1 = &PTR_FUN_0430b528;
+  param_1[5] = param_1;
+  param_1[1] = "DirectInputImp";
+  *(undefined1 *)(param_1 + 6) = param_2;
+  *(char *)((int)param_1 + 0x19) = param_3;
+  ppuVar1 = &PTR_FUN_04408ca0;
+  if (param_3 == '\0') {
+    ppuVar1 = &PTR_FUN_04408ce0;
+  }
+  param_1[4] = ppuVar1;
+  return;
+}
+

@@ -1,0 +1,36 @@
+
+/* source: d3dstructs, direct3dquery9imp */
+
+void d3dstructs_040a4ea0(undefined4 *param_1)
+
+{
+  int iVar1;
+  
+  iVar1 = param_1[7];
+  *param_1 = &PTR_d3dstructs_040a4ea0_042f7a08;
+  if (iVar1 != 0) {
+    if ((param_1[0xc] != 0) || (param_1[0xd] != 0)) {
+                    /* try { // try from 040a4ecf to 040a4f22 has its CatchHandler @ 040a4fae */
+      FUN_0409d0d0(iVar1 + 0x40,param_1 + 0xb);
+      if ((param_1[0xc] != 0) || (param_1[0xd] != 0)) {
+        FUN_0400a810("!( FenceARB || FenceAPPLE )",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3dquery9imp.cpp"
+                     ,0x20,"void eONFence::Clear(Direct3DDevice9Imp*)");
+      }
+      iVar1 = param_1[7];
+      *(undefined1 *)(param_1 + 0xe) = 1;
+    }
+    FUN_040ba490(iVar1 + 0x40,param_1[3],param_1[0x11]);
+  }
+  if ((param_1[0xc] == 0) && (param_1[0xd] == 0)) {
+    FUN_04030320();
+    return;
+  }
+                    /* try { // try from 040a4f49 to 040a4f4d has its CatchHandler @ 040a4f98 */
+  FUN_0400a810("!FenceARB && !FenceAPPLE",
+               "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/d3dstructs.h",
+               299,"eONFence::~eONFence()");
+  FUN_04030320();
+  return;
+}
+

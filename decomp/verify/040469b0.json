@@ -1,0 +1,33 @@
+
+undefined8 VPFS_Tell(int param_1)
+
+{
+  int iVar1;
+  undefined4 uVar2;
+  undefined4 uVar3;
+  
+  uVar2 = 0xffffffff;
+  uVar3 = 0xffffffff;
+  if (param_1 != 0) {
+    if (param_1 + 0x54545455U < 0x2801) {
+      param_1 = param_1 + 0x54545454;
+      pthread_mutex_lock((pthread_mutex_t *)&DAT_0441804c);
+      iVar1 = (&DAT_04418280)[param_1 * 8];
+      if ((((iVar1 == 4) || (iVar1 == 0)) || (iVar1 == 6)) || (iVar1 == 1)) {
+        uVar2 = 0xffffffff;
+        uVar3 = 0xffffffff;
+        pthread_mutex_unlock((pthread_mutex_t *)&DAT_0441804c);
+      }
+      else {
+        uVar2 = (&DAT_0441828c)[param_1 * 8];
+        uVar3 = (&DAT_04418290)[param_1 * 8];
+        pthread_mutex_unlock((pthread_mutex_t *)&DAT_0441804c);
+      }
+    }
+    else {
+      FUN_0402cd10(0xf,"Invalid handle given to VPFS_Tell()!!");
+    }
+  }
+  return CONCAT44(uVar3,uVar2);
+}
+

@@ -1,0 +1,20 @@
+
+undefined4 WaveInDevice_Start(pthread_mutex_t *param_1)
+
+{
+  char cVar1;
+  
+  pthread_mutex_lock(param_1);
+  if (*(char *)((int)param_1 + 0x2c) == '\0') {
+    cVar1 = AudioUnit_Start(*(undefined4 *)((int)param_1 + 0x28));
+    if (cVar1 == '\0') {
+      pthread_mutex_unlock(param_1);
+      FUN_0402cd10(0xf,"Couldn\'t start audio capture - out of memory?");
+      return 7;
+    }
+    *(undefined1 *)((int)param_1 + 0x2c) = 1;
+  }
+  pthread_mutex_unlock(param_1);
+  return 0;
+}
+

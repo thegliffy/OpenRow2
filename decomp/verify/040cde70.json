@@ -1,0 +1,303 @@
+
+/* source: openGlDebugFunctions */
+
+void __regparm3 OpenGL_LogState_FramebufferAttachment(undefined4 *param_1,undefined4 param_2)
+
+{
+  code *pcVar1;
+  int iVar2;
+  char *pcVar3;
+  int iVar4;
+  undefined4 uVar5;
+  undefined4 uVar6;
+  char *pcVar7;
+  int iVar8;
+  byte bVar9;
+  char local_1a4 [256];
+  char local_a4 [64];
+  int local_64;
+  int local_60;
+  undefined4 local_5c;
+  int local_58;
+  undefined4 local_54;
+  int local_50;
+  int local_4c;
+  undefined4 local_48;
+  undefined4 local_44;
+  undefined4 local_40;
+  int local_3c;
+  int local_38;
+  int local_34;
+  int local_30;
+  int local_2c;
+  int local_28;
+  int local_24;
+  int local_20 [4];
+  
+  bVar9 = 0;
+  (*DAT_0451e65c)(0x8ca9,param_2,0x8cd0,&local_64);
+  iVar2 = glGetError();
+  if (iVar2 != 0) {
+    FUN_0400a810("glGetError() == 0",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                 ,0x8ee,"void OpenGL_LogState_FramebufferAttachment(OpenGlDebugWriter*, GLenum)");
+  }
+  if (local_64 == 0) {
+    return;
+  }
+  local_60 = 0;
+  if (local_64 == 0x8218) {
+LAB_040ce1e0:
+    iVar2 = local_60;
+    uVar6 = OpenGL_BufferToString();
+    (**(code **)*param_1)
+              (param_1,"\tattachment %s is default framebuffer attachment ( name is %d )\n",uVar6,
+               iVar2);
+  }
+  else {
+    (*DAT_0451e65c)(0x8ca9,param_2,0x8cd1,&local_60);
+    iVar2 = glGetError();
+    if (iVar2 != 0) {
+      FUN_0400a810("glGetError() == 0",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                   ,0x8f8,"void OpenGL_LogState_FramebufferAttachment(OpenGlDebugWriter*, GLenum)");
+    }
+    iVar2 = local_60;
+    if (local_64 == 0x8218) goto LAB_040ce1e0;
+    if (local_64 == 0x1702) {
+      (*DAT_0451e65c)(0x8ca9,param_2,0x8cd2,&local_5c);
+      iVar2 = glGetError();
+      if (iVar2 != 0) {
+        FUN_0400a810("glGetError() == 0",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                     ,0x901,"void OpenGL_LogState_FramebufferAttachment(OpenGlDebugWriter*, GLenum)"
+                    );
+      }
+      (*DAT_0451e65c)(0x8ca9,param_2,0x8cd3,&local_58);
+      iVar2 = glGetError();
+      if (iVar2 != 0) {
+        FUN_0400a810("glGetError() == 0",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                     ,0x903,"void OpenGL_LogState_FramebufferAttachment(OpenGlDebugWriter*, GLenum)"
+                    );
+      }
+      (*DAT_0451e65c)(0x8ca9,param_2,0x8cd4,&local_54);
+      iVar2 = glGetError();
+      if (iVar2 != 0) {
+        FUN_0400a810("glGetError() == 0",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                     ,0x905,"void OpenGL_LogState_FramebufferAttachment(OpenGlDebugWriter*, GLenum)"
+                    );
+      }
+      (*DAT_0451e65c)(0x8ca9,param_2,0x8da7,&local_50);
+      iVar2 = glGetError();
+      if (iVar2 != 0) {
+        FUN_0400a810("glGetError() == 0",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                     ,0x907,"void OpenGL_LogState_FramebufferAttachment(OpenGlDebugWriter*, GLenum)"
+                    );
+      }
+      iVar2 = 0xde1;
+      if (local_58 != 0) {
+        iVar2 = local_58;
+      }
+      iVar8 = (-(uint)(local_58 == 0) & 0xffff88ce) + 0x8513;
+      glGetIntegerv((-(uint)(local_58 == 0) & 0xfffffb55) + 0x8514,&local_4c);
+      iVar4 = glGetError();
+      if (iVar4 != 0) {
+        FUN_0400a810("glGetError() == 0",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                     ,0x911,"void OpenGL_LogState_FramebufferAttachment(OpenGlDebugWriter*, GLenum)"
+                    );
+      }
+      if (local_4c != local_60) {
+        glBindTexture(iVar8,local_60);
+        iVar4 = glGetError();
+        if (iVar4 != 0) {
+          FUN_0400a810("glGetError() == 0",
+                       "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                       ,0x917,
+                       "void OpenGL_LogState_FramebufferAttachment(OpenGlDebugWriter*, GLenum)");
+        }
+      }
+      (*DAT_0451eec8)(iVar2,local_5c,0x1000,&local_48);
+      iVar4 = glGetError();
+      if (iVar4 != 0) {
+        FUN_0400a810("glGetError() == 0",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                     ,0x91d,"void OpenGL_LogState_FramebufferAttachment(OpenGlDebugWriter*, GLenum)"
+                    );
+      }
+      (*DAT_0451eec8)(iVar2,local_5c,0x1001,&local_44);
+      iVar4 = glGetError();
+      if (iVar4 != 0) {
+        FUN_0400a810("glGetError() == 0",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                     ,0x91f,"void OpenGL_LogState_FramebufferAttachment(OpenGlDebugWriter*, GLenum)"
+                    );
+      }
+      (*DAT_0451eec8)(iVar2,local_5c,0x1003,&local_40);
+      iVar2 = glGetError();
+      if (iVar2 != 0) {
+        FUN_0400a810("glGetError() == 0",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                     ,0x921,"void OpenGL_LogState_FramebufferAttachment(OpenGlDebugWriter*, GLenum)"
+                    );
+      }
+      if (local_4c != local_60) {
+        glBindTexture(iVar8,local_4c);
+        iVar2 = glGetError();
+        if (iVar2 != 0) {
+          FUN_0400a810("glGetError() == 0",
+                       "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                       ,0x927,
+                       "void OpenGL_LogState_FramebufferAttachment(OpenGlDebugWriter*, GLenum)");
+        }
+      }
+      pcVar3 = ", layered";
+      pcVar1 = *(code **)*param_1;
+      if (local_50 == 0) {
+        pcVar3 = "";
+      }
+      uVar6 = OpenGL_InternalFormatToString(local_40);
+      iVar2 = local_60;
+      uVar5 = OpenGL_BufferToString();
+      (*pcVar1)(param_1,"\tattachment %s is a texture ( ID %d, level %d, %d x %d, %s%s )\n",uVar5,
+                iVar2,local_5c,local_48,local_44,uVar6,pcVar3);
+      if (local_58 != 0) {
+        pcVar3 = "!!!unknown!!!";
+        if (local_58 - 0x8515U < 6) {
+          pcVar3 = (&PTR_s_GL_TEXTURE_CUBE_MAP_POSITIVE_X_04308748)[local_58 - 0x8515U];
+        }
+        (**(code **)*param_1)(param_1,"\t\tcube map face: %s\n",pcVar3);
+      }
+      if (local_50 != 0) {
+        (**(code **)*param_1)(param_1,"\t\tlayer: %s\n",local_54);
+      }
+    }
+    else if (local_64 == 0x8d41) {
+      uVar6 = OpenGL_BufferToString();
+      (**(code **)*param_1)(param_1,"\tattachment %s is a renderbuffer ( ID %d )\n",uVar6,iVar2);
+      OpenGL_LogState_Renderbuffer();
+    }
+  }
+  (*DAT_0451e65c)(0x8ca9,param_2,0x8212,&local_3c);
+  iVar2 = glGetError();
+  if (iVar2 != 0) {
+    FUN_0400a810("glGetError() == 0",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                 ,0x938,"void OpenGL_LogState_FramebufferAttachment(OpenGlDebugWriter*, GLenum)");
+  }
+  (*DAT_0451e65c)(0x8ca9,param_2,0x8213,&local_38);
+  iVar2 = glGetError();
+  if (iVar2 != 0) {
+    FUN_0400a810("glGetError() == 0",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                 ,0x93a,"void OpenGL_LogState_FramebufferAttachment(OpenGlDebugWriter*, GLenum)");
+  }
+  (*DAT_0451e65c)(0x8ca9,param_2,0x8214,&local_34);
+  iVar2 = glGetError();
+  if (iVar2 != 0) {
+    FUN_0400a810("glGetError() == 0",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                 ,0x93c,"void OpenGL_LogState_FramebufferAttachment(OpenGlDebugWriter*, GLenum)");
+  }
+  (*DAT_0451e65c)(0x8ca9,param_2,0x8215,&local_30);
+  iVar2 = glGetError();
+  if (iVar2 != 0) {
+    FUN_0400a810("glGetError() == 0",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                 ,0x93e,"void OpenGL_LogState_FramebufferAttachment(OpenGlDebugWriter*, GLenum)");
+  }
+  (*DAT_0451e65c)(0x8ca9,param_2,0x8216,&local_2c);
+  iVar2 = glGetError();
+  if (iVar2 != 0) {
+    FUN_0400a810("glGetError() == 0",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                 ,0x940,"void OpenGL_LogState_FramebufferAttachment(OpenGlDebugWriter*, GLenum)");
+  }
+  (*DAT_0451e65c)(0x8ca9,param_2,0x8217,&local_28);
+  iVar2 = glGetError();
+  if (iVar2 != 0) {
+    FUN_0400a810("glGetError() == 0",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                 ,0x942,"void OpenGL_LogState_FramebufferAttachment(OpenGlDebugWriter*, GLenum)");
+  }
+  (*DAT_0451e65c)(0x8ca9,param_2,0x8211,&local_24);
+  iVar2 = glGetError();
+  if (iVar2 != 0) {
+    FUN_0400a810("glGetError() == 0",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                 ,0x944,"void OpenGL_LogState_FramebufferAttachment(OpenGlDebugWriter*, GLenum)");
+  }
+  (*DAT_0451e65c)(0x8ca9,param_2,0x8210,local_20);
+  iVar2 = glGetError();
+  if (iVar2 != 0) {
+    FUN_0400a810("glGetError() == 0",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                 ,0x946,"void OpenGL_LogState_FramebufferAttachment(OpenGlDebugWriter*, GLenum)");
+  }
+  pcVar3 = local_1a4;
+  for (iVar2 = 0x40; iVar2 != 0; iVar2 = iVar2 + -1) {
+    pcVar3[0] = '\0';
+    pcVar3[1] = '\0';
+    pcVar3[2] = '\0';
+    pcVar3[3] = '\0';
+    pcVar3 = pcVar3 + (uint)bVar9 * -8 + 4;
+  }
+  pcVar3 = local_a4;
+  for (iVar2 = 0x10; iVar2 != 0; iVar2 = iVar2 + -1) {
+    pcVar3[0] = '\0';
+    pcVar3[1] = '\0';
+    pcVar3[2] = '\0';
+    pcVar3[3] = '\0';
+    pcVar3 = pcVar3 + (uint)bVar9 * -8 + 4;
+  }
+  pcVar3 = "GL_LINEAR";
+  if ((local_20[0] != 0x2601) && (pcVar3 = "!!!unknown!!!", local_20[0] == 0x8c40)) {
+    pcVar3 = "GL_SRGB";
+  }
+  pcVar7 = "GL_FLOAT";
+  if (local_24 != 0x1406) {
+    if (local_24 < 0x1407) {
+      pcVar7 = "GL_INT";
+      if ((local_24 == 0x1404) || (pcVar7 = "GL_UNSIGNED_INT", local_24 == 0x1405))
+      goto LAB_040ce0fc;
+    }
+    else {
+      pcVar7 = "GL_UNSIGNED_NORMALIZED";
+      if ((local_24 == 0x8c17) || (pcVar7 = "GL_SIGNED_NORMALIZED", local_24 == 0x8f9c))
+      goto LAB_040ce0fc;
+    }
+    pcVar7 = "!!!unknown!!!";
+  }
+LAB_040ce0fc:
+  sprintf(local_1a4,"Component type: %s, color encoding: %s",pcVar7,pcVar3);
+  if (local_3c != 0) {
+    sprintf(local_a4,", red: %d",local_3c,pcVar3);
+    strcat(local_1a4,local_a4);
+  }
+  if (local_38 != 0) {
+    sprintf(local_a4,", green: %d",local_38,pcVar3);
+    strcat(local_1a4,local_a4);
+  }
+  if (local_34 != 0) {
+    sprintf(local_a4,", blue: %d",local_34,pcVar3);
+    strcat(local_1a4,local_a4);
+  }
+  if (local_30 != 0) {
+    sprintf(local_a4,", alpha: %d",local_30,pcVar3);
+    strcat(local_1a4,local_a4);
+  }
+  if (local_2c != 0) {
+    sprintf(local_a4,", depth: %d",local_2c);
+    strcat(local_1a4,local_a4);
+  }
+  if (local_28 != 0) {
+    sprintf(local_a4,", stencil: %d",local_28);
+    strcat(local_1a4,local_a4);
+  }
+  (**(code **)*param_1)(param_1,&DAT_0430232f,local_1a4);
+  return;
+}
+

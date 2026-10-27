@@ -1,0 +1,87 @@
+
+/* source: fs_dirs */
+
+char * fs_GetCurrentDirectoryA(char *param_1,char *param_2)
+
+{
+  uint uVar1;
+  uint uVar2;
+  char *pcVar3;
+  int *piVar4;
+  uint *puVar5;
+  uint *puVar6;
+  char *pcVar7;
+  char local_4010 [8192];
+  uint local_2010 [2049];
+  
+  if (DAT_04515b50 == (char *)0x0) {
+    DAT_04515b50 = malloc(0x2000);
+    if (DAT_04515b50 == (char *)0x0) {
+      FUN_0400a810("gCachedCwd",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/fs_dirs.cpp"
+                   ,400,"DWORD fs_GetCurrentDirectoryA(DWORD, LPSTR)");
+    }
+    pcVar3 = getcwd(DAT_04515b50,0x2000);
+    if (pcVar3 == (char *)0x0) {
+      FUN_0400a810(&PTR_DAT_04348b17,
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/fs_dirs.cpp"
+                   ,0x193,"DWORD fs_GetCurrentDirectoryA(DWORD, LPSTR)");
+      strcpy(local_4010,DAT_04515b50);
+      piVar4 = __errno_location();
+      switch(*piVar4) {
+      default:
+        FUN_0402cd10(0xf,"getcwd() error in GetCurrentDirectoryA() - %d (unknown error)",*piVar4);
+        return (char *)0x0;
+      case 2:
+        FUN_0402cd10(0xf,
+                     "getcwd() error in GetCurrentDirectoryA() - ENOENT (Component of the pathname no longer exists)"
+                    );
+        return (char *)0x0;
+      case 0xc:
+        FUN_0402cd10(0xf,
+                     "getcwd() error in GetCurrentDirectoryA() - ENOMEM (Insufficient memory is available)"
+                    );
+        return (char *)0x0;
+      case 0xd:
+        FUN_0402cd10(0xf,
+                     "getcwd() error in GetCurrentDirectoryA() - EACCES (Read or search permission was denied for a component of the pathname)"
+                    );
+        return (char *)0x0;
+      case 0x16:
+        FUN_0402cd10(0xf,
+                     "getcwd() error in GetCurrentDirectoryA() - EINVAL (Size of the given buffer is zero)"
+                    );
+        return (char *)0x0;
+      case 0x18:
+        FUN_0402cd10(0xf,
+                     "getcwd() error in GetCurrentDirectoryA() - EMFILE (Too many open files for the process)"
+                    );
+        return (char *)0x0;
+      case 0x22:
+        FUN_0402cd10(0xf,"getcwd() error in GetCurrentDirectoryA() - ERANGE (Buffer too small)");
+        return (char *)0x0;
+      }
+    }
+  }
+  strcpy(local_4010,DAT_04515b50);
+  FUN_0400f620(local_4010,local_2010);
+  puVar6 = local_2010;
+  do {
+    puVar5 = puVar6;
+    uVar1 = *puVar5 + 0xfefefeff & ~*puVar5;
+    uVar2 = uVar1 & 0x80808080;
+    puVar6 = puVar5 + 1;
+  } while (uVar2 == 0);
+  if ((uVar1 & 0x8080) == 0) {
+    puVar6 = (uint *)((int)puVar5 + 6);
+    uVar2 = uVar2 >> 0x10;
+  }
+  pcVar7 = (char *)((int)puVar6 + ((-3 - (uint)CARRY1((byte)uVar2,(byte)uVar2)) - (int)local_2010));
+  pcVar3 = pcVar7 + 1;
+  if (pcVar3 <= param_1) {
+    strcpy(param_2,(char *)local_2010);
+    pcVar3 = pcVar7;
+  }
+  return pcVar3;
+}
+

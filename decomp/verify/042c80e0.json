@@ -1,0 +1,108 @@
+
+/* WARNING: Function: __i686.get_pc_thunk.bx replaced with injection: get_pc_thunk_bx */
+
+void google_breakpad__MinidumpDescriptor__UpdatePath(int *param_1)
+
+{
+  int *piVar1;
+  undefined *puVar2;
+  char cVar3;
+  int iVar4;
+  int in_GS_OFFSET;
+  int local_64;
+  int local_60;
+  int local_5c;
+  undefined1 local_58 [19];
+  char local_45 [37];
+  int local_20;
+  undefined4 uStack_14;
+  
+  uStack_14 = 0x42c80eb;
+  local_20 = *(int *)(in_GS_OFFSET + 0x14);
+  if ((*param_1 != 1) || (*(int *)(param_1[2] + -0xc) == 0)) {
+                    /* WARNING: Subroutine does not return */
+    __assert_fail("mode_ == kWriteMinidumpToFile && !directory_.empty()",
+                  "src/client/linux/handler/minidump_descriptor.cc",0x47,
+                  "void google_breakpad::MinidumpDescriptor::UpdatePath()");
+  }
+  cVar3 = FUN_042d4200(local_58);
+  if (cVar3 != '\0') {
+    cVar3 = GUIDToString(local_58,local_45,0x25);
+    if (cVar3 != '\0') {
+      std::string::_M_mutate((uint)(param_1 + 3),0,*(uint *)(param_1[3] + -0xc));
+      std::string::string((string *)&local_64,(string *)(param_1 + 2));
+                    /* try { // try from 042c81a1 to 042c81a5 has its CatchHandler @ 042c8384 */
+      std::string::append((char *)&local_64,0x42e5ca1);
+                    /* try { // try from 042c81b2 to 042c81b6 has its CatchHandler @ 042c8377 */
+      std::string::string((string *)&local_60,(string *)&local_64);
+      strlen(local_45);
+                    /* try { // try from 042c81c7 to 042c81cb has its CatchHandler @ 042c833e */
+      std::string::append((char *)&local_60,(uint)local_45);
+                    /* try { // try from 042c81d5 to 042c81d9 has its CatchHandler @ 042c83d2 */
+      std::string::string((string *)&local_5c,(string *)&local_60);
+                    /* try { // try from 042c81e7 to 042c81eb has its CatchHandler @ 042c83d0 */
+      std::string::append((char *)&local_5c,0x439c6a2);
+                    /* try { // try from 042c81f2 to 042c81f6 has its CatchHandler @ 042c839e */
+      std::string::assign((string *)(param_1 + 3));
+      puVar2 = PTR__S_empty_rep_storage_044082b0;
+      if ((allocator *)(local_5c + -0xc) != (allocator *)PTR__S_empty_rep_storage_044082b0) {
+        if (PTR___pthread_key_create_044082d0 == (undefined *)0x0) {
+          iVar4 = *(int *)(local_5c + -4);
+          *(int *)(local_5c + -4) = iVar4 + -1;
+        }
+        else {
+          LOCK();
+          piVar1 = (int *)(local_5c + -4);
+          iVar4 = *piVar1;
+          *piVar1 = *piVar1 + -1;
+          UNLOCK();
+        }
+        if (iVar4 < 1) {
+          std::string::_Rep::_M_destroy((allocator *)(local_5c + -0xc));
+        }
+      }
+      if ((allocator *)(local_60 + -0xc) != (allocator *)puVar2) {
+        if (PTR___pthread_key_create_044082d0 == (undefined *)0x0) {
+          iVar4 = *(int *)(local_60 + -4);
+          *(int *)(local_60 + -4) = iVar4 + -1;
+        }
+        else {
+          LOCK();
+          piVar1 = (int *)(local_60 + -4);
+          iVar4 = *piVar1;
+          *piVar1 = *piVar1 + -1;
+          UNLOCK();
+        }
+        if (iVar4 < 1) {
+          std::string::_Rep::_M_destroy((allocator *)(local_60 + -0xc));
+        }
+      }
+      if ((allocator *)(local_64 + -0xc) != (allocator *)puVar2) {
+        if (PTR___pthread_key_create_044082d0 == (undefined *)0x0) {
+          iVar4 = *(int *)(local_64 + -4);
+          *(int *)(local_64 + -4) = iVar4 + -1;
+        }
+        else {
+          LOCK();
+          piVar1 = (int *)(local_64 + -4);
+          iVar4 = *piVar1;
+          *piVar1 = *piVar1 + -1;
+          UNLOCK();
+        }
+        if (iVar4 < 1) {
+          std::string::_Rep::_M_destroy((allocator *)(local_64 + -0xc));
+        }
+      }
+      param_1[4] = param_1[3];
+      if (local_20 == *(int *)(in_GS_OFFSET + 0x14)) {
+        return;
+      }
+                    /* WARNING: Subroutine does not return */
+      FUN_042d5e70();
+    }
+  }
+                    /* WARNING: Subroutine does not return */
+  __assert_fail("false","src/client/linux/handler/minidump_descriptor.cc",0x4c,
+                "void google_breakpad::MinidumpDescriptor::UpdatePath()");
+}
+

@@ -1,0 +1,26 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+bool _glewInit_GLX_NV_video_out(void)
+
+{
+  int iVar1;
+  bool bVar2;
+  bool bVar3;
+  bool bVar4;
+  bool bVar5;
+  
+  iVar1 = glXGetProcAddressARB("glXBindVideoImageNV");
+  _DAT_0451c7a4 = iVar1;
+  _DAT_0451c7a0 = glXGetProcAddressARB("glXGetVideoDeviceNV");
+  bVar2 = _DAT_0451c7a0 == 0;
+  _DAT_0451c79c = glXGetProcAddressARB("glXGetVideoInfoNV");
+  bVar3 = _DAT_0451c79c == 0;
+  _DAT_0451c798 = glXGetProcAddressARB("glXReleaseVideoDeviceNV");
+  bVar4 = _DAT_0451c798 == 0;
+  _DAT_0451c794 = glXGetProcAddressARB("glXReleaseVideoImageNV");
+  bVar5 = _DAT_0451c794 == 0;
+  _DAT_0451c790 = glXGetProcAddressARB("glXSendPbufferToVideoNV");
+  return _DAT_0451c790 == 0 || (bVar5 || (bVar4 || (bVar3 || (bVar2 || iVar1 == 0))));
+}
+

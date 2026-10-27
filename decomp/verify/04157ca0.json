@@ -1,0 +1,26 @@
+
+/* source: winprofile */
+
+ulong eON_GetPrivateProfileIntA
+                (undefined4 param_1,undefined4 param_2,ulong param_3,undefined4 param_4)
+
+{
+  uint uVar1;
+  ulong uVar2;
+  char local_120 [268];
+  undefined4 *local_14;
+  
+  uVar2 = param_3;
+  local_14 = &param_1;
+  uVar1 = eON_GetPrivateProfileStringA(param_1,param_2,&DAT_04328763,local_120,0x100,param_4);
+  if (uVar1 != 0) {
+    if (0xfe < uVar1) {
+      FUN_0400a810("len < bufferSize-1",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/winprofile.cpp"
+                   ,0x15b,"UINT eON_GetPrivateProfileIntA(LPCSTR, LPCSTR, INT, LPCSTR)");
+    }
+    uVar2 = strtoul(local_120,(char **)0x0,10);
+  }
+  return uVar2;
+}
+

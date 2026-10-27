@@ -1,0 +1,104 @@
+
+int VPFS_OpenExec(char *param_1,char *param_2)
+
+{
+  char cVar1;
+  int iVar2;
+  int iVar3;
+  uint uVar4;
+  uint uVar5;
+  size_t sVar6;
+  int iVar7;
+  uint *puVar8;
+  uint *puVar9;
+  char *pcVar10;
+  uint local_41c [259];
+  
+  pthread_mutex_lock((pthread_mutex_t *)&DAT_0441804c);
+  iVar2 = DAT_04468a8c;
+  iVar3 = DAT_04468aa0;
+  if (DAT_04468a8c == 0) {
+    pcVar10 = "VPFS_OpenExec() error - no default exec found!";
+  }
+  else {
+    do {
+      iVar7 = -1;
+      if ((&DAT_04418280)[iVar3 * 8] == 0) {
+        iVar7 = iVar3;
+      }
+      iVar3 = iVar3 + 1;
+      if (iVar3 == 0x2800) {
+        iVar3 = 0;
+      }
+      if (iVar7 != -1) {
+        DAT_04468aa0 = iVar3;
+        FUN_0403e320();
+        (&DAT_04418280)[iVar7 * 8] = 2;
+        puVar9 = local_41c;
+        do {
+          puVar8 = puVar9;
+          uVar4 = *puVar8 + 0xfefefeff & ~*puVar8;
+          uVar5 = uVar4 & 0x80808080;
+          puVar9 = puVar8 + 1;
+        } while (uVar5 == 0);
+        if ((uVar4 & 0x8080) == 0) {
+          puVar9 = (uint *)((int)puVar8 + 6);
+          uVar5 = uVar5 >> 0x10;
+        }
+        iVar3 = (-3 - (uint)CARRY1((byte)uVar5,(byte)uVar5)) - (int)local_41c;
+        pcVar10 = malloc((size_t)((int)puVar9 + iVar3 + 1));
+        *(char **)(&DAT_04418284 + iVar7 * 0x20) = pcVar10;
+        strcpy(pcVar10,(char *)local_41c);
+        (&DAT_04418288)[iVar7 * 8] = iVar2;
+        (&DAT_0441828c)[iVar7 * 8] = 0;
+        (&DAT_04418290)[iVar7 * 8] = 0;
+        if ((param_2 != (char *)0x0) && (param_1 != (char *)0x0)) {
+          if (param_2 < (char *)((int)puVar9 + DAT_04468a80 + iVar3 + 2)) {
+            *param_1 = '\0';
+          }
+          else {
+            pcVar10 = param_1;
+            if ((char)DAT_04417820 == '/') {
+              *param_1 = 'C';
+              param_1[1] = ':';
+              pcVar10 = param_1 + 2;
+            }
+            strcpy(pcVar10,(char *)&DAT_04417820);
+            cVar1 = *param_1;
+            pcVar10 = param_1;
+            while (cVar1 != '\0') {
+              if (cVar1 == '/') {
+                *pcVar10 = '\\';
+              }
+              pcVar10 = pcVar10 + 1;
+              cVar1 = *pcVar10;
+            }
+            sVar6 = strlen(param_1);
+            (param_1 + sVar6)[0] = '\\';
+            (param_1 + sVar6)[1] = '\0';
+            strcat(param_1,*(char **)(&DAT_04418284 + iVar7 * 0x20));
+            cVar1 = *param_1;
+            while (cVar1 != '\0') {
+              if (cVar1 == '/') {
+                *param_1 = '\\';
+              }
+              param_1 = param_1 + 1;
+              cVar1 = *param_1;
+            }
+          }
+        }
+        pthread_mutex_unlock((pthread_mutex_t *)&DAT_0441804c);
+        return iVar7 + -0x54545454;
+      }
+    } while (DAT_04468aa0 != iVar3);
+    DAT_04468aa0 = iVar3;
+    FUN_0402cd10(0xf,
+                 "Reached number of simultaneously open files in VPFS! Increase VPFS_MAX_OPEN_HANDLES constant to use more."
+                );
+    pcVar10 = "VPFS_OpenExec() error - too many open handles!";
+  }
+  FUN_0402cd10(0xf,pcVar10);
+  pthread_mutex_unlock((pthread_mutex_t *)&DAT_0441804c);
+  return 0;
+}
+

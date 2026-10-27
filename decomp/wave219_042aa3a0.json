@@ -1,0 +1,16 @@
+
+int FUN_042aa3a0(int param_1,undefined4 param_2)
+
+{
+  int iVar1;
+  
+  iVar1 = 0;
+  if (param_1 != 0) {
+    iVar1 = FUN_042aa110(param_1,param_2);
+    if (iVar1 == 0) {
+      png_warning(param_1,"Out of memory");
+    }
+  }
+  return iVar1;
+}
+

@@ -1,0 +1,111 @@
+
+/* source: heapImplementation */
+
+void __regparm3 Subheap_FreeArea(int *param_1,uint *param_2)
+
+{
+  byte bVar1;
+  uint *puVar2;
+  undefined4 *puVar3;
+  int iVar4;
+  int *piVar5;
+  undefined4 *puVar6;
+  uint uVar7;
+  
+  if (((((*param_2 & 7) != 0) || (bVar1 = (byte)param_2[1], (bVar1 & 0xfc) != 0xfc)) ||
+      (*(byte *)((int)param_2 + 5) != 0xe5)) || (*(byte *)((int)param_2 + 6) != 0)) {
+    FUN_0400a810("((AreaData_Allocated*)usedArea)->Header.IsUsedAreaValid()",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/heapImplementation.cpp"
+                 ,0x302,"void Subheap_FreeArea(eON_Subheap*, AreaData_Allocated*)");
+    bVar1 = (byte)param_2[1];
+  }
+  if ((bVar1 & 2) != 0) {
+    param_2 = (uint *)param_2[-1];
+    if ((((*param_2 & 7) != 0) || ((param_2[1] & 0xfc) != 0xfc)) ||
+       ((*(byte *)((int)param_2 + 5) != 0x78 ||
+        ((*(byte *)((int)param_2 + 6) != 0xe5 || (*(byte *)((int)param_2 + 7) != 0x77)))))) {
+      FUN_0400a810("((AreaData_Free*)previousArea)->Header.IsFreeAreaValid()",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/heapImplementation.cpp"
+                   ,0x30b,"void Subheap_FreeArea(eON_Subheap*, AreaData_Allocated*)");
+    }
+    puVar2 = (uint *)param_2[3];
+    if (puVar2 == (uint *)0x0) {
+      puVar6 = (undefined4 *)param_2[2];
+      if (puVar6[-2] == 0) {
+        puVar6[2] = 0;
+        for (puVar3 = (undefined4 *)*puVar6; (puVar3 != (undefined4 *)0x0 && (puVar3[-2] == 0));
+            puVar3 = (undefined4 *)*puVar3) {
+          puVar3[2] = 0;
+        }
+      }
+    }
+    else {
+      if (puVar2[-2] == 0) {
+        puVar6 = (undefined4 *)param_2[2];
+        if (puVar6[-2] == 0) {
+          uVar7 = puVar2[2];
+          puVar6[2] = uVar7;
+          for (puVar3 = (undefined4 *)*puVar6; (puVar3 != (undefined4 *)0x0 && (puVar3[-2] == 0));
+              puVar3 = (undefined4 *)*puVar3) {
+            puVar3[2] = uVar7;
+          }
+        }
+      }
+      else {
+        puVar6 = (undefined4 *)param_2[2];
+      }
+      *puVar2 = (uint)puVar6;
+      puVar6 = (undefined4 *)param_2[2];
+    }
+    puVar6[1] = puVar2;
+  }
+  Subheap_SetupMemoryAsFreeArea();
+  if ((byte *)(param_1[2] + (int)param_1) <= (byte *)(*param_2 + (int)param_2)) {
+    if ((param_2 == (uint *)(param_1 + 6)) && (*(int **)(param_1[5] + 0xc) != param_1)) {
+      piVar5 = (int *)param_1[9];
+      if (piVar5 == (int *)0x0) {
+        piVar5 = (int *)param_1[8];
+        do {
+          if (piVar5[-2] != 0) break;
+          piVar5[2] = 0;
+          piVar5 = (int *)*piVar5;
+        } while (piVar5 != (int *)0x0);
+      }
+      else {
+        if (piVar5[-2] == 0) {
+          puVar6 = (undefined4 *)param_1[8];
+          if (puVar6[-2] == 0) {
+            iVar4 = piVar5[2];
+            puVar6[2] = iVar4;
+            for (puVar3 = (undefined4 *)*puVar6; (puVar3 != (undefined4 *)0x0 && (puVar3[-2] == 0));
+                puVar3 = (undefined4 *)*puVar3) {
+              puVar3[2] = iVar4;
+            }
+          }
+        }
+        else {
+          puVar6 = (undefined4 *)param_1[8];
+        }
+        *piVar5 = (int)puVar6;
+      }
+      *(uint *)(param_2[2] + 4) = param_2[3];
+      piVar5 = (int *)param_1[1];
+      *piVar5 = *param_1;
+      *(int **)(*param_1 + 4) = piVar5;
+      eON_VirtualFree(param_1,0,0x8000);
+    }
+    else {
+      uVar7 = ((uint)(&DAT_0001000f + ((int)param_2 - (int)param_1)) & 0xffff0000) + 0x10000;
+      if (uVar7 < (uint)param_1[3]) {
+        uVar7 = param_1[3];
+      }
+      if ((uVar7 < (uint)param_1[4]) &&
+         (iVar4 = eON_VirtualFree((int)param_1 + uVar7,param_1[4] - uVar7,0x4000), iVar4 != 0)) {
+        param_1[4] = uVar7;
+        return;
+      }
+    }
+  }
+  return;
+}
+

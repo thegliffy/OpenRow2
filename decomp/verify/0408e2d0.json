@@ -1,0 +1,313 @@
+
+/* source: openGlContextCache */
+
+void OpenGLContextCache__glLodBias(int param_1,int param_2)
+
+{
+  float *pfVar1;
+  void *__s1;
+  float fVar2;
+  char cVar3;
+  undefined4 uVar4;
+  int iVar5;
+  undefined4 uVar6;
+  int iVar7;
+  int iVar8;
+  uint uVar9;
+  int iVar10;
+  int local_24;
+  int local_20;
+  
+  iVar10 = 0;
+  local_24 = param_1;
+  local_20 = param_1;
+  if (DAT_0451ca41 == '\0') {
+    do {
+      while (iVar8 = *(int *)(param_2 + iVar10 * 4), iVar8 == 0) {
+        iVar8 = iVar10 + 0x84c0;
+        iVar10 = iVar10 + 1;
+        FUN_040c6e20(*(undefined4 *)(param_1 + 0xeb48),iVar8,0xde1,0);
+        local_24 = local_24 + 0x38;
+        if (iVar10 == 0x10) goto LAB_0408e5c8;
+      }
+      iVar5 = iVar10 + 0x84c0;
+      iVar7 = *(int *)(param_1 + 0xeb48);
+      fVar2 = *(float *)(local_24 + 0x7c90);
+      pfVar1 = (float *)(iVar7 + 8 + (iVar10 + 0xbc) * 4);
+      if (NAN(fVar2) || NAN(*pfVar1)) {
+        cVar3 = *(char *)(iVar7 + 0x218);
+joined_r0x0408e3f9:
+        if (cVar3 != '\0') {
+          FUN_0400a810("!mUsingOpenGLCore",
+                       "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlContextCache.h"
+                       ,0x41,"void OpenGLContextCache::glLodBias(GLenum, GLfloat)");
+        }
+        if (*(int *)(iVar7 + 0x234) != iVar5) {
+          (*DAT_0451eeac)(iVar5);
+          *(int *)(iVar7 + 0x234) = iVar5;
+        }
+        glTexEnvf(0x8500,0x8501,fVar2);
+        *(float *)(iVar7 + 8 + (iVar10 + 0xbc) * 4) = fVar2;
+        iVar7 = *(int *)(param_1 + 0xeb48);
+      }
+      else if (fVar2 != *pfVar1) {
+        cVar3 = *(char *)(iVar7 + 0x218);
+        goto joined_r0x0408e3f9;
+      }
+      FUN_040c6e20(iVar7,iVar5,*(undefined4 *)(iVar8 + 0xc),*(undefined4 *)(iVar8 + 8));
+      __s1 = (void *)(param_1 + 0x7c60 + iVar10 * 0x38);
+      if ((*(char *)(iVar8 + 0x4c) != '\0') ||
+         (iVar7 = memcmp(__s1,(void *)(iVar8 + 0x14),0x38), iVar7 != 0)) {
+        iVar7 = *(int *)(param_1 + 0xeb48);
+        if (*(int *)(iVar7 + 0x234) != iVar5) {
+          (*DAT_0451eeac)(iVar5);
+          *(int *)(iVar7 + 0x234) = iVar5;
+        }
+        FUN_0406cfc0(iVar8,__s1);
+      }
+      local_24 = local_24 + 0x38;
+      iVar10 = iVar10 + 1;
+    } while (iVar10 != 0x10);
+LAB_0408e5c8:
+    if ((*(int *)(param_1 + 0x82c8) != 0) && (*(char *)(*(int *)(param_1 + 0xe9ec) + 0x80) != '\0'))
+    {
+      if ((*(int *)(param_1 + 0x82b8) != 0) && (*(int *)(*(int *)(param_1 + 0xe9ec) + 0x2c) != -1))
+      {
+        iVar8 = *(int *)(param_1 + 0xeb48);
+        fVar2 = *(float *)(param_1 + 0x8010);
+        iVar10 = *(int *)(param_2 + 0x3c);
+        if (fVar2 != *(float *)(iVar8 + 0x334)) {
+          if (*(char *)(iVar8 + 0x218) != '\0') {
+            FUN_0400a810("!mUsingOpenGLCore",
+                         "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlContextCache.h"
+                         ,0x41,"void OpenGLContextCache::glLodBias(GLenum, GLfloat)");
+          }
+          if (*(int *)(iVar8 + 0x234) != 33999) {
+            (*DAT_0451eeac)(33999);
+            *(undefined4 *)(iVar8 + 0x234) = 33999;
+          }
+          glTexEnvf(0x8500,0x8501,fVar2);
+          *(float *)(iVar8 + 0x334) = fVar2;
+          iVar8 = *(int *)(param_1 + 0xeb48);
+        }
+        FUN_040c6e20(iVar8,33999,*(undefined4 *)(iVar10 + 0xc),*(undefined4 *)(iVar10 + 8));
+        if ((*(char *)(iVar10 + 0x4c) != '\0') ||
+           (iVar8 = memcmp((void *)(param_1 + 0x7fe0),(void *)(iVar10 + 0x14),0x38), iVar8 != 0)) {
+          iVar8 = *(int *)(param_1 + 0xeb48);
+          if (*(int *)(iVar8 + 0x234) != 33999) {
+            (*DAT_0451eeac)(33999);
+            *(undefined4 *)(iVar8 + 0x234) = 33999;
+          }
+          FUN_0406cfc0(iVar10,(void *)(param_1 + 0x7fe0));
+        }
+      }
+      if ((*(int *)(param_1 + 0x82bc) != 0) && (*(int *)(*(int *)(param_1 + 0xe9ec) + 0x30) != -1))
+      {
+        iVar8 = *(int *)(param_1 + 0xeb48);
+        fVar2 = *(float *)(param_1 + 0x8048);
+        iVar10 = *(int *)(param_2 + 0x38);
+        if (fVar2 != *(float *)(iVar8 + 0x330)) {
+          if (*(char *)(iVar8 + 0x218) != '\0') {
+            FUN_0400a810("!mUsingOpenGLCore",
+                         "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlContextCache.h"
+                         ,0x41,"void OpenGLContextCache::glLodBias(GLenum, GLfloat)");
+          }
+          if (*(int *)(iVar8 + 0x234) != 0x84ce) {
+            (*DAT_0451eeac)(0x84ce);
+            *(undefined4 *)(iVar8 + 0x234) = 0x84ce;
+          }
+          glTexEnvf(0x8500,0x8501,fVar2);
+          *(float *)(iVar8 + 0x330) = fVar2;
+          iVar8 = *(int *)(param_1 + 0xeb48);
+        }
+        FUN_040c6e20(iVar8,0x84ce,*(undefined4 *)(iVar10 + 0xc),*(undefined4 *)(iVar10 + 8));
+        if ((*(char *)(iVar10 + 0x4c) != '\0') ||
+           (iVar8 = memcmp((void *)(param_1 + 0x8018),(void *)(iVar10 + 0x14),0x38), iVar8 != 0)) {
+          iVar8 = *(int *)(param_1 + 0xeb48);
+          if (*(int *)(iVar8 + 0x234) != 0x84ce) {
+            (*DAT_0451eeac)(0x84ce);
+            *(undefined4 *)(iVar8 + 0x234) = 0x84ce;
+          }
+          FUN_0406cfc0(iVar10,(void *)(param_1 + 0x8018));
+        }
+      }
+      if ((*(int *)(param_1 + 0x82c0) != 0) && (*(int *)(*(int *)(param_1 + 0xe9ec) + 0x34) != -1))
+      {
+        iVar8 = *(int *)(param_1 + 0xeb48);
+        fVar2 = *(float *)(param_1 + 0x8080);
+        iVar10 = *(int *)(param_2 + 0x34);
+        if (fVar2 != *(float *)(iVar8 + 0x32c)) {
+          if (*(char *)(iVar8 + 0x218) != '\0') {
+            FUN_0400a810("!mUsingOpenGLCore",
+                         "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlContextCache.h"
+                         ,0x41,"void OpenGLContextCache::glLodBias(GLenum, GLfloat)");
+          }
+          if (*(int *)(iVar8 + 0x234) != 0x84cd) {
+            (*DAT_0451eeac)(0x84cd);
+            *(undefined4 *)(iVar8 + 0x234) = 0x84cd;
+          }
+          glTexEnvf(0x8500,0x8501,fVar2);
+          *(float *)(iVar8 + 0x32c) = fVar2;
+          iVar8 = *(int *)(param_1 + 0xeb48);
+        }
+        FUN_040c6e20(iVar8,0x84cd,*(undefined4 *)(iVar10 + 0xc),*(undefined4 *)(iVar10 + 8));
+        if ((*(char *)(iVar10 + 0x4c) != '\0') ||
+           (iVar8 = memcmp((void *)(param_1 + 0x8050),(void *)(iVar10 + 0x14),0x38), iVar8 != 0)) {
+          iVar8 = *(int *)(param_1 + 0xeb48);
+          if (*(int *)(iVar8 + 0x234) != 0x84cd) {
+            (*DAT_0451eeac)(0x84cd);
+            *(undefined4 *)(iVar8 + 0x234) = 0x84cd;
+          }
+          FUN_0406cfc0(iVar10,(void *)(param_1 + 0x8050));
+        }
+      }
+      if ((*(int *)(param_1 + 0x82c4) != 0) && (*(int *)(*(int *)(param_1 + 0xe9ec) + 0x38) != -1))
+      {
+        iVar8 = *(int *)(param_1 + 0xeb48);
+        fVar2 = *(float *)(param_1 + 0x80b8);
+        iVar10 = *(int *)(param_2 + 0x30);
+        if (fVar2 != *(float *)(iVar8 + 0x328)) {
+          if (*(char *)(iVar8 + 0x218) != '\0') {
+            FUN_0400a810("!mUsingOpenGLCore",
+                         "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlContextCache.h"
+                         ,0x41,"void OpenGLContextCache::glLodBias(GLenum, GLfloat)");
+          }
+          if (*(int *)(iVar8 + 0x234) != 0x84cc) {
+            (*DAT_0451eeac)(0x84cc);
+            *(undefined4 *)(iVar8 + 0x234) = 0x84cc;
+          }
+          glTexEnvf(0x8500,0x8501,fVar2);
+          *(float *)(iVar8 + 0x328) = fVar2;
+          iVar8 = *(int *)(param_1 + 0xeb48);
+        }
+        FUN_040c6e20(iVar8,0x84cc,*(undefined4 *)(iVar10 + 0xc),*(undefined4 *)(iVar10 + 8));
+        if ((*(char *)(iVar10 + 0x4c) != '\0') ||
+           (iVar10 = memcmp((void *)(param_1 + 0x8088),(void *)(iVar10 + 0x14),0x38), iVar10 != 0))
+        {
+          iVar10 = *(int *)(param_1 + 0xeb48);
+          if (*(int *)(iVar10 + 0x234) != 0x84cc) {
+            (*DAT_0451eeac)(0x84cc);
+            *(undefined4 *)(iVar10 + 0x234) = 0x84cc;
+          }
+          FUN_0406cfc0();
+          return;
+        }
+      }
+    }
+  }
+  else {
+    iVar10 = 0;
+    do {
+      while (iVar8 = *(int *)(param_2 + iVar10 * 4), iVar8 == 0) {
+        iVar8 = iVar10 + 0x84c0;
+        iVar10 = iVar10 + 1;
+        FUN_040c6e20(*(undefined4 *)(param_1 + 0xeb48),iVar8,0xde1,0);
+        local_20 = local_20 + 4;
+        if (iVar10 == 0x10) goto LAB_0408ea30;
+      }
+      uVar9 = 1 << ((byte)iVar10 & 0x1f);
+      if ((*(uint *)(param_1 + 0x8160) & uVar9) != 0) {
+        uVar4 = *(undefined4 *)(*(int *)(iVar8 + 4) + 0x23c);
+        uVar6 = SamplerCache__GetSamplerForState
+                          (param_1 + 0xeb9c,param_1 + 0x7c60 + iVar10 * 0x38,uVar4);
+        *(undefined4 *)(local_20 + 0x8110) = uVar6;
+        *(undefined4 *)(local_20 + 0x80c0) = uVar4;
+        *(uint *)(param_1 + 0x8160) = *(uint *)(param_1 + 0x8160) & ~uVar9;
+      }
+      iVar5 = *(int *)(param_1 + 0xeb48);
+      iVar7 = *(int *)(local_20 + 0x8110);
+      if (iVar7 != *(int *)(iVar5 + 8 + (iVar10 + 0xac) * 4)) {
+        (*DAT_0451e3c4)(iVar10,iVar7);
+        *(int *)(iVar5 + 8 + (iVar10 + 0xac) * 4) = iVar7;
+        iVar5 = *(int *)(param_1 + 0xeb48);
+      }
+      iVar7 = iVar10 + 0x84c0;
+      iVar10 = iVar10 + 1;
+      FUN_040c6e20(iVar5,iVar7,*(undefined4 *)(iVar8 + 0xc),*(undefined4 *)(iVar8 + 8));
+      local_20 = local_20 + 4;
+    } while (iVar10 != 0x10);
+LAB_0408ea30:
+    if ((*(int *)(param_1 + 0x82c8) != 0) && (*(char *)(*(int *)(param_1 + 0xe9ec) + 0x80) != '\0'))
+    {
+      if ((*(int *)(param_1 + 0x82b8) != 0) && (*(int *)(*(int *)(param_1 + 0xe9ec) + 0x2c) != -1))
+      {
+        iVar10 = *(int *)(param_2 + 0x3c);
+        if ((*(byte *)(param_1 + 0x8162) & 1) != 0) {
+          uVar4 = *(undefined4 *)(*(int *)(iVar10 + 4) + 0x23c);
+          uVar6 = SamplerCache__GetSamplerForState(param_1 + 0xeb9c,param_1 + 0x7fe0,uVar4);
+          *(undefined4 *)(param_1 + 0x8100) = uVar4;
+          *(uint *)(param_1 + 0x8160) = *(uint *)(param_1 + 0x8160) & 0xfffeffff;
+          *(undefined4 *)(param_1 + 0x8150) = uVar6;
+        }
+        iVar8 = *(int *)(param_1 + 0x8150);
+        iVar5 = *(int *)(param_1 + 0xeb48);
+        if (iVar8 != *(int *)(iVar5 + 0x2f4)) {
+          (*DAT_0451e3c4)(0xf,iVar8);
+          *(int *)(iVar5 + 0x2f4) = iVar8;
+          iVar5 = *(int *)(param_1 + 0xeb48);
+        }
+        FUN_040c6e20(iVar5,33999,*(undefined4 *)(iVar10 + 0xc),*(undefined4 *)(iVar10 + 8));
+      }
+      if ((*(int *)(param_1 + 0x82bc) != 0) && (*(int *)(*(int *)(param_1 + 0xe9ec) + 0x30) != -1))
+      {
+        iVar10 = *(int *)(param_2 + 0x38);
+        if ((*(byte *)(param_1 + 0x8162) & 2) != 0) {
+          uVar4 = *(undefined4 *)(*(int *)(iVar10 + 4) + 0x23c);
+          uVar6 = SamplerCache__GetSamplerForState(param_1 + 0xeb9c,param_1 + 0x8018,uVar4);
+          *(undefined4 *)(param_1 + 0x8104) = uVar4;
+          *(uint *)(param_1 + 0x8160) = *(uint *)(param_1 + 0x8160) & 0xfffdffff;
+          *(undefined4 *)(param_1 + 0x8154) = uVar6;
+        }
+        iVar8 = *(int *)(param_1 + 0x8154);
+        iVar5 = *(int *)(param_1 + 0xeb48);
+        if (iVar8 != *(int *)(iVar5 + 0x2f0)) {
+          (*DAT_0451e3c4)(0xe,iVar8);
+          *(int *)(iVar5 + 0x2f0) = iVar8;
+          iVar5 = *(int *)(param_1 + 0xeb48);
+        }
+        FUN_040c6e20(iVar5,0x84ce,*(undefined4 *)(iVar10 + 0xc),*(undefined4 *)(iVar10 + 8));
+      }
+      if ((*(int *)(param_1 + 0x82c0) != 0) && (*(int *)(*(int *)(param_1 + 0xe9ec) + 0x34) != -1))
+      {
+        iVar10 = *(int *)(param_2 + 0x34);
+        if ((*(byte *)(param_1 + 0x8162) & 4) != 0) {
+          uVar4 = *(undefined4 *)(*(int *)(iVar10 + 4) + 0x23c);
+          uVar6 = SamplerCache__GetSamplerForState(param_1 + 0xeb9c,param_1 + 0x8050,uVar4);
+          *(undefined4 *)(param_1 + 0x8108) = uVar4;
+          *(uint *)(param_1 + 0x8160) = *(uint *)(param_1 + 0x8160) & 0xfffbffff;
+          *(undefined4 *)(param_1 + 0x8158) = uVar6;
+        }
+        iVar8 = *(int *)(param_1 + 0x8158);
+        iVar5 = *(int *)(param_1 + 0xeb48);
+        if (iVar8 != *(int *)(iVar5 + 0x2ec)) {
+          (*DAT_0451e3c4)(0xd,iVar8);
+          *(int *)(iVar5 + 0x2ec) = iVar8;
+          iVar5 = *(int *)(param_1 + 0xeb48);
+        }
+        FUN_040c6e20(iVar5,0x84cd,*(undefined4 *)(iVar10 + 0xc),*(undefined4 *)(iVar10 + 8));
+      }
+      if ((*(int *)(param_1 + 0x82c4) != 0) && (*(int *)(*(int *)(param_1 + 0xe9ec) + 0x38) != -1))
+      {
+        iVar10 = *(int *)(param_2 + 0x30);
+        if ((*(byte *)(param_1 + 0x8162) & 8) != 0) {
+          uVar4 = *(undefined4 *)(*(int *)(iVar10 + 4) + 0x23c);
+          uVar6 = SamplerCache__GetSamplerForState(param_1 + 0xeb9c,param_1 + 0x8088,uVar4);
+          *(undefined4 *)(param_1 + 0x810c) = uVar4;
+          *(uint *)(param_1 + 0x8160) = *(uint *)(param_1 + 0x8160) & 0xfff7ffff;
+          *(undefined4 *)(param_1 + 0x815c) = uVar6;
+        }
+        iVar8 = *(int *)(param_1 + 0x815c);
+        iVar5 = *(int *)(param_1 + 0xeb48);
+        if (iVar8 != *(int *)(iVar5 + 0x2e8)) {
+          (*DAT_0451e3c4)(0xc,iVar8);
+          *(int *)(iVar5 + 0x2e8) = iVar8;
+          iVar5 = *(int *)(param_1 + 0xeb48);
+        }
+        FUN_040c6e20(iVar5,0x84cc,*(undefined4 *)(iVar10 + 0xc),*(undefined4 *)(iVar10 + 8));
+        return;
+      }
+    }
+  }
+  return;
+}
+

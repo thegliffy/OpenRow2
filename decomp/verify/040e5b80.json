@@ -1,0 +1,45 @@
+
+/* source: shadercache */
+
+void ShaderCache__CompileShaderForIndex(int param_1,int param_2)
+
+{
+  int *piVar1;
+  int iVar2;
+  char *local_24;
+  size_t local_20 [4];
+  
+  param_2 = param_2 * 0xc;
+  piVar1 = (int *)(*(int *)(param_1 + 0xb8) + param_2);
+  if (piVar1[1] != 0) {
+    FUN_0400a810("!PreparedShaders[shaderIndex].ShaderID",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/shadercache.cpp"
+                 ,0xb0,"void ShaderCache::CompileShaderForIndex(UINT)");
+    piVar1 = (int *)(*(int *)(param_1 + 0xb8) + param_2);
+  }
+  local_24 = (char *)*piVar1;
+  if (local_24 == (char *)0x0) {
+    FUN_0400a810("sourceCode",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/shadercache.cpp"
+                 ,0xb3,"void ShaderCache::CompileShaderForIndex(UINT)");
+    piVar1 = (int *)(*(int *)(param_1 + 0xb8) + param_2);
+  }
+  iVar2 = (*DAT_0451ecd8)(~-(uint)((char)piVar1[2] == '\0') + 0x8b31);
+  if (iVar2 == 0) {
+    FUN_0400a810("shader",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/shadercache.cpp"
+                 ,0xb8,"void ShaderCache::CompileShaderForIndex(UINT)");
+  }
+  local_20[0] = strlen(local_24);
+  (*DAT_0451ec70)(iVar2,1,&local_24,local_20);
+  (*DAT_0451ece0)(iVar2);
+  *(int *)(*(int *)(param_1 + 0xb8) + 4 + param_2) = iVar2;
+  LOCK();
+  *(int *)(param_1 + 200) = *(int *)(param_1 + 200) + 1;
+  UNLOCK();
+  LOCK();
+  *(int *)(param_1 + 0xc4) = *(int *)(param_1 + 0xc4) + -1;
+  UNLOCK();
+  return;
+}
+

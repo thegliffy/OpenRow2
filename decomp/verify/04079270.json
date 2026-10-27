@@ -1,0 +1,134 @@
+
+/* source: direct3ddevice9imp */
+
+undefined4 Direct3DDevice9Imp__SetDepthStencilSurface(int param_1,int *param_2)
+
+{
+  int iVar1;
+  int *piVar2;
+  code *pcVar3;
+  undefined4 uVar4;
+  undefined4 *puVar5;
+  int iVar6;
+  int *piVar7;
+  int *piVar8;
+  int aiStack_60 [12];
+  int local_30;
+  int local_24;
+  int *local_20 [4];
+  
+  local_20[0] = &local_24;
+  piVar8 = aiStack_60 + 5;
+  iVar1 = *(int *)(param_1 + 0xc);
+  local_24 = iVar1;
+  if (iVar1 != 0) {
+    piVar8 = aiStack_60 + 5;
+    if (*(char *)(iVar1 + 0xebbc) != '\0') {
+      aiStack_60[5] = iVar1 + 0xebc4;
+      aiStack_60[4] = 0x40793ee;
+      EnterCriticalSection();
+      piVar8 = aiStack_60 + 4;
+    }
+    if (*(int *)(iVar1 + 0xec64) == 0) {
+      if (*(int *)(iVar1 + 0xebc0) != 0) {
+        piVar8[3] = (int)"void Direct3DDevice9Imp::MultithreadedGuard_Enter()";
+        piVar8[2] = 0x3ae;
+        piVar8[1] = (int)
+                    "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+        ;
+        *piVar8 = (int)"!mCurrentD3D9Thread";
+        piVar8[-1] = 0x407938c;
+        FUN_0400a810();
+      }
+      piVar8[-1] = 0x40792bd;
+      uVar4 = FUN_0415b750();
+      *(undefined4 *)(iVar1 + 0xebc0) = uVar4;
+    }
+    else {
+      local_30 = *(int *)(iVar1 + 0xebc0);
+      piVar8[-1] = 0x40793a6;
+      iVar6 = FUN_0415b750();
+      if (local_30 != iVar6) {
+        piVar8[3] = (int)"void Direct3DDevice9Imp::MultithreadedGuard_Enter()";
+        piVar8[2] = 0x3b3;
+        piVar8[1] = (int)
+                    "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+        ;
+        *piVar8 = (int)"mCurrentD3D9Thread == thread_GetCurrentThreadId()";
+        piVar8[-1] = 0x40793d3;
+        FUN_0400a810();
+      }
+    }
+    *(int *)(iVar1 + 0xec64) = *(int *)(iVar1 + 0xec64) + 1;
+  }
+  piVar2 = *(int **)(param_1 + 0x5314);
+  if (param_2 != piVar2) {
+    piVar7 = piVar8;
+    if (piVar2 != (int *)0x0) {
+      iVar1 = *piVar2;
+      *piVar8 = (int)piVar2;
+                    /* try { // try from 040792dd to 0407934b has its CatchHandler @ 0407948e */
+      pcVar3 = *(code **)(iVar1 + 8);
+      piVar8[-1] = 0x40792e0;
+      (*pcVar3)();
+      piVar7 = piVar8 + -1;
+    }
+    *(int **)(param_1 + 0x5314) = param_2;
+    piVar8 = piVar7;
+    if (param_2 != (int *)0x0) {
+      iVar1 = *param_2;
+      *piVar7 = (int)param_2;
+      pcVar3 = *(code **)(iVar1 + 4);
+      piVar7[-1] = 0x40792f5;
+      (*pcVar3)();
+      iVar1 = **(int **)(param_1 + 0x5314);
+      piVar7[-1] = (int)*(int **)(param_1 + 0x5314);
+      pcVar3 = *(code **)(iVar1 + 4);
+      piVar7[-2] = 0x4079306;
+      (*pcVar3)();
+      piVar8 = piVar7 + -2;
+      if ((*(int *)(param_1 + 0x5304) != 0) &&
+         (piVar8 = piVar7 + -2, *(int *)(*(int *)(param_1 + 0x5304) + 0x70) == 0x4c4c554e)) {
+        iVar1 = *(int *)(*(int *)(param_1 + 0x5314) + 0x8c);
+        local_30 = *(int *)(*(int *)(param_1 + 0x5314) + 0x88);
+        *(undefined4 *)(param_1 + 0x52e0) = 0;
+        *(undefined4 *)(param_1 + 0x52e4) = 0;
+        *(int *)(param_1 + 0x52ec) = iVar1;
+        *(int *)(param_1 + 0x52e8) = local_30;
+        if (iVar1 == 0) {
+          piVar7[1] = (int)
+                      "void Direct3DDevice9Imp::UpdateViewportAndScissorDimensions_D3D9(UINT, UINT)"
+          ;
+          *piVar7 = 0x152c;
+          piVar7[-1] = (int)
+                       "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+          ;
+          piVar7[-2] = (int)"mDeviceState.Viewport.Height != 0";
+                    /* try { // try from 04079487 to 0407948b has its CatchHandler @ 0407948e */
+          piVar7[-3] = 0x407948c;
+          FUN_0400a810();
+        }
+        *(int *)(param_1 + 0xcc8) = iVar1;
+        *(undefined4 *)(param_1 + 0xcbc) = 0;
+        *(undefined4 *)(param_1 + 0xcc0) = 0;
+        *(int *)(param_1 + 0xcc4) = local_30;
+        piVar8 = piVar7 + -2;
+      }
+    }
+    piVar8[3] = 4;
+    piVar8[2] = 0x12;
+    piVar8[1] = param_1;
+    *piVar8 = param_1 + 0xec00;
+    piVar8[-1] = 0x4079342;
+    puVar5 = (undefined4 *)D3D9CommandQueue__GetNextCommandPointer();
+    *puVar5 = param_2;
+    *piVar8 = param_1 + 0xec00;
+    piVar8[-1] = 0x407934c;
+    D3D9CommandQueue__CommandSubmitted();
+  }
+  *piVar8 = (int)local_20;
+  piVar8[-1] = 0x4079357;
+  direct3ddevice9imp_040a2df0();
+  return 0;
+}
+

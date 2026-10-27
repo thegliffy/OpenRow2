@@ -1,0 +1,180 @@
+
+/* source: caseInsensitivePath */
+
+undefined4
+VPFS_Internal_MakePathCaseSensitive(char *param_1,char *param_2,int param_3,undefined4 param_4)
+
+{
+  byte bVar1;
+  void *__s2;
+  size_t __size;
+  __int32_t **pp_Var2;
+  int iVar3;
+  int *piVar4;
+  byte *pbVar5;
+  undefined4 uVar6;
+  undefined1 *__dest;
+  char cVar7;
+  char *pcVar8;
+  char *pcVar9;
+  uint __n;
+  char *pcVar10;
+  undefined4 uVar11;
+  bool bVar12;
+  char *local_70;
+  char *local_68;
+  char local_5c [32];
+  undefined1 local_3c [44];
+  
+  if (*(char *)(param_3 + 1) != '\x04') {
+    if (*(char *)(param_3 + 1) == '\b') {
+      return 0;
+    }
+    FUN_0402cd10(10,"Trying to access something that\'s not a regular file or folder: \'%s\' !",
+                 param_1);
+    return 0;
+  }
+  bVar12 = *(int *)(param_3 + 0xc) == 0;
+  cVar7 = *param_2;
+  if (bVar12) {
+    *param_2 = '\0';
+    RefreshFolder(param_3,param_1,param_4);
+    *param_2 = cVar7;
+  }
+  pcVar8 = param_2;
+  if ((cVar7 == '\0') || (cVar7 == '/')) {
+    pcVar9 = local_5c;
+    local_68 = pcVar9;
+  }
+  else {
+    __size = 1;
+    do {
+      pcVar8 = pcVar8 + 1;
+      __size = __size + 1;
+      if (*pcVar8 == '/') break;
+    } while (*pcVar8 != '\0');
+    pcVar9 = local_5c;
+    pcVar10 = param_2;
+    local_68 = pcVar9;
+    if (0x20 < (int)__size) {
+      pcVar9 = malloc(__size);
+      local_68 = pcVar9;
+    }
+    do {
+      if ((int)cVar7 + 0x80U < 0x180) {
+        pp_Var2 = __ctype_tolower_loc();
+        cVar7 = (char)(*pp_Var2)[cVar7];
+      }
+      *pcVar9 = cVar7;
+      pcVar9 = pcVar9 + 1;
+      cVar7 = pcVar10[1];
+    } while ((cVar7 != '/') && (pcVar10 = pcVar10 + 1, cVar7 != '\0'));
+  }
+  local_70 = local_5c;
+  *pcVar9 = '\0';
+  cVar7 = *pcVar8;
+  *pcVar8 = '\0';
+  iVar3 = FUN_0403c400(param_1);
+  if ((iVar3 == 0) && (iVar3 = access(param_1,0), iVar3 != 0)) {
+    uVar11 = 0;
+    *pcVar8 = cVar7;
+    piVar4 = __errno_location();
+    if (*piVar4 == 0x14) goto LAB_0403bb40;
+    pbVar5 = (byte *)GetSubelement();
+    if (pbVar5 == (byte *)0x0) goto LAB_0403bdc0;
+    uVar11 = 0;
+    if (pbVar5[2] != 0) goto LAB_0403bb40;
+    bVar1 = *pbVar5;
+    __s2 = *(void **)(pbVar5 + 4);
+    __n = (uint)bVar1;
+    iVar3 = memcmp(param_2,__s2,__n);
+    if (iVar3 == 0) {
+LAB_0403bdc0:
+      uVar11 = 0;
+      if ((bVar12) || (uVar11 = 0, (*(ushort *)(param_3 + 2) & 0x3ff) != 0x200)) goto LAB_0403bb40;
+      cVar7 = *param_2;
+      *param_2 = '\0';
+      uVar6 = FUN_04019f50(1);
+      FUN_0402cd10(10,"Refreshing folder \'%s\', temp folder is \'%s\'.",param_1,uVar6);
+      RefreshFolder(param_3,param_1,param_4);
+      *param_2 = cVar7;
+      pbVar5 = (byte *)GetSubelement();
+      if (pbVar5 == (byte *)0x0) goto LAB_0403bb40;
+      memcpy(param_2,*(void **)(pbVar5 + 4),(uint)*pbVar5);
+      cVar7 = *pcVar8;
+      *pcVar8 = '\0';
+      iVar3 = access(param_1,0);
+      if (iVar3 != 0) {
+        FUN_0400a810("access( caseInsensitiveModifiablePath, 0 ) == 0",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/vpfs/caseInsensitivePath.cpp"
+                     ,0x2f5,
+                     "int32_t VPFS_Internal_MakePathCaseSensitive(char*, char*, DirectoryElement*, const char*)"
+                    );
+      }
+      *pcVar8 = cVar7;
+    }
+    else {
+      __dest = local_3c;
+      if (0x20 < bVar1) {
+        __dest = malloc(__n);
+      }
+      memcpy(__dest,param_2,__n);
+      memcpy(param_2,__s2,__n);
+      cVar7 = *pcVar8;
+      *pcVar8 = '\0';
+      iVar3 = FUN_0403c400(param_1);
+      if ((iVar3 == 0) && (iVar3 = access(param_1,0), iVar3 != 0)) {
+        memcpy(param_2,__dest,(uint)*pbVar5);
+        if (__dest != local_3c) {
+          free(__dest);
+        }
+        uVar11 = 0;
+        *pcVar8 = cVar7;
+        if (*piVar4 == 0x14) goto LAB_0403bb40;
+        goto LAB_0403bdc0;
+      }
+      if (__dest != local_3c) {
+        free(__dest);
+      }
+      *pcVar8 = cVar7;
+    }
+    uVar11 = 1;
+    if (cVar7 == '\0') goto LAB_0403bb40;
+  }
+  else {
+    uVar11 = 1;
+    *pcVar8 = cVar7;
+    if (cVar7 == '\0') goto LAB_0403bb40;
+    pbVar5 = (byte *)GetSubelement();
+    if ((pbVar5 == (byte *)0x0) ||
+       ((pbVar5[2] == 0 &&
+        (iVar3 = memcmp(*(void **)(pbVar5 + 4),param_2,(uint)*pbVar5), iVar3 != 0)))) {
+      cVar7 = *param_2;
+      *param_2 = '\0';
+      RefreshFolder(param_3,param_1,param_4);
+      *param_2 = cVar7;
+      pbVar5 = (byte *)GetSubelement();
+      if (pbVar5 == (byte *)0x0) {
+        uVar11 = 0;
+        FUN_0400a810("element",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/vpfs/caseInsensitivePath.cpp"
+                     ,0x271,
+                     "int32_t VPFS_Internal_MakePathCaseSensitive(char*, char*, DirectoryElement*, const char*)"
+                    );
+        goto LAB_0403bb40;
+      }
+      iVar3 = memcmp(*(void **)(pbVar5 + 4),param_2,(uint)*pbVar5);
+      if (iVar3 != 0) {
+        pbVar5[2] = 1;
+      }
+    }
+  }
+  uVar11 = VPFS_Internal_MakePathCaseSensitive(param_1,pcVar8 + 1,pbVar5,param_4);
+LAB_0403bb40:
+  if (local_68 == local_70) {
+    return uVar11;
+  }
+  free(local_68);
+  return uVar11;
+}
+

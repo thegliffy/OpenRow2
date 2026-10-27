@@ -1,0 +1,108 @@
+
+void __regparm3 GamepadMapping__RegisterMappingString(char *param_1)
+
+{
+  void *__s2;
+  void *pvVar1;
+  char cVar2;
+  char *pcVar3;
+  uint uVar4;
+  uint uVar5;
+  uint uVar6;
+  int iVar7;
+  void *pvVar8;
+  byte bVar9;
+  byte local_2c [4];
+  undefined1 local_28;
+  undefined1 local_27;
+  undefined1 local_26;
+  undefined1 local_25;
+  undefined1 local_24;
+  undefined1 local_23;
+  undefined1 local_22;
+  undefined1 local_21;
+  undefined1 local_20;
+  undefined1 local_1f;
+  undefined1 local_1e;
+  undefined1 local_1d;
+  
+  pvVar8 = DAT_04411214;
+  if (param_1 != (char *)0x0) {
+    pcVar3 = strchr(param_1,0x2c);
+    if (pcVar3 == (char *)0x0) {
+      FUN_0402cd10(0x14,"Gamepad mapping: no comma after gamepad GUID");
+      pvVar8 = DAT_04411214;
+    }
+    else {
+      uVar4 = (int)pcVar3 - (int)param_1 & 0xfffffffe;
+      if (0x20 < uVar4) {
+        uVar4 = 0x20;
+      }
+      bzero(local_2c,0x10);
+      if (uVar4 == 0) {
+LAB_04010560:
+        FUN_0402cd10(0x14,
+                     "Gamepads: registered gamepad mapping for device GUID %02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x"
+                     ,local_2c[0],local_2c[1],local_2c[2],local_2c[3],local_28,local_27,local_26,
+                     local_25,local_24,local_23,local_22,local_21,local_20,local_1f,local_1e,
+                     local_1d);
+        pvVar8 = DAT_04411214;
+        pvVar1 = DAT_04411214;
+        while (__s2 = pvVar8, __s2 != (void *)0x0) {
+          iVar7 = memcmp(local_2c,__s2,0x10);
+          if (iVar7 == 0) {
+            return;
+          }
+          pvVar1 = __s2;
+          pvVar8 = *(void **)((int)__s2 + 0x268);
+        }
+        pvVar8 = operator_new(0x26c);
+        *(undefined4 *)((int)pvVar8 + 0x10) = 0;
+        *(undefined4 *)((int)pvVar8 + 0x268) = 0;
+        bzero(pvVar8,0x10);
+        bzero((void *)((int)pvVar8 + 0x14),0x18);
+        bzero((void *)((int)pvVar8 + 0x2c),0x3c);
+        bzero((void *)((int)pvVar8 + 0x68),0x80);
+        bzero((void *)((int)pvVar8 + 0xe8),0x80);
+        bzero((void *)((int)pvVar8 + 0x168),0x100);
+        cVar2 = GamepadMapping__InitializeFromMappingString(pvVar8,param_1);
+        if (cVar2 == '\0') {
+          if (*(void **)((int)pvVar8 + 0x10) != (void *)0x0) {
+            free(*(void **)((int)pvVar8 + 0x10));
+          }
+          operator_delete(pvVar8);
+          return;
+        }
+        if (pvVar1 != (void *)0x0) {
+          *(void **)((int)pvVar1 + 0x268) = pvVar8;
+          return;
+        }
+      }
+      else {
+        if (((((byte)(*param_1 - 0x30U) < 0x37) &&
+             (cVar2 = *(char *)((int)&PTR_DAT_042da040 + (uint)(byte)(*param_1 - 0x30U)),
+             cVar2 != -1)) && ((byte)(param_1[1] - 0x30U) < 0x37)) &&
+           (bVar9 = *(byte *)((int)&PTR_DAT_042da040 + (uint)(byte)(param_1[1] - 0x30U)),
+           bVar9 != 0xff)) {
+          uVar5 = 0;
+          do {
+            uVar6 = uVar5 + 2;
+            local_2c[uVar5 >> 1] = cVar2 << 4 | bVar9;
+            if (uVar4 <= uVar6) goto LAB_04010560;
+          } while ((((byte)(param_1[uVar6] - 0x30U) < 0x37) &&
+                   (cVar2 = *(char *)((int)&PTR_DAT_042da040 + (uint)(byte)(param_1[uVar6] - 0x30U))
+                   , cVar2 != -1)) &&
+                  (((byte)(param_1[uVar5 + 3] - 0x30U) < 0x37 &&
+                   (bVar9 = *(byte *)((int)&PTR_DAT_042da040 +
+                                     (uint)(byte)(param_1[uVar5 + 3] - 0x30U)), uVar5 = uVar6,
+                   bVar9 != 0xff))));
+        }
+        FUN_0402cd10(0x14,"Gamepad mapping: invalid characters in gamepad GUID");
+        pvVar8 = DAT_04411214;
+      }
+    }
+  }
+  DAT_04411214 = pvVar8;
+  return;
+}
+

@@ -1,0 +1,41 @@
+
+int uprv_asciiFromEbcdic(int param_1,byte *param_2,int param_3,byte *param_4,int *param_5)
+
+{
+  byte local_19;
+  byte *local_18;
+  byte *local_14;
+  int local_10;
+  
+  if ((param_5 == (int *)0x0) || (0 < *param_5)) {
+    param_3 = 0;
+  }
+  else if ((((param_1 == 0) || (param_2 == (byte *)0x0)) || (param_3 < 0)) ||
+          ((0 < param_3 && (param_4 == (byte *)0x0)))) {
+    *param_5 = 1;
+    param_3 = 0;
+  }
+  else {
+    local_18 = param_2;
+    local_14 = param_4;
+    for (local_10 = param_3; 0 < local_10; local_10 = local_10 + -1) {
+      local_19 = *local_18;
+      if ((local_19 != 0) &&
+         (((local_19 = *(byte *)((int)&PTR_DAT_04364d40 + (uint)local_19), local_19 == 0 ||
+           ((char)local_19 < '\0')) ||
+          ((*(uint *)(&DAT_04365040 + (uint)(local_19 >> 5) * 4) >> (local_19 & 0x1f) & 1) == 0))))
+      {
+        FUN_041ccfa7(param_1,
+                     "uprv_asciiFromEbcdic() string[%d] contains a variant character in position %d\n"
+                     ,param_3,param_3 - local_10);
+        *param_5 = 10;
+        return 0;
+      }
+      *local_14 = local_19;
+      local_18 = local_18 + 1;
+      local_14 = local_14 + 1;
+    }
+  }
+  return param_3;
+}
+

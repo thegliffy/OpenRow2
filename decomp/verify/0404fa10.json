@@ -1,0 +1,63 @@
+
+/* source: commandQueue */
+
+int D3D9CommandQueue__GetNextCommandPointer
+              (int param_1,undefined4 param_2,undefined4 param_3,uint param_4)
+
+{
+  char cVar1;
+  int iVar2;
+  uint uVar3;
+  undefined4 *puVar4;
+  
+  if (*(int *)(param_1 + 0x24) == 0) {
+    FUN_0400a810("MutexLocked",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/commandQueue.cpp"
+                 ,0xa5,"void* D3D9CommandQueue::GetNextCommandPointer(LPVOID, DWORD, ULONG)");
+    cVar1 = *(char *)(param_1 + 0x20);
+  }
+  else {
+    cVar1 = *(char *)(param_1 + 0x20);
+  }
+  if (cVar1 != '\0') {
+    FUN_0400a810("!InCommandSubmission",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/commandQueue.cpp"
+                 ,0xa6,"void* D3D9CommandQueue::GetNextCommandPointer(LPVOID, DWORD, ULONG)");
+  }
+  if (0x1ff0 < param_4) {
+    FUN_0400a810("commandSize <= ( 0x1000 * 2 - ( 2 * sizeof(LPVOID) ) ) - ( sizeof(LPVOID) + sizeof(DWORD) )"
+                 ,
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/commandQueue.cpp"
+                 ,0xa8,"void* D3D9CommandQueue::GetNextCommandPointer(LPVOID, DWORD, ULONG)");
+  }
+  puVar4 = *(undefined4 **)(param_1 + 0x4c);
+  uVar3 = (*(int *)(param_1 + 0x48) + 0x1ff8) - (int)puVar4;
+  if (uVar3 < param_4 + 8) {
+    if (7 < uVar3) {
+      *puVar4 = 0;
+      *(undefined4 *)(*(int *)(param_1 + 0x4c) + 4) = 0;
+    }
+    if (*(int *)(param_1 + 0x18) == 0) {
+      puVar4 = (undefined4 *)eON_VirtualAlloc(0,0x2000,0x1000,4);
+    }
+    else {
+      EnterCriticalSection(param_1);
+      puVar4 = *(undefined4 **)(param_1 + 0x18);
+      *(undefined4 *)(param_1 + 0x18) = puVar4[0x7ff];
+      LeaveCriticalSection(param_1);
+    }
+    puVar4[0x7ff] = 0;
+    puVar4[0x7fe] = 0;
+    puVar4[0x7ff] = *(undefined4 *)(param_1 + 0x48);
+    *(undefined4 **)(*(int *)(param_1 + 0x48) + 0x1ff8) = puVar4;
+    *(undefined4 **)(param_1 + 0x48) = puVar4;
+    *(undefined4 **)(param_1 + 0x4c) = puVar4;
+  }
+  *puVar4 = param_2;
+  iVar2 = *(int *)(param_1 + 0x4c);
+  *(undefined4 *)(iVar2 + 4) = param_3;
+  *(uint *)(param_1 + 0x4c) = param_4 + 8 + iVar2;
+  *(undefined1 *)(param_1 + 0x20) = 1;
+  return iVar2 + 8;
+}
+

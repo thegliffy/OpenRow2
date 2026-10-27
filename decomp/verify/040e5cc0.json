@@ -1,0 +1,56 @@
+
+/* source: shadercache */
+
+void ShaderCache__VetCompiledShaderForIndex(int param_1,int param_2)
+
+{
+  char cVar1;
+  int iVar2;
+  void *__ptr;
+  undefined4 *puVar3;
+  char *pcVar4;
+  void *__ptr_00;
+  size_t local_20 [4];
+  
+  param_2 = param_2 * 0xc;
+  puVar3 = (undefined4 *)(*(int *)(param_1 + 0xb8) + param_2);
+  iVar2 = puVar3[1];
+  __ptr = (void *)*puVar3;
+  if (iVar2 == 0) {
+    FUN_0400a810("shader",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/shadercache.cpp"
+                 ,0xce,"void ShaderCache::VetCompiledShaderForIndex(UINT)");
+  }
+  if (__ptr == (void *)0x0) {
+    FUN_0400a810("sourceCode",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/shadercache.cpp"
+                 ,0xcf,"void ShaderCache::VetCompiledShaderForIndex(UINT)");
+  }
+  cVar1 = *(char *)(*(int *)(param_1 + 0xb8) + 8 + param_2);
+  (*DAT_0451ec9c)(iVar2,0x8b81,local_20);
+  if (local_20[0] != 1) {
+    pcVar4 = "Fragment";
+    if (cVar1 == '\0') {
+      pcVar4 = "Vertex";
+    }
+    FUN_0402cd10(0xf,"%s shader failed to compile!",pcVar4);
+    FUN_0402cd10(0xf,"Shader code:\n%s",__ptr);
+    (*DAT_0451ec9c)(iVar2,0x8b84,local_20);
+    if (local_20[0] == 0) {
+      FUN_0402cd10(0xf,"No shader info log.");
+    }
+    else {
+      __ptr_00 = malloc(local_20[0]);
+      (*DAT_0451eca4)(iVar2,local_20[0],0,__ptr_00);
+      FUN_0402cd10(0xf,"Shader info log:\n%s",__ptr_00);
+      free(__ptr_00);
+    }
+  }
+  *(undefined4 *)(*(int *)(param_1 + 0xb8) + param_2) = 0;
+  free(__ptr);
+  LOCK();
+  *(int *)(param_1 + 200) = *(int *)(param_1 + 200) + -1;
+  UNLOCK();
+  return;
+}
+

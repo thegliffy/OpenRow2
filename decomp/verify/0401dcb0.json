@@ -1,0 +1,120 @@
+
+void __regparm3 udev_HandleInputDeviceEvent(undefined1 param_1,undefined4 param_2)
+
+{
+  byte bVar1;
+  int iVar2;
+  char *pcVar3;
+  byte *pbVar4;
+  byte bVar5;
+  int iVar6;
+  byte bVar7;
+  byte bVar8;
+  byte bVar9;
+  byte bVar10;
+  byte *pbVar11;
+  char *pcVar12;
+  uint uVar13;
+  bool bVar14;
+  undefined1 uVar15;
+  bool bVar16;
+  byte bVar17;
+  
+  bVar17 = 0;
+  iVar2 = (*DAT_04411560)(param_2);
+  uVar15 = iVar2 == 0;
+  if ((bool)uVar15) {
+    return;
+  }
+  pcVar3 = (char *)(*DAT_04411564)(param_2);
+  iVar6 = 6;
+  pcVar12 = "input";
+  do {
+    if (iVar6 == 0) break;
+    iVar6 = iVar6 + -1;
+    uVar15 = *pcVar3 == *pcVar12;
+    pcVar3 = pcVar3 + (uint)bVar17 * -2 + 1;
+    pcVar12 = pcVar12 + (uint)bVar17 * -2 + 1;
+  } while ((bool)uVar15);
+  if (!(bool)uVar15) {
+    return;
+  }
+  pbVar4 = (byte *)(*DAT_04411568)(param_2,"ID_INPUT_KEYBOARD");
+  bVar14 = false;
+  if (pbVar4 == (byte *)0x0) {
+    bVar8 = 1;
+    bVar7 = 5;
+    bVar5 = 4;
+    bVar10 = 0;
+  }
+  else {
+    iVar6 = 2;
+    bVar16 = false;
+    pbVar11 = (byte *)0x439ca4d;
+    do {
+      if (iVar6 == 0) break;
+      iVar6 = iVar6 + -1;
+      bVar14 = *pbVar4 < *pbVar11;
+      bVar16 = *pbVar4 == *pbVar11;
+      pbVar4 = pbVar4 + (uint)bVar17 * -2 + 1;
+      pbVar11 = pbVar11 + (uint)bVar17 * -2 + 1;
+    } while (bVar16);
+    bVar16 = !bVar14 && !bVar16;
+    bVar8 = (-(bVar16 == bVar14) & 2U) + 1;
+    bVar7 = (-(bVar16 == bVar14) & 2U) + 5;
+    bVar5 = (-(bVar16 == bVar14) & 2U) + 4;
+    bVar10 = -(bVar16 == bVar14) & 2;
+  }
+  pbVar4 = (byte *)(*DAT_04411568)(param_2,"ID_INPUT_MOUSE");
+  bVar14 = false;
+  bVar16 = pbVar4 == (byte *)0x0;
+  bVar9 = bVar8;
+  bVar1 = bVar10;
+  if (!bVar16) {
+    iVar6 = 2;
+    pbVar11 = (byte *)0x439ca4d;
+    do {
+      if (iVar6 == 0) break;
+      iVar6 = iVar6 + -1;
+      bVar14 = *pbVar4 < *pbVar11;
+      bVar16 = *pbVar4 == *pbVar11;
+      pbVar4 = pbVar4 + (uint)bVar17 * -2 + 1;
+      pbVar11 = pbVar11 + (uint)bVar17 * -2 + 1;
+    } while (bVar16);
+    bVar9 = bVar7;
+    bVar1 = bVar5;
+    if ((!bVar14 && !bVar16) != bVar14) {
+      bVar9 = bVar8;
+      bVar1 = bVar10;
+    }
+  }
+  pcVar3 = (char *)(*DAT_04411568)(param_2,"ID_INPUT_JOYSTICK");
+  if (pcVar3 != (char *)0x0) {
+    iVar6 = 2;
+    bVar14 = false;
+    pcVar12 = "1";
+    do {
+      if (iVar6 == 0) break;
+      iVar6 = iVar6 + -1;
+      bVar14 = *pcVar3 == *pcVar12;
+      pcVar3 = pcVar3 + (uint)bVar17 * -2 + 1;
+      pcVar12 = pcVar12 + (uint)bVar17 * -2 + 1;
+    } while (bVar14);
+    if (bVar14) goto LAB_0401ddca;
+  }
+  bVar9 = bVar1;
+  if (bVar1 == 0) {
+    return;
+  }
+LAB_0401ddca:
+  if (DAT_0441152c - DAT_04411528 >> 2 == 0) {
+    return;
+  }
+  uVar13 = 0;
+  do {
+    (**(code **)(DAT_04411528 + uVar13 * 4))(iVar2,bVar9,param_1);
+    uVar13 = uVar13 + 1;
+  } while (uVar13 < (uint)(DAT_0441152c - DAT_04411528 >> 2));
+  return;
+}
+

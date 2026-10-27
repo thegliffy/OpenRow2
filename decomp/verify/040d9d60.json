@@ -1,0 +1,55 @@
+
+void OpenGL_ReportError(void)
+
+{
+  int iVar1;
+  
+  iVar1 = eON_Int_GL_NoteCurrentContext();
+  if (iVar1 == 0) {
+    puts("No valid OpenGL context in calling thread!.");
+    return;
+  }
+  iVar1 = glGetError();
+  if (DAT_044dac80 == (undefined4 *)0x0) {
+    FUN_040d9ba0();
+  }
+  if (iVar1 == 0x502) {
+    (**(code **)*DAT_044dac80)(DAT_044dac80,"OpenGL Error: GL_INVALID_OPERATION\n");
+    return;
+  }
+  if (iVar1 < 0x503) {
+    if (iVar1 == 0x500) {
+      (**(code **)*DAT_044dac80)(DAT_044dac80,"OpenGL Error: GL_INVALID_ENUM\n");
+      return;
+    }
+    if (0x500 < iVar1) {
+      (**(code **)*DAT_044dac80)(DAT_044dac80,"OpenGL Error: GL_INVALID_VALUE\n");
+      return;
+    }
+    if (iVar1 == 0) {
+      (**(code **)*DAT_044dac80)(DAT_044dac80,"OpenGL Error: GL_NO_ERROR\n");
+      return;
+    }
+  }
+  else {
+    if (iVar1 == 0x504) {
+      (**(code **)*DAT_044dac80)(DAT_044dac80,"OpenGL Error: GL_STACK_UNDERFLOW\n");
+      return;
+    }
+    if (iVar1 < 0x504) {
+      (**(code **)*DAT_044dac80)(DAT_044dac80,"OpenGL Error: GL_STACK_OVERFLOW\n");
+      return;
+    }
+    if (iVar1 == 0x505) {
+      (**(code **)*DAT_044dac80)(DAT_044dac80,"OpenGL Error: GL_OUT_OF_MEMORY\n");
+      return;
+    }
+    if (iVar1 == 0x8031) {
+      (**(code **)*DAT_044dac80)(DAT_044dac80,"OpenGL Error: GL_TABLE_TOO_LARGE\n");
+      return;
+    }
+  }
+  (**(code **)*DAT_044dac80)(DAT_044dac80,"OpenGL Error: unknown ( %#x )\n",iVar1);
+  return;
+}
+

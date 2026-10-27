@@ -1,0 +1,23 @@
+
+/* source: synch_criticalsection */
+
+undefined4 eON_SetCriticalSectionSpinCount(int param_1,undefined4 param_2)
+
+{
+  undefined4 uVar1;
+  uint uVar2;
+  
+  if (param_1 == 0) {
+    FUN_0400a810("lpCriticalSection",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/synch_criticalsection.cpp"
+                 ,0x7c,"DWORD eON_SetCriticalSectionSpinCount(LPCRITICAL_SECTION, DWORD)");
+  }
+  uVar1 = *(undefined4 *)(param_1 + 0x14);
+  uVar2 = FUN_0402f3e0();
+  if (uVar2 < 2) {
+    param_2 = 0;
+  }
+  *(undefined4 *)(param_1 + 0x14) = param_2;
+  return uVar1;
+}
+

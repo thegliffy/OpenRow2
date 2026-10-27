@@ -1,0 +1,112 @@
+
+/* source: synchronisationPrimitives */
+
+void __regparm3 SignalObject(int param_1,int param_2)
+
+{
+  int iVar1;
+  int iVar2;
+  bool bVar3;
+  int *piVar4;
+  char cVar5;
+  int iVar6;
+  uint uVar7;
+  uint uVar8;
+  int iVar9;
+  int *piVar10;
+  
+  piVar4 = *(int **)(param_1 + 8);
+joined_r0x04148297:
+  if ((param_2 == 0) || (piVar4 == (int *)0x0)) {
+    return;
+  }
+  piVar10 = (int *)piVar4[1];
+  iVar2 = *piVar4;
+  if (piVar10 != (int *)0x0) {
+    iVar9 = *piVar10;
+    iVar1 = iVar2;
+    while ((iVar9 == iVar1 && (piVar10 = (int *)piVar10[1], piVar10 != (int *)0x0))) {
+      iVar1 = *piVar10;
+    }
+  }
+  iVar9 = piVar4[2];
+  if (*(int *)(iVar2 + 0x1c) != -2) {
+    FUN_0400a810("twi->WaitResult == (HRESULT)(((DWORD)0xFFFFFFFF)-1)",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/synchronisationPrimitives.cpp"
+                 ,0x332,"void SignalObject(eON_HandleData*, DWORD)");
+  }
+  piVar4 = piVar10;
+  if (*(int *)(iVar2 + 0xc) != 0) goto LAB_04148368;
+  goto LAB_041482f7;
+LAB_04148368:
+  uVar8 = *(uint *)(iVar2 + 4);
+  bVar3 = true;
+  if (uVar8 != 0) {
+    uVar7 = 0;
+    do {
+      if (*(int *)(iVar2 + 0x20 + uVar7 * 4) != param_1) {
+        cVar5 = SignalledFor();
+        if (cVar5 == '\0') {
+          bVar3 = false;
+          goto LAB_041483a5;
+        }
+        uVar8 = *(uint *)(iVar2 + 4);
+      }
+      uVar7 = uVar7 + 1;
+    } while (uVar7 < uVar8);
+    bVar3 = true;
+  }
+LAB_041483a5:
+  if (((*(int *)(iVar2 + 0x18) == 0) || (*(int *)(iVar2 + 0x14) != 0)) && (bVar3)) {
+    if (*(int *)(iVar2 + 0xc) == 0) {
+LAB_041482f7:
+      ThreadReleasedOnObject();
+    }
+    else if (*(int *)(iVar2 + 4) != 0) {
+      uVar8 = 0;
+      do {
+        uVar8 = uVar8 + 1;
+        ThreadReleasedOnObject();
+      } while (uVar8 < *(uint *)(iVar2 + 4));
+    }
+    *(int *)(iVar2 + 0x1c) = iVar9;
+    FUN_04147f30();
+    if ((*(int *)(iVar2 + 0x10) == 0) || (iVar9 = DAT_04518d58 - (int)DAT_04518d54 >> 2, iVar9 == 0)
+       ) {
+LAB_0414831d:
+      iVar9 = *(int *)(iVar2 + 0x18);
+    }
+    else {
+      iVar6 = 0;
+      iVar1 = *DAT_04518d54;
+      piVar10 = DAT_04518d54;
+      while (iVar2 != iVar1) {
+        iVar6 = iVar6 + 1;
+        if (iVar9 == iVar6) goto LAB_0414831d;
+        piVar10 = DAT_04518d54 + iVar6;
+        iVar1 = *piVar10;
+      }
+      *piVar10 = DAT_04518d54[iVar9 + -1];
+      iVar9 = *(int *)(iVar2 + 0x18);
+      DAT_04518d58 = DAT_04518d58 + -4;
+    }
+    if ((iVar9 != 0) && (iVar9 = DAT_04518d64 - (int)DAT_04518d60 >> 2, iVar9 != 0)) {
+      iVar6 = 0;
+      iVar1 = *DAT_04518d60;
+      piVar10 = DAT_04518d60;
+      while (iVar2 != iVar1) {
+        iVar6 = iVar6 + 1;
+        if (iVar9 == iVar6) goto LAB_04148328;
+        piVar10 = DAT_04518d60 + iVar6;
+        iVar1 = *piVar10;
+      }
+      *piVar10 = DAT_04518d60[iVar9 + -1];
+      DAT_04518d64 = DAT_04518d64 + -4;
+    }
+LAB_04148328:
+    pthread_cond_signal(*(pthread_cond_t **)(iVar2 + 0x120));
+    param_2 = param_2 + -1;
+  }
+  goto joined_r0x04148297;
+}
+

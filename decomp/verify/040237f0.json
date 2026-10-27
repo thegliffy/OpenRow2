@@ -1,0 +1,75 @@
+
+/* source: opengl_objects */
+
+undefined4 OpenGLWrapperLinux__Open(int *param_1,int *param_2,undefined4 param_3,int *param_4)
+
+{
+  undefined1 uVar1;
+  char cVar2;
+  uint uVar3;
+  int iVar4;
+  undefined *puVar5;
+  char *pcVar6;
+  uint uVar7;
+  
+  puVar5 = &DAT_04328763;
+  if (DAT_044115ac == '\0') {
+    puVar5 = &DAT_042df3ba;
+  }
+  pcVar6 = "TRUE";
+  if (param_4[5] == 0) {
+    pcVar6 = "FALSE";
+  }
+  FUN_0402cd10(5,
+               "OpenGLWrapperLinux::Open: Window = %p, NeedColorToBeFloat = %s, ColorSize = %d, AlphaSize = %d, DepthSize = %d, StencilSize = %d, %susing OpenGL Core"
+               ,param_3,pcVar6,*param_4,param_4[1],param_4[2],param_4[3],puVar5);
+  if (param_4[5] == 0) {
+    param_1[4] = *param_4;
+    param_1[5] = param_4[1];
+    param_1[6] = param_4[2];
+    param_1[7] = param_4[3];
+    param_1[8] = param_4[4];
+    param_1[9] = param_4[5];
+    uVar1 = FUN_0400cbc0("opengl_debug_output");
+    param_1[3] = (int)param_2;
+    *(undefined1 *)(param_1 + 2) = uVar1;
+    OpenGLWrapperLinux__SetupContextAttributes(param_1);
+    uVar3 = 0x2fff000a;
+    uVar7 = 0x2fff000a;
+    if (param_2 != (int *)0x0) {
+      if (DAT_044115a4 <= *param_2) {
+        FUN_0400a810("display->GetDisplayIndex() < (int32_t)DisplayCount",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/linux/opengl_objects.cpp"
+                     ,0x5f6,
+                     "void OpenGLDisplayWorkArea(OpenGLDisplay*, int32_t*, int32_t*, int32_t*, int32_t*)"
+                    );
+      }
+      uVar7 = param_2[4] + 10U | 0x2fff0000;
+      uVar3 = param_2[5] + 10U | 0x2fff0000;
+    }
+    param_1[0xb] = uVar7;
+    param_1[0xc] = uVar3;
+    cVar2 = (**(code **)(*param_1 + 0x2c))(param_1,param_3);
+    if (cVar2 != '\0') {
+      iVar4 = SDL_GL_CreateContext(param_1[0xd]);
+      param_1[0x11] = iVar4;
+      if (iVar4 != 0) {
+        (**(code **)(*param_1 + 0x24))(param_1);
+        param_1[3] = (int)param_2;
+        return 1;
+      }
+      if ((param_1[10] == 0) && (param_1[0xd] != 0)) {
+        cVar2 = eON_Int_IsMainThread();
+        if (cVar2 == '\0') {
+          ThreadBlocked(FUN_04020010,param_1);
+        }
+        else {
+          SDL_DestroyWindow(param_1[0xd]);
+          param_1[0xd] = 0;
+        }
+      }
+    }
+  }
+  return 0;
+}
+

@@ -1,0 +1,26 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+bool _glewInit_GL_HP_image_transform(void)
+
+{
+  int iVar1;
+  bool bVar2;
+  bool bVar3;
+  bool bVar4;
+  bool bVar5;
+  
+  iVar1 = glXGetProcAddressARB("glGetImageTransformParameterfvHP");
+  _DAT_0451d4c8 = iVar1;
+  _DAT_0451d4c4 = glXGetProcAddressARB("glGetImageTransformParameterivHP");
+  bVar2 = _DAT_0451d4c4 == 0;
+  _DAT_0451d4c0 = glXGetProcAddressARB("glImageTransformParameterfHP");
+  bVar3 = _DAT_0451d4c0 == 0;
+  _DAT_0451d4bc = glXGetProcAddressARB("glImageTransformParameterfvHP");
+  bVar4 = _DAT_0451d4bc == 0;
+  _DAT_0451d4b8 = glXGetProcAddressARB("glImageTransformParameteriHP");
+  bVar5 = _DAT_0451d4b8 == 0;
+  _DAT_0451d4b4 = glXGetProcAddressARB("glImageTransformParameterivHP");
+  return _DAT_0451d4b4 == 0 || (bVar5 || (bVar4 || (bVar3 || (bVar2 || iVar1 == 0))));
+}
+

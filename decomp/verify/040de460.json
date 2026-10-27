@@ -1,0 +1,45 @@
+
+/* source: openGlDebugFunctions */
+
+void openGlDebugFunctions_040de460(int param_1,undefined4 param_2)
+
+{
+  char cVar1;
+  int iVar2;
+  undefined1 *puVar3;
+  char local_40c [1024];
+  
+  iVar2 = eON_Int_GL_NoteCurrentContext();
+  if (iVar2 == 0) {
+    puts("No valid OpenGL context in calling thread!.");
+  }
+  else {
+    if (DAT_044dac80 == 0) {
+      FUN_040d9ba0();
+    }
+    puVar3 = &DAT_044daca0;
+    if (DAT_044daca0 == '\0') {
+      puVar3 = &DAT_04328763;
+    }
+    sprintf(local_40c,"%s%s",puVar3,param_2);
+    FUN_0401a1d0(local_40c);
+    if (param_1 != 0) {
+      cVar1 = (*DAT_0451e654)(param_1);
+      if (cVar1 == '\0') {
+        iVar2 = glGetError();
+        if (iVar2 != 0) {
+          FUN_0400a810("glGetError() == 0",
+                       "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                       ,0xe81,
+                       "void DumpFramebufferContent(OpenGlDebugWriter*, GLint, uint32_t, const char*, DataTypeToReceive, int32_t)"
+                      );
+        }
+        printf("Framebuffer ID %d is not a valid framebuffer ID!\n",param_1);
+        return;
+      }
+    }
+    openGlDebugFunctions_040d2a80(2,param_1 == 0);
+  }
+  return;
+}
+

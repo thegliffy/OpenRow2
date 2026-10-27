@@ -1,0 +1,26 @@
+
+undefined4 eON_GetDriveTypeA(char *param_1)
+
+{
+  int iVar1;
+  ushort **ppuVar2;
+  undefined4 uVar3;
+  
+  uVar3 = 3;
+  iVar1 = strcasecmp(param_1,(char *)&PTR_DAT_0432a43f);
+  if ((iVar1 != 0) && (iVar1 = strcasecmp(param_1,"C:"), iVar1 != 0)) {
+    ppuVar2 = __ctype_b_loc();
+    if (((*(byte *)((int)*ppuVar2 + *param_1 * 2 + 1) & 4) != 0) && (param_1[1] == ':')) {
+      if (param_1[2] == '\0') {
+        return 1;
+      }
+      if ((param_1[2] == '\\') && (param_1[3] == '\0')) {
+        return 1;
+      }
+    }
+    uVar3 = 1;
+    FUN_0402cd10(5,"eON_GetDriveTypeA(\'%s\')",param_1);
+  }
+  return uVar3;
+}
+

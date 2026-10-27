@@ -1,0 +1,47 @@
+
+int eON_SetForegroundWindow(int param_1)
+
+{
+  int iVar1;
+  int iVar2;
+  char cVar3;
+  int in_FS_OFFSET;
+  bool bVar4;
+  
+  if (param_1 == 0x271a) {
+    param_1 = 0;
+  }
+  else if ((param_1 != 0) && (cVar3 = FUN_0404ecd0(param_1), cVar3 == '\0')) {
+    eON_SetLastError(0x578);
+    return DAT_0451c0d8;
+  }
+  iVar1 = DAT_0451c0d8;
+  iVar2 = DAT_0451c0d8;
+  if ((DAT_0451c0d8 != param_1) && (iVar2 = param_1, DAT_0451c0d8 != 0)) {
+    if (DAT_0451c0d8 == 0x271a) {
+      DAT_0451c0d8 = param_1;
+      FUN_0402cd10(10,"Desktop HWND supplied in SendMessageA().");
+      iVar2 = DAT_0451c0d8;
+    }
+    else {
+      bVar4 = DAT_0451c0d8 == 0xffff;
+      DAT_0451c0d8 = param_1;
+      if (bVar4) {
+        FUN_0402cd10(0xf,"HWND_BROADCAST not supported in SendMessageA(). Add it.");
+      }
+      thread_SuspendPoint(*(undefined4 *)(*(int *)(in_FS_OFFSET + 0x18) + 0x130));
+      cVar3 = FUN_0404ecd0(iVar1);
+      if (cVar3 == '\0') {
+        eON_SetLastError(0x578);
+        iVar2 = DAT_0451c0d8;
+      }
+      else {
+        eON_SendMessageA(param_1);
+        iVar2 = DAT_0451c0d8;
+      }
+    }
+  }
+  DAT_0451c0d8 = iVar2;
+  return iVar1;
+}
+

@@ -1,0 +1,66 @@
+
+undefined4 eON_CreateWaitableTimerW(int param_1,undefined4 param_2,int param_3)
+
+{
+  int iVar1;
+  size_t __size;
+  undefined4 uVar2;
+  int iVar3;
+  undefined4 *puVar4;
+  void *pvVar5;
+  undefined1 local_90 [28];
+  undefined4 uStackY_74;
+  undefined4 local_50;
+  undefined4 local_4c;
+  int local_48;
+  undefined4 local_44;
+  undefined4 local_40;
+  undefined4 local_3c;
+  undefined4 local_38;
+  undefined4 local_34;
+  int local_28;
+  undefined4 local_24;
+  undefined4 *local_18;
+  
+  iVar1 = param_3;
+  local_18 = &param_1;
+  puVar4 = &local_50;
+  pvVar5 = (void *)0x0;
+  local_24 = param_2;
+  iVar3 = param_1;
+  if (param_3 != 0) {
+    local_28 = param_1;
+    local_34 = 0;
+    local_38 = 0;
+    local_3c = 0;
+    local_40 = 0;
+    local_44 = 0xffffffff;
+    local_48 = param_3;
+    local_4c = 0;
+    local_50 = 0;
+    __size = eON_WideCharToMultiByte();
+    uStackY_74 = 0x4147c61;
+    pvVar5 = malloc(__size);
+    uStackY_74 = 0x4147c9b;
+    eON_WideCharToMultiByte();
+    puVar4 = (undefined4 *)local_90;
+    iVar3 = local_28;
+  }
+  if (iVar3 != 0) {
+    puVar4[1] = "Non-NULL lpTimerAttributes in CreateWaitableTimerA() - possibly unhandled?";
+    *puVar4 = 10;
+    puVar4[-1] = 0x4147cb9;
+    FUN_0402cd10();
+  }
+  puVar4[1] = pvVar5;
+  *puVar4 = local_24;
+  puVar4[-1] = 0x4147cc8;
+  uVar2 = Synchronisation_CreateWaitableTimer();
+  if (iVar1 != 0) {
+    *puVar4 = pvVar5;
+    puVar4[-1] = 0x4147cd6;
+    free((void *)*puVar4);
+  }
+  return uVar2;
+}
+

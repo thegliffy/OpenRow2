@@ -1,0 +1,186 @@
+
+/* source: direct3ddevice9imp */
+
+undefined4
+Direct3DDevice9Imp__DrawPrimitive(int param_1,undefined4 param_2,undefined4 param_3,int param_4)
+
+{
+  char cVar1;
+  undefined4 uVar2;
+  undefined4 *puVar3;
+  int iVar4;
+  uint uVar5;
+  int *piVar6;
+  uint uVar7;
+  int iVar8;
+  bool bVar9;
+  undefined4 uStack_60;
+  int local_5c [7];
+  int local_40;
+  int local_38;
+  int *local_34;
+  undefined4 local_30;
+  undefined4 local_2c;
+  undefined4 local_28;
+  undefined4 local_24;
+  undefined1 local_1d [13];
+  
+  local_34 = &local_38;
+  piVar6 = local_5c;
+  iVar8 = *(int *)(param_1 + 0xc);
+  local_38 = iVar8;
+  if (iVar8 != 0) {
+    piVar6 = local_5c;
+    if (*(char *)(iVar8 + 0xebbc) != '\0') {
+      local_5c[0] = iVar8 + 0xebc4;
+      uStack_60 = 0x4090d3e;
+      EnterCriticalSection();
+      piVar6 = &uStack_60;
+    }
+    if (*(int *)(iVar8 + 0xec64) == 0) {
+      if (*(int *)(iVar8 + 0xebc0) != 0) {
+        piVar6[3] = (int)"void Direct3DDevice9Imp::MultithreadedGuard_Enter()";
+        piVar6[2] = 0x3ae;
+        piVar6[1] = (int)
+                    "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+        ;
+        *piVar6 = (int)"!mCurrentD3D9Thread";
+        piVar6[-1] = 0x4090c44;
+        FUN_0400a810();
+      }
+      piVar6[-1] = 0x4090abd;
+      uVar2 = FUN_0415b750();
+      *(undefined4 *)(iVar8 + 0xebc0) = uVar2;
+    }
+    else {
+      local_40 = *(int *)(iVar8 + 0xebc0);
+      piVar6[-1] = 0x4090cfe;
+      iVar4 = FUN_0415b750();
+      if (local_40 != iVar4) {
+        piVar6[3] = (int)"void Direct3DDevice9Imp::MultithreadedGuard_Enter()";
+        piVar6[2] = 0x3b3;
+        piVar6[1] = (int)
+                    "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+        ;
+        *piVar6 = (int)"mCurrentD3D9Thread == thread_GetCurrentThreadId()";
+        piVar6[-1] = 0x4090d2b;
+        FUN_0400a810();
+      }
+    }
+    *(int *)(iVar8 + 0xec64) = *(int *)(iVar8 + 0xec64) + 1;
+  }
+  *(undefined1 *)(param_1 + 0x75fa) = 1;
+  if (param_4 == 0) {
+LAB_04090cc6:
+    uVar2 = 0;
+    goto LAB_04090c09;
+  }
+  if (*(int *)(param_1 + 0x52f8) != 0) {
+    piVar6[1] = (int)local_1d;
+    *piVar6 = (int)&local_2c;
+                    /* try { // try from 04090afc to 04090c03 has its CatchHandler @ 04090d5f */
+    piVar6[-1] = 0x4090b01;
+    DeterminePrimitiveType();
+    iVar8 = *(int *)(param_1 + 0x52f8);
+    uVar7 = *(int *)(iVar8 + 0x34) - (int)*(int **)(iVar8 + 0x30) >> 2;
+    if (uVar7 < 2) {
+LAB_04090ba0:
+      if (uVar7 == 0) {
+LAB_04090c50:
+        *piVar6 = param_1;
+        piVar6[2] = (int)&local_24;
+        piVar6[1] = (int)&local_28;
+                    /* try { // try from 04090c61 to 04090ce3 has its CatchHandler @ 04090d5f */
+        piVar6[-1] = 0x4090c66;
+        cVar1 = Direct3DDevice9Imp__SetupRenderPipeline();
+        if (cVar1 != '\0') {
+          *piVar6 = param_1;
+          piVar6[-1] = 0x4090c72;
+          cVar1 = Direct3DDevice9Imp__ApplyColorWriteEnable();
+          uVar2 = 0;
+          if (cVar1 == '\0') goto LAB_04090c09;
+          piVar6[3] = 0x18;
+          piVar6[2] = 1;
+          piVar6[1] = param_1;
+          *piVar6 = param_1 + 0xec00;
+          piVar6[-1] = 0x4090c9a;
+          puVar3 = (undefined4 *)D3D9CommandQueue__GetNextCommandPointer();
+          *puVar3 = local_28;
+          puVar3[1] = local_24;
+          puVar3[2] = param_3;
+          puVar3[3] = local_30;
+          puVar3[4] = local_2c;
+          *(undefined1 *)(puVar3 + 5) = local_1d[0];
+          *piVar6 = param_1 + 0xec00;
+          piVar6[-1] = 0x4090cc6;
+          D3D9CommandQueue__CommandSubmitted();
+          goto LAB_04090cc6;
+        }
+        piVar6[1] = (int)"Couldn\'t set up render pipeline in DrawPrimitive!";
+        *piVar6 = 0xf;
+        piVar6[-1] = 0x4090ce4;
+        FUN_0402cd10();
+        goto LAB_04090c04;
+      }
+    }
+    else {
+      iVar4 = **(int **)(iVar8 + 0x30);
+      if (iVar4 == 0) {
+        bVar9 = (*(byte *)(param_1 + 0xcdb) & 0x40) != 0;
+      }
+      else {
+        bVar9 = SUB41((uint)*(undefined4 *)(param_1 + 0x18 + (iVar4 + 0xcc) * 0x10) >> 0x1f,0);
+      }
+      if (bVar9 != false) {
+        piVar6[3] = (int)
+                    "virtual HRESULT Direct3DDevice9Imp::DrawPrimitive(D3DPRIMITIVETYPE, UINT, UINT)"
+        ;
+        piVar6[2] = 0x2b93;
+        piVar6[1] = (int)
+                    "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+        ;
+        *piVar6 = (int)"!UsingInstancing()";
+        piVar6[-1] = 0x4090b5c;
+        FUN_0400a810();
+        iVar8 = *(int *)(param_1 + 0x52f8);
+        uVar7 = *(int *)(iVar8 + 0x34) - *(int *)(iVar8 + 0x30) >> 2;
+      }
+      if (uVar7 < 0x11) goto LAB_04090ba0;
+      piVar6[3] = (int)
+                  "bool Direct3DDevice9Imp::ValidateStreamSourcesForDraw(INT, ULONG, ULONG, INT)";
+      piVar6[2] = 0x26e8;
+      piVar6[1] = (int)
+                  "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+      ;
+      *piVar6 = (int)"numUsedStreams <= 16";
+      piVar6[-1] = 0x4090b94;
+      FUN_0400a810();
+    }
+    iVar4 = *(int *)(param_1 + 0xc + (**(int **)(iVar8 + 0x30) + 0xcc) * 0x10);
+    if (iVar4 != 0) {
+      uVar5 = 0;
+      cVar1 = *(char *)(iVar4 + 0x5c);
+      while (cVar1 == '\0') {
+        uVar5 = uVar5 + 1;
+        if (uVar5 == uVar7) goto LAB_04090c50;
+        iVar4 = *(int *)(param_1 + 0xc + ((*(int **)(iVar8 + 0x30))[uVar5] + 0xcc) * 0x10);
+        if (iVar4 == 0) break;
+        cVar1 = *(char *)(iVar4 + 0x5c);
+      }
+    }
+    piVar6[2] = iVar4;
+    piVar6[1] = (int)
+                "Game trying to render with invalid vertex buffer ( %p ), returning INVALIDCALL.";
+    *piVar6 = 10;
+    piVar6[-1] = 0x4090c04;
+    FUN_0402cd10();
+  }
+LAB_04090c04:
+  uVar2 = 0x8876086c;
+LAB_04090c09:
+  *piVar6 = (int)&local_34;
+  piVar6[-1] = 0x4090c14;
+  direct3ddevice9imp_040a2df0();
+  return uVar2;
+}
+

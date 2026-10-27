@@ -1,0 +1,18 @@
+
+/* source: AES */
+
+void AES__AES(void)
+
+{
+  if (DAT_04415a20 == '\0') {
+    DAT_04415a20 = FUN_04030d50();
+    if (DAT_04415a20 == '\0') {
+      FUN_0400a810("tablesInitialized",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/vpfs/AES.cpp",0x3b4,
+                   "AES::AES()");
+      return;
+    }
+  }
+  return;
+}
+

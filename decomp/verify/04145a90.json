@@ -1,0 +1,68 @@
+
+undefined4 DispatchQueuedAPC(void)
+
+{
+  int iVar1;
+  int *piVar2;
+  code *pcVar3;
+  int *piVar4;
+  undefined4 uVar5;
+  int in_FS_OFFSET;
+  undefined1 local_1c [16];
+  
+  uVar5 = 0;
+  piVar4 = (int *)local_1c;
+  while( true ) {
+    *piVar4 = (int)&DAT_0451bd4c;
+    piVar4[-1] = 0x4145ae0;
+    pthread_mutex_lock((pthread_mutex_t *)*piVar4);
+    iVar1 = *(int *)(*(int *)(in_FS_OFFSET + 0x18) + 0x130);
+    piVar2 = *(int **)(iVar1 + 0x80);
+    if (piVar2 == (int *)0x0) break;
+    *(int *)(iVar1 + 0x80) = piVar2[5];
+    *piVar4 = (int)&DAT_0451bd4c;
+    piVar4[-1] = 0x4145b0b;
+    pthread_mutex_unlock((pthread_mutex_t *)*piVar4);
+    iVar1 = *piVar2;
+    if (iVar1 == 1) {
+      *piVar4 = piVar2[1];
+      pcVar3 = (code *)piVar2[2];
+      piVar4[-1] = 0x4145b1b;
+      (*pcVar3)();
+      piVar4 = piVar4 + -1;
+    }
+    else if (iVar1 == 2) {
+      piVar4[2] = piVar2[1];
+      piVar4[1] = piVar2[4];
+      *piVar4 = piVar2[3];
+      pcVar3 = (code *)piVar2[2];
+      piVar4[-1] = 0x4145b57;
+      (*pcVar3)();
+      piVar4 = piVar4 + -3;
+    }
+    else if (iVar1 == 0) {
+      piVar4[2] = piVar2[4];
+      piVar4[1] = piVar2[3];
+      *piVar4 = piVar2[1];
+      pcVar3 = (code *)piVar2[2];
+      piVar4[-1] = 0x4145ac4;
+      (*pcVar3)();
+      piVar4 = piVar4 + -3;
+    }
+    else {
+      piVar4[1] = (int)"Unknown APC type; not calling anything!";
+      *piVar4 = 0xf;
+      piVar4[-1] = 0x4145b34;
+      FUN_0402cd10();
+    }
+    *piVar4 = (int)piVar2;
+    uVar5 = 1;
+    piVar4[-1] = 0x4145ad4;
+    free((void *)*piVar4);
+  }
+  *piVar4 = (int)&DAT_0451bd4c;
+  piVar4[-1] = 0x4145b6c;
+  pthread_mutex_unlock((pthread_mutex_t *)*piVar4);
+  return uVar5;
+}
+

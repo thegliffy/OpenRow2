@@ -1,0 +1,46 @@
+
+/* source: opengl_objects */
+
+void OpenGLWrapperLinux__MakeCurrent(int param_1,int param_2)
+
+{
+  int iVar1;
+  int *piVar2;
+  int iVar3;
+  int iVar4;
+  
+  if (param_2 == 0) {
+    iVar4 = SDL_GL_GetCurrentContext();
+    if (iVar4 == 0) {
+      return;
+    }
+  }
+  else {
+    if (param_2 != *(int *)(param_1 + 0x44)) {
+      piVar2 = *(int **)(param_1 + 0x38);
+      iVar4 = *(int *)(param_1 + 0x3c) - (int)piVar2 >> 2;
+      if (iVar4 == 0) {
+LAB_0401fb9c:
+        FUN_0400a810("found",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/linux/opengl_objects.cpp"
+                     ,0xa1a,"virtual void OpenGLWrapperLinux::MakeCurrent(OpenGLContext*)");
+      }
+      else {
+        iVar3 = 0;
+        iVar1 = *piVar2;
+        while (param_2 != iVar1) {
+          iVar3 = iVar3 + 1;
+          if (iVar3 == iVar4) goto LAB_0401fb9c;
+          iVar1 = piVar2[iVar3];
+        }
+      }
+    }
+    iVar4 = SDL_GL_GetCurrentContext();
+    if (param_2 == iVar4) {
+      return;
+    }
+  }
+  SDL_GL_MakeCurrent();
+  return;
+}
+

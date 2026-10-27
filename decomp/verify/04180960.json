@@ -1,0 +1,123 @@
+
+ushort __regparm3 eON_Int_RegisterClassExA_Core(undefined4 *param_1)
+
+{
+  undefined4 *puVar1;
+  void *__dest;
+  undefined4 *__src;
+  ushort uVar2;
+  size_t sVar3;
+  undefined4 *puVar4;
+  undefined4 *puVar5;
+  void *pvVar6;
+  int iVar7;
+  uint uVar8;
+  uint uVar9;
+  size_t sVar10;
+  uint local_48;
+  
+  sVar10 = 0;
+  FUN_0402cd10(5,"            style: %#x",param_1[1]);
+  FUN_0402cd10(5,"      lpfnWndProc: %p",param_1[2]);
+  FUN_0402cd10(5,"       cbClsExtra: %d",param_1[3]);
+  FUN_0402cd10(5,"       cbWndExtra: %d",param_1[4]);
+  FUN_0402cd10(5,"        hInstance: %p",param_1[5]);
+  FUN_0402cd10(5,"            hIcon: %p",param_1[6]);
+  FUN_0402cd10(5,"          hCursor: %p",param_1[7]);
+  FUN_0402cd10(5,"    hbrBackground: %p",param_1[8]);
+  FUN_0402cd10(5,"     lpszMenuName: \'%s\'",param_1[9]);
+  FUN_0402cd10(5,"    lpszClassName: \'%s\'",param_1[10]);
+  FUN_0402cd10(5,"          hIconSm: %p",param_1[0xb]);
+  uVar2 = eON_Atom_Intern(param_1[10]);
+  iVar7 = 0x30;
+  if ((char *)param_1[10] != (char *)0x0) {
+    sVar3 = strlen((char *)param_1[10]);
+    sVar10 = sVar3 + 1;
+    iVar7 = sVar3 + 0x31;
+  }
+  sVar3 = 0;
+  if ((char *)param_1[9] != (char *)0x0) {
+    sVar3 = strlen((char *)param_1[9]);
+    sVar3 = sVar3 + 1;
+  }
+  puVar4 = malloc(iVar7 + sVar3);
+  *puVar4 = *param_1;
+  puVar4[1] = param_1[1];
+  puVar4[2] = param_1[2];
+  puVar4[3] = param_1[3];
+  puVar4[4] = param_1[4];
+  puVar4[5] = param_1[5];
+  puVar4[6] = param_1[6];
+  puVar4[7] = param_1[7];
+  puVar4[8] = param_1[8];
+  puVar4[9] = param_1[9];
+  pvVar6 = (void *)param_1[10];
+  puVar4[10] = pvVar6;
+  puVar4[0xb] = param_1[0xb];
+  if (pvVar6 != (void *)0x0) {
+    memcpy(puVar4 + 0xc,pvVar6,sVar10);
+    puVar4[10] = puVar4 + 0xc;
+  }
+  if ((void *)param_1[9] != (void *)0x0) {
+    pvVar6 = (void *)((int)puVar4 + sVar10 + 0x30);
+    memcpy(pvVar6,(void *)param_1[9],sVar3);
+    puVar4[9] = pvVar6;
+  }
+  puVar5 = DAT_0451c0e0;
+  __src = DAT_0451c0e4;
+  for (uVar9 = (int)DAT_0451c0e0 - (int)DAT_0451c0dc >> 2; DAT_0451c0e0 = puVar5,
+      DAT_0451c0e4 = __src, uVar9 <= uVar2 - 0xc000; uVar9 = uVar9 + 1) {
+    if (__src == puVar5) {
+      local_48 = 1;
+      uVar8 = (int)puVar5 - (int)DAT_0451c0dc >> 2;
+      if ((uVar8 == 0) || ((local_48 = uVar8 * 2, uVar8 <= local_48 && (local_48 < 0x40000000)))) {
+        local_48 = local_48 << 2;
+      }
+      else {
+        local_48 = 0xfffffffc;
+      }
+      pvVar6 = operator_new(local_48);
+      puVar1 = (undefined4 *)((int)pvVar6 + uVar8 * 4);
+      if (puVar1 != (undefined4 *)0x0) {
+        *puVar1 = 0;
+      }
+      sVar10 = 0;
+      iVar7 = (int)puVar5 - (int)DAT_0451c0dc >> 2;
+      if (iVar7 != 0) {
+        sVar10 = iVar7 * 4;
+        memmove(pvVar6,DAT_0451c0dc,sVar10);
+      }
+      __dest = (void *)((int)pvVar6 + sVar10 + 4);
+      sVar10 = 0;
+      iVar7 = (int)DAT_0451c0e0 - (int)puVar5 >> 2;
+      if (iVar7 != 0) {
+        sVar10 = iVar7 * 4;
+        memmove(__dest,__src,sVar10);
+      }
+      puVar5 = (undefined4 *)(sVar10 + (int)__dest);
+      if (DAT_0451c0dc != (void *)0x0) {
+        operator_delete(DAT_0451c0dc);
+      }
+      DAT_0451c0e4 = (undefined4 *)((int)pvVar6 + local_48);
+      DAT_0451c0dc = pvVar6;
+    }
+    else {
+      DAT_0451c0e0 = (undefined4 *)0x0;
+      if (puVar5 != (undefined4 *)0x0) {
+        DAT_0451c0e0 = puVar5;
+        *puVar5 = 0;
+      }
+      puVar5 = DAT_0451c0e0 + 1;
+    }
+    __src = DAT_0451c0e4;
+  }
+  iVar7 = (uVar2 - 0xc000) * 4;
+  puVar5 = (undefined4 *)((int)DAT_0451c0dc + iVar7);
+  if ((void *)*puVar5 != (void *)0x0) {
+    free((void *)*puVar5);
+    puVar5 = (undefined4 *)((int)DAT_0451c0dc + iVar7);
+  }
+  *puVar5 = puVar4;
+  return uVar2;
+}
+

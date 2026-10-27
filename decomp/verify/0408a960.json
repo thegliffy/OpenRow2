@@ -1,0 +1,87 @@
+
+/* source: direct3ddevice9imp */
+
+void Direct3DDevice9Imp__GetCurrentFragmentCompileArgs(int param_1,int param_2)
+
+{
+  int iVar1;
+  undefined2 uVar2;
+  uint uVar3;
+  byte bVar4;
+  byte *pbVar5;
+  int iVar6;
+  
+  iVar6 = 0;
+  do {
+    iVar1 = *(int *)(param_1 + 0xdcc + iVar6 * 4);
+    if (iVar1 == 0) {
+      pbVar5 = (byte *)(param_2 + iVar6);
+      bVar4 = *pbVar5;
+      *pbVar5 = bVar4 & 0xf8 | 1;
+      if (*(char *)(param_1 + 0xeb4c) != '\0') {
+        *pbVar5 = bVar4 & 0xe0 | 1;
+      }
+    }
+    else {
+      uVar3 = (**(code **)(*(int *)(iVar1 + 4) + 0x54))(iVar1 + 4);
+      if ((uVar3 - 0x46 < 0xe) && ((1 << ((byte)(uVar3 - 0x46) & 0x1f) & 0x36abU) != 0)) {
+        if (*(int *)(iVar1 + 0x24) != 3) {
+          if (*(int *)(iVar1 + 0x24) == 5) {
+            *(byte *)(param_2 + iVar6) = *(byte *)(param_2 + iVar6) & 0xf8 | 6;
+            goto LAB_0408a9f7;
+          }
+          FUN_0400a810("false",
+                       "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+                       ,0x2096,
+                       "void Direct3DDevice9Imp::GetCurrentFragmentCompileArgs(FragmentShaderCompileArgs&) const"
+                      );
+        }
+        *(byte *)(param_2 + iVar6) = *(byte *)(param_2 + iVar6) & 0xf8 | 5;
+      }
+      else if (*(int *)(iVar1 + 0x24) == 4) {
+        *(byte *)(param_2 + iVar6) = *(byte *)(param_2 + iVar6) & 0xf8 | 3;
+      }
+      else if (*(int *)(iVar1 + 0x24) == 5) {
+        *(byte *)(param_2 + iVar6) = *(byte *)(param_2 + iVar6) & 0xf8 | 2;
+      }
+      else {
+        *(byte *)(param_2 + iVar6) = *(byte *)(param_2 + iVar6) & 0xf8 | 1;
+      }
+LAB_0408a9f7:
+      if (*(char *)(param_1 + 0xeb4c) != '\0') {
+        bVar4 = *(byte *)(param_2 + iVar6) & 0xe7;
+        if (uVar3 == 0x32) {
+LAB_0408aac2:
+          bVar4 = bVar4 | 0x10;
+        }
+        else if (uVar3 < 0x33) {
+          if (uVar3 == 0x1c) {
+            bVar4 = bVar4 | 8;
+          }
+        }
+        else if (uVar3 == 0x33) {
+          bVar4 = bVar4 | 0x18;
+        }
+        else if (uVar3 == 0x51) goto LAB_0408aac2;
+        *(byte *)(param_2 + iVar6) = bVar4;
+      }
+    }
+    iVar6 = iVar6 + 1;
+    if (iVar6 == 0x10) {
+      *(bool *)(param_2 + 0x10) = *(int *)(param_1 + 0x4c8) != 0;
+      if (*(int *)(param_1 + 0x4c4) == 0) {
+        *(undefined1 *)(param_2 + 0x11) = 0xff;
+      }
+      else {
+        *(char *)(param_2 + 0x11) = (char)*(undefined4 *)(param_1 + 0x4e0);
+      }
+      uVar2 = 0;
+      if ((*(char *)(param_1 + 0xeb51) != '\0') && (*(int *)(param_1 + 0x490) != 0)) {
+        uVar2 = *(undefined2 *)(param_1 + 0x75b8);
+      }
+      *(undefined2 *)(param_2 + 0x12) = uVar2;
+      return;
+    }
+  } while( true );
+}
+

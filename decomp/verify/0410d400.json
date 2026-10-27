@@ -1,0 +1,116 @@
+
+/* WARNING: Type propagation algorithm not settling */
+/* source: xaudio2voiceimpl */
+
+void xaudio2voiceimpl_0410d400(undefined4 *param_1)
+
+{
+  int iVar1;
+  code *pcVar2;
+  int *piVar3;
+  int *piVar4;
+  int *piVar5;
+  int *piVar6;
+  int local_30 [8];
+  
+  piVar3 = local_30 + 1;
+  piVar6 = local_30 + 1;
+  piVar4 = (int *)param_1[0x42];
+  *param_1 = &PTR_xaudio2voiceimpl_0410d400_04311628;
+  piVar5 = (int *)param_1[0x43];
+  if (piVar4 != piVar5) {
+    do {
+      piVar3 = (int *)*piVar4;
+      if (piVar3 == (int *)0x0) {
+        piVar6[3] = (int)"void XAudio2VoiceImp::DeleteEffectChain()";
+        piVar6[2] = 0x219;
+        piVar6[1] = (int)
+                    "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/xaudio2_full/xaudio2voiceimpl.cpp"
+        ;
+        *piVar6 = (int)"effect.pEffect";
+        piVar6[-1] = 0x410d584;
+        FUN_0400a810();
+        piVar3 = (int *)*piVar4;
+      }
+      iVar1 = *piVar3;
+      *piVar6 = (int)piVar3;
+                    /* try { // try from 0410d437 to 0410d583 has its CatchHandler @ 0410d598 */
+      pcVar2 = *(code **)(iVar1 + 8);
+      piVar6[-1] = 0x410d43a;
+      (*pcVar2)();
+      piVar4 = piVar4 + 3;
+      piVar3 = piVar6 + -1;
+      piVar6 = piVar6 + -1;
+    } while (piVar5 != piVar4);
+    piVar4 = (int *)param_1[0x42];
+  }
+  iVar1 = param_1[0x45];
+  param_1[0x43] = piVar4;
+  param_1[0x47] = iVar1;
+  param_1[0x48] = param_1[0x46];
+  if (iVar1 != 0) {
+    *piVar3 = iVar1;
+    piVar3[-1] = 0x410d474;
+    operator_delete((void *)*piVar3);
+    piVar4 = (int *)param_1[0x42];
+  }
+  if (piVar4 != (int *)0x0) {
+    *piVar3 = (int)piVar4;
+    piVar3[-1] = 0x410d486;
+    operator_delete((void *)*piVar3);
+  }
+  piVar3[1] = param_1[0x3e];
+  *piVar3 = (int)(param_1 + 0x3c);
+  piVar3[-1] = 0x410d49e;
+  FUN_0410f360();
+  if (param_1[0x39] != 0) {
+    *piVar3 = param_1[0x39];
+    piVar3[-1] = 0x410d4b0;
+    operator_delete((void *)*piVar3);
+  }
+  piVar4 = (int *)param_1[0x34];
+  piVar5 = (int *)param_1[0x33];
+  if (piVar4 != piVar5) {
+    do {
+      if (*piVar5 != 0) {
+        *piVar3 = *piVar5;
+        piVar3[-1] = 0x410d4ce;
+        free((void *)*piVar3);
+      }
+      piVar5 = piVar5 + 3;
+    } while (piVar4 != piVar5);
+    piVar5 = (int *)param_1[0x33];
+  }
+  if (piVar5 != (int *)0x0) {
+    *piVar3 = (int)piVar5;
+    piVar3[-1] = 0x410d4e7;
+    operator_delete((void *)*piVar3);
+  }
+  piVar3[1] = param_1[0x26];
+  *piVar3 = (int)(param_1 + 0x24);
+  piVar3[-1] = 0x410d4ff;
+  FUN_0410f180();
+  piVar3[1] = param_1[0x20];
+  *piVar3 = (int)(param_1 + 0x1e);
+  piVar3[-1] = 0x410d514;
+  FUN_0410ef40();
+  if (param_1[0x1b] != 0) {
+    *piVar3 = param_1[0x1b];
+    piVar3[-1] = 0x410d523;
+    operator_delete((void *)*piVar3);
+  }
+  piVar3[1] = param_1[0x11];
+  *piVar3 = (int)(param_1 + 0xf);
+  piVar3[-1] = 0x410d535;
+  FUN_0410f180();
+  piVar3[1] = param_1[0xb];
+  *piVar3 = (int)(param_1 + 9);
+  piVar3[-1] = 0x410d547;
+  FUN_0410ef40();
+  if ((void *)param_1[6] == (void *)0x0) {
+    return;
+  }
+  operator_delete((void *)param_1[6]);
+  return;
+}
+

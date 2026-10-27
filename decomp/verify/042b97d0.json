@@ -1,0 +1,264 @@
+
+void png_combine_row(int param_1,void *param_2,int param_3)
+
+{
+  byte bVar1;
+  byte bVar2;
+  char cVar3;
+  undefined2 uVar4;
+  undefined4 uVar5;
+  uint uVar6;
+  undefined *puVar7;
+  int iVar8;
+  uint uVar9;
+  int iVar10;
+  size_t __n;
+  uint uVar11;
+  undefined4 *__dest;
+  undefined4 *__src;
+  uint uVar12;
+  byte *pbVar13;
+  uint uVar14;
+  byte local_30;
+  byte local_29;
+  
+  bVar1 = *(byte *)(param_1 + 0x1bb);
+  uVar11 = (uint)bVar1;
+  iVar8 = *(int *)(param_1 + 0x180);
+  bVar2 = *(byte *)(param_1 + 0x1b1);
+  uVar12 = *(uint *)(param_1 + 0x15c);
+  if (uVar11 == 0) {
+                    /* WARNING: Subroutine does not return */
+    png_error(param_1,"internal row logic error");
+  }
+  if (*(uint *)(param_1 + 0x194) != 0) {
+    if (uVar11 < 8) {
+      uVar9 = uVar11 * uVar12 + 7 >> 3;
+    }
+    else {
+      uVar9 = (bVar1 >> 3) * uVar12;
+    }
+    if (uVar9 != *(uint *)(param_1 + 0x194)) {
+                    /* WARNING: Subroutine does not return */
+      png_error(param_1,"internal row size calculation error");
+    }
+  }
+  if (uVar12 == 0) {
+                    /* WARNING: Subroutine does not return */
+    png_error(param_1,"internal row width error");
+  }
+  pbVar13 = (byte *)0x0;
+  uVar9 = uVar11 * uVar12;
+  local_29 = 0;
+  local_30 = (byte)(uVar9 & 7);
+  if ((uVar9 & 7) == 0) {
+LAB_042b9883:
+    cVar3 = *(char *)(param_1 + 0x1b0);
+  }
+  else {
+    if (uVar11 < 8) {
+      uVar14 = uVar9 + 7 >> 3;
+    }
+    else {
+      uVar14 = (bVar1 >> 3) * uVar12;
+    }
+    pbVar13 = (byte *)((uVar14 - 1) + (int)param_2);
+    local_29 = *pbVar13;
+    if ((*(byte *)(param_1 + 0xda) & 1) != 0) {
+      local_30 = (byte)(0xff << local_30);
+      goto LAB_042b9883;
+    }
+    local_30 = (byte)(0xff >> local_30);
+    cVar3 = *(char *)(param_1 + 0x1b0);
+  }
+  if (cVar3 != '\0') {
+    uVar14 = (uint)bVar2;
+    if (((uVar14 < 6) && ((*(uint *)(param_1 + 0xd8) & 2) != 0)) &&
+       ((param_3 == 0 || ((param_3 == 1 && ((bVar2 & 1) != 0)))))) {
+      uVar9 = (uVar14 & 1) << (3U - (char)(uVar14 + 1 >> 1) & 0x1f) & 7;
+      if (uVar12 <= uVar9) {
+        return;
+      }
+      if (7 < uVar11) {
+        if ((bVar1 & 7) != 0) {
+                    /* WARNING: Subroutine does not return */
+          png_error(param_1,"invalid user transform pixel depth");
+        }
+        uVar6 = (uint)(bVar1 >> 3);
+        iVar10 = uVar9 * uVar6;
+        __dest = (undefined4 *)((int)param_2 + iVar10);
+        __src = (undefined4 *)(iVar8 + 1 + iVar10);
+        uVar12 = uVar12 * uVar6 - iVar10;
+        uVar11 = uVar6;
+        if ((param_3 != 0) && (uVar11 = uVar6 << ((byte)(6 - uVar14 >> 1) & 0x1f), uVar12 <= uVar11)
+           ) {
+          uVar11 = uVar12;
+        }
+        uVar6 = uVar6 << ((byte)(7 - uVar14 >> 1) & 0x1f);
+        if (uVar11 == 2) {
+          do {
+            *(undefined1 *)__dest = *(undefined1 *)__src;
+            *(undefined1 *)((int)__dest + 1) = *(undefined1 *)((int)__src + 1);
+            if (uVar12 <= uVar6) {
+              return;
+            }
+            uVar12 = uVar12 - uVar6;
+            __src = (undefined4 *)((int)__src + uVar6);
+            __dest = (undefined4 *)((int)__dest + uVar6);
+          } while (1 < uVar12);
+          *(undefined1 *)__dest = *(undefined1 *)__src;
+          return;
+        }
+        if (uVar11 == 3) {
+          *(undefined1 *)__dest = *(undefined1 *)__src;
+          *(undefined1 *)((int)__dest + 1) = *(undefined1 *)((int)__src + 1);
+          *(undefined1 *)((int)__dest + 2) = *(undefined1 *)((int)__src + 2);
+          for (; uVar6 < uVar12; uVar12 = uVar12 - uVar6) {
+            __src = (undefined4 *)((int)__src + uVar6);
+            __dest = (undefined4 *)((int)__dest + uVar6);
+            *(undefined1 *)__dest = *(undefined1 *)__src;
+            *(undefined1 *)((int)__dest + 1) = *(undefined1 *)((int)__src + 1);
+            *(undefined1 *)((int)__dest + 2) = *(undefined1 *)((int)__src + 2);
+          }
+          return;
+        }
+        if (uVar11 == 1) {
+          *(undefined1 *)__dest = *(undefined1 *)__src;
+          if (uVar6 < uVar12) {
+            iVar8 = 0;
+            do {
+              uVar12 = uVar12 - uVar6;
+              *(undefined1 *)((int)__dest + iVar8 + uVar6) =
+                   *(undefined1 *)((int)__src + iVar8 + uVar6);
+              iVar8 = iVar8 + uVar6;
+            } while (uVar6 < uVar12);
+            return;
+          }
+          return;
+        }
+        if ((((0xf < uVar11) || (((uint)__dest & 1) != 0)) || (((uint)__src & 1) != 0)) ||
+           (((uVar11 & 1) != 0 || ((uVar6 & 1) != 0)))) {
+          while (memcpy(__dest,__src,uVar11), uVar6 < uVar12) {
+            uVar12 = uVar12 - uVar6;
+            __src = (undefined4 *)((int)__src + uVar6);
+            __dest = (undefined4 *)((int)__dest + uVar6);
+            if (uVar12 < uVar11) {
+              uVar11 = uVar12;
+            }
+          }
+          return;
+        }
+        if (((((uint)__dest & 3) == 0) && (((uint)__src & 3) == 0)) &&
+           (((uVar11 & 3) == 0 && ((uVar6 & 3) == 0)))) {
+          uVar14 = uVar6 - uVar11 & 0xfffffffc;
+          uVar9 = uVar11;
+          while( true ) {
+            do {
+              uVar5 = *__src;
+              __src = __src + 1;
+              *__dest = uVar5;
+              __dest = __dest + 1;
+              uVar9 = uVar9 - 4;
+            } while (uVar9 != 0);
+            if (uVar12 <= uVar6) break;
+            uVar12 = uVar12 - uVar6;
+            __dest = (undefined4 *)((int)__dest + uVar14);
+            __src = (undefined4 *)((int)__src + uVar14);
+            uVar9 = uVar11;
+            if (uVar12 < uVar11) {
+              uVar11 = 0;
+              do {
+                *(undefined1 *)((int)__dest + uVar11) = *(undefined1 *)((int)__src + uVar11);
+                uVar11 = uVar11 + 1;
+              } while (uVar11 != uVar12);
+              return;
+            }
+          }
+          return;
+        }
+        uVar14 = uVar6 - uVar11 & 0xfffffffe;
+        uVar9 = uVar11;
+        while( true ) {
+          do {
+            uVar4 = *(undefined2 *)__src;
+            __src = (undefined4 *)((int)__src + 2);
+            *(undefined2 *)__dest = uVar4;
+            __dest = (undefined4 *)((int)__dest + 2);
+            uVar9 = uVar9 - 2;
+          } while (uVar9 != 0);
+          if (uVar12 <= uVar6) break;
+          uVar12 = uVar12 - uVar6;
+          __dest = (undefined4 *)((int)__dest + uVar14);
+          __src = (undefined4 *)((int)__src + uVar14);
+          uVar9 = uVar11;
+          if (uVar12 < uVar11) {
+            uVar11 = 0;
+            do {
+              *(undefined1 *)((int)__dest + uVar11) = *(undefined1 *)((int)__src + uVar11);
+              uVar11 = uVar11 + 1;
+            } while (uVar12 != uVar11);
+            return;
+          }
+        }
+        return;
+      }
+      uVar9 = (uint)(8 / (ulonglong)uVar11);
+      iVar10 = 0;
+      if ((*(uint *)(param_1 + 0xd8) & 0x10000) == 0) {
+        if (param_3 == 0) {
+          if (uVar11 != 1) {
+            iVar10 = (uVar11 != 2) + 1;
+          }
+          puVar7 = (&PTR_DAT_0439ae20)[uVar14 + 0x12 + iVar10 * 6];
+        }
+        else {
+          if (uVar11 != 1) {
+            iVar10 = (uVar11 != 2) + 1;
+          }
+          puVar7 = *(undefined **)(&DAT_0439adc0 + ((bVar2 >> 1) + 9 + iVar10 * 3) * 4);
+        }
+      }
+      else if (param_3 == 0) {
+        if (uVar11 != 1) {
+          iVar10 = (uVar11 != 2) + 1;
+        }
+        puVar7 = (&PTR_DAT_0439ae20)[uVar14 + iVar10 * 6];
+      }
+      else {
+        if (uVar11 != 1) {
+          iVar10 = (uVar11 != 2) + 1;
+        }
+        puVar7 = *(undefined **)(&DAT_0439adc0 + (iVar10 * 3 + (uint)(bVar2 >> 1)) * 4);
+      }
+      iVar10 = 0;
+      while( true ) {
+        if (((uint)puVar7 & 0xff) != 0) {
+          if (((uint)puVar7 & 0xff) == 0xff) {
+            *(undefined1 *)((int)param_2 + iVar10) = *(undefined1 *)(iVar8 + 1 + iVar10);
+          }
+          else {
+            *(byte *)((int)param_2 + iVar10) =
+                 ~(byte)puVar7 & *(byte *)((int)param_2 + iVar10) |
+                 (byte)puVar7 & *(byte *)(iVar8 + 1 + iVar10);
+          }
+        }
+        iVar10 = iVar10 + 1;
+        if (uVar12 <= uVar9) break;
+        uVar12 = uVar12 - uVar9;
+        puVar7 = (undefined *)((uint)puVar7 >> 8 | (int)puVar7 << 0x18);
+      }
+      goto LAB_042b9a2f;
+    }
+  }
+  __n = uVar9 + 7 >> 3;
+  if (7 < uVar11) {
+    __n = (bVar1 >> 3) * uVar12;
+  }
+  memcpy(param_2,(void *)(iVar8 + 1),__n);
+LAB_042b9a2f:
+  if (pbVar13 != (byte *)0x0) {
+    *pbVar13 = ~local_30 & *pbVar13 | local_30 & local_29;
+  }
+  return;
+}
+

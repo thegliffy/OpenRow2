@@ -1,0 +1,506 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+/* WARNING: Restarted to delay deadcode elimination for space: stack */
+/* source: ImageScaling */
+
+void InterpolateRGB(int param_1,uint param_2,uint param_3,undefined1 *param_4,uint param_5,
+                   uint param_6,uint param_7,int param_8,int param_9)
+
+{
+  int *piVar1;
+  int *piVar2;
+  int *piVar3;
+  int iVar4;
+  uint3 uVar5;
+  uint3 uVar6;
+  uint3 uVar7;
+  uint3 uVar8;
+  undefined3 uVar9;
+  float fVar10;
+  int *piVar11;
+  int *__ptr;
+  int iVar12;
+  int iVar13;
+  void *__ptr_00;
+  int iVar14;
+  uint3 *puVar15;
+  int *piVar16;
+  int iVar17;
+  undefined1 *puVar18;
+  int iVar19;
+  uint uVar20;
+  float fVar21;
+  float fVar22;
+  float fVar23;
+  float fVar24;
+  float fVar25;
+  float fVar26;
+  float fVar27;
+  float fVar28;
+  float fVar29;
+  undefined1 *local_bc;
+  uint local_b0;
+  undefined1 *local_68;
+  uint local_64;
+  uint local_58;
+  int *local_54;
+  undefined1 *local_50;
+  int local_44;
+  int *local_40;
+  uint local_3c;
+  uint3 *local_38;
+  uint3 *local_34;
+  undefined1 *local_30;
+  undefined1 local_20;
+  undefined1 uStack_1f;
+  undefined1 uStack_1e;
+  
+  if ((param_7 & 0x600000) != 0) {
+    FUN_0402cd10(10,"D3DX_FILTER_SRGB_IN and D3DX_FILTER_SRGB_OUT not implemented! Add them.");
+  }
+  param_7 = param_7 & 0xffff;
+  if (param_7 == 0) {
+    FUN_0400a810("filterMethod != 0",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/ImageScaling.cpp",0x1de,
+                 "void ScaleImage24(const uint32_t*, uint32_t, uint32_t, uint32_t*, uint32_t, uint32_t, uint32_t, uint32_t, uint32_t)"
+                );
+LAB_04012fb7:
+    FUN_0400a810();
+    return;
+  }
+  if (param_7 == 3) {
+    piVar11 = (int *)FUN_04010fd0();
+    __ptr = (int *)FUN_04010fd0();
+    if (param_6 != 0) {
+      local_50 = param_4;
+      local_54 = (int *)0x0;
+      local_40 = __ptr;
+      do {
+        fVar24 = _DAT_042dbf50;
+        fVar10 = DAT_042dbf3c;
+        iVar12 = param_8 * *local_40 + param_1;
+        iVar13 = param_8 * local_40[1] + param_1;
+        if (param_5 != 0) {
+          local_34 = (uint3 *)local_50;
+          piVar16 = piVar11;
+          do {
+            uVar5 = *(uint3 *)(iVar12 + *piVar16 * 3);
+            uVar6 = *(uint3 *)(iVar12 + piVar16[1] * 3);
+            uVar7 = *(uint3 *)(*piVar16 * 3 + iVar13);
+            fVar26 = (float)piVar16[2];
+            uVar8 = *(uint3 *)(piVar16[1] * 3 + iVar13);
+            if (fVar26 < 0.0) {
+              FUN_0400a810("factor >= 0.f",
+                           "/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/ImageScaling.cpp"
+                           ,0x75,"uint32_t InterpolateRGB(uint32_t, uint32_t, float)");
+            }
+            if (fVar10 < fVar26) {
+              FUN_0400a810("factor <= 1.f",
+                           "/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/ImageScaling.cpp"
+                           ,0x76,"uint32_t InterpolateRGB(uint32_t, uint32_t, float)");
+            }
+            fVar23 = fVar10 - fVar26;
+            fVar21 = (float)(uVar5 >> 8 & 0xff) * fVar23 + (float)((uVar6 & 0xff00) >> 8) * fVar26;
+            fVar22 = (float)(uVar5 >> 0x10) * fVar23 + (float)(uVar6 >> 0x10) * fVar26;
+            fVar23 = (float)(uVar5 & 0xff) * fVar23 + (float)(uVar6 & 0xff) * fVar26;
+            fVar26 = (float)piVar16[2];
+            if (fVar26 < 0.0) {
+              FUN_0400a810("factor >= 0.f",
+                           "/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/ImageScaling.cpp"
+                           ,0x75,"uint32_t InterpolateRGB(uint32_t, uint32_t, float)");
+            }
+            if (fVar10 < fVar26) {
+              FUN_0400a810("factor <= 1.f",
+                           "/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/ImageScaling.cpp"
+                           ,0x76,"uint32_t InterpolateRGB(uint32_t, uint32_t, float)");
+            }
+            fVar25 = fVar10 - fVar26;
+            fVar27 = (float)((uVar7 & 0xff00) >> 8) * fVar25 +
+                     (float)((uVar8 & 0xff00) >> 8) * fVar26;
+            fVar29 = (float)(uVar7 >> 0x10) * fVar25 + (float)(uVar8 >> 0x10) * fVar26;
+            fVar25 = (float)(uVar7 & 0xff) * fVar25 + (float)(uVar8 & 0xff) * fVar26;
+            fVar26 = (float)local_40[2];
+            if (fVar26 < 0.0) {
+              FUN_0400a810("factor >= 0.f",
+                           "/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/ImageScaling.cpp"
+                           ,0x75,"uint32_t InterpolateRGB(uint32_t, uint32_t, float)");
+            }
+            if (fVar10 < fVar26) {
+              FUN_0400a810("factor <= 1.f",
+                           "/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/ImageScaling.cpp"
+                           ,0x76,"uint32_t InterpolateRGB(uint32_t, uint32_t, float)");
+            }
+            fVar28 = fVar10 - fVar26;
+            piVar16 = piVar16 + 4;
+            fVar21 = (float)((int)(fVar21 - (float)((uint)fVar24 & -(uint)(fVar24 <= fVar21))) &
+                            0xff) * fVar28 +
+                     (float)((int)(fVar27 - (float)((uint)fVar24 & -(uint)(fVar24 <= fVar27))) &
+                            0xff) * fVar26;
+            fVar22 = (float)((int)(fVar22 - (float)((uint)fVar24 & -(uint)(fVar24 <= fVar22))) &
+                            0xff) * fVar28 +
+                     (float)((int)(fVar29 - (float)((uint)fVar24 & -(uint)(fVar24 <= fVar29))) &
+                            0xff) * fVar26;
+            fVar26 = (float)((int)(fVar23 - (float)((uint)fVar24 & -(uint)(fVar24 <= fVar23))) &
+                            0xff) * fVar28 +
+                     (float)((int)(fVar25 - (float)((uint)fVar24 & -(uint)(fVar24 <= fVar25))) &
+                            0xff) * fVar26;
+            local_20 = (undefined1)(int)(fVar26 - (float)((uint)fVar24 & -(uint)(fVar24 <= fVar26)))
+            ;
+            *(undefined1 *)local_34 = local_20;
+            uStack_1f = (undefined1)
+                        (int)(fVar21 - (float)((uint)fVar24 & -(uint)(fVar24 <= fVar21)));
+            *(undefined1 *)((int)local_34 + 1) = uStack_1f;
+            uStack_1e = (undefined1)
+                        (int)(fVar22 - (float)((uint)fVar24 & -(uint)(fVar24 <= fVar22)));
+            *(undefined1 *)((int)local_34 + 2) = uStack_1e;
+            local_34 = (uint3 *)((int)local_34 + 3);
+          } while (local_34 != (uint3 *)(local_50 + param_5 * 3));
+        }
+        local_54 = (int *)((int)local_54 + 1);
+        local_40 = local_40 + 4;
+        local_50 = local_50 + param_9;
+      } while (local_54 != (int *)param_6);
+    }
+    free(piVar11);
+  }
+  else if (param_7 < 4) {
+    if (param_7 != 2) goto LAB_04012fb7;
+    __ptr_00 = (void *)FUN_04010fd0();
+    __ptr = (int *)FUN_04010fd0();
+    if (param_6 != 0) {
+      local_30 = param_4;
+      local_3c = 0;
+      local_38 = (uint3 *)__ptr;
+      do {
+        iVar12 = *(int *)(local_38 + 3);
+        if (param_5 != 0) {
+          puVar18 = local_30;
+          local_50 = __ptr_00;
+          do {
+            uVar9 = *(undefined3 *)(*(int *)((int)local_50 + 0xc) * 3 + param_8 * iVar12 + param_1);
+            local_20 = (undefined1)uVar9;
+            *puVar18 = local_20;
+            uStack_1f = (undefined1)((uint3)uVar9 >> 8);
+            puVar18[1] = uStack_1f;
+            uStack_1e = (undefined1)((uint3)uVar9 >> 0x10);
+            puVar18[2] = uStack_1e;
+            puVar18 = puVar18 + 3;
+            local_50 = (void *)((int)local_50 + 0x10);
+          } while (puVar18 != local_30 + param_5 * 3);
+        }
+        local_3c = local_3c + 1;
+        local_38 = local_38 + 4;
+        local_30 = local_30 + param_9;
+      } while (local_3c != param_6);
+    }
+    free(__ptr_00);
+  }
+  else if (param_7 == 4) {
+    piVar11 = malloc(param_5 * 8 + 8);
+    fVar10 = DAT_042dbf34;
+    uVar20 = 0;
+    fVar26 = (float)(param_2 >> 0x10) * DAT_042dbf34;
+    fVar24 = (float)(param_5 >> 0x10) * DAT_042dbf34;
+    do {
+      fVar21 = ((float)(uVar20 >> 0x10) * fVar10 + (float)(uVar20 & 0xffff)) *
+               ((fVar26 + (float)(param_2 & 0xffff)) / (fVar24 + (float)(param_5 & 0xffff)));
+      fVar22 = floorf(fVar21);
+      piVar11[uVar20 * 2] = (int)fVar22;
+      piVar11[uVar20 * 2 + 1] = (int)(fVar21 - (float)(int)fVar22);
+      uVar20 = uVar20 + 1;
+    } while (uVar20 <= param_5);
+    uVar20 = 0;
+    __ptr = malloc(param_6 * 8 + 8);
+    fVar26 = (float)(param_3 >> 0x10) * DAT_042dbf34;
+    fVar24 = (float)(param_6 >> 0x10) * DAT_042dbf34;
+    do {
+      fVar21 = ((float)(uVar20 >> 0x10) * fVar10 + (float)(uVar20 & 0xffff)) *
+               ((fVar26 + (float)(param_3 & 0xffff)) / (fVar24 + (float)(param_6 & 0xffff)));
+      fVar22 = floorf(fVar21);
+      __ptr[uVar20 * 2] = (int)fVar22;
+      __ptr[uVar20 * 2 + 1] = (int)(fVar21 - (float)(int)fVar22);
+      fVar21 = DAT_042dbf3c;
+      uVar20 = uVar20 + 1;
+    } while (uVar20 <= param_6);
+    if (param_6 != 0) {
+      local_bc = param_4;
+      local_b0 = 0;
+      do {
+        fVar24 = _DAT_042dbf50;
+        uVar20 = local_b0 + 1;
+        piVar16 = __ptr + local_b0 * 2;
+        piVar1 = __ptr + uVar20 * 2;
+        if (param_5 != 0) {
+          local_64 = 0;
+          iVar12 = *piVar16;
+          iVar13 = *piVar1;
+          local_44 = *piVar11;
+          local_68 = local_bc;
+          iVar19 = iVar12 + 1;
+          iVar14 = param_8 * iVar12 + param_1;
+          do {
+            piVar2 = piVar11 + local_64 * 2;
+            local_64 = local_64 + 1;
+            piVar3 = piVar11 + local_64 * 2;
+            if (iVar12 == iVar13) {
+              iVar4 = *piVar3;
+              fVar26 = (float)piVar1[1] - (float)piVar16[1];
+              if (iVar4 == local_44) {
+                fVar26 = ((float)piVar3[1] - (float)piVar2[1]) * fVar26;
+                fVar22 = fVar26 + 0.0;
+                uVar5 = *(uint3 *)(local_44 * 3 + iVar14);
+                fVar23 = (fVar10 * 0.0 + (float)(uVar5 & 0xff)) * fVar26 + 0.0;
+                fVar27 = (fVar10 * 0.0 + (float)((uVar5 & 0xff00) >> 8)) * fVar26 + 0.0;
+                fVar29 = (fVar10 * 0.0 + (float)(uVar5 >> 0x10)) * fVar26 + 0.0;
+                iVar4 = local_44;
+              }
+              else {
+                fVar29 = (DAT_042dbf3c - (float)piVar2[1]) * fVar26;
+                fVar22 = fVar29 + 0.0;
+                uVar5 = *(uint3 *)(local_44 * 3 + iVar14);
+                local_44 = local_44 + 1;
+                fVar23 = (fVar10 * 0.0 + (float)(uVar5 & 0xff)) * fVar29 + 0.0;
+                fVar27 = (fVar10 * 0.0 + (float)((uVar5 & 0xff00) >> 8)) * fVar29 + 0.0;
+                fVar29 = (fVar10 * 0.0 + (float)(uVar5 >> 0x10)) * fVar29 + 0.0;
+                if (local_44 < iVar4) {
+                  puVar15 = (uint3 *)(local_44 * 3 + iVar14);
+                  local_34 = (uint3 *)fVar29;
+                  do {
+                    local_44 = local_44 + 1;
+                    fVar22 = fVar22 + fVar26;
+                    uVar5 = *puVar15;
+                    puVar15 = (uint3 *)((int)puVar15 + 3);
+                    fVar23 = fVar23 + (fVar10 * 0.0 + (float)(uVar5 & 0xff)) * fVar26;
+                    fVar27 = fVar27 + (fVar10 * 0.0 + (float)((uVar5 & 0xff00) >> 8)) * fVar26;
+                    fVar29 = (fVar10 * 0.0 + (float)(uVar5 >> 0x10)) * fVar26 + (float)local_34;
+                    local_34 = (uint3 *)fVar29;
+                  } while (local_44 < iVar4);
+                }
+                if (iVar4 < (int)param_2) {
+                  local_30 = (undefined1 *)(fVar26 * (float)piVar3[1]);
+                  fVar22 = fVar22 + (float)local_30;
+                  uVar5 = *(uint3 *)(iVar4 * 3 + iVar14);
+                  fVar23 = fVar23 + (fVar10 * 0.0 + (float)(uVar5 & 0xff)) * (float)local_30;
+                  fVar27 = fVar27 + (fVar10 * 0.0 + (float)((uVar5 & 0xff00) >> 8)) *
+                                    (float)local_30;
+                  local_44 = iVar4;
+LAB_04013c47:
+                  fVar29 = fVar29 + (fVar10 * 0.0 + (float)(uVar5 >> 0x10)) * (float)local_30;
+                  iVar4 = local_44;
+                }
+              }
+            }
+            else {
+              fVar25 = fVar21 - (float)piVar16[1];
+              fVar26 = (float)piVar2[1];
+              iVar4 = *piVar3;
+              if (iVar4 == local_44) {
+                fVar25 = ((float)piVar3[1] - fVar26) * fVar25;
+                fVar22 = fVar25 + 0.0;
+                uVar5 = *(uint3 *)(iVar14 + local_44 * 3);
+                fVar23 = (fVar10 * 0.0 + (float)(uVar5 & 0xff)) * fVar25 + 0.0;
+                fVar27 = (fVar10 * 0.0 + (float)((uVar5 & 0xff00) >> 8)) * fVar25 + 0.0;
+                fVar29 = (fVar10 * 0.0 + (float)(uVar5 >> 0x10)) * fVar25 + 0.0;
+              }
+              else {
+                fVar29 = (fVar21 - fVar26) * fVar25;
+                fVar22 = fVar29 + 0.0;
+                uVar5 = *(uint3 *)(iVar14 + local_44 * 3);
+                fVar23 = (fVar10 * 0.0 + (float)(uVar5 & 0xff)) * fVar29 + 0.0;
+                iVar17 = *piVar2 + 1;
+                fVar27 = (fVar10 * 0.0 + (float)((uVar5 & 0xff00) >> 8)) * fVar29 + 0.0;
+                fVar29 = (fVar10 * 0.0 + (float)(uVar5 >> 0x10)) * fVar29 + 0.0;
+                if (iVar17 < iVar4) {
+                  puVar15 = (uint3 *)(iVar17 * 3 + iVar14);
+                  local_34 = (uint3 *)fVar29;
+                  do {
+                    iVar17 = iVar17 + 1;
+                    fVar22 = fVar22 + fVar25;
+                    uVar5 = *puVar15;
+                    puVar15 = (uint3 *)((int)puVar15 + 3);
+                    fVar23 = fVar23 + (fVar10 * 0.0 + (float)(uVar5 & 0xff)) * fVar25;
+                    fVar27 = fVar27 + (fVar10 * 0.0 + (float)((uVar5 & 0xff00) >> 8)) * fVar25;
+                    fVar29 = (fVar10 * 0.0 + (float)(uVar5 >> 0x10)) * fVar25 + (float)local_34;
+                    local_34 = (uint3 *)fVar29;
+                  } while (iVar17 < iVar4);
+                }
+                if (iVar4 < (int)param_2) {
+                  uVar5 = *(uint3 *)(iVar4 * 3 + iVar14);
+                  fVar25 = fVar25 * (float)piVar3[1];
+                  fVar22 = fVar22 + fVar25;
+                  fVar23 = fVar23 + (fVar10 * 0.0 + (float)(uVar5 & 0xff)) * fVar25;
+                  fVar27 = fVar27 + (fVar10 * 0.0 + (float)((uVar5 & 0xff00) >> 8)) * fVar25;
+                  fVar29 = fVar29 + (fVar10 * 0.0 + (float)(uVar5 >> 0x10)) * fVar25;
+                }
+              }
+              local_54 = (int *)(local_44 * 3);
+              if (iVar19 < iVar13) {
+                local_38 = (uint3 *)(param_8 * iVar19 + iVar4 * 3 + param_1);
+                local_34 = (uint3 *)((local_44 + 1) * 3 + param_8 * iVar19 + param_1);
+                local_3c = iVar19;
+                do {
+                  if (iVar4 == local_44) {
+                    fVar25 = (float)piVar3[1] - fVar26;
+                    fVar22 = fVar22 + fVar25;
+                    uVar5 = *(uint3 *)((int)local_34 + -3);
+                    fVar23 = fVar23 + (fVar10 * 0.0 + (float)(uVar5 & 0xff)) * fVar25;
+                    fVar27 = fVar27 + (fVar10 * 0.0 + (float)((uVar5 & 0xff00) >> 8)) * fVar25;
+                    fVar29 = fVar29 + (fVar10 * 0.0 + (float)(uVar5 >> 0x10)) * fVar25;
+                    local_54 = (int *)(iVar4 * 3);
+                  }
+                  else {
+                    fVar25 = fVar21 - fVar26;
+                    fVar22 = fVar22 + fVar25;
+                    uVar5 = *(uint3 *)((int)local_34 + -3);
+                    fVar23 = fVar23 + (fVar10 * 0.0 + (float)(uVar5 & 0xff)) * fVar25;
+                    fVar27 = fVar27 + (fVar10 * 0.0 + (float)((uVar5 & 0xff00) >> 8)) * fVar25;
+                    fVar29 = fVar29 + (fVar10 * 0.0 + (float)(uVar5 >> 0x10)) * fVar25;
+                    puVar15 = local_34;
+                    for (iVar17 = local_44 + 1; iVar17 < iVar4; iVar17 = iVar17 + 1) {
+                      fVar22 = fVar22 + fVar21;
+                      uVar5 = *puVar15;
+                      puVar15 = (uint3 *)((int)puVar15 + 3);
+                      fVar23 = fVar23 + fVar10 * 0.0 + (float)(uVar5 & 0xff);
+                      fVar27 = fVar27 + fVar10 * 0.0 + (float)((uVar5 & 0xff00) >> 8);
+                      fVar29 = fVar29 + fVar10 * 0.0 + (float)(uVar5 >> 0x10);
+                    }
+                    local_54 = (int *)(local_44 * 3);
+                    if (iVar4 < (int)param_2) {
+                      fVar25 = (float)piVar3[1];
+                      fVar22 = fVar22 + fVar25;
+                      uVar5 = *local_38;
+                      fVar23 = fVar23 + (fVar10 * 0.0 + (float)(uVar5 & 0xff)) * fVar25;
+                      fVar27 = fVar27 + (fVar10 * 0.0 + (float)((uVar5 & 0xff00) >> 8)) * fVar25;
+                      fVar29 = fVar29 + (fVar10 * 0.0 + (float)(uVar5 >> 0x10)) * fVar25;
+                    }
+                  }
+                  local_3c = local_3c + 1;
+                  local_38 = (uint3 *)((int)local_38 + param_8);
+                  local_34 = (uint3 *)((int)local_34 + param_8);
+                } while ((int)local_3c < iVar13);
+              }
+              if (iVar13 < (int)param_3) {
+                iVar17 = iVar13 * param_8 + param_1;
+                fVar25 = (float)piVar1[1];
+                if (iVar4 == local_44) {
+                  fVar25 = fVar25 * ((float)piVar3[1] - fVar26);
+                  fVar22 = fVar22 + fVar25;
+                  uVar5 = *(uint3 *)(iVar17 + (int)local_54);
+                  fVar23 = fVar23 + (fVar10 * 0.0 + (float)(uVar5 & 0xff)) * fVar25;
+                  fVar27 = fVar27 + (fVar10 * 0.0 + (float)((uVar5 & 0xff00) >> 8)) * fVar25;
+                  fVar29 = fVar29 + (fVar10 * 0.0 + (float)(uVar5 >> 0x10)) * fVar25;
+                  iVar4 = local_44;
+                }
+                else {
+                  fVar26 = fVar25 * (fVar21 - fVar26);
+                  fVar22 = fVar22 + fVar26;
+                  uVar5 = *(uint3 *)(iVar17 + (int)local_54);
+                  fVar23 = fVar23 + (fVar10 * 0.0 + (float)(uVar5 & 0xff)) * fVar26;
+                  local_44 = local_44 + 1;
+                  fVar27 = fVar27 + (fVar10 * 0.0 + (float)((uVar5 & 0xff00) >> 8)) * fVar26;
+                  fVar29 = fVar29 + (fVar10 * 0.0 + (float)(uVar5 >> 0x10)) * fVar26;
+                  if (local_44 < iVar4) {
+                    puVar15 = (uint3 *)(local_44 * 3 + iVar17);
+                    local_34 = (uint3 *)fVar29;
+                    do {
+                      local_44 = local_44 + 1;
+                      fVar22 = fVar22 + fVar25;
+                      uVar5 = *puVar15;
+                      puVar15 = (uint3 *)((int)puVar15 + 3);
+                      fVar23 = fVar23 + (fVar10 * 0.0 + (float)(uVar5 & 0xff)) * fVar25;
+                      fVar27 = fVar27 + (fVar10 * 0.0 + (float)((uVar5 & 0xff00) >> 8)) * fVar25;
+                      fVar29 = (fVar10 * 0.0 + (float)(uVar5 >> 0x10)) * fVar25 + (float)local_34;
+                      local_34 = (uint3 *)fVar29;
+                    } while (local_44 < iVar4);
+                  }
+                  if (iVar4 < (int)param_2) {
+                    local_30 = (undefined1 *)(fVar25 * (float)piVar3[1]);
+                    fVar22 = fVar22 + (float)local_30;
+                    uVar5 = *(uint3 *)(iVar4 * 3 + iVar17);
+                    fVar23 = fVar23 + (fVar10 * 0.0 + (float)(uVar5 & 0xff)) * (float)local_30;
+                    fVar27 = fVar27 + (fVar10 * 0.0 + (float)((uVar5 & 0xff00) >> 8)) *
+                                      (float)local_30;
+                    local_44 = iVar4;
+                    goto LAB_04013c47;
+                  }
+                }
+              }
+            }
+            local_44 = iVar4;
+            local_20 = (undefined1)
+                       (int)(fVar23 / fVar22 -
+                            (float)((uint)fVar24 & -(uint)(fVar24 <= fVar23 / fVar22)));
+            *local_68 = local_20;
+            uStack_1f = (undefined1)
+                        (int)(fVar27 / fVar22 -
+                             (float)((uint)fVar24 & -(uint)(fVar24 <= fVar27 / fVar22)));
+            local_68[1] = uStack_1f;
+            uStack_1e = (undefined1)
+                        (int)(fVar29 / fVar22 -
+                             (float)((uint)fVar24 & -(uint)(fVar24 <= fVar29 / fVar22)));
+            local_68[2] = uStack_1e;
+            local_68 = local_68 + 3;
+          } while (local_64 != param_5);
+        }
+        local_bc = local_bc + param_9;
+        local_b0 = uVar20;
+      } while (uVar20 != param_6);
+    }
+    free(piVar11);
+  }
+  else {
+    if (param_7 != 5) goto LAB_04012fb7;
+    piVar11 = (int *)FUN_04010fd0();
+    __ptr = (int *)FUN_04010fd0();
+    fVar26 = _DAT_042dbf50;
+    fVar24 = DAT_042dbf40;
+    fVar10 = DAT_042dbf34;
+    if (param_6 != 0) {
+      local_50 = param_4;
+      local_58 = 0;
+      local_54 = __ptr;
+      do {
+        iVar12 = param_8 * *local_54 + param_1;
+        iVar13 = param_2 * local_54[1] + param_1;
+        if (param_5 != 0) {
+          piVar16 = piVar11;
+          puVar18 = local_50;
+          do {
+            uVar5 = *(uint3 *)(iVar12 + *piVar16 * 3);
+            uVar6 = *(uint3 *)(iVar12 + piVar16[1] * 3);
+            uVar7 = *(uint3 *)(*piVar16 * 3 + iVar13);
+            uVar8 = *(uint3 *)(piVar16[1] * 3 + iVar13);
+            fVar21 = (fVar10 * 0.0 +
+                     (float)(((uVar8 & 0xff00) >> 8) +
+                            ((uVar6 & 0xff00) >> 8) + ((uVar5 & 0xff00) >> 8) +
+                            ((uVar7 & 0xff00) >> 8))) * fVar24;
+            fVar22 = (fVar10 * 0.0 +
+                     (float)(uint3)((uVar8 >> 0x10) +
+                                   (uVar7 >> 0x10) + (uVar5 >> 0x10) + (uVar6 >> 0x10))) * fVar24;
+            fVar23 = (fVar10 * 0.0 +
+                     (float)(uint3)((uVar7 & 0xff) + (uVar6 & 0xff) + (uVar5 & 0xff) +
+                                   (uVar8 & 0xff))) * fVar24;
+            piVar16 = piVar16 + 4;
+            local_20 = (undefined1)(int)(fVar23 - (float)((uint)fVar26 & -(uint)(fVar26 <= fVar23)))
+            ;
+            *puVar18 = local_20;
+            uStack_1f = (undefined1)
+                        (int)(fVar21 - (float)((uint)fVar26 & -(uint)(fVar26 <= fVar21)));
+            puVar18[1] = uStack_1f;
+            uStack_1e = (undefined1)
+                        (int)(fVar22 - (float)((uint)fVar26 & -(uint)(fVar26 <= fVar22)));
+            puVar18[2] = uStack_1e;
+            puVar18 = puVar18 + 3;
+          } while (puVar18 != local_50 + param_5 * 3);
+        }
+        local_58 = local_58 + 1;
+        local_54 = local_54 + 4;
+        local_50 = local_50 + param_9;
+      } while (local_58 != param_6);
+    }
+    free(piVar11);
+  }
+  free(__ptr);
+  return;
+}
+

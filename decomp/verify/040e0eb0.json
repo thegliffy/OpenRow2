@@ -1,0 +1,72 @@
+
+/* source: pixelformatdata */
+
+void __regparm3 PixelFormatData__MakeSureMultisamplingTested(undefined4 *param_1,undefined4 param_2)
+
+{
+  char cVar1;
+  undefined4 uVar2;
+  undefined4 uVar3;
+  int iVar4;
+  int iVar5;
+  int iVar6;
+  int *local_30;
+  int local_20 [4];
+  
+  uVar2 = eON_Int_GL_NoteCurrentContext();
+  uVar3 = eON_Int_GL_NoteCurrentContext();
+  local_30 = (int *)OpenGLWrapperLinux__ctor();
+  cVar1 = (**(code **)(*local_30 + 8))(local_30,*param_1,param_2,param_1 + 1);
+  if (cVar1 == '\0') {
+    (**(code **)(*local_30 + 4))(local_30);
+    eON_Int_GL_RestoreCachedMakeCurrent(uVar3);
+    local_30 = (int *)0x0;
+  }
+  iVar4 = (**(code **)(*local_30 + 0x10))(local_30);
+  if (iVar4 == 0) {
+    FUN_0400a810("context",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/pixelformatdata.cpp"
+                 ,0x308,"void PixelFormatData::MakeSureMultisamplingTested(HWND)");
+  }
+  iVar6 = 2;
+  do {
+    *(undefined1 *)((int)param_1 + iVar6 + 0x1d) = 0;
+    (*DAT_0451e664)(1,local_20);
+    iVar5 = glGetError();
+    if (iVar5 != 0) {
+      FUN_0400a810("glGetError() == 0",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/pixelformatdata.cpp"
+                   ,0x310,"void PixelFormatData::MakeSureMultisamplingTested(HWND)");
+    }
+    if (local_20[0] == 0) {
+      FUN_0400a810("index",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/pixelformatdata.cpp"
+                   ,0x311,"void PixelFormatData::MakeSureMultisamplingTested(HWND)");
+    }
+    (*DAT_0451e690)(0x8d41,local_20[0]);
+    if ((DAT_0451cad2 == '\0') && (DAT_0451ca65 == '\0')) {
+      if (DAT_0451c9c2 == '\0') {
+        FUN_0400a810("(*(const GLboolean*)&__GLEW_EXT_framebuffer_multisample)",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/pixelformatdata.cpp"
+                     ,0x31a,"void PixelFormatData::MakeSureMultisamplingTested(HWND)");
+      }
+      (*DAT_0451d810)(0x8d41,iVar6,0x8058,0x80,0x80);
+    }
+    else {
+      (*DAT_0451e648)(0x8d41,iVar6,0x8058,0x80,0x80);
+    }
+    iVar5 = glGetError();
+    if (iVar5 == 0) {
+      *(undefined1 *)((int)param_1 + iVar6 + 0x1d) = 1;
+    }
+    iVar6 = iVar6 + 1;
+    (*DAT_0451e690)(0x8d41,0);
+    (*DAT_0451e680)(1,local_20);
+  } while (iVar6 != 0x11);
+  (**(code **)(*local_30 + 0x20))(local_30,iVar4);
+  (**(code **)(*local_30 + 4))(local_30);
+  eON_Int_GL_RestoreCachedMakeCurrent(uVar2);
+  *(undefined1 *)((int)param_1 + 0x1e) = 1;
+  return;
+}
+

@@ -1,0 +1,79 @@
+
+/* source: windll */
+
+bool eON_GetModuleHandleExW(uint param_1,uint param_2,int *param_3)
+
+{
+  size_t __size;
+  void *__ptr;
+  int iVar1;
+  _Rb_tree_node_base *p_Var2;
+  bool bVar3;
+  
+  if ((param_1 & 1) != 0) {
+    FUN_0402cd10(10,"GetModuleHandleExW() - GET_MODULE_HANDLE_EX_FLAG_PIN unhandled. Handle it.");
+  }
+  if ((param_1 & 2) == 0) {
+    FUN_0402cd10(10,
+                 "GetModuleHandleExW() - need to implement reference counting for modules for this call to work!"
+                );
+  }
+  bVar3 = false;
+  if (param_3 != (int *)0x0) {
+    *param_3 = 0;
+    iVar1 = DAT_0451adc0;
+    if ((param_1 & 4) == 0) {
+      if (param_2 == 0) {
+        if (DAT_0451adc0 == 0) {
+          FUN_0400a810("gMainExecutableHandle",
+                       "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/windll.cpp"
+                       ,0x55c,"void* eON_GetModuleHandleA(LPCSTR)");
+          iVar1 = DAT_0451adc0;
+          *param_3 = DAT_0451adc0;
+        }
+        else {
+          *param_3 = DAT_0451adc0;
+        }
+      }
+      else {
+        __size = eON_WideCharToMultiByte(0,0,param_2,0xffffffff,0,0,0,0);
+        __ptr = malloc(__size);
+        eON_WideCharToMultiByte(0,0,param_2,0xffffffff,__ptr,__size,0,0);
+        if (__ptr == (void *)0x0) {
+          iVar1 = DAT_0451adc0;
+          if (DAT_0451adc0 == 0) {
+            FUN_0400a810("gMainExecutableHandle",
+                         "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/windll.cpp"
+                         ,0x55c,"void* eON_GetModuleHandleA(LPCSTR)");
+            iVar1 = DAT_0451adc0;
+          }
+        }
+        else {
+          iVar1 = LoadLibraryA_Resolve();
+        }
+        *param_3 = iVar1;
+        free(__ptr);
+        iVar1 = *param_3;
+      }
+    }
+    else {
+      pthread_mutex_lock((pthread_mutex_t *)&DAT_0451add4);
+      p_Var2 = DAT_0451adf8;
+      if (DAT_0451adf8 != (_Rb_tree_node_base *)&DAT_0451adf0) {
+        do {
+          if ((*(uint *)(p_Var2 + 0x520) <= param_2) &&
+             (param_2 < *(uint *)(p_Var2 + 0x520) + *(int *)(p_Var2 + 0x524))) {
+            *param_3 = *(int *)(p_Var2 + 0x10);
+            break;
+          }
+          p_Var2 = (_Rb_tree_node_base *)std::_Rb_tree_increment(p_Var2);
+        } while (p_Var2 != (_Rb_tree_node_base *)&DAT_0451adf0);
+      }
+      pthread_mutex_unlock((pthread_mutex_t *)&DAT_0451add4);
+      iVar1 = *param_3;
+    }
+    bVar3 = iVar1 != 0;
+  }
+  return bVar3;
+}
+

@@ -1,0 +1,42 @@
+
+undefined4 InitializeImplicitTLSForThread(void)
+
+{
+  undefined4 *puVar1;
+  void *__src;
+  int iVar2;
+  void *__ptr;
+  void *pvVar3;
+  uint uVar4;
+  size_t __n;
+  int in_FS_OFFSET;
+  
+  if (DAT_04518da8 == 0) {
+    *(undefined4 *)(*(int *)(in_FS_OFFSET + 0x18) + 0x2c) = 0;
+    return 1;
+  }
+  __ptr = malloc(DAT_04518da8 << 2);
+  pvVar3 = malloc(DAT_04518da4);
+  if ((pvVar3 != (void *)0x0) && (uVar4 = 0, __ptr != (void *)0x0)) {
+    do {
+      puVar1 = *(undefined4 **)(DAT_04518da0 + uVar4 * 4);
+      __src = (void *)*puVar1;
+      iVar2 = puVar1[1];
+      *(void **)((int)__ptr + uVar4 * 4) = pvVar3;
+      uVar4 = uVar4 + 1;
+      __n = iVar2 - (int)__src;
+      memcpy(pvVar3,__src,__n);
+      pvVar3 = (void *)(__n + (int)pvVar3);
+      bzero(pvVar3,puVar1[4]);
+      pvVar3 = (void *)(puVar1[4] + (int)pvVar3);
+    } while (uVar4 < DAT_04518da8);
+    *(void **)(*(int *)(in_FS_OFFSET + 0x18) + 0x2c) = __ptr;
+    return 1;
+  }
+  if (__ptr != (void *)0x0) {
+    free(__ptr);
+  }
+  FUN_0402cd10(0xf,"InitializeImplicitTLSForThread() - failed to allocate memory");
+  return 0;
+}
+

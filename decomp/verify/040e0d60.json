@@ -1,0 +1,33 @@
+
+void OpenGLDebugWriter_File__Write(int param_1,char *param_2)
+
+{
+  size_t __n;
+  size_t sVar1;
+  FILE *__s;
+  
+  __n = vsnprintf(&DAT_044db0c0,0x1f400,param_2,&stack0x0000000c);
+  if (0x1f3ff < (int)__n) {
+    puts("OpenGLDebugWriter_File log message doesn\'t fit into the buffer!");
+  }
+  __s = *(FILE **)(param_1 + 8);
+  if (__s == (FILE *)0x0) {
+    __s = fopen64(*(char **)(param_1 + 4),"a");
+    *(FILE **)(param_1 + 8) = __s;
+    if (__s == (FILE *)0x0) {
+      printf("Couldn\'t create OpenGLDebugWriter_File log file \'%s\'!\n",
+             *(undefined4 *)(param_1 + 4));
+      __s = *(FILE **)(param_1 + 8);
+      if (__s == (FILE *)0x0) {
+        return;
+      }
+    }
+  }
+  sVar1 = fwrite(&DAT_044db0c0,1,__n,__s);
+  if (__n != sVar1) {
+    printf("Problem writing to OpenGLDebugWriter_File log file \'%s\'! Written %zu out of %zu bytes\n"
+           ,*(undefined4 *)(param_1 + 4),sVar1,__n);
+  }
+  return;
+}
+

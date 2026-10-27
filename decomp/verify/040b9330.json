@@ -1,0 +1,16 @@
+
+/* source: display */
+
+void Direct3DDevice9Imp__FrameRenderEnd(int param_1)
+
+{
+  if (*(char *)(param_1 + 0xe9dc) == '\0') {
+    FUN_0400a810("mOGLDeviceState.RenderingScene",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/display.cpp"
+                 ,0x29,"void Direct3DDevice9Imp::FrameRenderEnd()");
+  }
+  *(undefined1 *)(param_1 + 0xe9dc) = 0;
+  LeaveCriticalSection(param_1 + 0x10);
+  return;
+}
+

@@ -1,0 +1,666 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+/* source: direct3dbasetexture9imp, direct3ddevice9imp */
+
+undefined4 Direct3DDevice9Imp__OpenGLSide_Present(int ******param_1)
+
+{
+  int ***pppiVar1;
+  bool bVar2;
+  char cVar3;
+  uint uVar4;
+  int *****pppppiVar5;
+  int ******ppppppiVar6;
+  int *****pppppiVar7;
+  undefined4 *puVar8;
+  int *****pppppiVar9;
+  int iVar10;
+  char *pcVar11;
+  int ****ppppiVar12;
+  int ******ppppppiVar13;
+  int iVar14;
+  int ******ppppppiVar15;
+  undefined4 uStack_ec;
+  int *****local_e8;
+  int *****local_e4;
+  int *****local_e0;
+  int *****local_dc;
+  int *****local_d8;
+  int *****local_d4;
+  int *****pppppiStack_d0;
+  int *****local_cc;
+  int ***local_c8;
+  int ***local_c4;
+  int ***local_c0;
+  uint local_bc;
+  undefined4 local_b8;
+  int *****local_ac;
+  int *****local_a8;
+  int *****local_a4;
+  int *****local_a0;
+  int *****local_9c;
+  int ***local_98;
+  int *****local_94;
+  int *****local_90;
+  int ****local_88;
+  int local_84;
+  int *****local_80;
+  int ***local_7c;
+  int *****local_48;
+  int *****local_44;
+  int *****local_40;
+  int *****local_3c;
+  int *****local_38;
+  int *****local_34;
+  int local_30;
+  int local_2c;
+  int *****local_28;
+  int *****local_24;
+  int ****local_20 [4];
+  
+  local_dc = param_1[0x3ad2];
+  local_e0 = (int *****)0x409d80d;
+  FUN_040c6c50();
+  local_dc = (int *****)param_1;
+  local_e0 = (int *****)0x409d815;
+  Direct3DDevice9Imp__FrameRenderStart();
+  local_d8 = (int *****)&local_44;
+  local_dc = (int *****)&local_48;
+  local_e0 = (int *****)0x409d827;
+  FUN_0402d440();
+  local_d8 = (int *****)&local_3c;
+  local_dc = (int *****)&local_40;
+  local_e0 = (int *****)0x409d839;
+  FUN_0402d560();
+  local_dc = (int *****)0x0;
+  local_40 = (int *****)((int)local_40 + (int)local_48);
+  local_3c = (int *****)((int)local_3c + (int)local_44);
+  local_d4 = (int *****)&local_24;
+  local_d8 = (int *****)&local_28;
+  local_e0 = (int *****)0x409d85f;
+  MainGameWindow_GetDisplayDimensions();
+  pppppiVar5 = param_1[0x3194];
+  if (pppppiVar5 == (int *****)0x0) {
+    pppppiStack_d0 = (int *****)0x42f4680;
+    local_d4 = (int *****)0xa9a;
+    local_d8 = (int *****)0x42f002c;
+    local_dc = (int *****)0x42f3078;
+    local_e0 = (int *****)0x409e6db;
+    FUN_0400a810();
+    pppppiVar5 = param_1[0x3194];
+  }
+  ppppiVar12 = pppppiVar5[0x25];
+  if (ppppiVar12 == (int ****)0x0) {
+    pppppiVar9 = param_1[0x3ad2];
+    pppppiVar7 = pppppiVar5;
+    if (*(char *)((int)pppppiVar9 + 0xa8b) != '\0') {
+      local_dc = (int *****)0xc11;
+      local_e0 = (int *****)0x409e10d;
+      glDisable();
+      *(undefined1 *)((int)pppppiVar9 + 0xa8b) = 0;
+      pppppiVar7 = param_1[0x3194];
+      pppppiVar9 = param_1[0x3ad2];
+    }
+    local_dc = pppppiVar9 + 0x7e;
+    local_c4 = (int ***)0x0;
+    local_c8 = (int ***)0x0;
+    local_cc = (int *****)0x0;
+    pppppiStack_d0 = (int *****)0x0;
+    local_d4 = (int *****)0x0;
+    local_e0 = (int *****)0x409e15a;
+    local_d8 = pppppiVar7;
+    puVar8 = (undefined4 *)FramebufferCache__GetFramebufferHash();
+    local_d4 = (int *****)*puVar8;
+    local_d8 = (int *****)0x8ca8;
+    local_dc = param_1[0x3ad2];
+    local_e0 = (int *****)0x409e176;
+    OpenGLContextCache____glewBindFramebuffer();
+    pppppiVar9 = param_1[0x3ad2];
+    if (pppppiVar9[0xd4] != (int ****)0x8ce0) {
+      local_dc = (int *****)0x8ce0;
+      local_e0 = (int *****)0x409e195;
+      (*DAT_0451eed4)();
+      pppppiVar9[0xd4] = (int ****)0x8ce0;
+      pppppiVar9 = param_1[0x3ad2];
+    }
+    local_d4 = param_1[0x3196];
+    local_d8 = (int *****)0x8ca9;
+    local_e0 = (int *****)0x409e1bf;
+    local_dc = pppppiVar9;
+    OpenGLContextCache____glewBindFramebuffer();
+    pppppiVar9 = param_1[0x3ad2];
+    if ((*(char *)(pppppiVar9 + 0xd3) == '\0') || (pppppiVar9[0xcf] != (int ****)0x8ce0)) {
+      local_dc = (int *****)0x8ce0;
+      local_e0 = (int *****)0x409e1e7;
+      (*DAT_0451eed0)();
+      *(undefined1 *)(pppppiVar9 + 0xd3) = 1;
+      pppppiVar9[0xcf] = (int ****)0x8ce0;
+      pppppiVar9[0xd0] = (int ****)0x0;
+      pppppiVar9[0xd1] = (int ****)0x0;
+      pppppiVar9[0xd2] = (int ****)0x0;
+    }
+    pppppiStack_d0 = (int *****)pppppiVar5[0x23];
+    local_d4 = (int *****)pppppiVar5[0x22];
+    local_b8 = 0x2600;
+    local_bc = 0x4000;
+    local_c8 = (int ***)0x0;
+    local_cc = (int *****)0x0;
+    local_d8 = (int *****)0x0;
+    local_dc = (int *****)0x0;
+    local_e0 = (int *****)0x409e267;
+    local_c4 = (int ***)local_d4;
+    local_c0 = (int ***)pppppiStack_d0;
+    (*DAT_0451e68c)();
+    pppppiVar9 = param_1[0x3ad2];
+    if (pppppiVar9[0x8d] != (int ****)0x84c0) {
+      local_dc = (int *****)0x84c0;
+      local_e0 = (int *****)0x409e286;
+      (*DAT_0451eeac)();
+      pppppiVar9[0x8d] = (int ****)0x84c0;
+      pppppiVar9 = param_1[0x3ad2];
+    }
+    local_d4 = param_1[0x3195];
+    local_d8 = (int *****)0xde1;
+    local_e0 = (int *****)0x409e2b0;
+    local_dc = pppppiVar9;
+    FUN_040c6ee0();
+    local_84 = 0;
+    local_88 = (int ****)0x0;
+    ppppppiVar6 = (int ******)pppppiVar5[0x22];
+    ppppiVar12 = pppppiVar5[0x23];
+    local_80 = (int *****)ppppppiVar6;
+    local_7c = (int ***)ppppiVar12;
+    if (DAT_0451ca41 != '\0') {
+      local_d4 = (int *****)0x1;
+      if (ppppppiVar6 == (int ******)((int)local_40 - (int)local_48)) {
+        local_d4 = (int *****)(uint)(ppppiVar12 != (int ****)((int)local_3c - (int)local_44));
+      }
+      local_dc = (int *****)(param_1 + 0x3ae7);
+      local_d8 = (int *****)0x0;
+      local_e0 = (int *****)0x409e309;
+      pppppiVar9 = (int *****)FUN_040e4f70();
+      if (pppppiVar9 != (int *****)param_1[0x3ad2][0xae]) {
+        local_dc = (int *****)0x0;
+        local_e0 = (int *****)0x409e330;
+        local_d8 = pppppiVar9;
+        local_a0 = param_1[0x3ad2];
+        (*DAT_0451e3c4)();
+        local_a0[0xae] = (int ****)pppppiVar9;
+      }
+      ppppiVar12 = pppppiVar5[0x23];
+      ppppppiVar6 = (int ******)pppppiVar5[0x22];
+    }
+    local_bc = 0;
+    local_cc = (int *****)ppppppiVar6;
+    local_c8 = (int ***)ppppiVar12;
+  }
+  else {
+    if ((int)ppppiVar12[0xa1] < 1) {
+      pppppiStack_d0 = (int *****)0x42f46c0;
+      local_d4 = (int *****)0x8c;
+      local_d8 = (int *****)0x42f1724;
+      local_dc = (int *****)0x42f1784;
+      local_e0 = (int *****)0x409d8a9;
+      FUN_0400a810();
+    }
+    local_dc = (int *****)ppppiVar12[0x91];
+    local_d8 = param_1[0x3ad2];
+    local_e0 = (int *****)0x409d8c7;
+    local_a4 = local_dc;
+    FUN_0406d620();
+    local_88 = (int ****)0x0;
+    local_84 = 0;
+    local_94 = (int *****)0x1;
+    local_80 = (int *****)pppppiVar5[0x22];
+    local_90 = (int *****)pppppiVar5[0x23];
+    if ((int ******)local_80 == (int ******)((int)local_40 - (int)local_48)) {
+      local_94 = (int *****)(uint)(local_90 != (int *****)((int)local_3c - (int)local_44));
+    }
+    local_7c = (int ***)local_90;
+    if (DAT_0451ca41 == '\0') {
+      local_dc = local_a4;
+      local_d8 = local_94;
+      local_e0 = (int *****)0x409d93b;
+      FUN_0406d530();
+    }
+    else {
+      local_dc = local_a4;
+      local_e0 = (int *****)0x409dbb8;
+      uVar4 = FUN_0406d510();
+      local_d8 = (int *****)(uVar4 & 0xff);
+      local_dc = (int *****)(param_1 + 0x3ae7);
+      local_d4 = local_94;
+      local_e0 = (int *****)0x409dbd7;
+      local_d8 = (int *****)FUN_040e4f70();
+      if (local_d8 != (int *****)param_1[0x3ad2][0xae]) {
+        local_dc = (int *****)0x0;
+        local_e0 = (int *****)0x409dc06;
+        local_a4 = param_1[0x3ad2];
+        local_a0 = local_d8;
+        (*DAT_0451e3c4)();
+        local_a4[0xae] = (int ****)local_a0;
+      }
+    }
+    local_bc = (uint)(ppppiVar12[0x86] == (int ***)0x140b || ppppiVar12[0x86] == (int ***)0x1406);
+    local_cc = (int *****)pppppiVar5[0x22];
+    local_c8 = (int ***)pppppiVar5[0x23];
+  }
+  pppppiStack_d0 = (int *****)&local_48;
+  local_c0 = (int ***)0x0;
+  local_c4 = (int ***)0x0;
+  local_d8 = (int *****)0x0;
+  local_dc = (int *****)param_1;
+  local_e0 = (int *****)0x409d9a1;
+  local_d4 = &local_88;
+  glDrawArrays();
+  param_1[0x3a76] = (int *****)0x1;
+  local_90 = (int *****)CONCAT31(local_90._1_3_,0 < (int)local_48);
+  bVar2 = 0 < (int)local_44;
+  if ((0 < (int)local_48) || (bVar2)) {
+    ppppppiVar6 = (int ******)param_1[0x3ad2];
+    if ((*(char *)(ppppppiVar6 + 0x109) != '\x0f') ||
+       (((*(char *)((int)ppppppiVar6 + 0x425) != '\x0f' ||
+         (*(char *)((int)ppppppiVar6 + 0x426) != '\x0f')) ||
+        (*(char *)((int)ppppppiVar6 + 0x427) != '\x0f')))) {
+      pppppiStack_d0 = (int *****)0x1;
+      local_d4 = (int *****)0x1;
+      local_d8 = (int *****)0x1;
+      local_dc = (int *****)0x1;
+      local_e0 = (int *****)0x409dca6;
+      local_a0 = (int *****)ppppppiVar6;
+      glColorMask();
+      *(undefined1 *)(local_a0 + 0x109) = 0xf;
+      *(undefined1 *)((int)local_a0 + 0x425) = 0xf;
+      *(undefined1 *)((int)local_a0 + 0x426) = 0xf;
+      *(undefined1 *)((int)local_a0 + 0x427) = 0xf;
+      param_1[0x3a81] = (int *****)((uint)param_1[0x3a81] | 4);
+      ppppppiVar6 = (int ******)param_1[0x3ad2];
+    }
+    if ((((float)ppppppiVar6[0x12a] != 0.0) || ((float)ppppppiVar6[299] != 0.0)) ||
+       (((float)ppppppiVar6[300] != 0.0 || ((float)ppppppiVar6[0x12d] != 0.0)))) {
+      pppppiStack_d0 = (int *****)0x0;
+      local_d4 = (int *****)0x0;
+      local_d8 = (int *****)0x0;
+      local_dc = (int *****)0x0;
+      local_e0 = (int *****)0x409dd1a;
+      local_a0 = (int *****)ppppppiVar6;
+      glClearColor();
+      local_a0[0x12a] = (int ****)0x0;
+      local_a0[299] = (int ****)0x0;
+      local_a0[300] = (int ****)0x0;
+      local_a0[0x12d] = (int ****)0x0;
+      ppppppiVar6 = (int ******)param_1[0x3ad2];
+    }
+    if (*(char *)((int)ppppppiVar6 + 0xa8b) != '\x01') {
+      local_dc = (int *****)0xc11;
+      local_e0 = (int *****)0x409dd69;
+      local_a0 = (int *****)ppppppiVar6;
+      glEnable();
+      *(undefined1 *)((int)local_a0 + 0xa8b) = 1;
+      ppppppiVar6 = (int ******)param_1[0x3ad2];
+    }
+    if ((char)local_90 != '\0') {
+      ppppppiVar15 = (int ******)local_48;
+      if ((int)local_48 < 0) {
+        ppppppiVar15 = (int ******)0x0;
+      }
+      ppppppiVar13 = (int ******)0x0;
+      if (-1 < (int)local_24) {
+        ppppppiVar13 = (int ******)local_24;
+      }
+      if (((ppppppiVar6[0x10d] != (int *****)0x0) || (ppppppiVar6[0x10e] != (int *****)0x0)) ||
+         (((int ******)ppppppiVar6[0x10f] != ppppppiVar15 ||
+          (ppppppiVar13 != (int ******)ppppppiVar6[0x110])))) {
+        local_d8 = (int *****)0x0;
+        local_dc = (int *****)0x0;
+        local_e0 = (int *****)0x409e5ae;
+        local_d4 = (int *****)ppppppiVar15;
+        pppppiStack_d0 = (int *****)ppppppiVar13;
+        local_a8 = (int *****)ppppppiVar15;
+        local_a4 = (int *****)ppppppiVar13;
+        local_a0 = (int *****)ppppppiVar6;
+        glScissor();
+        local_a0[0x10d] = (int ****)0x0;
+        local_a0[0x10e] = (int ****)0x0;
+        local_a0[0x10f] = (int ****)local_a8;
+        local_a0[0x110] = (int ****)local_a4;
+      }
+      local_dc = (int *****)0x4000;
+      local_e0 = (int *****)0x409e5ec;
+      glClear();
+      ppppppiVar6 = (int ******)param_1[0x3ad2];
+      local_90 = (int *****)(int ******)0x0;
+      if (-1 < (int)local_28 - (int)local_40) {
+        local_90 = (int *****)((int)local_28 - (int)local_40);
+      }
+      local_94 = (int *****)(int ******)0x0;
+      if (-1 < (int)local_24) {
+        local_94 = local_24;
+      }
+      if ((((local_40 != ppppppiVar6[0x10d]) || (ppppppiVar6[0x10e] != (int *****)0x0)) ||
+          (local_90 != ppppppiVar6[0x10f])) || (local_94 != ppppppiVar6[0x110])) {
+        local_dc = local_40;
+        local_a4 = local_40;
+        local_d8 = (int *****)0x0;
+        local_e0 = (int *****)0x409e66c;
+        local_d4 = local_90;
+        pppppiStack_d0 = local_94;
+        local_a0 = (int *****)ppppppiVar6;
+        glScissor();
+        local_a0[0x10d] = (int ****)local_a4;
+        local_a0[0x10e] = (int ****)0x0;
+        local_a0[0x110] = (int ****)local_94;
+        local_a0[0x10f] = (int ****)local_90;
+      }
+      local_dc = (int *****)0x4000;
+      local_e0 = (int *****)0x409e6ac;
+      glClear();
+      ppppppiVar6 = (int ******)param_1[0x3ad2];
+    }
+    if (bVar2) {
+      ppppppiVar15 = (int ******)local_28;
+      if ((int)local_28 < 0) {
+        ppppppiVar15 = (int ******)0x0;
+      }
+      ppppppiVar13 = (int ******)0x0;
+      if (-1 < (int)local_44) {
+        ppppppiVar13 = (int ******)local_44;
+      }
+      if (((ppppppiVar6[0x10d] != (int *****)0x0) || (ppppppiVar6[0x10e] != (int *****)0x0)) ||
+         ((ppppppiVar15 != (int ******)ppppppiVar6[0x10f] ||
+          ((int ******)ppppppiVar6[0x110] != ppppppiVar13)))) {
+        local_d8 = (int *****)0x0;
+        local_dc = (int *****)0x0;
+        local_e0 = (int *****)0x409e46a;
+        local_d4 = (int *****)ppppppiVar15;
+        pppppiStack_d0 = (int *****)ppppppiVar13;
+        local_a4 = (int *****)ppppppiVar13;
+        local_a0 = (int *****)ppppppiVar6;
+        glScissor();
+        local_a0[0x10d] = (int ****)0x0;
+        local_a0[0x10e] = (int ****)0x0;
+        local_a0[0x10f] = (int ****)ppppppiVar15;
+        local_a0[0x110] = (int ****)local_a4;
+      }
+      local_dc = (int *****)0x4000;
+      local_e0 = (int *****)0x409e4a2;
+      glClear();
+      pppppiVar5 = param_1[0x3ad2];
+      if ((int)local_28 < 0) {
+        local_28 = (int *****)0x0;
+      }
+      local_90 = (int *****)((int)local_24 - (int)local_3c);
+      ppppppiVar6 = (int ******)0x0;
+      if (-1 < (int)local_90) {
+        ppppppiVar6 = (int ******)local_90;
+      }
+      if (((pppppiVar5[0x10d] != (int ****)0x0) || (local_3c != (int *****)pppppiVar5[0x10e])) ||
+         (((int *****)pppppiVar5[0x10f] != local_28 ||
+          ((int ******)pppppiVar5[0x110] != ppppppiVar6)))) {
+        local_d8 = local_3c;
+        local_a0 = local_3c;
+        local_dc = (int *****)0x0;
+        local_e0 = (int *****)0x409e50e;
+        local_d4 = local_28;
+        pppppiStack_d0 = (int *****)ppppppiVar6;
+        local_a8 = local_28;
+        local_a4 = (int *****)ppppppiVar6;
+        glScissor();
+        pppppiVar5[0x10d] = (int ****)0x0;
+        pppppiVar5[0x10e] = (int ****)local_a0;
+        pppppiVar5[0x10f] = (int ****)local_a8;
+        pppppiVar5[0x110] = (int ****)local_a4;
+      }
+      local_dc = (int *****)0x4000;
+      local_e0 = (int *****)0x409e548;
+      glClear();
+      ppppppiVar6 = (int ******)param_1[0x3ad2];
+    }
+    if (*(char *)((int)ppppppiVar6 + 0xa8b) != '\0') {
+      local_dc = (int *****)0xc11;
+      local_e0 = (int *****)0x409ddae;
+      local_a0 = (int *****)ppppppiVar6;
+      glDisable();
+      *(undefined1 *)((int)local_a0 + 0xa8b) = 0;
+    }
+    param_1[0x3a76] = (int *****)((int)param_1[0x3a76] + -1);
+  }
+  else {
+    param_1[0x3a76] = (int *****)0x0;
+  }
+  ppppppiVar6 = (int ******)param_1[0x3a78];
+  ppppppiVar15 = &local_dc;
+  if ((ppppppiVar6 != (int ******)0x0) &&
+     (ppppppiVar15 = &local_dc, param_1[0x3ace] != (int *****)0x0)) {
+    local_d4 = local_20;
+    local_20[0] = (int ****)0x0;
+    local_ac = (int *****)((int)local_40 - (int)local_48);
+    local_9c = local_44;
+    local_90 = local_3c;
+    local_d8 = (int *****)0x0;
+    local_e0 = (int *****)0x409de0e;
+    local_dc = (int *****)ppppppiVar6;
+    (*(code *)(*ppppppiVar6)[0x12])();
+    ppppiVar12 = local_20[0];
+    local_94 = (int *****)local_20[0][0x22];
+    iVar10 = (int)param_1[0x3acf] - (int)param_1[0x3a79];
+    iVar14 = (int)param_1[0x3ad0] - (int)param_1[0x3a7a];
+    if ((-(int)local_94 < iVar10) &&
+       (((iVar14 < (int)local_ac &&
+         (local_90 = (int *****)((int)local_90 - (int)local_9c), -(int)local_20[0][0x23] < iVar14))
+        && (iVar14 < (int)local_90)))) {
+      if (iVar10 < 0) {
+        local_88 = (int ****)-iVar10;
+        local_38 = local_48;
+      }
+      else {
+        local_88 = (int ****)0x0;
+        local_38 = (int *****)((int)local_48 + iVar10);
+      }
+      local_9c = (int *****)((int)local_94 + iVar10);
+      local_80 = local_94;
+      ppppppiVar6 = (int ******)local_9c;
+      if ((int)local_ac < (int)local_9c) {
+        local_80 = (int *****)((int)local_ac - iVar10);
+        ppppppiVar6 = (int ******)local_ac;
+      }
+      local_30 = (int)ppppppiVar6 + (int)local_48;
+      if (iVar14 < 0) {
+        local_84 = -iVar14;
+        local_34 = local_44;
+      }
+      else {
+        local_84 = 0;
+        local_34 = (int *****)((int)local_44 + iVar14);
+      }
+      local_98 = local_20[0][0x23];
+      local_94 = (int *****)((int)local_98 + iVar14);
+      local_7c = local_98;
+      ppppppiVar6 = (int ******)local_94;
+      if ((int)local_90 < (int)local_94) {
+        local_7c = (int ***)((int)local_90 - iVar14);
+        ppppppiVar6 = (int ******)local_90;
+      }
+      local_2c = (int)local_44 + (int)ppppppiVar6;
+      local_90 = param_1[0x3a78];
+      if ((int)local_90[0xa1] < 1) {
+        local_dc = (int *****)0x42f46c0;
+        local_e0 = (int *****)0x8c;
+        local_e4 = (int *****)0x42f1724;
+        local_e8 = (int *****)0x42f1784;
+        uStack_ec = 0x409df56;
+        FUN_0400a810();
+      }
+      local_e4 = param_1[0x3ad2];
+      local_e8 = (int *****)local_90[0x91];
+      uStack_ec = 0x409df7a;
+      local_a0 = local_e8;
+      FUN_0406d620();
+      if (DAT_0451ca41 == '\0') {
+        local_e4 = (int *****)0x0;
+        local_e8 = local_a0;
+        uStack_ec = 0x409e7b2;
+        FUN_0406d530();
+      }
+      else {
+        local_e8 = local_a0;
+        uStack_ec = 0x409df95;
+        uVar4 = FUN_0406d510();
+        local_e0 = (int *****)0x0;
+        local_e4 = (int *****)(uVar4 & 0xff);
+        local_e8 = (int *****)(param_1 + 0x3ae7);
+        uStack_ec = 0x409dfb2;
+        local_e4 = (int *****)FUN_040e4f70();
+        if (local_e4 != (int *****)param_1[0x3ad2][0xae]) {
+          local_e8 = (int *****)0x0;
+          uStack_ec = 0x409dfdd;
+          local_a4 = param_1[0x3ad2];
+          local_a0 = local_e4;
+          (*DAT_0451e3c4)();
+          local_a4[0xae] = (int ****)local_a0;
+        }
+      }
+      local_cc = (int *****)0x1;
+      pppppiStack_d0 = (int *****)0x0;
+      local_c8 = (int ***)(uint)((int *****)local_90[0x86] == (int *****)0x140b ||
+                                (int *****)local_90[0x86] == (int *****)0x1406);
+      local_d4 = (int *****)ppppiVar12[0x23];
+      local_d8 = (int *****)ppppiVar12[0x22];
+      local_e4 = (int *****)0x0;
+      local_e8 = (int *****)param_1;
+      local_dc = (int *****)&local_38;
+      uStack_ec = 0x409e055;
+      local_e0 = &local_88;
+      glDrawArrays();
+    }
+    uStack_ec = 0x409e068;
+    local_e8 = (int *****)local_20[0];
+    (*(code *)(*local_20[0])[2])();
+    ppppppiVar15 = (int ******)&uStack_ec;
+  }
+  ppppiVar12 = *param_1[0x3ad1];
+  *ppppppiVar15 = param_1[0x3ad1];
+  pppiVar1 = ppppiVar12[3];
+  ppppppiVar15[-1] = (int *****)0x409da06;
+  (*(code *)pppiVar1)();
+  ppppppiVar15[1] = (int *****)"Present()";
+  DAT_04468c38 = 0;
+  *ppppppiVar15 = (int *****)0x3;
+  ppppppiVar15[-1] = (int *****)0x409da24;
+  OpenGLDebugEvent();
+  ppppppiVar15[-1] = (int *****)0x409da29;
+  uVar4 = glGetError();
+  if (uVar4 != 0) {
+    iVar14 = 0;
+LAB_0409da58:
+    do {
+      pcVar11 = "GL_STACK_OVERFLOW";
+      if (uVar4 != 0x503) {
+        if (uVar4 < 0x504) {
+          pcVar11 = "GL_INVALID_VALUE";
+          if (((uVar4 != 0x501) && (pcVar11 = "GL_INVALID_OPERATION", uVar4 < 0x502)) &&
+             (pcVar11 = "GL_INVALID_ENUM", uVar4 != 0x500)) {
+LAB_0409da89:
+            pcVar11 = "!!!unknown!!!";
+          }
+        }
+        else {
+          pcVar11 = "GL_OUT_OF_MEMORY";
+          if (((uVar4 != 0x505) && (pcVar11 = "GL_STACK_UNDERFLOW", 0x504 < uVar4)) &&
+             ((pcVar11 = "GL_INVALID_FRAMEBUFFER_OPERATION", uVar4 != 0x506 &&
+              (pcVar11 = "GL_TABLE_TOO_LARGE", uVar4 != 0x8031)))) goto LAB_0409da89;
+        }
+      }
+      ppppppiVar15[3] = (int *****)uVar4;
+      ppppppiVar15[2] = (int *****)pcVar11;
+      if (iVar14 == 0) {
+        ppppppiVar15[1] = (int *****)"glGetError in Present() shows error %s (%#05x)";
+        iVar14 = 1;
+        *ppppppiVar15 = (int *****)0xf;
+        ppppppiVar15[-1] = (int *****)0x409da4f;
+        FUN_0402cd10();
+        ppppppiVar15[-1] = (int *****)0x409da54;
+        uVar4 = glGetError();
+        if (uVar4 == 0) break;
+        goto LAB_0409da58;
+      }
+      ppppppiVar15[1] = (int *****)"    and %s (%#05x)";
+      iVar14 = iVar14 + 1;
+      *ppppppiVar15 = (int *****)0xf;
+      ppppppiVar15[-1] = (int *****)0x409dab3;
+      FUN_0402cd10();
+      ppppppiVar15[-1] = (int *****)0x409dab8;
+      uVar4 = glGetError();
+    } while (uVar4 != 0);
+  }
+  *ppppppiVar15 = (int *****)param_1;
+  ppppppiVar15[-1] = (int *****)0x409dac4;
+  Direct3DDevice9Imp__FrameRenderEnd();
+  param_1[0x3a7c] = (int *****)((int)param_1[0x3a7c] + 1);
+  ppppppiVar15[-1] = (int *****)0x409dad0;
+  pppppiVar5 = (int *****)eON_timeGetTime();
+  param_1[0x3a7d] = pppppiVar5;
+  if ((*(char *)(param_1 + 0x3a7e) != '\0') &&
+     (uVar4 = (int)pppppiVar5 - (int)param_1[0x3a80], 1000 < uVar4)) {
+    pppppiVar5 = param_1[0x3a7c];
+    pppppiVar9 = param_1[0x3a7f];
+    ppppppiVar15[1] = (int *****)"Fps: %.3f\n";
+    *ppppppiVar15 = &local_88;
+    *(double *)(ppppppiVar15 + 2) =
+         (double)((((float)((uint)((int)pppppiVar5 - (int)pppppiVar9) >> 0x10) * DAT_042dbf34 +
+                   (float)((int)pppppiVar5 - (int)pppppiVar9 & 0xffff)) * _DAT_042f73a8) /
+                 ((float)(uVar4 >> 0x10) * DAT_042dbf34 + (float)(uVar4 & 0xffff)));
+    ppppppiVar15[-1] = (int *****)0x409e3dc;
+    sprintf((char *)*ppppppiVar15,(char *)ppppppiVar15[1]);
+    *ppppppiVar15 = &local_88;
+    ppppppiVar15[-1] = (int *****)0x409e3e4;
+    puts((char *)*ppppppiVar15);
+    ppppppiVar15[1] = &local_88;
+    *ppppppiVar15 = (int *****)0x14;
+    ppppppiVar15[-1] = (int *****)0x409e3f4;
+    FUN_0402cd10();
+    param_1[0x3a80] = param_1[0x3a7d];
+    param_1[0x3a7f] = param_1[0x3a7c];
+  }
+  while (DAT_0441163d != '\0') {
+    *ppppppiVar15 = (int *****)0xb44;
+    ppppppiVar15[-1] = (int *****)0x409db04;
+    glIsEnabled();
+    *ppppppiVar15 = (int *****)&DAT_000186a0;
+    ppppppiVar15[-1] = (int *****)0x409db10;
+    usleep((__useconds_t)*ppppppiVar15);
+  }
+  *ppppppiVar15 = (int *****)param_1;
+  ppppppiVar15[-1] = (int *****)0x409db21;
+  Direct3DDevice9Imp__Fence_Tick();
+  pppppiVar5 = param_1[0x3af6];
+  while (pppppiVar5 != (int *****)0x0) {
+    pppppiVar9 = (int *****)pppppiVar5[6];
+    ppppppiVar15[1] = (int *****)param_1;
+    *ppppppiVar15 = pppppiVar5 + 1;
+    ppppppiVar15[-1] = (int *****)0x409db62;
+    cVar3 = FUN_040a5960();
+    if (cVar3 == '\0') break;
+    *ppppppiVar15 = (int *****)(param_1[0x3af6][5] + 1);
+    ppppppiVar15[-1] = (int *****)0x409db44;
+    Direct3DSurface9Imp__TransferDataFromPBO();
+    param_1[0x3af6] = pppppiVar9;
+    pppppiVar5 = pppppiVar9;
+  }
+  *ppppppiVar15 = param_1[0x3b30];
+  ppppppiVar15[-1] = (int *****)0x409db74;
+  eON_SetEvent();
+  if (DAT_04468c30 == '\0') {
+    ppppppiVar15[-2] = (int *****)0x409db87;
+    FUN_040bc3d0();
+    ppppppiVar15[-2] = (int *****)0x409db8c;
+    FUN_040bca40();
+    ppppppiVar15[-2] = (int *****)0x409db95;
+    FUN_040ad550();
+    ppppppiVar15[-2] = (int *****)0x409db9a;
+    FUN_040b7190();
+    DAT_04468c30 = '\x01';
+  }
+  return 4;
+}
+

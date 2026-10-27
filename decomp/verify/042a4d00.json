@@ -1,0 +1,16 @@
+
+undefined4 png_zalloc(int param_1,uint param_2,uint param_3)
+
+{
+  undefined4 uVar1;
+  
+  if (param_1 != 0) {
+    if (param_2 < (uint)(0xffffffff / (ulonglong)param_3)) {
+      uVar1 = FUN_042aa3a0();
+      return uVar1;
+    }
+    png_warning(param_1,"Potential overflow in png_zalloc()");
+  }
+  return 0;
+}
+

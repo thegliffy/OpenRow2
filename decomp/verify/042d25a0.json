@@ -1,0 +1,48 @@
+
+/* WARNING: Function: __i686.get_pc_thunk.bx replaced with injection: get_pc_thunk_bx */
+
+bool google_breakpad__MinidumpFileWriter__Copy(int *param_1,int param_2,int param_3,uint param_4)
+
+{
+  code *pcVar1;
+  uint uVar2;
+  int *piVar3;
+  uint extraout_ECX;
+  
+  if (param_3 == 0) {
+                    /* WARNING: Subroutine does not return */
+    __assert_fail((char *)&PTR_DAT_0439d69c,"src/client/minidump_file_writer.cc",0xf7,
+                  "bool google_breakpad::MinidumpFileWriter::Copy(MDRVA, const void*, ssize_t)");
+  }
+  if (param_4 != 0) {
+    if (*param_1 == -1) {
+                    /* WARNING: Subroutine does not return */
+      __assert_fail("file_ != -1","src/client/minidump_file_writer.cc",0xf9,
+                    "bool google_breakpad::MinidumpFileWriter::Copy(MDRVA, const void*, ssize_t)");
+    }
+    if (param_4 + param_2 <= (uint)param_1[3]) {
+      pcVar1 = (code *)swi(0x80);
+      uVar2 = (*pcVar1)();
+      if (0xfffff000 < uVar2) {
+        piVar3 = __errno_location();
+        *piVar3 = -uVar2;
+        uVar2 = 0xffffffff;
+      }
+      if (extraout_ECX == uVar2) {
+        pcVar1 = (code *)swi(0x80);
+        uVar2 = (*pcVar1)();
+        if (0xfffff000 < uVar2) {
+          piVar3 = __errno_location();
+          *piVar3 = -uVar2;
+          uVar2 = 0xffffffff;
+        }
+        return param_4 == uVar2;
+      }
+    }
+    return false;
+  }
+                    /* WARNING: Subroutine does not return */
+  __assert_fail("size","src/client/minidump_file_writer.cc",0xf8,
+                "bool google_breakpad::MinidumpFileWriter::Copy(MDRVA, const void*, ssize_t)");
+}
+

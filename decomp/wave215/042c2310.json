@@ -1,0 +1,42 @@
+
+void FUN_042c2310(int param_1,undefined4 param_2,byte *param_3)
+
+{
+  int iVar1;
+  int iVar2;
+  uint uVar3;
+  undefined1 local_6d;
+  undefined1 auStack_6c [92];
+  
+  if (param_3 == (byte *)0x0) {
+                    /* WARNING: Subroutine does not return */
+    png_error(param_1,"No profile for iCCP chunk");
+  }
+  uVar3 = (uint)*param_3 * 0x1000000 + (uint)param_3[1] * 0x10000 + (uint)param_3[3] +
+          (uint)param_3[2] * 0x100;
+  if (uVar3 < 0x84) {
+                    /* WARNING: Subroutine does not return */
+    png_error(param_1,"ICC profile too short");
+  }
+  if ((3 < param_3[8]) && ((uVar3 & 3) != 0)) {
+                    /* WARNING: Subroutine does not return */
+    png_error(param_1,"ICC profile length invalid (not a multiple of 4)");
+  }
+  iVar1 = FUN_042c1130();
+  if (iVar1 == 0) {
+                    /* WARNING: Subroutine does not return */
+    png_error(param_1,"iCCP: invalid keyword");
+  }
+  auStack_6c[iVar1] = 0;
+  iVar2 = png_text_compress(iVar1 + 2);
+  if (iVar2 == 0) {
+    FUN_042c1080();
+    FUN_042c1940(param_1,&local_6d,iVar1 + 2);
+    png_write_compressed_data_out();
+    FUN_042c1a20(param_1);
+    return;
+  }
+                    /* WARNING: Subroutine does not return */
+  png_error(param_1,*(undefined4 *)(param_1 + 0xf8));
+}
+

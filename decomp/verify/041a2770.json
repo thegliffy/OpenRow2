@@ -1,0 +1,33 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+bool _glewInit_GLX_SGIX_hyperpipe(void)
+
+{
+  int iVar1;
+  bool bVar2;
+  bool bVar3;
+  bool bVar4;
+  bool bVar5;
+  bool bVar6;
+  bool bVar7;
+  
+  iVar1 = glXGetProcAddressARB("glXBindHyperpipeSGIX");
+  _DAT_0451c760 = iVar1;
+  _DAT_0451c75c = glXGetProcAddressARB("glXDestroyHyperpipeConfigSGIX");
+  bVar2 = _DAT_0451c75c == 0;
+  _DAT_0451c758 = glXGetProcAddressARB("glXHyperpipeAttribSGIX");
+  bVar3 = _DAT_0451c758 == 0;
+  _DAT_0451c754 = glXGetProcAddressARB("glXHyperpipeConfigSGIX");
+  bVar4 = _DAT_0451c754 == 0;
+  _DAT_0451c750 = glXGetProcAddressARB("glXQueryHyperpipeAttribSGIX");
+  bVar5 = _DAT_0451c750 == 0;
+  _DAT_0451c74c = glXGetProcAddressARB("glXQueryHyperpipeBestAttribSGIX");
+  bVar6 = _DAT_0451c74c == 0;
+  _DAT_0451c748 = glXGetProcAddressARB("glXQueryHyperpipeConfigSGIX");
+  bVar7 = _DAT_0451c748 == 0;
+  _DAT_0451c744 = glXGetProcAddressARB("glXQueryHyperpipeNetworkSGIX");
+  return _DAT_0451c744 == 0 ||
+         (bVar7 || (bVar6 || (bVar5 || (bVar4 || (bVar3 || (bVar2 || iVar1 == 0))))));
+}
+

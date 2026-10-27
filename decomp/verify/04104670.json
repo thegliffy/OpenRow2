@@ -1,0 +1,241 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+/* source: audioallocator, xaudio2dsp, xaudio2helpers */
+
+void Dsp__Mix(int *param_1,int *param_2,uint param_3,int param_4)
+
+{
+  float *pfVar1;
+  undefined1 (*pauVar2) [16];
+  float fVar3;
+  int iVar4;
+  int iVar5;
+  float fVar6;
+  float fVar7;
+  undefined1 auVar8 [16];
+  undefined1 auVar9 [16];
+  undefined4 *puVar10;
+  undefined4 *puVar11;
+  int iVar12;
+  int iVar13;
+  int iVar14;
+  uint uVar15;
+  int *piVar16;
+  uint uVar17;
+  int *piVar18;
+  uint uVar19;
+  int iVar20;
+  int iVar21;
+  undefined4 *puVar22;
+  float fVar23;
+  undefined1 auVar24 [16];
+  int local_58;
+  uint local_4c;
+  int local_30;
+  undefined4 *local_28;
+  undefined4 *local_24;
+  undefined4 *local_20;
+  
+  if (param_2[1] == *param_2) {
+    FUN_0400a810("!source.channels.empty()",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/xaudio2_full/xaudio2dsp.cpp"
+                 ,0x119,"void Dsp::Mix(PcmData&, const PcmData&, int, const float*)");
+  }
+  piVar16 = (int *)*param_1;
+  uVar17 = (param_1[1] - (int)piVar16 >> 2) * -0x55555555;
+  if (param_3 != uVar17) {
+    if (piVar16 != (int *)param_1[1]) {
+      FUN_0400a810("target.channels.empty()",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/xaudio2_full/xaudio2dsp.cpp"
+                   ,0x11e,"void Dsp::Mix(PcmData&, const PcmData&, int, const float*)");
+    }
+    piVar16 = (int *)*param_2;
+    if ((param_2[1] - (int)piVar16 >> 2) * -0x55555555 == 0) {
+      FUN_0400a810("pcm.channels.size() > 0",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/xaudio2_full/xaudio2helpers.h"
+                   ,0x13,"int GetNumOfSamples(const PcmData&)");
+      piVar16 = (int *)*param_2;
+    }
+    local_28 = (undefined4 *)0x0;
+    local_24 = (undefined4 *)0x0;
+    local_20 = (undefined4 *)0x0;
+    iVar21 = piVar16[1] - *piVar16 >> 2;
+    if (iVar21 == 0) {
+      local_20 = (undefined4 *)0x0;
+    }
+    else {
+      puVar10 = (undefined4 *)memalign(0x10,iVar21 * 4);
+      if (puVar10 == (undefined4 *)0x0) {
+        FUN_0400a810("memory",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/xaudio2_full/audioallocator.h"
+                     ,0x4b,
+                     "T* AudioAllocator<T>::allocate(AudioAllocator<T>::size_type, const void*) [with T = float, AudioAllocator<T>::pointer = float*, AudioAllocator<T>::size_type = unsigned int]"
+                    );
+      }
+      bzero(puVar10,iVar21 * 4);
+      local_20 = puVar10 + iVar21;
+      puVar11 = puVar10;
+      do {
+        if (puVar11 != (undefined4 *)0x0) {
+          *puVar11 = 0;
+        }
+        puVar11 = puVar11 + 1;
+        iVar21 = iVar21 + -1;
+        local_28 = puVar10;
+      } while (iVar21 != 0);
+    }
+    puVar10 = (undefined4 *)param_1[1];
+    uVar17 = ((int)puVar10 - *param_1 >> 2) * -0x55555555;
+    local_24 = local_20;
+    if (uVar17 < param_3) {
+                    /* try { // try from 04104a92 to 04104a96 has its CatchHandler @ 04104cc1 */
+      audioallocator_04103eb0(&local_28);
+    }
+    else if (param_3 < uVar17) {
+      puVar11 = (undefined4 *)(*param_1 + param_3 * 0xc);
+      for (puVar22 = puVar11; puVar10 != puVar22; puVar22 = puVar22 + 3) {
+        if ((void *)*puVar22 != (void *)0x0) {
+          free((void *)*puVar22);
+        }
+      }
+      param_1[1] = (int)puVar11;
+    }
+    if (local_28 == (undefined4 *)0x0) {
+      piVar16 = (int *)*param_1;
+      uVar17 = (param_1[1] - (int)piVar16 >> 2) * -0x55555555;
+    }
+    else {
+      free(local_28);
+      piVar16 = (int *)*param_1;
+      uVar17 = (param_1[1] - (int)piVar16 >> 2) * -0x55555555;
+    }
+  }
+  if (uVar17 == 0) {
+    FUN_0400a810("pcm.channels.size() > 0",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/xaudio2_full/xaudio2helpers.h"
+                 ,0x13,"int GetNumOfSamples(const PcmData&)");
+    piVar16 = (int *)*param_1;
+  }
+  piVar18 = (int *)*param_2;
+  uVar17 = piVar16[1] - *piVar16 >> 2;
+  if ((param_2[1] - (int)piVar18 >> 2) * -0x55555555 == 0) {
+    FUN_0400a810("pcm.channels.size() > 0",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/xaudio2_full/xaudio2helpers.h"
+                 ,0x13,"int GetNumOfSamples(const PcmData&)");
+    piVar18 = (int *)*param_2;
+  }
+  if (uVar17 != piVar18[1] - *piVar18 >> 2) {
+    FUN_0400a810("GetNumOfSamples( source ) == numOfSamples",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/xaudio2_full/xaudio2dsp.cpp"
+                 ,0x123,"void Dsp::Mix(PcmData&, const PcmData&, int, const float*)");
+  }
+  if (param_4 == 0) {
+    iVar21 = param_2[1] - *param_2 >> 2;
+    if ((DAT_044fa920 == '\0') && (iVar14 = __cxa_guard_acquire(&DAT_044fa920), iVar14 != 0)) {
+      _DAT_044fa940 = powf(10.0,-0.15);
+      _DAT_044fa948 = powf(10.0,-0.3);
+      _DAT_044fa94c = powf(10.0,-0.45);
+      _DAT_044fa950 = powf(10.0,-0.3);
+      _DAT_044fa95c = powf(10.0,-0.15);
+      _DAT_044fa960 = powf(10.0,-0.3);
+      _DAT_044fa964 = powf(10.0,-0.45);
+      _DAT_044fa96c = powf(10.0,-0.3);
+      __cxa_guard_release(&DAT_044fa920);
+    }
+    if (6 < iVar21 * -0x55555555) {
+      FUN_0400a810("inputChannels <= 6",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/xaudio2_full/xaudio2dsp.cpp"
+                   ,0x10b,"const float* {anonymous}::GetDefaultMixMatrix(int, int)");
+    }
+    if (6 < (int)param_3) {
+      FUN_0400a810("outputChannels <= 6",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/xaudio2_full/xaudio2dsp.cpp"
+                   ,0x10c,"const float* {anonymous}::GetDefaultMixMatrix(int, int)");
+    }
+    param_4 = *(int *)(&DAT_0430fe20 + ((param_3 - 1) + (iVar21 + -3) * 2) * 4);
+    if (param_4 == 0) {
+      FUN_0400a810("mixMatrix && \"Not supported mixing configuration\"",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/xaudio2_full/xaudio2dsp.cpp"
+                   ,0x10f,"const float* {anonymous}::GetDefaultMixMatrix(int, int)");
+      FUN_0400a810("mixMatrix",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/xaudio2_full/xaudio2dsp.cpp"
+                   ,0x128,"void Dsp::Mix(PcmData&, const PcmData&, int, const float*)");
+    }
+  }
+  fVar6 = DAT_042dbf3c;
+  if (0 < (int)param_3) {
+    local_58 = 0;
+    iVar21 = *param_2;
+    local_4c = 0;
+    iVar14 = *param_1;
+    iVar12 = (param_2[1] - iVar21 >> 2) * -0x55555555;
+    uVar15 = uVar17 & 0xfffffff4;
+    do {
+      if (0 < iVar12) {
+        local_30 = 0;
+        iVar20 = 0;
+LAB_04104912:
+        do {
+          auVar9 = _DAT_04310080;
+          auVar8 = _DAT_04310070;
+          fVar3 = *(float *)(param_4 + (iVar12 * local_4c + iVar20) * 4);
+          if (fVar3 != 0.0) {
+            piVar16 = (int *)(iVar21 + local_30);
+            if (0 < (int)uVar15) {
+              iVar4 = *piVar16;
+              iVar5 = *(int *)(iVar14 + local_58);
+              iVar13 = 0;
+              do {
+                pfVar1 = (float *)(iVar4 + iVar13 * 4);
+                pauVar2 = (undefined1 (*) [16])(iVar5 + iVar13 * 4);
+                iVar13 = iVar13 + 4;
+                auVar24._4_4_ = pfVar1[1] * fVar3 + *(float *)(*pauVar2 + 4);
+                auVar24._0_4_ = *pfVar1 * fVar3 + *(float *)*pauVar2;
+                auVar24._8_4_ = pfVar1[2] * fVar3 + *(float *)(*pauVar2 + 8);
+                auVar24._12_4_ = pfVar1[3] * fVar3 + *(float *)(*pauVar2 + 0xc);
+                auVar24 = maxps(auVar8,auVar24);
+                auVar24 = minps(auVar9,auVar24);
+                *pauVar2 = auVar24;
+              } while (iVar13 < (int)uVar15);
+            }
+            fVar7 = DAT_042e6f58;
+            if ((int)uVar15 < (int)uVar17) {
+              iVar4 = *(int *)(iVar14 + local_58);
+              iVar5 = *piVar16;
+              iVar13 = uVar15 << 2;
+              uVar19 = uVar15;
+              do {
+                while( true ) {
+                  pfVar1 = (float *)(iVar4 + iVar13);
+                  fVar23 = *(float *)(iVar5 + iVar13) * fVar3 + *pfVar1;
+                  if (fVar23 < fVar6) break;
+                  uVar19 = uVar19 + 1;
+                  iVar13 = iVar13 + 4;
+                  *pfVar1 = fVar6;
+                  if ((int)uVar17 <= (int)uVar19) goto LAB_041049f0;
+                }
+                if (fVar23 <= fVar7) {
+                  fVar23 = fVar7;
+                }
+                uVar19 = uVar19 + 1;
+                iVar13 = iVar13 + 4;
+                *pfVar1 = fVar23;
+              } while ((int)uVar19 < (int)uVar17);
+LAB_041049f0:
+              local_30 = local_30 + 0xc;
+              iVar20 = iVar20 + 1;
+              if (iVar12 <= iVar20) break;
+              goto LAB_04104912;
+            }
+          }
+          local_30 = local_30 + 0xc;
+          iVar20 = iVar20 + 1;
+        } while (iVar20 < iVar12);
+      }
+      local_4c = local_4c + 1;
+      local_58 = local_58 + 0xc;
+    } while (local_4c != param_3);
+  }
+  return;
+}
+

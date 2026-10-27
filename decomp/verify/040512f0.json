@@ -1,0 +1,13 @@
+
+char * ShaderData_GetFogVaryingName(void)
+
+{
+  char *pcVar1;
+  
+  pcVar1 = "eON_VaryingFog";
+  if (DAT_04468c04 == '\0') {
+    pcVar1 = "gl_FogFragCoord";
+  }
+  return pcVar1;
+}
+

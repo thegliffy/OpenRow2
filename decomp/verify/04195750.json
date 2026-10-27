@@ -1,0 +1,118 @@
+
+/* source: winsock */
+
+ssize_t eON_recvfrom(int param_1,void *param_2,size_t param_3,uint param_4,undefined4 *param_5,
+                    socklen_t *param_6)
+
+{
+  int iVar1;
+  void *__buf;
+  size_t __n;
+  uint uVar2;
+  undefined4 *puVar3;
+  socklen_t *psVar4;
+  uint __flags;
+  ssize_t sVar5;
+  int *piVar6;
+  uint uVar7;
+  uint uVar8;
+  sockaddr local_64 [4];
+  socklen_t local_24 [3];
+  undefined4 *local_18;
+  
+  psVar4 = param_6;
+  puVar3 = param_5;
+  uVar2 = param_4;
+  __n = param_3;
+  __buf = param_2;
+  iVar1 = param_1;
+  local_18 = &param_1;
+  eON_SetLastError(0);
+  EventSelect_ClearFlags(iVar1,1);
+  __flags = 0x100;
+  uVar8 = 0;
+  if (uVar2 != 0) {
+    FUN_0402cd10(10,
+                 "SOCKETS: recvfrom() wasn\'t tested with flags in eON yet. Please look at flags handling in your case."
+                );
+    uVar7 = uVar2 & 2;
+    __flags = (-(uint)(uVar7 == 0) & 0xfffffffe) + 0x103;
+    uVar8 = (-(uint)(uVar7 == 0) & 0xfffffffe) + 3;
+    if ((uVar2 & 1) == 0) {
+      __flags = (-(uint)(uVar7 == 0) & 0xfffffffe) + 0x102;
+      uVar8 = ~-(uint)(uVar7 == 0) & 2;
+    }
+  }
+  if ((uVar2 & 0x8000) != 0) {
+    __flags = uVar8;
+  }
+  if ((psVar4 != (socklen_t *)0x0) && ((int)*psVar4 < 0x10)) {
+    FUN_0402cd10(0xf,"SOCKETS: too small address length given to recvfrom: %d.",*psVar4);
+  }
+  local_24[0] = 0x40;
+  sVar5 = recvfrom(iVar1,__buf,__n,__flags,local_64,local_24);
+  if (sVar5 == -1) {
+    piVar6 = __errno_location();
+    iVar1 = *piVar6;
+    if (iVar1 == 0xb) {
+      eON_SetLastError(0x2733);
+    }
+    else if (iVar1 == 0x58) {
+      eON_SetLastError(0x3e3);
+    }
+    else {
+      if (iVar1 < 0x59) {
+        if (iVar1 == 9) {
+          eON_SetLastError(0x2736);
+          return -1;
+        }
+        if (iVar1 < 10) {
+          if (iVar1 == 4) {
+            eON_SetLastError(0x2714);
+            return -1;
+          }
+        }
+        else if ((iVar1 == 0xe) || (iVar1 == 0x16)) {
+          eON_SetLastError(0x271e);
+          return -1;
+        }
+      }
+      else {
+        if (iVar1 == 0x68) {
+          eON_SetLastError(0x2746);
+          return -1;
+        }
+        if (iVar1 < 0x69) {
+          if (iVar1 == 0x5f) {
+            return -1;
+          }
+        }
+        else {
+          if (iVar1 == 0x69) {
+            eON_SetLastError(0x2747);
+            return -1;
+          }
+          if (iVar1 == 0x6b) {
+            eON_SetLastError(0x2749);
+            return -1;
+          }
+        }
+      }
+      FUN_0402cd10(0xf,"SOCKETS: recvfrom() - unknown error - %d.",iVar1);
+    }
+  }
+  else if (puVar3 != (undefined4 *)0x0) {
+    *puVar3 = local_64[0]._0_4_;
+    puVar3[1] = local_64[0].sa_data._2_4_;
+    puVar3[2] = local_64[0].sa_data._6_4_;
+    puVar3[3] = local_64[0].sa_data._10_4_;
+    if (psVar4 == (socklen_t *)0x0) {
+      FUN_0400a810("fromlen",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/winsock/winsock.cpp"
+                   ,0xb4f,"INT eON_recvfrom(SOCKET, CHAR*, INT, INT, eON_sockaddr*, INT*)");
+    }
+    *psVar4 = local_24[0];
+  }
+  return sVar5;
+}
+

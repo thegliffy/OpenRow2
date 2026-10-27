@@ -1,0 +1,205 @@
+
+/* source: tinyxmlparser */
+
+byte * TiXmlDeclaration__Parse
+                 (int param_1,undefined4 param_2,undefined4 *param_3,undefined4 param_4)
+
+{
+  undefined4 uVar1;
+  char cVar2;
+  char *pcVar3;
+  int iVar4;
+  byte *pbVar5;
+  size_t sVar6;
+  ushort **ppuVar7;
+  byte bVar8;
+  undefined **local_40;
+  undefined4 local_3c;
+  undefined4 local_38;
+  undefined4 local_34;
+  undefined4 local_30;
+  undefined4 *local_2c;
+  undefined4 *local_28;
+  undefined4 local_24;
+  undefined4 local_20;
+  
+  pcVar3 = (char *)TiXmlBase__SkipWhiteSpace(param_2,param_4);
+  iVar4 = TiXmlNode__GetDocument(param_1);
+  if (((pcVar3 == (char *)0x0) || (*pcVar3 == '\0')) ||
+     (cVar2 = TiXmlBase__StringEqual(param_4), cVar2 == '\0')) {
+    if (iVar4 != 0) {
+      TiXmlDocument__SetError(iVar4,0xb,0,0,param_4);
+    }
+  }
+  else {
+    if (param_3 != (undefined4 *)0x0) {
+      TiXmlParsingData__Stamp(param_3,pcVar3,param_4);
+      uVar1 = param_3[1];
+      *(undefined4 *)(param_1 + 4) = *param_3;
+      *(undefined4 *)(param_1 + 8) = uVar1;
+    }
+    pbVar5 = (byte *)(pcVar3 + 5);
+    TiXmlString__assign(param_1 + 0x2c,&DAT_04328763,0);
+    TiXmlString__assign(param_1 + 0x30,&DAT_04328763,0);
+    TiXmlString__assign(param_1 + 0x34,&DAT_04328763,0);
+    if (pbVar5 != (byte *)0x0) {
+      bVar8 = pcVar3[5];
+      do {
+        if (bVar8 == 0) {
+          return (byte *)0x0;
+        }
+        if (bVar8 == 0x3e) goto LAB_041c98d0;
+        pbVar5 = (byte *)TiXmlBase__SkipWhiteSpace(pbVar5,param_4);
+        if (pbVar5 == (byte *)0x0) {
+          FUN_0400a810(&DAT_04361ca0,
+                       "/home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxmlparser.cpp"
+                       ,0x21b,
+                       "static bool TiXmlBase::StringEqual(const char*, const char*, bool, TiXmlEncoding)"
+                      );
+          FUN_0400a810("0",
+                       "/home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxmlparser.cpp"
+                       ,0x21f,
+                       "static bool TiXmlBase::StringEqual(const char*, const char*, bool, TiXmlEncoding)"
+                      );
+          FUN_0400a810(&DAT_04361ca0,
+                       "/home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxmlparser.cpp"
+                       ,0x21b,
+                       "static bool TiXmlBase::StringEqual(const char*, const char*, bool, TiXmlEncoding)"
+                      );
+          FUN_0400a810("0",
+                       "/home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxmlparser.cpp"
+                       ,0x21f,
+                       "static bool TiXmlBase::StringEqual(const char*, const char*, bool, TiXmlEncoding)"
+                      );
+          FUN_0400a810(&DAT_04361ca0,
+                       "/home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxmlparser.cpp"
+                       ,0x21b,
+                       "static bool TiXmlBase::StringEqual(const char*, const char*, bool, TiXmlEncoding)"
+                      );
+          FUN_0400a810("0",
+                       "/home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxmlparser.cpp"
+                       ,0x21f,
+                       "static bool TiXmlBase::StringEqual(const char*, const char*, bool, TiXmlEncoding)"
+                      );
+          return (byte *)0x0;
+        }
+        bVar8 = *pbVar5;
+        if (bVar8 == 0) {
+          FUN_0400a810("0",
+                       "/home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxmlparser.cpp"
+                       ,0x21f,
+                       "static bool TiXmlBase::StringEqual(const char*, const char*, bool, TiXmlEncoding)"
+                      );
+          bVar8 = *pbVar5;
+          if (bVar8 != 0) goto LAB_041c95f1;
+          FUN_0400a810("0",
+                       "/home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxmlparser.cpp"
+                       ,0x21f,
+                       "static bool TiXmlBase::StringEqual(const char*, const char*, bool, TiXmlEncoding)"
+                      );
+          bVar8 = *pbVar5;
+          if (bVar8 != 0) goto LAB_041c96c1;
+          FUN_0400a810("0",
+                       "/home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxmlparser.cpp"
+                       ,0x21f,
+                       "static bool TiXmlBase::StringEqual(const char*, const char*, bool, TiXmlEncoding)"
+                      );
+          bVar8 = *pbVar5;
+          if (bVar8 == 0) {
+            return (byte *)0x0;
+          }
+LAB_041c9798:
+          if (bVar8 == 0x3e) {
+LAB_041c98d0:
+            return pbVar5 + 1;
+          }
+          ppuVar7 = __ctype_b_loc();
+          while ((((*(byte *)((int)*ppuVar7 + (uint)bVar8 * 2 + 1) & 0x20) == 0 && (bVar8 != 10)) &&
+                 (bVar8 != 0xd))) {
+            pbVar5 = pbVar5 + 1;
+            if (pbVar5 == (byte *)0x0) {
+              return (byte *)0x0;
+            }
+            bVar8 = *pbVar5;
+            if (bVar8 == 0) {
+              return (byte *)0x0;
+            }
+            if (bVar8 == 0x3e) goto LAB_041c98d0;
+          }
+        }
+        else {
+          cVar2 = TiXmlBase__StringEqual(param_4);
+          if (cVar2 == '\0') {
+LAB_041c95f1:
+            cVar2 = TiXmlBase__StringEqual(param_4);
+            if (cVar2 == '\0') {
+LAB_041c96c1:
+              cVar2 = TiXmlBase__StringEqual(param_4);
+              if (cVar2 == '\0') goto LAB_041c9798;
+              local_38 = 0xffffffff;
+              local_3c = 0xffffffff;
+              local_34 = 0;
+              local_40 = &PTR_FUN_043629f8;
+              local_2c = &DAT_0451eee4;
+              local_28 = &DAT_0451eee4;
+              local_30 = 0;
+              local_20 = 0;
+              local_24 = 0;
+                    /* try { // try from 041c9731 to 041c9758 has its CatchHandler @ 041c990f */
+              pbVar5 = (byte *)TiXmlAttribute__Parse(&local_40,pbVar5,param_3,param_4);
+              pcVar3 = (char *)(local_28 + 2);
+              sVar6 = strlen(pcVar3);
+              TiXmlString__assign(param_1 + 0x34,pcVar3,sVar6);
+            }
+            else {
+              local_38 = 0xffffffff;
+              local_3c = 0xffffffff;
+              local_34 = 0;
+              local_40 = &PTR_FUN_043629f8;
+              local_2c = &DAT_0451eee4;
+              local_28 = &DAT_0451eee4;
+              local_30 = 0;
+              local_20 = 0;
+              local_24 = 0;
+                    /* try { // try from 041c9661 to 041c9688 has its CatchHandler @ 041c98fa */
+              pbVar5 = (byte *)TiXmlAttribute__Parse(&local_40,pbVar5,param_3,param_4);
+              pcVar3 = (char *)(local_28 + 2);
+              sVar6 = strlen(pcVar3);
+              TiXmlString__assign(param_1 + 0x30,pcVar3,sVar6);
+            }
+          }
+          else {
+            local_38 = 0xffffffff;
+            local_3c = 0xffffffff;
+            local_34 = 0;
+            local_40 = &PTR_FUN_043629f8;
+            local_2c = &DAT_0451eee4;
+            local_28 = &DAT_0451eee4;
+            local_30 = 0;
+            local_20 = 0;
+            local_24 = 0;
+                    /* try { // try from 041c9533 to 041c955a has its CatchHandler @ 041c98e5 */
+            pbVar5 = (byte *)TiXmlAttribute__Parse(&local_40,pbVar5,param_3,param_4);
+            pcVar3 = (char *)(local_28 + 2);
+            sVar6 = strlen(pcVar3);
+            TiXmlString__assign(param_1 + 0x2c,pcVar3,sVar6);
+          }
+          local_40 = &PTR_FUN_043629f8;
+          if ((local_28 != &DAT_0451eee4) && (local_28 != (undefined4 *)0x0)) {
+            operator_delete__(local_28);
+          }
+          if ((local_2c != &DAT_0451eee4) && (local_2c != (undefined4 *)0x0)) {
+            operator_delete__(local_2c);
+          }
+          local_40 = &PTR_FUN_04362158;
+        }
+        if (pbVar5 == (byte *)0x0) {
+          return (byte *)0x0;
+        }
+        bVar8 = *pbVar5;
+      } while( true );
+    }
+  }
+  return (byte *)0x0;
+}
+

@@ -1,0 +1,119 @@
+
+undefined4
+DirectInputMouseDeviceImp__GetDeviceData
+          (int param_1,uint param_2,void *param_3,uint *param_4,uint param_5)
+
+{
+  undefined4 uVar1;
+  undefined4 uVar2;
+  int iVar3;
+  void *__src;
+  int iVar4;
+  undefined4 uVar5;
+  size_t __n;
+  uint uVar6;
+  uint uVar7;
+  uint uVar8;
+  uint uVar9;
+  uint uVar10;
+  undefined4 *puVar11;
+  int local_24;
+  int local_20;
+  
+  if (*(int *)(param_1 + 0xa4) == 0) {
+    FUN_0402cd10(10,"DirectInputMouseDeviceImp::GetDeviceData() returning DIERR_NOTINITIALIZED.");
+    uVar5 = 0x80070015;
+  }
+  else if (*(char *)(param_1 + 0xa8) == '\0') {
+    FUN_0402cd10(10,"DirectInputMouseDeviceImp::GetDeviceData() returning DIERR_NOTACQUIRED.");
+    uVar5 = 0x8007000c;
+  }
+  else {
+    pthread_mutex_lock((pthread_mutex_t *)(param_1 + 0x78));
+    local_24 = *(int *)(param_1 + 0x44);
+    iVar3 = *(int *)(param_1 + 0x38);
+    uVar7 = (*(int *)(param_1 + 0x40) - iVar3 >> 2) * -0x33333333 +
+            ((*(int *)(param_1 + 0x54) - local_24 >> 2) * 5 + -5) * 5 +
+            (*(int *)(param_1 + 0x48) - *(int *)(param_1 + 0x4c) >> 2) * -0x33333333;
+    uVar8 = *param_4;
+    if (uVar7 <= *param_4) {
+      uVar8 = uVar7;
+    }
+    __n = 0x14;
+    if (param_2 < 0x15) {
+      __n = param_2;
+    }
+    if ((param_3 != (void *)0x0) && (uVar8 != 0)) {
+      local_20 = 0;
+      uVar10 = 0;
+      do {
+        uVar6 = (iVar3 - *(int *)(param_1 + 0x3c) >> 2) * -0x33333333 + uVar10;
+        if ((int)uVar6 < 0) {
+LAB_040f6e50:
+          uVar9 = ~(~uVar6 / 0x19);
+LAB_040f6e3a:
+          __src = (void *)((uVar6 + uVar9 * -0x19) * 0x14 + *(int *)(local_24 + uVar9 * 4));
+        }
+        else {
+          if (0x18 < (int)uVar6) {
+            if ((int)uVar6 < 1) goto LAB_040f6e50;
+            uVar9 = (int)uVar6 / 0x19;
+            goto LAB_040f6e3a;
+          }
+          __src = (void *)(iVar3 + local_20);
+        }
+        uVar10 = uVar10 + 1;
+        memcpy(param_3,__src,__n);
+        local_20 = local_20 + 0x14;
+        if (uVar10 == uVar8) break;
+        local_24 = *(int *)(param_1 + 0x44);
+        param_3 = (void *)((int)param_3 + param_2);
+        iVar3 = *(int *)(param_1 + 0x38);
+      } while( true );
+    }
+    *param_4 = uVar8;
+    if ((param_5 & 1) == 0) {
+      if (uVar7 == uVar8) {
+        uVar5 = *(undefined4 *)(param_1 + 0x38);
+        iVar3 = *(int *)(param_1 + 0x54);
+        uVar1 = *(undefined4 *)(param_1 + 0x3c);
+        uVar2 = *(undefined4 *)(param_1 + 0x40);
+        iVar4 = *(int *)(param_1 + 0x44);
+        for (puVar11 = (undefined4 *)(iVar4 + 4); puVar11 < (undefined4 *)(iVar3 + 4);
+            puVar11 = puVar11 + 1) {
+          operator_delete((void *)*puVar11);
+        }
+        *(undefined4 *)(param_1 + 0x48) = uVar5;
+        *(undefined4 *)(param_1 + 0x4c) = uVar1;
+        *(undefined4 *)(param_1 + 0x50) = uVar2;
+        *(int *)(param_1 + 0x54) = iVar4;
+      }
+      else if (uVar8 != 0) {
+        iVar4 = *(int *)(param_1 + 0x38);
+        uVar7 = 0;
+        iVar3 = *(int *)(param_1 + 0x40);
+        do {
+          if (iVar4 == iVar3 + -0x14) {
+            operator_delete(*(void **)(param_1 + 0x3c));
+            iVar3 = *(int *)(param_1 + 0x44);
+            *(int *)(param_1 + 0x44) = iVar3 + 4;
+            iVar4 = *(int *)(iVar3 + 4);
+            iVar3 = iVar4 + 500;
+            *(int *)(param_1 + 0x3c) = iVar4;
+            *(int *)(param_1 + 0x40) = iVar3;
+            *(int *)(param_1 + 0x38) = iVar4;
+          }
+          else {
+            iVar4 = iVar4 + 0x14;
+            *(int *)(param_1 + 0x38) = iVar4;
+          }
+          uVar7 = uVar7 + 1;
+        } while (uVar7 != uVar8);
+      }
+    }
+    pthread_mutex_unlock((pthread_mutex_t *)(param_1 + 0x78));
+    uVar5 = 0;
+  }
+  return uVar5;
+}
+

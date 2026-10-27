@@ -1,0 +1,32 @@
+
+void eON_ShaderData_convert_crs(int param_1)
+
+{
+  undefined4 uVar1;
+  int iVar2;
+  undefined1 local_2b2 [128];
+  undefined1 local_232 [128];
+  undefined1 local_1b2 [128];
+  undefined1 local_132 [128];
+  undefined1 local_b2 [128];
+  undefined1 local_32 [16];
+  undefined1 local_22 [18];
+  
+  ShaderData_AppendDestMask();
+  uVar1 = *(undefined4 *)(param_1 + 0x38);
+  local_b2[0] = 0;
+  local_32[0] = 0;
+  eON_ShaderData__InputRegisterIsColor(local_b2);
+  iVar2 = ShaderData_AppendDestMask();
+  if (iVar2 != 0) {
+    eON_AppendShaderCompileMessage
+              (uVar1,"%s%s = %s(",local_b2,local_32,
+               (&PTR_DAT_042eb360)[*(byte *)(param_1 + 0xf) & 0xf]);
+  }
+  eON_ShaderData_ApplySourceModifier(0x70000,local_2b2);
+  eON_ShaderData_ApplySourceModifier(0x70000,local_1b2);
+  eON_AppendShaderCompileMessage
+            (*(undefined4 *)(param_1 + 0x38),"cross(%s, %s)%s );\n",local_232,local_132,local_22);
+  return;
+}
+

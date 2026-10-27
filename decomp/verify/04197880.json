@@ -1,0 +1,373 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+bool _glewInit_GL_VERSION_2_0(void)
+
+{
+  int iVar1;
+  bool bVar2;
+  bool bVar3;
+  bool bVar4;
+  bool bVar5;
+  bool bVar6;
+  bool bVar7;
+  bool bVar8;
+  bool bVar9;
+  bool bVar10;
+  bool bVar11;
+  bool bVar12;
+  bool bVar13;
+  bool bVar14;
+  bool bVar15;
+  bool bVar16;
+  bool bVar17;
+  bool bVar18;
+  bool bVar19;
+  bool bVar20;
+  bool bVar21;
+  bool bVar22;
+  bool bVar23;
+  bool bVar24;
+  bool bVar25;
+  bool bVar26;
+  bool bVar27;
+  bool bVar28;
+  bool bVar29;
+  bool bVar30;
+  bool bVar31;
+  bool bVar32;
+  bool bVar33;
+  bool bVar34;
+  bool bVar35;
+  bool bVar36;
+  bool bVar37;
+  bool bVar38;
+  bool bVar39;
+  bool bVar40;
+  bool bVar41;
+  bool bVar42;
+  bool bVar43;
+  bool bVar44;
+  bool bVar45;
+  bool bVar46;
+  bool bVar47;
+  bool bVar48;
+  bool bVar49;
+  bool bVar50;
+  bool bVar51;
+  bool bVar52;
+  bool bVar53;
+  bool bVar54;
+  bool bVar55;
+  bool bVar56;
+  bool bVar57;
+  bool bVar58;
+  bool bVar59;
+  bool bVar60;
+  bool bVar61;
+  bool bVar62;
+  bool bVar63;
+  bool bVar64;
+  bool bVar65;
+  bool bVar66;
+  bool bVar67;
+  bool bVar68;
+  bool bVar69;
+  bool bVar70;
+  bool bVar71;
+  bool bVar72;
+  bool bVar73;
+  bool bVar74;
+  bool bVar75;
+  bool bVar76;
+  bool bVar77;
+  bool bVar78;
+  bool bVar79;
+  bool bVar80;
+  bool bVar81;
+  bool bVar82;
+  bool bVar83;
+  bool bVar84;
+  bool bVar85;
+  bool bVar86;
+  bool bVar87;
+  bool bVar88;
+  bool bVar89;
+  bool bVar90;
+  bool bVar91;
+  bool bVar92;
+  
+  iVar1 = glXGetProcAddressARB("glAttachShader");
+  DAT_0451ecec = iVar1;
+  DAT_0451ece8 = glXGetProcAddressARB("glBindAttribLocation");
+  bVar2 = DAT_0451ece8 == 0;
+  DAT_0451ece4 = glXGetProcAddressARB("glBlendEquationSeparate");
+  bVar3 = DAT_0451ece4 == 0;
+  DAT_0451ece0 = glXGetProcAddressARB("glCompileShader");
+  bVar4 = DAT_0451ece0 == 0;
+  DAT_0451ecdc = glXGetProcAddressARB("glCreateProgram");
+  bVar5 = DAT_0451ecdc == 0;
+  DAT_0451ecd8 = glXGetProcAddressARB("glCreateShader");
+  bVar6 = DAT_0451ecd8 == 0;
+  DAT_0451ecd4 = glXGetProcAddressARB("glDeleteProgram");
+  bVar7 = DAT_0451ecd4 == 0;
+  DAT_0451ecd0 = glXGetProcAddressARB("glDeleteShader");
+  bVar8 = DAT_0451ecd0 == 0;
+  _DAT_0451eccc = glXGetProcAddressARB("glDetachShader");
+  bVar9 = _DAT_0451eccc == 0;
+  DAT_0451ecc8 = glXGetProcAddressARB("glDisableVertexAttribArray");
+  bVar10 = DAT_0451ecc8 == 0;
+  DAT_0451ecc4 = glXGetProcAddressARB("glDrawBuffers");
+  bVar11 = DAT_0451ecc4 == 0;
+  DAT_0451ecc0 = glXGetProcAddressARB("glEnableVertexAttribArray");
+  bVar12 = DAT_0451ecc0 == 0;
+  DAT_0451ecbc = glXGetProcAddressARB("glGetActiveAttrib");
+  bVar13 = DAT_0451ecbc == 0;
+  DAT_0451ecb8 = glXGetProcAddressARB("glGetActiveUniform");
+  bVar14 = DAT_0451ecb8 == 0;
+  DAT_0451ecb4 = glXGetProcAddressARB("glGetAttachedShaders");
+  bVar15 = DAT_0451ecb4 == 0;
+  DAT_0451ecb0 = glXGetProcAddressARB("glGetAttribLocation");
+  bVar16 = DAT_0451ecb0 == 0;
+  DAT_0451ecac = glXGetProcAddressARB("glGetProgramInfoLog");
+  bVar17 = DAT_0451ecac == 0;
+  DAT_0451eca8 = glXGetProcAddressARB("glGetProgramiv");
+  bVar18 = DAT_0451eca8 == 0;
+  DAT_0451eca4 = glXGetProcAddressARB("glGetShaderInfoLog");
+  bVar19 = DAT_0451eca4 == 0;
+  DAT_0451eca0 = glXGetProcAddressARB("glGetShaderSource");
+  bVar20 = DAT_0451eca0 == 0;
+  DAT_0451ec9c = glXGetProcAddressARB("glGetShaderiv");
+  bVar21 = DAT_0451ec9c == 0;
+  DAT_0451ec98 = glXGetProcAddressARB("glGetUniformLocation");
+  bVar22 = DAT_0451ec98 == 0;
+  DAT_0451ec94 = glXGetProcAddressARB("glGetUniformfv");
+  bVar23 = DAT_0451ec94 == 0;
+  DAT_0451ec90 = glXGetProcAddressARB("glGetUniformiv");
+  bVar24 = DAT_0451ec90 == 0;
+  DAT_0451ec8c = glXGetProcAddressARB("glGetVertexAttribPointerv");
+  bVar25 = DAT_0451ec8c == 0;
+  _DAT_0451ec88 = glXGetProcAddressARB("glGetVertexAttribdv");
+  bVar26 = _DAT_0451ec88 == 0;
+  DAT_0451ec84 = glXGetProcAddressARB("glGetVertexAttribfv");
+  bVar27 = DAT_0451ec84 == 0;
+  DAT_0451ec80 = glXGetProcAddressARB("glGetVertexAttribiv");
+  bVar28 = DAT_0451ec80 == 0;
+  DAT_0451ec7c = glXGetProcAddressARB("glIsProgram");
+  bVar29 = DAT_0451ec7c == 0;
+  DAT_0451ec78 = glXGetProcAddressARB("glIsShader");
+  bVar30 = DAT_0451ec78 == 0;
+  DAT_0451ec74 = glXGetProcAddressARB("glLinkProgram");
+  bVar31 = DAT_0451ec74 == 0;
+  DAT_0451ec70 = glXGetProcAddressARB("glShaderSource");
+  bVar32 = DAT_0451ec70 == 0;
+  DAT_0451ec6c = glXGetProcAddressARB("glStencilFuncSeparate");
+  bVar33 = DAT_0451ec6c == 0;
+  _DAT_0451ec68 = glXGetProcAddressARB("glStencilMaskSeparate");
+  bVar34 = _DAT_0451ec68 == 0;
+  DAT_0451ec64 = glXGetProcAddressARB("glStencilOpSeparate");
+  bVar35 = DAT_0451ec64 == 0;
+  DAT_0451ec60 = glXGetProcAddressARB("glUniform1f");
+  bVar36 = DAT_0451ec60 == 0;
+  _DAT_0451ec5c = glXGetProcAddressARB("glUniform1fv");
+  bVar37 = _DAT_0451ec5c == 0;
+  DAT_0451ec58 = glXGetProcAddressARB("glUniform1i");
+  bVar38 = DAT_0451ec58 == 0;
+  DAT_0451ec54 = glXGetProcAddressARB("glUniform1iv");
+  bVar39 = DAT_0451ec54 == 0;
+  _DAT_0451ec50 = glXGetProcAddressARB("glUniform2f");
+  bVar40 = _DAT_0451ec50 == 0;
+  _DAT_0451ec4c = glXGetProcAddressARB("glUniform2fv");
+  bVar41 = _DAT_0451ec4c == 0;
+  _DAT_0451ec48 = glXGetProcAddressARB("glUniform2i");
+  bVar42 = _DAT_0451ec48 == 0;
+  _DAT_0451ec44 = glXGetProcAddressARB("glUniform2iv");
+  bVar43 = _DAT_0451ec44 == 0;
+  _DAT_0451ec40 = glXGetProcAddressARB("glUniform3f");
+  bVar44 = _DAT_0451ec40 == 0;
+  _DAT_0451ec3c = glXGetProcAddressARB("glUniform3fv");
+  bVar45 = _DAT_0451ec3c == 0;
+  _DAT_0451ec38 = glXGetProcAddressARB("glUniform3i");
+  bVar46 = _DAT_0451ec38 == 0;
+  _DAT_0451ec34 = glXGetProcAddressARB("glUniform3iv");
+  bVar47 = _DAT_0451ec34 == 0;
+  _DAT_0451ec30 = glXGetProcAddressARB("glUniform4f");
+  bVar48 = _DAT_0451ec30 == 0;
+  DAT_0451ec2c = glXGetProcAddressARB("glUniform4fv");
+  bVar49 = DAT_0451ec2c == 0;
+  _DAT_0451ec28 = glXGetProcAddressARB("glUniform4i");
+  bVar50 = _DAT_0451ec28 == 0;
+  DAT_0451ec24 = glXGetProcAddressARB("glUniform4iv");
+  bVar51 = DAT_0451ec24 == 0;
+  _DAT_0451ec20 = glXGetProcAddressARB("glUniformMatrix2fv");
+  bVar52 = _DAT_0451ec20 == 0;
+  _DAT_0451ec1c = glXGetProcAddressARB("glUniformMatrix3fv");
+  bVar53 = _DAT_0451ec1c == 0;
+  DAT_0451ec18 = glXGetProcAddressARB("glUniformMatrix4fv");
+  bVar54 = DAT_0451ec18 == 0;
+  DAT_0451ec14 = glXGetProcAddressARB("glUseProgram");
+  bVar55 = DAT_0451ec14 == 0;
+  DAT_0451ec10 = glXGetProcAddressARB("glValidateProgram");
+  bVar56 = DAT_0451ec10 == 0;
+  _DAT_0451ec0c = glXGetProcAddressARB("glVertexAttrib1d");
+  bVar57 = _DAT_0451ec0c == 0;
+  _DAT_0451ec08 = glXGetProcAddressARB("glVertexAttrib1dv");
+  bVar58 = _DAT_0451ec08 == 0;
+  _DAT_0451ec04 = glXGetProcAddressARB("glVertexAttrib1f");
+  bVar59 = _DAT_0451ec04 == 0;
+  _DAT_0451ec00 = glXGetProcAddressARB("glVertexAttrib1fv");
+  bVar60 = _DAT_0451ec00 == 0;
+  _DAT_0451ebfc = glXGetProcAddressARB("glVertexAttrib1s");
+  bVar61 = _DAT_0451ebfc == 0;
+  _DAT_0451ebf8 = glXGetProcAddressARB("glVertexAttrib1sv");
+  bVar62 = _DAT_0451ebf8 == 0;
+  _DAT_0451ebf4 = glXGetProcAddressARB("glVertexAttrib2d");
+  bVar63 = _DAT_0451ebf4 == 0;
+  _DAT_0451ebf0 = glXGetProcAddressARB("glVertexAttrib2dv");
+  bVar64 = _DAT_0451ebf0 == 0;
+  _DAT_0451ebec = glXGetProcAddressARB("glVertexAttrib2f");
+  bVar65 = _DAT_0451ebec == 0;
+  _DAT_0451ebe8 = glXGetProcAddressARB("glVertexAttrib2fv");
+  bVar66 = _DAT_0451ebe8 == 0;
+  _DAT_0451ebe4 = glXGetProcAddressARB("glVertexAttrib2s");
+  bVar67 = _DAT_0451ebe4 == 0;
+  _DAT_0451ebe0 = glXGetProcAddressARB("glVertexAttrib2sv");
+  bVar68 = _DAT_0451ebe0 == 0;
+  _DAT_0451ebdc = glXGetProcAddressARB("glVertexAttrib3d");
+  bVar69 = _DAT_0451ebdc == 0;
+  _DAT_0451ebd8 = glXGetProcAddressARB("glVertexAttrib3dv");
+  bVar70 = _DAT_0451ebd8 == 0;
+  _DAT_0451ebd4 = glXGetProcAddressARB("glVertexAttrib3f");
+  bVar71 = _DAT_0451ebd4 == 0;
+  _DAT_0451ebd0 = glXGetProcAddressARB("glVertexAttrib3fv");
+  bVar72 = _DAT_0451ebd0 == 0;
+  _DAT_0451ebcc = glXGetProcAddressARB("glVertexAttrib3s");
+  bVar73 = _DAT_0451ebcc == 0;
+  _DAT_0451ebc8 = glXGetProcAddressARB("glVertexAttrib3sv");
+  bVar74 = _DAT_0451ebc8 == 0;
+  DAT_0451ebc4 = glXGetProcAddressARB("glVertexAttrib4Nbv");
+  bVar75 = DAT_0451ebc4 == 0;
+  DAT_0451ebc0 = glXGetProcAddressARB("glVertexAttrib4Niv");
+  bVar76 = DAT_0451ebc0 == 0;
+  DAT_0451ebbc = glXGetProcAddressARB("glVertexAttrib4Nsv");
+  bVar77 = DAT_0451ebbc == 0;
+  _DAT_0451ebb8 = glXGetProcAddressARB("glVertexAttrib4Nub");
+  bVar78 = _DAT_0451ebb8 == 0;
+  DAT_0451ebb4 = glXGetProcAddressARB("glVertexAttrib4Nubv");
+  bVar79 = DAT_0451ebb4 == 0;
+  DAT_0451ebb0 = glXGetProcAddressARB("glVertexAttrib4Nuiv");
+  bVar80 = DAT_0451ebb0 == 0;
+  DAT_0451ebac = glXGetProcAddressARB("glVertexAttrib4Nusv");
+  bVar81 = DAT_0451ebac == 0;
+  DAT_0451eba8 = glXGetProcAddressARB("glVertexAttrib4bv");
+  bVar82 = DAT_0451eba8 == 0;
+  _DAT_0451eba4 = glXGetProcAddressARB("glVertexAttrib4d");
+  bVar83 = _DAT_0451eba4 == 0;
+  DAT_0451eba0 = glXGetProcAddressARB("glVertexAttrib4dv");
+  bVar84 = DAT_0451eba0 == 0;
+  DAT_0451eb9c = glXGetProcAddressARB("glVertexAttrib4f");
+  bVar85 = DAT_0451eb9c == 0;
+  DAT_0451eb98 = glXGetProcAddressARB("glVertexAttrib4fv");
+  bVar86 = DAT_0451eb98 == 0;
+  DAT_0451eb94 = glXGetProcAddressARB("glVertexAttrib4iv");
+  bVar87 = DAT_0451eb94 == 0;
+  _DAT_0451eb90 = glXGetProcAddressARB("glVertexAttrib4s");
+  bVar88 = _DAT_0451eb90 == 0;
+  DAT_0451eb8c = glXGetProcAddressARB("glVertexAttrib4sv");
+  bVar89 = DAT_0451eb8c == 0;
+  DAT_0451eb88 = glXGetProcAddressARB("glVertexAttrib4ubv");
+  bVar90 = DAT_0451eb88 == 0;
+  DAT_0451eb84 = glXGetProcAddressARB("glVertexAttrib4uiv");
+  bVar91 = DAT_0451eb84 == 0;
+  DAT_0451eb80 = glXGetProcAddressARB("glVertexAttrib4usv");
+  bVar92 = DAT_0451eb80 == 0;
+  DAT_0451eb7c = glXGetProcAddressARB("glVertexAttribPointer");
+  return DAT_0451eb7c == 0 ||
+         (bVar92 ||
+         (bVar91 ||
+         (bVar90 ||
+         (bVar89 ||
+         (bVar88 ||
+         (bVar87 ||
+         (bVar86 ||
+         (bVar85 ||
+         (bVar84 ||
+         (bVar83 ||
+         (bVar82 ||
+         (bVar81 ||
+         (bVar80 ||
+         (bVar79 ||
+         (bVar78 ||
+         (bVar77 ||
+         (bVar76 ||
+         (bVar75 ||
+         (bVar74 ||
+         (bVar73 ||
+         (bVar72 ||
+         (bVar71 ||
+         (bVar70 ||
+         (bVar69 ||
+         (bVar68 ||
+         (bVar67 ||
+         (bVar66 ||
+         (bVar65 ||
+         (bVar64 ||
+         (bVar63 ||
+         (bVar62 ||
+         (bVar61 ||
+         (bVar60 ||
+         (bVar59 ||
+         (bVar58 ||
+         (bVar57 ||
+         (bVar56 ||
+         (bVar55 ||
+         (bVar54 ||
+         (bVar53 ||
+         (bVar52 ||
+         (bVar51 ||
+         (bVar50 ||
+         (bVar49 ||
+         (bVar48 ||
+         (bVar47 ||
+         (bVar46 ||
+         (bVar45 ||
+         (bVar44 ||
+         (bVar43 ||
+         (bVar42 ||
+         (bVar41 ||
+         (bVar40 ||
+         (bVar39 ||
+         (bVar38 ||
+         (bVar37 ||
+         (bVar36 ||
+         (bVar35 ||
+         (bVar34 ||
+         (bVar33 ||
+         (bVar32 ||
+         (bVar31 ||
+         (bVar30 ||
+         (bVar29 ||
+         (bVar28 ||
+         (bVar27 ||
+         (bVar26 ||
+         (bVar25 ||
+         (bVar24 ||
+         (bVar23 ||
+         (bVar22 ||
+         (bVar21 ||
+         (bVar20 ||
+         (bVar19 ||
+         (bVar18 ||
+         (bVar17 ||
+         (bVar16 ||
+         (bVar15 ||
+         (bVar14 ||
+         (bVar13 ||
+         (bVar12 ||
+         (bVar11 ||
+         (bVar10 ||
+         (bVar9 || (bVar8 || (bVar7 || (bVar6 || (bVar5 || (bVar4 || (bVar3 || (bVar2 || iVar1 == 0)
+                                                                     )))))))))))))))))))))))))))))))
+         )))))))))))))))))))))))))))))))))))))))))))))))))))))))))));
+}
+

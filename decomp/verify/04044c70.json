@@ -1,0 +1,360 @@
+
+/* WARNING: Type propagation algorithm not settling */
+/* source: vpfs */
+
+undefined4 __regparm3 VPFS_ConvertToDiskFile(int param_1)
+
+{
+  ushort uVar1;
+  undefined4 uVar2;
+  undefined4 uVar3;
+  undefined4 *puVar4;
+  char cVar5;
+  size_t sVar6;
+  int iVar7;
+  char *pcVar8;
+  int iVar9;
+  int iVar10;
+  void *pvVar11;
+  undefined4 *puVar12;
+  undefined *puVar13;
+  int *piVar14;
+  undefined4 *puVar15;
+  int *piVar16;
+  undefined4 *puVar17;
+  int iVar18;
+  bool bVar19;
+  undefined *local_1464;
+  char *local_1440;
+  uint local_143c;
+  int local_1438;
+  char local_142c [1024];
+  char local_102c [1024];
+  undefined1 local_c2c [1024];
+  char local_82c [1024];
+  undefined4 local_42c;
+  undefined4 local_428;
+  undefined4 local_2c;
+  undefined4 local_28;
+  undefined *local_24;
+  undefined *local_20 [4];
+  
+  iVar18 = DAT_04468a94;
+  pcVar8 = (char *)(DAT_04468a94 + 0x24 + param_1);
+  sVar6 = strlen(pcVar8);
+  if (3 < sVar6) {
+    pcVar8 = pcVar8 + (sVar6 - 4);
+    iVar7 = strcasecmp(pcVar8,".exe");
+    if ((iVar7 == 0) || (iVar7 = strcasecmp(pcVar8,".dll"), iVar7 == 0)) {
+      FUN_0402cd10();
+      return 0;
+    }
+  }
+  iVar18 = iVar18 + param_1;
+  if (param_1 == 0) {
+    if (DAT_04468a80 + 1U < 0x401) {
+      strcpy(local_142c,(char *)&DAT_04417820);
+    }
+  }
+  else {
+    iVar7 = FUN_0403ed10();
+    if ((iVar7 != 0) && ((int)(iVar7 + 1 + (uint)*(ushort *)(iVar18 + 2)) < 0x401)) {
+      local_142c[iVar7] = '/';
+      strcpy(local_142c + iVar7 + 1,(char *)(iVar18 + 0x24));
+    }
+  }
+  local_1440 = local_142c;
+  iVar7 = VPFS_PathToPathInArchive();
+  if (iVar7 == 0) {
+    FUN_0400a810();
+  }
+  cVar5 = FUN_0404c4c0();
+  if (cVar5 != '\0') {
+    FUN_0402cd10();
+    return 0;
+  }
+  pcVar8 = strrchr(local_1440,0x2f);
+  if (*pcVar8 != '\0') {
+    *pcVar8 = '\0';
+    if (local_142c[0] == '\0') {
+      *pcVar8 = '/';
+    }
+    else {
+      iVar7 = VPFS_MakeSureFolderExistsOnDisk();
+      *pcVar8 = '/';
+      if (iVar7 == 0) {
+        FUN_0402cd10();
+        return 0;
+      }
+    }
+  }
+  iVar9 = FUN_0403c9d0();
+  iVar7 = DAT_04468a94;
+  uVar1 = *(ushort *)(iVar18 + 2);
+  iVar10 = fs_CreateFileA();
+  if (iVar10 == -1) {
+    FUN_0402cd10();
+    return 0;
+  }
+  puVar12 = (undefined4 *)(iVar7 + param_1 + 0x24 + (uint)uVar1);
+  VPFS_MadeChangesAtPath();
+  local_20[0] = (undefined *)puVar12[5];
+  iVar7 = fs_SetFilePointer();
+  piVar16 = (int *)&stack0xffffeb48;
+  if (iVar7 == -1) {
+    FUN_0402cd10();
+LAB_040452f8:
+    *piVar16 = iVar10;
+    piVar16[-1] = 0x4045306;
+    FUN_04131a90();
+    return 0;
+  }
+  pvVar11 = malloc(0x100000);
+  if (pvVar11 == (void *)0x0) {
+    FUN_0402cd10();
+    piVar16 = (int *)&stack0xffffeb48;
+    goto LAB_040452f8;
+  }
+  local_1464 = (undefined *)*puVar12;
+  local_143c = 0;
+  local_1438 = 0;
+  puVar4 = (undefined4 *)&stack0xffffeb48;
+  do {
+    puVar15 = puVar4;
+    puVar15[4] = 0;
+    puVar15[3] = local_20;
+    puVar15[1] = pvVar11;
+    puVar13 = (undefined *)0x100000;
+    if (local_1464 < &UNK_00100001) {
+      puVar13 = local_1464;
+    }
+    puVar15[2] = puVar13;
+    *puVar15 = (&DAT_04418080)[puVar12[2]];
+    puVar15[-1] = 0x4044fb7;
+    iVar7 = fs_ReadFile();
+    puVar17 = puVar15 + -5;
+    if (iVar7 == 0) {
+      local_24 = (undefined *)0x0;
+    }
+    else {
+      local_24 = local_20[0];
+      if (local_20[0] != (undefined *)0x0) {
+        uVar2 = *puVar12;
+        uVar3 = puVar12[1];
+        if (DAT_04468a90 != 0) {
+          puVar15[1] = 0;
+          *puVar15 = local_20[0];
+          puVar15[-3] = local_143c;
+          puVar15[-2] = local_1438;
+          puVar15[-1] = pvVar11;
+          puVar15[-5] = uVar2;
+          puVar15[-4] = uVar3;
+          puVar15[-6] = 0x4045048;
+          VPFS_ArchiveRead();
+        }
+      }
+    }
+    if (local_24 < puVar13) {
+      puVar15[-4] = "VPFS_ConvertToDiskFile() error - failed to read from archive";
+LAB_04045496:
+      *puVar17 = 0xf;
+      puVar17[-1] = 0x40454a2;
+      FUN_0402cd10();
+      *puVar17 = pvVar11;
+      puVar17[-1] = 0x40454b0;
+      free((void *)*puVar17);
+      piVar16 = puVar17;
+      goto LAB_040452f8;
+    }
+    puVar15[-3] = puVar13;
+    puVar15[-1] = 0;
+    puVar15[-2] = &local_24;
+    puVar15[-4] = pvVar11;
+    puVar15[-5] = iVar10;
+    puVar15[-6] = 0x4044f47;
+    iVar7 = fs_WriteFile();
+    puVar17 = puVar15 + -10;
+    if (iVar7 == 0) {
+      puVar15[-9] = "VPFS_ConvertToDiskFile() error - failed to write to disk file";
+      goto LAB_04045496;
+    }
+    bVar19 = CARRY4(local_143c,(uint)puVar13);
+    local_143c = local_143c + (int)puVar13;
+    local_1438 = local_1438 + (uint)bVar19;
+    local_1464 = local_1464 + -(int)puVar13;
+    puVar4 = puVar15 + -10;
+  } while (local_1464 != (undefined *)0x0);
+  puVar15[-10] = pvVar11;
+  puVar15[-0xb] = 0x40450ce;
+  free((void *)puVar15[-10]);
+  puVar15[-10] = iVar10;
+  puVar15[-0xb] = 0x40450dc;
+  FUN_04131a90();
+  piVar16 = puVar15 + -0xb;
+  local_42c = *(undefined4 *)(iVar18 + 8);
+  local_428 = *(undefined4 *)(iVar18 + 0xc);
+  local_2c = *(undefined4 *)(iVar18 + 0x10);
+  local_28 = *(undefined4 *)(iVar18 + 0x14);
+  local_20[0] = (undefined *)(*(uint *)(iVar18 + 0x20) & 0x27);
+  puVar15[-0xc] = 0x4045119;
+  iVar18 = VPFS_PathToPathInArchive();
+  if (iVar18 == 0) {
+    puVar15[-8] = "int VPFS_ConvertToDiskFile(int)";
+    puVar15[-9] = 0x12d3;
+    puVar15[-10] = "/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/vpfs/vpfs.cpp";
+    puVar15[-0xb] = "VPFS_PathToPathInArchive( absolutePath, pathInArchive, 1024 ) != 0";
+    puVar15[-0xc] = 0x4045457;
+    FUN_0400a810();
+  }
+  puVar15[-0xb] = local_c2c;
+  puVar15[-10] = 0;
+  puVar15[-0xc] = 0x4045131;
+  iVar18 = FUN_0404c040();
+  if (iVar18 != 0) {
+    puVar15[-0xb] = iVar18;
+    puVar15[-0xc] = 0x404513f;
+    cVar5 = FUN_0404c630();
+    if (cVar5 != '\0') {
+      puVar15[-8] = "int VPFS_ConvertToDiskFile(int)";
+      puVar15[-9] = 0x12d8;
+      puVar15[-10] = "/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/vpfs/vpfs.cpp";
+      puVar15[-0xb] = "!VPFSDB_IsDeleted( dbObj )";
+      puVar15[-0xc] = 0x40454e3;
+      FUN_0400a810();
+    }
+    puVar15[-0xb] = iVar18;
+    puVar15[-10] = &local_42c;
+    puVar15[-0xc] = 0x4045159;
+    FUN_0404c840();
+    puVar15[-0xb] = iVar18;
+    puVar15[-10] = &local_2c;
+    puVar15[-0xc] = 0x4045168;
+    FUN_0404c970();
+    puVar15[-0xb] = iVar18;
+    puVar15[-10] = local_20;
+    puVar15[-0xc] = 0x4045177;
+    FUN_0404c710();
+    puVar15[-0xb] = iVar18;
+    puVar15[-0xc] = 0x404517f;
+    FUN_0404c310();
+  }
+  pcVar8 = local_82c;
+  if (local_142c[0] == '/') {
+    local_82c[0] = 'C';
+    pcVar8 = local_82c + 2;
+    local_82c[1] = 0x3a;
+  }
+  puVar15[-0xb] = pcVar8;
+  puVar15[-10] = local_1440;
+  puVar15[-0xc] = 0x40451a4;
+  strcpy((char *)puVar15[-0xb],(char *)puVar15[-10]);
+  if (local_82c[0] != '\0') {
+    pcVar8 = local_82c;
+    cVar5 = local_82c[0];
+    do {
+      while (cVar5 == '/') {
+        *pcVar8 = '\\';
+        pcVar8 = pcVar8 + 1;
+        cVar5 = *pcVar8;
+        if (cVar5 == '\0') goto LAB_040451dc;
+      }
+      pcVar8 = pcVar8 + 1;
+      cVar5 = *pcVar8;
+    } while (cVar5 != '\0');
+LAB_040451dc:
+    if (local_82c[0] != '\0') {
+      puVar15[-0xc] = 0x40453c3;
+      iVar18 = VPFS_Open();
+      if (iVar18 != 0) {
+        puVar15[-0xb] = iVar18;
+        puVar15[-10] = local_20[0];
+        puVar15[-0xc] = 0x40453dc;
+        VPFS_SetFileAttributes();
+        puVar15[-0xb] = iVar18;
+        puVar15[-9] = &local_2c;
+        puVar15[-8] = 0;
+        puVar15[-10] = &local_42c;
+        puVar15[-0xc] = 0x4045403;
+        VPFS_SetDateTime();
+        if (iVar18 + 0x54545455U < 0x2801) {
+          puVar15[-0xb] = &DAT_0441804c;
+          puVar15[-0xc] = 0x4045417;
+          pthread_mutex_lock((pthread_mutex_t *)puVar15[-0xb]);
+          if (iVar18 != -0x54545455) {
+            puVar15[-0xc] = 0x4045422;
+            VPFS_CloseHandle();
+          }
+          puVar15[-0xb] = &DAT_0441804c;
+          puVar15[-0xc] = 0x404542e;
+          pthread_mutex_unlock((pthread_mutex_t *)puVar15[-0xb]);
+        }
+        else {
+          puVar15[-10] = "Invalid handle given to VPFS_Close()!!";
+          puVar15[-0xb] = 0xf;
+          puVar15[-0xc] = 0x4045470;
+          FUN_0402cd10();
+        }
+        goto LAB_0404520d;
+      }
+    }
+  }
+  puVar15[-8] = "int VPFS_ConvertToDiskFile(int)";
+  puVar15[-9] = 0x12e3;
+  puVar15[-10] = "/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/vpfs/vpfs.cpp";
+  puVar15[-0xb] = "h";
+  puVar15[-0xc] = 0x404520d;
+  FUN_0400a810();
+LAB_0404520d:
+  piVar14 = &DAT_04418280;
+  pcVar8 = local_102c;
+  if (iVar9 == 0) {
+    pcVar8 = local_1440;
+  }
+  iVar18 = 1;
+  do {
+    if ((*piVar14 == 2 || *piVar14 == 3) && (piVar14[2] == param_1)) {
+      iVar7 = piVar14[3];
+      puVar13 = (undefined *)piVar14[4];
+      piVar16[-1] = 0x4045285;
+      VPFS_CloseHandle();
+      piVar16[1] = (int)&DAT_0012019f;
+      *piVar16 = (int)pcVar8;
+      piVar16[-1] = 0x40452a9;
+      iVar9 = VPFS_OpenFileOnDisk();
+      if (iVar9 == 0) {
+        piVar16[2] = iVar18;
+        piVar16[1] = (int)
+                     "VPFS_ConvertToDiskFile() - internal logic error! Failed to convert handle %d";
+        *piVar16 = 0xf;
+        piVar16[-1] = 0x40452cb;
+        FUN_0402cd10();
+      }
+      else {
+        iVar9 = piVar14[2];
+        piVar16[3] = 0;
+        piVar16[2] = (int)local_20;
+        *piVar16 = iVar9;
+        piVar16[1] = iVar7;
+        piVar16[-1] = 0x4045345;
+        local_20[0] = puVar13;
+        iVar9 = fs_SetFilePointer();
+        if (iVar9 == -1) {
+          piVar16[-2] = iVar18;
+          piVar16[-3] = (int)
+                        "VPFS_ConvertToDiskFile() - internal logic error! Failed to convert handle %d (SetFilePointer failed)"
+          ;
+          piVar16[-4] = 0xf;
+          piVar16[-5] = 0x40453af;
+          FUN_0402cd10();
+        }
+        piVar14[3] = iVar7;
+        piVar14[4] = (int)puVar13;
+        piVar16 = piVar16 + -4;
+      }
+    }
+    piVar14 = piVar14 + 8;
+    iVar18 = iVar18 + 1;
+  } while (iVar18 != 0x2801);
+  return 1;
+}
+

@@ -1,0 +1,160 @@
+
+/* source: mem_vm */
+
+void * __regparm3
+vmm_ReserveNewRegion(uint param_1,char param_2,char param_3,char param_4,int *param_5)
+
+{
+  bool bVar1;
+  void *pvVar2;
+  uint uVar3;
+  uint uVar4;
+  int iVar5;
+  void *pvVar6;
+  void *__addr;
+  int *piVar7;
+  void *pvVar8;
+  
+  if (param_4 != '\0') goto LAB_0413a8e8;
+  if (param_2 != '\0') {
+    iVar5 = FUN_0402e5f0();
+    pvVar8 = (void *)(iVar5 - param_1);
+    for (piVar7 = DAT_04515c0c; piVar7 != (int *)0x0; piVar7 = (int *)piVar7[1]) {
+      uVar3 = piVar7[2];
+      uVar4 = FUN_0402e5f0();
+      if (uVar3 < uVar4) {
+        uVar3 = piVar7[2];
+        bVar1 = false;
+        if ((void *)(piVar7[3] + uVar3) <= pvVar8) goto LAB_0413ab85;
+        if (uVar3 < param_1) goto LAB_0413ab80;
+        if (param_3 != '\0') goto LAB_0413ab90;
+        goto LAB_0413ab5b;
+      }
+    }
+LAB_0413aac0:
+    bVar1 = false;
+    piVar7 = DAT_04515be8;
+    goto LAB_0413aac7;
+  }
+  bVar1 = false;
+  pvVar8 = (void *)0x0;
+  piVar7 = DAT_04515be8;
+  if (DAT_04515be8 != (int *)0x0) {
+    uVar3 = DAT_04515be8[2];
+    bVar1 = false;
+    if (uVar3 < param_1) {
+      if (param_3 == '\0') {
+        do {
+          pvVar8 = (void *)(piVar7[3] + uVar3);
+          uVar3 = FUN_0402e5f0();
+          if (uVar3 < (int)pvVar8 + param_1) goto LAB_0413abf0;
+          piVar7 = (int *)*piVar7;
+          if (piVar7 == (int *)0x0) goto LAB_0413abb8;
+          uVar3 = piVar7[2];
+        } while (uVar3 < (int)pvVar8 + param_1);
+        bVar1 = false;
+      }
+      else {
+        do {
+          pvVar8 = (void *)(uVar3 + 0xffff + piVar7[3] & 0xffff0000);
+          uVar3 = FUN_0402e5f0();
+          if (uVar3 < (int)pvVar8 + param_1) goto LAB_0413abf0;
+          piVar7 = (int *)*piVar7;
+          if (piVar7 == (int *)0x0) goto LAB_0413abb8;
+          uVar3 = piVar7[2];
+        } while (uVar3 < (int)pvVar8 + param_1);
+        bVar1 = false;
+      }
+    }
+  }
+  goto LAB_0413aa32;
+  while( true ) {
+    uVar3 = piVar7[2];
+    if ((void *)(piVar7[3] + uVar3) <= pvVar8) goto LAB_0413abc8;
+    if (uVar3 < param_1) break;
+LAB_0413ab5b:
+    piVar7 = (int *)piVar7[1];
+    pvVar8 = (void *)(uVar3 - param_1);
+    if (piVar7 == (int *)0x0) goto LAB_0413aac0;
+  }
+  goto LAB_0413ab80;
+LAB_0413ab90:
+  do {
+    piVar7 = (int *)piVar7[1];
+    pvVar8 = (void *)(uVar3 - param_1 & 0xffff0000);
+    if (piVar7 == (int *)0x0) goto LAB_0413aac0;
+    uVar3 = piVar7[2];
+    if ((void *)(piVar7[3] + uVar3) <= pvVar8) goto LAB_0413abc8;
+  } while (param_1 <= uVar3);
+LAB_0413ab80:
+  bVar1 = true;
+LAB_0413ab85:
+  piVar7 = (int *)*piVar7;
+LAB_0413aac7:
+  *param_5 = (int)piVar7;
+  goto LAB_0413aa37;
+LAB_0413abc8:
+  bVar1 = false;
+  piVar7 = (int *)*piVar7;
+  goto LAB_0413aac7;
+LAB_0413abf0:
+  bVar1 = true;
+  goto LAB_0413aa32;
+LAB_0413abb8:
+  piVar7 = (int *)0x0;
+  bVar1 = false;
+LAB_0413aa32:
+  *param_5 = (int)piVar7;
+LAB_0413aa37:
+  if (!bVar1) {
+    return pvVar8;
+  }
+LAB_0413a8e8:
+  pvVar8 = (void *)0x0;
+  pvVar2 = mmap64((void *)0x0,param_1 + 0xf000,0,0x22,0,0);
+  if (pvVar2 != (void *)0xffffffff) {
+    pvVar8 = pvVar2;
+    if (((param_3 != '\0') &&
+        (pvVar8 = (void *)((int)pvVar2 + 0xffffU & 0xffff0000), pvVar2 < pvVar8)) &&
+       (iVar5 = munmap(pvVar2,(int)pvVar8 - (int)pvVar2), iVar5 != 0)) {
+      FUN_0400a810("munmap( addr, roundedAddr - (SIZE_T) addr ) == 0",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/mem_vm.cpp"
+                   ,0x609,"void* vmm_ReserveNewRegion(SIZE_T, bool, bool, bool, ReservedRegion*&)");
+    }
+    pvVar2 = (void *)((int)pvVar2 + param_1 + 0xf000);
+    __addr = (void *)(param_1 + (int)pvVar8);
+    if ((__addr < pvVar2) && (iVar5 = munmap(__addr,(int)pvVar2 - (int)__addr), iVar5 != 0)) {
+      FUN_0400a810("munmap( (LPVOID) endOfNeededRegion, endOfMappedRegion - endOfNeededRegion ) == 0"
+                   ,
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/mem_vm.cpp"
+                   ,0x611,"void* vmm_ReserveNewRegion(SIZE_T, bool, bool, bool, ReservedRegion*&)");
+    }
+    if (DAT_04515c0c == (int *)0x0) {
+LAB_0413a9c1:
+      *param_5 = 0;
+    }
+    else {
+      pvVar2 = (void *)DAT_04515c0c[2];
+      pvVar6 = (void *)(DAT_04515c0c[3] + (int)pvVar2);
+      piVar7 = DAT_04515c0c;
+      while (pvVar8 < pvVar6) {
+        if (pvVar2 < __addr) {
+          FUN_0400a810("(SIZE_T) region->Address >= (SIZE_T) addressAligned + sizeAligned",
+                       "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/mem_vm.cpp"
+                       ,0x621,
+                       "void* vmm_ReserveNewRegion(SIZE_T, bool, bool, bool, ReservedRegion*&)");
+          piVar7 = (int *)piVar7[1];
+        }
+        else {
+          piVar7 = (int *)piVar7[1];
+        }
+        if (piVar7 == (int *)0x0) goto LAB_0413a9c1;
+        pvVar2 = (void *)piVar7[2];
+        pvVar6 = (void *)(piVar7[3] + (int)pvVar2);
+      }
+      *param_5 = *piVar7;
+    }
+  }
+  return pvVar8;
+}
+

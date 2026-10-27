@@ -1,0 +1,40 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+bool _glewInit_GL_ARB_viewport_array(void)
+
+{
+  int iVar1;
+  bool bVar2;
+  bool bVar3;
+  bool bVar4;
+  bool bVar5;
+  bool bVar6;
+  bool bVar7;
+  bool bVar8;
+  bool bVar9;
+  
+  iVar1 = glXGetProcAddressARB("glDepthRangeArrayv");
+  _DAT_0451de50 = iVar1;
+  _DAT_0451de4c = glXGetProcAddressARB("glDepthRangeIndexed");
+  bVar2 = _DAT_0451de4c == 0;
+  _DAT_0451de48 = glXGetProcAddressARB("glGetDoublei_v");
+  bVar3 = _DAT_0451de48 == 0;
+  _DAT_0451de44 = glXGetProcAddressARB("glGetFloati_v");
+  bVar4 = _DAT_0451de44 == 0;
+  _DAT_0451de40 = glXGetProcAddressARB("glScissorArrayv");
+  bVar5 = _DAT_0451de40 == 0;
+  _DAT_0451de3c = glXGetProcAddressARB("glScissorIndexed");
+  bVar6 = _DAT_0451de3c == 0;
+  _DAT_0451de38 = glXGetProcAddressARB("glScissorIndexedv");
+  bVar7 = _DAT_0451de38 == 0;
+  _DAT_0451de34 = glXGetProcAddressARB("glViewportArrayv");
+  bVar8 = _DAT_0451de34 == 0;
+  _DAT_0451de30 = glXGetProcAddressARB("glViewportIndexedf");
+  bVar9 = _DAT_0451de30 == 0;
+  _DAT_0451de2c = glXGetProcAddressARB("glViewportIndexedfv");
+  return _DAT_0451de2c == 0 ||
+         (bVar9 || (bVar8 || (bVar7 || (bVar6 || (bVar5 || (bVar4 || (bVar3 || (bVar2 || iVar1 == 0)
+                                                                     )))))));
+}
+

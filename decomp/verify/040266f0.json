@@ -1,0 +1,31 @@
+
+void eON_WindowLinux__Platform_GetOriginOfDisplayTheWindowIsOn
+               (int param_1,undefined4 *param_2,undefined4 *param_3)
+
+{
+  int iVar1;
+  undefined4 local_1c;
+  undefined4 local_18;
+  
+  iVar1 = SDL_GetWindowDisplayIndex(*(undefined4 *)(param_1 + 0x7c));
+  if (-1 < iVar1) {
+    iVar1 = SDL_GetDisplayBounds(iVar1,&local_1c);
+    if (iVar1 != 0) {
+      FUN_0400a810("SDL_GetDisplayBounds( displayIndex, &rect ) == 0",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/linux/windowLinux.cpp",
+                   0x2be,
+                   "virtual void eON_WindowLinux::Platform_GetOriginOfDisplayTheWindowIsOn(int*, int*)"
+                  );
+    }
+    *param_2 = local_1c;
+    *param_3 = local_18;
+    return;
+  }
+  FUN_0402cd10(10,
+               "Being asked for size of display the window is on, when the window isn\'t on any display, or doesn\'t exist!"
+              );
+  *param_2 = 0;
+  *param_3 = 0;
+  return;
+}
+

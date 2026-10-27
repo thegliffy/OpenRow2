@@ -1,0 +1,63 @@
+
+int eON_GetWindow(int *param_1,int param_2)
+
+{
+  int *piVar1;
+  int *piVar2;
+  char cVar3;
+  int iVar4;
+  int iVar5;
+  int iVar6;
+  int *local_2c;
+  int local_28;
+  undefined4 local_24;
+  undefined4 *local_14;
+  
+  piVar2 = param_1;
+  local_14 = &param_1;
+  if (param_2 == 2) {
+    cVar3 = FUN_0404ecd0(param_1);
+    if (cVar3 == '\0') {
+      return 0;
+    }
+    cVar3 = (**(code **)(*piVar2 + 0x60))(piVar2);
+    if (cVar3 != '\0') {
+      local_2c = (int *)0x0;
+      local_28 = 0;
+      local_24 = 0;
+                    /* try { // try from 04187c87 to 04187c8b has its CatchHandler @ 04187d07 */
+      eON_Int_Wnd_CollectWindowList(&local_2c,0);
+      iVar4 = 0;
+      iVar5 = local_28 - (int)local_2c >> 2;
+      if (iVar5 != 0) {
+        iVar6 = 0;
+        piVar1 = (int *)*local_2c;
+        while (piVar2 != piVar1) {
+          iVar6 = iVar6 + 1;
+          if (iVar6 == iVar5) {
+            iVar4 = 0;
+            goto LAB_04187cb6;
+          }
+          piVar1 = (int *)local_2c[iVar6];
+        }
+        iVar4 = 0;
+        if (iVar6 != iVar5 + -1) {
+          iVar4 = local_2c[iVar6 + 1];
+        }
+      }
+LAB_04187cb6:
+      if (local_2c == (int *)0x0) {
+        return iVar4;
+      }
+      operator_delete(local_2c);
+      return iVar4;
+    }
+  }
+  else if (param_2 == 5) {
+    iVar4 = eON_GetTopWindow(param_1);
+    return iVar4;
+  }
+  FUN_0402cd10(0xf,"eON_GetWindow() doesn\'t handle this call configuration. Handle it!");
+  return 0;
+}
+

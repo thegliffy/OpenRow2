@@ -1,0 +1,68 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+bool _glewInit_GL_EXT_framebuffer_object(void)
+
+{
+  int iVar1;
+  bool bVar2;
+  bool bVar3;
+  bool bVar4;
+  bool bVar5;
+  bool bVar6;
+  bool bVar7;
+  bool bVar8;
+  bool bVar9;
+  bool bVar10;
+  bool bVar11;
+  bool bVar12;
+  bool bVar13;
+  bool bVar14;
+  bool bVar15;
+  bool bVar16;
+  
+  iVar1 = glXGetProcAddressARB("glBindFramebufferEXT");
+  _DAT_0451d80c = iVar1;
+  _DAT_0451d808 = glXGetProcAddressARB("glBindRenderbufferEXT");
+  bVar2 = _DAT_0451d808 == 0;
+  _DAT_0451d804 = glXGetProcAddressARB("glCheckFramebufferStatusEXT");
+  bVar3 = _DAT_0451d804 == 0;
+  _DAT_0451d800 = glXGetProcAddressARB("glDeleteFramebuffersEXT");
+  bVar4 = _DAT_0451d800 == 0;
+  _DAT_0451d7fc = glXGetProcAddressARB("glDeleteRenderbuffersEXT");
+  bVar5 = _DAT_0451d7fc == 0;
+  _DAT_0451d7f8 = glXGetProcAddressARB("glFramebufferRenderbufferEXT");
+  bVar6 = _DAT_0451d7f8 == 0;
+  _DAT_0451d7f4 = glXGetProcAddressARB("glFramebufferTexture1DEXT");
+  bVar7 = _DAT_0451d7f4 == 0;
+  _DAT_0451d7f0 = glXGetProcAddressARB("glFramebufferTexture2DEXT");
+  bVar8 = _DAT_0451d7f0 == 0;
+  _DAT_0451d7ec = glXGetProcAddressARB("glFramebufferTexture3DEXT");
+  bVar9 = _DAT_0451d7ec == 0;
+  _DAT_0451d7e8 = glXGetProcAddressARB("glGenFramebuffersEXT");
+  bVar10 = _DAT_0451d7e8 == 0;
+  _DAT_0451d7e4 = glXGetProcAddressARB("glGenRenderbuffersEXT");
+  bVar11 = _DAT_0451d7e4 == 0;
+  _DAT_0451d7e0 = glXGetProcAddressARB("glGenerateMipmapEXT");
+  bVar12 = _DAT_0451d7e0 == 0;
+  _DAT_0451d7dc = glXGetProcAddressARB("glGetFramebufferAttachmentParameterivEXT");
+  bVar13 = _DAT_0451d7dc == 0;
+  _DAT_0451d7d8 = glXGetProcAddressARB("glGetRenderbufferParameterivEXT");
+  bVar14 = _DAT_0451d7d8 == 0;
+  _DAT_0451d7d4 = glXGetProcAddressARB("glIsFramebufferEXT");
+  bVar15 = _DAT_0451d7d4 == 0;
+  _DAT_0451d7d0 = glXGetProcAddressARB("glIsRenderbufferEXT");
+  bVar16 = _DAT_0451d7d0 == 0;
+  _DAT_0451d7cc = glXGetProcAddressARB("glRenderbufferStorageEXT");
+  return _DAT_0451d7cc == 0 ||
+         (bVar16 ||
+         (bVar15 ||
+         (bVar14 ||
+         (bVar13 ||
+         (bVar12 ||
+         (bVar11 ||
+         (bVar10 ||
+         (bVar9 || (bVar8 || (bVar7 || (bVar6 || (bVar5 || (bVar4 || (bVar3 || (bVar2 || iVar1 == 0)
+                                                                     ))))))))))))));
+}
+

@@ -1,0 +1,22 @@
+
+undefined4 DirectInputCreateA(undefined4 param_1,int param_2,undefined4 *param_3,int param_4)
+
+{
+  void *pvVar1;
+  
+  if (param_2 != 0x700) {
+    FUN_0402cd10(10,
+                 "DirectInputCreateA - requested DirectInput version 0x%x, which is not supported",
+                 param_2);
+  }
+  if (param_4 == 0) {
+    pvVar1 = operator_new(0x1c);
+                    /* try { // try from 040f0b64 to 040f0b68 has its CatchHandler @ 040f0ba0 */
+    DirectInputImp__DirectInputImp(pvVar1,0,1);
+    *param_3 = *(undefined4 *)((int)pvVar1 + 0xc);
+    return 0;
+  }
+  FUN_0402cd10(0xf,"DirectInputCreateA - unhandled parameter value!");
+  return 0xffffffff;
+}
+

@@ -1,0 +1,162 @@
+
+/* source: vpfs */
+
+undefined4 VPFS_SetDateTime(int param_1,int param_2,int param_3,undefined4 param_4)
+
+{
+  char cVar1;
+  int iVar2;
+  int iVar3;
+  int *piVar4;
+  int *piVar5;
+  int *piVar6;
+  undefined4 uStackY_47c;
+  int local_478;
+  undefined4 uStackY_46c;
+  int local_468 [3];
+  int local_45c [3];
+  undefined4 uStackY_450;
+  
+  piVar6 = (int *)&stack0xfffffbb4;
+  if (param_1 == 0) {
+    return 0;
+  }
+  if (0x2800 < param_1 + 0x54545455U) {
+    uStackY_450 = 0x4044154;
+    FUN_0402cd10();
+    return 0;
+  }
+  uStackY_450 = 0x4044093;
+  pthread_mutex_lock((pthread_mutex_t *)&DAT_0441804c);
+  iVar2 = (&DAT_04418280)[(param_1 + 0x54545454) * 8];
+  piVar5 = (int *)&stack0xfffffbb4;
+  if (iVar2 == 0) {
+LAB_04044240:
+    *piVar5 = (int)&DAT_0441804c;
+    piVar5[-1] = 0x404424c;
+    pthread_mutex_unlock((pthread_mutex_t *)*piVar5);
+  }
+  else {
+    if (iVar2 == 6) {
+      uStackY_450 = 0x404430c;
+      iVar2 = FUN_0403c9d0();
+      if (iVar2 == 0) {
+        uStackY_450 = 0x40443dd;
+        FUN_0400a810();
+      }
+LAB_0404419f:
+      uStackY_450 = 0x40441a4;
+      iVar2 = fs_CreateFileA();
+      piVar6 = local_468;
+      if (iVar2 != -1) {
+        local_468[1] = 0;
+        local_45c[0] = param_3;
+        local_468[2] = param_4;
+        uStackY_46c = 0x40441d0;
+        local_468[0] = iVar2;
+        iVar3 = fs_SetFileTime();
+        local_478 = iVar2;
+        if (iVar3 != 0) {
+          uStackY_47c = 0x40441df;
+          FUN_04131a90();
+          piVar4 = &uStackY_47c;
+LAB_04044120:
+          *piVar4 = (int)&DAT_0441804c;
+          piVar4[-1] = 0x4044131;
+          pthread_mutex_unlock((pthread_mutex_t *)*piVar4);
+          return 1;
+        }
+        uStackY_47c = 0x404425d;
+        FUN_04131a90();
+        piVar6 = &uStackY_47c;
+      }
+    }
+    else {
+      if (iVar2 == 7) {
+        uStackY_450 = 0x4044379;
+        iVar2 = fs_SetFileTime();
+        piVar4 = local_45c;
+        piVar5 = local_45c;
+        if (iVar2 != 0) goto LAB_04044120;
+        goto LAB_04044240;
+      }
+      if (iVar2 - 4U < 2) {
+        if (iVar2 == 5) {
+          uStackY_450 = 0x404420a;
+          iVar2 = VPFS_PathToPathInArchive();
+          if (iVar2 != 0) {
+            uStackY_450 = 0x40443f0;
+            cVar1 = FUN_0404c4c0();
+            if (cVar1 != '\0') {
+              uStackY_450 = 0x4044485;
+              FUN_0403cbc0();
+              return 0;
+            }
+            if ((param_3 != 0) || (piVar4 = (int *)&stack0xfffffbb4, param_2 != 0)) {
+              uStackY_450 = 0x404442a;
+              iVar2 = FUN_0404c040();
+              if (iVar2 == 0) {
+                uStackY_450 = 0x40444de;
+                FUN_0400a810();
+              }
+              if (param_2 != 0) {
+                uStackY_450 = 0x4044450;
+                VPFSDB_AddCreationTime();
+              }
+              if (param_3 != 0) {
+                uStackY_450 = 0x404446e;
+                VPFSDB_AddModificationTime();
+              }
+              uStackY_450 = 0x4044476;
+              VPFSDB_ReleaseObject();
+              piVar4 = (int *)&stack0xfffffbb4;
+            }
+            goto LAB_04044120;
+          }
+          if ((&DAT_04418280)[(param_1 + 0x54545454) * 8] == 5) {
+            uStackY_450 = 0x404423a;
+            FUN_0402cd10();
+            piVar5 = (int *)&stack0xfffffbb4;
+            goto LAB_04044240;
+          }
+        }
+        goto LAB_0404419f;
+      }
+      uStackY_450 = 0x40440e2;
+      iVar2 = FUN_0403fe00();
+      if (iVar2 == 0) {
+        uStackY_450 = 0x40443b4;
+        FUN_0400a810();
+      }
+      uStackY_450 = 0x40440f8;
+      cVar1 = FUN_0404c4c0();
+      if (cVar1 == '\0') {
+        if ((param_3 != 0) || (piVar4 = (int *)&stack0xfffffbb4, param_2 != 0)) {
+          uStackY_450 = 0x4044294;
+          iVar2 = FUN_0404c040();
+          if (iVar2 == 0) {
+            uStackY_450 = 0x40444ae;
+            FUN_0400a810();
+          }
+          if (param_2 != 0) {
+            uStackY_450 = 0x40442c1;
+            VPFSDB_AddCreationTime();
+          }
+          if (param_3 != 0) {
+            uStackY_450 = 0x40442df;
+            VPFSDB_AddModificationTime();
+          }
+          uStackY_450 = 0x40442e7;
+          VPFSDB_ReleaseObject();
+          piVar4 = (int *)&stack0xfffffbb4;
+        }
+        goto LAB_04044120;
+      }
+    }
+    *piVar6 = (int)&DAT_0441804c;
+    piVar6[-1] = 0x404426e;
+    pthread_mutex_unlock((pthread_mutex_t *)*piVar6);
+  }
+  return 0;
+}
+

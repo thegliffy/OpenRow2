@@ -1,0 +1,148 @@
+
+int eON_ReplaceFileA(int param_1,int param_2,int param_3,int param_4)
+
+{
+  int iVar1;
+  int iVar2;
+  int iVar3;
+  int iVar4;
+  int *piVar5;
+  undefined4 uStack_34;
+  int local_30;
+  char *local_2c;
+  undefined *local_28;
+  undefined4 *local_18;
+  
+  iVar2 = param_3;
+  iVar1 = param_2;
+  iVar3 = param_1;
+  local_18 = &param_1;
+  piVar5 = &local_30;
+  if (param_4 != 0) {
+    local_2c = "Non-zero flags in ReplaceFileA, possibly unhandled!";
+    local_30 = 10;
+    uStack_34 = 0x4134314;
+    FUN_0402cd10();
+  }
+  if (iVar2 != 0) {
+    local_28 = &DAT_00120089;
+    local_2c = (char *)0x0;
+    local_30 = iVar3;
+    uStack_34 = 0x413425f;
+    local_30 = FUN_04042f10();
+    if (local_30 == 0) {
+LAB_041342e0:
+      local_30 = 2;
+      uStack_34 = 0x41342ec;
+      eON_SetLastError();
+      return 0x498;
+    }
+    uStack_34 = 0x413426b;
+    eON_VPFS_Close();
+    local_28 = &DAT_0012019f;
+    local_2c = (char *)0x0;
+    local_30 = iVar2;
+    uStack_34 = 0x4134283;
+    local_30 = FUN_04042f10();
+    if (local_30 == 0) {
+      local_2c = (char *)iVar2;
+      local_30 = iVar3;
+      uStack_34 = 0x4134293;
+      iVar2 = VPFS_MoveFileOrFolder();
+      if (iVar2 == 0) {
+        return 0x498;
+      }
+      local_28 = &DAT_00120089;
+      local_2c = (char *)0x0;
+      local_30 = iVar1;
+      uStack_34 = 0x4134378;
+      local_30 = FUN_04042f10();
+      if (local_30 != 0) {
+        uStack_34 = 0x4134388;
+        eON_VPFS_Close();
+        local_28 = &DAT_0012019f;
+        local_2c = (char *)0x0;
+        local_30 = iVar3;
+        uStack_34 = 0x41343a0;
+        local_30 = FUN_04042f10();
+        if (local_30 == 0) {
+          local_2c = (char *)iVar3;
+          local_30 = iVar1;
+          uStack_34 = 0x41343b4;
+          iVar3 = VPFS_MoveFileOrFolder();
+          return (-(uint)(iVar3 == 0) & 0x498) + 1;
+        }
+        uStack_34 = 0x41344b0;
+        eON_VPFS_Close();
+        local_30 = 0xb7;
+        uStack_34 = 0x41344bc;
+        eON_SetLastError();
+        return 0x499;
+      }
+      local_30 = 2;
+      uStack_34 = 0x413446c;
+      eON_SetLastError();
+      return 0x499;
+    }
+LAB_041342a8:
+    uStack_34 = 0x41342b0;
+    eON_VPFS_Close();
+    local_30 = 0xb7;
+    uStack_34 = 0x41342bc;
+    eON_SetLastError();
+    return 0x498;
+  }
+  local_28 = &DAT_0012019f;
+  local_2c = (char *)0x0;
+  local_30 = iVar3;
+  uStack_34 = 0x4134334;
+  iVar2 = FUN_04042f10();
+  if (iVar2 == 0) {
+    local_30 = 2;
+    uStack_34 = 0x413434a;
+    eON_SetLastError();
+    return 0x497;
+  }
+  uStack_34 = 0x41343d8;
+  local_30 = iVar2;
+  iVar4 = VPFS_IsFile();
+  if (iVar4 == 0) {
+    local_30 = 5;
+    uStack_34 = 0x413448c;
+    eON_SetLastError();
+    piVar5 = &uStack_34;
+  }
+  else {
+    uStack_34 = 0x41343e8;
+    local_30 = iVar2;
+    iVar4 = VPFS_Delete();
+    if (iVar4 != 0) {
+      local_28 = &DAT_00120089;
+      local_2c = (char *)0x0;
+      local_30 = iVar1;
+      uStack_34 = 0x4134408;
+      local_30 = FUN_04042f10();
+      if (local_30 == 0) goto LAB_041342e0;
+      uStack_34 = 0x4134418;
+      eON_VPFS_Close();
+      local_28 = &DAT_0012019f;
+      local_2c = (char *)0x0;
+      local_30 = iVar3;
+      uStack_34 = 0x4134430;
+      local_30 = FUN_04042f10();
+      if (local_30 == 0) {
+        local_2c = (char *)iVar3;
+        local_30 = iVar1;
+        uStack_34 = 0x4134444;
+        iVar3 = VPFS_MoveFileOrFolder();
+        return (-(uint)(iVar3 == 0) & 0x497) + 1;
+      }
+      goto LAB_041342a8;
+    }
+  }
+  *piVar5 = iVar2;
+  piVar5[-1] = 0x4134497;
+  eON_VPFS_Close();
+  return 0x497;
+}
+

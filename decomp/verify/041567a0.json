@@ -1,0 +1,10 @@
+
+void eON_FatalExit(undefined4 param_1)
+
+{
+  FUN_0402cd10(0xf,"Exiting through Windows call FatalExit(%d)!",param_1);
+  DAT_04410a04 = param_1;
+  Exit_eON(param_1);
+  return;
+}
+

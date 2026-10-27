@@ -1,0 +1,23 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+bool _glewInit_GL_EXT_fog_coord(void)
+
+{
+  int iVar1;
+  bool bVar2;
+  bool bVar3;
+  bool bVar4;
+  
+  iVar1 = glXGetProcAddressARB("glFogCoordPointerEXT");
+  _DAT_0451d870 = iVar1;
+  _DAT_0451d86c = glXGetProcAddressARB("glFogCoorddEXT");
+  bVar2 = _DAT_0451d86c == 0;
+  _DAT_0451d868 = glXGetProcAddressARB("glFogCoorddvEXT");
+  bVar3 = _DAT_0451d868 == 0;
+  _DAT_0451d864 = glXGetProcAddressARB("glFogCoordfEXT");
+  bVar4 = _DAT_0451d864 == 0;
+  _DAT_0451d860 = glXGetProcAddressARB("glFogCoordfvEXT");
+  return _DAT_0451d860 == 0 || (bVar4 || (bVar3 || (bVar2 || iVar1 == 0)));
+}
+

@@ -1,0 +1,36 @@
+
+/* source: synch_criticalsection */
+
+void eON_DeleteCriticalSection(int param_1)
+
+{
+  pthread_cond_t *__cond;
+  int iVar1;
+  
+  if (param_1 == 0) {
+    FUN_0400a810("lpCriticalSection",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/synch_criticalsection.cpp"
+                 ,0x8e,"void eON_DeleteCriticalSection(PCRITICAL_SECTION)");
+  }
+  if (*(int *)(param_1 + 0x10) != 0) {
+    pthread_mutex_lock((pthread_mutex_t *)&DAT_04516c28);
+    __cond = *(pthread_cond_t **)(param_1 + 0x10);
+    *(undefined4 *)(param_1 + 0xc) = 0;
+    *(undefined4 *)(param_1 + 0x10) = 0;
+    *(undefined4 *)(param_1 + 8) = 0;
+    pthread_cond_broadcast(__cond);
+    pthread_mutex_unlock((pthread_mutex_t *)&DAT_04516c28);
+    pthread_mutex_lock((pthread_mutex_t *)&DAT_04516c28);
+    iVar1 = pthread_cond_destroy(__cond);
+    pthread_mutex_unlock((pthread_mutex_t *)&DAT_04516c28);
+    if (iVar1 == 0) {
+      free(__cond);
+    }
+    else {
+      FUN_0402cd10(10,"Critical section mutex destruction failed: %d",iVar1);
+    }
+    *(undefined4 *)(param_1 + 4) = 0xffffffff;
+  }
+  return;
+}
+

@@ -1,0 +1,66 @@
+
+undefined4 eON_GetPrecompiledShadersPath(char param_1,char param_2)
+
+{
+  int iVar1;
+  char *pcVar2;
+  undefined4 uVar3;
+  
+  if (param_2 != '\0') {
+    if (DAT_04411338 == '\0') {
+      iVar1 = __cxa_guard_acquire(&DAT_04411338);
+      if (iVar1 != 0) {
+                    /* try { // try from 04018f8b to 04018f8f has its CatchHandler @ 04019125 */
+        std::string::string((string *)&DAT_04411340,(string *)&DAT_044112d8);
+        uVar3 = 0x1b;
+        pcVar2 = "eONprecompiledShaders32.dat";
+                    /* try { // try from 04018fa7 to 04018fab has its CatchHandler @ 04019103 */
+        std::string::append((char *)&DAT_04411340,0x42dcafb);
+        __cxa_guard_release(&DAT_04411338,pcVar2,uVar3);
+        __cxa_atexit(std::string::~string,&DAT_04411340,&DAT_04408b44);
+      }
+    }
+    if (DAT_04411348 == '\0') {
+      iVar1 = __cxa_guard_acquire(&DAT_04411348);
+      if (iVar1 != 0) {
+                    /* try { // try from 04019003 to 04019007 has its CatchHandler @ 040190b1 */
+        FUN_0400f6e0(&DAT_04411350,&DAT_04411340);
+        __cxa_guard_release(&DAT_04411348);
+        __cxa_atexit(std::string::~string,&DAT_04411350,&DAT_04408b44);
+      }
+    }
+    uVar3 = DAT_04411350;
+    if (param_1 == '\0') {
+      uVar3 = DAT_04411340;
+    }
+    return uVar3;
+  }
+  if (DAT_04411358 == '\0') {
+    iVar1 = __cxa_guard_acquire(&DAT_04411358);
+    if (iVar1 != 0) {
+                    /* try { // try from 04019063 to 04019067 has its CatchHandler @ 040190ff */
+      std::string::string((string *)&DAT_04411360,(string *)&DAT_044112d8);
+      uVar3 = 0x19;
+      pcVar2 = "eONprecompiledShaders.dat";
+                    /* try { // try from 0401907f to 04019083 has its CatchHandler @ 040190dd */
+      std::string::append((char *)&DAT_04411360,0x42dcb17);
+      __cxa_guard_release(&DAT_04411358,pcVar2,uVar3);
+      __cxa_atexit(std::string::~string,&DAT_04411360,&DAT_04408b44);
+    }
+  }
+  if (DAT_04411368 == '\0') {
+    iVar1 = __cxa_guard_acquire(&DAT_04411368);
+    if (iVar1 != 0) {
+                    /* try { // try from 04018f2f to 04018f33 has its CatchHandler @ 040190c7 */
+      FUN_0400f6e0(&DAT_04411370,&DAT_04411360);
+      __cxa_guard_release(&DAT_04411368);
+      __cxa_atexit(std::string::~string,&DAT_04411370,&DAT_04408b44);
+    }
+  }
+  uVar3 = DAT_04411370;
+  if (param_1 == '\0') {
+    uVar3 = DAT_04411360;
+  }
+  return uVar3;
+}
+

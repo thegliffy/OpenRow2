@@ -1,0 +1,29 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+bool _glewInit_GL_ARB_transform_feedback2(void)
+
+{
+  int iVar1;
+  bool bVar2;
+  bool bVar3;
+  bool bVar4;
+  bool bVar5;
+  bool bVar6;
+  
+  iVar1 = glXGetProcAddressARB("glBindTransformFeedback");
+  _DAT_0451e114 = iVar1;
+  _DAT_0451e110 = glXGetProcAddressARB("glDeleteTransformFeedbacks");
+  bVar2 = _DAT_0451e110 == 0;
+  _DAT_0451e10c = glXGetProcAddressARB("glDrawTransformFeedback");
+  bVar3 = _DAT_0451e10c == 0;
+  _DAT_0451e108 = glXGetProcAddressARB("glGenTransformFeedbacks");
+  bVar4 = _DAT_0451e108 == 0;
+  _DAT_0451e104 = glXGetProcAddressARB("glIsTransformFeedback");
+  bVar5 = _DAT_0451e104 == 0;
+  _DAT_0451e100 = glXGetProcAddressARB("glPauseTransformFeedback");
+  bVar6 = _DAT_0451e100 == 0;
+  _DAT_0451e0fc = glXGetProcAddressARB("glResumeTransformFeedback");
+  return _DAT_0451e0fc == 0 || (bVar6 || (bVar5 || (bVar4 || (bVar3 || (bVar2 || iVar1 == 0)))));
+}
+

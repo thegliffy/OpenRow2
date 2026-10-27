@@ -1,0 +1,29 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+bool _glewInit_GL_NV_occlusion_query(void)
+
+{
+  int iVar1;
+  bool bVar2;
+  bool bVar3;
+  bool bVar4;
+  bool bVar5;
+  bool bVar6;
+  
+  iVar1 = glXGetProcAddressARB("glBeginOcclusionQueryNV");
+  _DAT_0451d13c = iVar1;
+  _DAT_0451d138 = glXGetProcAddressARB("glDeleteOcclusionQueriesNV");
+  bVar2 = _DAT_0451d138 == 0;
+  _DAT_0451d134 = glXGetProcAddressARB("glEndOcclusionQueryNV");
+  bVar3 = _DAT_0451d134 == 0;
+  _DAT_0451d130 = glXGetProcAddressARB("glGenOcclusionQueriesNV");
+  bVar4 = _DAT_0451d130 == 0;
+  _DAT_0451d12c = glXGetProcAddressARB("glGetOcclusionQueryivNV");
+  bVar5 = _DAT_0451d12c == 0;
+  _DAT_0451d128 = glXGetProcAddressARB("glGetOcclusionQueryuivNV");
+  bVar6 = _DAT_0451d128 == 0;
+  _DAT_0451d124 = glXGetProcAddressARB("glIsOcclusionQueryNV");
+  return _DAT_0451d124 == 0 || (bVar6 || (bVar5 || (bVar4 || (bVar3 || (bVar2 || iVar1 == 0)))));
+}
+

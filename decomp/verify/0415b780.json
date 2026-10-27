@@ -1,0 +1,84 @@
+
+undefined4 thread_PrepareTEB(undefined4 param_1,int param_2)
+
+{
+  undefined4 *__s;
+  pthread_t __th;
+  int iVar1;
+  undefined4 uVar2;
+  long lVar3;
+  int *piVar4;
+  size_t *__stacksize;
+  pthread_attr_t local_64;
+  size_t *local_40;
+  undefined4 *local_3c;
+  undefined4 local_38;
+  byte local_34;
+  sigaltstack local_30;
+  void *local_24;
+  size_t local_20 [4];
+  
+  __s = malloc(0x3000);
+  if (__s == (undefined4 *)0x0) {
+    FUN_0402cd10(0xf,"thread_PrepareTEB() - failed to malloc for TEB and signalstack");
+    return 0;
+  }
+  bzero(__s,0x3000);
+  __th = pthread_self();
+  iVar1 = pthread_getattr_np(__th,&local_64);
+  if (iVar1 == 0) {
+    __stacksize = local_20;
+    iVar1 = pthread_attr_getstack(&local_64,&local_24,__stacksize);
+    if (iVar1 == 0) {
+      __s[2] = local_24;
+      __s[1] = local_20[0] + (int)local_24;
+      pthread_attr_destroy(&local_64);
+      uVar2 = FUN_04156530();
+      *__s = 0xffffffff;
+      __s[0xc] = uVar2;
+      __s[6] = __s;
+      uVar2 = FUN_04156910();
+      __s[0xe] = 0;
+      __s[8] = uVar2;
+      __s[0x3e0] = 0;
+      __s[0x4c] = param_2;
+      __s[9] = param_1;
+      __s[899] = __s[2];
+      *(undefined4 **)(param_2 + 0x90) = __s;
+      __s[0x31] = 0x809;
+      bzero(&local_40,0x10);
+      local_38 = 0xfff;
+      local_40 = DAT_04410a10;
+      local_34 = local_34 & 0xc0 | 0x51;
+      local_3c = __s;
+      lVar3 = syscall(0xf3,&local_40);
+      if (lVar3 == -1) {
+        piVar4 = __errno_location();
+        FUN_0402cd10(0xf,"setup_teb_register() - SYS_set_thread_area failed, errno %d",*piVar4);
+        uVar2 = 0;
+      }
+      else {
+        if (DAT_04410a10 == (size_t *)0xffffffff) {
+          DAT_04410a10 = local_40;
+          __stacksize = local_40;
+          FUN_0402cd10(0x14,"setup_teb_register() - using LDT entry %u",local_40);
+        }
+        local_30.ss_sp = __s + 0x400;
+        local_30.ss_size = 0x2000;
+        local_30.ss_flags = 0;
+        iVar1 = sigaltstack(&local_30,(sigaltstack *)0x0);
+        uVar2 = 1;
+        if (iVar1 == -1) {
+          FUN_0402cd10(0xf,"thread_PrepareTEB() - sigaltstack() failed",__stacksize);
+          uVar2 = 0;
+        }
+      }
+      return uVar2;
+    }
+    FUN_0402cd10(0xf,"thread_PrepareTEB() - failed calling pthread_attr_getstack()");
+    return 0;
+  }
+  FUN_0402cd10(0xf,"thread_PrepareTEB() - failed calling pthread_getattr_np()");
+  return 0;
+}
+

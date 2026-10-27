@@ -1,0 +1,149 @@
+
+undefined4 Direct3DDevice9Imp__ApplyColorWriteEnable(int param_1)
+
+{
+  int iVar1;
+  uint uVar2;
+  int iVar3;
+  int iVar4;
+  char cVar5;
+  byte bVar6;
+  undefined4 uVar7;
+  bool bVar8;
+  bool bVar9;
+  int local_3c;
+  
+  bVar6 = 1;
+  if (*(int *)(param_1 + 0x8a4) != 0) {
+    bVar6 = *(byte *)(*(int *)(param_1 + 0x8a4) + 0x20);
+  }
+  if ((*(char *)(param_1 + 0xeb4c) == '\0') && (DAT_0451c9c8 == '\0')) {
+    iVar1 = *(int *)(param_1 + 0x5304);
+    uVar7 = 0;
+    local_3c = 0;
+    if (((iVar1 != 0) && ((bVar6 & 1) != 0)) && (iVar3 = *(int *)(param_1 + 0x6f4), iVar3 != 0)) {
+      uVar2 = *(uint *)(param_1 + 0xec40);
+      iVar4 = *(int *)(param_1 + 0xec44);
+      *(uint *)(iVar1 + 0x5c) = uVar2 + 1;
+      uVar7 = 1;
+      *(uint *)(iVar1 + 0x60) = iVar4 + (uint)(0xfffffffe < uVar2);
+      local_3c = iVar3;
+    }
+    iVar1 = *(int *)(param_1 + 0x5308);
+    if (((iVar1 != 0) && ((bVar6 & 2) != 0)) && (iVar3 = *(int *)(param_1 + 0x74c), iVar3 != 0)) {
+      uVar2 = *(uint *)(param_1 + 0xec40);
+      iVar4 = *(int *)(param_1 + 0xec44);
+      *(uint *)(iVar1 + 0x5c) = uVar2 + 1;
+      *(uint *)(iVar1 + 0x60) = iVar4 + (uint)(0xfffffffe < uVar2);
+      if (local_3c == 0) {
+        uVar7 = 1;
+        local_3c = iVar3;
+      }
+      else {
+        uVar7 = 1;
+        if (local_3c != iVar3) {
+          FUN_0402cd10(0xf,
+                       "Multiple render targets, and COLORWRITEENABLE settings for two render targets differ. OpenGL can\'t simulate it this way!"
+                      );
+          uVar7 = 1;
+        }
+      }
+    }
+    iVar1 = *(int *)(param_1 + 0x530c);
+    if (((iVar1 != 0) && ((bVar6 & 4) != 0)) && (iVar3 = *(int *)(param_1 + 0x750), iVar3 != 0)) {
+      uVar2 = *(uint *)(param_1 + 0xec40);
+      iVar4 = *(int *)(param_1 + 0xec44);
+      *(uint *)(iVar1 + 0x5c) = uVar2 + 1;
+      *(uint *)(iVar1 + 0x60) = iVar4 + (uint)(0xfffffffe < uVar2);
+      if (local_3c == 0) {
+        uVar7 = 1;
+        local_3c = iVar3;
+      }
+      else {
+        uVar7 = 1;
+        if (local_3c != iVar3) {
+          FUN_0402cd10(0xf,
+                       "Multiple render targets, and COLORWRITEENABLE settings for two render targets differ. OpenGL can\'t simulate it this way!"
+                      );
+          uVar7 = 1;
+        }
+      }
+    }
+    iVar1 = *(int *)(param_1 + 0x5310);
+    if (((iVar1 != 0) && ((bVar6 & 8) != 0)) && (iVar3 = *(int *)(param_1 + 0x754), iVar3 != 0)) {
+      uVar2 = *(uint *)(param_1 + 0xec40);
+      iVar4 = *(int *)(param_1 + 0xec44);
+      *(uint *)(iVar1 + 0x5c) = uVar2 + 1;
+      uVar7 = 1;
+      *(uint *)(iVar1 + 0x60) = iVar4 + (uint)(0xfffffffe < uVar2);
+      if ((local_3c != 0) && (iVar3 != local_3c)) {
+        FUN_0402cd10(0xf,
+                     "Multiple render targets, and COLORWRITEENABLE settings for two render targets differ. OpenGL can\'t simulate it this way!"
+                    );
+      }
+    }
+  }
+  else {
+    iVar1 = *(int *)(param_1 + 0x5304);
+    uVar7 = 0;
+    if ((iVar1 != 0) && (((bVar6 & 1) != 0 && (*(int *)(param_1 + 0x6f4) != 0)))) {
+      uVar2 = *(uint *)(param_1 + 0xec40);
+      iVar3 = *(int *)(param_1 + 0xec44);
+      *(uint *)(iVar1 + 0x5c) = uVar2 + 1;
+      uVar7 = 1;
+      *(uint *)(iVar1 + 0x60) = iVar3 + (uint)(0xfffffffe < uVar2);
+    }
+    iVar1 = *(int *)(param_1 + 0x5308);
+    if (((iVar1 != 0) && ((bVar6 & 2) != 0)) && (*(int *)(param_1 + 0x74c) != 0)) {
+      uVar2 = *(uint *)(param_1 + 0xec40);
+      iVar3 = *(int *)(param_1 + 0xec44);
+      *(uint *)(iVar1 + 0x5c) = uVar2 + 1;
+      uVar7 = 1;
+      *(uint *)(iVar1 + 0x60) = iVar3 + (uint)(0xfffffffe < uVar2);
+    }
+    iVar1 = *(int *)(param_1 + 0x530c);
+    if (((iVar1 != 0) && ((bVar6 & 4) != 0)) && (*(int *)(param_1 + 0x750) != 0)) {
+      uVar2 = *(uint *)(param_1 + 0xec40);
+      iVar3 = *(int *)(param_1 + 0xec44);
+      *(uint *)(iVar1 + 0x5c) = uVar2 + 1;
+      uVar7 = 1;
+      *(uint *)(iVar1 + 0x60) = iVar3 + (uint)(0xfffffffe < uVar2);
+    }
+    iVar1 = *(int *)(param_1 + 0x5310);
+    if (((iVar1 != 0) && ((bVar6 & 8) != 0)) && (*(int *)(param_1 + 0x754) != 0)) {
+      uVar2 = *(uint *)(param_1 + 0xec40);
+      iVar3 = *(int *)(param_1 + 0xec44);
+      *(uint *)(iVar1 + 0x5c) = uVar2 + 1;
+      uVar7 = 1;
+      *(uint *)(iVar1 + 0x60) = iVar3 + (uint)(0xfffffffe < uVar2);
+    }
+  }
+  if (*(int *)(param_1 + 0x5314) != 0) {
+    if ((*(int *)(param_1 + 0x470) == 0) && (bVar8 = false, *(int *)(param_1 + 0x48c) == 0)) {
+      iVar1 = *(int *)(param_1 + 0x524);
+    }
+    else {
+      cVar5 = direct3dsurface9imp_040adca0(*(int *)(param_1 + 0x5314) + 4);
+      iVar1 = *(int *)(param_1 + 0x524);
+      bVar8 = cVar5 != '\0';
+    }
+    if (iVar1 == 0) {
+      bVar9 = false;
+    }
+    else {
+      cVar5 = direct3dsurface9imp_040add10(*(int *)(param_1 + 0x5314) + 4);
+      bVar9 = cVar5 != '\0';
+    }
+    if ((!bVar8) && (!bVar9)) {
+      return uVar7;
+    }
+    uVar2 = *(uint *)(param_1 + 0xec40);
+    iVar1 = *(int *)(param_1 + 0xec44);
+    iVar3 = *(int *)(param_1 + 0x5314);
+    *(uint *)(iVar3 + 0x5c) = uVar2 + 1;
+    *(uint *)(iVar3 + 0x60) = iVar1 + (uint)(0xfffffffe < uVar2);
+    return 1;
+  }
+  return uVar7;
+}
+

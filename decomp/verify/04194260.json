@@ -1,0 +1,41 @@
+
+undefined4 eON_shutdown(int param_1,int param_2)
+
+{
+  int iVar1;
+  int *piVar2;
+  
+  if (param_2 != 2) {
+    FUN_0402cd10(10,
+                 "The socket isn\'t completely shutting down, perhaps not all events should be removed from it?"
+                );
+  }
+  EventSelect_RemoveSocket(param_1);
+  iVar1 = shutdown(param_1,param_2);
+  if (iVar1 != -1) {
+    return 0;
+  }
+  piVar2 = __errno_location();
+  iVar1 = *piVar2;
+  if (iVar1 == 0x16) {
+    eON_SetLastError(0x2726);
+    return 0xffffffff;
+  }
+  if (iVar1 < 0x17) {
+    if (iVar1 == 9) goto LAB_04194348;
+  }
+  else {
+    if (iVar1 == 0x58) {
+LAB_04194348:
+      eON_SetLastError(0x2736);
+      return 0xffffffff;
+    }
+    if (iVar1 == 0x6b) {
+      eON_SetLastError(0x2749);
+      return 0xffffffff;
+    }
+  }
+  FUN_0402cd10(0xf,"SOCKETS: shutdown() - unknown error - %d",iVar1);
+  return 0xffffffff;
+}
+

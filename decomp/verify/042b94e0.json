@@ -1,0 +1,71 @@
+
+void png_handle_unknown(int param_1,undefined4 param_2,undefined4 param_3,int param_4)
+
+{
+  bool bVar1;
+  int iVar2;
+  
+  if (*(int *)(param_1 + 0x2ac) == 0) {
+    if (param_4 == 0) {
+      param_4 = *(int *)(param_1 + 0x2b0);
+    }
+    if ((param_4 != 3) && ((param_4 != 2 || ((*(byte *)(param_1 + 0x17b) & 0x20) == 0)))) {
+      png_crc_finish(param_1,param_3);
+LAB_042b95e0:
+      bVar1 = false;
+      if (param_4 != 2) goto LAB_042b9516;
+      goto LAB_042b95e9;
+    }
+    bVar1 = false;
+    iVar2 = png_cache_unknown_chunk();
+    if (iVar2 == 0) goto LAB_042b9516;
+LAB_042b9676:
+    if (param_4 != 3) goto LAB_042b95e0;
+  }
+  else {
+    bVar1 = false;
+    iVar2 = png_cache_unknown_chunk();
+    if (iVar2 == 0) goto LAB_042b9516;
+    iVar2 = (**(code **)(param_1 + 0x2ac))(param_1,param_1 + 0x2fc);
+    if (iVar2 < 0) {
+                    /* WARNING: Subroutine does not return */
+      png_chunk_error(param_1,"error in user chunk");
+    }
+    bVar1 = true;
+    if (iVar2 != 0) goto LAB_042b9516;
+    if (1 < param_4) goto LAB_042b9676;
+    if (*(int *)(param_1 + 0x2b0) < 2) {
+      png_benign_error(param_1,"Saving unknown chunk:");
+      FUN_042a9e20(param_1,
+                   "forcing save of an unhandled chunk; please call png_set_keep_unknown_chunks");
+    }
+LAB_042b95e9:
+    bVar1 = false;
+    if ((*(byte *)(param_1 + 0x17b) & 0x20) == 0) goto LAB_042b9516;
+  }
+  bVar1 = false;
+  iVar2 = *(int *)(param_1 + 0x2f4);
+  if (iVar2 != 1) {
+    if (iVar2 != 0) {
+      if (iVar2 == 2) {
+        *(undefined4 *)(param_1 + 0x2f4) = 1;
+        png_chunk_benign_error(param_1,"no space in chunk cache");
+        goto LAB_042b9516;
+      }
+      *(int *)(param_1 + 0x2f4) = iVar2 + -1;
+    }
+    bVar1 = true;
+    FUN_042bc690(param_1,param_2,param_1 + 0x2fc,1);
+  }
+LAB_042b9516:
+  if (*(int *)(param_1 + 0x304) != 0) {
+    FUN_042aa410(param_1,*(int *)(param_1 + 0x304));
+  }
+  *(undefined4 *)(param_1 + 0x304) = 0;
+  if ((!bVar1) && ((*(byte *)(param_1 + 0x17b) & 0x20) == 0)) {
+                    /* WARNING: Subroutine does not return */
+    png_chunk_error(param_1,"unhandled critical chunk");
+  }
+  return;
+}
+

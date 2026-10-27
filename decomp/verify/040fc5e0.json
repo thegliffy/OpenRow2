@@ -1,0 +1,110 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+undefined4 DirectSound3DListenerImp__NormalizeOrientation(int param_1,int *param_2,int param_3)
+
+{
+  bool bVar1;
+  double dVar2;
+  int iVar3;
+  float fVar4;
+  float fVar5;
+  float fVar6;
+  float fVar7;
+  float fVar8;
+  float fVar9;
+  float fVar10;
+  undefined4 local_24;
+  
+  local_24 = 0x80070057;
+  if ((param_2 != (int *)0x0) && (*param_2 == 0x40)) {
+    bVar1 = true;
+    if (param_3 != 0) {
+      if (param_3 != 1) {
+        return 0x80070057;
+      }
+      bVar1 = false;
+    }
+    local_24 = 0x80070057;
+    if (((((float)PTR_DAT_04308f00 <= (float)param_2[0xd]) && ((float)param_2[0xd] <= DAT_04308f04))
+        && (0.0 <= (float)param_2[0xf])) &&
+       ((((float)param_2[0xf] <= _DAT_0430de68 && (0.0 <= (float)param_2[0xe])) &&
+        ((float)param_2[0xe] <= _DAT_0430de68)))) {
+      fVar9 = sqrtf((float)param_2[7] * (float)param_2[7] + (float)param_2[8] * (float)param_2[8] +
+                    (float)param_2[9] * (float)param_2[9]);
+      dVar2 = DAT_0430de58;
+      if ((double)fVar9 < DAT_0430de58) {
+        FUN_0402cd10(0xf,"Nearly zero vector given as orientation front!");
+        local_24 = 0x80070057;
+      }
+      else {
+        local_24 = 0x80070057;
+        fVar10 = sqrtf((float)param_2[10] * (float)param_2[10] +
+                       (float)param_2[0xb] * (float)param_2[0xb] +
+                       (float)param_2[0xc] * (float)param_2[0xc]);
+        if ((double)fVar10 < dVar2) {
+          FUN_0402cd10(0xf,"Nearly zero vector given as orientation top!");
+        }
+        else {
+          fVar5 = (float)param_2[7] / fVar9;
+          fVar6 = (float)param_2[8] / fVar9;
+          fVar9 = (float)param_2[9] / fVar9;
+          fVar4 = fVar5 * ((float)param_2[10] / fVar10) + fVar6 * ((float)param_2[0xb] / fVar10) +
+                  fVar9 * ((float)param_2[0xc] / fVar10);
+          local_24 = 0x80070057;
+          if ((double)(float)(DAT_042e2460 & (uint)fVar4) <= _DAT_0430de60) {
+            fVar8 = (float)param_2[10] / fVar10 - fVar5 * fVar4;
+            fVar7 = (float)param_2[0xb] / fVar10 - fVar6 * fVar4;
+            fVar10 = (float)param_2[0xc] / fVar10 - fVar4 * fVar9;
+            if (((fVar5 != *(float *)(param_1 + 0x30)) || (fVar6 != *(float *)(param_1 + 0x34))) ||
+               ((fVar9 != *(float *)(param_1 + 0x38) ||
+                (((fVar8 != *(float *)(param_1 + 0x3c) || (fVar7 != *(float *)(param_1 + 0x40))) ||
+                 (fVar10 != *(float *)(param_1 + 0x44))))))) {
+              *(undefined1 *)(param_1 + 0x54) = 1;
+            }
+            *(int *)(param_1 + 0x30) = param_2[7];
+            *(int *)(param_1 + 0x34) = param_2[8];
+            *(int *)(param_1 + 0x38) = param_2[9];
+            *(int *)(param_1 + 0x3c) = param_2[10];
+            *(int *)(param_1 + 0x40) = param_2[0xb];
+            *(int *)(param_1 + 0x44) = param_2[0xc];
+            iVar3 = memcmp((void *)(param_1 + 0x14),param_2,0x40);
+            if (iVar3 != 0) {
+              *(int *)(param_1 + 0x14) = *param_2;
+              *(int *)(param_1 + 0x18) = param_2[1];
+              *(int *)(param_1 + 0x1c) = param_2[2];
+              *(int *)(param_1 + 0x20) = param_2[3];
+              *(int *)(param_1 + 0x24) = param_2[4];
+              *(int *)(param_1 + 0x28) = param_2[5];
+              *(int *)(param_1 + 0x2c) = param_2[6];
+              *(int *)(param_1 + 0x30) = param_2[7];
+              *(int *)(param_1 + 0x34) = param_2[8];
+              *(int *)(param_1 + 0x38) = param_2[9];
+              *(int *)(param_1 + 0x3c) = param_2[10];
+              *(int *)(param_1 + 0x40) = param_2[0xb];
+              *(int *)(param_1 + 0x44) = param_2[0xc];
+              *(int *)(param_1 + 0x48) = param_2[0xd];
+              *(int *)(param_1 + 0x4c) = param_2[0xe];
+              *(int *)(param_1 + 0x50) = param_2[0xf];
+              *(undefined1 *)(param_1 + 0x54) = 1;
+            }
+            local_24 = 0;
+            *(float *)(param_1 + 0x30) = fVar5;
+            *(float *)(param_1 + 0x34) = fVar6;
+            *(float *)(param_1 + 0x38) = fVar9;
+            *(float *)(param_1 + 0x3c) = fVar8;
+            *(float *)(param_1 + 0x40) = fVar7;
+            *(float *)(param_1 + 0x44) = fVar10;
+            if ((bVar1) && (*(char *)(param_1 + 0x54) != '\0')) {
+              FUN_040fd2a0(*(int *)(param_1 + 0x10) + 4,(void *)(param_1 + 0x14));
+              *(undefined1 *)(param_1 + 0x54) = 0;
+              return 0;
+            }
+          }
+        }
+      }
+    }
+  }
+  return local_24;
+}
+

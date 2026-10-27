@@ -1,0 +1,201 @@
+
+/* source: direct3dbasetexture9imp, direct3ddevice9imp */
+
+void Direct3DDevice9Imp__SetupTexturesForDraw(int param_1)
+
+{
+  int iVar1;
+  undefined4 uVar2;
+  bool bVar3;
+  undefined4 uVar4;
+  int iVar5;
+  uint uVar6;
+  int iVar7;
+  int iVar8;
+  int local_40;
+  int local_24;
+  
+  if (*(int *)(param_1 + 0x82c8) != 0) {
+    bVar3 = true;
+    local_24 = 0x10;
+    if (*(char *)(*(int *)(param_1 + 0xe9ec) + 0x80) != '\0') goto LAB_0408efb8;
+  }
+  if ((*(uint *)(param_1 + 0xea04) & 0x1c00) == 0) {
+    bVar3 = false;
+    local_24 = 1;
+  }
+  else {
+    bVar3 = false;
+    local_24 = *(int *)(param_1 + 0x8164);
+    if (*(int *)(param_1 + 0x8164) <= *(int *)(*(int *)(param_1 + 0xe9ec) + 0x7c)) {
+      local_24 = *(int *)(*(int *)(param_1 + 0xe9ec) + 0x7c);
+    }
+    if (local_24 < 1) {
+      local_24 = 1;
+    }
+  }
+LAB_0408efb8:
+  iVar5 = 0;
+  iVar7 = param_1;
+  do {
+    while ((iVar8 = *(int *)(iVar7 + 0x8278), iVar8 != 0 &&
+           (*(int *)(*(int *)(param_1 + 0xe9ec) + 0x3c + iVar5 * 4) != -1))) {
+      if (*(int *)(iVar8 + 0x284) < 1) {
+        FUN_0400a810("(INT) mOpenGLTexturesCount > index",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3dbasetexture9imp.h"
+                     ,0x8c,"OpenGLTexture* Direct3DBaseTexture9Imp::GetOpenGLTexture(INT)");
+      }
+      iVar8 = *(int *)(iVar8 + 0x244);
+      if (iVar8 == 0) {
+        FUN_0400a810(&PTR_DAT_042e85bd,
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+                     ,0x25d3,"void Direct3DDevice9Imp::SetupTexturesForDraw()");
+      }
+      uVar6 = 1 << ((byte)iVar5 & 0x1f);
+      if ((*(uint *)(param_1 + 0x8160) & uVar6) != 0) {
+        uVar2 = *(undefined4 *)(*(int *)(iVar8 + 4) + 0x23c);
+        uVar4 = SamplerCache__GetSamplerForState
+                          (param_1 + 0xeb9c,param_1 + 0x7c60 + iVar5 * 0x38,uVar2);
+        *(undefined4 *)(iVar7 + 0x80c0) = uVar2;
+        *(undefined4 *)(iVar7 + 0x8110) = uVar4;
+        *(uint *)(param_1 + 0x8160) = *(uint *)(param_1 + 0x8160) & ~uVar6;
+      }
+      iVar1 = *(int *)(iVar7 + 0x8110);
+      local_40 = *(int *)(param_1 + 0xeb48);
+      if (iVar1 != *(int *)(local_40 + 8 + (iVar5 + 0xac) * 4)) {
+        (*DAT_0451e3c4)(iVar5,iVar1);
+        *(int *)(local_40 + 8 + (iVar5 + 0xac) * 4) = iVar1;
+        local_40 = *(int *)(param_1 + 0xeb48);
+      }
+      iVar7 = iVar7 + 4;
+      FUN_040c6e20(local_40,iVar5 + 0x84c0,*(undefined4 *)(iVar8 + 0xc),*(undefined4 *)(iVar8 + 8));
+      iVar5 = iVar5 + 1;
+      if (local_24 <= iVar5) goto LAB_0408f0fa;
+    }
+    iVar7 = iVar7 + 4;
+    FUN_040c6e20(*(undefined4 *)(param_1 + 0xeb48),iVar5 + 0x84c0,0xde1,0);
+    iVar5 = iVar5 + 1;
+  } while (iVar5 < local_24);
+LAB_0408f0fa:
+  *(undefined4 *)(param_1 + 0x8164) = *(undefined4 *)(*(int *)(param_1 + 0xe9ec) + 0x7c);
+  if (bVar3) {
+    iVar7 = *(int *)(param_1 + 0x82b8);
+    if ((iVar7 != 0) && (*(int *)(*(int *)(param_1 + 0xe9ec) + 0x2c) != -1)) {
+      if (*(int *)(iVar7 + 0x284) < 1) {
+        FUN_0400a810("(INT) mOpenGLTexturesCount > index",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3dbasetexture9imp.h"
+                     ,0x8c,"OpenGLTexture* Direct3DBaseTexture9Imp::GetOpenGLTexture(INT)");
+      }
+      iVar7 = *(int *)(iVar7 + 0x244);
+      if (iVar7 == 0) {
+        FUN_0400a810(&PTR_DAT_042e85bd,
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+                     ,0x260d,"void Direct3DDevice9Imp::SetupTexturesForDraw()");
+      }
+      if ((*(byte *)(param_1 + 0x8162) & 1) != 0) {
+        uVar2 = *(undefined4 *)(*(int *)(iVar7 + 4) + 0x23c);
+        uVar4 = SamplerCache__GetSamplerForState(param_1 + 0xeb9c,param_1 + 0x7fe0,uVar2);
+        *(undefined4 *)(param_1 + 0x8100) = uVar2;
+        *(uint *)(param_1 + 0x8160) = *(uint *)(param_1 + 0x8160) & 0xfffeffff;
+        *(undefined4 *)(param_1 + 0x8150) = uVar4;
+      }
+      iVar5 = *(int *)(param_1 + 0x8150);
+      iVar8 = *(int *)(param_1 + 0xeb48);
+      if (iVar5 != *(int *)(iVar8 + 0x2f4)) {
+        (*DAT_0451e3c4)(0xf,iVar5);
+        *(int *)(iVar8 + 0x2f4) = iVar5;
+        iVar8 = *(int *)(param_1 + 0xeb48);
+      }
+      FUN_040c6e20(iVar8,33999,*(undefined4 *)(iVar7 + 0xc),*(undefined4 *)(iVar7 + 8));
+    }
+    iVar7 = *(int *)(param_1 + 0x82bc);
+    if ((iVar7 != 0) && (*(int *)(*(int *)(param_1 + 0xe9ec) + 0x30) != -1)) {
+      if (*(int *)(iVar7 + 0x284) < 1) {
+        FUN_0400a810("(INT) mOpenGLTexturesCount > index",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3dbasetexture9imp.h"
+                     ,0x8c,"OpenGLTexture* Direct3DBaseTexture9Imp::GetOpenGLTexture(INT)");
+      }
+      iVar7 = *(int *)(iVar7 + 0x244);
+      if (iVar7 == 0) {
+        FUN_0400a810(&PTR_DAT_042e85bd,
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+                     ,0x260d,"void Direct3DDevice9Imp::SetupTexturesForDraw()");
+      }
+      if ((*(byte *)(param_1 + 0x8162) & 2) != 0) {
+        uVar2 = *(undefined4 *)(*(int *)(iVar7 + 4) + 0x23c);
+        uVar4 = SamplerCache__GetSamplerForState(param_1 + 0xeb9c,param_1 + 0x8018,uVar2);
+        *(undefined4 *)(param_1 + 0x8104) = uVar2;
+        *(uint *)(param_1 + 0x8160) = *(uint *)(param_1 + 0x8160) & 0xfffdffff;
+        *(undefined4 *)(param_1 + 0x8154) = uVar4;
+      }
+      iVar5 = *(int *)(param_1 + 0x8154);
+      iVar8 = *(int *)(param_1 + 0xeb48);
+      if (iVar5 != *(int *)(iVar8 + 0x2f0)) {
+        (*DAT_0451e3c4)(0xe,iVar5);
+        *(int *)(iVar8 + 0x2f0) = iVar5;
+        iVar8 = *(int *)(param_1 + 0xeb48);
+      }
+      FUN_040c6e20(iVar8,0x84ce,*(undefined4 *)(iVar7 + 0xc),*(undefined4 *)(iVar7 + 8));
+    }
+    iVar7 = *(int *)(param_1 + 0x82c0);
+    if ((iVar7 != 0) && (*(int *)(*(int *)(param_1 + 0xe9ec) + 0x34) != -1)) {
+      if (*(int *)(iVar7 + 0x284) < 1) {
+        FUN_0400a810("(INT) mOpenGLTexturesCount > index",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3dbasetexture9imp.h"
+                     ,0x8c,"OpenGLTexture* Direct3DBaseTexture9Imp::GetOpenGLTexture(INT)");
+      }
+      iVar7 = *(int *)(iVar7 + 0x244);
+      if (iVar7 == 0) {
+        FUN_0400a810(&PTR_DAT_042e85bd,
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+                     ,0x260d,"void Direct3DDevice9Imp::SetupTexturesForDraw()");
+      }
+      if ((*(byte *)(param_1 + 0x8162) & 4) != 0) {
+        uVar2 = *(undefined4 *)(*(int *)(iVar7 + 4) + 0x23c);
+        uVar4 = SamplerCache__GetSamplerForState(param_1 + 0xeb9c,param_1 + 0x8050,uVar2);
+        *(undefined4 *)(param_1 + 0x8108) = uVar2;
+        *(uint *)(param_1 + 0x8160) = *(uint *)(param_1 + 0x8160) & 0xfffbffff;
+        *(undefined4 *)(param_1 + 0x8158) = uVar4;
+      }
+      iVar5 = *(int *)(param_1 + 0x8158);
+      iVar8 = *(int *)(param_1 + 0xeb48);
+      if (iVar5 != *(int *)(iVar8 + 0x2ec)) {
+        (*DAT_0451e3c4)(0xd,iVar5);
+        *(int *)(iVar8 + 0x2ec) = iVar5;
+        iVar8 = *(int *)(param_1 + 0xeb48);
+      }
+      FUN_040c6e20(iVar8,0x84cd,*(undefined4 *)(iVar7 + 0xc),*(undefined4 *)(iVar7 + 8));
+    }
+    iVar7 = *(int *)(param_1 + 0x82c4);
+    if ((iVar7 != 0) && (*(int *)(*(int *)(param_1 + 0xe9ec) + 0x38) != -1)) {
+      if (*(int *)(iVar7 + 0x284) < 1) {
+        FUN_0400a810("(INT) mOpenGLTexturesCount > index",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3dbasetexture9imp.h"
+                     ,0x8c,"OpenGLTexture* Direct3DBaseTexture9Imp::GetOpenGLTexture(INT)");
+      }
+      iVar7 = *(int *)(iVar7 + 0x244);
+      if (iVar7 == 0) {
+        FUN_0400a810(&PTR_DAT_042e85bd,
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+                     ,0x260d,"void Direct3DDevice9Imp::SetupTexturesForDraw()");
+      }
+      if ((*(byte *)(param_1 + 0x8162) & 8) != 0) {
+        uVar2 = *(undefined4 *)(*(int *)(iVar7 + 4) + 0x23c);
+        uVar4 = SamplerCache__GetSamplerForState(param_1 + 0xeb9c,param_1 + 0x8088,uVar2);
+        *(undefined4 *)(param_1 + 0x810c) = uVar2;
+        *(uint *)(param_1 + 0x8160) = *(uint *)(param_1 + 0x8160) & 0xfff7ffff;
+        *(undefined4 *)(param_1 + 0x815c) = uVar4;
+      }
+      iVar5 = *(int *)(param_1 + 0x815c);
+      iVar8 = *(int *)(param_1 + 0xeb48);
+      if (iVar5 != *(int *)(iVar8 + 0x2e8)) {
+        (*DAT_0451e3c4)(0xc,iVar5);
+        *(int *)(iVar8 + 0x2e8) = iVar5;
+        iVar8 = *(int *)(param_1 + 0xeb48);
+      }
+      FUN_040c6e20(iVar8,0x84cc,*(undefined4 *)(iVar7 + 0xc),*(undefined4 *)(iVar7 + 8));
+    }
+  }
+  return;
+}
+

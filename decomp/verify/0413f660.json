@@ -1,0 +1,46 @@
+
+/* source: MemoryHandleManager */
+
+uint MemoryHandleManager__Lock(int *param_1,uint param_2)
+
+{
+  pthread_mutex_t *__mutex;
+  uint *puVar1;
+  char cVar2;
+  uint uVar3;
+  ushort uVar4;
+  
+  if ((param_2 & 0xffff0000) != 0) {
+    return param_2;
+  }
+  if (param_2 != 0) {
+    __mutex = (pthread_mutex_t *)(param_1 + 2);
+    uVar4 = (short)param_2 - 1;
+    pthread_mutex_lock(__mutex);
+    if ((uVar4 < *(ushort *)(param_1 + 1)) &&
+       (puVar1 = (uint *)(*param_1 + (uint)uVar4 * 8), (*(byte *)((int)puVar1 + 5) & 1) != 0)) {
+      uVar3 = *puVar1;
+      if (uVar3 == 0) {
+        pthread_mutex_unlock(__mutex);
+        eON_SetLastError(0x9d);
+      }
+      else {
+        cVar2 = (char)puVar1[1];
+        if (cVar2 == -1) {
+          FUN_0400a810("buf.LockCount < 255",
+                       "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/MemoryHandleManager.cpp"
+                       ,0xf0,"void* MemoryHandleManager::Lock(MemoryManagerHandle)");
+          cVar2 = (char)puVar1[1];
+          uVar3 = *puVar1;
+        }
+        *(char *)(puVar1 + 1) = cVar2 + '\x01';
+        pthread_mutex_unlock(__mutex);
+      }
+      return uVar3;
+    }
+    pthread_mutex_unlock(__mutex);
+  }
+  eON_SetLastError(6);
+  return 0;
+}
+

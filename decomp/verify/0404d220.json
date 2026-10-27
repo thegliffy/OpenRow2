@@ -1,0 +1,184 @@
+
+void eON_Window_ApplyFlagChange(undefined4 param_1,char param_2,undefined4 param_3)
+
+{
+  uint uVar1;
+  uint uVar2;
+  undefined *puVar3;
+  int iVar4;
+  undefined4 local_24;
+  uint local_20;
+  
+  switch(param_1) {
+  case 0:
+    goto switchD_0404d258_caseD_0;
+  case 1:
+    puVar3 = &DAT_015b0000;
+    local_24 = 0x5b;
+    if (param_2 == '\0') {
+      uVar2 = DAT_04468be8 & 0xffffff7f;
+      uVar1 = uVar2;
+    }
+    else {
+      uVar2 = DAT_04468be8 | 0x80;
+      uVar1 = uVar2;
+    }
+    break;
+  case 2:
+    local_24 = 0x5b;
+    puVar3 = &DAT_015c0000;
+    if (param_2 == '\0') {
+      uVar2 = DAT_04468be8 & 0xfffffeff;
+      uVar1 = uVar2;
+    }
+    else {
+      uVar2 = DAT_04468be8 | 0x100;
+      uVar1 = uVar2;
+    }
+    break;
+  case 3:
+    if (param_2 == '\0') {
+      puVar3 = &DAT_002a0000;
+      local_24 = 0x10;
+      uVar2 = DAT_04468be8 & 0xfffffffe;
+      uVar1 = uVar2;
+    }
+    else {
+      local_24 = 0x10;
+      puVar3 = &DAT_002a0000;
+      uVar1 = DAT_04468be8 | 1;
+      uVar2 = DAT_04468be8;
+    }
+    break;
+  case 4:
+    if (param_2 == '\0') {
+      uVar2 = DAT_04468be8 & 0xfffffffd;
+      puVar3 = &DAT_00360000;
+      local_24 = 0x10;
+      uVar1 = uVar2;
+    }
+    else {
+      uVar2 = DAT_04468be8 | 2;
+      puVar3 = &DAT_00360000;
+      local_24 = 0x10;
+      uVar1 = uVar2;
+    }
+    break;
+  case 5:
+    puVar3 = (undefined *)0x380000;
+    local_24 = 0x12;
+    if (param_2 == '\0') {
+      uVar2 = DAT_04468be8 & 0xffffffdf;
+      uVar1 = uVar2;
+    }
+    else {
+      uVar2 = DAT_04468be8 | 0x20;
+      uVar1 = uVar2;
+    }
+    break;
+  case 6:
+    puVar3 = &DAT_01380000;
+    local_24 = 0x12;
+    if (param_2 == '\0') {
+      uVar2 = DAT_04468be8 & 0xffffffbf;
+      uVar1 = uVar2;
+    }
+    else {
+      uVar2 = DAT_04468be8 | 0x40;
+      uVar1 = uVar2;
+    }
+    break;
+  case 7:
+    puVar3 = &DAT_001d0000;
+    local_24 = 0x11;
+    if (param_2 == '\0') {
+      uVar2 = DAT_04468be8 & 0xfffffffb;
+      uVar1 = uVar2;
+    }
+    else {
+      uVar2 = DAT_04468be8 | 4;
+      uVar1 = uVar2;
+    }
+    break;
+  case 8:
+    puVar3 = &DAT_011d0000;
+    local_24 = 0x11;
+    if (param_2 == '\0') {
+      uVar2 = DAT_04468be8 & 0xfffffff7;
+      uVar1 = uVar2;
+    }
+    else {
+      uVar2 = DAT_04468be8 | 8;
+      uVar1 = uVar2;
+    }
+    break;
+  case 9:
+    puVar3 = &DAT_003a0000;
+    local_24 = 0x14;
+    if (param_2 == '\0') {
+      uVar2 = DAT_04468be8 & 0xffffffef;
+      uVar1 = uVar2;
+    }
+    else {
+      uVar2 = DAT_04468be8 | 0x10;
+      uVar1 = uVar2;
+    }
+    break;
+  case 10:
+    if (param_2 != '\0') {
+      return;
+    }
+    iVar4 = 0x70;
+    do {
+      uVar2 = DAT_04468be4;
+      if ((&DAT_04468ae0)[iVar4] != '\0') {
+        (&DAT_04468ae0)[iVar4] = 0;
+        eON_Int_PostMessage_IfWindow
+                  (param_3,0x101,iVar4,(-(uint)((uVar2 & 0x1024) == 0) & 0xe0000000) + 0xa0000001);
+      }
+      iVar4 = iVar4 + 1;
+    } while (iVar4 != 0x88);
+    return;
+  default:
+    FUN_0402cd10();
+    return;
+  }
+  DAT_04468be8 = uVar1;
+  if ((uVar2 & 0x10) == 0) {
+    uVar2 = DAT_04468be4 & 0xfffffffb;
+    if ((DAT_04468be8 & 3) != 0) goto LAB_0404d29d;
+  }
+  else {
+    uVar2 = DAT_04468be4 & 0xfffffffb;
+    if ((DAT_04468be8 & 3) == 0) {
+LAB_0404d29d:
+      uVar2 = DAT_04468be4 | 4;
+    }
+  }
+  local_20 = uVar2 & 0xfffffff7;
+  if ((DAT_04468be8 & 0xc) != 0) {
+    local_20 = uVar2 | 8;
+  }
+  if ((DAT_04468be8 & 0x60) == 0) {
+    DAT_04468be4 = local_20 & 0xffffefdb;
+  }
+  else {
+    DAT_04468be4 = local_20 | 0x1024;
+  }
+  if (param_2 == '\0') {
+    uVar2 = (uint)puVar3 | 0x80000001;
+    if ((DAT_04468be4 & 0x1024) != 0) {
+      uVar2 = (uint)puVar3 | 0xa0000001;
+    }
+    eON_Int_PostMessage_IfWindow(param_3,0x101,local_24,uVar2);
+    return;
+  }
+  uVar2 = (uint)puVar3 | 1;
+  if ((DAT_04468be4 & 0x1024) != 0) {
+    uVar2 = (uint)puVar3 | 0x20000001;
+  }
+  eON_Int_PostMessage_IfWindow(param_3,0x100,local_24,uVar2);
+switchD_0404d258_caseD_0:
+  return;
+}
+

@@ -1,0 +1,70 @@
+
+undefined4 VPFS_Seek(int param_1,uint param_2,int param_3,int param_4)
+
+{
+  uint *puVar1;
+  int iVar2;
+  uint uVar3;
+  int iVar4;
+  uint uVar5;
+  undefined4 uVar6;
+  int local_20 [4];
+  
+  if (param_1 != 0) {
+    if (0x2800 < param_1 + 0x54545455U) {
+      FUN_0402cd10(0xf,"Invalid handle given to VPFS_Seek()!!");
+      return 0xffffffff;
+    }
+    pthread_mutex_lock((pthread_mutex_t *)&DAT_0441804c);
+    iVar2 = param_1 + 0x54545454;
+    iVar4 = (&DAT_04418280)[iVar2 * 8];
+    if ((((iVar4 != 4) && (iVar4 != 0)) && (iVar4 != 6)) && (iVar4 != 1)) {
+      if ((iVar4 == 7) || (iVar4 == 5)) {
+        local_20[0] = param_3;
+        iVar4 = fs_SetFilePointer((&DAT_04418288)[iVar2 * 8],param_2,local_20,param_4);
+        if (iVar4 == -1) {
+          uVar6 = 0xffffffff;
+          FUN_0402cd10(0xf,"VPFS_Seek() - SetFilePointer failed on handle %d",param_1 + 0x54545455U)
+          ;
+        }
+        else {
+          (&DAT_0441828c)[iVar2 * 8] = iVar4;
+          (&DAT_04418290)[iVar2 * 8] = local_20[0];
+          uVar6 = 0;
+        }
+        pthread_mutex_unlock((pthread_mutex_t *)&DAT_0441804c);
+        return uVar6;
+      }
+      if (param_4 == 0) {
+        (&DAT_0441828c)[iVar2 * 8] = param_2;
+        (&DAT_04418290)[iVar2 * 8] = param_3;
+      }
+      else if (param_4 == 1) {
+        puVar1 = &DAT_0441828c + iVar2 * 8;
+        uVar3 = *puVar1;
+        *puVar1 = *puVar1 + param_2;
+        (&DAT_04418290)[iVar2 * 8] =
+             (&DAT_04418290)[iVar2 * 8] + param_3 + (uint)CARRY4(uVar3,param_2);
+      }
+      else {
+        uVar5 = (uint)*(ushort *)(DAT_04468a94 + 2 + (&DAT_04418288)[iVar2 * 8]);
+        iVar4 = (&DAT_04418288)[iVar2 * 8] + DAT_04468a94;
+        uVar3 = *(uint *)(uVar5 + 0x28 + iVar4);
+        uVar5 = *(uint *)(uVar5 + 0x24 + iVar4);
+        iVar4 = param_3 + (uint)(param_2 != 0);
+        if ((uVar3 <= (uint)-iVar4) && ((-uVar3 != iVar4 || (uVar5 <= -param_2)))) {
+          pthread_mutex_unlock((pthread_mutex_t *)&DAT_0441804c);
+          eON_SetLastError(0x83);
+          return 0xffffffff;
+        }
+        (&DAT_0441828c)[iVar2 * 8] = uVar5 + param_2;
+        (&DAT_04418290)[iVar2 * 8] = uVar3 + param_3 + (uint)CARRY4(uVar5,param_2);
+      }
+      pthread_mutex_unlock((pthread_mutex_t *)&DAT_0441804c);
+      return 0;
+    }
+    pthread_mutex_unlock((pthread_mutex_t *)&DAT_0441804c);
+  }
+  return 0xffffffff;
+}
+

@@ -1,0 +1,130 @@
+
+undefined4
+eON_CreateProcessW(int param_1,int param_2,int param_3,int param_4,int param_5,int param_6,
+                  int param_7,int param_8,int param_9,int param_10)
+
+{
+  int iVar1;
+  char cVar2;
+  undefined4 uVar3;
+  char *pcVar4;
+  void *pvVar5;
+  int *piVar6;
+  undefined1 local_d0 [28];
+  undefined4 local_b4;
+  undefined4 local_90;
+  undefined4 local_8c;
+  int local_88;
+  undefined4 local_84;
+  undefined4 local_80;
+  undefined4 local_7c;
+  undefined4 local_78;
+  undefined4 local_74;
+  size_t local_54;
+  int local_50;
+  int local_4c;
+  int local_48;
+  int local_44;
+  int local_40;
+  int local_3c;
+  int local_38;
+  int local_34;
+  void *local_24 [3];
+  undefined4 *local_18;
+  
+  iVar1 = param_2;
+  local_18 = &param_1;
+  pvVar5 = (void *)0x0;
+  piVar6 = &local_90;
+  local_24[0] = (void *)0x0;
+  local_34 = param_3;
+  local_38 = param_4;
+  local_3c = param_5;
+  local_40 = param_6;
+  local_44 = param_7;
+  local_48 = param_8;
+  local_4c = param_9;
+  local_50 = param_10;
+  if (param_1 != 0) {
+    local_74 = 0;
+    local_78 = 0;
+    local_7c = 0;
+    local_80 = 0;
+    local_84 = 0xffffffff;
+    local_88 = param_1;
+    local_8c = 0;
+    local_90 = 0;
+    local_54 = eON_WideCharToMultiByte();
+    local_b4 = 0x4156a78;
+    pvVar5 = malloc(local_54);
+    local_b4 = 0x4156ab5;
+    eON_WideCharToMultiByte();
+    piVar6 = (int *)local_d0;
+  }
+  if (iVar1 != 0) {
+    piVar6[7] = 0;
+    piVar6[6] = 0;
+    piVar6[5] = 0;
+    piVar6[4] = 0;
+    piVar6[3] = 0xffffffff;
+    piVar6[2] = iVar1;
+    piVar6[1] = 0;
+    *piVar6 = 0;
+    piVar6[-1] = 0x4156b00;
+    uVar3 = eON_WideCharToMultiByte();
+    piVar6[-8] = uVar3;
+    piVar6[-9] = 0x4156b0d;
+    local_24[0] = malloc(piVar6[-8]);
+    piVar6[-1] = 0;
+    piVar6[-2] = 0;
+    piVar6[-3] = uVar3;
+    piVar6[-4] = (int)local_24[0];
+    piVar6[-5] = 0xffffffff;
+    piVar6[-6] = iVar1;
+    piVar6[-7] = 0;
+    piVar6[-8] = 0;
+    piVar6[-9] = 0x4156b48;
+    eON_WideCharToMultiByte();
+    piVar6 = piVar6 + -0x10;
+  }
+  *piVar6 = (int)local_24;
+  piVar6[-1] = 0x4156b57;
+  cVar2 = (*(code *)PTR_FUN_04410a00)();
+  if (cVar2 == '\0') {
+    pcVar4 = "TRUE";
+    piVar6[2] = (int)pvVar5;
+    piVar6[1] = (int)
+                "CreateProcessW( lpApplicationName = \'%s\', lpCommandLine = \'%s\', lpProcessAttributes = %p, lpThreadAttributes = %p, bInheritHandles = %s, dwCreationFlags = %u, lpEnvironment = %p, lpCurrentDirectory = \'%s\', lpStartupInfo = %p, lpProcessInformation = %p"
+    ;
+    *piVar6 = 5;
+    if (local_3c == 0) {
+      pcVar4 = "FALSE";
+    }
+    uVar3 = 0;
+    piVar6[6] = (int)pcVar4;
+    piVar6[0xb] = local_50;
+    piVar6[3] = (int)local_24[0];
+    piVar6[10] = local_4c;
+    piVar6[9] = local_48;
+    piVar6[8] = local_44;
+    piVar6[7] = local_40;
+    piVar6[5] = local_38;
+    piVar6[4] = local_34;
+    piVar6[-1] = 0x4156bf8;
+    FUN_0402cd10();
+  }
+  else {
+    uVar3 = 1;
+    *piVar6 = (int)local_24[0];
+    piVar6[-1] = 0x4156b6b;
+    RelaunchGame();
+  }
+  *piVar6 = (int)local_24[0];
+  piVar6[-1] = 0x4156b76;
+  free((void *)*piVar6);
+  *piVar6 = (int)pvVar5;
+  piVar6[-1] = 0x4156b7e;
+  free((void *)*piVar6);
+  return uVar3;
+}
+

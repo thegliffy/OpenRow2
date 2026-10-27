@@ -1,0 +1,26 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+bool _glewInit_GL_EXT_pixel_transform(void)
+
+{
+  int iVar1;
+  bool bVar2;
+  bool bVar3;
+  bool bVar4;
+  bool bVar5;
+  
+  iVar1 = glXGetProcAddressARB("glGetPixelTransformParameterfvEXT");
+  _DAT_0451d6d0 = iVar1;
+  _DAT_0451d6cc = glXGetProcAddressARB("glGetPixelTransformParameterivEXT");
+  bVar2 = _DAT_0451d6cc == 0;
+  _DAT_0451d6c8 = glXGetProcAddressARB("glPixelTransformParameterfEXT");
+  bVar3 = _DAT_0451d6c8 == 0;
+  _DAT_0451d6c4 = glXGetProcAddressARB("glPixelTransformParameterfvEXT");
+  bVar4 = _DAT_0451d6c4 == 0;
+  _DAT_0451d6c0 = glXGetProcAddressARB("glPixelTransformParameteriEXT");
+  bVar5 = _DAT_0451d6c0 == 0;
+  _DAT_0451d6bc = glXGetProcAddressARB("glPixelTransformParameterivEXT");
+  return _DAT_0451d6bc == 0 || (bVar5 || (bVar4 || (bVar3 || (bVar2 || iVar1 == 0))));
+}
+

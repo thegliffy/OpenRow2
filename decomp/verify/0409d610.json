@@ -1,0 +1,79 @@
+
+/* source: direct3ddevice9imp */
+
+void Direct3DDevice9Imp__Fence_Tick(int param_1)
+
+{
+  undefined4 *puVar1;
+  char cVar2;
+  undefined4 *puVar3;
+  int iVar4;
+  undefined4 local_20 [4];
+  
+  puVar3 = *(undefined4 **)(param_1 + 0xebc4);
+  if (*(char *)(param_1 + 0xeb4e) == '\0') {
+    while (puVar3 != (undefined4 *)0x0) {
+      puVar1 = (undefined4 *)*puVar3;
+      if (puVar3[2] == 0) {
+        FUN_0400a810("FenceList->FenceAPPLE",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+                     ,0x461,"void Direct3DDevice9Imp::Fence_Tick()");
+        puVar3 = *(undefined4 **)(param_1 + 0xebc4);
+      }
+      cVar2 = (*DAT_0451e95c)(puVar3[2]);
+      if (cVar2 == '\0') {
+        return;
+      }
+      iVar4 = *(int *)(param_1 + 0xebc4);
+      puVar3 = *(undefined4 **)(param_1 + 0xebd0);
+      local_20[0] = *(undefined4 *)(iVar4 + 8);
+      if (puVar3 == *(undefined4 **)(param_1 + 0xebd4)) {
+        FUN_040a3200(param_1 + 0xebcc,puVar3,local_20);
+        iVar4 = *(int *)(param_1 + 0xebc4);
+      }
+      else {
+        if (puVar3 != (undefined4 *)0x0) {
+          *puVar3 = local_20[0];
+        }
+        *(undefined4 **)(param_1 + 0xebd0) = puVar3 + 1;
+      }
+      *(undefined4 *)(iVar4 + 8) = 0;
+      *(undefined1 *)(iVar4 + 0xc) = 1;
+      *(undefined4 **)(param_1 + 0xebc4) = puVar1;
+      puVar3 = puVar1;
+    }
+  }
+  else if (puVar3 != (undefined4 *)0x0) {
+    iVar4 = puVar3[1];
+    puVar1 = (undefined4 *)*puVar3;
+    while( true ) {
+      if (iVar4 == 0) {
+        FUN_0400a810("FenceList->FenceARB",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+                     ,0x44d,"void Direct3DDevice9Imp::Fence_Tick()");
+        puVar3 = *(undefined4 **)(param_1 + 0xebc4);
+      }
+      iVar4 = (*DAT_0451e1ac)(puVar3[1],0,0,0);
+      if (iVar4 == 0x911d) {
+        FUN_0400a810("result != 0x911D",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+                     ,0x44f,"void Direct3DDevice9Imp::Fence_Tick()");
+      }
+      else if (iVar4 == 0x911b) {
+        return;
+      }
+      (*DAT_0451e1a8)(*(undefined4 *)(*(int *)(param_1 + 0xebc4) + 4));
+      iVar4 = *(int *)(param_1 + 0xebc4);
+      *(undefined4 *)(iVar4 + 4) = 0;
+      *(undefined1 *)(iVar4 + 0xc) = 1;
+      *(undefined4 **)(param_1 + 0xebc4) = puVar1;
+      if (puVar1 == (undefined4 *)0x0) break;
+      iVar4 = puVar1[1];
+      puVar3 = puVar1;
+      puVar1 = (undefined4 *)*puVar1;
+    }
+  }
+  *(undefined4 *)(param_1 + 0xebc8) = 0;
+  return;
+}
+

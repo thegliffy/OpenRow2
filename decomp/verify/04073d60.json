@@ -1,0 +1,133 @@
+
+/* source: direct3dstateblock9imp */
+
+undefined4
+Direct3DStateBlock9Imp__SetTextureStageState(int param_1,uint param_2,uint param_3,uint param_4)
+
+{
+  int iVar1;
+  int iVar2;
+  uint *puVar3;
+  undefined4 uVar4;
+  undefined1 local_20 [16];
+  
+  if (7 < param_2) {
+    return 0x8876086c;
+  }
+  direct3ddevice9imp_040704e0();
+  iVar1 = *(int *)(param_1 + 0x75ec);
+  if (iVar1 != 0) {
+    if (param_3 < 0x21) {
+      iVar2 = *(int *)(&DAT_042f7ec0 + param_3 * 4);
+    }
+    else {
+      FUN_0400a810("Type < 33",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3dstateblock9imp.h"
+                   ,0x198,
+                   "void Direct3DStateBlock9Imp::SetTextureStageState(DWORD, D3DTEXTURESTAGESTATETYPE, DWORD)"
+                  );
+      iVar2 = *(int *)(&DAT_042f7ec0 + param_3 * 4);
+    }
+    if (iVar2 == -1) {
+      FUN_0400a810("index != (DWORD) -1",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3dstateblock9imp.h"
+                   ,0x19b,
+                   "void Direct3DStateBlock9Imp::SetTextureStageState(DWORD, D3DTEXTURESTAGESTATETYPE, DWORD)"
+                  );
+    }
+    *(undefined4 *)(iVar1 + 0xbb4) = 1;
+    puVar3 = (uint *)(iVar1 + 3000 + param_2 * 4);
+    *puVar3 = *puVar3 | 1 << ((char)param_3 - 1U & 0x1f);
+    uVar4 = 0;
+    *(uint *)(iVar1 + 8 + (iVar2 + 0x2f4 + param_2 * 0x13) * 4) = param_4;
+    goto LAB_04073dea;
+  }
+  puVar3 = (uint *)(param_1 + 0xe20 + param_2 * 0x48);
+  switch(param_3) {
+  default:
+                    /* try { // try from 04073e32 to 04073eff has its CatchHandler @ 04073fe2 */
+    FUN_0402cd10(0xf,"Unknown type (%u) of texture stage state!",param_3);
+    uVar4 = 0x8876086c;
+    goto LAB_04073dea;
+  case 1:
+    *puVar3 = param_4;
+    break;
+  case 2:
+    puVar3[2] = param_4;
+    break;
+  case 3:
+    puVar3[3] = param_4;
+    break;
+  case 4:
+    puVar3[4] = param_4;
+    break;
+  case 5:
+    uVar4 = 0;
+    puVar3[6] = param_4;
+    goto LAB_04073dea;
+  case 6:
+    uVar4 = 0;
+    puVar3[7] = param_4;
+    goto LAB_04073dea;
+  case 7:
+    puVar3[9] = param_4;
+    goto LAB_04073ec8;
+  case 8:
+    puVar3[10] = param_4;
+    goto LAB_04073ec8;
+  case 9:
+    puVar3[0xb] = param_4;
+    goto LAB_04073ec8;
+  case 10:
+    puVar3[0xc] = param_4;
+LAB_04073ec8:
+    puVar3 = (uint *)D3D9CommandQueue__GetNextCommandPointer(param_1 + 0xec00,param_1,0x1e,0xc);
+    *puVar3 = param_2;
+    puVar3[1] = param_3;
+    puVar3[2] = param_4;
+    D3D9CommandQueue__CommandSubmitted(param_1 + 0xec00);
+    break;
+  case 0xb:
+    uVar4 = 0;
+    puVar3[0xf] = param_4;
+    goto LAB_04073dea;
+  case 0x16:
+    if (puVar3[0xd] != param_4) {
+      puVar3[0xd] = param_4;
+      goto LAB_04073ec8;
+    }
+    break;
+  case 0x17:
+    if (puVar3[0xe] != param_4) {
+      puVar3[0xe] = param_4;
+      goto LAB_04073ec8;
+    }
+    break;
+  case 0x18:
+    uVar4 = 0;
+    puVar3[0x10] = param_4;
+    goto LAB_04073dea;
+  case 0x1a:
+    uVar4 = 0;
+    puVar3[1] = param_4;
+    goto LAB_04073dea;
+  case 0x1b:
+    uVar4 = 0;
+    puVar3[5] = param_4;
+    goto LAB_04073dea;
+  case 0x1c:
+    uVar4 = 0;
+    puVar3[8] = param_4;
+    goto LAB_04073dea;
+  case 0x20:
+    if (puVar3[0x11] != param_4) {
+      puVar3[0x11] = param_4;
+      goto LAB_04073ec8;
+    }
+  }
+  uVar4 = 0;
+LAB_04073dea:
+  direct3ddevice9imp_040a2df0(local_20);
+  return uVar4;
+}
+

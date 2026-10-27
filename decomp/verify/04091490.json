@@ -1,0 +1,203 @@
+
+/* source: openGlContextCache */
+
+void OpenGLContextCache__LightDirection(int param_1)
+
+{
+  int iVar1;
+  int iVar2;
+  float fVar3;
+  char cVar4;
+  int iVar5;
+  int iVar6;
+  int iVar7;
+  int iVar8;
+  int iVar9;
+  bool bVar10;
+  
+  iVar9 = *(int *)(param_1 + 0xeb48);
+  iVar5 = memcmp((void *)(param_1 + 0x83b0),(void *)(iVar9 + 0x1b8),0x40);
+  bVar10 = iVar5 != 0;
+  if (*(int *)(iVar9 + 0x500) != 0x1700) {
+    if (*(char *)(iVar9 + 0x218) != '\0') {
+      FUN_0400a810("!mUsingOpenGLCore",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlContextCache.h"
+                   ,0x3bc,"void OpenGLContextCache::glMatrixMode(GLenum)");
+    }
+    glMatrixMode(0x1700);
+    *(undefined4 *)(iVar9 + 0x500) = 0x1700;
+  }
+  glPushMatrix();
+  glLoadMatrixf((void *)(param_1 + 0x83b0));
+  if (0 < *(int *)(param_1 + 0x79c0)) {
+    iVar9 = 0x4000;
+    do {
+      iVar2 = param_1 + 0x7640 + *(int *)(param_1 + -0x8660 + iVar9 * 4) * 0x6c;
+      iVar5 = *(int *)(param_1 + 0xeb48);
+      iVar1 = iVar9 * 4;
+      iVar6 = iVar1 + -0x10000;
+      iVar8 = iVar5 + 0x500 + iVar6 * 4;
+      iVar7 = memcmp((void *)(iVar8 + 8),(void *)(iVar2 + 8),0x10);
+      if (iVar7 != 0) {
+        if (*(char *)(iVar5 + 0x218) != '\0') {
+          FUN_0400a810("!mUsingOpenGLCore",
+                       "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlContextCache.h"
+                       ,0x324,"void OpenGLContextCache::LightDiffuse(int32_t, const GLfloat*)");
+        }
+        glLightfv(iVar9,0x1201,(void *)(iVar2 + 8));
+        *(undefined4 *)(iVar8 + 8) = *(undefined4 *)(iVar2 + 8);
+        *(undefined4 *)(iVar8 + 0xc) = *(undefined4 *)(iVar2 + 0xc);
+        *(undefined4 *)(iVar8 + 0x10) = *(undefined4 *)(iVar2 + 0x10);
+        *(undefined4 *)(iVar8 + 0x14) = *(undefined4 *)(iVar2 + 0x14);
+        iVar5 = *(int *)(param_1 + 0xeb48);
+      }
+      iVar8 = iVar5 + 0x580 + iVar6 * 4;
+      iVar7 = memcmp((void *)(iVar8 + 8),(void *)(iVar2 + 0x18),0x10);
+      if (iVar7 != 0) {
+        if (*(char *)(iVar5 + 0x218) != '\0') {
+          FUN_0400a810("!mUsingOpenGLCore",
+                       "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlContextCache.h"
+                       ,0x32e,"void OpenGLContextCache::LightSpecular(int32_t, const GLfloat*)");
+        }
+        glLightfv(iVar9,0x1202,(void *)(iVar2 + 0x18));
+        *(undefined4 *)(iVar8 + 8) = *(undefined4 *)(iVar2 + 0x18);
+        *(undefined4 *)(iVar8 + 0xc) = *(undefined4 *)(iVar2 + 0x1c);
+        *(undefined4 *)(iVar8 + 0x10) = *(undefined4 *)(iVar2 + 0x20);
+        *(undefined4 *)(iVar8 + 0x14) = *(undefined4 *)(iVar2 + 0x24);
+        iVar5 = *(int *)(param_1 + 0xeb48);
+      }
+      iVar6 = iVar5 + 0x600 + iVar6 * 4;
+      iVar8 = memcmp((void *)(iVar6 + 8),(void *)(iVar2 + 0x28),0x10);
+      if (iVar8 != 0) {
+        if (*(char *)(iVar5 + 0x218) != '\0') {
+          FUN_0400a810("!mUsingOpenGLCore",
+                       "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlContextCache.h"
+                       ,0x338,"void OpenGLContextCache::LightAmbient(int32_t, const GLfloat*)");
+        }
+        glLightfv(iVar9,0x1200,(void *)(iVar2 + 0x28));
+        *(undefined4 *)(iVar6 + 8) = *(undefined4 *)(iVar2 + 0x28);
+        *(undefined4 *)(iVar6 + 0xc) = *(undefined4 *)(iVar2 + 0x2c);
+        *(undefined4 *)(iVar6 + 0x10) = *(undefined4 *)(iVar2 + 0x30);
+        *(undefined4 *)(iVar6 + 0x14) = *(undefined4 *)(iVar2 + 0x34);
+        iVar5 = *(int *)(param_1 + 0xeb48);
+      }
+      fVar3 = *(float *)(iVar2 + 0x68);
+      if (fVar3 != *(float *)(iVar5 + 8 + (iVar9 + -0x3e20) * 4)) {
+        if (*(char *)(iVar5 + 0x218) != '\0') {
+          FUN_0400a810("!mUsingOpenGLCore",
+                       "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlContextCache.h"
+                       ,0x358,"void OpenGLContextCache::LightPhi(int32_t, float)");
+        }
+        glLightf(iVar9,0x1206,(DAT_042f739c * fVar3) / DAT_042f73a0);
+        *(float *)(iVar5 + 8 + (iVar9 + -0x3e20) * 4) = fVar3;
+        iVar5 = *(int *)(param_1 + 0xeb48);
+      }
+      fVar3 = *(float *)(iVar2 + 0x54);
+      if (fVar3 != *(float *)(iVar5 + 8 + (iVar9 + -0x3e18) * 4)) {
+        if (*(char *)(iVar5 + 0x218) != '\0') {
+          FUN_0400a810("!mUsingOpenGLCore",
+                       "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlContextCache.h"
+                       ,0x362,"void OpenGLContextCache::LightFalloff(int32_t, float)");
+        }
+        glLightf(iVar9,0x1205,fVar3);
+        *(float *)(iVar5 + 8 + (iVar9 + -0x3e18) * 4) = fVar3;
+        iVar5 = *(int *)(param_1 + 0xeb48);
+      }
+      fVar3 = *(float *)(iVar2 + 0x58);
+      if (fVar3 != *(float *)(iVar5 + 8 + (iVar9 + -0x3e10) * 4)) {
+        if (*(char *)(iVar5 + 0x218) != '\0') {
+          FUN_0400a810("!mUsingOpenGLCore",
+                       "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlContextCache.h"
+                       ,0x36c,"void OpenGLContextCache::LightAttenuationConstant(int32_t, float)");
+        }
+        glLightf(iVar9,0x1207,fVar3);
+        *(float *)(iVar5 + 8 + (iVar9 + -0x3e10) * 4) = fVar3;
+        iVar5 = *(int *)(param_1 + 0xeb48);
+      }
+      fVar3 = *(float *)(iVar2 + 0x5c);
+      if (fVar3 != *(float *)(iVar5 + 8 + (iVar9 + -0x3e08) * 4)) {
+        if (*(char *)(iVar5 + 0x218) != '\0') {
+          FUN_0400a810("!mUsingOpenGLCore",
+                       "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlContextCache.h"
+                       ,0x376,"void OpenGLContextCache::LightAttenuationLinear(int32_t, float)");
+        }
+        glLightf(iVar9,0x1208,fVar3);
+        *(float *)(iVar5 + 8 + (iVar9 + -0x3e08) * 4) = fVar3;
+        iVar5 = *(int *)(param_1 + 0xeb48);
+      }
+      fVar3 = *(float *)(iVar2 + 0x60);
+      if (fVar3 != *(float *)(iVar5 + 8 + (iVar9 + -0x3e00) * 4)) {
+        if (*(char *)(iVar5 + 0x218) != '\0') {
+          FUN_0400a810("!mUsingOpenGLCore",
+                       "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlContextCache.h"
+                       ,0x380,"void OpenGLContextCache::LightAttenuationQuadratic(int32_t, float)");
+        }
+        glLightf(iVar9,0x1209,fVar3);
+        *(float *)(iVar5 + 8 + (iVar9 + -0x3e00) * 4) = fVar3;
+        iVar5 = *(int *)(param_1 + 0xeb48);
+      }
+      if ((bVar10) ||
+         (iVar6 = memcmp((void *)(iVar5 + 8 + (iVar1 + -0xfe60) * 4),(void *)(iVar2 + 0x38),0xc),
+         iVar6 != 0)) {
+        if (*(char *)(iVar5 + 0x218) != '\0') {
+          FUN_0400a810("!mUsingOpenGLCore",
+                       "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlContextCache.h"
+                       ,0x343,
+                       "void OpenGLContextCache::LightPosition(int32_t, const GLfloat*, bool)");
+        }
+        iVar5 = iVar5 + (iVar1 + -0xfe60) * 4;
+        *(undefined4 *)(iVar5 + 8) = *(undefined4 *)(iVar2 + 0x38);
+        *(undefined4 *)(iVar5 + 0xc) = *(undefined4 *)(iVar2 + 0x3c);
+        *(undefined4 *)(iVar5 + 0x10) = *(undefined4 *)(iVar2 + 0x40);
+        glLightfv(iVar9,0x1203,iVar5 + 8);
+        iVar5 = *(int *)(param_1 + 0xeb48);
+        if (!bVar10) goto LAB_04091559;
+        cVar4 = *(char *)(iVar5 + 0x218);
+joined_r0x0409158b:
+        if (cVar4 != '\0') {
+          FUN_0400a810("!mUsingOpenGLCore",
+                       "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlContextCache.h"
+                       ,0x34e,
+                       "void OpenGLContextCache::LightDirection(int32_t, const GLfloat*, bool)");
+        }
+        iVar5 = iVar5 + (iVar1 + -0xfe40) * 4;
+        *(undefined4 *)(iVar5 + 8) = *(undefined4 *)(iVar2 + 0x44);
+        *(undefined4 *)(iVar5 + 0xc) = *(undefined4 *)(iVar2 + 0x48);
+        *(undefined4 *)(iVar5 + 0x10) = *(undefined4 *)(iVar2 + 0x4c);
+        glLightfv(iVar9,0x1204,iVar5 + 8);
+      }
+      else {
+LAB_04091559:
+        iVar6 = memcmp((void *)(iVar5 + 8 + (iVar1 + -0xfe40) * 4),(void *)(iVar2 + 0x44),0xc);
+        if (iVar6 != 0) {
+          cVar4 = *(char *)(iVar5 + 0x218);
+          goto joined_r0x0409158b;
+        }
+      }
+      iVar5 = iVar9 + -0x3fff;
+      iVar9 = iVar9 + 1;
+    } while (iVar5 < *(int *)(param_1 + 0x79c0));
+  }
+  glPopMatrix();
+  if (bVar10) {
+    iVar9 = *(int *)(param_1 + 0xeb48);
+    *(undefined4 *)(iVar9 + 0x1b8) = *(undefined4 *)(param_1 + 0x83b0);
+    *(undefined4 *)(iVar9 + 0x1bc) = *(undefined4 *)(param_1 + 0x83b4);
+    *(undefined4 *)(iVar9 + 0x1c0) = *(undefined4 *)(param_1 + 0x83b8);
+    *(undefined4 *)(iVar9 + 0x1c4) = *(undefined4 *)(param_1 + 0x83bc);
+    *(undefined4 *)(iVar9 + 0x1c8) = *(undefined4 *)(param_1 + 0x83c0);
+    *(undefined4 *)(iVar9 + 0x1cc) = *(undefined4 *)(param_1 + 0x83c4);
+    *(undefined4 *)(iVar9 + 0x1d0) = *(undefined4 *)(param_1 + 0x83c8);
+    *(undefined4 *)(iVar9 + 0x1d4) = *(undefined4 *)(param_1 + 0x83cc);
+    *(undefined4 *)(iVar9 + 0x1d8) = *(undefined4 *)(param_1 + 0x83d0);
+    *(undefined4 *)(iVar9 + 0x1dc) = *(undefined4 *)(param_1 + 0x83d4);
+    *(undefined4 *)(iVar9 + 0x1e0) = *(undefined4 *)(param_1 + 0x83d8);
+    *(undefined4 *)(iVar9 + 0x1e4) = *(undefined4 *)(param_1 + 0x83dc);
+    *(undefined4 *)(iVar9 + 0x1e8) = *(undefined4 *)(param_1 + 0x83e0);
+    *(undefined4 *)(iVar9 + 0x1ec) = *(undefined4 *)(param_1 + 0x83e4);
+    *(undefined4 *)(iVar9 + 0x1f0) = *(undefined4 *)(param_1 + 0x83e8);
+    *(undefined4 *)(iVar9 + 500) = *(undefined4 *)(param_1 + 0x83ec);
+  }
+  return;
+}
+

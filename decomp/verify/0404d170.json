@@ -1,0 +1,26 @@
+
+void eON_KeyUp(undefined4 param_1,undefined4 param_2)
+
+{
+  uint uVar1;
+  int iVar2;
+  uint uVar3;
+  
+  uVar1 = KeycodeToWindowsScancode(param_2);
+  if (uVar1 != 0xffffffff) {
+    iVar2 = KeycodeToVirtualKeyCode(param_2);
+    uVar3 = (uVar1 & 0x1ff) << 0x10;
+    (&DAT_04468ae0)[iVar2] = 0;
+    uVar1 = uVar3 | 0x80000001;
+    if ((DAT_04468be4 & 0x1024) != 0) {
+      uVar1 = uVar3 | 0xa0000001;
+    }
+    eON_Int_PostMessage_IfWindow(param_1,0x101,iVar2,uVar1);
+    return;
+  }
+  FUN_0402cd10(0xf,
+               "Unknown key code %u in keyUp!! Please add translation to the table in KeycodeToScanCode."
+               ,param_2);
+  return;
+}
+

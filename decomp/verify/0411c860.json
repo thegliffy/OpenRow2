@@ -1,0 +1,20 @@
+
+int eON_Gdi_FindFreeDCSlot(void)
+
+{
+  int iVar1;
+  int *piVar2;
+  
+  piVar2 = &DAT_04512aa8;
+  iVar1 = 0;
+  do {
+    if (*piVar2 == 0) {
+      return iVar1;
+    }
+    iVar1 = iVar1 + 1;
+    piVar2 = piVar2 + 0x18;
+  } while (iVar1 != 0x80);
+  FUN_0402cd10(0xf,"Can\'t assign unused DC! Maximum number of resources reached!");
+  return -1;
+}
+

@@ -1,0 +1,159 @@
+
+undefined4 GetNetworkInterfaceStats(undefined4 *param_1)
+
+{
+  undefined2 uVar1;
+  undefined4 *puVar2;
+  char *pcVar3;
+  int iVar4;
+  uint uVar5;
+  uint uVar6;
+  int iVar7;
+  FILE *__stream;
+  ushort **ppuVar8;
+  char *__n;
+  uint *puVar9;
+  uint *puVar10;
+  char *__n_00;
+  char cVar11;
+  undefined4 uVar12;
+  undefined4 *puVar13;
+  undefined4 *puVar14;
+  bool bVar15;
+  byte bVar16;
+  undefined1 local_680 [512];
+  uint local_480;
+  undefined1 local_47c [12];
+  undefined4 local_470;
+  undefined4 local_464;
+  uint local_460;
+  undefined1 local_458 [4];
+  undefined1 local_454 [4];
+  undefined1 local_450 [4];
+  undefined1 local_44c [4];
+  undefined1 local_448 [8];
+  undefined1 local_440 [4];
+  undefined1 local_43c [8];
+  undefined1 local_434 [4];
+  undefined1 local_430 [8];
+  char *local_428;
+  undefined1 local_424 [256];
+  char local_324 [16];
+  short local_314;
+  uint local_124 [64];
+  undefined1 local_24 [12];
+  undefined4 *local_18;
+  
+  puVar2 = param_1;
+  bVar16 = 0;
+  local_18 = &param_1;
+  uVar12 = 0x57;
+  if (param_1 != (undefined4 *)0x0) {
+    uVar6 = param_1[0x80];
+    bzero(local_680,0x35c);
+    uVar12 = 0xd;
+    local_480 = uVar6;
+    pcVar3 = if_indextoname(uVar6,(char *)local_124);
+    if (pcVar3 != (char *)0x0) {
+      local_470 = 8;
+      iVar4 = eON_GetPhysicalInterfaceAddress(local_47c);
+      puVar10 = local_124;
+      if (iVar4 < 0) {
+        uVar12 = 0xd;
+      }
+      else {
+        do {
+          puVar9 = puVar10;
+          uVar5 = *puVar9 + 0xfefefeff & ~*puVar9;
+          uVar6 = uVar5 & 0x80808080;
+          puVar10 = puVar9 + 1;
+        } while (uVar6 == 0);
+        if ((uVar5 & 0x8080) == 0) {
+          puVar10 = (uint *)((int)puVar9 + 6);
+          uVar6 = uVar6 >> 0x10;
+        }
+        __n_00 = (char *)((int)puVar10 +
+                         ((-3 - (uint)CARRY1((byte)uVar6,(byte)uVar6)) - (int)local_124));
+        local_428 = __n_00;
+        eON_MultiByteToWideChar(0,0,local_124,__n_00,local_680,0x100);
+        pcVar3 = local_428 + 1;
+        __n = local_428;
+        if ((char *)0xff < local_428) {
+          pcVar3 = (char *)0x100;
+          __n = (char *)0xff;
+        }
+        memcpy(local_424,local_124,(size_t)__n);
+        uVar12 = 0xd;
+        local_464 = 1;
+        local_428 = pcVar3;
+        iVar4 = socket(2,2,0);
+        if (iVar4 != -1) {
+          strncpy(local_324,(char *)local_124,0x10);
+          iVar7 = ioctl(iVar4,0x8913,local_324);
+          if (iVar7 == 0) {
+            local_460 = -((int)local_314 & 1U) & 5;
+            close(iVar4);
+            __stream = fopen64("/proc/net/dev","r");
+            if (__stream != (FILE *)0x0) {
+              do {
+                pcVar3 = fgets(local_324,0x200,__stream);
+                if (pcVar3 == (char *)0x0) goto LAB_04128e81;
+                cVar11 = *pcVar3;
+                if (cVar11 != '\0') {
+                  ppuVar8 = __ctype_b_loc();
+                  do {
+                    if ((*(byte *)((int)*ppuVar8 + cVar11 * 2 + 1) & 0x20) == 0) break;
+                    pcVar3 = pcVar3 + 1;
+                    cVar11 = *pcVar3;
+                  } while (cVar11 != '\0');
+                }
+                iVar4 = strncasecmp(pcVar3,(char *)local_124,(size_t)__n_00);
+              } while ((iVar4 != 0) || (pcVar3[(int)__n_00] != ':'));
+              sscanf(pcVar3 + (int)(__n_00 + 1),"%u %u %u %u %u %u %u %u %u %u %u %u",local_458,
+                     local_454,local_448,local_44c,local_24,local_24,local_24,local_450,local_440,
+                     local_43c,local_430,local_434);
+LAB_04128e81:
+              puVar13 = (undefined4 *)local_680;
+              fclose(__stream);
+              bVar15 = ((uint)puVar2 & 1) != 0;
+              uVar6 = 0x35c;
+              puVar14 = puVar2;
+              if (bVar15) {
+                puVar13 = (undefined4 *)(local_680 + 1);
+                puVar14 = (undefined4 *)((int)puVar2 + 1);
+                *(undefined1 *)puVar2 = local_680[0];
+                uVar6 = 0x35b;
+              }
+              if (((uint)puVar14 & 2) != 0) {
+                uVar1 = *(undefined2 *)puVar13;
+                uVar6 = uVar6 - 2;
+                puVar13 = (undefined4 *)((int)puVar13 + 2);
+                *(undefined2 *)puVar14 = uVar1;
+                puVar14 = (undefined4 *)((int)puVar14 + 2);
+              }
+              iVar4 = 0;
+              for (uVar5 = uVar6 >> 2; uVar5 != 0; uVar5 = uVar5 - 1) {
+                *puVar14 = *puVar13;
+                puVar13 = puVar13 + (uint)bVar16 * -2 + 1;
+                puVar14 = puVar14 + (uint)bVar16 * -2 + 1;
+              }
+              if ((uVar6 & 2) != 0) {
+                *(undefined2 *)puVar14 = *(undefined2 *)puVar13;
+                iVar4 = 2;
+              }
+              if (bVar15) {
+                *(undefined1 *)((int)puVar14 + iVar4) = *(undefined1 *)((int)puVar13 + iVar4);
+              }
+              uVar12 = 0;
+            }
+          }
+          else {
+            close(iVar4);
+          }
+        }
+      }
+    }
+  }
+  return uVar12;
+}
+

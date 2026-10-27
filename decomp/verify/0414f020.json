@@ -1,0 +1,52 @@
+
+/* source: windll */
+
+void __regparm3 ProcessLibraryPath(char *param_1,char *param_2,char *param_3)
+
+{
+  int iVar1;
+  __int32_t **pp_Var2;
+  char *pcVar3;
+  size_t sVar4;
+  char cVar5;
+  char local_820 [2048];
+  char *local_20 [4];
+  
+  strcpy(local_820,param_1);
+  FUN_04159ef0(local_820);
+  FUN_04159ea0(local_820);
+  local_20[0] = (char *)0x0;
+  iVar1 = eON_GetFullPathNameA(local_820,0x7ff,param_2,local_20);
+  if (iVar1 == 0) {
+    FUN_0400a810("eON_GetFullPathNameA( lcname, sizeof(lcname)-1, outPath, &filePart ) != 0",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/windll.cpp"
+                 ,0xa6,"void ProcessLibraryPath(LPCSTR, char*, char*)");
+  }
+  if (local_20[0] == (char *)0x0) {
+    FUN_0400a810("filePart",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/windll.cpp"
+                 ,0xa7,"void ProcessLibraryPath(LPCSTR, char*, char*)");
+  }
+  for (; pcVar3 = local_20[0], cVar5 = *param_2, cVar5 != '\0'; param_2 = param_2 + 1) {
+    if (cVar5 == '/') {
+      *param_2 = '\\';
+    }
+    else {
+      if ((int)cVar5 + 0x80U < 0x180) {
+        pp_Var2 = __ctype_tolower_loc();
+        cVar5 = (char)(*pp_Var2)[cVar5];
+      }
+      *param_2 = cVar5;
+    }
+  }
+  strcpy(param_3,local_20[0]);
+  pcVar3[-1] = '\0';
+  pcVar3 = strchr(param_3,0x2e);
+  if (pcVar3 != (char *)0x0) {
+    return;
+  }
+  sVar4 = strlen(param_3);
+  builtin_strncpy(param_3 + sVar4,".dll",5);
+  return;
+}
+

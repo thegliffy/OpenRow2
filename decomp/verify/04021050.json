@@ -1,0 +1,501 @@
+
+/* source: opengl_objects */
+
+undefined4 DetermineMaxSamplesForFormat(void)
+
+{
+  _Rb_tree_node_base *p_Var1;
+  undefined4 *puVar2;
+  _Rb_tree_node_base *p_Var3;
+  _Rb_tree_node_base *p_Var4;
+  char cVar5;
+  int *piVar6;
+  char *pcVar7;
+  undefined4 uVar8;
+  undefined4 uVar9;
+  undefined4 uVar10;
+  char *pcVar11;
+  uint uVar12;
+  _Rb_tree_node_base *p_Var13;
+  undefined **ppuVar14;
+  _Rb_tree_node_base *p_Var15;
+  _Rb_tree_node_base *p_Var16;
+  int iVar17;
+  uint uVar18;
+  undefined **ppuVar19;
+  char *pcVar20;
+  bool bVar21;
+  int iVar22;
+  uint *local_74;
+  _Rb_tree_node_base *local_6c;
+  int local_68;
+  _Rb_tree_node_base *local_64;
+  char local_58 [24];
+  undefined **local_40;
+  char *local_3c;
+  undefined4 local_38;
+  undefined4 local_34;
+  uint local_30;
+  undefined4 local_2c;
+  uint local_28;
+  undefined **local_24;
+  int local_20 [4];
+  
+  cVar5 = OpenGLDisplay__OpenGLDisplay();
+  if (cVar5 == '\0') {
+    return 0;
+  }
+  cVar5 = FUN_0400d040("force_display",&local_28);
+  uVar18 = DAT_04408b64;
+  if ((cVar5 != '\0') && (uVar18 = local_28, DAT_044115a4 <= local_28)) {
+    FUN_0402cd10(0xf,"SetForcedOpenGLDisplay() - %u is an invalid display index, ignoring",local_28)
+    ;
+    uVar18 = DAT_04408b64;
+  }
+  DAT_04408b64 = uVar18;
+  piVar6 = operator_new(0x4c);
+  *piVar6 = (int)&PTR_OpenGLWrapperLinux___OpenGLWrapperLinux_042e0968;
+  piVar6[1] = 0;
+  piVar6[3] = 0;
+  piVar6[4] = -1;
+  piVar6[5] = -1;
+  piVar6[6] = -1;
+  piVar6[7] = -1;
+  piVar6[8] = -1;
+  piVar6[9] = 0;
+  piVar6[10] = 0;
+  piVar6[0xd] = 0;
+  piVar6[0xe] = 0;
+  piVar6[0xf] = 0;
+  piVar6[0x10] = 0;
+  piVar6[0x11] = 0;
+  *(undefined1 *)(piVar6 + 0x12) = 0;
+  local_58[0] = -1;
+  local_58[1] = -1;
+  local_58[2] = -1;
+  local_58[3] = -1;
+  local_58[4] = -1;
+  local_58[5] = -1;
+  local_58[6] = -1;
+  local_58[7] = -1;
+  local_58[8] = -1;
+  local_58[9] = -1;
+  local_58[10] = -1;
+  local_58[0xb] = -1;
+  local_58[0xc] = -1;
+  local_58[0xd] = -1;
+  local_58[0xe] = -1;
+  local_58[0xf] = -1;
+  local_58[0x10] = -1;
+  local_58[0x11] = -1;
+  local_58[0x12] = -1;
+  local_58[0x13] = -1;
+  local_58[0x14] = '\0';
+  local_58[0x15] = '\0';
+  local_58[0x16] = '\0';
+  local_58[0x17] = '\0';
+  cVar5 = FUN_0400cbc0("opengl32");
+  if ((cVar5 == '\0') && (cVar5 = FUN_0400cbc0("openglcore"), cVar5 == '\0')) {
+    bVar21 = false;
+    cVar5 = FUN_0400cbc0("opengl21");
+    if (cVar5 == '\0') goto LAB_04021171;
+    FUN_0402cd10(0x14,"Forcing OpenGL 2.1 context usage");
+LAB_04021b21:
+    pcVar7 = local_58;
+    DAT_044115ac = '\0';
+    cVar5 = (**(code **)(*piVar6 + 8))(piVar6,*DAT_044115a8,0,pcVar7);
+    if (cVar5 == '\0') {
+      FUN_0402cd10(0x14,"Creating OpenGL 2.1 context failed");
+LAB_04021b6a:
+      FUN_0402cd10(0xf,"Failed to initialise OpenGL context!");
+      return 0;
+    }
+  }
+  else {
+    bVar21 = true;
+    FUN_0400cbc0("opengl21");
+    FUN_0402cd10(0x14,"Forcing OpenGL Core context usage");
+LAB_04021171:
+    pcVar7 = local_58;
+    DAT_044115ac = '\x01';
+    cVar5 = (**(code **)(*piVar6 + 8))(piVar6,*DAT_044115a8,0,pcVar7);
+    if (cVar5 == '\0') {
+      FUN_0402cd10(0x14,"Creating OpenGL Core context failed");
+    }
+    if (bVar21) {
+      if (cVar5 == '\0') goto LAB_04021b6a;
+    }
+    else if (cVar5 == '\0') goto LAB_04021b21;
+  }
+  if (DAT_044115ac != '\0') {
+    iVar17 = 0;
+    pcVar7 = (char *)glGetString(0x1f02);
+    cVar5 = *pcVar7;
+    while ((byte)(cVar5 - 0x30U) < 10) {
+      pcVar7 = pcVar7 + 1;
+      iVar17 = cVar5 + -0x30 + iVar17 * 10;
+      cVar5 = *pcVar7;
+    }
+    if (cVar5 != '.') {
+      FUN_0400a810("*ptr == \'.\'",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/linux/opengl_objects.cpp"
+                   ,0x4ed,"bool PrepareOpenGLDisplayInformation()");
+    }
+    cVar5 = pcVar7[1];
+    pcVar20 = (char *)0x0;
+    if ((byte)(cVar5 - 0x30U) < 10) {
+      pcVar7 = pcVar7 + 1;
+      do {
+        pcVar7 = pcVar7 + 1;
+        pcVar20 = (char *)(cVar5 + -0x30 + (int)pcVar20 * 10);
+        cVar5 = *pcVar7;
+      } while ((byte)(cVar5 - 0x30U) < 10);
+    }
+    iVar22 = iVar17;
+    pcVar7 = pcVar20;
+    FUN_0402cd10(0x14,"OpenGL Core context version %u.%u detected",iVar17,pcVar20);
+    if ((iVar17 < 3) || (((int)pcVar20 < 2 && (iVar17 == 3)))) {
+      FUN_0402cd10(0xf,"OpenGL Core context indicates lower than version 3.2",iVar22,pcVar7);
+      return 0;
+    }
+  }
+  iVar17 = glewInit();
+  if (iVar17 != 0) {
+    uVar8 = GLXError_ToString(iVar17);
+    FUN_0402cd10(0xf,"GLEW initialisation error: \'%s\'",uVar8,pcVar7);
+    pcVar7 = "bool PrepareOpenGLDisplayInformation()";
+    FUN_0400a810("0",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/linux/opengl_objects.cpp"
+                 ,0x506,"bool PrepareOpenGLDisplayInformation()");
+  }
+  DAT_044115ad = 1;
+  uVar8 = glGetString(0x1f01);
+  pcVar20 = (char *)glGetString(0x1f00);
+  uVar9 = glGetString(0x1f02);
+  uVar10 = glGetString(0x8b8c);
+  FUN_0402cd10(0x14,"OpenGL information:");
+  FUN_0402cd10(0x14,"    renderer: %s",uVar8);
+  FUN_0402cd10(0x14,"    vendor: %s",pcVar20);
+  FUN_0402cd10(0x14,"    version: %s",uVar9);
+  FUN_0402cd10(0x14,"    GLSL version: %s",uVar10);
+  pcVar11 = strcasestr(pcVar20,"NVIDIA");
+  DAT_044115ae = pcVar11 != (char *)0x0;
+  pcVar11 = strcasestr(pcVar20,"INTEL");
+  DAT_044115af = pcVar11 != (char *)0x0;
+  pcVar20 = strcasestr(pcVar20,"ATI Technologies");
+  DAT_044115b0 = pcVar20 != (char *)0x0;
+  if ((bool)DAT_044115b0) {
+    cVar5 = FUN_0400cbc0("disable_catalyst_workarounds");
+    if (cVar5 == '\0') {
+      if (DAT_044115b0 != '\0') {
+        FUN_0402cd10(0x14,
+                     "    Detected ATI/AMD card with fglrx driver, disabling ARB_texture_storage, and ARB_copy_image for low mipmaps of compressed textures due to issues in current drivers."
+                    );
+        FUN_0402cd10(0x14,
+                     "Use --eon_disable_catalyst_workarounds command-line switch to avoid this safeguard."
+                    );
+        FUN_0402cd10(0x14,
+                     "If you experience occasional texture corruption and driver failure, please try --eon_disable_arb_copy_image workaround."
+                    );
+      }
+    }
+    else {
+      DAT_044115b0 = '\0';
+    }
+  }
+  if (DAT_044115ae != '\0') {
+    FUN_0402cd10(0x14,"    Detected NVidia card");
+  }
+  if (DAT_044115af != '\0') {
+    FUN_0402cd10(0x14,"    Detected Intel card");
+  }
+  glGetIntegerv(0xd33,&local_24);
+  DAT_044115b4 = local_24;
+  FUN_0402cd10(0x14,"    Max surface size: %d",local_24);
+  DAT_044115b8 = '\x01';
+  ppuVar14 = &PTR_DAT_042df24d;
+  if (((DAT_0451c989 == '\0') && (DAT_0451c9e3 == '\0')) &&
+     (DAT_044115b8 = '\x01' - (DAT_0451ca15 == '\0'), DAT_0451ca15 == '\0')) {
+    ppuVar14 = (undefined **)&DAT_042df251;
+  }
+  FUN_0402cd10(0x14,"    Supported and usable: texture_mirror_clamp_to_edge: %s",ppuVar14);
+  DAT_044115b9 = DAT_0451ca0b != '\0';
+  if ((bool)DAT_044115b9) {
+    ppuVar14 = &PTR_DAT_042df24d;
+    if (DAT_044115b0 != '\0') {
+      DAT_044115b9 = false;
+      goto LAB_0402146a;
+    }
+  }
+  else {
+LAB_0402146a:
+    ppuVar14 = (undefined **)&DAT_042df251;
+  }
+  FUN_0402cd10(0x14,"    Supported and usable: texture_storage: %s",ppuVar14);
+  DAT_044115ba = DAT_0451ca7b != '\0';
+  if ((bool)DAT_044115ba) {
+    cVar5 = FUN_0400cbc0("disable_arb_copy_image");
+    if (cVar5 != '\0') {
+      DAT_044115ba = '\0';
+      goto LAB_0402149e;
+    }
+    if (DAT_044115ba == '\0') goto LAB_0402149e;
+    ppuVar14 = &PTR_DAT_042df24d;
+  }
+  else {
+LAB_0402149e:
+    ppuVar14 = (undefined **)&DAT_042df251;
+  }
+  FUN_0402cd10(0x14,"    Supported and usable: copy_image: %s",ppuVar14);
+  DAT_044115bb = '\0';
+  ppuVar14 = (undefined **)&DAT_042df251;
+  if ((DAT_044115b9 != '\0') &&
+     (DAT_044115bb = '\x01' - (DAT_0451ca0a == '\0'), DAT_0451ca0a != '\0')) {
+    ppuVar14 = &PTR_DAT_042df24d;
+  }
+  FUN_0402cd10(0x14,"    Supported and usable: texture_storage_multisample: %s",ppuVar14);
+  DAT_044115bc = '\0';
+  ppuVar14 = (undefined **)&DAT_042df251;
+  if ((DAT_044115bb != '\0') &&
+     (DAT_044115bc = '\x01' - (DAT_0451ca08 == '\0'), DAT_0451ca08 != '\0')) {
+    ppuVar14 = &PTR_DAT_042df24d;
+  }
+  FUN_0402cd10(0x14,"    Supported and usable: texture_view: %s",ppuVar14);
+  DAT_044115bd = '\x01';
+  ppuVar14 = &PTR_DAT_042df24d;
+  if ((DAT_044115ac == '\0') &&
+     (DAT_044115bd = '\x01' - (DAT_0451c9e9 == '\0'), DAT_0451c9e9 == '\0')) {
+    ppuVar14 = (undefined **)&DAT_042df251;
+  }
+  FUN_0402cd10(0x14,"    Supported and usable: ATI_separate_stencil: %s",ppuVar14);
+  DAT_044115be = '\0';
+  ppuVar14 = (undefined **)&DAT_042df251;
+  if (((DAT_044115ac == '\0') && (DAT_0451c9e9 == '\0')) &&
+     (DAT_044115be = '\x01' - (DAT_0451c99d == '\0'), DAT_0451c99d != '\0')) {
+    ppuVar14 = &PTR_DAT_042df24d;
+  }
+  ppuVar19 = (undefined **)&DAT_042df251;
+  FUN_0402cd10(0x14,"    Supported and usable: EXT_stencil_two_side: %s",ppuVar14);
+  DAT_044115bf = DAT_0451c98c != '\0';
+  ppuVar14 = &PTR_DAT_042df24d;
+  if (!(bool)DAT_044115bf) {
+    ppuVar14 = (undefined **)&DAT_042df251;
+  }
+  FUN_0402cd10(0x14,"    Supported and usable: texture_filter_anisotropic: %s",ppuVar14);
+  DAT_044115c0 = DAT_0451ca6d != '\0';
+  if ((bool)DAT_044115c0) {
+    ppuVar19 = &PTR_DAT_042df24d;
+  }
+  FUN_0402cd10(0x14,"    Supported and usable: explicit_attrib_location: %s",ppuVar19);
+  DAT_044115c1 = '\0';
+  ppuVar14 = (undefined **)&DAT_042df251;
+  if ((DAT_0451c993 != '\0') &&
+     (DAT_044115c1 = '\x01' - (DAT_0451c91b == '\0'), DAT_0451c91b != '\0')) {
+    ppuVar14 = &PTR_DAT_042df24d;
+  }
+  ppuVar19 = &PTR_DAT_042df24d;
+  FUN_0402cd10(0x14,"    Supported and usable: compressed 3D textures (VTC): %s",ppuVar14);
+  DAT_044115c2 = DAT_0451ca86 != '\0';
+  ppuVar14 = &PTR_DAT_042df24d;
+  if (!(bool)DAT_044115c2) {
+    ppuVar14 = (undefined **)&DAT_042df251;
+  }
+  FUN_0402cd10(0x14,"    Supported and usable: clear_buffer_object: %s",ppuVar14);
+  DAT_044115c3 = DAT_0451ca85 != '\0';
+  if (!(bool)DAT_044115c3) {
+    ppuVar19 = (undefined **)&DAT_042df251;
+  }
+  FUN_0402cd10(0x14,"    Supported and usable: clear_texture: %s",ppuVar19);
+  if (DAT_0451c956 == '\0') {
+LAB_040216ff:
+    if (DAT_0451c9eb != '\0') {
+      local_40 = (undefined **)0x0;
+      local_3c = (char *)0x0;
+      local_38 = 0;
+      local_34 = 0;
+      glGetError();
+      glGetIntegerv(0x87fc,&local_40);
+      iVar17 = glGetError();
+      if (iVar17 == 0) {
+        ppuVar19 = local_40;
+        pcVar7 = local_3c;
+        FUN_0402cd10(0x14,
+                     "    Available texture memory (from ATI extension): total: %u kB, largest available free block: %u kB, total auxiliary free: %u kB, largest auxiliary free block: %u kB"
+                     ,local_40,local_3c,local_38,local_34);
+        ppuVar14 = (undefined **)((uint)local_40 >> 10);
+        if (ppuVar14 != (undefined **)0x0) goto LAB_0402175b;
+      }
+    }
+    if ((DAT_0451c6c5 == '\0') || (DAT_0451c810 == (code *)0x0)) goto LAB_04021780;
+    local_24 = (undefined **)0x0;
+    iVar17 = (*DAT_0451c810)(0x8187,&local_24);
+    if ((iVar17 == 0) ||
+       (ppuVar19 = local_24,
+       FUN_0402cd10(0x14,"    Available texture memory (from MESA extension): %u MB",local_24,pcVar7
+                   ), ppuVar14 = local_24, local_24 == (undefined **)0x0)) goto LAB_04021780;
+  }
+  else {
+    local_24 = (undefined **)0x0;
+    glGetError();
+    glGetIntegerv(0x9048,&local_24);
+    iVar17 = glGetError();
+    if (iVar17 != 0) goto LAB_040216ff;
+    ppuVar19 = local_24;
+    FUN_0402cd10(0x14,"    Available texture memory (from NVidia extension): %u kB",local_24);
+    ppuVar14 = (undefined **)((uint)local_24 >> 10);
+    if (ppuVar14 == (undefined **)0x0) goto LAB_040216ff;
+  }
+LAB_0402175b:
+  puVar2 = DAT_044115a8;
+  uVar18 = DAT_044115a4;
+  if (DAT_044115a4 != 0) {
+    uVar12 = 0;
+    do {
+      iVar17 = puVar2[uVar12];
+      uVar12 = uVar12 + 1;
+      *(undefined ***)(iVar17 + 8) = ppuVar14;
+      *(undefined ***)(iVar17 + 4) = ppuVar14;
+    } while (uVar12 != uVar18);
+  }
+LAB_04021780:
+  if (((DAT_044115ac != '\0') || (DAT_0451ca13 != '\0')) &&
+     (FUN_0402cd10(0x14,"    Multisample textures test:",ppuVar19,pcVar7), DAT_04408b80 != 0)) {
+    local_74 = &DAT_04408b80;
+    uVar18 = DAT_04408b80;
+    do {
+      p_Var3 = DAT_044115d4;
+      p_Var13 = DAT_044115d0;
+      if (DAT_044115cc == (_Rb_tree_node_base *)0x0) {
+LAB_04021a28:
+        local_2c = 0;
+        local_30 = uVar18;
+        if ((DAT_044115d8 == 0) || (uVar18 <= *(uint *)(DAT_044115d4 + 0x10))) {
+LAB_04021ab8:
+          FUN_040204c0();
+          local_6c = local_64;
+        }
+        else {
+          bVar21 = DAT_044115d4 == (_Rb_tree_node_base *)&DAT_044115c8;
+          local_6c = operator_new(0x18);
+          if (local_6c != (_Rb_tree_node_base *)0x0) {
+            *(undefined4 *)local_6c = 0;
+            *(undefined4 *)(local_6c + 4) = 0;
+            *(undefined4 *)(local_6c + 8) = 0;
+            *(undefined4 *)(local_6c + 0xc) = 0;
+            *(uint *)(local_6c + 0x10) = local_30;
+            *(undefined4 *)(local_6c + 0x14) = local_2c;
+          }
+          std::_Rb_tree_insert_and_rebalance
+                    (bVar21,local_6c,p_Var3,(_Rb_tree_node_base *)&DAT_044115c8);
+          DAT_044115d8 = DAT_044115d8 + 1;
+        }
+      }
+      else {
+        p_Var4 = DAT_044115cc;
+        p_Var15 = (_Rb_tree_node_base *)&DAT_044115c8;
+        do {
+          while (p_Var16 = p_Var4, uVar18 <= *(uint *)(p_Var16 + 0x10)) {
+            p_Var4 = *(_Rb_tree_node_base **)(p_Var16 + 8);
+            p_Var15 = p_Var16;
+            if (*(_Rb_tree_node_base **)(p_Var16 + 8) == (_Rb_tree_node_base *)0x0)
+            goto LAB_040217f5;
+          }
+          p_Var1 = p_Var16 + 0xc;
+          p_Var4 = *(_Rb_tree_node_base **)p_Var1;
+          p_Var16 = p_Var15;
+        } while (*(_Rb_tree_node_base **)p_Var1 != (_Rb_tree_node_base *)0x0);
+LAB_040217f5:
+        if (p_Var16 == (_Rb_tree_node_base *)&DAT_044115c8) goto LAB_04021a28;
+        local_6c = p_Var16;
+        if (uVar18 < *(uint *)(p_Var16 + 0x10)) {
+          local_2c = 0;
+          if (DAT_044115d0 == p_Var16) {
+            local_30 = uVar18;
+            local_6c = operator_new(0x18);
+            if (local_6c != (_Rb_tree_node_base *)0x0) {
+              *(undefined4 *)local_6c = 0;
+              *(undefined4 *)(local_6c + 4) = 0;
+              *(undefined4 *)(local_6c + 8) = 0;
+              *(undefined4 *)(local_6c + 0xc) = 0;
+              *(uint *)(local_6c + 0x10) = local_30;
+              *(undefined4 *)(local_6c + 0x14) = local_2c;
+            }
+            std::_Rb_tree_insert_and_rebalance
+                      (true,local_6c,p_Var13,(_Rb_tree_node_base *)&DAT_044115c8);
+            DAT_044115d8 = DAT_044115d8 + 1;
+            goto LAB_040218b0;
+          }
+          local_30 = uVar18;
+          p_Var13 = (_Rb_tree_node_base *)std::_Rb_tree_decrement(p_Var16);
+          uVar12 = *(uint *)(p_Var13 + 0x10);
+          if (uVar12 < uVar18) {
+            if (*(int *)(p_Var13 + 0xc) == 0) {
+              local_6c = operator_new(0x18);
+              if (local_6c != (_Rb_tree_node_base *)0x0) {
+                *(undefined4 *)local_6c = 0;
+                *(undefined4 *)(local_6c + 4) = 0;
+                *(undefined4 *)(local_6c + 8) = 0;
+                *(undefined4 *)(local_6c + 0xc) = 0;
+                *(uint *)(local_6c + 0x10) = local_30;
+                *(undefined4 *)(local_6c + 0x14) = local_2c;
+              }
+              std::_Rb_tree_insert_and_rebalance
+                        (p_Var13 == (_Rb_tree_node_base *)&DAT_044115c8 || uVar18 < uVar12,local_6c,
+                         p_Var13,(_Rb_tree_node_base *)&DAT_044115c8);
+              DAT_044115d8 = DAT_044115d8 + 1;
+            }
+            else {
+              local_6c = operator_new(0x18);
+              if (local_6c != (_Rb_tree_node_base *)0x0) {
+                *(undefined4 *)local_6c = 0;
+                *(undefined4 *)(local_6c + 4) = 0;
+                *(undefined4 *)(local_6c + 8) = 0;
+                *(undefined4 *)(local_6c + 0xc) = 0;
+                *(uint *)(local_6c + 0x10) = local_30;
+                *(undefined4 *)(local_6c + 0x14) = local_2c;
+              }
+              std::_Rb_tree_insert_and_rebalance
+                        (true,local_6c,p_Var16,(_Rb_tree_node_base *)&DAT_044115c8);
+              DAT_044115d8 = DAT_044115d8 + 1;
+            }
+            goto LAB_040218b0;
+          }
+          goto LAB_04021ab8;
+        }
+      }
+LAB_040218b0:
+      local_24 = (undefined **)0x0;
+      uVar18 = *local_74;
+      glGetIntegerv(0x8d57,&local_24);
+      local_68 = 1;
+      if (1 < (int)local_24) {
+        iVar17 = 2;
+        do {
+          iVar22 = iVar17;
+          local_20[0] = 0;
+          glGenTextures(1,local_20);
+          if (local_20[0] == 0) {
+            FUN_0400a810("tex > 0",
+                         "/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/linux/opengl_objects.cpp"
+                         ,0x476,"GLuint DetermineMaxSamplesForFormat(GLuint)");
+          }
+          glBindTexture(0x9100,local_20[0]);
+          glGetError();
+          (*DAT_0451e154)(0x9100,iVar22,uVar18,0x20,0x20,1);
+          iVar17 = glGetError();
+          glBindTexture(0x9100,0);
+          glDeleteTextures(1,local_20);
+        } while ((iVar17 == 0) &&
+                (iVar17 = iVar22 + 1, local_68 = iVar22, iVar22 + 1 <= (int)local_24));
+      }
+      uVar8 = OpenGL_InternalFormatToString(uVar18);
+      FUN_0402cd10(0x14,"        %s (%#x): %d samples",uVar8,uVar18,local_68);
+      local_74 = local_74 + 1;
+      *(int *)(local_6c + 0x14) = local_68;
+      uVar18 = *local_74;
+    } while (uVar18 != 0);
+  }
+  (**(code **)(*piVar6 + 4))(piVar6);
+  return 1;
+}
+

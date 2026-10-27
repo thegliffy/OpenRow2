@@ -1,0 +1,169 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+bool _glewInit_GL_EXT_vertex_shader(void)
+
+{
+  int iVar1;
+  bool bVar2;
+  bool bVar3;
+  bool bVar4;
+  bool bVar5;
+  bool bVar6;
+  bool bVar7;
+  bool bVar8;
+  bool bVar9;
+  bool bVar10;
+  bool bVar11;
+  bool bVar12;
+  bool bVar13;
+  bool bVar14;
+  bool bVar15;
+  bool bVar16;
+  bool bVar17;
+  bool bVar18;
+  bool bVar19;
+  bool bVar20;
+  bool bVar21;
+  bool bVar22;
+  bool bVar23;
+  bool bVar24;
+  bool bVar25;
+  bool bVar26;
+  bool bVar27;
+  bool bVar28;
+  bool bVar29;
+  bool bVar30;
+  bool bVar31;
+  bool bVar32;
+  bool bVar33;
+  bool bVar34;
+  bool bVar35;
+  bool bVar36;
+  bool bVar37;
+  bool bVar38;
+  bool bVar39;
+  bool bVar40;
+  bool bVar41;
+  
+  iVar1 = glXGetProcAddressARB("glBeginVertexShaderEXT");
+  _DAT_0451d588 = iVar1;
+  _DAT_0451d584 = glXGetProcAddressARB("glBindLightParameterEXT");
+  bVar2 = _DAT_0451d584 == 0;
+  _DAT_0451d580 = glXGetProcAddressARB("glBindMaterialParameterEXT");
+  bVar3 = _DAT_0451d580 == 0;
+  _DAT_0451d57c = glXGetProcAddressARB("glBindParameterEXT");
+  bVar4 = _DAT_0451d57c == 0;
+  _DAT_0451d578 = glXGetProcAddressARB("glBindTexGenParameterEXT");
+  bVar5 = _DAT_0451d578 == 0;
+  _DAT_0451d574 = glXGetProcAddressARB("glBindTextureUnitParameterEXT");
+  bVar6 = _DAT_0451d574 == 0;
+  _DAT_0451d570 = glXGetProcAddressARB("glBindVertexShaderEXT");
+  bVar7 = _DAT_0451d570 == 0;
+  _DAT_0451d56c = glXGetProcAddressARB("glDeleteVertexShaderEXT");
+  bVar8 = _DAT_0451d56c == 0;
+  _DAT_0451d568 = glXGetProcAddressARB("glDisableVariantClientStateEXT");
+  bVar9 = _DAT_0451d568 == 0;
+  _DAT_0451d564 = glXGetProcAddressARB("glEnableVariantClientStateEXT");
+  bVar10 = _DAT_0451d564 == 0;
+  _DAT_0451d560 = glXGetProcAddressARB("glEndVertexShaderEXT");
+  bVar11 = _DAT_0451d560 == 0;
+  _DAT_0451d55c = glXGetProcAddressARB("glExtractComponentEXT");
+  bVar12 = _DAT_0451d55c == 0;
+  _DAT_0451d558 = glXGetProcAddressARB("glGenSymbolsEXT");
+  bVar13 = _DAT_0451d558 == 0;
+  _DAT_0451d554 = glXGetProcAddressARB("glGenVertexShadersEXT");
+  bVar14 = _DAT_0451d554 == 0;
+  _DAT_0451d550 = glXGetProcAddressARB("glGetInvariantBooleanvEXT");
+  bVar15 = _DAT_0451d550 == 0;
+  _DAT_0451d54c = glXGetProcAddressARB("glGetInvariantFloatvEXT");
+  bVar16 = _DAT_0451d54c == 0;
+  _DAT_0451d548 = glXGetProcAddressARB("glGetInvariantIntegervEXT");
+  bVar17 = _DAT_0451d548 == 0;
+  _DAT_0451d544 = glXGetProcAddressARB("glGetLocalConstantBooleanvEXT");
+  bVar18 = _DAT_0451d544 == 0;
+  _DAT_0451d540 = glXGetProcAddressARB("glGetLocalConstantFloatvEXT");
+  bVar19 = _DAT_0451d540 == 0;
+  _DAT_0451d53c = glXGetProcAddressARB("glGetLocalConstantIntegervEXT");
+  bVar20 = _DAT_0451d53c == 0;
+  _DAT_0451d538 = glXGetProcAddressARB("glGetVariantBooleanvEXT");
+  bVar21 = _DAT_0451d538 == 0;
+  _DAT_0451d534 = glXGetProcAddressARB("glGetVariantFloatvEXT");
+  bVar22 = _DAT_0451d534 == 0;
+  _DAT_0451d530 = glXGetProcAddressARB("glGetVariantIntegervEXT");
+  bVar23 = _DAT_0451d530 == 0;
+  _DAT_0451d52c = glXGetProcAddressARB("glGetVariantPointervEXT");
+  bVar24 = _DAT_0451d52c == 0;
+  _DAT_0451d528 = glXGetProcAddressARB("glInsertComponentEXT");
+  bVar25 = _DAT_0451d528 == 0;
+  _DAT_0451d524 = glXGetProcAddressARB("glIsVariantEnabledEXT");
+  bVar26 = _DAT_0451d524 == 0;
+  _DAT_0451d520 = glXGetProcAddressARB("glSetInvariantEXT");
+  bVar27 = _DAT_0451d520 == 0;
+  _DAT_0451d51c = glXGetProcAddressARB("glSetLocalConstantEXT");
+  bVar28 = _DAT_0451d51c == 0;
+  _DAT_0451d518 = glXGetProcAddressARB("glShaderOp1EXT");
+  bVar29 = _DAT_0451d518 == 0;
+  _DAT_0451d514 = glXGetProcAddressARB("glShaderOp2EXT");
+  bVar30 = _DAT_0451d514 == 0;
+  _DAT_0451d510 = glXGetProcAddressARB("glShaderOp3EXT");
+  bVar31 = _DAT_0451d510 == 0;
+  _DAT_0451d50c = glXGetProcAddressARB("glSwizzleEXT");
+  bVar32 = _DAT_0451d50c == 0;
+  _DAT_0451d508 = glXGetProcAddressARB("glVariantPointerEXT");
+  bVar33 = _DAT_0451d508 == 0;
+  _DAT_0451d504 = glXGetProcAddressARB("glVariantbvEXT");
+  bVar34 = _DAT_0451d504 == 0;
+  _DAT_0451d500 = glXGetProcAddressARB("glVariantdvEXT");
+  bVar35 = _DAT_0451d500 == 0;
+  _DAT_0451d4fc = glXGetProcAddressARB("glVariantfvEXT");
+  bVar36 = _DAT_0451d4fc == 0;
+  _DAT_0451d4f8 = glXGetProcAddressARB("glVariantivEXT");
+  bVar37 = _DAT_0451d4f8 == 0;
+  _DAT_0451d4f4 = glXGetProcAddressARB("glVariantsvEXT");
+  bVar38 = _DAT_0451d4f4 == 0;
+  _DAT_0451d4f0 = glXGetProcAddressARB("glVariantubvEXT");
+  bVar39 = _DAT_0451d4f0 == 0;
+  _DAT_0451d4ec = glXGetProcAddressARB("glVariantuivEXT");
+  bVar40 = _DAT_0451d4ec == 0;
+  _DAT_0451d4e8 = glXGetProcAddressARB("glVariantusvEXT");
+  bVar41 = _DAT_0451d4e8 == 0;
+  _DAT_0451d4e4 = glXGetProcAddressARB("glWriteMaskEXT");
+  return _DAT_0451d4e4 == 0 ||
+         (bVar41 ||
+         (bVar40 ||
+         (bVar39 ||
+         (bVar38 ||
+         (bVar37 ||
+         (bVar36 ||
+         (bVar35 ||
+         (bVar34 ||
+         (bVar33 ||
+         (bVar32 ||
+         (bVar31 ||
+         (bVar30 ||
+         (bVar29 ||
+         (bVar28 ||
+         (bVar27 ||
+         (bVar26 ||
+         (bVar25 ||
+         (bVar24 ||
+         (bVar23 ||
+         (bVar22 ||
+         (bVar21 ||
+         (bVar20 ||
+         (bVar19 ||
+         (bVar18 ||
+         (bVar17 ||
+         (bVar16 ||
+         (bVar15 ||
+         (bVar14 ||
+         (bVar13 ||
+         (bVar12 ||
+         (bVar11 ||
+         (bVar10 ||
+         (bVar9 || (bVar8 || (bVar7 || (bVar6 || (bVar5 || (bVar4 || (bVar3 || (bVar2 || iVar1 == 0)
+                                                                     )))))))))))))))))))))))))))))))
+         ))))))));
+}
+

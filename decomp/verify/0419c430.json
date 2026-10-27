@@ -1,0 +1,48 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+bool _glewInit_GL_ATI_vertex_array_object(void)
+
+{
+  int iVar1;
+  bool bVar2;
+  bool bVar3;
+  bool bVar4;
+  bool bVar5;
+  bool bVar6;
+  bool bVar7;
+  bool bVar8;
+  bool bVar9;
+  bool bVar10;
+  bool bVar11;
+  
+  iVar1 = glXGetProcAddressARB("glArrayObjectATI");
+  _DAT_0451dd78 = iVar1;
+  _DAT_0451dd74 = glXGetProcAddressARB("glFreeObjectBufferATI");
+  bVar2 = _DAT_0451dd74 == 0;
+  _DAT_0451dd70 = glXGetProcAddressARB("glGetArrayObjectfvATI");
+  bVar3 = _DAT_0451dd70 == 0;
+  _DAT_0451dd6c = glXGetProcAddressARB("glGetArrayObjectivATI");
+  bVar4 = _DAT_0451dd6c == 0;
+  _DAT_0451dd68 = glXGetProcAddressARB("glGetObjectBufferfvATI");
+  bVar5 = _DAT_0451dd68 == 0;
+  _DAT_0451dd64 = glXGetProcAddressARB("glGetObjectBufferivATI");
+  bVar6 = _DAT_0451dd64 == 0;
+  _DAT_0451dd60 = glXGetProcAddressARB("glGetVariantArrayObjectfvATI");
+  bVar7 = _DAT_0451dd60 == 0;
+  _DAT_0451dd5c = glXGetProcAddressARB("glGetVariantArrayObjectivATI");
+  bVar8 = _DAT_0451dd5c == 0;
+  _DAT_0451dd58 = glXGetProcAddressARB("glIsObjectBufferATI");
+  bVar9 = _DAT_0451dd58 == 0;
+  _DAT_0451dd54 = glXGetProcAddressARB("glNewObjectBufferATI");
+  bVar10 = _DAT_0451dd54 == 0;
+  _DAT_0451dd50 = glXGetProcAddressARB("glUpdateObjectBufferATI");
+  bVar11 = _DAT_0451dd50 == 0;
+  _DAT_0451dd4c = glXGetProcAddressARB("glVariantArrayObjectATI");
+  return _DAT_0451dd4c == 0 ||
+         (bVar11 ||
+         (bVar10 ||
+         (bVar9 || (bVar8 || (bVar7 || (bVar6 || (bVar5 || (bVar4 || (bVar3 || (bVar2 || iVar1 == 0)
+                                                                     )))))))));
+}
+

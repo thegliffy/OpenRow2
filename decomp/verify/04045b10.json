@@ -1,0 +1,81 @@
+
+undefined8 VPFS_GetSize(int param_1)
+
+{
+  int iVar1;
+  int iVar2;
+  uint uVar3;
+  undefined4 uVar4;
+  undefined4 uVar5;
+  char local_47c [1024];
+  stat64 local_7c;
+  
+  uVar4 = 0;
+  uVar5 = 0;
+  if (param_1 == 0) goto LAB_04045b2d;
+  if (0x2800 < param_1 + 0x54545455U) {
+    FUN_0402cd10(0xf,"Invalid handle given to VPFS_GetSize()!!");
+    goto LAB_04045b2d;
+  }
+  pthread_mutex_lock((pthread_mutex_t *)&DAT_0441804c);
+  param_1 = param_1 + 0x54545454;
+  iVar1 = param_1 * 0x20;
+  iVar2 = (&DAT_04418280)[param_1 * 8];
+  if ((((iVar2 == 4) || (iVar2 == 0)) || (iVar2 == 6)) || (iVar2 == 1)) {
+LAB_04045b73:
+    uVar4 = 0;
+    uVar5 = 0;
+    pthread_mutex_unlock((pthread_mutex_t *)&DAT_0441804c);
+    goto LAB_04045b2d;
+  }
+  if (iVar2 == 7) {
+    iVar2 = FUN_0403c9d0();
+    if (iVar2 == 0) {
+LAB_04045bfd:
+      iVar2 = FUN_0403c400(*(undefined4 *)(&DAT_04418284 + iVar1));
+      if (iVar2 == 0) {
+        iVar2 = __xstat64(3,*(char **)(&DAT_04418284 + iVar1),&local_7c);
+        goto joined_r0x04045c29;
+      }
+LAB_04045c78:
+      SplitFile_GetStat(*(undefined4 *)(&DAT_04418284 + iVar1),&local_7c);
+      uVar4 = (undefined4)local_7c.st_size;
+      uVar5 = local_7c.st_size._4_4_;
+    }
+    else {
+      iVar2 = FUN_0403c400(local_47c);
+      if (iVar2 == 0) {
+        iVar2 = __xstat64(3,local_47c,&local_7c);
+        uVar4 = (undefined4)local_7c.st_size;
+        uVar5 = local_7c.st_size._4_4_;
+        if (iVar2 == -1) goto LAB_04045bfd;
+      }
+      else {
+        SplitFile_GetStat(local_47c,&local_7c);
+        uVar4 = (undefined4)local_7c.st_size;
+        uVar5 = local_7c.st_size._4_4_;
+      }
+    }
+  }
+  else {
+    if (iVar2 != 5) {
+      uVar3 = (uint)*(ushort *)(DAT_04468a94 + 2 + (&DAT_04418288)[param_1 * 8]);
+      iVar2 = (&DAT_04418288)[param_1 * 8] + DAT_04468a94;
+      uVar4 = *(undefined4 *)(uVar3 + 0x24 + iVar2);
+      uVar5 = *(undefined4 *)(uVar3 + 0x28 + iVar2);
+      goto LAB_04045bd4;
+    }
+    iVar2 = FUN_0403c400(*(undefined4 *)(&DAT_04418284 + iVar1));
+    if (iVar2 != 0) goto LAB_04045c78;
+    iVar2 = __xstat64(3,*(char **)(&DAT_04418284 + iVar1),&local_7c);
+joined_r0x04045c29:
+    uVar4 = (undefined4)local_7c.st_size;
+    uVar5 = local_7c.st_size._4_4_;
+    if (iVar2 == -1) goto LAB_04045b73;
+  }
+LAB_04045bd4:
+  pthread_mutex_unlock((pthread_mutex_t *)&DAT_0441804c);
+LAB_04045b2d:
+  return CONCAT44(uVar5,uVar4);
+}
+

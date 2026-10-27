@@ -1,0 +1,111 @@
+
+/* source: tinyxmlparser */
+
+char * TiXmlDocument__Parse(int param_1,char *param_2,undefined4 *param_3,int param_4)
+
+{
+  char cVar1;
+  char *pcVar2;
+  int *piVar3;
+  undefined4 uVar4;
+  int iVar5;
+  undefined4 local_2c;
+  undefined4 local_28;
+  char *local_24;
+  undefined4 local_20;
+  
+  *(undefined1 *)(param_1 + 0x2c) = 0;
+  *(undefined4 *)(param_1 + 0x30) = 0;
+  TiXmlString__assign(param_1 + 0x34,&DAT_04328763,0);
+  *(undefined4 *)(param_1 + 0x40) = 0;
+  *(undefined4 *)(param_1 + 0x3c) = 0;
+  if ((param_2 != (char *)0x0) && (*param_2 != '\0')) {
+    *(undefined4 *)(param_1 + 8) = 0xffffffff;
+    *(undefined4 *)(param_1 + 4) = 0xffffffff;
+    if (param_3 == (undefined4 *)0x0) {
+      *(undefined4 *)(param_1 + 4) = 0;
+      local_2c = 0;
+      local_28 = 0;
+      *(undefined4 *)(param_1 + 8) = 0;
+    }
+    else {
+      local_2c = *param_3;
+      local_28 = param_3[1];
+      *(undefined4 *)(param_1 + 4) = local_2c;
+      *(undefined4 *)(param_1 + 8) = local_28;
+    }
+    local_20 = *(undefined4 *)(param_1 + 0x38);
+    local_24 = param_2;
+    *(undefined4 *)(param_1 + 4) = local_2c;
+    *(undefined4 *)(param_1 + 8) = local_28;
+    if ((((param_4 == 0) && (*param_2 == -0x11)) && (param_2[1] == -0x45)) && (param_2[2] == -0x41))
+    {
+      *(undefined1 *)(param_1 + 0x44) = 1;
+      param_4 = 1;
+    }
+    pcVar2 = (char *)TiXmlBase__SkipWhiteSpace(param_2,param_4);
+    if (pcVar2 == (char *)0x0) {
+      TiXmlDocument__SetError(param_1,0xc,0,0,0);
+    }
+    else {
+      do {
+        if ((*pcVar2 == '\0') ||
+           (piVar3 = (int *)TiXmlNode__Identify(param_1,pcVar2,param_4), piVar3 == (int *)0x0))
+        break;
+        uVar4 = (**(code **)(*piVar3 + 0xc))(piVar3,pcVar2,&local_2c,param_4);
+        TiXmlNode__LinkEndChild(param_1,piVar3);
+        if ((param_4 == 0) && (iVar5 = (**(code **)(*piVar3 + 0x3c))(piVar3), iVar5 != 0)) {
+          iVar5 = (**(code **)(*piVar3 + 0x3c))(piVar3);
+          iVar5 = *(int *)(iVar5 + 0x30);
+          if (iVar5 == -8) {
+            FUN_0400a810(&PTR_DAT_0436291f,
+                         "/home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxmlparser.cpp"
+                         ,0x305,
+                         "virtual const char* TiXmlDocument::Parse(const char*, TiXmlParsingData*, TiXmlEncoding)"
+                        );
+          }
+          param_4 = 1;
+          if (*(char *)(iVar5 + 8) != '\0') {
+            if (iVar5 == -8) {
+              FUN_0400a810(&DAT_04361ca0,
+                           "/home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxmlparser.cpp"
+                           ,0x21b,
+                           "static bool TiXmlBase::StringEqual(const char*, const char*, bool, TiXmlEncoding)"
+                          );
+              FUN_0400a810("0",
+                           "/home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxmlparser.cpp"
+                           ,0x21f,
+                           "static bool TiXmlBase::StringEqual(const char*, const char*, bool, TiXmlEncoding)"
+                          );
+              FUN_0400a810(&DAT_04361ca0,
+                           "/home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxmlparser.cpp"
+                           ,0x21b,
+                           "static bool TiXmlBase::StringEqual(const char*, const char*, bool, TiXmlEncoding)"
+                          );
+              FUN_0400a810("0",
+                           "/home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxmlparser.cpp"
+                           ,0x21f,
+                           "static bool TiXmlBase::StringEqual(const char*, const char*, bool, TiXmlEncoding)"
+                          );
+            }
+            else {
+              cVar1 = TiXmlBase__StringEqual(0);
+              if ((cVar1 != '\0') || (cVar1 = TiXmlBase__StringEqual(0), cVar1 != '\0'))
+              goto LAB_041c8458;
+            }
+            param_4 = 2;
+          }
+        }
+LAB_041c8458:
+        pcVar2 = (char *)TiXmlBase__SkipWhiteSpace(uVar4,param_4);
+      } while (pcVar2 != (char *)0x0);
+      if (*(int *)(param_1 + 0x18) == 0) goto LAB_041c8588;
+    }
+    return pcVar2;
+  }
+  param_4 = 0;
+LAB_041c8588:
+  TiXmlDocument__SetError(param_1,0xc,0,0,param_4);
+  return (char *)0x0;
+}
+

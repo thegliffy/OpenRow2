@@ -1,0 +1,10 @@
+
+undefined4 kernel32_ProcessAttach(void)
+
+{
+  FUN_0402cd10(5,"kernel32_ProcessAttach");
+  FUN_04145360();
+  Synchronisation_StartWorkerThreads();
+  return 1;
+}
+

@@ -1,0 +1,60 @@
+
+/* WARNING: Removing unreachable block (ram,0x0402cf57) */
+/* WARNING: Removing unreachable block (ram,0x0402cf62) */
+
+undefined4 eON_LogSystem_Initialise(void)
+
+{
+  int iVar1;
+  undefined4 uVar2;
+  char *__s;
+  int *piVar3;
+  int local_18;
+  int local_14;
+  allocator local_f [3];
+  
+  uVar2 = 1;
+  if (DAT_0441166c == '\0') {
+    __s = (char *)FUN_04018ad0();
+    strlen(__s);
+    std::string::assign((char *)&DAT_04411670,(uint)__s);
+    std::string::string((string *)&local_18,"eon.txt",local_f);
+                    /* try { // try from 0402ce28 to 0402ce2c has its CatchHandler @ 0402cf6d */
+    piVar3 = (int *)std::string::insert((uint)&local_18,(char *)0x0,0x42e5ca1);
+    local_14 = *piVar3;
+    *piVar3 = (int)&DAT_04410d0c;
+                    /* try { // try from 0402ce46 to 0402ce4a has its CatchHandler @ 0402cf7f */
+    std::string::append((string *)&DAT_04411670);
+    if ((allocator *)(local_14 + -0xc) != (allocator *)&std::string::_Rep::_S_empty_rep_storage) {
+      LOCK();
+      piVar3 = (int *)(local_14 + -4);
+      iVar1 = *piVar3;
+      *piVar3 = *piVar3 + -1;
+      UNLOCK();
+      if (iVar1 < 1) {
+        std::string::_Rep::_M_destroy((allocator *)(local_14 + -0xc));
+      }
+    }
+    if ((allocator *)(local_18 + -0xc) != (allocator *)&std::string::_Rep::_S_empty_rep_storage) {
+      LOCK();
+      piVar3 = (int *)(local_18 + -4);
+      iVar1 = *piVar3;
+      *piVar3 = *piVar3 + -1;
+      UNLOCK();
+      if (iVar1 < 1) {
+        std::string::_Rep::_M_destroy((allocator *)(local_18 + -0xc));
+      }
+    }
+    DAT_04411674 = fopen64(DAT_04411670,"w");
+    if (DAT_04411674 != (FILE *)0x0) {
+      setvbuf(DAT_04411674,(char *)0x0,0,0x200000);
+      DAT_0441166c = 1;
+      FUN_0402cd10(0x14,"Log system initialised");
+      return 1;
+    }
+    fprintf(stderr,"Couldn\'t open log file! %s\n",DAT_04411670);
+    uVar2 = 0;
+  }
+  return uVar2;
+}
+

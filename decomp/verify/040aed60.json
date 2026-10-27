@@ -1,0 +1,33 @@
+
+/* source: direct3dsurface9imp */
+
+void direct3dsurface9imp_040aed60(int param_1)
+
+{
+  int *piVar1;
+  undefined4 uVar2;
+  int iVar3;
+  
+  if ((((*(int *)(param_1 + 200) == 0) && (*(int *)(param_1 + 0x6c) == 0x31545844)) &&
+      (*(int *)(param_1 + 0x74) == 0)) && (*(int *)(param_1 + 0x78) == 1)) {
+    iVar3 = 0xad0;
+    if (0xabf < *(int *)(param_1 + 0xbc)) {
+      iVar3 = *(int *)(param_1 + 0xbc) + 0x10;
+    }
+    piVar1 = malloc(0xc);
+    piVar1[2] = 1;
+    uVar2 = eON_GetProcessHeap();
+    iVar3 = HeapAlloc(uVar2,8,iVar3);
+    *piVar1 = iVar3;
+    if (iVar3 == 0) {
+      FUN_0400a810("surfaceData->DataBuffer",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3dsurface9imp.cpp"
+                   ,0xad,"SurfaceData* GetSurfaceData(UINT, bool)");
+      iVar3 = *piVar1;
+    }
+    piVar1[1] = iVar3 + 0xfU & 0xfffffff0;
+    *(int **)(param_1 + 200) = piVar1;
+  }
+  return;
+}
+

@@ -1,0 +1,1055 @@
+
+/* source: shadercache */
+
+void ShaderCache__LinkedProgram_FinalizeLink(undefined4 param_1,int param_2,int *param_3)
+
+{
+  bool bVar1;
+  bool bVar2;
+  bool bVar3;
+  bool bVar4;
+  bool bVar5;
+  bool bVar6;
+  char cVar7;
+  int iVar8;
+  int iVar9;
+  void *pvVar10;
+  long lVar11;
+  undefined **ppuVar12;
+  int *piVar13;
+  char *pcVar14;
+  char *pcVar15;
+  undefined1 uVar16;
+  bool bVar17;
+  bool bVar18;
+  byte bVar19;
+  int local_230;
+  char local_22c [15];
+  char local_21d;
+  char local_218;
+  int local_12c [3];
+  int aiStack_120 [61];
+  int local_2c;
+  int local_28;
+  undefined1 local_24 [4];
+  undefined1 local_20 [16];
+  
+  bVar19 = 0;
+  if (param_3[1] != 1) {
+    FUN_0400a810("data->LinkStage == 1",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/shadercache.cpp"
+                 ,0x3ab,
+                 "void ShaderCache::LinkedProgram_FinalizeLink(OpenGLContextCache*, eON_LinkedProgramData*)"
+                );
+  }
+  iVar8 = *param_3;
+  if (iVar8 != *(int *)(param_2 + 0x338)) {
+    (*DAT_0451ec14)(iVar8);
+    *(int *)(param_2 + 0x338) = iVar8;
+  }
+  cVar7 = FUN_04021ee0();
+  if (cVar7 == '\0') {
+    (*DAT_0451eca8)(*param_3,0x8b86,&local_2c);
+    uVar16 = local_2c == 0;
+    if (0 < local_2c) {
+      bVar6 = false;
+      local_230 = 0;
+      bVar5 = false;
+      bVar4 = false;
+      bVar3 = false;
+      bVar2 = false;
+      bVar1 = false;
+      do {
+        (*DAT_0451ecb8)(*param_3,local_230,0x100,&local_28,local_24,local_20,local_22c);
+        iVar8 = (*DAT_0451ec98)(*param_3,local_22c);
+        iVar9 = 0xc;
+        pcVar14 = local_22c;
+        pcVar15 = "PositionFix";
+        do {
+          if (iVar9 == 0) break;
+          iVar9 = iVar9 + -1;
+          uVar16 = *pcVar14 == *pcVar15;
+          pcVar14 = pcVar14 + (uint)bVar19 * -2 + 1;
+          pcVar15 = pcVar15 + (uint)bVar19 * -2 + 1;
+        } while ((bool)uVar16);
+        if ((bool)uVar16) {
+          param_3[0x21] = iVar8;
+        }
+        else {
+          iVar9 = 0xe;
+          bVar17 = false;
+          pcVar14 = local_22c;
+          pcVar15 = "ViewportSizes";
+          do {
+            if (iVar9 == 0) break;
+            iVar9 = iVar9 + -1;
+            bVar17 = *pcVar14 == *pcVar15;
+            pcVar14 = pcVar14 + (uint)bVar19 * -2 + 1;
+            pcVar15 = pcVar15 + (uint)bVar19 * -2 + 1;
+          } while (bVar17);
+          if (bVar17) {
+            param_3[0x23] = iVar8;
+          }
+          else {
+            iVar9 = 0xe;
+            pcVar14 = local_22c;
+            pcVar15 = "TextureFactor";
+            do {
+              if (iVar9 == 0) break;
+              iVar9 = iVar9 + -1;
+              bVar17 = *pcVar14 == *pcVar15;
+              pcVar14 = pcVar14 + (uint)bVar19 * -2 + 1;
+              pcVar15 = pcVar15 + (uint)bVar19 * -2 + 1;
+            } while (bVar17);
+            if (bVar17) {
+              param_3[0x24] = iVar8;
+            }
+            else {
+              iVar9 = 9;
+              pcVar14 = local_22c;
+              pcVar15 = "AlphaRef";
+              do {
+                if (iVar9 == 0) break;
+                iVar9 = iVar9 + -1;
+                bVar17 = *pcVar14 == *pcVar15;
+                pcVar14 = pcVar14 + (uint)bVar19 * -2 + 1;
+                pcVar15 = pcVar15 + (uint)bVar19 * -2 + 1;
+              } while (bVar17);
+              if (bVar17) {
+                param_3[0x22] = iVar8;
+              }
+              else {
+                iVar9 = 0xe;
+                pcVar14 = local_22c;
+                pcVar15 = "ViewTransform";
+                do {
+                  if (iVar9 == 0) break;
+                  iVar9 = iVar9 + -1;
+                  bVar17 = *pcVar14 == *pcVar15;
+                  pcVar14 = pcVar14 + (uint)bVar19 * -2 + 1;
+                  pcVar15 = pcVar15 + (uint)bVar19 * -2 + 1;
+                } while (bVar17);
+                if (bVar17) {
+                  param_3[0x25] = iVar8;
+                }
+                else {
+                  bVar17 = local_28 - 9U == 1;
+                  if (local_28 - 9U < 2) {
+                    iVar9 = 8;
+                    pcVar14 = local_22c;
+                    pcVar15 = "PSampler";
+                    do {
+                      if (iVar9 == 0) break;
+                      iVar9 = iVar9 + -1;
+                      bVar17 = *pcVar14 == *pcVar15;
+                      pcVar14 = pcVar14 + (uint)bVar19 * -2 + 1;
+                      pcVar15 = pcVar15 + (uint)bVar19 * -2 + 1;
+                    } while (bVar17);
+                    if (bVar17) {
+                      lVar11 = strtol(local_22c + 8,(char **)0x0,10);
+                      if (0xf < lVar11) {
+                        FUN_0400a810("samplerNum < 16",
+                                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/shadercache.cpp"
+                                     ,0x4d1,
+                                     "void ShaderCache::LinkedProgram_FinalizeLink(OpenGLContextCache*, eON_LinkedProgramData*)"
+                                    );
+                      }
+                      param_3[lVar11 + 0xf] = iVar8;
+                    }
+                    else {
+                      if (local_28 != 9) goto LAB_040e7b64;
+                      iVar9 = 8;
+                      bVar17 = true;
+                      pcVar14 = local_22c;
+                      pcVar15 = "VSampler";
+                      do {
+                        if (iVar9 == 0) break;
+                        iVar9 = iVar9 + -1;
+                        bVar17 = *pcVar14 == *pcVar15;
+                        pcVar14 = pcVar14 + (uint)bVar19 * -2 + 1;
+                        pcVar15 = pcVar15 + (uint)bVar19 * -2 + 1;
+                      } while (bVar17);
+                      if (!bVar17) goto LAB_040e7b8b;
+                      lVar11 = strtol(local_22c + 8,(char **)0x0,10);
+                      if (3 < lVar11) {
+                        FUN_0400a810("samplerNum < 4",
+                                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/shadercache.cpp"
+                                     ,0x4d7,
+                                     "void ShaderCache::LinkedProgram_FinalizeLink(OpenGLContextCache*, eON_LinkedProgramData*)"
+                                    );
+                      }
+                      param_3[lVar11 + 0xb] = iVar8;
+                    }
+                  }
+                  else if (local_28 == 0x10) {
+                    iVar9 = 0xf;
+                    bVar17 = true;
+                    pcVar14 = local_22c;
+                    pcVar15 = "TextureConstant";
+                    do {
+                      if (iVar9 == 0) break;
+                      iVar9 = iVar9 + -1;
+                      bVar17 = *pcVar14 == *pcVar15;
+                      pcVar14 = pcVar14 + (uint)bVar19 * -2 + 1;
+                      pcVar15 = pcVar15 + (uint)bVar19 * -2 + 1;
+                    } while (bVar17);
+                    if (bVar17) {
+                      *(undefined1 *)(param_3 + 0x26) = 1;
+                      param_3[local_21d + -9] = iVar8;
+                    }
+                    else {
+LAB_040e8b95:
+                      iVar9 = 0xf;
+                      pcVar14 = local_22c;
+                      pcVar15 = "WorldTransforms";
+                      do {
+                        if (iVar9 == 0) break;
+                        iVar9 = iVar9 + -1;
+                        bVar17 = *pcVar14 == *pcVar15;
+                        pcVar14 = pcVar14 + (uint)bVar19 * -2 + 1;
+                        pcVar15 = pcVar15 + (uint)bVar19 * -2 + 1;
+                      } while (bVar17);
+                      if (!bVar17) goto LAB_040e7b8b;
+                      *(undefined1 *)(param_3 + 0x40) = 1;
+                      param_3[local_21d + 0x11] = iVar8;
+                    }
+                  }
+                  else {
+LAB_040e7b64:
+                    if (local_28 == 0xb) {
+                      iVar9 = 10;
+                      bVar18 = true;
+                      pcVar14 = local_22c;
+                      pcVar15 = "BumpEnvMap";
+                      do {
+                        if (iVar9 == 0) break;
+                        iVar9 = iVar9 + -1;
+                        bVar18 = *pcVar14 == *pcVar15;
+                        pcVar14 = pcVar14 + (uint)bVar19 * -2 + 1;
+                        pcVar15 = pcVar15 + (uint)bVar19 * -2 + 1;
+                      } while (bVar18);
+                      bVar17 = false;
+                      if (bVar18) {
+                        *(undefined1 *)(param_3 + 0x2f) = 1;
+                        param_3[local_22c[10]] = iVar8;
+                        goto LAB_040e75be;
+                      }
+                    }
+                    else if (local_28 == 0x15) {
+                      iVar9 = 0x14;
+                      bVar18 = true;
+                      pcVar14 = local_22c;
+                      pcVar15 = "LuminanceScaleOffset";
+                      do {
+                        if (iVar9 == 0) break;
+                        iVar9 = iVar9 + -1;
+                        bVar18 = *pcVar14 == *pcVar15;
+                        pcVar14 = pcVar14 + (uint)bVar19 * -2 + 1;
+                        pcVar15 = pcVar15 + (uint)bVar19 * -2 + 1;
+                      } while (bVar18);
+                      bVar17 = false;
+                      if (bVar18) {
+                        param_3[local_218 + 8] = iVar8;
+                        goto LAB_040e75be;
+                      }
+                    }
+                    else {
+                      bVar17 = local_28 == 0x10;
+                      if (bVar17) goto LAB_040e8b95;
+                    }
+LAB_040e7b8b:
+                    iVar8 = 0xf;
+                    pcVar14 = local_22c;
+                    pcVar15 = "VConstFloat[0]";
+                    do {
+                      if (iVar8 == 0) break;
+                      iVar8 = iVar8 + -1;
+                      bVar17 = *pcVar14 == *pcVar15;
+                      pcVar14 = pcVar14 + (uint)bVar19 * -2 + 1;
+                      pcVar15 = pcVar15 + (uint)bVar19 * -2 + 1;
+                    } while (bVar17);
+                    if (bVar17) {
+                      bVar1 = true;
+                    }
+                    else {
+                      iVar8 = 0xd;
+                      bVar17 = false;
+                      pcVar14 = local_22c;
+                      pcVar15 = "VConstInt[0]";
+                      do {
+                        if (iVar8 == 0) break;
+                        iVar8 = iVar8 + -1;
+                        bVar17 = *pcVar14 == *pcVar15;
+                        pcVar14 = pcVar14 + (uint)bVar19 * -2 + 1;
+                        pcVar15 = pcVar15 + (uint)bVar19 * -2 + 1;
+                      } while (bVar17);
+                      if (bVar17) {
+                        bVar2 = true;
+                      }
+                      else {
+                        iVar8 = 0xe;
+                        bVar17 = false;
+                        pcVar14 = local_22c;
+                        pcVar15 = "VConstBool[0]";
+                        do {
+                          if (iVar8 == 0) break;
+                          iVar8 = iVar8 + -1;
+                          bVar17 = *pcVar14 == *pcVar15;
+                          pcVar14 = pcVar14 + (uint)bVar19 * -2 + 1;
+                          pcVar15 = pcVar15 + (uint)bVar19 * -2 + 1;
+                        } while (bVar17);
+                        if (bVar17) {
+                          bVar3 = true;
+                        }
+                        else {
+                          iVar8 = 0xf;
+                          bVar17 = false;
+                          pcVar14 = local_22c;
+                          pcVar15 = "PConstFloat[0]";
+                          do {
+                            if (iVar8 == 0) break;
+                            iVar8 = iVar8 + -1;
+                            bVar17 = *pcVar14 == *pcVar15;
+                            pcVar14 = pcVar14 + (uint)bVar19 * -2 + 1;
+                            pcVar15 = pcVar15 + (uint)bVar19 * -2 + 1;
+                          } while (bVar17);
+                          if (bVar17) {
+                            bVar4 = true;
+                          }
+                          else {
+                            iVar8 = 0xd;
+                            bVar17 = false;
+                            pcVar14 = local_22c;
+                            pcVar15 = "PConstInt[0]";
+                            do {
+                              if (iVar8 == 0) break;
+                              iVar8 = iVar8 + -1;
+                              bVar17 = *pcVar14 == *pcVar15;
+                              pcVar14 = pcVar14 + (uint)bVar19 * -2 + 1;
+                              pcVar15 = pcVar15 + (uint)bVar19 * -2 + 1;
+                            } while (bVar17);
+                            if (bVar17) {
+                              bVar5 = true;
+                            }
+                            else {
+                              iVar8 = 0xe;
+                              bVar17 = false;
+                              pcVar14 = local_22c;
+                              pcVar15 = "PConstBool[0]";
+                              do {
+                                if (iVar8 == 0) break;
+                                iVar8 = iVar8 + -1;
+                                bVar17 = *pcVar14 == *pcVar15;
+                                pcVar14 = pcVar14 + (uint)bVar19 * -2 + 1;
+                                pcVar15 = pcVar15 + (uint)bVar19 * -2 + 1;
+                              } while (bVar17);
+                              if (bVar17) {
+                                bVar6 = true;
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+LAB_040e75be:
+        local_230 = local_230 + 1;
+        uVar16 = local_2c == local_230;
+      } while (local_230 < local_2c);
+      if (bVar1) {
+        iVar8 = (*DAT_0451ec98)(*param_3,"VConstFloat[0]");
+        param_3[0x47] = iVar8;
+        if (iVar8 != -1) {
+          param_3[0x46] = 0;
+          iVar8 = 0;
+          do {
+            sprintf((char *)local_12c,"VConstFloat[%d]",iVar8);
+            iVar9 = (*DAT_0451ec98)(*param_3,local_12c);
+            if (iVar9 != -1) {
+              param_3[0x46] = param_3[0x46] + 1;
+            }
+            iVar8 = iVar8 + 1;
+          } while (iVar8 != 0x100);
+          if (param_3[0x45] != 0) {
+            FUN_0400a810("data->VConstCacheF == 0",
+                         "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/shadercache.cpp"
+                         ,0x517,
+                         "void ShaderCache::LinkedProgram_FinalizeLink(OpenGLContextCache*, eON_LinkedProgramData*)"
+                        );
+          }
+          if (param_3[0x46] != 0) {
+            pvVar10 = calloc(1,param_3[0x46] << 4);
+            param_3[0x45] = (int)pvVar10;
+          }
+        }
+      }
+      if (bVar2) {
+        iVar8 = (*DAT_0451ec98)(*param_3,"VConstInt[0]");
+        param_3[0x4b] = iVar8;
+        if (iVar8 != -1) {
+          param_3[0x4a] = 0;
+          sprintf((char *)local_12c,"VConstInt[%d]",0);
+          iVar8 = (*DAT_0451ec98)(*param_3,local_12c);
+          if (iVar8 != -1) {
+            param_3[0x4a] = param_3[0x4a] + 1;
+          }
+          sprintf((char *)local_12c,"VConstInt[%d]",1);
+          iVar8 = (*DAT_0451ec98)(*param_3,local_12c);
+          if (iVar8 != -1) {
+            param_3[0x4a] = param_3[0x4a] + 1;
+          }
+          sprintf((char *)local_12c,"VConstInt[%d]",2);
+          iVar8 = (*DAT_0451ec98)(*param_3,local_12c);
+          if (iVar8 != -1) {
+            param_3[0x4a] = param_3[0x4a] + 1;
+          }
+          sprintf((char *)local_12c,"VConstInt[%d]",3);
+          iVar8 = (*DAT_0451ec98)(*param_3,local_12c);
+          if (iVar8 != -1) {
+            param_3[0x4a] = param_3[0x4a] + 1;
+          }
+          sprintf((char *)local_12c,"VConstInt[%d]",4);
+          iVar8 = (*DAT_0451ec98)(*param_3,local_12c);
+          if (iVar8 != -1) {
+            param_3[0x4a] = param_3[0x4a] + 1;
+          }
+          sprintf((char *)local_12c,"VConstInt[%d]",5);
+          iVar8 = (*DAT_0451ec98)(*param_3,local_12c);
+          if (iVar8 != -1) {
+            param_3[0x4a] = param_3[0x4a] + 1;
+          }
+          sprintf((char *)local_12c,"VConstInt[%d]",6);
+          iVar8 = (*DAT_0451ec98)(*param_3,local_12c);
+          if (iVar8 != -1) {
+            param_3[0x4a] = param_3[0x4a] + 1;
+          }
+          sprintf((char *)local_12c,"VConstInt[%d]",7);
+          iVar8 = (*DAT_0451ec98)(*param_3,local_12c);
+          if (iVar8 != -1) {
+            param_3[0x4a] = param_3[0x4a] + 1;
+          }
+          sprintf((char *)local_12c,"VConstInt[%d]",8);
+          iVar8 = (*DAT_0451ec98)(*param_3,local_12c);
+          if (iVar8 != -1) {
+            param_3[0x4a] = param_3[0x4a] + 1;
+          }
+          sprintf((char *)local_12c,"VConstInt[%d]",9);
+          iVar8 = (*DAT_0451ec98)(*param_3,local_12c);
+          if (iVar8 != -1) {
+            param_3[0x4a] = param_3[0x4a] + 1;
+          }
+          sprintf((char *)local_12c,"VConstInt[%d]",10);
+          iVar8 = (*DAT_0451ec98)(*param_3,local_12c);
+          if (iVar8 != -1) {
+            param_3[0x4a] = param_3[0x4a] + 1;
+          }
+          sprintf((char *)local_12c,"VConstInt[%d]",0xb);
+          iVar8 = (*DAT_0451ec98)(*param_3,local_12c);
+          if (iVar8 != -1) {
+            param_3[0x4a] = param_3[0x4a] + 1;
+          }
+          sprintf((char *)local_12c,"VConstInt[%d]",0xc);
+          iVar8 = (*DAT_0451ec98)(*param_3,local_12c);
+          if (iVar8 != -1) {
+            param_3[0x4a] = param_3[0x4a] + 1;
+          }
+          sprintf((char *)local_12c,"VConstInt[%d]",0xd);
+          iVar8 = (*DAT_0451ec98)(*param_3,local_12c);
+          if (iVar8 != -1) {
+            param_3[0x4a] = param_3[0x4a] + 1;
+          }
+          sprintf((char *)local_12c,"VConstInt[%d]",0xe);
+          iVar8 = (*DAT_0451ec98)(*param_3,local_12c);
+          if (iVar8 != -1) {
+            param_3[0x4a] = param_3[0x4a] + 1;
+          }
+          sprintf((char *)local_12c,"VConstInt[%d]",0xf);
+          iVar8 = (*DAT_0451ec98)(*param_3,local_12c);
+          if (iVar8 != -1) {
+            param_3[0x4a] = param_3[0x4a] + 1;
+          }
+          if (param_3[0x49] != 0) {
+            FUN_0400a810("data->VConstCacheI == 0",
+                         "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/shadercache.cpp"
+                         ,0x530,
+                         "void ShaderCache::LinkedProgram_FinalizeLink(OpenGLContextCache*, eON_LinkedProgramData*)"
+                        );
+          }
+          if (param_3[0x4a] != 0) {
+            pvVar10 = calloc(1,param_3[0x4a] << 4);
+            param_3[0x49] = (int)pvVar10;
+          }
+        }
+      }
+      if (bVar3) {
+        iVar8 = (*DAT_0451ec98)(*param_3,"VConstBool[0]");
+        param_3[0x4e] = iVar8;
+        if (iVar8 != -1) {
+          param_3[0x4d] = 0;
+          sprintf((char *)local_12c,"VConstBool[%d]",0);
+          iVar8 = (*DAT_0451ec98)(*param_3,local_12c);
+          if (iVar8 != -1) {
+            param_3[0x4d] = param_3[0x4d] + 1;
+          }
+          sprintf((char *)local_12c,"VConstBool[%d]",1);
+          iVar8 = (*DAT_0451ec98)(*param_3,local_12c);
+          if (iVar8 != -1) {
+            param_3[0x4d] = param_3[0x4d] + 1;
+          }
+          sprintf((char *)local_12c,"VConstBool[%d]",2);
+          iVar8 = (*DAT_0451ec98)(*param_3,local_12c);
+          if (iVar8 != -1) {
+            param_3[0x4d] = param_3[0x4d] + 1;
+          }
+          sprintf((char *)local_12c,"VConstBool[%d]",3);
+          iVar8 = (*DAT_0451ec98)(*param_3,local_12c);
+          if (iVar8 != -1) {
+            param_3[0x4d] = param_3[0x4d] + 1;
+          }
+          sprintf((char *)local_12c,"VConstBool[%d]",4);
+          iVar8 = (*DAT_0451ec98)(*param_3,local_12c);
+          if (iVar8 != -1) {
+            param_3[0x4d] = param_3[0x4d] + 1;
+          }
+          sprintf((char *)local_12c,"VConstBool[%d]",5);
+          iVar8 = (*DAT_0451ec98)(*param_3,local_12c);
+          if (iVar8 != -1) {
+            param_3[0x4d] = param_3[0x4d] + 1;
+          }
+          sprintf((char *)local_12c,"VConstBool[%d]",6);
+          iVar8 = (*DAT_0451ec98)(*param_3,local_12c);
+          if (iVar8 != -1) {
+            param_3[0x4d] = param_3[0x4d] + 1;
+          }
+          sprintf((char *)local_12c,"VConstBool[%d]",7);
+          iVar8 = (*DAT_0451ec98)(*param_3,local_12c);
+          if (iVar8 != -1) {
+            param_3[0x4d] = param_3[0x4d] + 1;
+          }
+          sprintf((char *)local_12c,"VConstBool[%d]",8);
+          iVar8 = (*DAT_0451ec98)(*param_3,local_12c);
+          if (iVar8 != -1) {
+            param_3[0x4d] = param_3[0x4d] + 1;
+          }
+          sprintf((char *)local_12c,"VConstBool[%d]",9);
+          iVar8 = (*DAT_0451ec98)(*param_3,local_12c);
+          if (iVar8 != -1) {
+            param_3[0x4d] = param_3[0x4d] + 1;
+          }
+          sprintf((char *)local_12c,"VConstBool[%d]",10);
+          iVar8 = (*DAT_0451ec98)(*param_3,local_12c);
+          if (iVar8 != -1) {
+            param_3[0x4d] = param_3[0x4d] + 1;
+          }
+          sprintf((char *)local_12c,"VConstBool[%d]",0xb);
+          iVar8 = (*DAT_0451ec98)(*param_3,local_12c);
+          if (iVar8 != -1) {
+            param_3[0x4d] = param_3[0x4d] + 1;
+          }
+          sprintf((char *)local_12c,"VConstBool[%d]",0xc);
+          iVar8 = (*DAT_0451ec98)(*param_3,local_12c);
+          if (iVar8 != -1) {
+            param_3[0x4d] = param_3[0x4d] + 1;
+          }
+          sprintf((char *)local_12c,"VConstBool[%d]",0xd);
+          iVar8 = (*DAT_0451ec98)(*param_3,local_12c);
+          if (iVar8 != -1) {
+            param_3[0x4d] = param_3[0x4d] + 1;
+          }
+          sprintf((char *)local_12c,"VConstBool[%d]",0xe);
+          iVar8 = (*DAT_0451ec98)(*param_3,local_12c);
+          if (iVar8 != -1) {
+            param_3[0x4d] = param_3[0x4d] + 1;
+          }
+          sprintf((char *)local_12c,"VConstBool[%d]",0xf);
+          iVar8 = (*DAT_0451ec98)(*param_3,local_12c);
+          if (iVar8 != -1) {
+            param_3[0x4d] = param_3[0x4d] + 1;
+          }
+          if (param_3[0x4c] != 0) {
+            FUN_0400a810("data->VConstCacheB == 0",
+                         "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/shadercache.cpp"
+                         ,0x549,
+                         "void ShaderCache::LinkedProgram_FinalizeLink(OpenGLContextCache*, eON_LinkedProgramData*)"
+                        );
+          }
+          if (param_3[0x4d] != 0) {
+            pvVar10 = calloc(1,param_3[0x4d] << 2);
+            param_3[0x4c] = (int)pvVar10;
+          }
+        }
+      }
+      if (bVar4) {
+        iVar8 = (*DAT_0451ec98)(*param_3,"PConstFloat[0]");
+        param_3[0x51] = iVar8;
+        if (iVar8 != -1) {
+          param_3[0x50] = 0;
+          iVar8 = 0;
+          do {
+            sprintf((char *)local_12c,"PConstFloat[%d]",iVar8);
+            iVar9 = (*DAT_0451ec98)(*param_3,local_12c);
+            if (iVar9 != -1) {
+              param_3[0x50] = param_3[0x50] + 1;
+            }
+            iVar8 = iVar8 + 1;
+          } while (iVar8 != 0x100);
+          if (param_3[0x4f] != 0) {
+            FUN_0400a810("data->PConstCacheF == 0",
+                         "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/shadercache.cpp"
+                         ,0x562,
+                         "void ShaderCache::LinkedProgram_FinalizeLink(OpenGLContextCache*, eON_LinkedProgramData*)"
+                        );
+          }
+          if (param_3[0x50] != 0) {
+            pvVar10 = calloc(1,param_3[0x50] << 4);
+            param_3[0x4f] = (int)pvVar10;
+          }
+        }
+      }
+      if (bVar5) {
+        iVar8 = (*DAT_0451ec98)(*param_3,"PConstInt[0]");
+        param_3[0x54] = iVar8;
+        if (iVar8 != -1) {
+          param_3[0x53] = 0;
+          sprintf((char *)local_12c,"PConstInt[%d]",0);
+          iVar8 = (*DAT_0451ec98)(*param_3,local_12c);
+          if (iVar8 != -1) {
+            param_3[0x53] = param_3[0x53] + 1;
+          }
+          sprintf((char *)local_12c,"PConstInt[%d]",1);
+          iVar8 = (*DAT_0451ec98)(*param_3,local_12c);
+          if (iVar8 != -1) {
+            param_3[0x53] = param_3[0x53] + 1;
+          }
+          sprintf((char *)local_12c,"PConstInt[%d]",2);
+          iVar8 = (*DAT_0451ec98)(*param_3,local_12c);
+          if (iVar8 != -1) {
+            param_3[0x53] = param_3[0x53] + 1;
+          }
+          sprintf((char *)local_12c,"PConstInt[%d]",3);
+          iVar8 = (*DAT_0451ec98)(*param_3,local_12c);
+          if (iVar8 != -1) {
+            param_3[0x53] = param_3[0x53] + 1;
+          }
+          sprintf((char *)local_12c,"PConstInt[%d]",4);
+          iVar8 = (*DAT_0451ec98)(*param_3,local_12c);
+          if (iVar8 != -1) {
+            param_3[0x53] = param_3[0x53] + 1;
+          }
+          sprintf((char *)local_12c,"PConstInt[%d]",5);
+          iVar8 = (*DAT_0451ec98)(*param_3,local_12c);
+          if (iVar8 != -1) {
+            param_3[0x53] = param_3[0x53] + 1;
+          }
+          sprintf((char *)local_12c,"PConstInt[%d]",6);
+          iVar8 = (*DAT_0451ec98)(*param_3,local_12c);
+          if (iVar8 != -1) {
+            param_3[0x53] = param_3[0x53] + 1;
+          }
+          sprintf((char *)local_12c,"PConstInt[%d]",7);
+          iVar8 = (*DAT_0451ec98)(*param_3,local_12c);
+          if (iVar8 != -1) {
+            param_3[0x53] = param_3[0x53] + 1;
+          }
+          sprintf((char *)local_12c,"PConstInt[%d]",8);
+          iVar8 = (*DAT_0451ec98)(*param_3,local_12c);
+          if (iVar8 != -1) {
+            param_3[0x53] = param_3[0x53] + 1;
+          }
+          sprintf((char *)local_12c,"PConstInt[%d]",9);
+          iVar8 = (*DAT_0451ec98)(*param_3,local_12c);
+          if (iVar8 != -1) {
+            param_3[0x53] = param_3[0x53] + 1;
+          }
+          sprintf((char *)local_12c,"PConstInt[%d]",10);
+          iVar8 = (*DAT_0451ec98)(*param_3,local_12c);
+          if (iVar8 != -1) {
+            param_3[0x53] = param_3[0x53] + 1;
+          }
+          sprintf((char *)local_12c,"PConstInt[%d]",0xb);
+          iVar8 = (*DAT_0451ec98)(*param_3,local_12c);
+          if (iVar8 != -1) {
+            param_3[0x53] = param_3[0x53] + 1;
+          }
+          sprintf((char *)local_12c,"PConstInt[%d]",0xc);
+          iVar8 = (*DAT_0451ec98)(*param_3,local_12c);
+          if (iVar8 != -1) {
+            param_3[0x53] = param_3[0x53] + 1;
+          }
+          sprintf((char *)local_12c,"PConstInt[%d]",0xd);
+          iVar8 = (*DAT_0451ec98)(*param_3,local_12c);
+          if (iVar8 != -1) {
+            param_3[0x53] = param_3[0x53] + 1;
+          }
+          sprintf((char *)local_12c,"PConstInt[%d]",0xe);
+          iVar8 = (*DAT_0451ec98)(*param_3,local_12c);
+          if (iVar8 != -1) {
+            param_3[0x53] = param_3[0x53] + 1;
+          }
+          sprintf((char *)local_12c,"PConstInt[%d]",0xf);
+          iVar8 = (*DAT_0451ec98)(*param_3,local_12c);
+          if (iVar8 != -1) {
+            param_3[0x53] = param_3[0x53] + 1;
+          }
+          if (param_3[0x52] != 0) {
+            FUN_0400a810("data->PConstCacheI == 0",
+                         "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/shadercache.cpp"
+                         ,0x57b,
+                         "void ShaderCache::LinkedProgram_FinalizeLink(OpenGLContextCache*, eON_LinkedProgramData*)"
+                        );
+          }
+          if (param_3[0x53] != 0) {
+            pvVar10 = calloc(1,param_3[0x53] << 4);
+            param_3[0x52] = (int)pvVar10;
+          }
+        }
+      }
+      if (bVar6) {
+        iVar8 = (*DAT_0451ec98)(*param_3,"PConstBool[0]");
+        param_3[0x57] = iVar8;
+        if (iVar8 != -1) {
+          param_3[0x56] = 0;
+          sprintf((char *)local_12c,"PConstBool[%d]",0);
+          iVar8 = (*DAT_0451ec98)(*param_3,local_12c);
+          if (iVar8 != -1) {
+            param_3[0x56] = param_3[0x56] + 1;
+          }
+          sprintf((char *)local_12c,"PConstBool[%d]",1);
+          iVar8 = (*DAT_0451ec98)(*param_3,local_12c);
+          if (iVar8 != -1) {
+            param_3[0x56] = param_3[0x56] + 1;
+          }
+          sprintf((char *)local_12c,"PConstBool[%d]",2);
+          iVar8 = (*DAT_0451ec98)(*param_3,local_12c);
+          if (iVar8 != -1) {
+            param_3[0x56] = param_3[0x56] + 1;
+          }
+          sprintf((char *)local_12c,"PConstBool[%d]",3);
+          iVar8 = (*DAT_0451ec98)(*param_3,local_12c);
+          if (iVar8 != -1) {
+            param_3[0x56] = param_3[0x56] + 1;
+          }
+          sprintf((char *)local_12c,"PConstBool[%d]",4);
+          iVar8 = (*DAT_0451ec98)(*param_3,local_12c);
+          if (iVar8 != -1) {
+            param_3[0x56] = param_3[0x56] + 1;
+          }
+          sprintf((char *)local_12c,"PConstBool[%d]",5);
+          iVar8 = (*DAT_0451ec98)(*param_3,local_12c);
+          if (iVar8 != -1) {
+            param_3[0x56] = param_3[0x56] + 1;
+          }
+          sprintf((char *)local_12c,"PConstBool[%d]",6);
+          iVar8 = (*DAT_0451ec98)(*param_3,local_12c);
+          if (iVar8 != -1) {
+            param_3[0x56] = param_3[0x56] + 1;
+          }
+          sprintf((char *)local_12c,"PConstBool[%d]",7);
+          iVar8 = (*DAT_0451ec98)(*param_3,local_12c);
+          if (iVar8 != -1) {
+            param_3[0x56] = param_3[0x56] + 1;
+          }
+          sprintf((char *)local_12c,"PConstBool[%d]",8);
+          iVar8 = (*DAT_0451ec98)(*param_3,local_12c);
+          if (iVar8 != -1) {
+            param_3[0x56] = param_3[0x56] + 1;
+          }
+          sprintf((char *)local_12c,"PConstBool[%d]",9);
+          iVar8 = (*DAT_0451ec98)(*param_3,local_12c);
+          if (iVar8 != -1) {
+            param_3[0x56] = param_3[0x56] + 1;
+          }
+          sprintf((char *)local_12c,"PConstBool[%d]",10);
+          iVar8 = (*DAT_0451ec98)(*param_3,local_12c);
+          if (iVar8 != -1) {
+            param_3[0x56] = param_3[0x56] + 1;
+          }
+          sprintf((char *)local_12c,"PConstBool[%d]",0xb);
+          iVar8 = (*DAT_0451ec98)(*param_3,local_12c);
+          if (iVar8 != -1) {
+            param_3[0x56] = param_3[0x56] + 1;
+          }
+          sprintf((char *)local_12c,"PConstBool[%d]",0xc);
+          iVar8 = (*DAT_0451ec98)(*param_3,local_12c);
+          if (iVar8 != -1) {
+            param_3[0x56] = param_3[0x56] + 1;
+          }
+          sprintf((char *)local_12c,"PConstBool[%d]",0xd);
+          iVar8 = (*DAT_0451ec98)(*param_3,local_12c);
+          if (iVar8 != -1) {
+            param_3[0x56] = param_3[0x56] + 1;
+          }
+          sprintf((char *)local_12c,"PConstBool[%d]",0xe);
+          iVar8 = (*DAT_0451ec98)(*param_3,local_12c);
+          if (iVar8 != -1) {
+            param_3[0x56] = param_3[0x56] + 1;
+          }
+          sprintf((char *)local_12c,"PConstBool[%d]",0xf);
+          iVar8 = (*DAT_0451ec98)(*param_3,local_12c);
+          if (iVar8 != -1) {
+            param_3[0x56] = param_3[0x56] + 1;
+          }
+          if (param_3[0x55] != 0) {
+            FUN_0400a810("data->PConstCacheB == 0",
+                         "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/shadercache.cpp"
+                         ,0x594,
+                         "void ShaderCache::LinkedProgram_FinalizeLink(OpenGLContextCache*, eON_LinkedProgramData*)"
+                        );
+          }
+          if (param_3[0x56] != 0) {
+            pvVar10 = calloc(1,param_3[0x56] << 2);
+            param_3[0x55] = (int)pvVar10;
+          }
+        }
+      }
+    }
+  }
+  else {
+    pcVar14 = local_22c + 8;
+    builtin_strncpy(local_22c,"VSampler00",0xb);
+    sprintf(pcVar14,"%d",0);
+    iVar8 = (*DAT_0451ec98)(*param_3,local_22c);
+    if (iVar8 != -1) {
+      param_3[0xb] = iVar8;
+    }
+    sprintf(pcVar14,"%d",1);
+    iVar8 = (*DAT_0451ec98)(*param_3,local_22c);
+    if (iVar8 != -1) {
+      param_3[0xc] = iVar8;
+    }
+    sprintf(pcVar14,"%d",2);
+    iVar8 = (*DAT_0451ec98)(*param_3,local_22c);
+    if (iVar8 != -1) {
+      param_3[0xd] = iVar8;
+    }
+    sprintf(pcVar14,"%d",3);
+    iVar8 = (*DAT_0451ec98)(*param_3,local_22c);
+    if (iVar8 != -1) {
+      param_3[0xe] = iVar8;
+    }
+    local_22c[0] = 0x50;
+    sprintf(pcVar14,"%d",0);
+    iVar8 = (*DAT_0451ec98)(*param_3,local_22c);
+    if (iVar8 != -1) {
+      param_3[0xf] = iVar8;
+    }
+    sprintf(pcVar14,"%d",1);
+    iVar8 = (*DAT_0451ec98)(*param_3,local_22c);
+    if (iVar8 != -1) {
+      param_3[0x10] = iVar8;
+    }
+    sprintf(pcVar14,"%d",2);
+    iVar8 = (*DAT_0451ec98)(*param_3,local_22c);
+    if (iVar8 != -1) {
+      param_3[0x11] = iVar8;
+    }
+    sprintf(pcVar14,"%d",3);
+    iVar8 = (*DAT_0451ec98)(*param_3,local_22c);
+    if (iVar8 != -1) {
+      param_3[0x12] = iVar8;
+    }
+    sprintf(pcVar14,"%d",4);
+    iVar8 = (*DAT_0451ec98)(*param_3,local_22c);
+    if (iVar8 != -1) {
+      param_3[0x13] = iVar8;
+    }
+    sprintf(pcVar14,"%d",5);
+    iVar8 = (*DAT_0451ec98)(*param_3,local_22c);
+    if (iVar8 != -1) {
+      param_3[0x14] = iVar8;
+    }
+    sprintf(pcVar14,"%d",6);
+    iVar8 = (*DAT_0451ec98)(*param_3,local_22c);
+    if (iVar8 != -1) {
+      param_3[0x15] = iVar8;
+    }
+    sprintf(pcVar14,"%d",7);
+    iVar8 = (*DAT_0451ec98)(*param_3,local_22c);
+    if (iVar8 != -1) {
+      param_3[0x16] = iVar8;
+    }
+    sprintf(pcVar14,"%d",8);
+    iVar8 = (*DAT_0451ec98)(*param_3,local_22c);
+    if (iVar8 != -1) {
+      param_3[0x17] = iVar8;
+    }
+    sprintf(pcVar14,"%d",9);
+    iVar8 = (*DAT_0451ec98)(*param_3,local_22c);
+    if (iVar8 != -1) {
+      param_3[0x18] = iVar8;
+    }
+    sprintf(pcVar14,"%d",10);
+    iVar8 = (*DAT_0451ec98)(*param_3,local_22c);
+    if (iVar8 != -1) {
+      param_3[0x19] = iVar8;
+    }
+    sprintf(pcVar14,"%d",0xb);
+    iVar8 = (*DAT_0451ec98)(*param_3,local_22c);
+    if (iVar8 != -1) {
+      param_3[0x1a] = iVar8;
+    }
+    sprintf(pcVar14,"%d",0xc);
+    iVar8 = (*DAT_0451ec98)(*param_3,local_22c);
+    if (iVar8 != -1) {
+      param_3[0x1b] = iVar8;
+    }
+    sprintf(pcVar14,"%d",0xd);
+    iVar8 = (*DAT_0451ec98)(*param_3,local_22c);
+    if (iVar8 != -1) {
+      param_3[0x1c] = iVar8;
+    }
+    sprintf(pcVar14,"%d",0xe);
+    iVar8 = (*DAT_0451ec98)(*param_3,local_22c);
+    if (iVar8 != -1) {
+      param_3[0x1d] = iVar8;
+    }
+    sprintf(pcVar14,"%d",0xf);
+    iVar8 = (*DAT_0451ec98)(*param_3,local_22c);
+    if (iVar8 != -1) {
+      param_3[0x1e] = iVar8;
+    }
+    ppuVar12 = &PTR_s_AsmVertexFloat_0430a860;
+    piVar13 = local_12c;
+    for (iVar8 = 0x24; iVar8 != 0; iVar8 = iVar8 + -1) {
+      *piVar13 = (int)*ppuVar12;
+      ppuVar12 = ppuVar12 + (uint)bVar19 * -2 + 1;
+      piVar13 = piVar13 + (uint)bVar19 * -2 + 1;
+    }
+    if (local_12c[0] != 0) {
+      iVar8 = 0;
+      piVar13 = local_12c;
+      do {
+        iVar9 = (*DAT_0451e0b4)(*param_3,local_12c[0]);
+        if (iVar9 != -1) {
+          (*DAT_0451e0ac)(*param_3,iVar9,iVar8);
+          param_3[iVar8 + 0x5b] = piVar13[2];
+          iVar8 = iVar8 + 1;
+        }
+        piVar13 = piVar13 + 3;
+        local_12c[0] = *(int *)((int)piVar13 + ((int)local_12c - (int)local_12c));
+      } while (local_12c[0] != 0);
+    }
+  }
+  param_3[0x1f] = 1;
+  *(undefined1 *)(param_3 + 0x20) = 0;
+  if (param_3[0xf] != -1) {
+    (*DAT_0451ec58)(param_3[0xf],0);
+    param_3[0x1f] = 1;
+  }
+  if (param_3[0x10] != -1) {
+    (*DAT_0451ec58)(param_3[0x10],1);
+    param_3[0x1f] = 2;
+  }
+  if (param_3[0x11] != -1) {
+    (*DAT_0451ec58)(param_3[0x11],2);
+    param_3[0x1f] = 3;
+  }
+  if (param_3[0x12] != -1) {
+    (*DAT_0451ec58)(param_3[0x12],3);
+    param_3[0x1f] = 4;
+  }
+  if (param_3[0x13] != -1) {
+    (*DAT_0451ec58)(param_3[0x13],4);
+    param_3[0x1f] = 5;
+  }
+  if (param_3[0x14] != -1) {
+    (*DAT_0451ec58)(param_3[0x14],5);
+    param_3[0x1f] = 6;
+  }
+  if (param_3[0x15] != -1) {
+    (*DAT_0451ec58)(param_3[0x15],6);
+    param_3[0x1f] = 7;
+  }
+  if (param_3[0x16] != -1) {
+    (*DAT_0451ec58)(param_3[0x16],7);
+    param_3[0x1f] = 8;
+  }
+  if (param_3[0x17] != -1) {
+    (*DAT_0451ec58)(param_3[0x17],8);
+    param_3[0x1f] = 9;
+  }
+  if (param_3[0x18] != -1) {
+    (*DAT_0451ec58)(param_3[0x18],9);
+    param_3[0x1f] = 10;
+  }
+  if (param_3[0x19] != -1) {
+    (*DAT_0451ec58)(param_3[0x19],10);
+    param_3[0x1f] = 0xb;
+  }
+  if (param_3[0x1a] != -1) {
+    (*DAT_0451ec58)(param_3[0x1a],0xb);
+    param_3[0x1f] = 0xc;
+  }
+  if (param_3[0x1b] != -1) {
+    (*DAT_0451ec58)(param_3[0x1b],0xc);
+    param_3[0x1f] = 0xd;
+  }
+  if (param_3[0x1c] != -1) {
+    (*DAT_0451ec58)(param_3[0x1c],0xd);
+    param_3[0x1f] = 0xe;
+  }
+  if (param_3[0x1d] != -1) {
+    (*DAT_0451ec58)(param_3[0x1d],0xe);
+    param_3[0x1f] = 0xf;
+  }
+  if (param_3[0x1e] != -1) {
+    (*DAT_0451ec58)(param_3[0x1e],0xf);
+    param_3[0x1f] = 0x10;
+  }
+  iVar8 = param_3[0xb];
+  if (iVar8 != -1) {
+    if (param_3[0x1e] != -1) {
+      FUN_0402cd10(0xf,
+                   "Sampler num collision between texture samplers and vertex texture samplers! Avoid it somehow!"
+                  );
+      iVar8 = param_3[0xb];
+    }
+    (*DAT_0451ec58)(iVar8,0xf);
+    param_3[0x1f] = 0x10;
+    *(undefined1 *)(param_3 + 0x20) = 1;
+  }
+  iVar8 = param_3[0xc];
+  if (iVar8 != -1) {
+    if (param_3[0x1d] != -1) {
+      FUN_0402cd10(0xf,
+                   "Sampler num collision between texture samplers and vertex texture samplers! Avoid it somehow!"
+                  );
+      iVar8 = param_3[0xc];
+    }
+    (*DAT_0451ec58)(iVar8,0xe);
+    param_3[0x1f] = 0x10;
+    *(undefined1 *)(param_3 + 0x20) = 1;
+  }
+  iVar8 = param_3[0xd];
+  if (iVar8 != -1) {
+    if (param_3[0x1c] != -1) {
+      FUN_0402cd10(0xf,
+                   "Sampler num collision between texture samplers and vertex texture samplers! Avoid it somehow!"
+                  );
+      iVar8 = param_3[0xd];
+    }
+    (*DAT_0451ec58)(iVar8,0xd);
+    param_3[0x1f] = 0x10;
+    *(undefined1 *)(param_3 + 0x20) = 1;
+  }
+  iVar8 = param_3[0xe];
+  if (iVar8 != -1) {
+    if (param_3[0x1b] != -1) {
+      FUN_0402cd10(0xf,
+                   "Sampler num collision between texture samplers and vertex texture samplers! Avoid it somehow!"
+                  );
+      iVar8 = param_3[0xe];
+    }
+    (*DAT_0451ec58)(iVar8,0xc);
+    param_3[0x1f] = 0x10;
+    *(undefined1 *)(param_3 + 0x20) = 1;
+  }
+  param_3[1] = 2;
+  return;
+}
+

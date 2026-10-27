@@ -1,0 +1,94 @@
+
+/* WARNING: Removing unreachable block (ram,0x041c9254) */
+/* WARNING: Removing unreachable block (ram,0x041c9258) */
+/* source: tinyxmlparser */
+
+char * TiXmlText__Parse(int param_1,char *param_2,undefined4 *param_3,undefined4 param_4)
+
+{
+  undefined4 uVar1;
+  char cVar2;
+  char cVar3;
+  int iVar4;
+  char *pcVar5;
+  char *pcVar6;
+  char local_1d [13];
+  
+  TiXmlString__assign(param_1 + 0x20,&DAT_04328763,0);
+  iVar4 = TiXmlNode__GetDocument(param_1);
+  if (param_3 != (undefined4 *)0x0) {
+    TiXmlParsingData__Stamp(param_3,param_2,param_4);
+    uVar1 = param_3[1];
+    *(undefined4 *)(param_1 + 4) = *param_3;
+    *(undefined4 *)(param_1 + 8) = uVar1;
+  }
+  if (*(char *)(param_1 + 0x2c) == '\0') {
+    if (param_2 == (char *)0x0) {
+      FUN_0400a810(&DAT_04361ca0,
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxmlparser.cpp"
+                   ,0x21b,
+                   "static bool TiXmlBase::StringEqual(const char*, const char*, bool, TiXmlEncoding)"
+                  );
+    }
+    else if (*param_2 != '\0') {
+      cVar2 = TiXmlBase__StringEqual(param_4);
+      if (cVar2 == '\0') goto LAB_041c92bc;
+      *(undefined1 *)(param_1 + 0x2c) = 1;
+      goto LAB_041c91e9;
+    }
+    FUN_0400a810("0",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxmlparser.cpp"
+                 ,0x21f,
+                 "static bool TiXmlBase::StringEqual(const char*, const char*, bool, TiXmlEncoding)"
+                );
+LAB_041c92bc:
+    pcVar6 = (char *)TiXmlBase__ReadText(&DAT_042e7a8e,param_4);
+    if (pcVar6 == (char *)0x0) {
+      return (char *)0x0;
+    }
+    pcVar5 = (char *)0x0;
+    if (*pcVar6 != '\0') {
+      pcVar5 = pcVar6 + -1;
+    }
+    return pcVar5;
+  }
+  if (param_2 == (char *)0x0) {
+    FUN_0400a810(&DAT_04361ca0,
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxmlparser.cpp"
+                 ,0x21b,
+                 "static bool TiXmlBase::StringEqual(const char*, const char*, bool, TiXmlEncoding)"
+                );
+  }
+  else {
+LAB_041c91e9:
+    if (*param_2 != '\0') {
+      cVar2 = TiXmlBase__StringEqual(param_4);
+      if (cVar2 != '\0') {
+        pcVar6 = param_2 + 9;
+        if ((pcVar6 != (char *)0x0) && (cVar2 = param_2[9], cVar2 != '\0')) {
+          while (cVar3 = TiXmlBase__StringEqual(param_4), cVar3 == '\0') {
+            local_1d[0] = cVar2;
+            TiXmlString__append(param_1 + 0x20,local_1d,1);
+            pcVar6 = pcVar6 + 1;
+            if ((pcVar6 == (char *)0x0) || (cVar2 = *pcVar6, cVar2 == '\0')) break;
+          }
+        }
+                    /* try { // try from 041c9244 to 041c9248 has its CatchHandler @ 041c92f3 */
+        pcVar6 = (char *)TiXmlBase__ReadText(&PTR_DAT_04361c14,param_4);
+        return pcVar6;
+      }
+      goto LAB_041c9177;
+    }
+  }
+  FUN_0400a810("0",
+               "/home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxmlparser.cpp"
+               ,0x21f,
+               "static bool TiXmlBase::StringEqual(const char*, const char*, bool, TiXmlEncoding)");
+LAB_041c9177:
+  if (iVar4 == 0) {
+    return (char *)0x0;
+  }
+  TiXmlDocument__SetError(iVar4,0xe,param_2,param_3,param_4);
+  return (char *)0x0;
+}
+

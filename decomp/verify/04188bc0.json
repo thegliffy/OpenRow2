@@ -1,0 +1,9 @@
+
+undefined4 GetFileVersionInfoSizeA(undefined4 param_1,undefined4 param_2)
+
+{
+  FUN_0402cd10(5,"GetFileVersionInfoSizeExA() - dwFlags %08x, filename %s, lpdwHandle %p",0,param_1,
+               param_2);
+  return 0;
+}
+

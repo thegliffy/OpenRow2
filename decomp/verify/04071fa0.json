@@ -1,0 +1,163 @@
+
+/* source: direct3ddevice9imp */
+
+undefined4
+Direct3DDevice9Imp__SetStreamSource(int param_1,uint param_2,int *param_3,int param_4,int param_5)
+
+{
+  code *pcVar1;
+  int *piVar2;
+  undefined4 uVar3;
+  int iVar4;
+  int iVar5;
+  undefined4 *puVar6;
+  int *piVar7;
+  int aiStack_60 [6];
+  char *local_48;
+  uint local_44;
+  int local_34;
+  int local_30;
+  int local_24;
+  int *local_20 [4];
+  
+  piVar7 = aiStack_60 + 5;
+  if (0xf < param_2) {
+    local_48 = "ERROR!! game wants to use stream %u";
+    aiStack_60[5] = 0xf;
+    local_44 = param_2;
+    aiStack_60[4] = 0x40720db;
+    FUN_0402cd10();
+  }
+  iVar5 = *(int *)(param_1 + 0xc);
+  local_20[0] = &local_24;
+  local_24 = iVar5;
+  if (iVar5 != 0) {
+    piVar7 = aiStack_60 + 5;
+    if (*(char *)(iVar5 + 0xebbc) != '\0') {
+      aiStack_60[5] = iVar5 + 0xebc4;
+      aiStack_60[4] = 0x407212e;
+      EnterCriticalSection();
+      piVar7 = aiStack_60 + 4;
+    }
+    if (*(int *)(iVar5 + 0xec64) == 0) {
+      if (*(int *)(iVar5 + 0xebc0) != 0) {
+        piVar7[3] = (int)"void Direct3DDevice9Imp::MultithreadedGuard_Enter()";
+        piVar7[2] = 0x3ae;
+        piVar7[1] = (int)
+                    "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+        ;
+        *piVar7 = (int)"!mCurrentD3D9Thread";
+        piVar7[-1] = 0x40720a4;
+        FUN_0400a810();
+      }
+      piVar7[-1] = 0x4071ff7;
+      uVar3 = FUN_0415b750();
+      *(undefined4 *)(iVar5 + 0xebc0) = uVar3;
+    }
+    else {
+      local_34 = *(int *)(iVar5 + 0xebc0);
+      piVar7[-1] = 0x40720ee;
+      iVar4 = FUN_0415b750();
+      if (local_34 != iVar4) {
+        piVar7[3] = (int)"void Direct3DDevice9Imp::MultithreadedGuard_Enter()";
+        piVar7[2] = 0x3b3;
+        piVar7[1] = (int)
+                    "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+        ;
+        *piVar7 = (int)"mCurrentD3D9Thread == thread_GetCurrentThreadId()";
+        piVar7[-1] = 0x407211b;
+        FUN_0400a810();
+      }
+    }
+    *(int *)(iVar5 + 0xec64) = *(int *)(iVar5 + 0xec64) + 1;
+  }
+  iVar5 = *(int *)(param_1 + 0x75ec);
+  if (iVar5 == 0) {
+    local_34 = param_2 + 0xcc;
+    iVar5 = local_34 * 0x10 + param_1;
+    piVar2 = *(int **)(iVar5 + 0xc);
+    if (param_3 == piVar2) {
+      if ((*(int *)(iVar5 + 0x10) == param_4) && (*(int *)(iVar5 + 0x14) == param_5))
+      goto LAB_04072068;
+    }
+    else {
+      if (param_3 != (int *)0x0) {
+        iVar5 = *param_3;
+        *piVar7 = (int)param_3;
+                    /* try { // try from 04072164 to 040721eb has its CatchHandler @ 04072211 */
+        pcVar1 = *(code **)(iVar5 + 4);
+        piVar7[-1] = 0x4072167;
+        (*pcVar1)();
+        piVar7 = piVar7 + -1;
+      }
+      if (piVar2 != (int *)0x0) {
+        iVar5 = *piVar2;
+        *piVar7 = (int)piVar2;
+        pcVar1 = *(code **)(iVar5 + 8);
+        piVar7[-1] = 0x4072176;
+        (*pcVar1)();
+        piVar7 = piVar7 + -1;
+      }
+      *(int **)(param_1 + 0xc + local_34 * 0x10) = param_3;
+    }
+    iVar5 = local_34 * 0x10 + param_1;
+    *(int *)(iVar5 + 0x10) = param_4;
+    *(int *)(iVar5 + 0x14) = param_5;
+    local_34 = param_1 + 0xec00;
+    piVar7[3] = 0x10;
+    piVar7[2] = 0x24;
+    piVar7[1] = param_1;
+    *piVar7 = local_34;
+    piVar7[-1] = 0x40721bc;
+    puVar6 = (undefined4 *)D3D9CommandQueue__GetNextCommandPointer();
+    *puVar6 = param_3;
+    if (param_3 != (int *)0x0) {
+      iVar5 = *param_3;
+      *piVar7 = (int)param_3;
+      pcVar1 = *(code **)(iVar5 + 4);
+      piVar7[-1] = 0x40721cc;
+      (*pcVar1)();
+      piVar7 = piVar7 + -1;
+    }
+    puVar6[1] = param_2;
+    puVar6[2] = param_4;
+    puVar6[3] = param_5;
+    *piVar7 = local_34;
+    piVar7[-1] = 0x40721ec;
+    D3D9CommandQueue__CommandSubmitted();
+  }
+  else {
+    if (param_3 != (int *)0x0) {
+      iVar4 = *param_3;
+      *piVar7 = (int)param_3;
+                    /* try { // try from 0407201b to 04072052 has its CatchHandler @ 04072211 */
+      pcVar1 = *(code **)(iVar4 + 4);
+      piVar7[-1] = 0x407201e;
+      (*pcVar1)();
+      piVar7 = piVar7 + -1;
+    }
+    if (*(int *)(iVar5 + 4 + (param_2 + 0x264) * 4) == 0) {
+      local_30 = param_2 + 0xa1;
+    }
+    else {
+      local_30 = param_2 + 0xa1;
+      piVar2 = *(int **)(iVar5 + 4 + local_30 * 0x10);
+      if (piVar2 != (int *)0x0) {
+        iVar4 = *piVar2;
+        *piVar7 = (int)piVar2;
+        pcVar1 = *(code **)(iVar4 + 8);
+        piVar7[-1] = 0x4072053;
+        (*pcVar1)();
+        piVar7 = piVar7 + -1;
+      }
+    }
+    *(undefined4 *)(iVar5 + 4 + (param_2 + 0x264) * 4) = 1;
+    *(int **)(iVar5 + 4 + local_30 * 0x10) = param_3;
+  }
+LAB_04072068:
+  *piVar7 = (int)local_20;
+  piVar7[-1] = 0x4072073;
+  direct3ddevice9imp_040a2df0();
+  return 0;
+}
+

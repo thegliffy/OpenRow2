@@ -1,0 +1,46 @@
+
+undefined4 __regparm3 eON_GetWindowLong(int param_1,undefined4 param_2)
+
+{
+  undefined4 uVar1;
+  
+  switch(param_2) {
+  case 0:
+    uVar1 = *(undefined4 *)(param_1 + 0x34);
+    break;
+  case 4:
+    FUN_0402cd10(10,"GetWindowLong: DWL_DLGPROC requested, but not supported");
+    uVar1 = 0;
+    break;
+  case 8:
+    FUN_0402cd10(10,"GetWindowLong: DWL_USER requested, but not supported");
+    uVar1 = 0;
+    break;
+  case 0xffffffeb:
+    uVar1 = *(undefined4 *)(param_1 + 0x30);
+    break;
+  case 0xffffffec:
+    uVar1 = *(undefined4 *)(param_1 + 0x2c);
+    break;
+  default:
+    FUN_0402cd10(10,"GetWindowLong: unknown nIndex requested (%d)",param_2);
+    uVar1 = 0;
+    break;
+  case 0xfffffff0:
+    uVar1 = *(undefined4 *)(param_1 + 0x28);
+    break;
+  case 0xfffffff4:
+    uVar1 = *(undefined4 *)(param_1 + 0x40);
+    break;
+  case 0xfffffff8:
+    uVar1 = eON_GetWindow(param_1,1);
+    break;
+  case 0xfffffffa:
+    uVar1 = *(undefined4 *)(param_1 + 0x54);
+    break;
+  case 0xfffffffc:
+    uVar1 = *(undefined4 *)(param_1 + 0x24);
+  }
+  return uVar1;
+}
+

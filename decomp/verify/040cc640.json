@@ -1,0 +1,110 @@
+
+char * __regparm3 OpenGL_BufferToString(uint param_1)
+
+{
+  char *pcVar1;
+  
+  pcVar1 = "GL_COLOR_ATTACHMENT5";
+  if (param_1 != 0x8ce5) {
+    if (param_1 < 0x8ce6) {
+      if (param_1 == 0x1802) {
+        return "GL_STENCIL";
+      }
+      if (param_1 < 0x1803) {
+        if (param_1 == 0x402) {
+          return "GL_BACK_LEFT";
+        }
+        if (param_1 < 0x403) {
+          if (param_1 == 0x400) {
+            return "GL_FRONT_LEFT";
+          }
+          if (param_1 == 0x401) {
+            return "GL_FRONT_RIGHT";
+          }
+        }
+        else {
+          if (param_1 == 0x403) {
+            return "GL_BACK_RIGHT";
+          }
+          if (param_1 == 0x1801) {
+            return "GL_DEPTH";
+          }
+        }
+      }
+      else {
+        if (param_1 == 0x8ce2) {
+          return "GL_COLOR_ATTACHMENT2";
+        }
+        if (param_1 < 0x8ce3) {
+          if (param_1 == 0x8ce0) {
+            return "GL_COLOR_ATTACHMENT0";
+          }
+          if (param_1 == 0x8ce1) {
+            return "GL_COLOR_ATTACHMENT1";
+          }
+        }
+        else {
+          if (param_1 == 0x8ce3) {
+            return "GL_COLOR_ATTACHMENT3";
+          }
+          if (param_1 == 0x8ce4) {
+            return "GL_COLOR_ATTACHMENT4";
+          }
+        }
+      }
+    }
+    else {
+      if (param_1 == 0x8ceb) {
+        return "GL_COLOR_ATTACHMENT11";
+      }
+      if (param_1 < 0x8cec) {
+        if (param_1 == 0x8ce8) {
+          return "GL_COLOR_ATTACHMENT8";
+        }
+        if (param_1 < 0x8ce9) {
+          if (param_1 == 0x8ce6) {
+            return "GL_COLOR_ATTACHMENT6";
+          }
+          if (param_1 == 0x8ce7) {
+            return "GL_COLOR_ATTACHMENT7";
+          }
+        }
+        else {
+          if (param_1 == 0x8ce9) {
+            return "GL_COLOR_ATTACHMENT9";
+          }
+          if (param_1 == 0x8cea) {
+            return "GL_COLOR_ATTACHMENT10";
+          }
+        }
+      }
+      else {
+        if (param_1 == 0x8cee) {
+          return "GL_COLOR_ATTACHMENT14";
+        }
+        if (param_1 < 0x8cef) {
+          if (param_1 == 0x8cec) {
+            return "GL_COLOR_ATTACHMENT12";
+          }
+          if (param_1 == 0x8ced) {
+            return "GL_COLOR_ATTACHMENT13";
+          }
+        }
+        else {
+          if (param_1 == 0x8d00) {
+            return "GL_DEPTH_ATTACHMENT";
+          }
+          if (param_1 == 0x8d20) {
+            return "GL_STENCIL_ATTACHMENT";
+          }
+          if (param_1 == 0x8cef) {
+            return "GL_COLOR_ATTACHMENT15";
+          }
+        }
+      }
+    }
+    pcVar1 = "!!!unknown!!!";
+  }
+  return pcVar1;
+}
+

@@ -1,0 +1,207 @@
+
+int ucnv_swapAliases(int param_1,int param_2,int param_3,int param_4,undefined4 *param_5)
+
+{
+  undefined2 *puVar1;
+  ushort uVar2;
+  int iVar3;
+  bool bVar4;
+  undefined1 *__src;
+  char cVar5;
+  undefined2 uVar6;
+  int iVar7;
+  undefined4 *puVar8;
+  uint uVar9;
+  uint uVar10;
+  void *pvVar11;
+  void *__dest;
+  void *__dest_00;
+  int in_GS_OFFSET;
+  uint local_c60;
+  int local_c28;
+  undefined1 *local_c24;
+  undefined1 *local_c20;
+  code *local_c1c;
+  uint local_c18 [8];
+  int local_bf8;
+  int local_bf4;
+  int local_bf0 [8];
+  int local_bd0;
+  undefined1 local_bc8 [1000];
+  undefined1 local_7e0 [2000];
+  int local_10;
+  
+  local_10 = *(int *)(in_GS_OFFSET + 0x14);
+  iVar7 = udata_swapDataHeader(param_1,param_2,param_3,param_4,param_5);
+  if ((param_5 == (undefined4 *)0x0) || (cVar5 = FUN_041d4a8d(*param_5), cVar5 != '\0')) {
+    bVar4 = true;
+  }
+  else {
+    bVar4 = false;
+  }
+  if (bVar4) {
+    iVar7 = 0;
+  }
+  else if ((((*(char *)(param_2 + 0xc) == 'C') && (*(char *)(param_2 + 0xd) == 'v')) &&
+           (*(char *)(param_2 + 0xe) == 'A')) &&
+          ((*(char *)(param_2 + 0xf) == 'l' && (*(char *)(param_2 + 0x10) == '\x03')))) {
+    if ((param_3 < 0) || (0x23 < param_3 - iVar7)) {
+      puVar8 = (undefined4 *)(param_2 + iVar7);
+      memset(local_c18,0,0x28);
+      uVar9 = (**(code **)(param_1 + 8))(*puVar8);
+      local_c18[0] = uVar9;
+      if ((uVar9 < 8) || (9 < uVar9)) {
+        FUN_041ccfa7(param_1,
+                     "ucnv_swapAliases(): table of contents contains unsupported number of sections (%u sections)\n"
+                     ,uVar9);
+        *param_5 = 3;
+        iVar7 = 0;
+      }
+      else {
+        for (local_c60 = 1; local_c60 <= uVar9; local_c60 = local_c60 + 1) {
+          uVar10 = (**(code **)(param_1 + 8))(puVar8[local_c60]);
+          local_c18[local_c60] = uVar10;
+        }
+        memset(local_bf0,0,0x28);
+        local_bf0[1] = (uVar9 + 1) * 2;
+        for (local_c60 = 2; local_c60 <= uVar9; local_c60 = local_c60 + 1) {
+          local_bf0[local_c60] = local_bf0[local_c60 - 1] + local_c18[local_c60 - 1];
+        }
+        iVar3 = local_bf0[local_c60 - 1];
+        uVar10 = local_c18[local_c60 - 1];
+        if (-1 < param_3) {
+          if (param_3 - iVar7 < (int)((uVar10 + iVar3) * 2)) {
+            FUN_041ccfa7(param_1,
+                         "ucnv_swapAliases(): too few bytes (%d after header) for an alias table\n",
+                         param_3 - iVar7);
+            *param_5 = 8;
+            iVar7 = 0;
+            goto LAB_041d6bbf;
+          }
+          param_4 = param_4 + iVar7;
+          (**(code **)(param_1 + 0x1c))(param_1,puVar8,(uVar9 + 1) * 4,param_4,param_5);
+          (**(code **)(param_1 + 0x20))
+                    (param_1,(int)puVar8 + local_bd0 * 2,(local_bf4 + local_bf8) * 2,
+                     local_bd0 * 2 + param_4,param_5);
+          cVar5 = FUN_041d4a8d(*param_5);
+          if (cVar5 != '\0') {
+            FUN_041ccfa7(param_1,"ucnv_swapAliases().swapInvChars(charset names) failed\n");
+            iVar7 = 0;
+            goto LAB_041d6bbf;
+          }
+          if (*(char *)(param_1 + 1) == *(char *)(param_1 + 3)) {
+            (**(code **)(param_1 + 0x18))
+                      (param_1,(int)puVar8 + local_bf0[1] * 2,(local_bd0 - local_bf0[1]) * 2,
+                       local_bf0[1] * 2 + param_4,param_5);
+          }
+          else {
+            local_c28 = param_4 + local_bd0 * 2;
+            if (local_c18[3] < 0x1f5) {
+              local_c24 = local_7e0;
+              local_c20 = local_bc8;
+            }
+            else {
+              local_c24 = (undefined1 *)FUN_041cc920(local_c18[3] * 6);
+              if (local_c24 == (undefined1 *)0x0) {
+                FUN_041ccfa7(param_1,
+                             "ucnv_swapAliases(): unable to allocate memory for sorting tables (max length: %u)\n"
+                             ,local_c18[3]);
+                *param_5 = 7;
+                iVar7 = 0;
+                goto LAB_041d6bbf;
+              }
+              local_c20 = local_c24 + local_c18[3] * 4;
+            }
+            if (*(char *)(param_1 + 3) == '\0') {
+              local_c1c = FUN_041d4e56;
+            }
+            else {
+              local_c1c = FUN_041d4f25;
+            }
+            pvVar11 = (void *)((int)puVar8 + local_bf0[3] * 2);
+            __dest = (void *)(param_4 + local_bf0[3] * 2);
+            __dest_00 = (void *)(param_4 + local_bf0[4] * 2);
+            for (local_c60 = 0; local_c60 < local_c18[3]; local_c60 = local_c60 + 1) {
+              puVar1 = (undefined2 *)(local_c24 + local_c60 * 4);
+              uVar6 = (**(code **)(param_1 + 4))(*(undefined2 *)((int)pvVar11 + local_c60 * 2));
+              *puVar1 = uVar6;
+              *(short *)(local_c24 + local_c60 * 4 + 2) = (short)local_c60;
+            }
+            FUN_041fcec2(local_c24,local_c18[3],4,FUN_041d60a3,&local_c28,0,param_5);
+            cVar5 = FUN_041d4a81(*param_5);
+            __src = local_c20;
+            if (cVar5 != '\0') {
+              if (pvVar11 == __dest) {
+                for (local_c60 = 0; local_c60 < local_c18[3]; local_c60 = local_c60 + 1) {
+                  (**(code **)(param_1 + 0x18))
+                            (param_1,(void *)((int)pvVar11 +
+                                             (uint)*(ushort *)(local_c24 + local_c60 * 4 + 2) * 2),2
+                             ,__src + local_c60 * 2,param_5);
+                }
+                memcpy(__dest,__src,local_c18[3] * 2);
+                for (local_c60 = 0; local_c60 < local_c18[3]; local_c60 = local_c60 + 1) {
+                  (**(code **)(param_1 + 0x18))
+                            (param_1,(int)puVar8 +
+                                     (uint)*(ushort *)(local_c24 + local_c60 * 4 + 2) * 2 +
+                                     local_bf0[4] * 2,2,__src + local_c60 * 2,param_5);
+                }
+                memcpy(__dest_00,__src,local_c18[3] * 2);
+              }
+              else {
+                for (local_c60 = 0; local_c60 < local_c18[3]; local_c60 = local_c60 + 1) {
+                  uVar2 = *(ushort *)(local_c24 + local_c60 * 4 + 2);
+                  (**(code **)(param_1 + 0x18))
+                            (param_1,(void *)((int)pvVar11 + (uint)uVar2 * 2),2,
+                             (void *)(local_c60 * 2 + (int)__dest),param_5);
+                  (**(code **)(param_1 + 0x18))
+                            (param_1,(int)puVar8 + (uint)uVar2 * 2 + local_bf0[4] * 2,2,
+                             (void *)(local_c60 * 2 + (int)__dest_00),param_5);
+                }
+              }
+            }
+            if (local_c24 != local_7e0) {
+              FUN_041cca07(local_c24);
+            }
+            cVar5 = FUN_041d4a8d(*param_5);
+            if (cVar5 != '\0') {
+              FUN_041ccfa7(param_1,"ucnv_swapAliases().uprv_sortArray(%u items) failed\n",
+                           local_c18[3]);
+              iVar7 = 0;
+              goto LAB_041d6bbf;
+            }
+            (**(code **)(param_1 + 0x18))
+                      (param_1,(int)puVar8 + local_bf0[1] * 2,(local_bf0[3] - local_bf0[1]) * 2,
+                       local_bf0[1] * 2 + param_4,param_5);
+            (**(code **)(param_1 + 0x18))
+                      (param_1,(int)puVar8 + local_bf0[5] * 2,(local_bd0 - local_bf0[5]) * 2,
+                       local_bf0[5] * 2 + param_4,param_5);
+          }
+        }
+        iVar7 = iVar7 + (uVar10 + iVar3) * 2;
+      }
+    }
+    else {
+      FUN_041ccfa7(param_1,
+                   "ucnv_swapAliases(): too few bytes (%d after header) for an alias table\n",
+                   param_3 - iVar7);
+      *param_5 = 8;
+      iVar7 = 0;
+    }
+  }
+  else {
+    FUN_041ccfa7(param_1,
+                 "ucnv_swapAliases(): data format %02x.%02x.%02x.%02x (format version %02x) is not an alias table\n"
+                 ,*(undefined1 *)(param_2 + 0xc),*(undefined1 *)(param_2 + 0xd),
+                 *(undefined1 *)(param_2 + 0xe),*(undefined1 *)(param_2 + 0xf),
+                 *(undefined1 *)(param_2 + 0x10));
+    *param_5 = 0x10;
+    iVar7 = 0;
+  }
+LAB_041d6bbf:
+  if (local_10 == *(int *)(in_GS_OFFSET + 0x14)) {
+    return iVar7;
+  }
+                    /* WARNING: Subroutine does not return */
+  __stack_chk_fail();
+}
+

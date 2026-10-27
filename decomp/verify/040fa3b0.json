@@ -1,0 +1,215 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+/* source: backendOpenALSoft */
+
+void DSoundBackend_SourceSet3DProperties(int *param_1,void *param_2)
+
+{
+  float *pfVar1;
+  char cVar2;
+  int iVar3;
+  bool bVar4;
+  bool bVar5;
+  uint uVar6;
+  double dVar7;
+  int iVar8;
+  float fVar9;
+  float fVar10;
+  float fVar11;
+  double dVar12;
+  double dVar13;
+  
+  if ((char)param_1[6] == '\0') {
+    FUN_0400a810("source->Is3D",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/dsound/backendOpenALSoft.cpp"
+                 ,0x314);
+  }
+  iVar8 = memcmp(param_1 + 0xb,param_2,0x40);
+  if (iVar8 == 0) {
+    return;
+  }
+  alDeferUpdatesSOFT();
+  iVar8 = param_1[0x1a];
+  iVar3 = *(int *)((int)param_2 + 0x3c);
+  if (iVar8 == iVar3) {
+LAB_040fa428:
+    if (iVar8 == 2) goto LAB_040fa705;
+  }
+  else {
+    param_1[0x1a] = iVar3;
+    if (iVar3 == 0) {
+      alSourcei(param_1[0x1b],0x202,0);
+      iVar8 = param_1[0x1a];
+      goto LAB_040fa428;
+    }
+    alSourcei(param_1[0x1b],0x202,1);
+    if (param_1[0x1a] == 2) {
+      alSource3f(param_1[0x1b],0x1004,0,0,0);
+      param_1[0xc] = 0;
+      param_1[0xd] = 0;
+      param_1[0xe] = 0;
+      alSource3f(param_1[0x1b],0x1006,0,0,0);
+      param_1[0xf] = 0;
+      param_1[0x10] = 0;
+      param_1[0x11] = 0;
+      alSourcef(param_1[0x1b],0x1023,0x4e6e6b28);
+      param_1[0x19] = 0x4e6e6b28;
+      param_1[0x12] = 0x168;
+      alSourcei(param_1[0x1b],0x1001,0x168);
+      alSourcef(param_1[0x1b],0x1022,0x3f800000);
+      cVar2 = *(char *)((int)param_1 + 0x1a);
+      param_1[0x17] = param_1[8];
+      if ((*(char *)((int)param_1 + 0x19) == '\0') && (param_1[0x1a] == 2)) {
+        *(undefined1 *)((int)param_1 + 0x1a) = 0;
+LAB_040faa87:
+        dVar7 = _DAT_0430dbe8;
+        dVar13 = DAT_0430dbe0;
+        if (cVar2 != '\0') {
+          dVar12 = pow(_DAT_0430dbe8,(double)param_1[8] / DAT_0430dbe0);
+          alSourcef(param_1[0x1b],0x100a,(float)dVar12);
+          if ((char)param_1[6] != '\0') {
+            if (param_1[0x1a] == 2) {
+              param_1[0x17] = param_1[8];
+              goto LAB_040fa705;
+            }
+            dVar13 = pow(dVar7,(double)param_1[0x17] / dVar13);
+            alSourcef(param_1[0x1b],0x1022,(float)dVar13 / (float)dVar12);
+          }
+        }
+      }
+      else {
+        fVar9 = (float)param_1[0xc];
+        fVar10 = (float)param_1[0xd];
+        fVar11 = (float)param_1[0xe];
+        if (param_1[0x1a] == 0) {
+          iVar8 = *param_1;
+          fVar9 = fVar9 - *(float *)(iVar8 + 4);
+          fVar10 = fVar10 - *(float *)(iVar8 + 8);
+          fVar11 = fVar11 - *(float *)(iVar8 + 0xc);
+        }
+        fVar9 = fVar9 * fVar9 + fVar10 * fVar10 + fVar11 * fVar11;
+        fVar10 = SQRT(fVar9);
+        if (NAN(fVar10)) {
+          fVar10 = sqrtf(fVar9);
+        }
+        pfVar1 = (float *)(param_1 + 0x19);
+        *(bool *)((int)param_1 + 0x1a) = *pfVar1 <= fVar10 && fVar10 != *pfVar1;
+        if ((NAN(fVar10) || NAN(*pfVar1)) || (*pfVar1 > fVar10 || fVar10 == *pfVar1))
+        goto LAB_040faa87;
+        if (cVar2 == '\0') {
+          alSourcef(param_1[0x1b],0x1022,0x3f800000);
+          alSourcef(param_1[0x1b],0x100a,0);
+          iVar8 = param_1[0x1a];
+          goto LAB_040fa428;
+        }
+      }
+      iVar8 = param_1[0x1a];
+      goto LAB_040fa428;
+    }
+  }
+  uVar6 = DAT_042f73b0;
+  if ((((float)param_1[0xc] != *(float *)((int)param_2 + 4)) ||
+      ((float)param_1[0xd] != *(float *)((int)param_2 + 8))) ||
+     ((float)param_1[0xe] != *(float *)((int)param_2 + 0xc))) {
+    param_1[0xc] = *(int *)((int)param_2 + 4);
+    param_1[0xd] = *(int *)((int)param_2 + 8);
+    param_1[0xe] = *(int *)((int)param_2 + 0xc);
+    param_1[0xe] = param_1[0xe] ^ uVar6;
+    alSourcefv(param_1[0x1b],0x1004,param_1 + 0xc);
+    cVar2 = *(char *)((int)param_1 + 0x1a);
+    fVar9 = (float)(param_1[0xe] ^ uVar6);
+    param_1[0xe] = (int)fVar9;
+    if ((*(char *)((int)param_1 + 0x19) == '\0') && (param_1[0x1a] == 2)) {
+      *(undefined1 *)((int)param_1 + 0x1a) = 0;
+    }
+    else {
+      fVar10 = (float)param_1[0xc];
+      fVar11 = (float)param_1[0xd];
+      if (param_1[0x1a] == 0) {
+        iVar8 = *param_1;
+        fVar10 = fVar10 - *(float *)(iVar8 + 4);
+        fVar11 = fVar11 - *(float *)(iVar8 + 8);
+        fVar9 = fVar9 - *(float *)(iVar8 + 0xc);
+      }
+      fVar10 = fVar10 * fVar10 + fVar11 * fVar11 + fVar9 * fVar9;
+      fVar9 = SQRT(fVar10);
+      if (NAN(fVar9)) {
+        fVar9 = sqrtf(fVar10);
+      }
+      bVar4 = fVar9 != (float)param_1[0x19];
+      bVar5 = (float)param_1[0x19] <= fVar9;
+      *(bool *)((int)param_1 + 0x1a) = bVar5 && bVar4;
+      if (bVar5 && bVar4) {
+        if (cVar2 == '\0') {
+          alSourcef(param_1[0x1b],0x1022,0x3f800000);
+          alSourcef(param_1[0x1b],0x100a,0);
+        }
+        goto LAB_040fa511;
+      }
+    }
+    dVar7 = _DAT_0430dbe8;
+    dVar13 = DAT_0430dbe0;
+    if (cVar2 != '\0') {
+      dVar12 = pow(_DAT_0430dbe8,(double)param_1[8] / DAT_0430dbe0);
+      alSourcef(param_1[0x1b],0x100a,(float)dVar12);
+      if ((char)param_1[6] != '\0') {
+        if (param_1[0x1a] == 2) {
+          param_1[0x17] = param_1[8];
+        }
+        else {
+          dVar13 = pow(dVar7,(double)param_1[0x17] / dVar13);
+          alSourcef(param_1[0x1b],0x1022,(float)dVar13 / (float)dVar12);
+        }
+      }
+    }
+  }
+LAB_040fa511:
+  uVar6 = DAT_042f73b0;
+  if ((((float)param_1[0xf] != *(float *)((int)param_2 + 0x10)) ||
+      ((float)param_1[0x10] != *(float *)((int)param_2 + 0x14))) ||
+     ((float)param_1[0x11] != *(float *)((int)param_2 + 0x18))) {
+    param_1[0xf] = *(int *)((int)param_2 + 0x10);
+    param_1[0x10] = *(int *)((int)param_2 + 0x14);
+    param_1[0x11] = *(int *)((int)param_2 + 0x18);
+    param_1[0x11] = param_1[0x11] ^ uVar6;
+    alSourcefv(param_1[0x1b],0x1006,param_1 + 0xf);
+    param_1[0x11] = param_1[0x11] ^ uVar6;
+  }
+  uVar6 = DAT_042f73b0;
+  if ((((float)param_1[0x14] != *(float *)((int)param_2 + 0x24)) ||
+      ((float)param_1[0x15] != *(float *)((int)param_2 + 0x28))) ||
+     ((float)param_1[0x16] != *(float *)((int)param_2 + 0x2c))) {
+    param_1[0x14] = *(int *)((int)param_2 + 0x24);
+    param_1[0x15] = *(int *)((int)param_2 + 0x28);
+    param_1[0x16] = *(int *)((int)param_2 + 0x2c);
+    param_1[0x16] = param_1[0x16] ^ uVar6;
+    alSourcefv(param_1[0x1b],0x1005,param_1 + 0x14);
+    param_1[0x16] = param_1[0x16] ^ uVar6;
+  }
+  fVar9 = *(float *)((int)param_2 + 0x38);
+  param_1[0x18] = *(int *)((int)param_2 + 0x34);
+  if (fVar9 != (float)param_1[0x19]) {
+    param_1[0x19] = (int)fVar9;
+    alSourcef(param_1[0x1b],0x1023,*(undefined4 *)((int)param_2 + 0x38));
+  }
+  if (param_1[0x12] != *(int *)((int)param_2 + 0x1c)) {
+    param_1[0x12] = *(int *)((int)param_2 + 0x1c);
+    alSourcei(param_1[0x1b],0x1001,*(undefined4 *)((int)param_2 + 0x1c));
+  }
+  if (param_1[0x13] != *(int *)((int)param_2 + 0x20)) {
+    param_1[0x13] = *(int *)((int)param_2 + 0x20);
+    alSourcei(param_1[0x1b],0x1002,*(undefined4 *)((int)param_2 + 0x20));
+  }
+  if (param_1[0x17] != *(int *)((int)param_2 + 0x30)) {
+    param_1[0x17] = *(int *)((int)param_2 + 0x30);
+    dVar7 = _DAT_0430dbe8;
+    dVar13 = DAT_0430dbe0;
+    dVar12 = pow(_DAT_0430dbe8,(double)param_1[8] / DAT_0430dbe0);
+    dVar13 = pow(dVar7,(double)param_1[0x17] / dVar13);
+    alSourcef(param_1[0x1b],0x1022,(float)dVar13 / (float)dVar12);
+  }
+LAB_040fa705:
+  alProcessUpdatesSOFT();
+  return;
+}
+

@@ -1,0 +1,250 @@
+
+/* source: openGlDebugFunctions */
+
+void OGLC_Buffer(char *param_1)
+
+{
+  int iVar1;
+  ushort **ppuVar2;
+  long lVar3;
+  char *pcVar4;
+  char *pcVar5;
+  undefined1 uVar6;
+  bool bVar7;
+  byte bVar8;
+  int local_28;
+  int local_24;
+  int local_20 [4];
+  
+  bVar8 = 0;
+  iVar1 = eON_Int_GL_NoteCurrentContext();
+  if (iVar1 == 0) {
+    puts("No valid OpenGL context in calling thread!.");
+  }
+  else {
+    uVar6 = DAT_044dac80 == 0;
+    if ((bool)uVar6) {
+      FUN_040d9ba0();
+    }
+    iVar1 = 2;
+    pcVar4 = param_1;
+    pcVar5 = "V";
+    do {
+      if (iVar1 == 0) break;
+      iVar1 = iVar1 + -1;
+      uVar6 = *pcVar4 == *pcVar5;
+      pcVar4 = pcVar4 + (uint)bVar8 * -2 + 1;
+      pcVar5 = pcVar5 + (uint)bVar8 * -2 + 1;
+    } while ((bool)uVar6);
+    if ((bool)uVar6) {
+      glGetIntegerv(0x8894,&local_28);
+      iVar1 = glGetError();
+      if (iVar1 != 0) {
+        FUN_0400a810("glGetError() == 0",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                     ,0x114f,"void OGLC_Buffer(const char*)");
+      }
+      if (local_28 == 0) {
+        if (DAT_04408c90 != '\0') {
+          puts("No valid OpenGL buffer bound to vertex buffer binding point!.");
+        }
+      }
+      else {
+        OpenGL_LogState_Buffer();
+      }
+    }
+    else {
+      iVar1 = 2;
+      bVar7 = false;
+      pcVar4 = param_1;
+      pcVar5 = "E";
+      do {
+        if (iVar1 == 0) break;
+        iVar1 = iVar1 + -1;
+        bVar7 = *pcVar4 == *pcVar5;
+        pcVar4 = pcVar4 + (uint)bVar8 * -2 + 1;
+        pcVar5 = pcVar5 + (uint)bVar8 * -2 + 1;
+      } while (bVar7);
+      if (bVar7) {
+        glGetIntegerv(0x8895,&local_28);
+        iVar1 = glGetError();
+        if (iVar1 != 0) {
+          FUN_0400a810("glGetError() == 0",
+                       "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                       ,0x115d,"void OGLC_Buffer(const char*)");
+        }
+        if (local_28 == 0) {
+          if (DAT_04408c90 != '\0') {
+            puts("No valid OpenGL buffer bound to element buffer binding point!.");
+          }
+        }
+        else {
+          OpenGL_LogState_Buffer();
+        }
+      }
+      else {
+        iVar1 = 2;
+        bVar7 = false;
+        pcVar4 = param_1;
+        pcVar5 = "U";
+        do {
+          if (iVar1 == 0) break;
+          iVar1 = iVar1 + -1;
+          bVar7 = *pcVar4 == *pcVar5;
+          pcVar4 = pcVar4 + (uint)bVar8 * -2 + 1;
+          pcVar5 = pcVar5 + (uint)bVar8 * -2 + 1;
+        } while (bVar7);
+        if (bVar7) {
+          glGetIntegerv(0x8a28,&local_28);
+          iVar1 = glGetError();
+          if (iVar1 != 0) {
+            FUN_0400a810("glGetError() == 0",
+                         "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                         ,0x116b,"void OGLC_Buffer(const char*)");
+          }
+          if (local_28 == 0) {
+            if (DAT_04408c90 != '\0') {
+              puts("No valid OpenGL buffer bound to uniform buffer binding point!.");
+            }
+          }
+          else {
+            OpenGL_LogState_Buffer();
+          }
+        }
+        else {
+          if (*param_1 == 'V') {
+            if ((param_1[1] == 'A') &&
+               (ppuVar2 = __ctype_b_loc(), (*(byte *)((int)*ppuVar2 + param_1[2] * 2 + 1) & 8) != 0)
+               ) {
+              lVar3 = strtol(param_1 + 2,(char **)0x0,10);
+              glGetIntegerv(0x8869,&local_28);
+              iVar1 = glGetError();
+              if (iVar1 != 0) {
+                FUN_0400a810("glGetError() == 0",
+                             "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                             ,0x117b,"void OGLC_Buffer(const char*)");
+              }
+              if (local_28 <= lVar3) {
+                if (DAT_04408c90 == '\0') {
+                  return;
+                }
+                printf("Vertex attribute index (%d) higher than maximum available (%d)!\n",lVar3,
+                       local_28 + -1);
+                return;
+              }
+              (*DAT_0451ec80)(lVar3,0x889f,&local_24);
+              iVar1 = glGetError();
+              if (iVar1 != 0) {
+                FUN_0400a810("glGetError() == 0",
+                             "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                             ,0x1185,"void OGLC_Buffer(const char*)");
+              }
+              if (local_24 == 0) {
+                if (DAT_04408c90 == '\0') {
+                  return;
+                }
+                puts("No valid OpenGL buffer bound to this vertex attribute binding point!.");
+                return;
+              }
+              glGetIntegerv(0x8894,local_20);
+              iVar1 = glGetError();
+              if (iVar1 != 0) {
+                FUN_0400a810("glGetError() == 0",
+                             "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                             ,0x118f,"void OGLC_Buffer(const char*)");
+              }
+              if (local_24 != local_20[0]) {
+                (*DAT_0451ed34)(0x8892,local_24);
+                iVar1 = glGetError();
+                if (iVar1 != 0) {
+                  FUN_0400a810("glGetError() == 0",
+                               "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                               ,0x1194,"void OGLC_Buffer(const char*)");
+                }
+              }
+              OpenGL_LogState_Buffer();
+              if (local_24 == local_20[0]) {
+                return;
+              }
+              (*DAT_0451ed34)(0x8892,local_20[0]);
+              iVar1 = glGetError();
+              if (iVar1 == 0) {
+                return;
+              }
+              FUN_0400a810("glGetError() == 0",
+                           "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                           ,0x119c,"void OGLC_Buffer(const char*)");
+              return;
+            }
+          }
+          else if (((*param_1 == 'U') && (param_1[1] == 'B')) &&
+                  (ppuVar2 = __ctype_b_loc(),
+                  (*(byte *)((int)*ppuVar2 + param_1[2] * 2 + 1) & 8) != 0)) {
+            lVar3 = strtol(param_1 + 2,(char **)0x0,10);
+            glGetIntegerv(0x8a2f,local_20);
+            iVar1 = glGetError();
+            if (iVar1 != 0) {
+              FUN_0400a810("glGetError() == 0",
+                           "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                           ,0x11a5,"void OGLC_Buffer(const char*)");
+            }
+            if (local_20[0] <= lVar3) {
+              if (DAT_04408c90 == '\0') {
+                return;
+              }
+              printf("Uniform buffer index (%d) higher than maximum available (%d)!\n",lVar3,
+                     local_20[0] + -1);
+              return;
+            }
+            (*DAT_0451e0b8)(0x8a28,lVar3,&local_24);
+            iVar1 = glGetError();
+            if (iVar1 != 0) {
+              FUN_0400a810("glGetError() == 0",
+                           "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                           ,0x11af,"void OGLC_Buffer(const char*)");
+            }
+            if (local_24 == 0) {
+              if (DAT_04408c90 == '\0') {
+                return;
+              }
+              puts("No valid OpenGL buffer bound to this uniform binding point!.");
+              return;
+            }
+            glGetIntegerv(0x8a28,&local_28);
+            iVar1 = glGetError();
+            if (iVar1 != 0) {
+              FUN_0400a810("glGetError() == 0",
+                           "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                           ,0x11b9,"void OGLC_Buffer(const char*)");
+            }
+            if (local_24 != local_28) {
+              (*DAT_0451ed34)(0x8a11,local_24);
+              iVar1 = glGetError();
+              if (iVar1 != 0) {
+                FUN_0400a810("glGetError() == 0",
+                             "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                             ,0x11be,"void OGLC_Buffer(const char*)");
+              }
+            }
+            OpenGL_LogState_Buffer();
+            if (local_24 == local_28) {
+              return;
+            }
+            (*DAT_0451ed34)(0x8a11,local_28);
+            iVar1 = glGetError();
+            if (iVar1 == 0) {
+              return;
+            }
+            FUN_0400a810("glGetError() == 0",
+                         "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                         ,0x11c6,"void OGLC_Buffer(const char*)");
+            return;
+          }
+          printf("Unrecognized OpenGL buffer binding point \'%s\'.\n",param_1);
+        }
+      }
+    }
+  }
+  return;
+}
+

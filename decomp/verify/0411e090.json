@@ -1,0 +1,106 @@
+
+/* source: gdi32 */
+
+undefined4 gdi32_0411e090(int param_1,int param_2,short *param_3)
+
+{
+  undefined4 uVar1;
+  int iVar2;
+  undefined4 *puVar3;
+  int iVar4;
+  uint uVar5;
+  uint uVar6;
+  uint uVar7;
+  uint uVar8;
+  uint uVar9;
+  uint uVar10;
+  undefined **ppuVar11;
+  byte bVar12;
+  undefined4 uVar13;
+  undefined4 uVar14;
+  
+  bVar12 = 0;
+  uVar1 = 0;
+  if ((((param_3 != (short *)0x0) && (param_2 != 0)) && (param_1 != 0)) &&
+     (param_1 + 0x68686869U < 0x80)) {
+    iVar2 = (param_1 + 0x68686869U) * 0x60;
+    iVar4 = *(int *)(&DAT_04512abc + iVar2);
+    if (iVar4 == 0) {
+      if (*(int *)(&DAT_04512ac0 + iVar2) != 0) {
+        FUN_0400a810("dc->PixelFormats == __null",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/gdi32/gdi32.cpp"
+                     ,0x133,"void MakeSurePixelFormatsInitialised(HDC_DrawingContext*)");
+      }
+      puVar3 = malloc(0x78);
+      *(undefined4 **)(&DAT_04512ac0 + iVar2) = puVar3;
+      ppuVar11 = &PTR_DAT_043186e0;
+      for (iVar4 = 0x1e; iVar4 != 0; iVar4 = iVar4 + -1) {
+        *puVar3 = *ppuVar11;
+        ppuVar11 = ppuVar11 + (uint)bVar12 * -2 + 1;
+        puVar3 = puVar3 + (uint)bVar12 * -2 + 1;
+      }
+      iVar4 = 3;
+      *(undefined4 *)(&DAT_04512abc + iVar2) = 3;
+    }
+    uVar1 = 0;
+    if (((param_2 <= iVar4) && (*param_3 == 0x28)) &&
+       ((param_3[1] == 1 && ((char)param_3[4] == '\0')))) {
+      FUN_0402cd10(5,"SetPixelFormat( hDC = %p, iPixelFormat = %d, ppfd = %p )",param_1,param_2,
+                   param_3);
+      FUN_0402cd10(5,"    attempts to set pixel format descriptor:");
+      FUN_0402cd10(5,"        dwFlags = %p",*(undefined4 *)(param_3 + 2));
+      uVar5 = (uint)*(byte *)((int)param_3 + 0x11);
+      uVar6 = (uint)*(byte *)(param_3 + 8);
+      uVar7 = (uint)*(byte *)((int)param_3 + 0xf);
+      FUN_0402cd10(5,
+                   "        color bits = %u, red %u << %u , green %u << %u, blue %u << %u, alpha %u << %u"
+                   ,*(undefined1 *)((int)param_3 + 9),(char)param_3[5],
+                   *(undefined1 *)((int)param_3 + 0xb),(char)param_3[6],
+                   *(undefined1 *)((int)param_3 + 0xd),(char)param_3[7],uVar7,uVar6,uVar5);
+      FUN_0402cd10(5,"        accum bits = %u, red %u, green %u, blue %u, alpha %u",(char)param_3[9]
+                   ,*(undefined1 *)((int)param_3 + 0x13),(char)param_3[10],
+                   *(undefined1 *)((int)param_3 + 0x15),(char)param_3[0xb]);
+      FUN_0402cd10(5,"        depth bits = %u, stencil bits = %u",
+                   *(undefined1 *)((int)param_3 + 0x17),(char)param_3[0xc]);
+      uVar1 = *(undefined4 *)(param_3 + 0x12);
+      uVar14 = *(undefined4 *)(param_3 + 0x10);
+      uVar13 = *(undefined4 *)(param_3 + 0xe);
+      uVar8 = (uint)*(byte *)((int)param_3 + 0x1b);
+      uVar9 = (uint)*(byte *)(param_3 + 0xd);
+      uVar10 = (uint)*(byte *)((int)param_3 + 0x19);
+      FUN_0402cd10(5,
+                   "        cAuxBuffers = %u, iLayerType = %u, bReserved = %u, dwLayerMask = %u, dwVisibleMask = %u, dwDamageMask = %u"
+                   ,uVar10,uVar9,uVar8,uVar13,uVar14,uVar1);
+      if (*(char *)((int)param_3 + 0x17) == ' ') {
+        if (((char)param_3[0xc] == '\b') && (DAT_0451ca78 == '\0')) {
+          FUN_0402cd10(10,
+                       "SetPixelFormat tried to set 32-bit depth with 8-bit stencil, but as OpenGL driver doesn\'t support that, we refused."
+                       ,uVar10,uVar9,uVar8,uVar13,uVar14,uVar1,uVar7,uVar6,uVar5);
+          return 0;
+        }
+      }
+      else if ((((*(char *)((int)param_3 + 0x17) == '\x18') && ((char)param_3[0xc] == '\b')) &&
+               (DAT_0451ca65 == '\0')) && (DAT_0451c9b2 == '\0')) {
+        FUN_0402cd10(10,
+                     "SetPixelFormat tried to set 24-bit depth with 8-bit stencil, but as OpenGL driver doesn\'t support that, we refused."
+                     ,uVar10,uVar9,uVar8,uVar13,uVar14,uVar1,uVar7,uVar6,uVar5);
+        return 0;
+      }
+      puVar3 = (undefined4 *)((param_2 * 5 + -5) * 8 + *(int *)(&DAT_04512ac0 + iVar2));
+      *puVar3 = *(undefined4 *)param_3;
+      puVar3[1] = *(undefined4 *)(param_3 + 2);
+      puVar3[2] = *(undefined4 *)(param_3 + 4);
+      puVar3[3] = *(undefined4 *)(param_3 + 6);
+      puVar3[4] = *(undefined4 *)(param_3 + 8);
+      puVar3[5] = *(undefined4 *)(param_3 + 10);
+      puVar3[6] = *(undefined4 *)(param_3 + 0xc);
+      puVar3[7] = *(undefined4 *)(param_3 + 0xe);
+      puVar3[8] = *(undefined4 *)(param_3 + 0x10);
+      puVar3[9] = *(undefined4 *)(param_3 + 0x12);
+      uVar1 = 1;
+      *(int *)(&DAT_04512ab8 + iVar2) = param_2;
+    }
+  }
+  return uVar1;
+}
+

@@ -1,0 +1,87 @@
+
+/* source: d3dstructs, uniformBuffer */
+
+void eON_UniformBufferStreamed__UpdateToNewBuffer(int *param_1)
+
+{
+  int *piVar1;
+  int *piVar2;
+  char cVar3;
+  int *piVar4;
+  int iVar5;
+  int *piVar6;
+  int *piVar7;
+  int iVar8;
+  bool bVar9;
+  
+  if (param_1[4] == 0) {
+    FUN_0400a810("mBuffer",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/uniformBuffer.cpp"
+                 ,0x60,"void eON_UniformBufferStreamed::UpdateToNewBuffer()");
+  }
+  bVar9 = DAT_0451ca88 != '\0';
+  if (bVar9) {
+    OpenGLContextCache____glewBindBuffer(param_1[1],0x8a11,param_1[4]);
+    cVar3 = (*DAT_0451ecf0)(0x8a11);
+    if (cVar3 != '\x01') {
+      FUN_0400a810("__glewUnmapBuffer( 0x8A11 ) == 1",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/uniformBuffer.cpp"
+                   ,0x6b,"void eON_UniformBufferStreamed::UpdateToNewBuffer()");
+    }
+    param_1[5] = 0;
+  }
+  piVar4 = operator_new(0x18);
+  iVar5 = param_1[4];
+  piVar4[1] = 0;
+  piVar4[2] = 0;
+  piVar4[3] = 0;
+  *piVar4 = iVar5;
+  iVar5 = *param_1;
+  *(undefined1 *)(piVar4 + 4) = 1;
+  FUN_040a5910(piVar4 + 1,iVar5 + 0x40);
+  piVar1 = (int *)param_1[6];
+  piVar4[5] = (int)piVar1;
+  param_1[6] = (int)piVar4;
+  piVar2 = piVar4;
+  iVar5 = 1;
+  if (piVar1 == (int *)0x0) {
+    iVar8 = 2;
+  }
+  else {
+    do {
+      iVar8 = iVar5;
+      piVar7 = piVar1;
+      piVar6 = piVar2;
+      piVar2 = piVar7;
+      piVar1 = (int *)piVar7[5];
+      iVar5 = iVar8 + 1;
+    } while ((int *)piVar7[5] != (int *)0x0);
+    if ((piVar4 != piVar7) && (cVar3 = FUN_040a5960(piVar7 + 1,*param_1 + 0x40), cVar3 != '\0')) {
+      param_1[4] = *piVar7;
+      piVar6[5] = 0;
+      if ((piVar7[2] != 0) || (piVar7[3] != 0)) {
+        FUN_0400a810("!FenceARB && !FenceAPPLE",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/d3dstructs.h"
+                     ,299,"eONFence::~eONFence()");
+      }
+      operator_delete(piVar7);
+      OpenGLContextCache____glewBindBuffer(param_1[1],0x8a11,param_1[4]);
+      if (bVar9) {
+        iVar5 = (*DAT_0451e520)(0x8a11,0,param_1[7],0xca);
+        param_1[5] = iVar5;
+        if (iVar5 == 0) {
+          FUN_0400a810("mBufferPtr",
+                       "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/uniformBuffer.cpp"
+                       ,0x97,"void eON_UniformBufferStreamed::UpdateToNewBuffer()");
+        }
+      }
+      return;
+    }
+    iVar8 = iVar8 + 2;
+  }
+  eON_UniformBufferStreamed__MakeNewBuffer(param_1);
+  FUN_0402cd10(0x14,"Uniform buffer %s (%p) now has %d internal buffers, taking %d bytes",param_1[2]
+               ,param_1,iVar8,iVar8 * param_1[7]);
+  return;
+}
+

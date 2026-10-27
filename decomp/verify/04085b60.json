@@ -1,0 +1,384 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+/* source: direct3dbasetexture9imp, direct3ddevice9imp */
+
+int Direct3DDevice9Imp__OpenGLSide_Clear(int param_1,undefined4 param_2,uint *param_3)
+
+{
+  double dVar1;
+  uint uVar2;
+  bool bVar3;
+  char cVar4;
+  undefined4 uVar5;
+  int iVar6;
+  uint uVar7;
+  uint uVar8;
+  int iVar9;
+  int iVar10;
+  uint *puVar11;
+  int iVar12;
+  int iVar13;
+  uint uVar14;
+  uint uVar15;
+  bool bVar16;
+  bool bVar17;
+  float fVar18;
+  double dVar19;
+  float fVar20;
+  float fVar21;
+  float fVar22;
+  int local_78;
+  uint local_74;
+  uint local_4c;
+  uint local_48;
+  int local_44;
+  int local_40;
+  int local_3c;
+  int local_38;
+  int local_34;
+  int local_30;
+  uint local_2c;
+  uint local_28;
+  uint local_24;
+  uint local_20;
+  
+  local_3c = 0;
+  local_38 = 0;
+  local_34 = 0;
+  local_30 = 0;
+  bVar3 = false;
+  uVar14 = *param_3;
+  uVar2 = param_3[1];
+  if ((uVar14 & 1) != 0) {
+    iVar13 = *(int *)(param_1 + 0xc65c);
+    bVar3 = false;
+    if ((iVar13 != 0) && (*(int *)(iVar13 + 0x70) != 0x4c4c554e)) {
+      bVar3 = true;
+      local_3c = iVar13;
+    }
+    iVar13 = *(int *)(param_1 + 0xc660);
+    if ((iVar13 != 0) && (*(int *)(iVar13 + 0x70) != 0x4c4c554e)) {
+      bVar3 = true;
+      local_38 = iVar13;
+    }
+    iVar13 = *(int *)(param_1 + 0xc664);
+    if ((iVar13 != 0) && (*(int *)(iVar13 + 0x70) != 0x4c4c554e)) {
+      bVar3 = true;
+      local_34 = iVar13;
+    }
+    iVar13 = *(int *)(param_1 + 0xc668);
+    if (((iVar13 != 0) && (*(int *)(iVar13 + 0x70) != 0x4c4c554e)) || (iVar13 = local_30, bVar3)) {
+      local_30 = iVar13;
+      bVar3 = true;
+    }
+    else {
+      bVar3 = false;
+    }
+  }
+  bVar16 = false;
+  bVar17 = false;
+  if (*(int *)(param_1 + 0xc66c) != 0) {
+    bVar17 = false;
+    if ((uVar14 & 2) != 0) {
+      cVar4 = direct3dsurface9imp_040adca0(*(int *)(param_1 + 0xc66c) + 4);
+      bVar17 = cVar4 != '\0';
+    }
+    bVar16 = false;
+    if ((uVar14 & 4) != 0) {
+      cVar4 = direct3dsurface9imp_040add10(*(int *)(param_1 + 0xc66c) + 4);
+      bVar16 = cVar4 != '\0';
+    }
+  }
+  iVar13 = local_34;
+  if (bVar3) {
+    iVar9 = *(int *)(param_1 + 0xeb48);
+    if (((*(char *)(iVar9 + 0x424) != '\x0f') || (*(char *)(iVar9 + 0x425) != '\x0f')) ||
+       ((*(char *)(iVar9 + 0x426) != '\x0f' || (*(char *)(iVar9 + 0x427) != '\x0f')))) {
+      glColorMask(1,1,1,1);
+      *(undefined1 *)(iVar9 + 0x424) = 0xf;
+      *(undefined1 *)(iVar9 + 0x425) = 0xf;
+      *(undefined1 *)(iVar9 + 0x426) = 0xf;
+      *(undefined1 *)(iVar9 + 0x427) = 0xf;
+      *(uint *)(param_1 + 0xea04) = *(uint *)(param_1 + 0xea04) | 4;
+      iVar9 = *(int *)(param_1 + 0xeb48);
+    }
+    uVar14 = param_3[2];
+    fVar22 = ((float)(uVar14 >> 0x18) + 0.0) / _DAT_042dc5a0;
+    fVar18 = (DAT_042dbf34 * 0.0 + (float)(uVar14 & 0xff)) / _DAT_042dc5a0;
+    fVar21 = (DAT_042dbf34 * 0.0 + (float)(uVar14 >> 0x10 & 0xff)) / _DAT_042dc5a0;
+    fVar20 = (DAT_042dbf34 * 0.0 + (float)(uVar14 >> 8 & 0xff)) / _DAT_042dc5a0;
+    local_78 = local_3c;
+    if (((fVar21 == *(float *)(iVar9 + 0x4a8)) && (fVar20 == *(float *)(iVar9 + 0x4ac))) &&
+       ((fVar18 == *(float *)(iVar9 + 0x4b0) && (fVar22 == *(float *)(iVar9 + 0x4b4))))) {
+      if (local_3c != 0) goto LAB_04085df0;
+LAB_04086528:
+      local_78 = local_38;
+      if ((local_38 != 0) || (local_78 = local_34, local_34 != 0)) goto LAB_04085df0;
+      local_78 = local_30;
+      if (local_30 == 0) {
+        FUN_0400a810("firstNonZeroRT",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+                     ,0x16f5,"DWORD Direct3DDevice9Imp::OpenGLSide_Clear(DWORD, LPVOID)");
+        local_44 = 0;
+        iVar13 = 0;
+        local_40 = local_30;
+      }
+      else {
+        local_40 = local_34;
+        local_44 = local_30;
+      }
+    }
+    else {
+      glClearColor(fVar21,fVar20,fVar18,fVar22);
+      *(float *)(iVar9 + 0x4a8) = fVar21;
+      *(float *)(iVar9 + 0x4ac) = fVar20;
+      *(float *)(iVar9 + 0x4b0) = fVar18;
+      *(float *)(iVar9 + 0x4b4) = fVar22;
+      if (local_3c == 0) goto LAB_04086528;
+LAB_04085df0:
+      local_40 = local_38;
+      local_44 = local_30;
+    }
+    local_78 = local_78 + 0x70;
+    local_74 = 0x4100;
+    iVar9 = *(int *)(param_1 + 0xeb48);
+    local_4c = 0x4000;
+    if (bVar17) goto LAB_04085e1e;
+LAB_04085ecd:
+    local_48 = 0;
+  }
+  else {
+    if (bVar17) {
+      local_78 = *(int *)(param_1 + 0xc66c);
+    }
+    else {
+      if (!bVar16) goto LAB_0408617c;
+      local_78 = *(int *)(param_1 + 0xc66c);
+    }
+    if (local_78 == 0) {
+      FUN_0400a810("mOGLDeviceState.CurrentDepthStencil",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+                   ,0x16fa,"DWORD Direct3DDevice9Imp::OpenGLSide_Clear(DWORD, LPVOID)");
+      local_78 = *(int *)(param_1 + 0xc66c);
+    }
+    local_78 = local_78 + 0x70;
+    local_44 = local_30;
+    local_74 = 0x100;
+    local_40 = local_38;
+    local_4c = 0;
+    iVar9 = *(int *)(param_1 + 0xeb48);
+    if (!bVar17) goto LAB_04085ecd;
+LAB_04085e1e:
+    if (*(char *)(iVar9 + 0x42e) != '\x01') {
+      glDepthMask(1);
+      *(undefined1 *)(iVar9 + 0x42e) = 1;
+      iVar9 = *(int *)(param_1 + 0xeb48);
+    }
+    dVar19 = (double)(float)param_3[3];
+    dVar1 = *(double *)(iVar9 + 0x4b8);
+    *(uint *)(param_1 + 0xea04) = *(uint *)(param_1 + 0xea04) & 0xffffffef | 8;
+    if (dVar19 != dVar1) {
+      (*DAT_0451eec0)(dVar19);
+      *(double *)(iVar9 + 0x4b8) = dVar19;
+      iVar9 = *(int *)(param_1 + 0xeb48);
+    }
+    local_48 = *(undefined4 *)(param_1 + 0xc66c);
+    local_4c = local_74;
+  }
+  uVar5 = 0;
+  if (bVar16) {
+    if (*(int *)(iVar9 + 0x430) != -1) {
+      glStencilMask(0xffffffff);
+      cVar4 = FUN_04021f90();
+      if (cVar4 != '\0') {
+        (*DAT_0451d648)(0x405);
+        glStencilMask(0xffffffff);
+        (*DAT_0451d648)(0x404);
+      }
+      *(undefined4 *)(iVar9 + 0x430) = 0xffffffff;
+      iVar9 = *(int *)(param_1 + 0xeb48);
+    }
+    *(uint *)(param_1 + 0xea04) = *(uint *)(param_1 + 0xea04) | 8;
+    uVar14 = param_3[4];
+    if (uVar14 != *(uint *)(iVar9 + 0x4c0)) {
+      glClearStencil(uVar14);
+      *(uint *)(iVar9 + 0x4c0) = uVar14;
+      iVar9 = *(int *)(param_1 + 0xeb48);
+    }
+    local_4c = local_4c | 0x400;
+    uVar5 = *(undefined4 *)(param_1 + 0xc66c);
+  }
+  FramebufferCache__GetFramebufferHash
+            (iVar9 + 0x1f8,local_3c,local_40,iVar13,local_44,local_48,uVar5);
+  local_48 = 0;
+  puVar11 = param_3;
+  if (param_3[1] == 0) {
+    iVar13 = *(int *)(param_1 + 0xe9bc);
+    local_2c = 0;
+    local_28 = 0;
+    iVar9 = *(int *)(param_1 + 0xe9c0);
+    local_24 = 0;
+    local_20 = 0;
+    if (iVar13 == 0) {
+      if (iVar9 != 0) {
+        local_40 = *(int *)(param_1 + 0xe9c4);
+        iVar6 = *(int *)(param_1 + 0xe9c8);
+        goto LAB_04085fde;
+      }
+      local_40 = *(int *)(param_1 + 0xe9c4);
+      if (local_40 != *(int *)(local_78 + 0x18)) {
+        iVar6 = *(int *)(param_1 + 0xe9c8);
+        goto LAB_04085fde;
+      }
+      iVar6 = *(int *)(param_1 + 0xe9c8);
+      if (iVar6 != *(int *)(local_78 + 0x1c)) goto LAB_04085fde;
+      iVar13 = *(int *)(param_1 + 0xeb48);
+      uVar5 = 1;
+      if (*(char *)(iVar13 + 0xa8b) != '\0') {
+        glDisable(0xc11);
+        *(undefined1 *)(iVar13 + 0xa8b) = 0;
+      }
+    }
+    else {
+      local_40 = *(int *)(param_1 + 0xe9c4);
+      iVar6 = *(int *)(param_1 + 0xe9c8);
+LAB_04085fde:
+      iVar12 = *(int *)(param_1 + 0xeb48);
+      iVar10 = 0;
+      if (-1 < local_40) {
+        iVar10 = local_40;
+      }
+      if (iVar6 < 0) {
+        iVar6 = 0;
+      }
+      if ((((iVar13 != *(int *)(iVar12 + 0x434)) || (iVar9 != *(int *)(iVar12 + 0x438))) ||
+          (*(int *)(iVar12 + 0x43c) != iVar10)) || (iVar6 != *(int *)(iVar12 + 0x440))) {
+        glScissor(iVar13,iVar9,iVar10,iVar6);
+        *(int *)(iVar12 + 0x438) = iVar9;
+        *(int *)(iVar12 + 0x434) = iVar13;
+        *(int *)(iVar12 + 0x440) = iVar6;
+        *(int *)(iVar12 + 0x43c) = iVar10;
+        iVar12 = *(int *)(param_1 + 0xeb48);
+      }
+      if (*(char *)(iVar12 + 0xa8b) != '\x01') {
+        glEnable(0xc11);
+        *(undefined1 *)(iVar12 + 0xa8b) = 1;
+      }
+      local_2c = *(uint *)(param_1 + 0xe9bc);
+      uVar5 = 0;
+      local_28 = *(uint *)(param_1 + 0xe9c0);
+      local_24 = local_2c + *(int *)(param_1 + 0xe9c4);
+      local_20 = *(int *)(param_1 + 0xe9c8) + local_28;
+    }
+    glClear(local_4c);
+    if (bVar3) {
+      if (local_3c != 0) {
+        Direct3DSurface9Imp__MainOpenGLObjectDataUpdated(local_3c + 4,uVar5,&local_2c);
+      }
+      if (local_38 != 0) {
+        Direct3DSurface9Imp__MainOpenGLObjectDataUpdated(local_38 + 4,uVar5,&local_2c);
+      }
+      if (local_34 != 0) {
+        Direct3DSurface9Imp__MainOpenGLObjectDataUpdated(local_34 + 4,uVar5,&local_2c);
+      }
+      if (local_30 != 0) {
+        Direct3DSurface9Imp__MainOpenGLObjectDataUpdated(local_30 + 4,uVar5,&local_2c);
+      }
+    }
+    if ((*(int *)(param_1 + 0xc66c) != 0) && ((bVar17 || (bVar16)))) {
+      Direct3DSurface9Imp__MainOpenGLObjectDataUpdated
+                (*(int *)(param_1 + 0xc66c) + 4,uVar5,&local_2c);
+    }
+  }
+  else {
+    do {
+      uVar14 = *(uint *)(param_1 + 0xe9bc);
+      uVar15 = puVar11[5];
+      if ((int)puVar11[5] < (int)uVar14) {
+        uVar15 = uVar14;
+      }
+      uVar8 = *(uint *)(param_1 + 0xe9c0);
+      uVar7 = puVar11[6];
+      if ((int)puVar11[6] < (int)uVar8) {
+        uVar7 = uVar8;
+      }
+      uVar14 = uVar14 + *(int *)(param_1 + 0xe9c4);
+      local_24 = puVar11[7];
+      if ((int)uVar14 < (int)puVar11[7]) {
+        local_24 = uVar14;
+      }
+      uVar8 = uVar8 + *(int *)(param_1 + 0xe9c8);
+      local_20 = puVar11[8];
+      if ((int)uVar8 < (int)puVar11[8]) {
+        local_20 = uVar8;
+      }
+      local_2c = uVar15;
+      local_28 = uVar7;
+      if ((((uVar15 == 0) && (uVar7 == 0)) && (*(uint *)(local_78 + 0x18) == local_24)) &&
+         (*(uint *)(local_78 + 0x1c) == local_20)) {
+        iVar13 = *(int *)(param_1 + 0xeb48);
+        uVar5 = 1;
+        if (*(char *)(iVar13 + 0xa8b) != '\0') {
+          glDisable(0xc11);
+          *(undefined1 *)(iVar13 + 0xa8b) = 0;
+        }
+      }
+      else {
+        iVar13 = *(int *)(param_1 + 0xeb48);
+        iVar9 = 0;
+        if (-1 < (int)(local_24 - uVar15)) {
+          iVar9 = local_24 - uVar15;
+        }
+        iVar6 = 0;
+        if (-1 < (int)(local_20 - uVar7)) {
+          iVar6 = local_20 - uVar7;
+        }
+        if (((*(uint *)(iVar13 + 0x434) != uVar15) || (*(uint *)(iVar13 + 0x438) != uVar7)) ||
+           ((iVar9 != *(int *)(iVar13 + 0x43c) || (iVar6 != *(int *)(iVar13 + 0x440))))) {
+          glScissor(uVar15,uVar7,iVar9,iVar6);
+          *(uint *)(iVar13 + 0x434) = uVar15;
+          *(uint *)(iVar13 + 0x438) = uVar7;
+          *(int *)(iVar13 + 0x440) = iVar6;
+          *(int *)(iVar13 + 0x43c) = iVar9;
+          iVar13 = *(int *)(param_1 + 0xeb48);
+        }
+        uVar5 = 0;
+        if (*(char *)(iVar13 + 0xa8b) != '\x01') {
+          glEnable(0xc11);
+          *(undefined1 *)(iVar13 + 0xa8b) = 1;
+        }
+      }
+      glClear();
+      if (bVar3) {
+        if (local_3c == 0) {
+          do {
+                    /* WARNING: Do nothing block with infinite loop */
+          } while( true );
+        }
+        do {
+          Direct3DSurface9Imp__MainOpenGLObjectDataUpdated(local_3c + 4,uVar5,&local_2c);
+        } while( true );
+      }
+      if ((*(int *)(param_1 + 0xc66c) != 0) && ((bVar17 || (bVar16)))) {
+        Direct3DSurface9Imp__MainOpenGLObjectDataUpdated
+                  (*(int *)(param_1 + 0xc66c) + 4,uVar5,&local_2c);
+      }
+      local_48 = local_48 + 1;
+      puVar11 = puVar11 + 4;
+    } while (local_48 < param_3[1]);
+  }
+  cVar4 = FUN_04021f10();
+  if (((cVar4 != '\0') && (param_3[2] == 0xff808080)) &&
+     ((*param_3 == 5 && ((local_3c != 0 && (iVar13 = *(int *)(local_3c + 0x94), iVar13 != 0)))))) {
+    if (*(int *)(iVar13 + 0x284) < 1) {
+      FUN_0400a810("(INT) mOpenGLTexturesCount > index",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3dbasetexture9imp.h"
+                   ,0x8c,"OpenGLTexture* Direct3DBaseTexture9Imp::GetOpenGLTexture(INT)");
+    }
+    DAT_04468c38 = *(undefined4 *)(*(int *)(iVar13 + 0x244) + 8);
+  }
+  OpenGLDebugEvent(2,"Clear()");
+LAB_0408617c:
+  return uVar2 * 0x10 + 0x14;
+}
+

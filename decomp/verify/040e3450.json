@@ -1,0 +1,122 @@
+
+uint CheckDeviceFormat_VolumeTexture(undefined4 *param_1,undefined4 *param_2)
+
+{
+  char cVar1;
+  int iVar2;
+  undefined4 uVar3;
+  undefined4 uVar4;
+  int *piVar5;
+  undefined4 *puVar6;
+  undefined4 *puVar7;
+  undefined4 *puVar8;
+  uint uVar9;
+  undefined4 *puVar10;
+  bool bVar11;
+  undefined4 *local_40;
+  undefined4 local_3c;
+  undefined4 local_38;
+  undefined1 local_34;
+  undefined4 local_30;
+  undefined4 local_2c;
+  undefined1 local_28;
+  int local_24;
+  int local_20 [4];
+  
+  puVar10 = param_1 + 0x13;
+  puVar8 = (undefined4 *)param_1[0x14];
+  puVar6 = puVar10;
+  if ((undefined4 *)param_1[0x14] != (undefined4 *)0x0) {
+    do {
+      while (puVar7 = puVar8, iVar2 = memcmp(puVar7 + 4,param_2,8), -1 < iVar2) {
+        puVar8 = (undefined4 *)puVar7[2];
+        puVar6 = puVar7;
+        if ((undefined4 *)puVar7[2] == (undefined4 *)0x0) goto LAB_040e34a3;
+      }
+      piVar5 = puVar7 + 3;
+      puVar8 = (undefined4 *)*piVar5;
+      puVar7 = puVar6;
+    } while ((undefined4 *)*piVar5 != (undefined4 *)0x0);
+LAB_040e34a3:
+    if ((puVar10 != puVar7) && (iVar2 = memcmp(param_2,puVar7 + 4,8), -1 < iVar2)) {
+      return (uint)*(byte *)(puVar7 + 6);
+    }
+  }
+  uVar3 = eON_Int_GL_NoteCurrentContext();
+  uVar4 = eON_Int_GL_NoteCurrentContext();
+  piVar5 = (int *)OpenGLWrapperLinux__ctor();
+  cVar1 = (**(code **)(*piVar5 + 8))(piVar5,*param_1,0,param_1 + 1);
+  if (cVar1 == '\0') {
+    (**(code **)(*piVar5 + 4))(piVar5);
+    eON_Int_GL_RestoreCachedMakeCurrent(uVar4);
+    puVar8 = (undefined4 *)param_1[0x14];
+    puVar6 = puVar10;
+    if ((undefined4 *)param_1[0x14] != (undefined4 *)0x0) {
+      do {
+        iVar2 = memcmp(puVar8 + 4,param_2,8);
+        if (iVar2 < 0) {
+          puVar7 = (undefined4 *)puVar8[3];
+        }
+        else {
+          puVar7 = (undefined4 *)puVar8[2];
+          puVar6 = puVar8;
+        }
+        puVar8 = puVar7;
+      } while (puVar7 != (undefined4 *)0x0);
+      bVar11 = puVar10 != puVar6;
+      puVar10 = puVar6;
+      if ((bVar11) && (iVar2 = memcmp(param_2,puVar6 + 4,8), -1 < iVar2)) goto LAB_040e370e;
+    }
+    local_38 = param_2[1];
+    local_34 = 0;
+    local_3c = *param_2;
+    FUN_040e40b0(&local_40,param_1 + 0x12,puVar10,&local_3c);
+    puVar6 = local_40;
+LAB_040e370e:
+    *(undefined1 *)(puVar6 + 6) = 0;
+    return 0;
+  }
+  uVar4 = (**(code **)(*piVar5 + 0x10))(piVar5);
+  local_24 = 0;
+  if (param_2[1] == 0) {
+    uVar9 = 0;
+    FUN_0402cd10(0xf,"Testing of non-texture volumes unimplemented, fail");
+  }
+  else {
+    uVar9 = PixelFormatData__PrepareVolumeTexture(param_1,*param_2,&local_24);
+    local_20[0] = local_24;
+    if (local_24 != 0) {
+      glDeleteTextures(1,local_20);
+    }
+  }
+  (**(code **)(*piVar5 + 0x20))(piVar5,uVar4);
+  (**(code **)(*piVar5 + 4))(piVar5);
+  eON_Int_GL_RestoreCachedMakeCurrent(uVar3);
+  puVar8 = (undefined4 *)param_1[0x14];
+  puVar6 = puVar10;
+  if (puVar8 != (undefined4 *)0x0) {
+    do {
+      iVar2 = memcmp(puVar8 + 4,param_2,8);
+      if (iVar2 < 0) {
+        puVar7 = (undefined4 *)puVar8[3];
+      }
+      else {
+        puVar7 = (undefined4 *)puVar8[2];
+        puVar6 = puVar8;
+      }
+      puVar8 = puVar7;
+    } while (puVar7 != (undefined4 *)0x0);
+    uVar9 = uVar9 & 0xff;
+    if ((puVar10 != puVar6) && (iVar2 = memcmp(param_2,puVar6 + 4,8), -1 < iVar2))
+    goto LAB_040e365f;
+  }
+  local_2c = param_2[1];
+  local_28 = 0;
+  local_30 = *param_2;
+  FUN_040e40b0(&local_40,param_1 + 0x12,puVar6,&local_30);
+  puVar6 = local_40;
+LAB_040e365f:
+  *(char *)(puVar6 + 6) = (char)uVar9;
+  return uVar9;
+}
+

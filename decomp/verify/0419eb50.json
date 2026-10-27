@@ -1,0 +1,44 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+bool _glewInit_GL_EXT_vertex_attrib_64bit(void)
+
+{
+  int iVar1;
+  bool bVar2;
+  bool bVar3;
+  bool bVar4;
+  bool bVar5;
+  bool bVar6;
+  bool bVar7;
+  bool bVar8;
+  bool bVar9;
+  bool bVar10;
+  
+  iVar1 = glXGetProcAddressARB("glGetVertexAttribLdvEXT");
+  _DAT_0451d5b4 = iVar1;
+  _DAT_0451d5b0 = glXGetProcAddressARB("glVertexArrayVertexAttribLOffsetEXT");
+  bVar2 = _DAT_0451d5b0 == 0;
+  _DAT_0451d5ac = glXGetProcAddressARB("glVertexAttribL1dEXT");
+  bVar3 = _DAT_0451d5ac == 0;
+  _DAT_0451d5a8 = glXGetProcAddressARB("glVertexAttribL1dvEXT");
+  bVar4 = _DAT_0451d5a8 == 0;
+  _DAT_0451d5a4 = glXGetProcAddressARB("glVertexAttribL2dEXT");
+  bVar5 = _DAT_0451d5a4 == 0;
+  _DAT_0451d5a0 = glXGetProcAddressARB("glVertexAttribL2dvEXT");
+  bVar6 = _DAT_0451d5a0 == 0;
+  _DAT_0451d59c = glXGetProcAddressARB("glVertexAttribL3dEXT");
+  bVar7 = _DAT_0451d59c == 0;
+  _DAT_0451d598 = glXGetProcAddressARB("glVertexAttribL3dvEXT");
+  bVar8 = _DAT_0451d598 == 0;
+  _DAT_0451d594 = glXGetProcAddressARB("glVertexAttribL4dEXT");
+  bVar9 = _DAT_0451d594 == 0;
+  _DAT_0451d590 = glXGetProcAddressARB("glVertexAttribL4dvEXT");
+  bVar10 = _DAT_0451d590 == 0;
+  _DAT_0451d58c = glXGetProcAddressARB("glVertexAttribLPointerEXT");
+  return _DAT_0451d58c == 0 ||
+         (bVar10 ||
+         (bVar9 || (bVar8 || (bVar7 || (bVar6 || (bVar5 || (bVar4 || (bVar3 || (bVar2 || iVar1 == 0)
+                                                                     ))))))));
+}
+

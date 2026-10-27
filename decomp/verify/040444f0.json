@@ -1,0 +1,263 @@
+
+/* source: vpfs */
+
+undefined4 __regparm3 VPFS_MakeSureFolderExistsOnDisk(char *param_1)
+
+{
+  bool bVar1;
+  char cVar2;
+  int iVar3;
+  int iVar4;
+  int iVar5;
+  char *pcVar6;
+  int iVar7;
+  int *piVar8;
+  undefined4 uVar9;
+  char *local_ca8;
+  stat64 *local_ca4;
+  char local_c94 [1024];
+  undefined1 local_894 [1024];
+  char local_494 [1024];
+  stat64 local_94;
+  undefined4 local_34;
+  undefined4 local_30;
+  undefined4 local_2c;
+  undefined4 local_28;
+  int local_24;
+  uint local_20 [4];
+  
+  local_24 = -1;
+  iVar3 = FUN_0403c9d0();
+  if (iVar3 == 0) {
+    VPFS_MakePathCaseSensitive(param_1,param_1 + 1,param_1);
+    iVar4 = FUN_0403c400(param_1);
+    if (iVar4 != 0) {
+      SplitFile_GetStat(param_1,&local_94);
+      return 1;
+    }
+    iVar4 = __xstat64(3,param_1,&local_94);
+  }
+  else {
+    if (local_24 != 0) {
+      VPFS_MakePathCaseSensitive(local_c94,local_24,local_c94);
+    }
+    iVar4 = FUN_0403c400(local_c94);
+    if (iVar4 != 0) {
+      SplitFile_GetStat(local_c94,&local_94);
+      return 1;
+    }
+    iVar4 = __xstat64(3,local_c94,&local_94);
+  }
+  if (iVar4 != -1) {
+    return 1;
+  }
+  local_ca4 = &local_94;
+  iVar4 = VPFS_PathToPathInArchive();
+  if (iVar4 == 0) {
+    return 0;
+  }
+  cVar2 = FUN_0404c4c0(local_894);
+  if (cVar2 != '\0') {
+    return 0;
+  }
+  iVar4 = -1;
+  if (iVar3 != 0) {
+    VPFS_MakePathCaseSensitive(param_1,param_1 + 1,param_1);
+    iVar4 = FUN_0403c400(param_1);
+    if (iVar4 == 0) {
+      iVar4 = __xstat64(3,param_1,local_ca4);
+      if (iVar4 != 0) goto LAB_0404469c;
+    }
+    else {
+      SplitFile_GetStat(param_1,local_ca4);
+    }
+    if ((local_94.st_mode & 0x3f000) != 0x4000) {
+      return 0;
+    }
+    iVar4 = 0;
+  }
+LAB_0404469c:
+  iVar5 = VPFS_FindInVirtualFilesystem();
+  if (iVar5 == -1) {
+    if (iVar4 != 0) {
+      return 0;
+    }
+    local_ca8 = (char *)0x0;
+  }
+  else {
+    local_ca8 = (char *)(iVar5 + DAT_04468a94);
+    if (*local_ca8 != '\0') {
+      return 0;
+    }
+  }
+  pcVar6 = strrchr(param_1,0x2f);
+  if (pcVar6 != (char *)0x0) {
+    *pcVar6 = '\0';
+    if (*param_1 == '\0') {
+      *pcVar6 = '/';
+    }
+    else {
+      iVar7 = VPFS_MakeSureFolderExistsOnDisk();
+      *pcVar6 = '/';
+      if (iVar7 == 0) {
+        return 0;
+      }
+    }
+  }
+  pcVar6 = local_c94;
+  if (iVar3 == 0) {
+    pcVar6 = param_1;
+  }
+  iVar7 = mkdir(pcVar6,0x1ed);
+  piVar8 = __errno_location();
+  iVar3 = *piVar8;
+  if ((iVar3 == 0x11) || (iVar7 != -1)) {
+    VPFS_MadeChangesAtPath(pcVar6);
+    if (iVar4 == 0) {
+      eON_Int_TimespecToFileTime(&local_94.st_ctim,&local_34);
+      eON_Int_TimespecToFileTime(&local_94.st_mtim,&local_2c);
+      local_20[0] = (uint)((local_94.st_mode & 0x80) == 0);
+      if ((local_94.st_mode & 0x3f000) == 0x4000) {
+        local_20[0] = local_20[0] | 0x10;
+      }
+      else {
+        local_20[0] = (-(uint)(local_20[0] == 0) & 0x7f) + 1;
+      }
+    }
+    else {
+      if (iVar5 == -1) {
+        FUN_0400a810("filesystemOffset != -1",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/vpfs/vpfs.cpp",0x1229
+                     ,"int VPFS_MakeSureFolderExistsOnDisk(char*)");
+      }
+      local_34 = *(undefined4 *)(local_ca8 + 8);
+      local_30 = *(undefined4 *)(local_ca8 + 0xc);
+      local_2c = *(undefined4 *)(local_ca8 + 0x10);
+      local_28 = *(undefined4 *)(local_ca8 + 0x14);
+      local_20[0] = *(uint *)(local_ca8 + 0x20) & 0x27;
+    }
+    bVar1 = false;
+    iVar3 = FUN_0404c040(local_894,0);
+    if (iVar3 != 0) {
+      cVar2 = FUN_0404c630(iVar3);
+      if (cVar2 == '\0') {
+        FUN_0404c840(iVar3,&local_34);
+        FUN_0404c970(iVar3,&local_2c);
+        FUN_0404c710(iVar3,local_20);
+      }
+      bVar1 = cVar2 != '\0';
+      FUN_0404c310(iVar3);
+    }
+    pcVar6 = local_494;
+    if (*param_1 == '/') {
+      local_494[0] = 'C';
+      pcVar6 = local_494 + 2;
+      local_494[1] = 0x3a;
+    }
+    strcpy(pcVar6,param_1);
+    if (local_494[0] != '\0') {
+      pcVar6 = local_494;
+      cVar2 = local_494[0];
+      do {
+        if (cVar2 == '/') {
+          *pcVar6 = '\\';
+        }
+        pcVar6 = pcVar6 + 1;
+        cVar2 = *pcVar6;
+      } while (cVar2 != '\0');
+    }
+    if ((local_494[0] == '\0') || (iVar3 = VPFS_Open(), iVar3 == 0)) {
+      FUN_0400a810("h","/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/vpfs/vpfs.cpp",
+                   0x1244,"int VPFS_MakeSureFolderExistsOnDisk(char*)");
+    }
+    else {
+      VPFS_SetFileAttributes(iVar3,local_20[0]);
+      VPFS_SetDateTime(iVar3,&local_34,&local_2c,0);
+      eON_VPFS_Close(iVar3);
+    }
+    uVar9 = 1;
+    if (bVar1) {
+      VPFS_SetAllFolderContentsAsDeleted();
+    }
+  }
+  else if (iVar3 == 0x1c) {
+    uVar9 = 0;
+    FUN_0402cd10(0xf,
+                 "VPFS_MakeSureFolderExistsOnDisk() error - no space left on filesystem. Path: %s",
+                 pcVar6);
+  }
+  else {
+    if (iVar3 < 0x1d) {
+      if (iVar3 == 0xd) {
+        FUN_0402cd10(0xf,
+                     "VPFS_MakeSureFolderExistsOnDisk() error - access to part of path denied: %s",
+                     pcVar6);
+        return 0;
+      }
+      if (iVar3 < 0xe) {
+        if (iVar3 == 2) {
+          FUN_0402cd10(0xf,
+                       "VPFS_MakeSureFolderExistsOnDisk() error - empty path, or parent folder doesn\'t exist. Path: %s"
+                       ,pcVar6);
+          return 0;
+        }
+        if (iVar3 == 5) {
+          FUN_0402cd10(0xf,"VPFS_MakeSureFolderExistsOnDisk() error - IO error occured. Path: %s",
+                       pcVar6);
+          return 0;
+        }
+      }
+      else {
+        if (iVar3 == 0xe) {
+          FUN_0402cd10(0xf,
+                       "VPFS_MakeSureFolderExistsOnDisk() error - path points outside the process\'s allocated address space: %s"
+                       ,pcVar6);
+          return 0;
+        }
+        if (iVar3 == 0x14) {
+          FUN_0402cd10(0xf,
+                       "VPFS_MakeSureFolderExistsOnDisk() error - component of path prefix is not a directory. Path: %s"
+                       ,pcVar6);
+          return 0;
+        }
+      }
+    }
+    else {
+      if (iVar3 == 0x24) {
+        FUN_0402cd10(0xf,"VPFS_MakeSureFolderExistsOnDisk() error - path too long: %s",pcVar6);
+        return 0;
+      }
+      if (iVar3 < 0x25) {
+        if (iVar3 == 0x1e) {
+          FUN_0402cd10(0xf,
+                       "VPFS_MakeSureFolderExistsOnDisk() error - parent directory esides on read-only filesystem. Path: %s"
+                       ,pcVar6);
+          return 0;
+        }
+        if (iVar3 == 0x1f) {
+          FUN_0402cd10(0xf,
+                       "VPFS_MakeSureFolderExistsOnDisk() error - parent folder already has maximal number of links. Path: %s"
+                       ,pcVar6);
+          return 0;
+        }
+      }
+      else {
+        if (iVar3 == 0x28) {
+          FUN_0402cd10(0xf,"VPFS_MakeSureFolderExistsOnDisk() error - loop in path: %s",pcVar6);
+          return 0;
+        }
+        if (iVar3 == 0x7a) {
+          FUN_0402cd10(0xf,"VPFS_MakeSureFolderExistsOnDisk() error - user quota exceeded. Path: %s"
+                       ,pcVar6);
+          return 0;
+        }
+      }
+    }
+    uVar9 = 0;
+    FUN_0402cd10(0xf,
+                 "VPFS_MakeSureFolderExistsOnDisk() error - unhandled error in mkdir(): %d for path: %s"
+                 ,iVar3,pcVar6);
+  }
+  return uVar9;
+}
+

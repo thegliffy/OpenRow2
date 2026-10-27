@@ -1,0 +1,362 @@
+
+/* source: D3DBytecodeToGLSLText */
+
+void eON_ShaderData__GenerateOutputRegistersAssignments
+               (int param_1,undefined4 param_2,undefined4 *param_3)
+
+{
+  undefined1 *puVar1;
+  int iVar2;
+  char *pcVar3;
+  int iVar4;
+  uint uVar5;
+  int iVar6;
+  char **ppcVar7;
+  byte bVar8;
+  int local_d8;
+  uint local_d4;
+  char *local_c4 [4];
+  char *local_b4;
+  char *local_b0;
+  char *local_ac;
+  char *local_a8;
+  char *local_a4;
+  char *local_a0;
+  char *local_9c;
+  char *local_98;
+  char *local_94;
+  char *local_90;
+  char *local_8c;
+  char *local_88;
+  char *local_84;
+  char *local_80;
+  char *local_7c;
+  char *local_78;
+  int local_4c [10];
+  undefined1 local_22 [18];
+  
+  bVar8 = 0;
+  if (*(char *)(param_1 + 0x10) != '\0') {
+    FUN_0400a810("!IsPixelShader",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/D3DBytecodeToGLSLText.cpp"
+                 ,0xd20,
+                 "void eON_ShaderData::GenerateOutputRegistersAssignments(TextBuffer*, ColorRegisterAssignment*)"
+                );
+  }
+  *param_3 = 0xffffffff;
+  param_3[1] = 0xffffffff;
+  param_3[2] = 0xffffffff;
+  param_3[3] = 0xffffffff;
+  param_3[4] = 0xffffffff;
+  if (*(int *)(param_1 + 8) < 3) {
+    iVar2 = 0;
+    if (*(int *)(param_1 + 0x5c) == 0) {
+      iVar6 = *(int *)(param_1 + 0x60);
+    }
+    else {
+      iVar6 = *(int *)(param_1 + 0x5c) + -1;
+      *(char *)((int)param_3 + 1) = (char)iVar6;
+      *(undefined1 *)param_3 = 0;
+      ppcVar7 = local_c4;
+      for (iVar2 = 0x1e; iVar2 != 0; iVar2 = iVar2 + -1) {
+        *ppcVar7 = (char *)0x0;
+        ppcVar7 = ppcVar7 + (uint)bVar8 * -2 + 1;
+      }
+      local_84 = "eON_Varyings[8]";
+      local_c4[0] = "eON_Varyings[0]";
+      local_c4[1] = "gl_FrontColor";
+      local_c4[2] = "eON_Varyings[1]";
+      local_c4[3] = "gl_FrontSecondaryColor";
+      local_b4 = "eON_Varyings[2]";
+      local_b0 = "gl_TexCoord[7]";
+      local_ac = "eON_Varyings[3]";
+      local_a8 = "gl_TexCoord[6]";
+      local_a4 = "eON_Varyings[4]";
+      local_a0 = "gl_TexCoord[5]";
+      local_9c = "eON_Varyings[5]";
+      local_98 = "gl_TexCoord[4]";
+      local_94 = "eON_Varyings[6]";
+      local_90 = "gl_TexCoord[3]";
+      local_8c = "eON_Varyings[7]";
+      local_88 = "gl_TexCoord[2]";
+      local_80 = "gl_TexCoord[1]";
+      local_7c = "eON_Varyings[9]";
+      local_78 = "gl_TexCoord[0]";
+      eON_AppendShaderCompileMessage
+                (param_2,"%s = clamp( %s, 0.0, 1.0 );\n",local_c4[(DAT_04468c04 ^ 1) + iVar6 * 2],
+                 local_c4[(DAT_04468c04 ^ 1) + iVar6 * 2]);
+      iVar2 = 1;
+      iVar6 = *(int *)(param_1 + 0x60);
+    }
+    if (iVar6 != 0) {
+      puVar1 = (undefined1 *)((int)param_3 + iVar2 * 2);
+      puVar1[1] = (char)(iVar6 + -1);
+      *puVar1 = 1;
+      ppcVar7 = local_c4;
+      for (iVar2 = 0x1e; iVar2 != 0; iVar2 = iVar2 + -1) {
+        *ppcVar7 = (char *)0x0;
+        ppcVar7 = ppcVar7 + (uint)bVar8 * -2 + 1;
+      }
+      local_84 = "eON_Varyings[8]";
+      local_c4[0] = "eON_Varyings[0]";
+      local_c4[1] = "gl_FrontColor";
+      local_c4[2] = "eON_Varyings[1]";
+      local_c4[3] = "gl_FrontSecondaryColor";
+      local_b4 = "eON_Varyings[2]";
+      local_b0 = "gl_TexCoord[7]";
+      local_ac = "eON_Varyings[3]";
+      local_a8 = "gl_TexCoord[6]";
+      local_a4 = "eON_Varyings[4]";
+      local_a0 = "gl_TexCoord[5]";
+      local_9c = "eON_Varyings[5]";
+      local_98 = "gl_TexCoord[4]";
+      local_94 = "eON_Varyings[6]";
+      local_90 = "gl_TexCoord[3]";
+      local_8c = "eON_Varyings[7]";
+      local_88 = "gl_TexCoord[2]";
+      local_80 = "gl_TexCoord[1]";
+      local_7c = "eON_Varyings[9]";
+      local_78 = "gl_TexCoord[0]";
+      eON_AppendShaderCompileMessage
+                (param_2,"%s = clamp( %s, 0.0, 1.0 );\n",
+                 local_c4[(DAT_04468c04 ^ 1) + (iVar6 + -1) * 2],
+                 local_c4[(DAT_04468c04 ^ 1) + (iVar6 + -1) * 2]);
+    }
+  }
+  local_4c[0] = 1;
+  local_4c[1] = 1;
+  local_4c[2] = 1;
+  local_4c[3] = 1;
+  local_4c[4] = 1;
+  local_4c[5] = 1;
+  local_4c[6] = 1;
+  local_4c[7] = 1;
+  local_4c[8] = 1;
+  local_4c[9] = 1;
+  if (*(int *)(param_1 + 0x224) == 5) {
+    local_4c[*(int *)(param_1 + 0x228)] = 0;
+  }
+  if (*(int *)(param_1 + 0x230) == 5) {
+    local_4c[*(int *)(param_1 + 0x234)] = 0;
+  }
+  if (*(int *)(param_1 + 0x23c) == 5) {
+    local_4c[*(int *)(param_1 + 0x240)] = 0;
+  }
+  if (*(int *)(param_1 + 0x248) == 5) {
+    local_4c[*(int *)(param_1 + 0x24c)] = 0;
+    iVar2 = *(int *)(param_1 + 0x254);
+  }
+  else {
+    iVar2 = *(int *)(param_1 + 0x254);
+  }
+  if (iVar2 == 5) {
+    iVar2 = *(int *)(param_1 + 0x260);
+    local_4c[*(int *)(param_1 + 600)] = 0;
+  }
+  else {
+    iVar2 = *(int *)(param_1 + 0x260);
+  }
+  if (iVar2 == 5) {
+    local_4c[*(int *)(param_1 + 0x264)] = 0;
+    iVar2 = *(int *)(param_1 + 0x26c);
+  }
+  else {
+    iVar2 = *(int *)(param_1 + 0x26c);
+  }
+  if (iVar2 == 5) {
+    iVar2 = *(int *)(param_1 + 0x278);
+    local_4c[*(int *)(param_1 + 0x270)] = 0;
+  }
+  else {
+    iVar2 = *(int *)(param_1 + 0x278);
+  }
+  if (iVar2 == 5) {
+    local_4c[*(int *)(param_1 + 0x27c)] = 0;
+    iVar2 = *(int *)(param_1 + 0x284);
+  }
+  else {
+    iVar2 = *(int *)(param_1 + 0x284);
+  }
+  if (iVar2 == 5) {
+    iVar2 = *(int *)(param_1 + 0x290);
+    local_4c[*(int *)(param_1 + 0x288)] = 0;
+  }
+  else {
+    iVar2 = *(int *)(param_1 + 0x290);
+  }
+  if (iVar2 == 5) {
+    local_4c[*(int *)(param_1 + 0x294)] = 0;
+    iVar2 = *(int *)(param_1 + 0x29c);
+  }
+  else {
+    iVar2 = *(int *)(param_1 + 0x29c);
+  }
+  if (iVar2 == 5) {
+    iVar2 = *(int *)(param_1 + 0x2a8);
+    local_4c[*(int *)(param_1 + 0x2a0)] = 0;
+  }
+  else {
+    iVar2 = *(int *)(param_1 + 0x2a8);
+  }
+  if (iVar2 == 5) {
+    local_4c[*(int *)(param_1 + 0x2ac)] = 0;
+  }
+  iVar6 = 0;
+  local_d8 = 0;
+  local_d4 = 0;
+  iVar2 = param_1;
+LAB_04059f5b:
+  do {
+    if (*(char *)(param_1 + 0x91 + iVar6) == '\0') goto LAB_04059f50;
+    ShaderData_AppendDestMask();
+    switch(*(undefined4 *)(iVar2 + 0x224)) {
+    case 0:
+    case 9:
+      if (*(int *)(iVar2 + 0x228) != 0) {
+        FUN_0402cd10(0xf,"Trying to use vertex shader 3.0 output position register > 0.");
+      }
+      eON_AppendShaderCompileMessage(param_2,"gl_Position%s = OUT[%u]%s;\n",local_22,iVar6,local_22)
+      ;
+      break;
+    case 1:
+    case 2:
+    case 3:
+    case 6:
+    case 7:
+    case 8:
+    case 0xb:
+      pcVar3 = "eON_VaryingFog";
+      if (DAT_04468c04 == 0) {
+        pcVar3 = "gl_FogFragCoord";
+      }
+      eON_AppendShaderCompileMessage(param_2,"%s = OUT[%u]%s;\n",pcVar3,iVar6,local_22);
+      break;
+    case 4:
+      FUN_0402cd10(0xf,
+                   "Trying to use vertex shader 3.0 output register, which has been declared with usage that is never passed to pixel shader."
+                  );
+      break;
+    case 5:
+      uVar5 = *(uint *)(iVar2 + 0x228);
+      if (uVar5 < 10) {
+        ppcVar7 = local_c4;
+        for (iVar4 = 0x1e; iVar4 != 0; iVar4 = iVar4 + -1) {
+          *ppcVar7 = (char *)0x0;
+          ppcVar7 = ppcVar7 + (uint)bVar8 * -2 + 1;
+        }
+        local_84 = "eON_Varyings[8]";
+        local_c4[0] = "eON_Varyings[0]";
+        local_c4[1] = "gl_TexCoord[0]";
+        local_c4[2] = "eON_Varyings[1]";
+        local_c4[3] = "gl_TexCoord[1]";
+        local_b4 = "eON_Varyings[2]";
+        local_b0 = "gl_TexCoord[2]";
+        local_ac = "eON_Varyings[3]";
+        local_a8 = "gl_TexCoord[3]";
+        local_a4 = "eON_Varyings[4]";
+        local_a0 = "gl_TexCoord[4]";
+        local_9c = "eON_Varyings[5]";
+        local_98 = "gl_TexCoord[5]";
+        local_94 = "eON_Varyings[6]";
+        local_90 = "gl_TexCoord[6]";
+        local_8c = "eON_Varyings[7]";
+        local_88 = "gl_TexCoord[7]";
+        local_80 = "eON_Texcoord8";
+        local_7c = "eON_Varyings[9]";
+        local_78 = "eON_Texcoord9";
+        eON_AppendShaderCompileMessage
+                  (param_2,"%s%s = OUT[%u]%s;\n",local_c4[(DAT_04468c04 ^ 1) + uVar5 * 2],local_22,
+                   iVar6,local_22);
+        *(uint *)(param_1 + 0x2cc) =
+             *(uint *)(param_1 + 0x2cc) | 1 << ((byte)*(undefined4 *)(iVar2 + 0x228) & 0x1f);
+      }
+      else {
+        FUN_0402cd10(0xf,
+                     "Trying to use vertex shader 3.0 output register, which has been declared as texcoord with index > 9."
+                    );
+      }
+      break;
+    case 10:
+      if (DAT_04468c04 == 0) {
+        uVar5 = *(uint *)(iVar2 + 0x228);
+      }
+      else {
+        while (uVar5 = local_d4, local_4c[local_d4] == 0) {
+          while (local_d4 = local_d4 + 1, local_d4 < 10) {
+            uVar5 = local_d4;
+            if (local_4c[local_d4] != 0) goto LAB_0405a244;
+          }
+          FUN_0400a810("firstFreeRegister < 10",
+                       "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/D3DBytecodeToGLSLText.cpp"
+                       ,0xd62,
+                       "void eON_ShaderData::GenerateOutputRegistersAssignments(TextBuffer*, ColorRegisterAssignment*)"
+                      );
+        }
+LAB_0405a244:
+        puVar1 = (undefined1 *)((int)param_3 + local_d8 * 2);
+        *puVar1 = (char)*(undefined4 *)(iVar2 + 0x228);
+        local_d4._0_1_ = (undefined1)uVar5;
+        puVar1[1] = (undefined1)local_d4;
+        local_4c[uVar5] = 0;
+        local_d8 = local_d8 + 1;
+        local_d4 = uVar5;
+      }
+      ppcVar7 = local_c4;
+      for (iVar4 = 0x1e; iVar4 != 0; iVar4 = iVar4 + -1) {
+        *ppcVar7 = (char *)0x0;
+        ppcVar7 = ppcVar7 + (uint)bVar8 * -2 + 1;
+      }
+      local_84 = "eON_Varyings[8]";
+      local_c4[0] = "eON_Varyings[0]";
+      local_c4[1] = "gl_FrontColor";
+      local_c4[2] = "eON_Varyings[1]";
+      local_c4[3] = "gl_FrontSecondaryColor";
+      local_b4 = "eON_Varyings[2]";
+      local_b0 = "gl_TexCoord[7]";
+      local_ac = "eON_Varyings[3]";
+      local_a8 = "gl_TexCoord[6]";
+      local_a4 = "eON_Varyings[4]";
+      local_a0 = "gl_TexCoord[5]";
+      local_9c = "eON_Varyings[5]";
+      local_98 = "gl_TexCoord[4]";
+      local_94 = "eON_Varyings[6]";
+      local_90 = "gl_TexCoord[3]";
+      local_8c = "eON_Varyings[7]";
+      local_88 = "gl_TexCoord[2]";
+      local_80 = "gl_TexCoord[1]";
+      local_7c = "eON_Varyings[9]";
+      local_78 = "gl_TexCoord[0]";
+      eON_AppendShaderCompileMessage
+                (param_2,"%s%s = OUT[%u]%s;\n",local_c4[(DAT_04468c04 ^ 1) + uVar5 * 2],local_22,
+                 iVar6,local_22);
+      if ((DAT_04468c04 == 0) && ((int)uVar5 < 2)) {
+        pcVar3 = "gl_BackSecondaryColor";
+        if (uVar5 == 0) {
+          pcVar3 = "gl_BackColor";
+        }
+        eON_AppendShaderCompileMessage(param_2,"%s%s = OUT[%u]%s;\n",pcVar3,local_22,iVar6,local_22)
+        ;
+      }
+      break;
+    default:
+      goto switchD_04059fbe_default;
+    }
+LAB_04059f50:
+    iVar6 = iVar6 + 1;
+    iVar2 = iVar2 + 0xc;
+    if (iVar6 == 0xc) {
+      return;
+    }
+  } while( true );
+switchD_04059fbe_default:
+  iVar6 = iVar6 + 1;
+  iVar2 = iVar2 + 0xc;
+  FUN_0402cd10(0xf,
+               "Trying to use vertex shader 3.0 output register, which has been declared with usage for which output GLSL register has not been defined!"
+              );
+  if (iVar6 == 0xc) {
+    return;
+  }
+  goto LAB_04059f5b;
+}
+

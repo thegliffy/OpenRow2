@@ -1,0 +1,375 @@
+
+/* source: windowFunctions */
+
+undefined4 __regparm3
+eON_SetWindowPos(int *****param_1,int param_2,int ****param_3,int ****param_4,int param_5,
+                int ****param_6,uint param_7)
+
+{
+  int ****ppppiVar1;
+  int ***pppiVar2;
+  char cVar3;
+  int iVar4;
+  int ****ppppiVar5;
+  undefined4 uVar6;
+  int ****ppppiVar7;
+  int *piVar8;
+  int *****pppppiVar9;
+  int ****ppppiVar10;
+  int in_FS_OFFSET;
+  int aiStack_c8 [10];
+  int ****local_a0;
+  char *local_9c;
+  int local_98 [7];
+  int local_7c;
+  int ***local_78;
+  int ***local_74;
+  int ****local_6c;
+  int local_68;
+  int ***local_64;
+  int ***local_60;
+  int local_5c;
+  int ***local_58;
+  uint local_54;
+  undefined4 local_50;
+  undefined4 local_4c;
+  int local_40;
+  int local_3c;
+  int local_38;
+  int local_34 [4];
+  
+  local_5c = param_5;
+  local_60 = (int ***)param_4;
+  local_58 = (int ***)param_6;
+  local_54 = param_7;
+  local_6c = (int ****)param_1;
+  local_68 = param_2;
+  local_64 = (int ***)param_3;
+  if (((param_7 & 0x20) != 0) && ((*(byte *)((int)param_1 + 0x2b) & 0x40) == 0)) {
+    aiStack_c8[9] = 0x4186888;
+    local_a0 = (int ****)param_1;
+    (*(code *)(*param_1)[0x1b])();
+  }
+  pppppiVar9 = &local_a0;
+  if ((param_7 & 0x400) == 0) {
+    if (param_1 == (int *****)0x271a) {
+      local_9c = "Desktop HWND supplied in SendMessageA().";
+      local_a0 = (int ****)0xa;
+      aiStack_c8[9] = 0x4186aa4;
+      FUN_0402cd10();
+      pppppiVar9 = &local_a0;
+    }
+    else {
+      if (param_1 == (int *****)0xffff) {
+        local_9c = "HWND_BROADCAST not supported in SendMessageA(). Add it.";
+        local_a0 = (int ****)0xf;
+        aiStack_c8[9] = 0x4186a4c;
+        FUN_0402cd10();
+      }
+      local_a0 = *(int *****)(*(int *)(in_FS_OFFSET + 0x18) + 0x130);
+      aiStack_c8[9] = 0x418679c;
+      thread_SuspendPoint();
+      aiStack_c8[9] = 0x41867a4;
+      local_a0 = (int ****)param_1;
+      cVar3 = FUN_0404ecd0();
+      if (cVar3 == '\0') {
+        local_a0 = (int ****)0x578;
+        aiStack_c8[9] = 0x41868bc;
+        eON_SetLastError();
+        pppppiVar9 = (int *****)(aiStack_c8 + 9);
+      }
+      else {
+        local_a0 = (int ****)&local_6c;
+        aiStack_c8[9] = 0x41867c0;
+        eON_SendMessageA();
+        pppppiVar9 = (int *****)(aiStack_c8 + 9);
+      }
+    }
+  }
+  if ((local_54 & 0x20) != 0) {
+    pppppiVar9[1] =
+         (int ****)"SetWindowPos wants us to draw frame around window. Ignoring that for now.";
+    *pppppiVar9 = (int ****)0xa;
+    pppppiVar9[-1] = (int ****)0x4186744;
+    FUN_0402cd10();
+  }
+  if ((local_54 & 0x6200) != 0) {
+    pppppiVar9[2] = (int ****)local_54;
+    pppppiVar9[1] = (int ****)"One or more unhandled flags in SetWindowPos ( %#x )";
+    *pppppiVar9 = (int ****)0xa;
+    pppppiVar9[-1] = (int ****)0x4186768;
+    FUN_0402cd10();
+  }
+  if ((*(byte *)((int)param_1 + 0x2b) & 0x40) == 0) {
+    if ((local_54 & 1) == 0) {
+      iVar4 = local_5c;
+      ppppiVar10 = (int ****)local_58;
+      if ((local_54 & 2) != 0) goto LAB_041865f0;
+LAB_041866c5:
+      local_74 = local_64;
+      local_78 = local_60;
+    }
+    else {
+      iVar4 = (int)param_1[7] - (int)param_1[5];
+      ppppiVar10 = (int ****)((int)param_1[8] - (int)param_1[6]);
+      if ((local_54 & 2) == 0) goto LAB_041866c5;
+LAB_041865f0:
+      local_74 = (int ***)param_1[5];
+      local_78 = (int ***)param_1[6];
+    }
+    pppppiVar9[-1] = (int ****)0x4186601;
+    cVar3 = FUN_0402d6a0();
+    if (((cVar3 == '\0') && ((local_54 & 4) == 0)) && ((*(byte *)((int)param_1 + 0x2b) & 0x10) != 0)
+       ) {
+      ppppiVar1 = *param_1;
+      *pppppiVar9 = (int ****)param_1;
+      pppppiVar9[1] = (int ****)local_68;
+      pppiVar2 = ppppiVar1[0x20];
+      pppppiVar9[-1] = (int ****)0x4186625;
+      (*(code *)pppiVar2)();
+    }
+    if ((local_54 & 3) != 3) {
+      if ((local_54 & 2) == 0) {
+        ppppiVar1 = param_1[5];
+        param_1[5] = (int ****)local_74;
+        param_1[7] = (int ****)(((int)local_74 + (int)param_1[7]) - (int)ppppiVar1);
+        ppppiVar1 = param_1[6];
+        param_1[6] = (int ****)local_78;
+        param_1[8] = (int ****)(((int)local_78 + (int)param_1[8]) - (int)ppppiVar1);
+      }
+      cVar3 = '\0';
+      if ((local_54 & 1) == 0) {
+        local_78 = (int ***)param_1[6];
+        if (((int)param_1[7] - (int)param_1[5] != iVar4) ||
+           (local_74 = (int ***)((int)param_1[8] - (int)local_78), (int ****)local_74 != ppppiVar10)
+           ) {
+          cVar3 = '\x01';
+          param_1[7] = (int ****)(iVar4 + (int)param_1[5]);
+          param_1[8] = (int ****)((int)ppppiVar10 + (int)local_78);
+        }
+      }
+      ppppiVar10 = param_1[6];
+      param_1[1] = param_1[5];
+      param_1[2] = ppppiVar10;
+      param_1[3] = param_1[7];
+      param_1[4] = param_1[8];
+      piVar8 = (int *)pppppiVar9;
+      if (((uint)param_1[10] & 0xc00000) == 0xc00000) {
+        local_7c = CONCAT31(local_7c._1_3_,cVar3);
+        *pppppiVar9 = (int ****)0x4;
+        pppppiVar9[-1] = (int ****)0x418697f;
+        iVar4 = eON_GetSystemMetrics();
+        piVar8 = (int *)(pppppiVar9 + -1);
+        param_1[2] = (int ****)((int)ppppiVar10 + iVar4);
+        cVar3 = (char)local_7c;
+      }
+      if (cVar3 != '\0') {
+        piVar8[-1] = 0x4186905;
+        cVar3 = FUN_0402d680();
+        if (cVar3 == '\0') {
+          piVar8[-1] = 0x4186915;
+          cVar3 = FUN_0402d6a0();
+          if (cVar3 == '\0') {
+            ppppiVar10 = *param_1;
+            *piVar8 = (int)param_1;
+            piVar8[1] = (int)&local_50;
+            pppiVar2 = ppppiVar10[0x21];
+            piVar8[-1] = 0x418692f;
+            (*(code *)pppiVar2)();
+            ppppiVar10 = *param_1;
+            piVar8[5] = 0;
+            piVar8[4] = (int)param_1[4] - (int)param_1[2];
+            ppppiVar1 = param_1[3];
+            ppppiVar5 = param_1[1];
+            *piVar8 = (int)param_1;
+            piVar8[3] = (int)ppppiVar1 - (int)ppppiVar5;
+            piVar8[2] = local_4c;
+            piVar8[1] = local_50;
+            pppiVar2 = ppppiVar10[0x1f];
+            piVar8[-1] = 0x4186961;
+            (*(code *)pppiVar2)();
+          }
+        }
+      }
+      goto LAB_0418650b;
+    }
+  }
+  else if ((local_54 & 3) != 3) {
+    pppppiVar9[1] = (int ****)0x1;
+    *pppppiVar9 = (int ****)param_1;
+    pppppiVar9[-1] = (int ****)0x4186491;
+    iVar4 = eON_GetWindow();
+    piVar8 = (int *)(pppppiVar9 + -2);
+    if (iVar4 == 0) {
+      pppppiVar9[1] = (int ****)"WINBOOL eON_SetWindowPos(HWND, HWND, INT, INT, INT, INT, UINT)";
+      *pppppiVar9 = (int ****)0x306;
+      pppppiVar9[-1] =
+           (int ****)
+           "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/user32/windowFunctions.cpp"
+      ;
+      pppppiVar9[-2] = (int ****)"parentWindow";
+      pppppiVar9[-3] = (int ****)0x4186a7f;
+      local_7c = iVar4;
+      FUN_0400a810();
+      iVar4 = local_7c;
+    }
+    if ((local_54 & 2) == 0) {
+      if (iVar4 == 0x271a) {
+        pppppiVar9[-3] = (int ****)0x4186aae;
+        uVar6 = OpenGLDisplay_GetPrimary();
+        pppppiVar9[2] = (int ****)local_34;
+        pppppiVar9[1] = (int ****)&local_3c;
+        *pppppiVar9 = (int ****)&local_38;
+        pppppiVar9[-1] = (int ****)&local_40;
+        pppppiVar9[-2] = (int ****)uVar6;
+        pppppiVar9[-3] = (int ****)0x4186ad2;
+        OpenGLDisplayWorkArea();
+        param_1[2] = (int ****)0x0;
+        param_1[1] = (int ****)0x0;
+        param_1[3] = (int ****)(local_3c - local_40);
+        param_1[4] = (int ****)(local_34[0] - local_38);
+      }
+      else {
+        ppppiVar7 = (int ****)(*(int *)(iVar4 + 4) + (int)local_64);
+        ppppiVar10 = param_1[1];
+        ppppiVar1 = param_1[2];
+        ppppiVar5 = (int ****)(*(int *)(iVar4 + 8) + (int)local_60);
+        param_1[1] = ppppiVar7;
+        param_1[3] = (int ****)((int)ppppiVar7 + ((int)param_1[3] - (int)ppppiVar10));
+        param_1[2] = ppppiVar5;
+        param_1[4] = (int ****)(((int)param_1[4] - (int)ppppiVar1) + (int)ppppiVar5);
+      }
+    }
+    if ((local_54 & 1) == 0) {
+      param_1[3] = (int ****)((int)param_1[1] + local_5c);
+      param_1[4] = (int ****)((int)param_1[2] + (int)local_58);
+    }
+    ppppiVar10 = param_1[2];
+    param_1[5] = param_1[1];
+    param_1[6] = ppppiVar10;
+    param_1[7] = param_1[3];
+    param_1[8] = param_1[4];
+    if (((uint)param_1[10] & 0xc00000) == 0xc00000) {
+      pppppiVar9[-2] = (int ****)0x4;
+      pppppiVar9[-3] = (int ****)0x41869ec;
+      iVar4 = eON_GetSystemMetrics();
+      piVar8 = (int *)(pppppiVar9 + -3);
+      param_1[6] = (int ****)((int)ppppiVar10 - iVar4);
+    }
+LAB_0418650b:
+    pppppiVar9 = (int *****)piVar8;
+    if (((local_54 & 3) != 3) && ((local_54 & 0x100) != 0)) {
+      piVar8[2] = 0;
+      piVar8[1] = 0;
+      *piVar8 = (int)local_6c;
+      piVar8[-1] = 0x4186535;
+      eON_InvalidateRect();
+      pppppiVar9 = (int *****)(piVar8 + -3);
+    }
+  }
+  ppppiVar10 = local_6c;
+  if ((local_54 & 7) != 7) {
+    if ((int *****)local_6c == (int *****)0x271a) {
+      pppppiVar9[1] = (int ****)"Desktop HWND supplied in SendMessageA().";
+      *pppppiVar9 = (int ****)0xa;
+      pppppiVar9[-1] = (int ****)0x41869c4;
+      FUN_0402cd10();
+    }
+    else {
+      if ((int *****)local_6c == (int *****)0xffff) {
+        pppppiVar9[1] = (int ****)"HWND_BROADCAST not supported in SendMessageA(). Add it.";
+        *pppppiVar9 = (int ****)0xf;
+        pppppiVar9[-1] = (int ****)0x4186a2c;
+        FUN_0402cd10();
+      }
+      *pppppiVar9 = (int ****)*(undefined4 *)(*(int *)(in_FS_OFFSET + 0x18) + 0x130);
+      pppppiVar9[-1] = (int ****)0x4186579;
+      thread_SuspendPoint();
+      *pppppiVar9 = ppppiVar10;
+      pppppiVar9[-1] = (int ****)0x4186581;
+      cVar3 = FUN_0404ecd0();
+      if (cVar3 == '\0') {
+        *pppppiVar9 = (int ****)0x578;
+        pppppiVar9[-1] = (int ****)0x41868ec;
+        eON_SetLastError();
+        pppppiVar9 = pppppiVar9 + -1;
+      }
+      else {
+        *pppppiVar9 = (int ****)&local_6c;
+        pppppiVar9[-1] = (int ****)0x418659d;
+        eON_SendMessageA();
+        pppppiVar9 = pppppiVar9 + -1;
+      }
+    }
+  }
+  ppppiVar10 = local_6c;
+  if ((local_54 & 0x40) == 0) {
+    if (((local_54 & 0x80) == 0) || ((int *****)local_6c == (int *****)0x271a)) goto LAB_041865b5;
+    *pppppiVar9 = local_6c;
+    pppppiVar9[-1] = (int ****)0x4186827;
+    cVar3 = FUN_0404ecd0();
+    if (cVar3 != '\0') {
+      pppppiVar9[1] = (int ****)0x0;
+      *pppppiVar9 = ppppiVar10;
+      pppppiVar9[-1] = (int ****)0x418683f;
+      eON_ShowWindow();
+      goto LAB_041865b5;
+    }
+  }
+  else {
+    if ((int *****)local_6c == (int *****)0x271a) goto LAB_041865b5;
+    *pppppiVar9 = local_6c;
+    pppppiVar9[-1] = (int ****)0x41867e7;
+    cVar3 = FUN_0404ecd0();
+    if (cVar3 != '\0') {
+      pppppiVar9[1] = (int ****)0x5;
+      *pppppiVar9 = ppppiVar10;
+      pppppiVar9[-1] = (int ****)0x41867ff;
+      eON_ShowWindow();
+      goto LAB_041865b5;
+    }
+  }
+  *pppppiVar9 = (int ****)0x578;
+  pppppiVar9[-1] = (int ****)0x41868d4;
+  eON_SetLastError();
+  pppppiVar9 = pppppiVar9 + -1;
+LAB_041865b5:
+  ppppiVar10 = local_6c;
+  if ((local_54 & 0x10) == 0) {
+    if ((int *****)local_6c == (int *****)0x271a) {
+      *pppppiVar9 = (int ****)0x5;
+      pppppiVar9[-1] = (int ****)0x4186b06;
+      eON_SetLastError();
+    }
+    else if ((int *****)local_6c == (int *****)0x0) {
+      pppppiVar9[-1] = (int ****)0x41869d5;
+      eON_GetFocus();
+    }
+    else {
+      *pppppiVar9 = local_6c;
+      pppppiVar9[-1] = (int ****)0x41866ff;
+      cVar3 = FUN_0404ecd0();
+      if (cVar3 == '\0') {
+        *pppppiVar9 = (int ****)0x578;
+        pppppiVar9[-1] = (int ****)0x4186a0c;
+        eON_SetLastError();
+      }
+      else {
+        ppppiVar1 = (int ****)ppppiVar10[0xe];
+        pppppiVar9[-1] = (int ****)0x418670f;
+        ppppiVar5 = (int ****)eON_GetCurrentThreadId();
+        if (ppppiVar1 == ppppiVar5) {
+          pppppiVar9[-1] = (int ****)0x418671c;
+          eON_GetFocus();
+          ppppiVar1 = (int ****)*ppppiVar10;
+          *pppppiVar9 = ppppiVar10;
+          pppiVar2 = ppppiVar1[0x1d];
+          pppppiVar9[-1] = (int ****)0x4186724;
+          (*(code *)pppiVar2)();
+        }
+      }
+    }
+  }
+  return 1;
+}
+

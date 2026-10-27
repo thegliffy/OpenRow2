@@ -1,0 +1,44 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+bool LoadGL_ANGLE_timer_query(void)
+
+{
+  int iVar1;
+  bool bVar2;
+  bool bVar3;
+  bool bVar4;
+  bool bVar5;
+  bool bVar6;
+  bool bVar7;
+  bool bVar8;
+  bool bVar9;
+  bool bVar10;
+  
+  iVar1 = glXGetProcAddressARB("glBeginQueryANGLE");
+  _DAT_0451e9b8 = iVar1;
+  _DAT_0451e9b4 = glXGetProcAddressARB("glDeleteQueriesANGLE");
+  bVar2 = _DAT_0451e9b4 == 0;
+  _DAT_0451e9b0 = glXGetProcAddressARB("glEndQueryANGLE");
+  bVar3 = _DAT_0451e9b0 == 0;
+  _DAT_0451e9ac = glXGetProcAddressARB("glGenQueriesANGLE");
+  bVar4 = _DAT_0451e9ac == 0;
+  _DAT_0451e9a8 = glXGetProcAddressARB("glGetQueryObjecti64vANGLE");
+  bVar5 = _DAT_0451e9a8 == 0;
+  _DAT_0451e9a4 = glXGetProcAddressARB("glGetQueryObjectivANGLE");
+  bVar6 = _DAT_0451e9a4 == 0;
+  _DAT_0451e9a0 = glXGetProcAddressARB("glGetQueryObjectui64vANGLE");
+  bVar7 = _DAT_0451e9a0 == 0;
+  _DAT_0451e99c = glXGetProcAddressARB("glGetQueryObjectuivANGLE");
+  bVar8 = _DAT_0451e99c == 0;
+  _DAT_0451e998 = glXGetProcAddressARB("glGetQueryivANGLE");
+  bVar9 = _DAT_0451e998 == 0;
+  _DAT_0451e994 = glXGetProcAddressARB("glIsQueryANGLE");
+  bVar10 = _DAT_0451e994 == 0;
+  _DAT_0451e990 = glXGetProcAddressARB("glQueryCounterANGLE");
+  return _DAT_0451e990 == 0 ||
+         (bVar10 ||
+         (bVar9 || (bVar8 || (bVar7 || (bVar6 || (bVar5 || (bVar4 || (bVar3 || (bVar2 || iVar1 == 0)
+                                                                     ))))))));
+}
+

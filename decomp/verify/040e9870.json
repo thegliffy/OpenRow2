@@ -1,0 +1,43 @@
+
+undefined4
+shader_pch_save_fragment_program
+          (int param_1,undefined4 param_2,undefined4 param_3,undefined4 param_4)
+
+{
+  pthread_mutex_t *__mutex;
+  char cVar1;
+  FILE *__s;
+  size_t sVar2;
+  undefined4 local_20 [4];
+  
+  __mutex = (pthread_mutex_t *)(param_1 + 0x110);
+  pthread_mutex_lock(__mutex);
+  if (*(char **)(param_1 + 0x10c) != (char *)0x0) {
+    __s = fopen64(*(char **)(param_1 + 0x10c),"ab");
+    if (__s == (FILE *)0x0) {
+      FUN_0402cd10(0xf,
+                   "Opening of precompiled shader file to save fragment program failed! Disabling precompiled shader usage."
+                  );
+      *(undefined4 *)(param_1 + 0x10c) = 0;
+      pthread_mutex_unlock(__mutex);
+      return 0;
+    }
+    local_20[0] = 0x45de56a2;
+    sVar2 = fwrite(local_20,1,4,__s);
+    if (((sVar2 == 4) && (sVar2 = fwrite(&param_2,1,4,__s), sVar2 == 4)) &&
+       (cVar1 = FUN_040e9600(param_1,__s,param_3,param_4), cVar1 != '\0')) {
+      fclose(__s);
+      pthread_mutex_unlock(__mutex);
+      return 1;
+    }
+    fclose(__s);
+    FUN_0402cd10(0xf,
+                 "Saving of fragment program failed! Deleting precompiled shader file and disabling precompiled shader usage."
+                );
+    FUN_0401a1d0(*(undefined4 *)(param_1 + 0x10c));
+    *(undefined4 *)(param_1 + 0x10c) = 0;
+  }
+  pthread_mutex_unlock(__mutex);
+  return 0;
+}
+

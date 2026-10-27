@@ -1,0 +1,44 @@
+
+void DirectInputGamepadDeviceImp___DirectInputGamepadDeviceImp(undefined4 *param_1)
+
+{
+  int *__src;
+  int *__dest;
+  int iVar1;
+  
+  *param_1 = &PTR_DirectInputGamepadDeviceImp___DirectInputGamepadDeviceImp_0430c288;
+  if (*(char *)(param_1 + 0xc) != '\0') {
+                    /* try { // try from 040f42f0 to 040f4325 has its CatchHandler @ 040f432f */
+    GamepadControl__SetInitialMinMaxValues();
+    iVar1 = FUN_04010e80(param_1 + 8);
+    if ((iVar1 != 0) && (*(char *)(param_1 + 0xc) != '\0')) {
+      FUN_0402cd10(5,"DirectInput 7/8 gamepad unacquired.");
+      *(undefined1 *)(param_1 + 0xc) = 0;
+    }
+  }
+  __dest = DAT_044fa4c0;
+  if ((void *)param_1[0x14] != (void *)0x0) {
+    free((void *)param_1[0x14]);
+    __dest = DAT_044fa4c0;
+  }
+  do {
+    if (__dest == DAT_044fa4c4) {
+LAB_040f42cf:
+      if ((void *)param_1[0x15] != (void *)0x0) {
+        operator_delete((void *)param_1[0x15]);
+      }
+      FUN_040f1ef0();
+      return;
+    }
+    if (param_1 == (undefined4 *)*__dest) {
+      __src = __dest + 1;
+      if ((__src != DAT_044fa4c4) && (iVar1 = (int)DAT_044fa4c4 - (int)__src >> 2, iVar1 != 0)) {
+        memmove(__dest,__src,iVar1 << 2);
+      }
+      DAT_044fa4c4 = DAT_044fa4c4 + -1;
+      goto LAB_040f42cf;
+    }
+    __dest = __dest + 1;
+  } while( true );
+}
+

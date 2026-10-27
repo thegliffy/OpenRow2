@@ -1,0 +1,30 @@
+
+/* source: xaudio2helpers, xaudio2voiceimpl */
+
+void xaudio2helpers_0410cfb0(int *param_1,int *param_2,undefined4 param_3)
+
+{
+  int iVar1;
+  int iVar2;
+  int iVar3;
+  int *piVar4;
+  
+  piVar4 = (int *)*param_2;
+  if ((param_2[1] - (int)piVar4 >> 2) * -0x55555555 == 0) {
+    FUN_0400a810("pcm.channels.size() > 0",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/xaudio2_full/xaudio2helpers.h"
+                 ,0x13,"int GetNumOfSamples(const PcmData&)");
+    piVar4 = (int *)*param_2;
+  }
+  iVar1 = piVar4[1];
+  iVar2 = *piVar4;
+  iVar3 = (**(code **)(*param_1 + 0x54))(param_1);
+  if ((iVar1 - iVar2 >> 2) + -8 != iVar3) {
+    FUN_0400a810("GetNumOfSamples( pcmData ) - kNumOfPaddingSamples == GetSamplesNeeded()",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/xaudio2_full/xaudio2voiceimpl.cpp"
+                 ,0x204,"void XAudio2VoiceImp::AddToMix(const PcmData&, float*)");
+  }
+  Dsp__Mix(param_1 + 0x33,param_2,param_1[0x32],param_3);
+  return;
+}
+

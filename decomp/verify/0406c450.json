@@ -1,0 +1,280 @@
+
+/* source: direct3dbasetexture9imp */
+
+void OpenGLTexture__OpenGLTexture(int *param_1,int param_2,int param_3)
+
+{
+  char cVar1;
+  int iVar2;
+  int iVar3;
+  uint uVar4;
+  int iVar5;
+  int iVar6;
+  uint uVar7;
+  uint uVar8;
+  uint uVar9;
+  
+  *(undefined1 *)(param_1 + 4) = 0;
+  *param_1 = param_2;
+  param_1[1] = param_3;
+  bzero(param_1 + 5,0x38);
+  param_1[7] = 0x2901;
+  param_1[6] = 0x2901;
+  param_1[5] = 0x2901;
+  param_1[9] = 0x2600;
+  iVar3 = *(int *)(param_1[1] + 0x224);
+  param_1[8] = 0x2600;
+  iVar2 = 0xde1;
+  param_1[0xb] = 1;
+  param_1[0xc] = -0x3b860000;
+  *(undefined1 *)(param_1 + 0x13) = 1;
+  if ((iVar3 != 1) && (iVar2 = 0x8513, iVar3 != 2)) {
+    iVar2 = 0x806f;
+  }
+  param_1[3] = iVar2;
+  iVar3 = Direct3DDevice9Imp__GetContextCache(*param_1 + 0x40);
+  iVar2 = Direct3DDevice9Imp__CreateTextureInOpenGL(*param_1 + 0x40);
+  param_1[2] = iVar2;
+  cVar1 = FUN_04021ee0();
+  if (*(int *)(iVar3 + 0x234) != 0x84c0) {
+    (*DAT_0451eeac)(0x84c0);
+    *(undefined4 *)(iVar3 + 0x234) = 0x84c0;
+  }
+  FUN_040c6ee0(iVar3,param_1[3],param_1[2]);
+  if (cVar1 == '\0') {
+    glTexParameterf(param_1[3],0x8066,0);
+    glTexParameteri(param_1[3],0x2802,0x812f);
+    glTexParameteri(param_1[3],0x2803,0x812f);
+    glTexParameteri(param_1[3],0x2800,0x2601);
+    glTexParameteri(param_1[3],0x2801,0x2601);
+    glTexParameteri(param_1[3],0x8a48,0x8a4a);
+    glTexParameteri(param_1[3],0x8191,0);
+  }
+  else {
+    glTexParameteri(param_1[3],0x2802,0x812f);
+    glTexParameteri(param_1[3],0x2803,0x812f);
+    glTexParameteri(param_1[3],0x2800,0x2601);
+    glTexParameteri(param_1[3],0x2801,0x2601);
+    glTexParameteri(param_1[3],0x8a48,0x8a4a);
+  }
+  if ((param_1[3] != 0x806f) &&
+     (cVar1 = FUN_0407f8d0(*(undefined4 *)(param_1[1] + 0x210)), cVar1 != '\0')) {
+    glTexParameteri(param_1[3],0x884c,0x884e);
+    glTexParameteri(param_1[3],0x884d,0x203);
+  }
+  cVar1 = FUN_04021f50();
+  iVar3 = param_1[3];
+  if (cVar1 != '\0') {
+    if (iVar3 == 0x806f) {
+      iVar3 = param_1[1];
+      (*DAT_0451e144)(0x806f,*(undefined4 *)(iVar3 + 0x228),*(undefined4 *)(iVar3 + 0x21c),
+                      *(undefined4 *)(iVar3 + 0x22c),*(undefined4 *)(iVar3 + 0x230),
+                      *(undefined4 *)(iVar3 + 0x234));
+      iVar3 = param_1[3];
+    }
+    else if (iVar3 == 0x8513) {
+      iVar3 = param_1[1];
+      (*DAT_0451e148)(0x8513,*(undefined4 *)(iVar3 + 0x228),*(undefined4 *)(iVar3 + 0x21c),
+                      *(undefined4 *)(iVar3 + 0x22c),*(undefined4 *)(iVar3 + 0x230));
+      iVar3 = param_1[3];
+    }
+    else if (iVar3 == 0xde1) {
+      iVar3 = param_1[1];
+      (*DAT_0451e148)(0xde1,*(undefined4 *)(iVar3 + 0x228),*(undefined4 *)(iVar3 + 0x21c),
+                      *(undefined4 *)(iVar3 + 0x22c),*(undefined4 *)(iVar3 + 0x230));
+      iVar3 = param_1[3];
+    }
+    else {
+      FUN_0400a810("false",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3dbasetexture9imp.cpp"
+                   ,0x96,"OpenGLTexture::OpenGLTexture(Direct3DDevice9*, Direct3DBaseTexture9Imp*)")
+      ;
+      iVar3 = param_1[3];
+    }
+    goto LAB_0406c678;
+  }
+  if (iVar3 == 0x806f) {
+    iVar3 = param_1[1];
+    if (*(char *)(iVar3 + 0x220) != '\0') {
+      FUN_0400a810("!mD3DTexture->mCompressed",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3dbasetexture9imp.cpp"
+                   ,0xe8,"OpenGLTexture::OpenGLTexture(Direct3DDevice9*, Direct3DBaseTexture9Imp*)")
+      ;
+      iVar3 = param_1[1];
+    }
+    uVar4 = 0;
+    uVar8 = *(uint *)(iVar3 + 0x22c);
+    uVar9 = *(uint *)(iVar3 + 0x230);
+    uVar7 = *(uint *)(iVar3 + 0x234);
+    if (*(int *)(iVar3 + 0x228) != 0) {
+      do {
+        (*DAT_0451eeb4)(0x806f,uVar4,*(undefined4 *)(iVar3 + 0x21c),uVar8,uVar9,uVar7,0,
+                        *(undefined4 *)(iVar3 + 0x218),*(undefined4 *)(iVar3 + 0x214),0);
+        if (1 < uVar8) {
+          uVar8 = uVar8 >> 1;
+        }
+        if (1 < uVar9) {
+          uVar9 = uVar9 >> 1;
+        }
+        if (1 < uVar7) {
+          uVar7 = uVar7 >> 1;
+        }
+        iVar3 = param_1[1];
+        uVar4 = uVar4 + 1;
+      } while (uVar4 < *(uint *)(iVar3 + 0x228));
+LAB_0406c8e0:
+      iVar3 = param_1[3];
+      goto LAB_0406c678;
+    }
+  }
+  else {
+    if (iVar3 == 0x8513) {
+      iVar3 = param_1[1];
+      uVar8 = *(uint *)(iVar3 + 0x22c);
+      uVar9 = *(uint *)(iVar3 + 0x230);
+      if (*(char *)(iVar3 + 0x220) == '\0') {
+        if (*(int *)(iVar3 + 0x228) == 0) {
+          iVar3 = 0x8513;
+          goto LAB_0406c678;
+        }
+        uVar7 = 0;
+        do {
+          glTexImage2D(0x8515,uVar7,*(undefined4 *)(iVar3 + 0x21c),uVar8,uVar9,0,
+                       *(undefined4 *)(iVar3 + 0x218),*(undefined4 *)(iVar3 + 0x214),0);
+          iVar3 = param_1[1];
+          glTexImage2D(0x8516,uVar7,*(undefined4 *)(iVar3 + 0x21c),uVar8,uVar9,0,
+                       *(undefined4 *)(iVar3 + 0x218),*(undefined4 *)(iVar3 + 0x214),0);
+          iVar3 = param_1[1];
+          glTexImage2D(0x8517,uVar7,*(undefined4 *)(iVar3 + 0x21c),uVar8,uVar9,0,
+                       *(undefined4 *)(iVar3 + 0x218),*(undefined4 *)(iVar3 + 0x214),0);
+          iVar3 = param_1[1];
+          glTexImage2D(0x8518,uVar7,*(undefined4 *)(iVar3 + 0x21c),uVar8,uVar9,0,
+                       *(undefined4 *)(iVar3 + 0x218),*(undefined4 *)(iVar3 + 0x214),0);
+          iVar3 = param_1[1];
+          glTexImage2D(0x8519,uVar7,*(undefined4 *)(iVar3 + 0x21c),uVar8,uVar9,0,
+                       *(undefined4 *)(iVar3 + 0x218),*(undefined4 *)(iVar3 + 0x214),0);
+          iVar3 = param_1[1];
+          glTexImage2D(0x851a,uVar7,*(undefined4 *)(iVar3 + 0x21c),uVar8,uVar9,0,
+                       *(undefined4 *)(iVar3 + 0x218),*(undefined4 *)(iVar3 + 0x214),0);
+          if (1 < uVar8) {
+            uVar8 = uVar8 >> 1;
+          }
+          if (1 < uVar9) {
+            uVar9 = uVar9 >> 1;
+          }
+          iVar3 = param_1[1];
+          uVar7 = uVar7 + 1;
+        } while (uVar7 < *(uint *)(iVar3 + 0x228));
+      }
+      else {
+        iVar2 = D3D9_FormatToPixelSize(*(undefined4 *)(iVar3 + 0x210));
+        iVar3 = param_1[1];
+        if (*(int *)(iVar3 + 0x228) == 0) goto LAB_0406c705;
+        uVar7 = 0;
+        do {
+          if (*(char *)(iVar3 + 0x220) == '\0') {
+            iVar6 = uVar9 * uVar8;
+          }
+          else {
+            iVar6 = uVar8 + 6;
+            if (-1 < (int)(uVar8 + 3)) {
+              iVar6 = uVar8 + 3;
+            }
+            iVar5 = uVar9 + 3;
+            if ((int)(uVar9 + 3) < 0) {
+              iVar5 = uVar9 + 6;
+            }
+            iVar6 = (iVar6 >> 2) * (iVar5 >> 2) * 4;
+          }
+          iVar6 = iVar6 * iVar2;
+          (*DAT_0451eea0)(0x8515,uVar7,*(undefined4 *)(iVar3 + 0x218),uVar8,uVar9,0,iVar6,0);
+          (*DAT_0451eea0)(0x8516,uVar7,*(undefined4 *)(param_1[1] + 0x218),uVar8,uVar9,0,iVar6,0);
+          (*DAT_0451eea0)(0x8517,uVar7,*(undefined4 *)(param_1[1] + 0x218),uVar8,uVar9,0,iVar6,0);
+          (*DAT_0451eea0)(0x8518,uVar7,*(undefined4 *)(param_1[1] + 0x218),uVar8,uVar9,0,iVar6,0);
+          (*DAT_0451eea0)(0x8519,uVar7,*(undefined4 *)(param_1[1] + 0x218),uVar8,uVar9,0,iVar6,0);
+          (*DAT_0451eea0)(0x851a,uVar7,*(undefined4 *)(param_1[1] + 0x218),uVar8,uVar9,0,iVar6,0);
+          if (1 < uVar8) {
+            uVar8 = uVar8 >> 1;
+          }
+          if (1 < uVar9) {
+            uVar9 = uVar9 >> 1;
+          }
+          iVar3 = param_1[1];
+          uVar7 = uVar7 + 1;
+        } while (uVar7 < *(uint *)(iVar3 + 0x228));
+      }
+LAB_0406c9d3:
+      iVar3 = param_1[3];
+      goto LAB_0406c678;
+    }
+    if (iVar3 == 0xde1) {
+      iVar3 = param_1[1];
+      uVar8 = *(uint *)(iVar3 + 0x22c);
+      uVar9 = *(uint *)(iVar3 + 0x230);
+      if (*(char *)(iVar3 + 0x220) == '\0') {
+        if (*(int *)(iVar3 + 0x228) == 0) {
+          iVar3 = 0xde1;
+          goto LAB_0406c678;
+        }
+        uVar7 = 0;
+        do {
+          glTexImage2D(0xde1,uVar7,*(undefined4 *)(iVar3 + 0x21c),uVar8,uVar9,0,
+                       *(undefined4 *)(iVar3 + 0x218),*(undefined4 *)(iVar3 + 0x214),0);
+          if (1 < uVar8) {
+            uVar8 = uVar8 >> 1;
+          }
+          if (1 < uVar9) {
+            uVar9 = uVar9 >> 1;
+          }
+          iVar3 = param_1[1];
+          uVar7 = uVar7 + 1;
+        } while (uVar7 < *(uint *)(iVar3 + 0x228));
+        goto LAB_0406c9d3;
+      }
+      iVar2 = D3D9_FormatToPixelSize(*(undefined4 *)(iVar3 + 0x210));
+      iVar3 = param_1[1];
+      if (*(int *)(iVar3 + 0x228) != 0) {
+        uVar7 = 0;
+        do {
+          if (*(char *)(iVar3 + 0x220) == '\0') {
+            iVar6 = uVar9 * uVar8;
+          }
+          else {
+            iVar6 = uVar8 + 6;
+            if (-1 < (int)(uVar8 + 3)) {
+              iVar6 = uVar8 + 3;
+            }
+            iVar5 = uVar9 + 3;
+            if ((int)(uVar9 + 3) < 0) {
+              iVar5 = uVar9 + 6;
+            }
+            iVar6 = (iVar6 >> 2) * (iVar5 >> 2) * 4;
+          }
+          (*DAT_0451eea0)(0xde1,uVar7,*(undefined4 *)(iVar3 + 0x218),uVar8,uVar9,0,iVar6 * iVar2,0);
+          if (1 < uVar8) {
+            uVar8 = uVar8 >> 1;
+          }
+          if (1 < uVar9) {
+            uVar9 = uVar9 >> 1;
+          }
+          iVar3 = param_1[1];
+          uVar7 = uVar7 + 1;
+        } while (uVar7 < *(uint *)(iVar3 + 0x228));
+        goto LAB_0406c8e0;
+      }
+    }
+    else {
+      FUN_0400a810("false",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3dbasetexture9imp.cpp"
+                   ,0xfd,"OpenGLTexture::OpenGLTexture(Direct3DDevice9*, Direct3DBaseTexture9Imp*)")
+      ;
+    }
+  }
+LAB_0406c705:
+  iVar3 = param_1[3];
+LAB_0406c678:
+  glTexParameteri(iVar3,0x813c,0);
+  glTexParameteri();
+  return;
+}
+

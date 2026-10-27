@@ -1,0 +1,26 @@
+
+bool eON_ChangeClipboardChain(int param_1,int param_2)
+
+{
+  int iVar1;
+  bool bVar2;
+  
+  pthread_mutex_lock((pthread_mutex_t *)&DAT_0451bdc8);
+  if (DAT_0451bde8 == 0) {
+    FUN_0402cd10(10,"CLIPBOARD: Trying to change clipboard chain when there are no windows in it!");
+    pthread_mutex_unlock((pthread_mutex_t *)&DAT_0451bdc8);
+    bVar2 = true;
+  }
+  else if (DAT_0451bde8 == param_1) {
+    DAT_0451bde8 = param_2;
+    pthread_mutex_unlock((pthread_mutex_t *)&DAT_0451bdc8);
+    bVar2 = true;
+  }
+  else {
+    pthread_mutex_unlock((pthread_mutex_t *)&DAT_0451bdc8);
+    iVar1 = FUN_04183140(DAT_0451bde8,0x30d,param_1,param_2);
+    bVar2 = iVar1 == 0;
+  }
+  return bVar2;
+}
+

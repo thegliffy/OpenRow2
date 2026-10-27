@@ -1,0 +1,87 @@
+
+/* source: openGlDebugFunctions */
+
+void __regparm3 OpenGL_LogState_Framebuffer(undefined4 *param_1,int param_2)
+
+{
+  char cVar1;
+  int iVar2;
+  int local_24;
+  int local_20 [4];
+  
+  glGetIntegerv(0x8ca6,&local_24);
+  iVar2 = glGetError();
+  if (iVar2 != 0) {
+    FUN_0400a810("glGetError() == 0",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                 ,0x97c,"void OpenGL_LogState_Framebuffer(OpenGlDebugWriter*, GLint)");
+  }
+  if (param_2 != 0) {
+    cVar1 = (*DAT_0451e654)(param_2);
+    if (cVar1 == '\0') {
+      iVar2 = glGetError();
+      if (iVar2 != 0) {
+        FUN_0400a810("glGetError() == 0",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                     ,0x980,"void OpenGL_LogState_Framebuffer(OpenGlDebugWriter*, GLint)");
+      }
+      (**(code **)*param_1)(param_1,"Framebuffer ID %d is not a valid framebuffer ID!",param_2);
+      return;
+    }
+  }
+  iVar2 = glGetError();
+  if (iVar2 != 0) {
+    FUN_0400a810("glGetError() == 0",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                 ,0x984,"void OpenGL_LogState_Framebuffer(OpenGlDebugWriter*, GLint)");
+  }
+  if (param_2 != local_24) {
+    (*DAT_0451e694)(0x8ca9,param_2);
+    iVar2 = glGetError();
+    if (iVar2 != 0) {
+      FUN_0400a810("glGetError() == 0",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                   ,0x989,"void OpenGL_LogState_Framebuffer(OpenGlDebugWriter*, GLint)");
+    }
+  }
+  if (param_2 == 0) {
+    (**(code **)*param_1)(param_1,"Framebuffer object 0 (screen buffer)\n");
+    OpenGL_LogState_FramebufferAttachment();
+    OpenGL_LogState_FramebufferAttachment();
+    OpenGL_LogState_FramebufferAttachment();
+    OpenGL_LogState_FramebufferAttachment();
+    OpenGL_LogState_FramebufferAttachment();
+    OpenGL_LogState_FramebufferAttachment();
+  }
+  else {
+    (**(code **)*param_1)(param_1,"Framebuffer object %d info\n",param_2);
+    glGetIntegerv(0x8cdf,local_20);
+    iVar2 = glGetError();
+    if (iVar2 != 0) {
+      FUN_0400a810("glGetError() == 0",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                   ,0x99b,"void OpenGL_LogState_Framebuffer(OpenGlDebugWriter*, GLint)");
+    }
+    if (0 < local_20[0]) {
+      iVar2 = 0;
+      do {
+        iVar2 = iVar2 + 1;
+        OpenGL_LogState_FramebufferAttachment();
+      } while (iVar2 < local_20[0]);
+    }
+    OpenGL_LogState_FramebufferAttachment();
+    OpenGL_LogState_FramebufferAttachment();
+  }
+  if (param_2 != local_24) {
+    (*DAT_0451e694)(0x8ca9,local_24);
+    iVar2 = glGetError();
+    if (iVar2 != 0) {
+      FUN_0400a810("glGetError() == 0",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                   ,0x9a6,"void OpenGL_LogState_Framebuffer(OpenGlDebugWriter*, GLint)");
+      return;
+    }
+  }
+  return;
+}
+

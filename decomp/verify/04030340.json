@@ -1,0 +1,11 @@
+
+undefined4 IUnknownImp__QueryInterface(int param_1)
+
+{
+  FUN_0402cd10(0xf,
+               "IUnknownImp::QueryInterface on COM object %p (%s), ref count %u - likely to crash now."
+               ,*(undefined4 *)(param_1 + 0xc),*(undefined4 *)(param_1 + 4),
+               *(undefined4 *)(param_1 + 8));
+  return 0;
+}
+

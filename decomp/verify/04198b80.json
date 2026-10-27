@@ -1,0 +1,64 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+bool _glewInit_GL_ARB_bindless_texture(void)
+
+{
+  int iVar1;
+  bool bVar2;
+  bool bVar3;
+  bool bVar4;
+  bool bVar5;
+  bool bVar6;
+  bool bVar7;
+  bool bVar8;
+  bool bVar9;
+  bool bVar10;
+  bool bVar11;
+  bool bVar12;
+  bool bVar13;
+  bool bVar14;
+  bool bVar15;
+  
+  iVar1 = glXGetProcAddressARB("glGetImageHandleARB");
+  _DAT_0451e8dc = iVar1;
+  _DAT_0451e8d8 = glXGetProcAddressARB("glGetTextureHandleARB");
+  bVar2 = _DAT_0451e8d8 == 0;
+  _DAT_0451e8d4 = glXGetProcAddressARB("glGetTextureSamplerHandleARB");
+  bVar3 = _DAT_0451e8d4 == 0;
+  _DAT_0451e8d0 = glXGetProcAddressARB("glGetVertexAttribLui64vARB");
+  bVar4 = _DAT_0451e8d0 == 0;
+  _DAT_0451e8cc = glXGetProcAddressARB("glIsImageHandleResidentARB");
+  bVar5 = _DAT_0451e8cc == 0;
+  _DAT_0451e8c8 = glXGetProcAddressARB("glIsTextureHandleResidentARB");
+  bVar6 = _DAT_0451e8c8 == 0;
+  _DAT_0451e8c4 = glXGetProcAddressARB("glMakeImageHandleNonResidentARB");
+  bVar7 = _DAT_0451e8c4 == 0;
+  _DAT_0451e8c0 = glXGetProcAddressARB("glMakeImageHandleResidentARB");
+  bVar8 = _DAT_0451e8c0 == 0;
+  _DAT_0451e8bc = glXGetProcAddressARB("glMakeTextureHandleNonResidentARB");
+  bVar9 = _DAT_0451e8bc == 0;
+  _DAT_0451e8b8 = glXGetProcAddressARB("glMakeTextureHandleResidentARB");
+  bVar10 = _DAT_0451e8b8 == 0;
+  _DAT_0451e8b4 = glXGetProcAddressARB("glProgramUniformHandleui64ARB");
+  bVar11 = _DAT_0451e8b4 == 0;
+  _DAT_0451e8b0 = glXGetProcAddressARB("glProgramUniformHandleui64vARB");
+  bVar12 = _DAT_0451e8b0 == 0;
+  _DAT_0451e8ac = glXGetProcAddressARB("glUniformHandleui64ARB");
+  bVar13 = _DAT_0451e8ac == 0;
+  _DAT_0451e8a8 = glXGetProcAddressARB("glUniformHandleui64vARB");
+  bVar14 = _DAT_0451e8a8 == 0;
+  _DAT_0451e8a4 = glXGetProcAddressARB("glVertexAttribL1ui64ARB");
+  bVar15 = _DAT_0451e8a4 == 0;
+  _DAT_0451e8a0 = glXGetProcAddressARB("glVertexAttribL1ui64vARB");
+  return _DAT_0451e8a0 == 0 ||
+         (bVar15 ||
+         (bVar14 ||
+         (bVar13 ||
+         (bVar12 ||
+         (bVar11 ||
+         (bVar10 ||
+         (bVar9 || (bVar8 || (bVar7 || (bVar6 || (bVar5 || (bVar4 || (bVar3 || (bVar2 || iVar1 == 0)
+                                                                     )))))))))))));
+}
+

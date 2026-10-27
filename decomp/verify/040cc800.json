@@ -1,0 +1,155 @@
+
+/* source: openGlDebugFunctions */
+
+void __regparm3 OpenGL_LogState_VertexArrays(undefined4 *param_1)
+
+{
+  int iVar1;
+  char *pcVar2;
+  int iVar3;
+  float local_48;
+  float local_44;
+  float local_40;
+  float local_3c;
+  undefined4 local_38;
+  undefined4 local_34;
+  undefined4 local_30;
+  undefined4 local_2c;
+  int local_28;
+  int local_24;
+  undefined4 local_20 [4];
+  
+  local_28 = 0;
+  glGetIntegerv(0x8869,&local_28);
+  iVar1 = glGetError();
+  if (iVar1 != 0) {
+    FUN_0400a810("glGetError() == 0",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                 ,0x304,"void OpenGL_LogState_VertexArrays(OpenGlDebugWriter*)");
+  }
+  (**(code **)*param_1)(param_1,"GL_MAX_VERTEX_ATTRIBS: %d\n",local_28);
+  if (0 < local_28) {
+    iVar1 = 0;
+    do {
+      while( true ) {
+        (*DAT_0451ec80)(iVar1,0x8622,&local_24);
+        iVar3 = glGetError();
+        if (iVar3 != 0) {
+          FUN_0400a810("glGetError() == 0",
+                       "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                       ,0x30d,"void OpenGL_LogState_VertexArrays(OpenGlDebugWriter*)");
+        }
+        (**(code **)*param_1)(param_1,"Vertex Attrib Array %d\n",iVar1);
+        if (local_24 == 0) break;
+        (**(code **)*param_1)(param_1,"\tGL_VERTEX_ATTRIB_ARRAY_ENABLED: TRUE\n");
+        (*DAT_0451ec80)(iVar1,0x8623,&local_24);
+        iVar3 = glGetError();
+        if (iVar3 != 0) {
+          FUN_0400a810("glGetError() == 0",
+                       "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                       ,0x313,"void OpenGL_LogState_VertexArrays(OpenGlDebugWriter*)");
+        }
+        (**(code **)*param_1)(param_1,"\tGL_VERTEX_ATTRIB_ARRAY_SIZE: %d\n",local_24);
+        (*DAT_0451ec80)(iVar1,0x8624,&local_24);
+        iVar3 = glGetError();
+        if (iVar3 != 0) {
+          FUN_0400a810("glGetError() == 0",
+                       "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                       ,0x316,"void OpenGL_LogState_VertexArrays(OpenGlDebugWriter*)");
+        }
+        (**(code **)*param_1)(param_1,"\tGL_VERTEX_ATTRIB_ARRAY_STRIDE: %d\n",local_24);
+        (*DAT_0451ec80)(iVar1,0x8625,&local_24);
+        iVar3 = glGetError();
+        if (iVar3 != 0) {
+          FUN_0400a810("glGetError() == 0",
+                       "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                       ,0x319,"void OpenGL_LogState_VertexArrays(OpenGlDebugWriter*)");
+        }
+        pcVar2 = "!!!unknown!!!";
+        if (local_24 - 0x1400U < 0xc) {
+          pcVar2 = (&PTR_s_GL_BYTE_04308360)[local_24 - 0x1400U];
+        }
+        (**(code **)*param_1)(param_1,"\tGL_VERTEX_ATTRIB_ARRAY_TYPE: %s\n",pcVar2);
+        (*DAT_0451ec80)(iVar1,0x886a,&local_24);
+        iVar3 = glGetError();
+        if (iVar3 != 0) {
+          FUN_0400a810("glGetError() == 0",
+                       "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                       ,0x31c,"void OpenGL_LogState_VertexArrays(OpenGlDebugWriter*)");
+        }
+        pcVar2 = "TRUE";
+        if (local_24 == 0) {
+          pcVar2 = "FALSE";
+        }
+        (**(code **)*param_1)(param_1,"\tGL_VERTEX_ATTRIB_ARRAY_NORMALIZED: %s\n",pcVar2);
+        (*DAT_0451ec8c)(iVar1,0x8645,local_20);
+        iVar3 = glGetError();
+        if (iVar3 != 0) {
+          FUN_0400a810("glGetError() == 0",
+                       "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                       ,799,"void OpenGL_LogState_VertexArrays(OpenGlDebugWriter*)");
+        }
+        (**(code **)*param_1)(param_1,"\tGL_VERTEX_ATTRIB_ARRAY_POINTER: %p\n",local_20[0]);
+        (*DAT_0451ec80)(iVar1,0x889f,&local_24);
+        iVar3 = glGetError();
+        if (iVar3 != 0) {
+          FUN_0400a810("glGetError() == 0",
+                       "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                       ,0x322,"void OpenGL_LogState_VertexArrays(OpenGlDebugWriter*)");
+        }
+        (**(code **)*param_1)(param_1,"\tGL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING: %d\n",local_24);
+        (*DAT_0451ec80)(iVar1,0x88fd,&local_24);
+        iVar3 = glGetError();
+        if (iVar3 != 0) {
+          FUN_0400a810("glGetError() == 0",
+                       "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                       ,0x325,"void OpenGL_LogState_VertexArrays(OpenGlDebugWriter*)");
+        }
+        pcVar2 = "TRUE";
+        if (local_24 == 0) {
+          pcVar2 = "FALSE";
+        }
+        (**(code **)*param_1)(param_1,"\tGL_VERTEX_ATTRIB_ARRAY_INTEGER: %s\n",pcVar2);
+        (*DAT_0451ec80)(iVar1,0x88fe,&local_24);
+        iVar3 = glGetError();
+        if (iVar3 != 0) {
+          FUN_0400a810("glGetError() == 0",
+                       "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                       ,0x328,"void OpenGL_LogState_VertexArrays(OpenGlDebugWriter*)");
+        }
+        (**(code **)*param_1)(param_1,"\tGL_VERTEX_ATTRIB_ARRAY_DIVISOR: %d\n",local_24);
+LAB_040cca6b:
+        iVar1 = iVar1 + 1;
+        if (local_28 <= iVar1) {
+          return;
+        }
+      }
+      (**(code **)*param_1)(param_1,"\tGL_VERTEX_ATTRIB_ARRAY_ENABLED: FALSE\n");
+      if (iVar1 == 0) goto LAB_040cca6b;
+      (*DAT_0451ec84)(iVar1,0x8626,&local_48);
+      iVar3 = glGetError();
+      if (iVar3 != 0) {
+        FUN_0400a810("glGetError() == 0",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                     ,0x333,"void OpenGL_LogState_VertexArrays(OpenGlDebugWriter*)");
+      }
+      (**(code **)*param_1)
+                (param_1,"\tGL_CURRENT_VERTEX_ATTRIB (assumming float): { %f, %f, %f, %f }\n",
+                 (double)local_48,(double)local_44,(double)local_40,(double)local_3c);
+      if (DAT_0451eb0c == (code *)0x0) goto LAB_040cca6b;
+      (*DAT_0451eb0c)(iVar1,0x8626,&local_38);
+      iVar3 = glGetError();
+      if (iVar3 != 0) {
+        FUN_0400a810("glGetError() == 0",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                     ,0x33a,"void OpenGL_LogState_VertexArrays(OpenGlDebugWriter*)");
+      }
+      iVar1 = iVar1 + 1;
+      (**(code **)*param_1)
+                (param_1,"\tGL_CURRENT_VERTEX_ATTRIB (assumming uint32): { %u, %u, %u, %u }\n",
+                 local_38,local_34,local_30,local_2c);
+    } while (iVar1 < local_28);
+  }
+  return;
+}
+

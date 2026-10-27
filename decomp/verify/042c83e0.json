@@ -1,0 +1,31 @@
+
+/* WARNING: Function: __i686.get_pc_thunk.bx replaced with injection: get_pc_thunk_bx */
+
+undefined4 * google_breakpad__MinidumpDescriptor__operator(undefined4 *param_1,undefined4 *param_2)
+
+{
+  undefined4 uVar1;
+  uint uVar2;
+  undefined4 uVar3;
+  
+  if (*(int *)(param_2[3] + -0xc) == 0) {
+    *param_1 = *param_2;
+    param_1[1] = param_2[1];
+    std::string::assign((string *)(param_1 + 2));
+    uVar3 = 0;
+    uVar2 = *(uint *)(param_1[3] + -0xc);
+    uVar1 = 0;
+    std::string::_M_mutate((uint)(param_1 + 3),0,uVar2);
+    if (param_1[4] != 0) {
+      param_1[4] = 0;
+      google_breakpad__MinidumpDescriptor__UpdatePath(param_1,uVar1,uVar2,uVar3);
+    }
+    param_1[5] = param_2[5];
+    return param_1;
+  }
+                    /* WARNING: Subroutine does not return */
+  __assert_fail("descriptor.path_.empty()","src/client/linux/handler/minidump_descriptor.cc",0x37,
+                "google_breakpad::MinidumpDescriptor& google_breakpad::MinidumpDescriptor::operator=(const google_breakpad::MinidumpDescriptor&)"
+               );
+}
+

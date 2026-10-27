@@ -1,0 +1,62 @@
+
+char * str_icuNameFromCodePage(uint param_1)
+
+{
+  char *pcVar1;
+  
+  if (param_1 == 1) {
+    param_1 = eON_GetOEMCP();
+  }
+  else if ((param_1 == 0) || (param_1 == 3)) {
+    param_1 = eON_GetACP();
+  }
+  pcVar1 = "UTF-32LE";
+  if (param_1 != 12000) {
+    if (param_1 < 0x2ee1) {
+      pcVar1 = "UTF-16BE";
+      if (param_1 != 0x4b1) {
+        if (param_1 < 0x4b2) {
+          if (param_1 == 2) goto LAB_0415ed08;
+          if (param_1 == 0x4b0) {
+            return "UTF-16LE";
+          }
+        }
+        else {
+          if (param_1 == 0x4e4) {
+            return "windows-1252";
+          }
+          if (param_1 == 10000) {
+LAB_0415ed08:
+            return "macintosh";
+          }
+          if (param_1 == 0x4e2) {
+            return "windows-1250";
+          }
+        }
+        goto LAB_0415ecce;
+      }
+    }
+    else {
+      pcVar1 = "ISO-8859-1";
+      if (param_1 != 0x6faf) {
+        if (param_1 < 0x6fb0) {
+          pcVar1 = "UTF-32BE";
+          if ((param_1 != 0x2ee1) && (pcVar1 = "US-ASCII", param_1 != 0x4e9f)) goto LAB_0415ecce;
+        }
+        else {
+          pcVar1 = "UTF-7";
+          if ((param_1 != 65000) &&
+             ((pcVar1 = "UTF-8", param_1 != 0xfde9 && (pcVar1 = "ISO-8859-2", param_1 != 0x6fb0))))
+          {
+LAB_0415ecce:
+            FUN_0402cd10(0xf,"str_icuNameFromCodePage() - unhandled codepage %u specified!!",param_1
+                        );
+            return "ASCII";
+          }
+        }
+      }
+    }
+  }
+  return pcVar1;
+}
+

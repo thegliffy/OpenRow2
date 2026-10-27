@@ -1,0 +1,89 @@
+
+undefined4 thread_PrepareThreadForRunloop(void)
+
+{
+  int iVar1;
+  undefined *puVar2;
+  pthread_t *ppVar3;
+  undefined *puVar4;
+  char cVar5;
+  undefined4 *__s;
+  undefined4 uVar6;
+  pthread_t pVar7;
+  long lVar8;
+  undefined *puVar9;
+  undefined *local_20;
+  
+  __s = malloc(0x94);
+  if (__s == (undefined4 *)0x0) {
+    FUN_0402cd10(0xf,"thread_PrepareThreadForRunloop() - failed to allocate threadInfo memory");
+    return 0;
+  }
+  bzero(__s,0x94);
+  __s[2] = 1;
+  *__s = 0;
+  __s[1] = 0;
+  pthread_cond_init((pthread_cond_t *)(__s + 7),(pthread_condattr_t *)0x0);
+  uVar6 = Synchronisation_AllocObject(2,1);
+  __s[3] = uVar6;
+  uVar6 = Synchronisation_CreateEvent(0,0,0);
+  __s[5] = uVar6;
+  pVar7 = pthread_self();
+  ppVar3 = DAT_0451bd2c;
+  __s[6] = pVar7;
+  if (ppVar3 == DAT_0451bd30) {
+    eON_Int_ThreadPthreadVec_Insert();
+  }
+  else {
+    if (ppVar3 != (pthread_t *)0x0) {
+      *ppVar3 = pVar7;
+    }
+    DAT_0451bd2c = ppVar3 + 1;
+  }
+  lVar8 = syscall(0xe0,0);
+  __s[0x13] = 0;
+  __s[0x22] = lVar8;
+  __s[0x14] = 0;
+  __s[0x16] = 0xffffffff;
+  __s[4] = 0;
+  eON_LocalFileTimeFromTimeval(__s + 0x17);
+  __s[0x19] = 0;
+  __s[0x1a] = 0;
+  __s[0x1b] = 0;
+  __s[0x1c] = 0;
+  __s[0x1d] = 0;
+  __s[0x1e] = 0;
+  __s[0x20] = 0;
+  __s[0x21] = 0;
+  cVar5 = thread_PrepareTEB(1,__s);
+  if (cVar5 == '\0') {
+    free(__s);
+    return 0;
+  }
+  pthread_mutex_lock((pthread_mutex_t *)&DAT_0451bd4c);
+  puVar9 = &DAT_0451bd38;
+  if (DAT_0451bd3c != (undefined *)0x0) {
+    iVar1 = *(int *)(DAT_0451bd3c + 0x10);
+    puVar2 = DAT_0451bd3c;
+    while( true ) {
+      if (iVar1 == 0) {
+        puVar4 = *(undefined **)(puVar2 + 0xc);
+      }
+      else {
+        puVar4 = *(undefined **)(puVar2 + 8);
+        puVar9 = puVar2;
+      }
+      puVar2 = puVar4;
+      if (puVar2 == (undefined *)0x0) break;
+      iVar1 = *(int *)(puVar2 + 0x10);
+    }
+    if ((puVar9 != &DAT_0451bd38) && (*(uint *)(puVar9 + 0x10) < 2)) goto LAB_0415bcf1;
+  }
+  FUN_0415af30();
+  puVar9 = local_20;
+LAB_0415bcf1:
+  *(undefined4 **)(puVar9 + 0x14) = __s;
+  pthread_mutex_unlock((pthread_mutex_t *)&DAT_0451bd4c);
+  return 1;
+}
+

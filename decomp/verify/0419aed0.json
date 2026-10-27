@@ -1,0 +1,26 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+bool _glewInit_GL_ARB_shading_language_include(void)
+
+{
+  int iVar1;
+  bool bVar2;
+  bool bVar3;
+  bool bVar4;
+  bool bVar5;
+  
+  iVar1 = glXGetProcAddressARB("glCompileShaderIncludeARB");
+  _DAT_0451e1d0 = iVar1;
+  _DAT_0451e1cc = glXGetProcAddressARB("glDeleteNamedStringARB");
+  bVar2 = _DAT_0451e1cc == 0;
+  _DAT_0451e1c8 = glXGetProcAddressARB("glGetNamedStringARB");
+  bVar3 = _DAT_0451e1c8 == 0;
+  _DAT_0451e1c4 = glXGetProcAddressARB("glGetNamedStringivARB");
+  bVar4 = _DAT_0451e1c4 == 0;
+  _DAT_0451e1c0 = glXGetProcAddressARB("glIsNamedStringARB");
+  bVar5 = _DAT_0451e1c0 == 0;
+  _DAT_0451e1bc = glXGetProcAddressARB("glNamedStringARB");
+  return _DAT_0451e1bc == 0 || (bVar5 || (bVar4 || (bVar3 || (bVar2 || iVar1 == 0))));
+}
+

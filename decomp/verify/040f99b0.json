@@ -1,0 +1,206 @@
+
+/* source: backendOpenALSoft */
+
+void DSoundBackend_BufferUnlock(int *param_1,int param_2,uint param_3,int param_4,uint param_5)
+
+{
+  undefined4 uVar1;
+  int iVar2;
+  uint uVar3;
+  undefined4 *puVar4;
+  int iVar5;
+  uint uVar6;
+  undefined1 auStack_58 [8];
+  undefined4 uStack_50;
+  undefined4 local_4c;
+  undefined4 local_48;
+  int local_44;
+  uint local_24;
+  uint local_20;
+  
+  puVar4 = &local_4c;
+  local_24 = param_1[3];
+  if (local_24 == 0) {
+    iVar2 = param_1[5];
+    uStack_50 = 0x40f9d48;
+    local_4c = eON_GetProcessHeap();
+    local_48 = 8;
+    local_44 = iVar2 + 8;
+    uStack_50 = 0x40f9d5f;
+    iVar2 = HeapAlloc();
+    puVar4 = (undefined4 *)auStack_58;
+    param_1[4] = iVar2;
+    local_24 = iVar2 + 0xfU & 0xfffffff0;
+    param_1[3] = local_24;
+  }
+  local_20 = param_2 - local_24;
+  if (param_4 == 0) {
+    uVar6 = 0;
+    iVar2 = *param_1;
+    if (param_1[1] - iVar2 >> 2 != 0) {
+      do {
+        iVar2 = *(int *)(iVar2 + uVar6 * 4);
+        if (*(char *)(iVar2 + 0x1c) == '\0') {
+          puVar4[4] = param_3;
+          puVar4[2] = param_2;
+          puVar4[3] = local_20;
+          puVar4[1] = *(undefined4 *)(iVar2 + 8);
+          *puVar4 = *(undefined4 *)(iVar2 + 0x70);
+          puVar4[-1] = 0x40f9cdc;
+          alBufferSubDataSOFT();
+        }
+        else {
+          uVar3 = *(uint *)(iVar2 + 0xc);
+          if (local_20 % uVar3 != 0) {
+            puVar4[3] = 
+            "void DSoundBackend_BufferUnlock(DSoundBackend_Buffer*, LPVOID, ULONG, LPVOID, ULONG)";
+            puVar4[2] = 0x235;
+            puVar4[1] = 
+            "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/dsound/backendOpenALSoft.cpp"
+            ;
+            *puVar4 = "offset1 % s->BytesPerSample == 0";
+            puVar4[-1] = 0x40f9d34;
+            FUN_0400a810();
+            uVar3 = *(uint *)(iVar2 + 0xc);
+          }
+          if (param_3 % uVar3 != 0) {
+            puVar4[3] = 
+            "void DSoundBackend_BufferUnlock(DSoundBackend_Buffer*, LPVOID, ULONG, LPVOID, ULONG)";
+            puVar4[2] = 0x236;
+            puVar4[1] = 
+            "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/dsound/backendOpenALSoft.cpp"
+            ;
+            *puVar4 = "size1 % s->BytesPerSample == 0";
+            puVar4[-1] = 0x40f9d04;
+            FUN_0400a810();
+            uVar3 = *(uint *)(iVar2 + 0xc);
+          }
+          iVar5 = *(int *)(iVar2 + 0x14);
+          puVar4[4] = 0x1404;
+          puVar4[5] = param_2;
+          puVar4[3] = (iVar5 == 2) + 0x1500;
+          puVar4[2] = param_3 / uVar3;
+          puVar4[1] = local_20 / uVar3;
+          *puVar4 = *(undefined4 *)(iVar2 + 0x70);
+          puVar4[-1] = 0x40f9c93;
+          alBufferSubSamplesSOFT();
+        }
+        iVar2 = *param_1;
+        uVar6 = uVar6 + 1;
+      } while (uVar6 < (uint)(param_1[1] - iVar2 >> 2));
+    }
+  }
+  else {
+    if (local_24 == 0) {
+      iVar2 = param_1[5];
+      puVar4[-1] = 0x40f9d81;
+      uVar1 = eON_GetProcessHeap();
+      puVar4[1] = 8;
+      *puVar4 = uVar1;
+      puVar4[2] = iVar2 + 8;
+      puVar4[-1] = 0x40f9d98;
+      iVar2 = HeapAlloc();
+      puVar4 = puVar4 + -3;
+      param_1[4] = iVar2;
+      local_24 = iVar2 + 0xfU & 0xfffffff0;
+      param_1[3] = local_24;
+    }
+    local_24 = param_4 - local_24;
+    iVar2 = *param_1;
+    if (param_1[1] - iVar2 >> 2 != 0) {
+      uVar6 = 0;
+      do {
+        iVar2 = *(int *)(iVar2 + uVar6 * 4);
+        if (*(char *)(iVar2 + 0x1c) == '\0') {
+          puVar4[4] = param_3;
+          puVar4[2] = param_2;
+          puVar4[3] = local_20;
+          puVar4[1] = *(undefined4 *)(iVar2 + 8);
+          *puVar4 = *(undefined4 *)(iVar2 + 0x70);
+          puVar4[-1] = 0x40f9b17;
+          alBufferSubDataSOFT();
+          puVar4[4] = param_5;
+          puVar4[2] = param_4;
+          puVar4[3] = local_24;
+          puVar4[1] = *(undefined4 *)(iVar2 + 8);
+          *puVar4 = *(undefined4 *)(iVar2 + 0x70);
+          puVar4[-1] = 0x40f9b3e;
+          alBufferSubDataSOFT();
+        }
+        else {
+          uVar3 = *(uint *)(iVar2 + 0xc);
+          iVar5 = (*(int *)(iVar2 + 0x14) == 2) + 0x1500;
+          if (local_20 % uVar3 != 0) {
+            puVar4[3] = 
+            "void DSoundBackend_BufferUnlock(DSoundBackend_Buffer*, LPVOID, ULONG, LPVOID, ULONG)";
+            puVar4[2] = 0x21b;
+            puVar4[1] = 
+            "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/dsound/backendOpenALSoft.cpp"
+            ;
+            *puVar4 = "offset1 % s->BytesPerSample == 0";
+            puVar4[-1] = 0x40f9bf4;
+            FUN_0400a810();
+            uVar3 = *(uint *)(iVar2 + 0xc);
+          }
+          if (param_3 % uVar3 != 0) {
+            puVar4[3] = 
+            "void DSoundBackend_BufferUnlock(DSoundBackend_Buffer*, LPVOID, ULONG, LPVOID, ULONG)";
+            puVar4[2] = 0x21c;
+            puVar4[1] = 
+            "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/dsound/backendOpenALSoft.cpp"
+            ;
+            *puVar4 = "size1 % s->BytesPerSample == 0";
+            puVar4[-1] = 0x40f9bc4;
+            FUN_0400a810();
+            uVar3 = *(uint *)(iVar2 + 0xc);
+          }
+          puVar4[4] = 0x1404;
+          puVar4[3] = iVar5;
+          puVar4[5] = param_2;
+          puVar4[2] = param_3 / uVar3;
+          puVar4[1] = local_20 / uVar3;
+          *puVar4 = *(undefined4 *)(iVar2 + 0x70);
+          puVar4[-1] = 0x40f9a76;
+          alBufferSubSamplesSOFT();
+          uVar3 = *(uint *)(iVar2 + 0xc);
+          if (local_24 % uVar3 != 0) {
+            puVar4[3] = 
+            "void DSoundBackend_BufferUnlock(DSoundBackend_Buffer*, LPVOID, ULONG, LPVOID, ULONG)";
+            puVar4[2] = 0x21f;
+            puVar4[1] = 
+            "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/dsound/backendOpenALSoft.cpp"
+            ;
+            *puVar4 = "offset2 % s->BytesPerSample == 0";
+            puVar4[-1] = 0x40f9b94;
+            FUN_0400a810();
+            uVar3 = *(uint *)(iVar2 + 0xc);
+          }
+          if (param_5 % uVar3 != 0) {
+            puVar4[3] = 
+            "void DSoundBackend_BufferUnlock(DSoundBackend_Buffer*, LPVOID, ULONG, LPVOID, ULONG)";
+            puVar4[2] = 0x220;
+            puVar4[1] = 
+            "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/dsound/backendOpenALSoft.cpp"
+            ;
+            *puVar4 = "size2 % s->BytesPerSample == 0";
+            puVar4[-1] = 0x40f9b64;
+            FUN_0400a810();
+            uVar3 = *(uint *)(iVar2 + 0xc);
+          }
+          puVar4[4] = 0x1404;
+          puVar4[3] = iVar5;
+          puVar4[5] = param_4;
+          puVar4[2] = param_5 / uVar3;
+          puVar4[1] = local_24 / uVar3;
+          *puVar4 = *(undefined4 *)(iVar2 + 0x70);
+          puVar4[-1] = 0x40f9acb;
+          alBufferSubSamplesSOFT();
+        }
+        uVar6 = uVar6 + 1;
+        iVar2 = *param_1;
+      } while (uVar6 < (uint)(param_1[1] - iVar2 >> 2));
+    }
+  }
+  return;
+}
+

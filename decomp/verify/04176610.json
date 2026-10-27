@@ -1,0 +1,64 @@
+
+uint eON_GetAsyncKeyState(undefined4 param_1)
+
+{
+  byte bVar1;
+  uint uVar2;
+  int iVar3;
+  bool bVar4;
+  uint local_10;
+  
+  switch(param_1) {
+  default:
+    uVar2 = FUN_0401eec0(param_1);
+    if (uVar2 == 0) {
+      FUN_0402cd10(10,
+                   "Game asking for virtual key %#x, for which no SDL counterpart exists. Returning \'not pressed\'."
+                   ,param_1);
+      return 0;
+    }
+    local_10 = 0;
+    iVar3 = SDL_GetKeyboardState(&local_10);
+    if (local_10 <= uVar2) {
+      FUN_0402cd10(10,
+                   "SDL returned too small keyboard for the value of the key we want to be in it. Internal SDL problem, but returning \'not pressed\'."
+                  );
+      return 0;
+    }
+    bVar4 = *(char *)(iVar3 + uVar2) != '\0';
+    break;
+  case 1:
+    bVar1 = SDL_GetMouseState(0,0);
+    bVar4 = (bool)(bVar1 & 1);
+    break;
+  case 2:
+    uVar2 = SDL_GetMouseState(0,0);
+    bVar4 = (uVar2 & 4) != 0;
+    break;
+  case 4:
+    uVar2 = SDL_GetMouseState(0,0);
+    bVar4 = (uVar2 & 2) != 0;
+    break;
+  case 5:
+    uVar2 = SDL_GetMouseState(0,0);
+    bVar4 = (uVar2 & 8) != 0;
+    break;
+  case 6:
+    uVar2 = SDL_GetMouseState(0,0);
+    bVar4 = (uVar2 & 0x10) != 0;
+    break;
+  case 0x10:
+    uVar2 = SDL_GetModState();
+    bVar4 = (uVar2 & 3) != 0;
+    break;
+  case 0x11:
+    uVar2 = SDL_GetModState();
+    bVar4 = (uVar2 & 0xc0) != 0;
+    break;
+  case 0x12:
+    uVar2 = SDL_GetModState();
+    bVar4 = (uVar2 & 0x300) != 0;
+  }
+  return ~-(uint)(bVar4 == false) & 0xffff8000;
+}
+

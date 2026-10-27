@@ -1,0 +1,54 @@
+
+/* WARNING: Function: __i686.get_pc_thunk.bx replaced with injection: get_pc_thunk_bx */
+
+undefined4
+google_breakpad__MinidumpFileWriter__WriteMemory
+          (int param_1,int param_2,undefined4 param_3,int *param_4)
+
+{
+  char cVar1;
+  undefined4 uVar2;
+  int in_GS_OFFSET;
+  int local_2c;
+  int local_28;
+  int local_24;
+  int local_20;
+  undefined4 uStack_14;
+  
+  uStack_14 = 0x42d29a9;
+  local_20 = *(int *)(in_GS_OFFSET + 0x14);
+  if (param_2 == 0) {
+                    /* WARNING: Subroutine does not return */
+    __assert_fail((char *)&PTR_DAT_0439d69c,"src/client/minidump_file_writer.cc",0xcd,
+                  "bool google_breakpad::MinidumpFileWriter::WriteMemory(const void*, size_t, MDMemoryDescriptor*)"
+                 );
+  }
+  if (param_4 == (int *)0x0) {
+                    /* WARNING: Subroutine does not return */
+    __assert_fail("output","src/client/minidump_file_writer.cc",0xce,
+                  "bool google_breakpad::MinidumpFileWriter::WriteMemory(const void*, size_t, MDMemoryDescriptor*)"
+                 );
+  }
+  local_2c = param_1;
+  local_28 = *(int *)(param_1 + 8);
+  local_24 = 0;
+  cVar1 = google_breakpad__UntypedMDRVA__Allocate(&local_2c,param_3);
+  if (cVar1 != '\0') {
+    uVar2 = google_breakpad__UntypedMDRVA__Copy(&local_2c,local_28,param_2,local_24);
+    if ((char)uVar2 != '\0') {
+      *param_4 = param_2;
+      param_4[1] = param_2 >> 0x1f;
+      param_4[2] = local_24;
+      param_4[3] = local_28;
+      goto LAB_042d2a03;
+    }
+  }
+  uVar2 = 0;
+LAB_042d2a03:
+  if (local_20 == *(int *)(in_GS_OFFSET + 0x14)) {
+    return uVar2;
+  }
+                    /* WARNING: Subroutine does not return */
+  FUN_042d5e70();
+}
+

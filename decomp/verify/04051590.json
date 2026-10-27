@@ -1,0 +1,405 @@
+
+/* source: D3DBytecodeToGLSLText */
+
+undefined1 __regparm2 eON_ShaderData__InputRegisterIsColor(int *param_1,uint param_2,char *param_3)
+
+{
+  ushort *puVar1;
+  byte bVar2;
+  byte *pbVar3;
+  undefined1 uVar4;
+  char cVar5;
+  char *pcVar6;
+  int iVar7;
+  int iVar8;
+  ushort *puVar9;
+  undefined **ppuVar10;
+  uint uVar11;
+  char **ppcVar12;
+  byte bVar13;
+  int local_1b0;
+  undefined1 local_1a0 [128];
+  char local_120 [128];
+  char *local_a0 [4];
+  char *local_90;
+  char *local_8c;
+  char *local_88;
+  char *local_84;
+  char *local_80;
+  char *local_7c;
+  char *local_78;
+  char *local_74;
+  char *local_70;
+  char *local_6c;
+  char *local_68;
+  char *local_64;
+  char *local_60;
+  char *local_5c;
+  char *local_58;
+  char *local_54;
+  char *local_28 [6];
+  
+  bVar13 = 0;
+  local_28[0] = "gl_Position";
+  local_28[2] = "gl_PointSize";
+  local_28[1] = "eON_VaryingFog";
+  if (DAT_04468c04 == 0) {
+    local_28[1] = "gl_FogFragCoord";
+  }
+  uVar11 = param_2 & 0x7ff;
+  switch((param_2 & 0x1800) >> 8 | (param_2 & 0x70000000) >> 0x1c) {
+  case 0:
+    sprintf(param_3,"Temporary%u",uVar11);
+    break;
+  case 1:
+    iVar8 = *param_1;
+    if (*(char *)(iVar8 + 0x10) == '\0') {
+      iVar7 = iVar8 + uVar11 * 0xc;
+      bVar13 = *(byte *)(iVar7 + 0x164);
+      bVar2 = *(byte *)(iVar7 + 0x168);
+      local_1b0 = iVar8;
+      if (*(int *)(iVar8 + 0x2dc) == 0) {
+        FUN_0400a810("mAsmParams",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/D3DBytecodeToGLSLText.cpp"
+                     ,0xd9,"bool eON_ShaderData::InputRegisterIsColor(DWORD)");
+        local_1b0 = *param_1;
+      }
+      pbVar3 = *(byte **)(iVar8 + 0x2dc);
+      uVar4 = 0;
+      if (*pbVar3 != 0) {
+        iVar8 = 0;
+        do {
+          if ((bVar13 == pbVar3[iVar8 + 1]) && (bVar2 == pbVar3[iVar8 + 2])) {
+            uVar4 = 1;
+            goto LAB_040516d6;
+          }
+          iVar8 = iVar8 + 2;
+        } while (iVar8 != (*pbVar3 - 1 & 0xff) * 2 + 2);
+        uVar4 = 0;
+      }
+LAB_040516d6:
+      eON_ShaderData__FormatAttributeName(local_1b0,uVar11,param_3);
+      return uVar4;
+    }
+    if (2 < *(int *)(iVar8 + 8)) {
+      if ((param_2 & 0x2000) == 0) {
+        sprintf(param_3,"IN[%u]",uVar11);
+        return 0;
+      }
+      eON_ShaderData_ApplySourceModifier(0x10000,local_1a0);
+      if (uVar11 != 0) {
+        sprintf(param_3,"IN[%s + %u]",local_120,uVar11);
+        return 0;
+      }
+      sprintf(param_3,"IN[%s]",local_120);
+      return 0;
+    }
+    if (uVar11 == *(byte *)(iVar8 + 0x2e0)) {
+      iVar7 = 0;
+    }
+    else if (uVar11 == *(byte *)(iVar8 + 0x2e2)) {
+      iVar7 = 1;
+    }
+    else if (uVar11 == *(byte *)(iVar8 + 0x2e4)) {
+      iVar7 = 2;
+    }
+    else if (uVar11 == *(byte *)(iVar8 + 0x2e6)) {
+      iVar7 = 3;
+    }
+    else if (uVar11 == *(byte *)(iVar8 + 0x2e8)) {
+      iVar7 = 4;
+    }
+    else if (uVar11 == *(byte *)(iVar8 + 0x2ea)) {
+      iVar7 = 5;
+    }
+    else if (uVar11 == *(byte *)(iVar8 + 0x2ec)) {
+      iVar7 = 6;
+    }
+    else if (uVar11 == *(byte *)(iVar8 + 0x2ee)) {
+      iVar7 = 7;
+    }
+    else if (uVar11 == *(byte *)(iVar8 + 0x2f0)) {
+      iVar7 = 8;
+    }
+    else {
+      if (uVar11 != *(byte *)(iVar8 + 0x2f2)) {
+        builtin_strncpy(param_3,"vec4(0.0)",10);
+        return 0;
+      }
+      iVar7 = 9;
+    }
+    bVar13 = *(byte *)(iVar8 + 0x2e1 + iVar7 * 2);
+    ppcVar12 = local_a0;
+    for (iVar8 = 0x1e; iVar8 != 0; iVar8 = iVar8 + -1) {
+      *ppcVar12 = (char *)0x0;
+      ppcVar12 = ppcVar12 + 1;
+    }
+    local_84 = "gl_TexCoord[6]";
+    local_a0[0] = "eON_Varyings[0]";
+    local_a0[1] = "gl_Color";
+    local_a0[2] = "eON_Varyings[1]";
+    local_a0[3] = "gl_SecondaryColor";
+    local_90 = "eON_Varyings[2]";
+    local_8c = "gl_TexCoord[7]";
+    local_88 = "eON_Varyings[3]";
+    local_80 = "eON_Varyings[4]";
+    local_7c = "gl_TexCoord[5]";
+    local_78 = "eON_Varyings[5]";
+    local_74 = "gl_TexCoord[4]";
+    local_70 = "eON_Varyings[6]";
+    local_6c = "gl_TexCoord[3]";
+    local_68 = "eON_Varyings[7]";
+    local_64 = "gl_TexCoord[2]";
+    local_60 = "eON_Varyings[8]";
+    local_5c = "gl_TexCoord[1]";
+    local_58 = "eON_Varyings[9]";
+    local_54 = "gl_TexCoord[0]";
+    pcVar6 = local_a0[(uint)(DAT_04468c04 ^ 1) + (uint)bVar13 * 2];
+    goto LAB_040517c4;
+  case 2:
+    if ((param_2 & 0x2000) == 0) {
+      iVar8 = *param_1;
+      if ((*(char *)(iVar8 + 0x15f) == '\0') && (*(int *)(iVar8 + 0x2b8) != 0)) {
+        puVar9 = *(ushort **)(iVar8 + 0x2b4);
+        if (uVar11 != *puVar9) {
+          iVar7 = 0;
+          do {
+            iVar7 = iVar7 + 1;
+            if (iVar7 == *(int *)(iVar8 + 0x2b8)) goto LAB_04051756;
+            puVar1 = puVar9 + 0x12;
+            puVar9 = puVar9 + 0x12;
+          } while (uVar11 != *puVar1);
+        }
+        sprintf(param_3,"LocalConst%u",uVar11);
+      }
+      else {
+LAB_04051756:
+        sprintf(param_3,"%cConstFloat[%u]",(-(uint)(*(char *)(iVar8 + 0x10) == '\0') & 6) + 0x50,
+                uVar11);
+      }
+    }
+    else {
+      iVar8 = *param_1;
+      pcVar6 = "Address0.x";
+      if (1 < *(int *)(iVar8 + 8)) {
+        eON_ShaderData_ApplySourceModifier(0x10000,local_1a0);
+        iVar8 = *param_1;
+        pcVar6 = local_120;
+      }
+      iVar8 = (-(uint)(*(char *)(iVar8 + 0x10) == '\0') & 6) + 0x50;
+      if (uVar11 == 0) {
+        sprintf(param_3,"%cConstFloat[ %s ]",iVar8,pcVar6);
+      }
+      else {
+        sprintf(param_3,"%cConstFloat[ %s + %u ]",iVar8,pcVar6,uVar11);
+      }
+    }
+    break;
+  case 3:
+    pcVar6 = "Texture";
+    if (*(char *)(*param_1 + 0x10) == '\0') {
+      pcVar6 = "Address";
+    }
+    sprintf(param_3,"%s%u",pcVar6,uVar11);
+    break;
+  case 4:
+    pcVar6 = local_28[uVar11];
+LAB_040517c4:
+    strcpy(param_3,pcVar6);
+    break;
+  case 5:
+    if (1 < uVar11) {
+      FUN_0400a810("regNum < (UINT) MaxColorRegisters",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/D3DBytecodeToGLSLText.cpp"
+                   ,0x284,"bool GetRegisterName(ConversionState&, DWORD, DWORD, char*)");
+    }
+    iVar8 = *param_1;
+    if (2 < *(int *)(iVar8 + 8)) {
+      FUN_0400a810("state.Shader->ShaderVersionMajor < 3",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/D3DBytecodeToGLSLText.cpp"
+                   ,0x285,"bool GetRegisterName(ConversionState&, DWORD, DWORD, char*)");
+      iVar8 = *param_1;
+    }
+    iVar7 = uVar11 + 0x14;
+    uVar11 = *(uint *)(iVar8 + 0xc + iVar7 * 4);
+    if (uVar11 == 0) {
+      FUN_0400a810("state.Shader->Regs.ColorOutput[regNum] > 0",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/D3DBytecodeToGLSLText.cpp"
+                   ,0x286,"bool GetRegisterName(ConversionState&, DWORD, DWORD, char*)");
+      uVar11 = *(uint *)(*param_1 + 0xc + iVar7 * 4);
+    }
+    if (10 < uVar11) {
+      FUN_0400a810("state.Shader->Regs.ColorOutput[regNum] < 11",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/D3DBytecodeToGLSLText.cpp"
+                   ,0x287,"bool GetRegisterName(ConversionState&, DWORD, DWORD, char*)");
+      uVar11 = *(uint *)(*param_1 + 0xc + iVar7 * 4);
+    }
+    ppcVar12 = local_a0;
+    for (iVar8 = 0x1e; iVar8 != 0; iVar8 = iVar8 + -1) {
+      *ppcVar12 = (char *)0x0;
+      ppcVar12 = ppcVar12 + (uint)bVar13 * -2 + 1;
+    }
+    local_84 = "gl_TexCoord[6]";
+    local_a0[0] = "eON_Varyings[0]";
+    local_a0[1] = "gl_FrontColor";
+    local_a0[2] = "eON_Varyings[1]";
+    local_a0[3] = "gl_FrontSecondaryColor";
+    local_90 = "eON_Varyings[2]";
+    local_80 = "eON_Varyings[4]";
+    local_8c = "gl_TexCoord[7]";
+    local_88 = "eON_Varyings[3]";
+    local_7c = "gl_TexCoord[5]";
+    local_78 = "eON_Varyings[5]";
+    local_74 = "gl_TexCoord[4]";
+    local_70 = "eON_Varyings[6]";
+    local_6c = "gl_TexCoord[3]";
+    local_68 = "eON_Varyings[7]";
+    local_64 = "gl_TexCoord[2]";
+    local_60 = "eON_Varyings[8]";
+    local_5c = "gl_TexCoord[1]";
+    local_58 = "eON_Varyings[9]";
+    local_54 = "gl_TexCoord[0]";
+    strcpy(param_3,local_a0[((DAT_04468c04 ^ 1) - 2) + uVar11 * 2]);
+    break;
+  case 6:
+    if (*(int *)(*param_1 + 8) < 3) {
+      ppcVar12 = local_a0;
+      for (iVar8 = 0x1e; iVar8 != 0; iVar8 = iVar8 + -1) {
+        *ppcVar12 = (char *)0x0;
+        ppcVar12 = ppcVar12 + 1;
+      }
+      local_84 = "gl_TexCoord[3]";
+      local_a0[0] = "eON_Varyings[0]";
+      local_a0[1] = "gl_TexCoord[0]";
+      local_a0[2] = "eON_Varyings[1]";
+      local_a0[3] = "gl_TexCoord[1]";
+      local_90 = "eON_Varyings[2]";
+      local_8c = "gl_TexCoord[2]";
+      local_88 = "eON_Varyings[3]";
+      local_80 = "eON_Varyings[4]";
+      local_7c = "gl_TexCoord[4]";
+      local_78 = "eON_Varyings[5]";
+      local_74 = "gl_TexCoord[5]";
+      local_70 = "eON_Varyings[6]";
+      local_6c = "gl_TexCoord[6]";
+      local_68 = "eON_Varyings[7]";
+      local_64 = "gl_TexCoord[7]";
+      local_60 = "eON_Varyings[8]";
+      local_5c = "eON_Texcoord8";
+      local_58 = "eON_Varyings[9]";
+      local_54 = "eON_Texcoord9";
+      strcpy(param_3,local_a0[(uint)(DAT_04468c04 ^ 1) + uVar11 * 2]);
+      *(uint *)(*param_1 + 0x2cc) = *(uint *)(*param_1 + 0x2cc) | 1 << ((byte)uVar11 & 0x1f);
+    }
+    else {
+      sprintf(param_3,"OUT[%u]",uVar11);
+    }
+    break;
+  case 7:
+    iVar8 = *param_1;
+    if (*(int *)(iVar8 + 0x2c0) == 0) {
+LAB_04051ae6:
+      sprintf(param_3,"%cConstInt[%u]",(-(uint)(*(char *)(iVar8 + 0x10) == '\0') & 6) + 0x50,uVar11)
+      ;
+    }
+    else {
+      puVar9 = *(ushort **)(iVar8 + 700);
+      if (uVar11 != *puVar9) {
+        iVar7 = 0;
+        do {
+          iVar7 = iVar7 + 1;
+          if (iVar7 == *(int *)(iVar8 + 0x2c0)) goto LAB_04051ae6;
+          puVar1 = puVar9 + 0x12;
+          puVar9 = puVar9 + 0x12;
+        } while (uVar11 != *puVar1);
+      }
+      sprintf(param_3,"LocalConstI%u",uVar11);
+    }
+    break;
+  case 8:
+    if (3 < uVar11) {
+      FUN_0402cd10(0xf,"Trying to write to render target %u (supported %u)!",uVar11,4);
+    }
+    cVar5 = FUN_04021ee0();
+    ppuVar10 = (undefined **)&DAT_04328763;
+    if (cVar5 == '\0') {
+      ppuVar10 = &PTR_DAT_042e7930;
+    }
+    sprintf(param_3,"%sFragData[%u]",ppuVar10,uVar11);
+    break;
+  case 9:
+    builtin_strncpy(param_3,"gl_FragDepth",0xd);
+    break;
+  case 10:
+    sprintf(param_3,"%cSampler%u",(-(uint)(*(char *)(*param_1 + 0x10) == '\0') & 6) + 0x50,uVar11);
+    break;
+  default:
+    break;
+  case 0xe:
+    iVar8 = *param_1;
+    if (*(int *)(iVar8 + 0x2c8) == 0) {
+LAB_040519ae:
+      sprintf(param_3,"%cConstBool[%u]",(-(uint)(*(char *)(iVar8 + 0x10) == '\0') & 6) + 0x50,uVar11
+             );
+    }
+    else {
+      puVar9 = *(ushort **)(iVar8 + 0x2c4);
+      if (uVar11 != *puVar9) {
+        iVar7 = 0;
+        do {
+          iVar7 = iVar7 + 1;
+          if (iVar7 == *(int *)(iVar8 + 0x2c8)) goto LAB_040519ae;
+          puVar1 = puVar9 + 0x12;
+          puVar9 = puVar9 + 0x12;
+        } while (uVar11 != *puVar1);
+      }
+      sprintf(param_3,"LocalConstB%u",uVar11);
+    }
+    break;
+  case 0xf:
+    sprintf(param_3,"Loop%u",*(int *)(*param_1 + 0x2d4) + -1);
+    break;
+  case 0x11:
+    if (uVar11 < 2) {
+      if (uVar11 == 1) {
+        param_3[0] = '(';
+        param_3[1] = 'v';
+        param_3[2] = 'e';
+        param_3[3] = 'c';
+        param_3[4] = '4';
+        param_3[5] = '(';
+        param_3[6] = 'g';
+        param_3[7] = 'l';
+        param_3[8] = '_';
+        param_3[9] = 'F';
+        param_3[10] = 'r';
+        param_3[0xb] = 'o';
+        param_3[0xc] = 'n';
+        param_3[0xd] = 't';
+        param_3[0xe] = 'F';
+        param_3[0xf] = 'a';
+        param_3[0x10] = 'c';
+        param_3[0x11] = 'i';
+        param_3[0x12] = 'n';
+        param_3[0x13] = 'g';
+        param_3[0x14] = '?';
+        param_3[0x15] = '-';
+        param_3[0x16] = '1';
+        param_3[0x17] = '.';
+        param_3[0x18] = '0';
+        param_3[0x19] = ':';
+        param_3[0x1a] = '1';
+        param_3[0x1b] = '.';
+        *(undefined **)(param_3 + 0x1c) = &DAT_00292930;
+      }
+      else {
+        builtin_strncpy(param_3,"VPos",5);
+      }
+    }
+    else {
+      FUN_0402cd10(0xf,"Misc registers > 1 don\'t exist!");
+    }
+  }
+  return 0;
+}
+

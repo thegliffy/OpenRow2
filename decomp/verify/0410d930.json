@@ -1,0 +1,136 @@
+
+/* WARNING: Type propagation algorithm not settling */
+/* source: xaudio2voiceimpl */
+
+undefined4 XAudio2VoiceImp__SetEffectChain(int param_1,uint *param_2)
+
+{
+  code *pcVar1;
+  int iVar2;
+  uint *puVar3;
+  int *piVar4;
+  int *piVar5;
+  uint uVar6;
+  int *piVar7;
+  int *piVar8;
+  int iVar9;
+  uint uVar10;
+  int local_40 [5];
+  int *local_2c;
+  int local_28;
+  int local_24;
+  undefined1 local_1d;
+  
+  piVar4 = local_40 + 1;
+  piVar7 = local_40 + 1;
+  piVar8 = *(int **)(param_1 + 0x108);
+  piVar5 = *(int **)(param_1 + 0x10c);
+  if (piVar8 != piVar5) {
+    do {
+      piVar4 = (int *)*piVar8;
+      if (piVar4 == (int *)0x0) {
+        piVar7[3] = (int)"void XAudio2VoiceImp::DeleteEffectChain()";
+        piVar7[2] = 0x219;
+        piVar7[1] = (int)
+                    "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/xaudio2_full/xaudio2voiceimpl.cpp"
+        ;
+        *piVar7 = (int)"effect.pEffect";
+        piVar7[-1] = 0x410dae4;
+        FUN_0400a810();
+        piVar4 = (int *)*piVar8;
+      }
+      iVar9 = *piVar4;
+      *piVar7 = (int)piVar4;
+      piVar8 = piVar8 + 3;
+      pcVar1 = *(code **)(iVar9 + 8);
+      piVar7[-1] = 0x410d965;
+      (*pcVar1)();
+      piVar4 = piVar7 + -1;
+      piVar7 = piVar7 + -1;
+    } while (piVar5 != piVar8);
+    piVar8 = *(int **)(param_1 + 0x108);
+  }
+  *(int **)(param_1 + 0x10c) = piVar8;
+  *(undefined4 *)(param_1 + 0x120) = *(undefined4 *)(param_1 + 0x118);
+  *(undefined4 *)(param_1 + 0x11c) = *(undefined4 *)(param_1 + 0x114);
+  if ((param_2 != (uint *)0x0) && (*param_2 != 0)) {
+    local_28 = param_1 + 0x108;
+    iVar9 = 0;
+    uVar10 = 0;
+    local_24 = param_1 + 0x114;
+    piVar8 = piVar4;
+    do {
+      while( true ) {
+        local_2c = (int *)(param_2[1] + iVar9);
+        piVar5 = (int *)*local_2c;
+        if (piVar5 == (int *)0x0) {
+          piVar8[3] = (int)
+                      "virtual HRESULT XAudio2VoiceImp::SetEffectChain(const XAUDIO2_EFFECT_CHAIN*)"
+          ;
+          piVar8[2] = 0x6e;
+          piVar8[1] = (int)
+                      "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/xaudio2_full/xaudio2voiceimpl.cpp"
+          ;
+          *piVar8 = (int)"descriptor.pEffect";
+          piVar8[-1] = 0x410db37;
+          FUN_0400a810();
+          piVar5 = (int *)*local_2c;
+        }
+        iVar2 = *piVar5;
+        *piVar8 = (int)piVar5;
+        pcVar1 = *(code **)(iVar2 + 4);
+        piVar8[-1] = 0x410d9f7;
+        (*pcVar1)();
+        piVar5 = *(int **)(param_1 + 0x10c);
+        if (piVar5 == *(int **)(param_1 + 0x110)) {
+          *piVar8 = (int)piVar5;
+          piVar8[1] = (int)local_2c;
+          piVar8[-1] = local_28;
+          piVar8[-2] = 0x410db06;
+          FUN_0410f670();
+        }
+        else {
+          if (piVar5 != (int *)0x0) {
+            *piVar5 = *local_2c;
+            piVar5[1] = local_2c[1];
+            piVar5[2] = local_2c[2];
+          }
+          *(int **)(param_1 + 0x10c) = piVar5 + 3;
+        }
+        local_1d = local_2c[1] != 0;
+        puVar3 = *(uint **)(param_1 + 0x11c);
+        iVar2 = *(int *)(param_1 + 0x120);
+        if (puVar3 != *(uint **)(param_1 + 0x124)) break;
+        *piVar8 = (int)puVar3;
+        piVar8[1] = iVar2;
+        piVar8[2] = (uint)(byte)local_1d;
+        piVar8[-1] = local_24;
+        piVar8[-2] = 0x410dabb;
+        FUN_0410f860();
+LAB_0410d9cc:
+        uVar10 = uVar10 + 1;
+        iVar9 = iVar9 + 0xc;
+        piVar8 = piVar8 + -1;
+        if (*param_2 <= uVar10) {
+          return 0;
+        }
+      }
+      *(int *)(param_1 + 0x120) = iVar2 + 1;
+      if (iVar2 == 0x1f) {
+        *(undefined4 *)(param_1 + 0x120) = 0;
+        *(uint **)(param_1 + 0x11c) = puVar3 + 1;
+      }
+      uVar6 = 1 << ((byte)iVar2 & 0x1f);
+      if (!(bool)local_1d) {
+        *puVar3 = *puVar3 & ~uVar6;
+        goto LAB_0410d9cc;
+      }
+      *puVar3 = *puVar3 | uVar6;
+      uVar10 = uVar10 + 1;
+      iVar9 = iVar9 + 0xc;
+      piVar8 = piVar8 + -1;
+    } while (uVar10 < *param_2);
+  }
+  return 0;
+}
+

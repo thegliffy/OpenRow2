@@ -1,0 +1,17 @@
+
+undefined4 FUN_042aa150(undefined4 param_1,uint param_2,uint param_3)
+
+{
+  undefined4 uVar1;
+  
+  if ((param_3 != 0) && (0 < (int)param_2)) {
+    if (param_2 <= (uint)(0xffffffff / (ulonglong)param_3)) {
+      uVar1 = FUN_042aa110();
+      return uVar1;
+    }
+    return 0;
+  }
+                    /* WARNING: Subroutine does not return */
+  png_error(param_1,"internal error: array alloc");
+}
+

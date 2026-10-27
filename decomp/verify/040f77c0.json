@@ -1,0 +1,126 @@
+
+undefined4 DirectInputMouseDeviceImp__SetDataFormat(int param_1,int *param_2)
+
+{
+  int iVar1;
+  uint uVar2;
+  void *pvVar3;
+  uint uVar4;
+  int iVar5;
+  undefined4 *puVar6;
+  uint uVar7;
+  undefined4 local_30;
+  uint local_2c;
+  bool local_25;
+  uint local_20;
+  
+  local_30 = 0x80070057;
+  if ((param_2 != (int *)0x0) && (*param_2 == 0x18)) {
+    if (param_2[1] == 0x10) {
+      if (*(void **)(param_1 + 0xa4) != (void *)0x0) {
+        free(*(void **)(param_1 + 0xa4));
+      }
+      *(int *)(param_1 + 0x90) = *param_2;
+      *(int *)(param_1 + 0x94) = param_2[1];
+      *(int *)(param_1 + 0x98) = param_2[2];
+      *(int *)(param_1 + 0x9c) = param_2[3];
+      *(int *)(param_1 + 0xa0) = param_2[4];
+      iVar5 = param_2[4];
+      iVar1 = param_2[1];
+      *(int *)(param_1 + 0xa4) = param_2[5];
+      pvVar3 = calloc(1,iVar5 * iVar1);
+      *(void **)(param_1 + 0xa4) = pvVar3;
+      memcpy(pvVar3,(void *)param_2[5],iVar5 * iVar1);
+      local_20 = *(uint *)(param_1 + 0xa0);
+      local_30 = 0;
+      *(undefined4 *)(param_1 + 0xac) = 0xffffffff;
+      *(undefined4 *)(param_1 + 0xb0) = 0xffffffff;
+      *(undefined4 *)(param_1 + 0xb4) = 0xffffffff;
+      *(undefined4 *)(param_1 + 0xb8) = 0xffffffff;
+      *(undefined4 *)(param_1 + 0xbc) = 0xffffffff;
+      *(undefined4 *)(param_1 + 0xc0) = 0xffffffff;
+      *(undefined4 *)(param_1 + 0xc4) = 0xffffffff;
+      *(undefined4 *)(param_1 + 200) = 0xffffffff;
+      *(undefined4 *)(param_1 + 0xcc) = 0xffffffff;
+      *(undefined4 *)(param_1 + 0xd0) = 0xffffffff;
+      *(undefined4 *)(param_1 + 0xd4) = 0xffffffff;
+      if (local_20 != 0) {
+        uVar7 = 0;
+        local_2c = 0;
+LAB_040f7909:
+        do {
+          puVar6 = (undefined4 *)(uVar7 * 0x10 + *(int *)(param_1 + 0xa4));
+          uVar2 = puVar6[2];
+          uVar4 = uVar2 & 0xff;
+          if (uVar4 == 2) {
+            local_25 = false;
+LAB_040f799b:
+            pvVar3 = (void *)*puVar6;
+            if (pvVar3 != (void *)0x0) {
+              iVar5 = memcmp(pvVar3,&DAT_042dbbc8,0x10);
+              if (iVar5 == 0) {
+                *(undefined4 *)(param_1 + 0xac) = puVar6[1];
+                *(byte *)(param_1 + 0xd8) = local_25 ^ 1;
+              }
+              else {
+                iVar5 = memcmp(pvVar3,&DAT_042dbbb8,0x10);
+                if (iVar5 == 0) {
+                  *(undefined4 *)(param_1 + 0xb0) = puVar6[1];
+                  *(byte *)(param_1 + 0xd9) = local_25 ^ 1;
+                }
+                else {
+                  iVar5 = memcmp(pvVar3,&DAT_042dbba8,0x10);
+                  if (iVar5 == 0) {
+                    *(undefined4 *)(param_1 + 0xb4) = puVar6[1];
+                    *(byte *)(param_1 + 0xda) = local_25 ^ 1;
+                  }
+                }
+              }
+            }
+          }
+          else {
+            if (uVar4 < 3) {
+              if (uVar4 != 1) goto LAB_040f7901;
+              local_25 = true;
+              goto LAB_040f799b;
+            }
+            if (uVar4 == 3) {
+              local_25 = *(int *)(param_1 + 0x98) == 2;
+              goto LAB_040f799b;
+            }
+            if (uVar4 == 0xc) {
+              if ((void *)*puVar6 != (void *)0x0) {
+                iVar5 = memcmp((void *)*puVar6,&DAT_042dbbe8,0x10);
+                if (iVar5 != 0) goto LAB_040f7901;
+              }
+              if (local_2c < 8) {
+                *(undefined4 *)(param_1 + 0xb8 + local_2c * 4) = puVar6[1];
+              }
+              else if (-1 < (int)uVar2) {
+                FUN_0402cd10(10,
+                             "DirectInputMouseDeviceImp::SetDataFormat() - Asked for button number %u, unsupported!"
+                             ,local_2c);
+                local_20 = *(uint *)(param_1 + 0xa0);
+              }
+              local_2c = local_2c + 1;
+              uVar7 = uVar7 + 1;
+              if (local_20 <= uVar7) break;
+              goto LAB_040f7909;
+            }
+          }
+LAB_040f7901:
+          uVar7 = uVar7 + 1;
+        } while (uVar7 < local_20);
+        local_30 = 0;
+      }
+    }
+    else {
+      local_30 = 0x80070057;
+      FUN_0402cd10(0xf,
+                   "Unexpected object size in new data format in DirectInputMouseDeviceImp::SetDataFormat()! Can\'t interpret that structure."
+                  );
+    }
+  }
+  return local_30;
+}
+

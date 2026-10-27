@@ -1,0 +1,59 @@
+
+undefined4 __regparm3
+DirectSoundCaptureBuffer8Imp__Initialize(int param_1,undefined4 param_2,int param_3)
+
+{
+  ushort uVar1;
+  short *__src;
+  char cVar2;
+  int iVar3;
+  void *__dest;
+  int iVar4;
+  undefined4 uVar5;
+  
+  __src = *(short **)(param_3 + 0x10);
+  if (*__src == -2) {
+    if ((ushort)__src[8] < 0x16) {
+      return 0x80070057;
+    }
+    iVar4 = memcmp(__src + 0xc,&DAT_042db6d8,0x10);
+    if (iVar4 != 0) {
+      return 0x80070057;
+    }
+  }
+  else if (*__src != 1) {
+    return 0x80070057;
+  }
+  if ((*(int *)(param_3 + 0x14) == 0) && ((*(byte *)(param_3 + 5) & 2) == 0)) {
+    iVar4 = *(int *)(param_3 + 8);
+    iVar3 = (uint)(ushort)__src[7] * (uint)(ushort)__src[1];
+    if (iVar3 < 0) {
+      iVar3 = iVar3 + 7;
+    }
+    uVar5 = 0x80070057;
+    if (iVar3 >> 3 <= iVar4) {
+      *(undefined4 *)(param_1 + 0x10) = param_2;
+      uVar1 = __src[8];
+      *(int *)(param_1 + 0x18) = iVar4;
+      __dest = malloc(uVar1 + 0x12);
+      *(void **)(param_1 + 0x14) = __dest;
+      memcpy(__dest,__src,uVar1 + 0x12);
+      cVar2 = DSoundBackend_CaptureInit
+                        (*(undefined4 *)(param_1 + 0x14),*(undefined4 *)(param_1 + 0x18));
+      if (cVar2 == '\0') {
+        free(*(void **)(param_1 + 0x14));
+        *(undefined4 *)(param_1 + 0x14) = 0;
+      }
+      else {
+        uVar5 = 0;
+      }
+    }
+  }
+  else {
+    uVar5 = 0x88780078;
+    FUN_0402cd10(0xf,
+                 "DirectSoundCaptureBuffer8 doesn\'t support effects on buffer presently. Add it?");
+  }
+  return uVar5;
+}
+

@@ -1,0 +1,283 @@
+
+char * OpenGL_InternalFormatToString(uint param_1)
+
+{
+  char *pcVar1;
+  
+  pcVar1 = "GL_RGB32F";
+  if (param_1 != 0x8815) {
+    if (param_1 < 0x8816) {
+      pcVar1 = "GL_R32F";
+      if (param_1 != 0x822e) {
+        if (param_1 < 0x822f) {
+          pcVar1 = "GL_RGB10_A2";
+          if (param_1 != 0x8059) {
+            if (param_1 < 0x805a) {
+              pcVar1 = "GL_RGB5";
+              if (param_1 != 0x8050) {
+                if (param_1 < 0x8051) {
+                  pcVar1 = "GL_ALPHA8";
+                  if ((param_1 != 0x803c) && (pcVar1 = "GL_RGB4", param_1 != 0x804f)) {
+                    if (param_1 == 0x2a10) {
+                      return "GL_R3_G3_B2";
+                    }
+                    goto LAB_0402c530;
+                  }
+                }
+                else {
+                  pcVar1 = "GL_RGBA4";
+                  if (param_1 != 0x8056) {
+                    if (param_1 < 0x8057) {
+                      if (param_1 == 0x8051) {
+                        return "GL_RGB8";
+                      }
+                    }
+                    else {
+                      if (param_1 == 0x8057) {
+                        return "GL_RGB5_A1";
+                      }
+                      if (param_1 == 0x8058) {
+                        return "GL_RGBA8";
+                      }
+                    }
+                    goto LAB_0402c530;
+                  }
+                }
+              }
+            }
+            else {
+              pcVar1 = "GL_R8";
+              if (param_1 != 0x8229) {
+                if (param_1 < 0x822a) {
+                  pcVar1 = "GL_RGBA16";
+                  if (((param_1 != 0x805b) && (pcVar1 = "GL_RGBA12", 0x805a < param_1)) &&
+                     (pcVar1 = "GL_DEPTH_COMPONENT16", param_1 != 0x81a5)) {
+                    if (param_1 == 0x81a6) {
+                      return "GL_DEPTH_COMPONENT24";
+                    }
+                    goto LAB_0402c530;
+                  }
+                }
+                else {
+                  pcVar1 = "GL_RG8";
+                  if (((param_1 != 0x822b) && (pcVar1 = "GL_R16", 0x822a < param_1)) &&
+                     (pcVar1 = "GL_RG16", param_1 != 0x822c)) {
+                    if (param_1 == 0x822d) {
+                      return "GL_R16F";
+                    }
+                    goto LAB_0402c530;
+                  }
+                }
+              }
+            }
+          }
+        }
+        else {
+          pcVar1 = "GL_RG8UI";
+          if (param_1 != 0x8238) {
+            if (param_1 < 0x8239) {
+              pcVar1 = "GL_R16I";
+              if (param_1 != 0x8233) {
+                if (param_1 < 0x8234) {
+                  pcVar1 = "GL_RG32F";
+                  if (((param_1 != 0x8230) && (pcVar1 = "GL_RG16F", 0x822f < param_1)) &&
+                     ((pcVar1 = "GL_R8I", param_1 != 0x8231 &&
+                      (pcVar1 = "GL_R8UI", param_1 != 0x8232)))) goto LAB_0402c530;
+                }
+                else {
+                  pcVar1 = "GL_R32I";
+                  if (((param_1 != 0x8235) && (pcVar1 = "GL_R16UI", 0x8234 < param_1)) &&
+                     (pcVar1 = "GL_R32UI", param_1 != 0x8236)) {
+                    if (param_1 == 0x8237) {
+                      return "GL_RG8I";
+                    }
+                    goto LAB_0402c530;
+                  }
+                }
+              }
+            }
+            else {
+              pcVar1 = "GL_COMPRESSED_RGB_S3TC_DXT1_EXT";
+              if (param_1 != 0x83f0) {
+                if (param_1 < 0x83f1) {
+                  pcVar1 = "GL_RG16UI";
+                  if (((param_1 != 0x823a) && (pcVar1 = "GL_RG16I", 0x8239 < param_1)) &&
+                     (pcVar1 = "GL_RG32I", param_1 != 0x823b)) {
+                    if (param_1 == 0x823c) {
+                      return "GL_RG32UI";
+                    }
+                    goto LAB_0402c530;
+                  }
+                }
+                else {
+                  pcVar1 = "GL_COMPRESSED_RGBA_S3TC_DXT3_EXT";
+                  if (((param_1 != 0x83f2) &&
+                      (pcVar1 = "GL_COMPRESSED_RGBA_S3TC_DXT1_EXT", 0x83f1 < param_1)) &&
+                     (pcVar1 = "GL_COMPRESSED_RGBA_S3TC_DXT5_EXT", param_1 != 0x83f3)) {
+                    if (param_1 == 0x8814) {
+                      return "GL_RGBA32";
+                    }
+                    goto LAB_0402c530;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    else {
+      pcVar1 = "GL_RGB565";
+      if (param_1 != 0x8d62) {
+        if (param_1 < 0x8d63) {
+          pcVar1 = "GL_SLUMINANCE_ALPHA";
+          if (param_1 != 0x8c44) {
+            if (param_1 < 0x8c45) {
+              pcVar1 = "GL_RGB9_E5";
+              if (param_1 != 0x8c3d) {
+                if (param_1 < 0x8c3e) {
+                  pcVar1 = "GL_COMPRESSED_LUMINANCE_ALPHA_3DC_ATI";
+                  if (param_1 != 0x8837) {
+                    if (param_1 < 0x8838) {
+                      if (param_1 == 0x881a) {
+                        return "GL_RGBA16F";
+                      }
+                    }
+                    else {
+                      if (param_1 == 0x88f0) {
+                        return "GL_DEPTH24_STENCIL8";
+                      }
+                      if (param_1 == 0x8c3a) {
+                        return "GL_R11F_G11F_B10F";
+                      }
+                    }
+                    goto LAB_0402c530;
+                  }
+                }
+                else {
+                  pcVar1 = "GL_SRGB8";
+                  if (param_1 != 0x8c41) {
+                    if (param_1 < 0x8c42) {
+                      if (param_1 == 0x8c40) {
+                        return "GL_SRGB";
+                      }
+                    }
+                    else {
+                      if (param_1 == 0x8c42) {
+                        return "GL_SRGB_ALPHA";
+                      }
+                      if (param_1 == 0x8c43) {
+                        return "GL_SRGB8_ALPHA8";
+                      }
+                    }
+                    goto LAB_0402c530;
+                  }
+                }
+              }
+            }
+            else {
+              pcVar1 = "GL_COMPRESSED_SRGB_ALPHA_S3TC_DXT1_EXT";
+              if (param_1 != 0x8c4d) {
+                if (param_1 < 0x8c4e) {
+                  pcVar1 = "GL_SLUMINANCE";
+                  if (((param_1 != 0x8c46) && (pcVar1 = "GL_SLUMINANCE8_ALPHA8", 0x8c45 < param_1))
+                     && (pcVar1 = "GL_SLUMINANCE8", param_1 != 0x8c47)) {
+                    if (param_1 == 0x8c4c) {
+                      return "GL_COMPRESSED_SRGB_S3TC_DXT1_EXT";
+                    }
+                    goto LAB_0402c530;
+                  }
+                }
+                else {
+                  pcVar1 = "GL_COMPRESSED_SRGB_ALPHA_S3TC_DXT5_EXT";
+                  if (((param_1 != 0x8c4f) &&
+                      (pcVar1 = "GL_COMPRESSED_SRGB_ALPHA_S3TC_DXT3_EXT", 0x8c4e < param_1)) &&
+                     (pcVar1 = "GL_DEPTH_COMPONENT32F", param_1 != 0x8cac)) {
+                    if (param_1 == 0x8cad) {
+                      return "GL_DEPTH32F_STENCIL8";
+                    }
+                    goto LAB_0402c530;
+                  }
+                }
+              }
+            }
+          }
+        }
+        else {
+          pcVar1 = "GL_COMPRESSED_SIGNED_RED_RGTC1";
+          if (param_1 != 0x8dbc) {
+            if (param_1 < 0x8dbd) {
+              pcVar1 = "GL_RGBA32I";
+              if (param_1 != 0x8d82) {
+                if (param_1 < 0x8d83) {
+                  pcVar1 = "GL_RGB32UI";
+                  if (param_1 != 0x8d71) {
+                    if (param_1 < 0x8d72) {
+                      if (param_1 == 0x8d70) {
+                        return "GL_RGBA32UI";
+                      }
+                    }
+                    else {
+                      if (param_1 == 0x8d76) {
+                        return "GL_RGBA16UI";
+                      }
+                      if (param_1 == 0x8d7c) {
+                        return "GL_RGBA8UI";
+                      }
+                    }
+                    goto LAB_0402c530;
+                  }
+                }
+                else {
+                  pcVar1 = "GL_RGBA16I";
+                  if (param_1 != 0x8d88) {
+                    if (param_1 < 0x8d89) {
+                      if (param_1 == 0x8d83) {
+                        return "GL_RGB32I";
+                      }
+                    }
+                    else {
+                      if (param_1 == 0x8d8e) {
+                        return "GL_RGBA8I";
+                      }
+                      if (param_1 == 0x8dbb) {
+                        return "GL_COMPRESSED_RED_RGTC1";
+                      }
+                    }
+                    goto LAB_0402c530;
+                  }
+                }
+              }
+            }
+            else {
+              pcVar1 = "GL_RGBA8_SNORM";
+              if (param_1 != 0x8f97) {
+                if (param_1 < 0x8f98) {
+                  pcVar1 = "GL_COMPRESSED_SIGNED_RG_RGTC2";
+                  if ((((param_1 != 0x8dbe) && (pcVar1 = "GL_COMPRESSED_RG_RGTC2", 0x8dbd < param_1)
+                       ) && (pcVar1 = "GL_R8_SNORM", param_1 != 0x8f94)) &&
+                     (pcVar1 = "GL_RG8_SNORM", param_1 != 0x8f95)) {
+LAB_0402c530:
+                    return "!!!unknown!!!";
+                  }
+                }
+                else {
+                  pcVar1 = "GL_RG16_SNORM";
+                  if (((param_1 != 0x8f99) && (pcVar1 = "GL_R16_SNORM", 0x8f98 < param_1)) &&
+                     (pcVar1 = "GL_RGBA16_SNORM", param_1 != 0x8f9b)) {
+                    if (param_1 == 0x906f) {
+                      return "GL_RGB10_A2UI";
+                    }
+                    goto LAB_0402c530;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  return pcVar1;
+}
+

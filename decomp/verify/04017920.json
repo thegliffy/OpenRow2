@@ -1,0 +1,71 @@
+
+/* WARNING: Removing unreachable block (ram,0x04017b0a) */
+/* WARNING: Removing unreachable block (ram,0x04017b29) */
+/* WARNING: Removing unreachable block (ram,0x04017b80) */
+/* WARNING: Removing unreachable block (ram,0x04017b8e) */
+/* WARNING: Removing unreachable block (ram,0x04017b5c) */
+/* WARNING: Removing unreachable block (ram,0x04017aee) */
+/* WARNING: Removing unreachable block (ram,0x04017afb) */
+/* WARNING: Removing unreachable block (ram,0x04017b72) */
+
+undefined4 __regparm3 eON_FileSystem__createPath(string *param_1)
+
+{
+  int *piVar1;
+  int iVar2;
+  int *piVar3;
+  uint uVar4;
+  char *pcVar5;
+  char *local_24 [5];
+  
+  iVar2 = mkdir(*(char **)param_1,0x1e8);
+  if (iVar2 != 0) {
+    piVar3 = __errno_location();
+    iVar2 = *piVar3;
+    if (iVar2 != 0x11) {
+      if (iVar2 != 2) {
+        pcVar5 = strerror(iVar2);
+        fprintf(stderr,"eON_FileSystem::createPath() failed for path \'%s\', (%u) %s\n",
+                *(undefined4 *)param_1,*piVar3,pcVar5);
+        return 0;
+      }
+      while (uVar4 = std::string::find((char)param_1,0x2f), uVar4 != 0xffffffff) {
+        std::string::string((string *)local_24,param_1,0,uVar4);
+        iVar2 = mkdir(local_24[0],0x1e8);
+        if ((iVar2 == -1) && (*piVar3 != 0x11)) {
+          pcVar5 = strerror(*piVar3);
+                    /* try { // try from 04017a46 to 04017a4a has its CatchHandler @ 04017aa2 */
+          fprintf(stderr,"eON_FileSystem::createPath() failed to mkdir \'%s\', (%u) %s\n",
+                  local_24[0],*piVar3,pcVar5);
+          if ((allocator *)(local_24[0] + -0xc) ==
+              (allocator *)&std::string::_Rep::_S_empty_rep_storage) {
+            return 0;
+          }
+          LOCK();
+          piVar3 = (int *)(local_24[0] + -4);
+          iVar2 = *piVar3;
+          *piVar3 = *piVar3 + -1;
+          UNLOCK();
+          if (0 < iVar2) {
+            return 0;
+          }
+          std::string::_Rep::_M_destroy((allocator *)(local_24[0] + -0xc));
+          return 0;
+        }
+        if ((allocator *)(local_24[0] + -0xc) !=
+            (allocator *)&std::string::_Rep::_S_empty_rep_storage) {
+          LOCK();
+          piVar1 = (int *)(local_24[0] + -4);
+          iVar2 = *piVar1;
+          *piVar1 = *piVar1 + -1;
+          UNLOCK();
+          if (iVar2 < 1) {
+            std::string::_Rep::_M_destroy((allocator *)(local_24[0] + -0xc));
+          }
+        }
+      }
+    }
+  }
+  return 1;
+}
+

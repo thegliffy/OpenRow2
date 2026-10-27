@@ -1,0 +1,64 @@
+
+/* source: file_split_handler */
+
+void SplitFile_GetStatFromHandle(int param_1,undefined4 *param_2)
+
+{
+  undefined2 uVar1;
+  undefined *puVar2;
+  uint uVar3;
+  int iVar4;
+  uint uVar5;
+  undefined4 *puVar6;
+  bool bVar7;
+  byte bVar8;
+  
+  bVar8 = 0;
+  uVar5 = param_1 + 0xf555556;
+  if (uVar5 < 0x40) {
+    iVar4 = *(int *)(&DAT_04415c60 + uVar5 * 0x18);
+  }
+  else {
+    FUN_0400a810("( handle >= 0xF0AAAAAA ) && ( handle < 0xF0AAAAAA + 64 )",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/vpfs/file_split_handler.cpp"
+                 ,0x16b,"void SplitFile_GetStatFromHandle(size_t, stat*)");
+    iVar4 = *(int *)(&DAT_04415c60 + uVar5 * 0x18);
+  }
+  if (iVar4 == -1) {
+    FUN_0400a810("splitFile != (size_t) -1",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/vpfs/file_split_handler.cpp"
+                 ,0x16e,"void SplitFile_GetStatFromHandle(size_t, stat*)");
+  }
+  uVar5 = 0x60;
+  puVar2 = &DAT_04416260;
+  bVar7 = ((uint)param_2 & 1) != 0;
+  if (bVar7) {
+    puVar2 = &DAT_04416261;
+    *(undefined *)param_2 = (&DAT_04416260)[iVar4 * 0x568];
+    param_2 = (undefined4 *)((int)param_2 + 1);
+    uVar5 = 0x5f;
+  }
+  puVar6 = (undefined4 *)(puVar2 + iVar4 * 0x568);
+  if (((uint)param_2 & 2) != 0) {
+    uVar1 = *(undefined2 *)puVar6;
+    uVar5 = uVar5 - 2;
+    puVar6 = (undefined4 *)((int)puVar6 + 2);
+    *(undefined2 *)param_2 = uVar1;
+    param_2 = (undefined4 *)((int)param_2 + 2);
+  }
+  iVar4 = 0;
+  for (uVar3 = uVar5 >> 2; uVar3 != 0; uVar3 = uVar3 - 1) {
+    *param_2 = *puVar6;
+    puVar6 = puVar6 + (uint)bVar8 * -2 + 1;
+    param_2 = param_2 + (uint)bVar8 * -2 + 1;
+  }
+  if ((uVar5 & 2) != 0) {
+    *(undefined2 *)param_2 = *(undefined2 *)puVar6;
+    iVar4 = 2;
+  }
+  if (bVar7) {
+    *(undefined *)((int)param_2 + iVar4) = *(undefined *)((int)puVar6 + iVar4);
+  }
+  return;
+}
+

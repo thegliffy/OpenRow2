@@ -1,0 +1,68 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+bool _glewInit_GL_SGIX_fragment_specular_lighting(void)
+
+{
+  int iVar1;
+  bool bVar2;
+  bool bVar3;
+  bool bVar4;
+  bool bVar5;
+  bool bVar6;
+  bool bVar7;
+  bool bVar8;
+  bool bVar9;
+  bool bVar10;
+  bool bVar11;
+  bool bVar12;
+  bool bVar13;
+  bool bVar14;
+  bool bVar15;
+  bool bVar16;
+  
+  iVar1 = glXGetProcAddressARB("glFragmentColorMaterialSGIX");
+  _DAT_0451cc44 = iVar1;
+  _DAT_0451cc40 = glXGetProcAddressARB("glFragmentLightModelfSGIX");
+  bVar2 = _DAT_0451cc40 == 0;
+  _DAT_0451cc3c = glXGetProcAddressARB("glFragmentLightModelfvSGIX");
+  bVar3 = _DAT_0451cc3c == 0;
+  _DAT_0451cc38 = glXGetProcAddressARB("glFragmentLightModeliSGIX");
+  bVar4 = _DAT_0451cc38 == 0;
+  _DAT_0451cc34 = glXGetProcAddressARB("glFragmentLightModelivSGIX");
+  bVar5 = _DAT_0451cc34 == 0;
+  _DAT_0451cc30 = glXGetProcAddressARB("glFragmentLightfSGIX");
+  bVar6 = _DAT_0451cc30 == 0;
+  _DAT_0451cc2c = glXGetProcAddressARB("glFragmentLightfvSGIX");
+  bVar7 = _DAT_0451cc2c == 0;
+  _DAT_0451cc28 = glXGetProcAddressARB("glFragmentLightiSGIX");
+  bVar8 = _DAT_0451cc28 == 0;
+  _DAT_0451cc24 = glXGetProcAddressARB("glFragmentLightivSGIX");
+  bVar9 = _DAT_0451cc24 == 0;
+  _DAT_0451cc20 = glXGetProcAddressARB("glFragmentMaterialfSGIX");
+  bVar10 = _DAT_0451cc20 == 0;
+  _DAT_0451cc1c = glXGetProcAddressARB("glFragmentMaterialfvSGIX");
+  bVar11 = _DAT_0451cc1c == 0;
+  _DAT_0451cc18 = glXGetProcAddressARB("glFragmentMaterialiSGIX");
+  bVar12 = _DAT_0451cc18 == 0;
+  _DAT_0451cc14 = glXGetProcAddressARB("glFragmentMaterialivSGIX");
+  bVar13 = _DAT_0451cc14 == 0;
+  _DAT_0451cc10 = glXGetProcAddressARB("glGetFragmentLightfvSGIX");
+  bVar14 = _DAT_0451cc10 == 0;
+  _DAT_0451cc0c = glXGetProcAddressARB("glGetFragmentLightivSGIX");
+  bVar15 = _DAT_0451cc0c == 0;
+  _DAT_0451cc08 = glXGetProcAddressARB("glGetFragmentMaterialfvSGIX");
+  bVar16 = _DAT_0451cc08 == 0;
+  _DAT_0451cc04 = glXGetProcAddressARB("glGetFragmentMaterialivSGIX");
+  return _DAT_0451cc04 == 0 ||
+         (bVar16 ||
+         (bVar15 ||
+         (bVar14 ||
+         (bVar13 ||
+         (bVar12 ||
+         (bVar11 ||
+         (bVar10 ||
+         (bVar9 || (bVar8 || (bVar7 || (bVar6 || (bVar5 || (bVar4 || (bVar3 || (bVar2 || iVar1 == 0)
+                                                                     ))))))))))))));
+}
+

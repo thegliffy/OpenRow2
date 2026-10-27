@@ -1,0 +1,112 @@
+
+/* source: vpfs */
+
+uint VPFS_GetFileAttributes(int param_1)
+
+{
+  char cVar1;
+  int iVar2;
+  int iVar3;
+  char local_820 [1024];
+  stat64 local_420 [10];
+  uint local_20 [4];
+  
+  if (param_1 == 0) {
+    return 0;
+  }
+  if (0x2800 < param_1 + 0x54545455U) {
+    FUN_0402cd10(0xf,"Invalid handle given to VPFS_GetFileAttributes()!!");
+    return 0;
+  }
+  pthread_mutex_lock((pthread_mutex_t *)&DAT_0441804c);
+  param_1 = param_1 + 0x54545454;
+  iVar2 = param_1 * 0x20;
+  iVar3 = (&DAT_04418280)[param_1 * 8];
+  if (iVar3 == 0) {
+    pthread_mutex_unlock((pthread_mutex_t *)&DAT_0441804c);
+    return 0;
+  }
+  local_20[0] = 0;
+  if (iVar3 == 6) {
+    iVar3 = FUN_0403c9d0();
+    if (iVar3 == 0) {
+      FUN_0400a810("GetRedirectionPath( data->ElementName, redirectedPath, __null ) != 0",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/vpfs/vpfs.cpp",0xbc7,
+                   "DWORD VPFS_GetFileAttributes(VPFSHandle)");
+    }
+    iVar3 = __xstat64(3,local_820,local_420);
+joined_r0x040435af:
+    if (iVar3 == -1) {
+      pthread_mutex_unlock((pthread_mutex_t *)&DAT_0441804c);
+      return 0;
+    }
+  }
+  else {
+    if (iVar3 == 7) {
+      iVar3 = FUN_0403c9d0();
+      if (iVar3 != 0) {
+        iVar3 = FUN_0403c400(local_820);
+        if (iVar3 == 0) {
+          iVar3 = __xstat64(3,local_820,local_420);
+          if (iVar3 == -1) goto LAB_040435ee;
+        }
+        else {
+          SplitFile_GetStat(local_820,local_420);
+        }
+        goto LAB_040434fd;
+      }
+LAB_040435ee:
+      iVar3 = FUN_0403c400(*(undefined4 *)(&DAT_04418284 + iVar2));
+      if (iVar3 == 0) {
+        iVar3 = __xstat64(3,*(char **)(&DAT_04418284 + iVar2),local_420);
+        goto joined_r0x040435af;
+      }
+    }
+    else {
+      if (1 < iVar3 - 4U) {
+        iVar3 = (&DAT_04418288)[param_1 * 8];
+        iVar2 = FUN_0403fe00();
+        if (iVar2 == 0) {
+          FUN_0400a810("VPFS_GetPathInArchiveFromOffset( filesystemOffset, pathToObject, 1024 ) != 0"
+                       ,"/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/vpfs/vpfs.cpp",
+                       0xc29,"DWORD VPFS_GetFileAttributes(VPFSHandle)");
+        }
+        local_20[0] = *(uint *)(DAT_04468a94 + 0x20 + iVar3);
+        iVar3 = FUN_0404c040(local_420,0);
+        if (iVar3 != 0) {
+          FUN_0404c710(iVar3,local_20);
+          VPFSDB_ReleaseObject(iVar3);
+        }
+        goto LAB_04043492;
+      }
+      if (((iVar3 == 5) && (iVar3 = VPFS_PathToPathInArchive(), iVar3 != 0)) &&
+         (iVar3 = FUN_0404c040(local_420,0), iVar3 != 0)) {
+        cVar1 = FUN_0404c710(iVar3,local_20);
+        VPFSDB_ReleaseObject(iVar3);
+        if (cVar1 != '\0') goto LAB_04043492;
+      }
+      iVar3 = FUN_0403c400(*(undefined4 *)(&DAT_04418284 + iVar2));
+      if (iVar3 == 0) {
+        iVar3 = __xstat64(3,*(char **)(&DAT_04418284 + iVar2),local_420);
+        if (iVar3 == -1) {
+          FUN_0403cbc0();
+          return 0;
+        }
+        goto LAB_040434fd;
+      }
+    }
+    SplitFile_GetStat(*(undefined4 *)(&DAT_04418284 + iVar2),local_420);
+  }
+LAB_040434fd:
+  local_20[0] = (uint)((local_420[0].st_mode & 0x80) == 0);
+  if ((local_420[0].st_mode & 0x3f000) == 0x4000) {
+    local_20[0] = local_20[0] | 0x10;
+  }
+  else {
+    local_20[0] = (-(uint)(local_20[0] == 0) & 0x7f) + 1;
+  }
+LAB_04043492:
+  pthread_mutex_unlock((pthread_mutex_t *)&DAT_0441804c);
+  return local_20[0];
+}
+

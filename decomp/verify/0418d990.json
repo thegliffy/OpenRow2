@@ -1,0 +1,84 @@
+
+undefined4 eON_mmioDescend(undefined4 param_1,undefined4 *param_2,undefined4 param_3,int param_4)
+
+{
+  char cVar1;
+  undefined4 uVar2;
+  int iVar3;
+  char *pcVar4;
+  char *pcVar5;
+  bool bVar6;
+  byte bVar7;
+  char local_20 [4];
+  undefined4 local_1c;
+  char local_18 [4];
+  undefined1 local_14 [4];
+  
+  bVar7 = 0;
+  cVar1 = eONMemoryReader__IsValidHandle(&DAT_0451c0f8,param_1);
+  if (((param_4 != 0) || (param_2 == (undefined4 *)0x0)) || (cVar1 == '\0')) {
+    if (((param_4 != 0x10) || (param_2 == (undefined4 *)0x0)) || (cVar1 == '\0')) {
+      FUN_0402cd10(10,"eON_mmioDescend() unsupported parameters add it!");
+      uVar2 = 6;
+    }
+    else {
+      cVar1 = eONMemoryReader__SeekToFourCC(&DAT_0451c0f8,param_1,*param_2);
+      uVar2 = 0x109;
+      if (cVar1 != '\0') {
+        eONMemoryReader__Read(&DAT_0451c0f8,param_1,local_20,8,local_14);
+        uVar2 = eONMemoryReader__Seek(&DAT_0451c0f8,param_1,0,2);
+        param_2[3] = uVar2;
+        param_2[4] = 0;
+        param_2[2] = 0;
+        param_2[1] = local_1c;
+        uVar2 = 0;
+      }
+    }
+  }
+  else {
+    cVar1 = eONMemoryReader__Read(&DAT_0451c0f8,param_1,local_20,0xc,local_14);
+    if (cVar1 == '\0') {
+      FUN_0402cd10(5,"eON_mmioDescend() has failed to read file!");
+      uVar2 = 0x109;
+    }
+    else {
+      iVar3 = 4;
+      bVar6 = false;
+      pcVar4 = local_20;
+      pcVar5 = "RIFF";
+      do {
+        if (iVar3 == 0) break;
+        iVar3 = iVar3 + -1;
+        bVar6 = *pcVar4 == *pcVar5;
+        pcVar4 = pcVar4 + (uint)bVar7 * -2 + 1;
+        pcVar5 = pcVar5 + (uint)bVar7 * -2 + 1;
+      } while (bVar6);
+      if (bVar6) {
+        iVar3 = 4;
+        bVar6 = true;
+        pcVar4 = local_18;
+        pcVar5 = "WAVE";
+        do {
+          if (iVar3 == 0) break;
+          iVar3 = iVar3 + -1;
+          bVar6 = *pcVar4 == *pcVar5;
+          pcVar4 = pcVar4 + (uint)bVar7 * -2 + 1;
+          pcVar5 = pcVar5 + (uint)bVar7 * -2 + 1;
+        } while (bVar6);
+        if (bVar6) {
+          *param_2 = 0x46464952;
+          param_2[1] = local_1c;
+          param_2[2] = 0x45564157;
+          iVar3 = eONMemoryReader__Seek(&DAT_0451c0f8,param_1,0,2);
+          param_2[3] = iVar3 + -4;
+          param_2[4] = 0;
+          return 0;
+        }
+      }
+      FUN_0402cd10(5,"eON_mmioDescend() unknown file RIFF header");
+      uVar2 = 0x109;
+    }
+  }
+  return uVar2;
+}
+

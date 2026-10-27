@@ -1,0 +1,113 @@
+
+/* source: openGlDebugFunctions */
+
+void __regparm3 OpenGL_LogState_Textures(undefined4 *param_1)
+
+{
+  int iVar1;
+  int iVar2;
+  int local_28;
+  int local_24;
+  int local_20 [4];
+  
+  (**(code **)*param_1)(param_1,"Textures\n");
+  glGetIntegerv(0x84e0,&local_28);
+  iVar1 = glGetError();
+  if (iVar1 != 0) {
+    FUN_0400a810("glGetError() == 0",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                 ,0x80f,"void OpenGL_LogState_Textures(OpenGlDebugWriter*)");
+  }
+  (**(code **)*param_1)(param_1,"\tGL_ACTIVE_TEXTURE: %d\n",local_28 + -0x84c0);
+  glGetIntegerv(0x8872,&local_24);
+  iVar1 = glGetError();
+  if (iVar1 != 0) {
+    FUN_0400a810("glGetError() == 0",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                 ,0x813,"void OpenGL_LogState_Textures(OpenGlDebugWriter*)");
+  }
+  (**(code **)*param_1)(param_1,"\tGL_MAX_TEXTURE_IMAGE_UNITS: %d\n",local_24);
+  glGetIntegerv(0x8b4c,local_20);
+  iVar1 = glGetError();
+  if (iVar1 != 0) {
+    FUN_0400a810("glGetError() == 0",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                 ,0x817,"void OpenGL_LogState_Textures(OpenGlDebugWriter*)");
+  }
+  (**(code **)*param_1)(param_1,"\tGL_MAX_VERTEX_TEXTURE_IMAGE_UNITS: %d\n",local_20[0]);
+  if (local_24 < 0x11) {
+    if (local_24 < 1) goto LAB_040cd4ff;
+  }
+  else {
+    local_24 = 0x10;
+  }
+  iVar1 = 0;
+  do {
+    while( true ) {
+      (*DAT_0451eeac)(iVar1 + 0x84c0);
+      iVar2 = glGetError();
+      if (iVar2 != 0) {
+        FUN_0400a810("glGetError() == 0",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                     ,0x820,"void OpenGL_LogState_Textures(OpenGlDebugWriter*)");
+      }
+      glGetIntegerv(0x8068,local_20);
+      iVar2 = glGetError();
+      if (iVar2 != 0) {
+        FUN_0400a810("glGetError() == 0",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                     ,0x822,"void OpenGL_LogState_Textures(OpenGlDebugWriter*)");
+      }
+      if (local_20[0] != 0) {
+        (**(code **)*param_1)
+                  (param_1,"\t\tUnit %2d : GL_TEXTURE_BINDING_1D: %d\n",iVar1,local_20[0]);
+      }
+      glGetIntegerv(0x8069,local_20);
+      iVar2 = glGetError();
+      if (iVar2 != 0) {
+        FUN_0400a810("glGetError() == 0",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                     ,0x826,"void OpenGL_LogState_Textures(OpenGlDebugWriter*)");
+      }
+      if (local_20[0] != 0) {
+        (**(code **)*param_1)
+                  (param_1,"\t\tUnit %2d : GL_TEXTURE_BINDING_2D: %d\n",iVar1,local_20[0]);
+      }
+      glGetIntegerv(0x806a,local_20);
+      iVar2 = glGetError();
+      if (iVar2 != 0) {
+        FUN_0400a810("glGetError() == 0",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                     ,0x82a,"void OpenGL_LogState_Textures(OpenGlDebugWriter*)");
+      }
+      if (local_20[0] != 0) {
+        (**(code **)*param_1)
+                  (param_1,"\t\tUnit %2d : GL_TEXTURE_BINDING_3D: %d\n",iVar1,local_20[0]);
+      }
+      glGetIntegerv(0x8514,local_20);
+      iVar2 = glGetError();
+      if (iVar2 != 0) {
+        FUN_0400a810("glGetError() == 0",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                     ,0x82e,"void OpenGL_LogState_Textures(OpenGlDebugWriter*)");
+      }
+      if (local_20[0] != 0) break;
+      iVar1 = iVar1 + 1;
+      if (local_24 <= iVar1) goto LAB_040cd4ff;
+    }
+    iVar2 = iVar1 + 1;
+    (**(code **)*param_1)
+              (param_1,"\t\tUnit %2d : GL_TEXTURE_BINDING_CUBE_MAP: %d\n",iVar1,local_20[0]);
+    iVar1 = iVar2;
+  } while (iVar2 < local_24);
+LAB_040cd4ff:
+  (*DAT_0451eeac)(local_28);
+  iVar1 = glGetError();
+  if (iVar1 != 0) {
+    FUN_0400a810("glGetError() == 0",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                 ,0x833,"void OpenGL_LogState_Textures(OpenGlDebugWriter*)");
+  }
+  return;
+}
+

@@ -1,0 +1,48 @@
+
+void Cot__Destroy(int param_1,uint param_2)
+
+{
+  pthread_mutex_t *__mutex;
+  _Rb_tree_node_base *p_Var1;
+  _Rb_tree_node_base *p_Var2;
+  _Rb_tree_node_base *p_Var3;
+  void *pvVar4;
+  _Rb_tree_node_base *p_Var5;
+  _Rb_tree_node_base *p_Var6;
+  
+  __mutex = (pthread_mutex_t *)(param_1 + 0x1c);
+  pthread_mutex_lock(__mutex);
+  if (*(_Rb_tree_node_base **)(param_1 + 8) != (_Rb_tree_node_base *)0x0) {
+    p_Var1 = (_Rb_tree_node_base *)(param_1 + 4);
+    p_Var3 = *(_Rb_tree_node_base **)(param_1 + 8);
+    p_Var5 = p_Var1;
+    do {
+      while (p_Var6 = p_Var3, *(uint *)(p_Var6 + 0x10) < param_2) {
+        p_Var2 = p_Var6 + 0xc;
+        p_Var3 = *(_Rb_tree_node_base **)p_Var2;
+        p_Var6 = p_Var5;
+        if (*(_Rb_tree_node_base **)p_Var2 == (_Rb_tree_node_base *)0x0) goto LAB_0400af75;
+      }
+      p_Var3 = *(_Rb_tree_node_base **)(p_Var6 + 8);
+      p_Var5 = p_Var6;
+    } while (*(_Rb_tree_node_base **)(p_Var6 + 8) != (_Rb_tree_node_base *)0x0);
+LAB_0400af75:
+    if ((p_Var6 != p_Var1) && (*(uint *)(p_Var6 + 0x10) <= param_2)) {
+      if (*(int *)(p_Var6 + 0x14) != 0) {
+        FUN_0402cd10(0xf,"COT ERROR: Trying to destroy COM object %p with refcount %d != 0!\'",
+                     param_2,*(int *)(p_Var6 + 0x14));
+      }
+      pvVar4 = (void *)std::_Rb_tree_rebalance_for_erase(p_Var6,p_Var1);
+      operator_delete(pvVar4);
+      *(int *)(param_1 + 0x14) = *(int *)(param_1 + 0x14) + -1;
+      pthread_mutex_unlock(__mutex);
+      return;
+    }
+  }
+  FUN_0402cd10(0xf,
+               "COT ERROR: Trying to destroy (with info \'%s\') COM object %p that doesn\'t exist!\'"
+               ,*(undefined4 *)(param_2 + 4),param_2);
+  pthread_mutex_unlock(__mutex);
+  return;
+}
+

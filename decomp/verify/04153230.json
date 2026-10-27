@@ -1,0 +1,58 @@
+
+/* source: windll */
+
+bool eON_GetModuleHandleExA(uint param_1,uint param_2,int *param_3)
+
+{
+  int iVar1;
+  _Rb_tree_node_base *p_Var2;
+  
+  if ((param_1 & 1) != 0) {
+    FUN_0402cd10(10,"GetModuleHandleExA() - GET_MODULE_HANDLE_EX_FLAG_PIN unhandled. Handle it.");
+  }
+  if ((param_1 & 2) == 0) {
+    FUN_0402cd10(10,
+                 "GetModuleHandleExA() - need to implement reference counting for modules for this call to work!"
+                );
+  }
+  if (param_3 == (int *)0x0) {
+    return false;
+  }
+  *param_3 = 0;
+  if ((param_1 & 4) == 0) {
+    if (param_2 == 0) {
+      iVar1 = DAT_0451adc0;
+      if (DAT_0451adc0 == 0) {
+        FUN_0400a810("gMainExecutableHandle",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/windll.cpp"
+                     ,0x55c,"void* eON_GetModuleHandleA(LPCSTR)");
+        iVar1 = DAT_0451adc0;
+        *param_3 = DAT_0451adc0;
+        goto LAB_041532b6;
+      }
+    }
+    else {
+      iVar1 = LoadLibraryA_Resolve();
+    }
+    *param_3 = iVar1;
+  }
+  else {
+    pthread_mutex_lock((pthread_mutex_t *)&DAT_0451add4);
+    p_Var2 = DAT_0451adf8;
+    if (DAT_0451adf8 != (_Rb_tree_node_base *)&DAT_0451adf0) {
+      do {
+        if ((*(uint *)(p_Var2 + 0x520) <= param_2) &&
+           (param_2 < *(uint *)(p_Var2 + 0x520) + *(int *)(p_Var2 + 0x524))) {
+          *param_3 = *(int *)(p_Var2 + 0x10);
+          break;
+        }
+        p_Var2 = (_Rb_tree_node_base *)std::_Rb_tree_increment(p_Var2);
+      } while (p_Var2 != (_Rb_tree_node_base *)&DAT_0451adf0);
+    }
+    pthread_mutex_unlock((pthread_mutex_t *)&DAT_0451add4);
+    iVar1 = *param_3;
+  }
+LAB_041532b6:
+  return iVar1 != 0;
+}
+

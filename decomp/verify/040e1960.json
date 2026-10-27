@@ -1,0 +1,159 @@
+
+/* source: pixelformatdata */
+
+undefined4 __regparm3
+PixelFormatData__PrepareTexture(int param_1,int *param_2,char param_3,char param_4,char param_5)
+
+{
+  bool bVar1;
+  char cVar2;
+  int iVar3;
+  undefined4 uVar4;
+  undefined4 uVar5;
+  bool local_41;
+  undefined4 local_30;
+  undefined4 local_2c;
+  uint local_28;
+  undefined4 local_24;
+  char local_1e;
+  undefined1 local_1d [13];
+  
+  cVar2 = PixelFormatData__MapTextureFormatToGL
+                    (param_1,param_4,&local_30,&local_2c,&local_28,&local_1e,local_1d);
+  if (cVar2 == '\0') {
+    return 0;
+  }
+  glGenTextures(1,param_2);
+  iVar3 = *param_2;
+  if (iVar3 == 0) {
+    return 0;
+  }
+  if (param_3 == '\0') {
+    glBindTexture(0xde1,iVar3);
+    glTexParameterf(0xde1,0x2801,0x46180400);
+    iVar3 = glGetError();
+    if (iVar3 != 0) {
+      FUN_0400a810("glGetError() == 0",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/pixelformatdata.cpp"
+                   ,0x1d2,
+                   "bool PixelFormatData::PrepareTexture(D3DFORMAT, GLuint&, bool, bool, bool)");
+    }
+    if (local_1e == '\0') {
+      uVar5 = 0xde1;
+      glTexImage2D(0xde1,0,local_28,0x80,0x80,0,local_2c,local_30,0);
+    }
+    else {
+      uVar4 = 0x2000;
+      if (param_1 != 0x31545844) {
+        uVar4 = 0x4000;
+      }
+      uVar5 = 0xde1;
+      (*DAT_0451eea0)(0xde1,0,local_2c,0x80,0x80,0,uVar4,0);
+    }
+  }
+  else {
+    glBindTexture(0x8513,iVar3);
+    glTexParameterf(0x8513,0x2801,0x46180400);
+    iVar3 = glGetError();
+    if (iVar3 != 0) {
+      FUN_0400a810("glGetError() == 0",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/pixelformatdata.cpp"
+                   ,0x1b5,
+                   "bool PixelFormatData::PrepareTexture(D3DFORMAT, GLuint&, bool, bool, bool)");
+    }
+    if (local_1e == '\0') {
+      uVar5 = 0x8515;
+      glTexImage2D(0x8515,0,local_28,0x80,0x80,0,local_2c,local_30,0);
+      glTexImage2D(0x8516,0,local_28,0x80,0x80,0,local_2c,local_30,0);
+      glTexImage2D(0x8517,0,local_28,0x80,0x80,0,local_2c,local_30,0);
+      glTexImage2D(0x8518,0,local_28,0x80,0x80,0,local_2c,local_30,0);
+      glTexImage2D(0x8519,0,local_28,0x80,0x80,0,local_2c,local_30,0);
+      glTexImage2D(0x851a,0,local_28,0x80,0x80,0,local_2c,local_30,0);
+    }
+    else {
+      uVar5 = 0x8515;
+      uVar4 = 0x4000;
+      if (param_1 == 0x31545844) {
+        uVar4 = 0x2000;
+      }
+      (*DAT_0451eea0)(0x8515,0,local_2c,0x80,0x80,0,uVar4,0);
+      (*DAT_0451eea0)(0x8516,0,local_2c,0x80,0x80,0,uVar4,0);
+      (*DAT_0451eea0)(0x8517,0,local_2c,0x80,0x80,0,uVar4,0);
+      (*DAT_0451eea0)(0x8518,0,local_2c,0x80,0x80,0,uVar4,0);
+      (*DAT_0451eea0)(0x8519,0,local_2c,0x80,0x80,0,uVar4,0);
+      (*DAT_0451eea0)(0x851a,0,local_2c,0x80,0x80,0,uVar4,0);
+    }
+  }
+  iVar3 = glGetError();
+  if (iVar3 != 0) {
+    return 0;
+  }
+  if (param_4 == '\0') {
+    return 1;
+  }
+  if (param_5 == '\0') {
+    return 1;
+  }
+  if (local_28 == 0x84f9) {
+    FUN_0400a810("false",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/pixelformatdata.cpp"
+                 ,0x186,"bool IsDepth(GLuint)");
+    bVar1 = false;
+    goto LAB_040e1ad1;
+  }
+  if (local_28 < 0x84fa) {
+    if (local_28 - 0x81a5 < 3) {
+LAB_040e205b:
+      bVar1 = true;
+      goto LAB_040e1ad1;
+    }
+  }
+  else if (local_28 == 0x88f0) goto LAB_040e205b;
+  bVar1 = false;
+LAB_040e1ad1:
+  if (local_28 == 0x84f9) {
+    FUN_0400a810("false",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/pixelformatdata.cpp"
+                 ,0x192,"bool IsStencil(GLuint)");
+  }
+  local_41 = local_28 == 0x84f9 || local_28 == 0x88f0;
+  (*DAT_0451e668)(1,&local_24);
+  (*DAT_0451e694)(0x8d40,local_24);
+  if (bVar1) {
+    (*DAT_0451e674)(0x8d40,0x8d00,uVar5,*param_2,0);
+  }
+  if (local_41) {
+    (*DAT_0451e674)(0x8d40,0x8d20,uVar5,*param_2,0);
+  }
+  if ((bVar1) || (local_41)) {
+    (*DAT_0451eed0)(0);
+    (*DAT_0451eed4)(0);
+  }
+  else {
+    (*DAT_0451e674)(0x8d40,0x8ce0,uVar5,*param_2,0);
+    (*DAT_0451eed0)(0x8ce0);
+    (*DAT_0451eed4)(0x8ce0);
+  }
+  iVar3 = (*DAT_0451e688)(0x8d40);
+  (*DAT_0451e694)(0x8d40,0);
+  (*DAT_0451e684)(1,&local_24);
+  uVar5 = 0;
+  if (iVar3 == 0x8cd6) {
+    if (*param_2 == 0) {
+      FUN_0400a810("index",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/pixelformatdata.cpp"
+                   ,0x205,
+                   "bool PixelFormatData::PrepareTexture(D3DFORMAT, GLuint&, bool, bool, bool)");
+      uVar5 = 0;
+    }
+  }
+  else if ((iVar3 != 0x8cdd) && (uVar5 = 1, iVar3 != 0x8cd5)) {
+    FUN_0400a810("false",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/pixelformatdata.cpp"
+                 ,0x208,"bool PixelFormatData::PrepareTexture(D3DFORMAT, GLuint&, bool, bool, bool)"
+                );
+    uVar5 = 0;
+  }
+  return uVar5;
+}
+

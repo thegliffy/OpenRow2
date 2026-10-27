@@ -1,0 +1,72 @@
+
+/* source: direct3ddevice9imp */
+
+undefined4 Direct3DDevice9Imp__GetViewport(int param_1,undefined4 *param_2)
+
+{
+  int iVar1;
+  undefined4 uVar2;
+  int iVar3;
+  int *piVar4;
+  undefined4 uStack_50;
+  int local_4c [7];
+  int local_30;
+  int local_24;
+  int *local_20 [4];
+  
+  piVar4 = local_4c;
+  local_20[0] = &local_24;
+  iVar1 = *(int *)(param_1 + 0xc);
+  local_24 = iVar1;
+  if (iVar1 != 0) {
+    piVar4 = local_4c;
+    if (*(char *)(iVar1 + 0xebbc) != '\0') {
+      local_4c[0] = iVar1 + 0xebc4;
+      uStack_50 = 0x4074e8e;
+      EnterCriticalSection();
+      piVar4 = &uStack_50;
+    }
+    if (*(int *)(iVar1 + 0xec64) == 0) {
+      if (*(int *)(iVar1 + 0xebc0) != 0) {
+        piVar4[3] = (int)"void Direct3DDevice9Imp::MultithreadedGuard_Enter()";
+        piVar4[2] = 0x3ae;
+        piVar4[1] = (int)
+                    "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+        ;
+        *piVar4 = (int)"!mCurrentD3D9Thread";
+        piVar4[-1] = 0x4074e34;
+        FUN_0400a810();
+      }
+      piVar4[-1] = 0x4074daf;
+      uVar2 = FUN_0415b750();
+      *(undefined4 *)(iVar1 + 0xebc0) = uVar2;
+    }
+    else {
+      local_30 = *(int *)(iVar1 + 0xebc0);
+      piVar4[-1] = 0x4074e4e;
+      iVar3 = FUN_0415b750();
+      if (local_30 != iVar3) {
+        piVar4[3] = (int)"void Direct3DDevice9Imp::MultithreadedGuard_Enter()";
+        piVar4[2] = 0x3b3;
+        piVar4[1] = (int)
+                    "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+        ;
+        *piVar4 = (int)"mCurrentD3D9Thread == thread_GetCurrentThreadId()";
+        piVar4[-1] = 0x4074e7b;
+        FUN_0400a810();
+      }
+    }
+    *(int *)(iVar1 + 0xec64) = *(int *)(iVar1 + 0xec64) + 1;
+  }
+  *param_2 = *(undefined4 *)(param_1 + 0x52e0);
+  param_2[1] = *(undefined4 *)(param_1 + 0x52e4);
+  param_2[2] = *(undefined4 *)(param_1 + 0x52e8);
+  param_2[3] = *(undefined4 *)(param_1 + 0x52ec);
+  param_2[4] = *(undefined4 *)(param_1 + 0x52f0);
+  param_2[5] = *(undefined4 *)(param_1 + 0x52f4);
+  *piVar4 = (int)local_20;
+  piVar4[-1] = 0x4074dfc;
+  direct3ddevice9imp_040a2df0();
+  return 0;
+}
+

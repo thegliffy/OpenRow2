@@ -1,0 +1,94 @@
+
+/* source: caseInsensitivePath */
+
+undefined4 VPFS_MakePathCaseSensitive(char *param_1,char *param_2,undefined4 param_3)
+
+{
+  char cVar1;
+  char *pcVar2;
+  undefined1 *puVar3;
+  __int32_t **pp_Var4;
+  undefined1 *puVar5;
+  undefined4 uVar6;
+  char cVar7;
+  char *pcVar8;
+  char *pcVar9;
+  char local_41c [1036];
+  
+  if (*param_2 == '/') {
+    FUN_0400a810("*firstUncertainPathElement != \'/\'",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/vpfs/caseInsensitivePath.cpp"
+                 ,0x316,"int32_t VPFS_MakePathCaseSensitive(char*, char*, const char*)");
+  }
+  if (*param_1 != '/') {
+    FUN_0400a810("*caseInsensitiveModifiablePath == \'/\'",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/vpfs/caseInsensitivePath.cpp"
+                 ,0x317,"int32_t VPFS_MakePathCaseSensitive(char*, char*, const char*)");
+  }
+  puVar5 = DAT_04415c48;
+  pcVar8 = param_1;
+  if (DAT_04415c48 == (undefined1 *)0x0) {
+    puVar5 = malloc(0x10);
+    DAT_04415c48 = puVar5;
+    *(undefined4 *)(puVar5 + 4) = 0;
+    puVar5[1] = 4;
+    *puVar5 = 0;
+    *(undefined4 *)(puVar5 + 8) = 0;
+    puVar5[3] = puVar5[3] & 0xfc;
+    *(undefined4 *)(puVar5 + 0xc) = 0;
+    puVar5[2] = 0;
+  }
+joined_r0x0403bfc6:
+  do {
+    puVar3 = puVar5;
+    pcVar2 = pcVar8 + 1;
+    if (param_2 == pcVar2) {
+      uVar6 = VPFS_Internal_MakePathCaseSensitive(param_1,param_2,puVar3,param_3);
+      return uVar6;
+    }
+    cVar1 = *pcVar2;
+    pcVar8 = pcVar2;
+    if ((cVar1 == '/') || (cVar1 == '\0')) {
+      pcVar9 = local_41c;
+    }
+    else {
+      pcVar9 = local_41c;
+      cVar7 = cVar1;
+      do {
+        pcVar8 = pcVar8 + 1;
+        if ((int)cVar7 + 0x80U < 0x180) {
+          pp_Var4 = __ctype_tolower_loc();
+          cVar7 = (char)(*pp_Var4)[cVar7];
+        }
+        *pcVar9 = cVar7;
+        cVar7 = *pcVar8;
+        pcVar9 = pcVar9 + 1;
+      } while ((cVar7 != '/') && (cVar7 != '\0'));
+    }
+    *pcVar9 = '\0';
+    if (*(int *)(puVar3 + 0xc) == 0) {
+      *pcVar2 = '\0';
+      RefreshFolder(puVar3,param_1,param_3);
+      *pcVar2 = cVar1;
+      if (*(int *)(puVar3 + 0xc) == 0) {
+        return 0;
+      }
+    }
+    else {
+      puVar5 = (undefined1 *)GetSubelement();
+      if (puVar5 != (undefined1 *)0x0) goto joined_r0x0403bfc6;
+      cVar1 = *pcVar2;
+      *pcVar2 = '\0';
+      RefreshFolder(puVar3,param_1,param_3);
+      *pcVar2 = cVar1;
+    }
+    puVar5 = (undefined1 *)GetSubelement();
+    if (puVar5 == (undefined1 *)0x0) {
+      FUN_0400a810("directoryElementForCertainPath",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/vpfs/caseInsensitivePath.cpp"
+                   ,0x343,"int32_t VPFS_MakePathCaseSensitive(char*, char*, const char*)");
+      return 0;
+    }
+  } while( true );
+}
+

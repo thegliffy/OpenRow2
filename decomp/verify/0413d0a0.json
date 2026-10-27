@@ -1,0 +1,280 @@
+
+/* source: mem_vm */
+
+void __regparm3 vmm_CommitRegion(int param_1,void *param_2,uint param_3,int param_4)
+
+{
+  int iVar1;
+  uint uVar2;
+  void *pvVar3;
+  uint uVar4;
+  void *pvVar5;
+  uint uVar6;
+  uint uVar7;
+  uint uVar8;
+  uint *puVar9;
+  uint uVar10;
+  uint uVar11;
+  uint uVar12;
+  bool bVar13;
+  int local_3c;
+  uint *local_34;
+  int local_24;
+  int local_20 [4];
+  
+  local_3c = 0x32;
+  local_34 = (uint *)0x0;
+  if (*(int *)(param_1 + 0x10) == 0) goto LAB_0413d177;
+  iVar1 = Synchronisation_GetObjectInfo(*(int *)(param_1 + 0x10),&local_24,local_20);
+  if (iVar1 != 1) {
+    FUN_0400a810("Synchronisation_GetUserDataFromHandle( region->Mapping, (void**)&mapping, &type ) == 1"
+                 ,
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/mem_vm.cpp"
+                 ,0x485,"void vmm_CommitRegion(ReservedRegion*, PVOID, SIZE_T, int)");
+  }
+  if (local_20[0] != 6) {
+    FUN_0400a810("type == HandleFileMapping",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/mem_vm.cpp"
+                 ,0x486,"void vmm_CommitRegion(ReservedRegion*, PVOID, SIZE_T, int)");
+  }
+  local_34 = *(uint **)(local_24 + 4);
+  uVar2 = *(uint *)(local_24 + 8) & 0xff;
+  if (uVar2 != 8) {
+    if (uVar2 < 9) {
+      if (uVar2 != 0) {
+        if (uVar2 < 3) goto LAB_0413d580;
+        if (uVar2 == 4) goto LAB_0413d170;
+      }
+    }
+    else {
+      if (uVar2 == 0x20) {
+LAB_0413d580:
+        local_3c = 0x12;
+        goto LAB_0413d177;
+      }
+      if (uVar2 < 0x21) {
+        if (uVar2 == 0x10) goto LAB_0413d580;
+      }
+      else if ((uVar2 == 0x40) || (uVar2 == 0x80)) goto LAB_0413d170;
+    }
+    FUN_0402cd10(10,"Win32ToPosixProtectFlags: unhandled flags %x !!",*(uint *)(local_24 + 8));
+  }
+LAB_0413d170:
+  local_3c = 0x11;
+LAB_0413d177:
+  if (*(int *)(param_1 + 0x20) == -1) {
+    uVar2 = (int)param_2 - *(int *)(param_1 + 8);
+    uVar10 = uVar2 >> 0xc;
+    uVar4 = (param_3 >> 0xc) + uVar10;
+    pvVar3 = *(void **)(param_1 + 0x24);
+    bVar13 = false;
+    if (uVar10 < uVar4) {
+      puVar9 = (uint *)((int)pvVar3 + (uVar2 >> 0x11) * 4);
+      uVar2 = uVar10;
+      uVar6 = uVar10;
+      do {
+        while( true ) {
+          uVar11 = 1 << ((byte)uVar6 & 0x1f);
+          if ((uVar11 & *puVar9) != 0) break;
+          uVar6 = uVar6 + 1;
+          *puVar9 = *puVar9 | uVar11;
+          if ((uVar6 & 0x1f) == 0) {
+            puVar9 = puVar9 + 1;
+          }
+          if (uVar4 <= uVar6) goto LAB_0413d3dd;
+        }
+        if (uVar2 < uVar6) {
+          uVar11 = uVar2 * 0x1000;
+          pvVar5 = (void *)(*(int *)(param_1 + 8) + uVar11);
+          pvVar3 = mmap64(pvVar5,(uVar6 - uVar2) * 0x1000,param_4,local_3c,(int)local_34,
+                          CONCAT44(*(int *)(param_1 + 0x18) +
+                                   (uint)CARRY4(uVar11,*(uint *)(param_1 + 0x14)),
+                                   uVar11 + *(uint *)(param_1 + 0x14)));
+          if (pvVar5 != pvVar3) {
+            FUN_0400a810("mmap( (void*) firstUncommittedAddress, commitSize, protFlags, mmapFlags, fileHandle, region->MappingFileOffset + ( firstIndexToCommit << 12 ) ) == (void*) firstUncommittedAddress"
+                         ,
+                         "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/mem_vm.cpp"
+                         ,0x4e4,"void vmm_CommitRegion(ReservedRegion*, PVOID, SIZE_T, int)");
+          }
+        }
+        uVar2 = uVar6 + 1;
+        if ((uVar2 & 0x1f) == 0) {
+          puVar9 = puVar9 + 1;
+        }
+        uVar6 = uVar2;
+      } while (uVar2 < uVar4);
+LAB_0413d3dd:
+      if (uVar2 < uVar4) {
+        bVar13 = uVar10 == uVar2;
+        uVar10 = uVar2 * 0x1000;
+        pvVar5 = (void *)(*(int *)(param_1 + 8) + uVar10);
+        pvVar3 = mmap64(pvVar5,(uVar4 - uVar2) * 0x1000,param_4,local_3c,(int)local_34,
+                        CONCAT44(*(int *)(param_1 + 0x18) +
+                                 (uint)CARRY4(uVar10,*(uint *)(param_1 + 0x14)),
+                                 uVar10 + *(uint *)(param_1 + 0x14)));
+        if (pvVar5 != pvVar3) {
+          FUN_0400a810("mmap( (void*) firstUncommittedAddress, commitSize, protFlags, mmapFlags, fileHandle, region->MappingFileOffset + ( firstIndexToCommit << 12 ) ) == (void*) firstUncommittedAddress"
+                       ,
+                       "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/mem_vm.cpp"
+                       ,0x4ff,"void vmm_CommitRegion(ReservedRegion*, PVOID, SIZE_T, int)");
+        }
+        pvVar3 = *(void **)(param_1 + 0x24);
+      }
+      else {
+        bVar13 = false;
+        pvVar3 = *(void **)(param_1 + 0x24);
+      }
+    }
+    iVar1 = FUN_0413a7d0();
+    *(int *)(param_1 + 0x20) = iVar1;
+    if (iVar1 != -1) {
+      free(pvVar3);
+      *(undefined4 *)(param_1 + 0x24) = 0;
+    }
+    if (bVar13) {
+      return;
+    }
+  }
+  else {
+    uVar2 = *(int *)(param_1 + 0x20) * 0x1000;
+    pvVar3 = (void *)(uVar2 + *(int *)(param_1 + 8));
+    if (pvVar3 < (void *)(param_3 + (int)param_2)) {
+      if (pvVar3 < param_2) {
+        uVar2 = (int)param_2 - *(int *)(param_1 + 8);
+        pvVar3 = mmap64(param_2,param_3,param_4,local_3c,(int)local_34,
+                        CONCAT44(*(int *)(param_1 + 0x18) +
+                                 (uint)CARRY4(uVar2,*(uint *)(param_1 + 0x14)),
+                                 uVar2 + *(uint *)(param_1 + 0x14)));
+        if (pvVar3 != param_2) {
+          FUN_0400a810("mmap( (void*) addressAligned, sizeAligned, protFlags, mmapFlags, fileHandle, region->MappingFileOffset + ( (SIZE_T)addressAligned - (SIZE_T)region->Address ) ) == addressAligned"
+                       ,
+                       "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/mem_vm.cpp"
+                       ,0x4ac,"void vmm_CommitRegion(ReservedRegion*, PVOID, SIZE_T, int)");
+        }
+        if (*(int *)(param_1 + 0x24) != 0) {
+          FUN_0400a810("!region->CommitTable",
+                       "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/mem_vm.cpp"
+                       ,0x4b1,"void vmm_CommitRegion(ReservedRegion*, PVOID, SIZE_T, int)");
+        }
+        uVar11 = 1;
+        uVar6 = *(uint *)(param_1 + 0xc) >> 0xc;
+        local_34 = malloc((*(uint *)(param_1 + 0xc) - 1 >> 0x11) * 4 + 4);
+        *(uint **)(param_1 + 0x24) = local_34;
+        uVar2 = *(uint *)(param_1 + 0x20);
+        uVar12 = (uint)((int)param_2 - *(int *)(param_1 + 8)) >> 0xc;
+        uVar4 = (param_3 >> 0xc) + uVar12;
+        uVar10 = 1;
+        if (uVar2 == 0) {
+          uVar2 = 0;
+          uVar10 = 0;
+          uVar11 = 0;
+        }
+        else {
+          while (uVar10 < uVar2) {
+            uVar7 = uVar10 + 1;
+            uVar8 = uVar10 & 0x1f;
+            uVar11 = uVar11 | 1 << (sbyte)uVar8;
+            uVar10 = uVar7;
+            if (uVar8 == 0x1f) {
+              uVar8 = uVar2 - uVar7 >> 5;
+              *local_34 = uVar11;
+              local_34 = local_34 + 1;
+              uVar11 = 0;
+              if (uVar8 != 0) {
+                memset(local_34,0xff,uVar8 * 4);
+                uVar10 = uVar7 + uVar8 * 0x20;
+                local_34 = local_34 + uVar8;
+              }
+            }
+          }
+          uVar2 = uVar10 & 0x1f;
+        }
+        uVar8 = uVar10;
+        if (uVar10 < uVar12) {
+          do {
+            uVar8 = uVar10 + 1;
+            if ((uVar10 & 0x1f) == 0x1f) {
+              *local_34 = uVar11;
+              local_34 = local_34 + 1;
+              uVar11 = 0;
+              uVar2 = uVar12 - uVar8 >> 5;
+              if (uVar2 != 0) {
+                bzero(local_34,uVar2 * 4);
+                uVar8 = uVar8 + uVar2 * 0x20;
+                local_34 = local_34 + uVar2;
+              }
+            }
+            uVar10 = uVar8;
+          } while (uVar8 < uVar12);
+          uVar2 = uVar8 & 0x1f;
+        }
+        uVar10 = uVar8;
+        if (uVar8 < uVar4) {
+          do {
+            uVar10 = uVar8 + 1;
+            uVar11 = uVar11 | 1 << (sbyte)(uVar8 & 0x1f);
+            if ((uVar8 & 0x1f) == 0x1f) {
+              uVar2 = uVar4 - uVar10 >> 5;
+              *local_34 = uVar11;
+              local_34 = local_34 + 1;
+              uVar11 = 0;
+              if (uVar2 != 0) {
+                memset(local_34,0xff,uVar2 * 4);
+                uVar10 = uVar10 + uVar2 * 0x20;
+                local_34 = local_34 + uVar2;
+              }
+            }
+            uVar8 = uVar10;
+          } while (uVar10 < uVar4);
+          uVar2 = uVar10 & 0x1f;
+        }
+        if (uVar10 < uVar6) {
+          do {
+            uVar2 = uVar10 + 1;
+            if ((uVar10 & 0x1f) == 0x1f) {
+              *local_34 = uVar11;
+              local_34 = local_34 + 1;
+              uVar11 = 0;
+              uVar10 = uVar6 - uVar2 >> 5;
+              if (uVar10 != 0) {
+                bzero(local_34,uVar10 * 4);
+                uVar2 = uVar2 + uVar10 * 0x20;
+                local_34 = local_34 + uVar10;
+              }
+            }
+            uVar10 = uVar2;
+          } while (uVar2 < uVar6);
+          uVar2 = uVar2 & 0x1f;
+        }
+        if (uVar2 != 0) {
+          *local_34 = uVar11;
+        }
+        *(undefined4 *)(param_1 + 0x20) = 0xffffffff;
+        return;
+      }
+      uVar10 = (int)(param_3 + (int)param_2) - (int)pvVar3;
+      pvVar5 = mmap64(pvVar3,uVar10,param_4,local_3c,(int)local_34,
+                      CONCAT44(*(int *)(param_1 + 0x18) +
+                               (uint)CARRY4(uVar2,*(uint *)(param_1 + 0x14)),
+                               uVar2 + *(uint *)(param_1 + 0x14)));
+      if (pvVar3 != pvVar5) {
+        FUN_0400a810("mmap( (void*) firstUncommittedAddress, bytesToExtendBy, protFlags, mmapFlags, fileHandle, region->MappingFileOffset + ( firstUncommittedAddress - (SIZE_T)region->Address ) ) == (void*) firstUncommittedAddress"
+                     ,
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/mem_vm.cpp"
+                     ,0x49f,"void vmm_CommitRegion(ReservedRegion*, PVOID, SIZE_T, int)");
+      }
+      *(int *)(param_1 + 0x20) = *(int *)(param_1 + 0x20) + (uVar10 >> 0xc);
+      if (pvVar3 == param_2) {
+        return;
+      }
+    }
+  }
+  iVar1 = mprotect(param_2,param_3,param_4);
+  if (iVar1 != 0) {
+    FUN_0400a810("mprotect( addressAligned, sizeAligned, protFlags ) == 0",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/mem_vm.cpp"
+                 ,0x511,"void vmm_CommitRegion(ReservedRegion*, PVOID, SIZE_T, int)");
+  }
+  return;
+}
+

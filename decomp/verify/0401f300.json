@@ -1,0 +1,165 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+/* source: opengl_objects */
+
+void OpenGLDebugMessageCallback
+               (int param_1,undefined4 param_2,undefined4 param_3,uint param_4,size_t param_5,
+               char *param_6)
+
+{
+  size_t __size;
+  char *pcVar1;
+  undefined4 uVar2;
+  char *local_a8;
+  undefined **local_a4;
+  undefined **local_a0;
+  undefined *local_94 [10];
+  char local_6c [40];
+  undefined *local_44 [13];
+  
+  if (param_4 == 0x826b) {
+    return;
+  }
+  if (param_1 == -1) {
+    switch(param_2) {
+    case 0x9149:
+      local_a8 = "API Error";
+      local_a4 = &PTR_DAT_04359a53;
+      break;
+    case 0x914a:
+      local_a8 = "Window System";
+      local_a4 = &PTR_DAT_04359a53;
+      break;
+    case 0x914b:
+      local_a8 = "Deprecation";
+      local_a4 = &PTR_DAT_04359a53;
+      break;
+    case 0x914c:
+      local_a8 = "Undefined Behaviour";
+      local_a4 = &PTR_DAT_04359a53;
+      break;
+    case 0x914d:
+      local_a8 = "Performance";
+      local_a4 = &PTR_DAT_04359a53;
+      break;
+    case 0x914e:
+      local_a8 = "Shader Compiler";
+      local_a4 = &PTR_DAT_04359a53;
+      break;
+    case 0x914f:
+      local_a8 = "Application";
+      local_a4 = &PTR_DAT_04359a53;
+      break;
+    case 0x9150:
+      local_a8 = "Other";
+      local_a4 = &PTR_DAT_04359a53;
+      break;
+    default:
+      local_a8 = local_6c;
+      sprintf(local_a8,"!!!Unknown Category(%u)!!!",param_2);
+      local_a4 = &PTR_DAT_04359a53;
+    }
+  }
+  else {
+    switch(param_1) {
+    case 0x8246:
+      local_a4 = &PTR_DAT_042df09b;
+      break;
+    case 0x8247:
+      local_a4 = (undefined **)0x42df09f;
+      break;
+    case 0x8248:
+      local_a4 = (undefined **)0x42df0ad;
+      break;
+    case 0x8249:
+      local_a4 = (undefined **)0x42df0bd;
+      break;
+    case 0x824a:
+      local_a4 = (undefined **)0x42df0c7;
+      break;
+    case 0x824b:
+      local_a4 = (undefined **)0x42df0d3;
+      break;
+    default:
+      local_a4 = local_94;
+      sprintf((char *)local_a4,"!!!Unknown Source(%u)!!!",param_1);
+    }
+    switch(param_2) {
+    case 0x824c:
+      local_a8 = "Error";
+      break;
+    case 0x824d:
+      local_a8 = "Deprecated Behaviour";
+      break;
+    case 0x824e:
+      local_a8 = "Undefined Behaviour";
+      break;
+    case 0x824f:
+      local_a8 = "Portability";
+      break;
+    case 0x8250:
+      local_a8 = "Performance";
+      break;
+    case 0x8251:
+      local_a8 = "Other";
+      break;
+    default:
+      local_a8 = local_6c;
+      sprintf(local_a8,"!!!Unknown Type(%u)!!!",param_2);
+    }
+  }
+  uVar2 = 0xf;
+  local_a0 = (undefined **)0x43285fc;
+  if (param_4 == 0x9146) goto LAB_0401f3f5;
+  if (param_4 < 0x9147) {
+    uVar2 = 5;
+    local_a0 = (undefined **)0x4348838;
+    if (param_4 == 0x826b) goto LAB_0401f3f5;
+  }
+  else {
+    uVar2 = 10;
+    local_a0 = (undefined **)0x43403fd;
+    if (param_4 == 0x9147) goto LAB_0401f3f5;
+    uVar2 = 5;
+    local_a0 = &PTR_DAT_042df13d;
+    if (param_4 == 0x9148) goto LAB_0401f3f5;
+  }
+  local_a0 = local_44;
+  uVar2 = 0xf;
+  sprintf((char *)local_a0,"!!!Unknown Severity(%u)!!!",param_4);
+LAB_0401f3f5:
+  if (-1 < (int)param_5) {
+    if (_DAT_04411610 == (char *)0x0) {
+      pthread_mutex_init((pthread_mutex_t *)&DAT_04411614,(pthread_mutexattr_t *)0x0);
+    }
+    pthread_mutex_lock((pthread_mutex_t *)&DAT_04411614);
+    __size = param_5 + 1;
+    if ((int)DAT_0441162c < (int)__size) {
+      DAT_0441162c = __size;
+      if (_DAT_04411610 == (char *)0x0) {
+        _DAT_04411610 = malloc(__size);
+      }
+      else {
+        _DAT_04411610 = realloc(_DAT_04411610,__size);
+      }
+    }
+    if (_DAT_0441160c < (int)param_5) {
+      FUN_0400a810("length <= sMaxDebugMessageLength",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/linux/opengl_objects.cpp"
+                   ,0xac7,
+                   "void OpenGLDebugMessageCallback(uint32_t, uint32_t, uint32_t, uint32_t, int32_t, const char*, void*)"
+                  );
+    }
+    pcVar1 = _DAT_04411610;
+    strncpy(_DAT_04411610,param_6,param_5);
+    pcVar1[param_5] = '\0';
+    FUN_0402cd10(uVar2,"OGLDM[%s][%s][%s] %u(%#x) : %s",local_a4,local_a8,local_a0,param_3,param_3,
+                 pcVar1);
+    pthread_mutex_unlock((pthread_mutex_t *)&DAT_04411614);
+    return;
+  }
+  FUN_0402cd10(uVar2,"OGLDM[%s][%s][%s] %u(%#x) : %s",local_a4,local_a8,local_a0,param_3,param_3,
+               param_6);
+  return;
+}
+

@@ -1,0 +1,48 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+bool _glewInit_GL_ARB_vertex_attrib_binding(void)
+
+{
+  int iVar1;
+  bool bVar2;
+  bool bVar3;
+  bool bVar4;
+  bool bVar5;
+  bool bVar6;
+  bool bVar7;
+  bool bVar8;
+  bool bVar9;
+  bool bVar10;
+  bool bVar11;
+  
+  iVar1 = glXGetProcAddressARB("glBindVertexBuffer");
+  _DAT_0451e070 = iVar1;
+  _DAT_0451e06c = glXGetProcAddressARB("glVertexArrayBindVertexBufferEXT");
+  bVar2 = _DAT_0451e06c == 0;
+  _DAT_0451e068 = glXGetProcAddressARB("glVertexArrayVertexAttribBindingEXT");
+  bVar3 = _DAT_0451e068 == 0;
+  _DAT_0451e064 = glXGetProcAddressARB("glVertexArrayVertexAttribFormatEXT");
+  bVar4 = _DAT_0451e064 == 0;
+  _DAT_0451e060 = glXGetProcAddressARB("glVertexArrayVertexAttribIFormatEXT");
+  bVar5 = _DAT_0451e060 == 0;
+  _DAT_0451e05c = glXGetProcAddressARB("glVertexArrayVertexAttribLFormatEXT");
+  bVar6 = _DAT_0451e05c == 0;
+  _DAT_0451e058 = glXGetProcAddressARB("glVertexArrayVertexBindingDivisorEXT");
+  bVar7 = _DAT_0451e058 == 0;
+  _DAT_0451e054 = glXGetProcAddressARB("glVertexAttribBinding");
+  bVar8 = _DAT_0451e054 == 0;
+  _DAT_0451e050 = glXGetProcAddressARB("glVertexAttribFormat");
+  bVar9 = _DAT_0451e050 == 0;
+  _DAT_0451e04c = glXGetProcAddressARB("glVertexAttribIFormat");
+  bVar10 = _DAT_0451e04c == 0;
+  _DAT_0451e048 = glXGetProcAddressARB("glVertexAttribLFormat");
+  bVar11 = _DAT_0451e048 == 0;
+  _DAT_0451e044 = glXGetProcAddressARB("glVertexBindingDivisor");
+  return _DAT_0451e044 == 0 ||
+         (bVar11 ||
+         (bVar10 ||
+         (bVar9 || (bVar8 || (bVar7 || (bVar6 || (bVar5 || (bVar4 || (bVar3 || (bVar2 || iVar1 == 0)
+                                                                     )))))))));
+}
+

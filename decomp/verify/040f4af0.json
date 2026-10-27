@@ -1,0 +1,58 @@
+
+/* source: directinputkeyboarddevice8imp */
+
+undefined4 DirectInputKeyboardDeviceImp__GetProperty(undefined4 param_1,int param_2,int *param_3)
+
+{
+  int iVar1;
+  undefined4 local_110;
+  undefined1 local_10c [256];
+  
+  local_110 = 0x80070057;
+  if ((param_3 != (int *)0x0) && (param_3[1] == 0x10)) {
+    if (param_2 == 0x14) {
+      if (*param_3 != 0x218) {
+        FUN_0402cd10(10,
+                     "DirectInputKeyboardDeviceImp::GetProperty requested property DIPROP_KEYNAME with untested size %u!"
+                     ,*param_3);
+      }
+      if (param_3[3] == 1) {
+        iVar1 = param_3[2] * 0x28;
+        if ((&DAT_04408e40)[iVar1] == '\0') {
+          FUN_0402cd10(10,
+                       "DirectInputKeyboardDeviceImp::GetProperty requested property DIPROP_KEYNAME for invalid key offset %u!"
+                       ,param_3[2]);
+          *(undefined2 *)(param_3 + 4) = 0x20;
+          *(undefined2 *)((int)param_3 + 0x12) = 0;
+          return 0;
+        }
+        iVar1 = eON_MultiByteToWideChar(0,0,&DAT_04408e48 + iVar1,0xffffffff,0,0);
+        if (0x7f < iVar1) {
+          FUN_0400a810("eON_MultiByteToWideChar( 0, 0, GOI_BO_Values[data->diph.dwObj].Name, -1, __null, 0 ) < 128"
+                       ,
+                       "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/dinput8/directinputkeyboarddevice8imp.cpp"
+                       ,0x46e,
+                       "virtual HRESULT DirectInputKeyboardDeviceImp::GetProperty(REFGUID, LPDIPROPHEADER)"
+                      );
+        }
+        eON_MultiByteToWideChar(0,0,&DAT_04408e48 + param_3[2] * 0x28,0xffffffff,local_10c,0x80);
+        FUN_0415a1f0(param_3 + 4,local_10c,*param_3 - 0x10U >> 1);
+        local_110 = 0;
+      }
+      else {
+        FUN_0402cd10(0xf,
+                     "DirectInputKeyboardDeviceImp::GetProperty requested property DIPROP_KEYNAME with unsupported method %u! Handle it."
+                     ,param_3[3]);
+        local_110 = 0x80070057;
+      }
+    }
+    else {
+      local_110 = 0x80070057;
+      FUN_0402cd10(0xf,
+                   "DirectInputKeyboardDeviceImp::GetProperty requested unsupported property %p! Handle it."
+                   ,param_2);
+    }
+  }
+  return local_110;
+}
+

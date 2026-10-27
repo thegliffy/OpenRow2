@@ -1,0 +1,76 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+bool _glewInit_GL_VERSION_1_5(void)
+
+{
+  int iVar1;
+  bool bVar2;
+  bool bVar3;
+  bool bVar4;
+  bool bVar5;
+  bool bVar6;
+  bool bVar7;
+  bool bVar8;
+  bool bVar9;
+  bool bVar10;
+  bool bVar11;
+  bool bVar12;
+  bool bVar13;
+  bool bVar14;
+  bool bVar15;
+  bool bVar16;
+  bool bVar17;
+  bool bVar18;
+  
+  iVar1 = glXGetProcAddressARB("glBeginQuery");
+  DAT_0451ed38 = iVar1;
+  DAT_0451ed34 = glXGetProcAddressARB("glBindBuffer");
+  bVar2 = DAT_0451ed34 == 0;
+  DAT_0451ed30 = glXGetProcAddressARB("glBufferData");
+  bVar3 = DAT_0451ed30 == 0;
+  DAT_0451ed2c = glXGetProcAddressARB("glBufferSubData");
+  bVar4 = DAT_0451ed2c == 0;
+  DAT_0451ed28 = glXGetProcAddressARB("glDeleteBuffers");
+  bVar5 = DAT_0451ed28 == 0;
+  DAT_0451ed24 = glXGetProcAddressARB("glDeleteQueries");
+  bVar6 = DAT_0451ed24 == 0;
+  DAT_0451ed20 = glXGetProcAddressARB("glEndQuery");
+  bVar7 = DAT_0451ed20 == 0;
+  DAT_0451ed1c = glXGetProcAddressARB("glGenBuffers");
+  bVar8 = DAT_0451ed1c == 0;
+  DAT_0451ed18 = glXGetProcAddressARB("glGenQueries");
+  bVar9 = DAT_0451ed18 == 0;
+  DAT_0451ed14 = glXGetProcAddressARB("glGetBufferParameteriv");
+  bVar10 = DAT_0451ed14 == 0;
+  DAT_0451ed10 = glXGetProcAddressARB("glGetBufferPointerv");
+  bVar11 = DAT_0451ed10 == 0;
+  DAT_0451ed0c = glXGetProcAddressARB("glGetBufferSubData");
+  bVar12 = DAT_0451ed0c == 0;
+  DAT_0451ed08 = glXGetProcAddressARB("glGetQueryObjectiv");
+  bVar13 = DAT_0451ed08 == 0;
+  DAT_0451ed04 = glXGetProcAddressARB("glGetQueryObjectuiv");
+  bVar14 = DAT_0451ed04 == 0;
+  _DAT_0451ed00 = glXGetProcAddressARB("glGetQueryiv");
+  bVar15 = _DAT_0451ed00 == 0;
+  _DAT_0451ecfc = glXGetProcAddressARB("glIsBuffer");
+  bVar16 = _DAT_0451ecfc == 0;
+  _DAT_0451ecf8 = glXGetProcAddressARB("glIsQuery");
+  bVar17 = _DAT_0451ecf8 == 0;
+  _DAT_0451ecf4 = glXGetProcAddressARB("glMapBuffer");
+  bVar18 = _DAT_0451ecf4 == 0;
+  DAT_0451ecf0 = glXGetProcAddressARB("glUnmapBuffer");
+  return DAT_0451ecf0 == 0 ||
+         (bVar18 ||
+         (bVar17 ||
+         (bVar16 ||
+         (bVar15 ||
+         (bVar14 ||
+         (bVar13 ||
+         (bVar12 ||
+         (bVar11 ||
+         (bVar10 ||
+         (bVar9 || (bVar8 || (bVar7 || (bVar6 || (bVar5 || (bVar4 || (bVar3 || (bVar2 || iVar1 == 0)
+                                                                     ))))))))))))))));
+}
+

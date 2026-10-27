@@ -1,0 +1,153 @@
+
+/* source: gdi32 */
+
+uint CalculateKerningPairsTable(int param_1,uint param_2,void *param_3)
+
+{
+  ushort *puVar1;
+  short *psVar2;
+  ushort uVar3;
+  ushort uVar4;
+  ushort uVar5;
+  int iVar6;
+  int iVar7;
+  void *__dest;
+  uint uVar8;
+  ushort uVar9;
+  uint uVar10;
+  int iVar11;
+  void *__ptr;
+  void *__ptr_00;
+  uint uVar12;
+  void *pvVar13;
+  undefined4 uVar14;
+  undefined2 *puVar15;
+  uint uVar16;
+  ushort local_54;
+  int local_50;
+  short local_44;
+  int local_38 [3];
+  ushort local_2a;
+  size_t local_28;
+  uint local_24 [3];
+  undefined4 *local_18;
+  
+  __dest = param_3;
+  uVar8 = param_2;
+  iVar6 = param_1;
+  local_18 = &param_1;
+  eON_FontCache_EnsureInitialized();
+  if ((__dest != (void *)0x0) && (uVar8 == 0)) {
+    eON_SetLastError(0x57);
+    uVar12 = 0;
+  }
+  else {
+    uVar10 = 0;
+    uVar12 = uVar10;
+    if ((iVar6 != 0) &&
+       (((uVar16 = iVar6 + 0x68686869, uVar16 < 0x80 &&
+         (iVar6 = *(int *)(&DAT_04512ac4 + uVar16 * 0x60), iVar6 != 0)) &&
+        (*(char *)(iVar6 + 3) == '\0')))) {
+      uVar12 = *(uint *)(iVar6 + 0x90);
+      if (uVar12 == 0xffffffff) {
+        *(undefined4 *)(iVar6 + 0x90) = 0;
+        uVar12 = uVar10;
+        if ((*(uint *)(*(int *)(iVar6 + 100) + 8) & 0x48) == 0x48) {
+          local_28 = 0;
+          iVar11 = FT_Load_Sfnt_Table(*(int *)(iVar6 + 100),0x6b65726e,0,0,&local_28);
+          if ((iVar11 == 0) && (__ptr = malloc(local_28), __ptr != (void *)0x0)) {
+            iVar11 = FT_Load_Sfnt_Table(*(undefined4 *)(iVar6 + 100),0x6b65726e,0,__ptr,&local_28);
+            if ((iVar11 == 0) && (__ptr_00 = calloc(1,0x20000), __ptr_00 != (void *)0x0)) {
+              if (*(int *)(*(int *)(*(int *)(iVar6 + 100) + 0x5c) + 4) == 0x756e6963) {
+                local_24[0] = 0;
+                uVar14 = FT_Get_First_Char(*(int *)(iVar6 + 100),local_24);
+                while (local_24[0] != 0) {
+                  if ((local_24[0] < 0x10000) &&
+                     (psVar2 = (short *)((int)__ptr_00 + local_24[0] * 2), *psVar2 == 0)) {
+                    local_44 = (short)uVar14;
+                    *psVar2 = local_44;
+                  }
+                  uVar14 = FT_Get_Next_Char(*(undefined4 *)(iVar6 + 100),uVar14,local_24);
+                }
+              }
+              else {
+                FUN_0402cd10(10,
+                             "Trying to get a kerning pair table for a font with encoding != UNICODE. Implement it."
+                            );
+                iVar11 = 0;
+                do {
+                  *(short *)((int)__ptr_00 + iVar11 * 2) = (short)iVar11;
+                  iVar11 = iVar11 + 1;
+                } while (iVar11 != 0x10000);
+              }
+              uVar9 = *(ushort *)((int)__ptr + 2) << 8 | *(ushort *)((int)__ptr + 2) >> 8;
+              if (uVar9 != 0) {
+                local_54 = 0;
+                local_50 = (int)__ptr + 4;
+                do {
+                  uVar4 = *(ushort *)(local_50 + 2);
+                  local_2a = *(ushort *)(local_50 + 4) << 8 | *(ushort *)(local_50 + 4) >> 8;
+                  if ((local_2a & 0x1fe0) == 0) {
+                    uVar12 = (*(ushort *)(local_50 + 6) & 0xff) << 8 |
+                             (uint)(*(ushort *)(local_50 + 6) >> 8);
+                    iVar11 = *(int *)(iVar6 + 0x90) + uVar12;
+                    if (*(void **)(iVar6 + 0x94) == (void *)0x0) {
+                      pvVar13 = malloc(iVar11 * 8);
+                      *(void **)(iVar6 + 0x94) = pvVar13;
+                    }
+                    else {
+                      pvVar13 = realloc(*(void **)(iVar6 + 0x94),iVar11 * 8);
+                      *(void **)(iVar6 + 0x94) = pvVar13;
+                    }
+                    iVar7 = *(int *)(iVar6 + 0x90);
+                    *(int *)(iVar6 + 0x90) = iVar11;
+                    if (uVar12 != 0) {
+                      puVar15 = (undefined2 *)((int)pvVar13 + iVar7 * 8);
+                      uVar3 = 0;
+                      uVar10 = 0;
+                      do {
+                        puVar1 = (ushort *)(local_50 + 0xe + uVar10 * 6);
+                        uVar5 = *puVar1;
+                        uVar16 = (uVar5 & 0xff) << 8 | (uint)(uVar5 >> 8);
+                        *puVar15 = *(undefined2 *)((int)__ptr_00 + uVar16 * 2);
+                        uVar5 = puVar1[1];
+                        uVar10 = (uVar5 & 0xff) << 8 | (uint)(uVar5 >> 8);
+                        puVar15[1] = *(undefined2 *)((int)__ptr_00 + uVar10 * 2);
+                        iVar11 = FT_Get_Kerning(*(undefined4 *)(iVar6 + 100),uVar16,uVar10,0,
+                                                local_38);
+                        if (iVar11 != 0) {
+                          FUN_0400a810("!error",
+                                       "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/gdi32/gdi32.cpp"
+                                       ,0x15c7,"void CalculateKerningPairsTable(eON_GdiFont*)");
+                        }
+                        uVar3 = uVar3 + 1;
+                        *(int *)(puVar15 + 2) = local_38[0] >> 6;
+                        uVar10 = (uint)uVar3;
+                        puVar15 = puVar15 + 4;
+                      } while (uVar10 < uVar12);
+                    }
+                  }
+                  local_54 = local_54 + 1;
+                  local_50 = local_50 + (uint)(ushort)(uVar4 << 8 | uVar4 >> 8);
+                } while (local_54 != uVar9);
+              }
+              free(__ptr_00);
+            }
+            free(__ptr);
+            uVar12 = *(uint *)(iVar6 + 0x90);
+          }
+          else {
+            uVar12 = *(uint *)(iVar6 + 0x90);
+          }
+        }
+      }
+      if (((__dest != (void *)0x0) && (uVar8 != 0)) &&
+         ((uVar8 <= uVar12 || (uVar8 = uVar12, uVar12 != 0)))) {
+        uVar12 = uVar8;
+        memcpy(__dest,*(void **)(iVar6 + 0x94),uVar12 * 8);
+      }
+    }
+  }
+  return uVar12;
+}
+

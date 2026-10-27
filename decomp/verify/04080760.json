@@ -1,0 +1,49 @@
+
+/* source: direct3ddevice9imp */
+
+undefined4 direct3ddevice9imp_04080760(int param_1)
+
+{
+  uint uVar1;
+  int iVar2;
+  int iVar3;
+  int iVar4;
+  
+  if (*(int *)(param_1 + 0xebe8) == 0) {
+    return 0;
+  }
+  if (*(int *)(param_1 + 0xebe8) == 1) {
+    iVar3 = *(int *)(param_1 + 0xebec);
+    uVar1 = *(uint *)(iVar3 + 0x24);
+    iVar2 = *(int *)(iVar3 + 0x28);
+    iVar4 = (iVar2 - *(int *)(param_1 + 0xec84)) - (uint)(uVar1 < *(uint *)(param_1 + 0xec80));
+    if ((-1 < iVar4) && ((0 < iVar4 || (uVar1 != *(uint *)(param_1 + 0xec80))))) {
+      do {
+        iVar3 = D3D9CommandQueue__TryExecuteNextCommand(param_1 + 0xec00);
+        if (iVar3 == 0) {
+          FUN_0400a810("commandExecuted",
+                       "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+                       ,0x4c8,"void Direct3DDevice9Imp::FlushUntilCommand(ULONGLONG)");
+        }
+      } while (((iVar2 != *(int *)(param_1 + 0xec84) || uVar1 != *(uint *)(param_1 + 0xec80)) &&
+               (*(char *)(param_1 + 0xebf4) == '\0')) && (DAT_0441163c == '\0'));
+      goto LAB_04080840;
+    }
+  }
+  else {
+    if (*(int *)(param_1 + 0xebe8) != 2) {
+      FUN_0400a810("false",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+                   ,0x4de,"bool Direct3DDevice9Imp::ExecuteOutOfBoundsCommand()");
+      goto LAB_040807af;
+    }
+LAB_04080840:
+    iVar3 = *(int *)(param_1 + 0xebec);
+  }
+  Direct3DQuery9Imp__TestQuery(iVar3);
+LAB_040807af:
+  *(undefined4 *)(param_1 + 0xebe8) = 0;
+  eON_SetEvent(*(undefined4 *)(param_1 + 0xebf0));
+  return 1;
+}
+

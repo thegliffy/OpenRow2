@@ -1,0 +1,33 @@
+
+/* source: gdi32 */
+
+undefined4 eON_GetCurrentObject(int param_1,undefined4 param_2)
+
+{
+  int iVar1;
+  
+  iVar1 = -1;
+  if (param_1 != 0) {
+    iVar1 = param_1 + 0x68686869;
+  }
+  if ((&DAT_04512aa8)[iVar1 * 0x18] == 0) {
+    FUN_0400a810("gDrawingContexts[dcNum].Used",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/gdi32/gdi32.cpp",
+                 0x50d,"void* eON_GetCurrentObject(HDC, UINT)");
+  }
+  switch(param_2) {
+  default:
+    return 0;
+  case 1:
+    return *(undefined4 *)(&DAT_04512acc + iVar1 * 0x60);
+  case 2:
+    return *(undefined4 *)(&DAT_04512ad0 + iVar1 * 0x60);
+  case 5:
+    return *(undefined4 *)(&DAT_04512ad4 + iVar1 * 0x60);
+  case 6:
+    return *(undefined4 *)(&DAT_04512ac4 + iVar1 * 0x60);
+  case 7:
+    return (&DAT_04512ac8)[iVar1 * 0x18];
+  }
+}
+

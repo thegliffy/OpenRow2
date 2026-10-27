@@ -1,0 +1,29 @@
+
+/* source: heapImplementation */
+
+uint Heap_GetProcessHeaps(uint param_1,int param_2)
+
+{
+  int iVar1;
+  uint uVar2;
+  uint uVar3;
+  
+  if (DAT_04515b5c == 0) {
+    FUN_0400a810("sProcessHeap",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/heapImplementation.cpp"
+                 ,0x713,"DWORD Heap_GetProcessHeaps(DWORD, PHANDLE)");
+  }
+  EnterCriticalSection(DAT_04515b5c + 0x2800);
+  uVar2 = DAT_04515b58;
+  iVar1 = DAT_04515b54;
+  if ((DAT_04515b58 <= param_1) && (DAT_04515b58 != 0)) {
+    uVar3 = 0;
+    do {
+      *(undefined4 *)(param_2 + uVar3 * 4) = *(undefined4 *)(iVar1 + uVar3 * 4);
+      uVar3 = uVar3 + 1;
+    } while (uVar3 != uVar2);
+  }
+  LeaveCriticalSection(DAT_04515b5c + 0x2800);
+  return DAT_04515b58;
+}
+

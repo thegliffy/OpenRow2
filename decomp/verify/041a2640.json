@@ -1,0 +1,23 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+bool _glewInit_GLX_OML_sync_control(void)
+
+{
+  int iVar1;
+  bool bVar2;
+  bool bVar3;
+  bool bVar4;
+  
+  iVar1 = glXGetProcAddressARB("glXGetMscRateOML");
+  _DAT_0451c78c = iVar1;
+  _DAT_0451c788 = glXGetProcAddressARB("glXGetSyncValuesOML");
+  bVar2 = _DAT_0451c788 == 0;
+  _DAT_0451c784 = glXGetProcAddressARB("glXSwapBuffersMscOML");
+  bVar3 = _DAT_0451c784 == 0;
+  _DAT_0451c780 = glXGetProcAddressARB("glXWaitForMscOML");
+  bVar4 = _DAT_0451c780 == 0;
+  _DAT_0451c77c = glXGetProcAddressARB("glXWaitForSbcOML");
+  return _DAT_0451c77c == 0 || (bVar4 || (bVar3 || (bVar2 || iVar1 == 0)));
+}
+

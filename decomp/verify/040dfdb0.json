@@ -1,0 +1,278 @@
+
+/* source: openGlDebugFunctions */
+
+void OGLC_DumpDraw(undefined4 param_1,uint param_2,undefined4 param_3)
+
+{
+  undefined4 uVar1;
+  char cVar2;
+  int iVar3;
+  undefined1 *puVar4;
+  int *piVar5;
+  uint uVar6;
+  uint uVar7;
+  void *pvVar8;
+  int iVar9;
+  void *__dest;
+  char *pcVar10;
+  uint *puVar11;
+  uint *puVar12;
+  char local_828 [1024];
+  uint local_428 [256];
+  undefined4 local_28;
+  int local_24;
+  int local_20 [4];
+  
+  iVar3 = eON_Int_GL_NoteCurrentContext();
+  if (iVar3 == 0) {
+    puts("No valid OpenGL context in calling thread!.");
+  }
+  else {
+    if (DAT_044dac80 == 0) {
+      FUN_040d9ba0();
+    }
+    strcpy(local_828,&DAT_044daca0);
+    OGLC_SetRootSavePath(param_1);
+    FUN_040df390(param_3,param_2 < 2);
+    if (param_2 != 3) {
+      puVar4 = &DAT_044daca0;
+      if (DAT_044daca0 == '\0') {
+        puVar4 = &DAT_04328763;
+      }
+      sprintf((char *)local_428,"%sfb.txt",puVar4);
+      FUN_0401a1d0(local_428);
+      piVar5 = operator_new(0xc);
+      *piVar5 = (int)&PTR_OpenGLDebugWriter_File__Write_04308e88;
+      piVar5[1] = 0;
+      piVar5[2] = 0;
+      puVar12 = local_428;
+      do {
+        puVar11 = puVar12;
+        uVar6 = *puVar11 + 0xfefefeff & ~*puVar11;
+        uVar7 = uVar6 & 0x80808080;
+        puVar12 = puVar11 + 1;
+      } while (uVar7 == 0);
+      if ((uVar6 & 0x8080) == 0) {
+        puVar12 = (uint *)((int)puVar11 + 6);
+        uVar7 = uVar7 >> 0x10;
+      }
+      pcVar10 = (char *)((int)puVar12 +
+                        (-(int)local_428 - (uint)CARRY1((byte)uVar7,(byte)uVar7)) + -2);
+      pvVar8 = malloc((size_t)pcVar10);
+      piVar5[1] = (int)pvVar8;
+      memcpy(pvVar8,local_428,(size_t)pcVar10);
+      glGetIntegerv(0x8ca6,&local_28);
+      iVar3 = glGetError();
+      if (iVar3 != 0) {
+        FUN_0400a810("glGetError() == 0",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                     ,0x1468,"void OGLC_DumpDraw(const char*, uint32_t, const char*)");
+      }
+      OpenGL_LogState_Framebuffer();
+      (**(code **)(*piVar5 + 0xc))(piVar5);
+    }
+    if (param_2 < 2) {
+      glGetIntegerv(0x8b8d,&local_28);
+      iVar3 = glGetError();
+      if (iVar3 != 0) {
+        FUN_0400a810("glGetError() == 0",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                     ,0x1473,"void OGLC_DumpDraw(const char*, uint32_t, const char*)");
+      }
+      puVar4 = &DAT_044daca0;
+      if (DAT_044daca0 == '\0') {
+        puVar4 = &DAT_04328763;
+      }
+      sprintf((char *)local_428,"%sprogram%d.txt",puVar4,local_28);
+      FUN_0401a1d0(local_428);
+      piVar5 = operator_new(0xc);
+      *piVar5 = (int)&PTR_OpenGLDebugWriter_File__Write_04308e88;
+      piVar5[1] = 0;
+      piVar5[2] = 0;
+      puVar12 = local_428;
+      do {
+        puVar11 = puVar12;
+        uVar6 = *puVar11 + 0xfefefeff & ~*puVar11;
+        uVar7 = uVar6 & 0x80808080;
+        puVar12 = puVar11 + 1;
+      } while (uVar7 == 0);
+      if ((uVar6 & 0x8080) == 0) {
+        puVar12 = (uint *)((int)puVar11 + 6);
+        uVar7 = uVar7 >> 0x10;
+      }
+      pcVar10 = (char *)((int)puVar12 +
+                        (-(int)local_428 - (uint)CARRY1((byte)uVar7,(byte)uVar7)) + -2);
+      pvVar8 = malloc((size_t)pcVar10);
+      piVar5[1] = (int)pvVar8;
+      memcpy(pvVar8,local_428,(size_t)pcVar10);
+      uVar1 = local_28;
+      cVar2 = (*DAT_0451ec7c)(local_28);
+      if (cVar2 == '\0') {
+        iVar3 = glGetError();
+        if (iVar3 != 0) {
+          FUN_0400a810("glGetError() == 0",
+                       "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                       ,0xbc3,"void OpenGL_LogState_Program(OpenGlDebugWriter*, GLint)");
+        }
+        (**(code **)*piVar5)(piVar5,"Program ID %d is not a valid program ID!",uVar1);
+      }
+      else {
+        openGlDebugFunctions_040d0cc0();
+      }
+      (**(code **)(*piVar5 + 0xc))(piVar5);
+      (*DAT_0451eca8)(local_28,0x8b85,&local_24);
+      iVar3 = glGetError();
+      if (iVar3 != 0) {
+        FUN_0400a810("glGetError() == 0",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                     ,0x1481,"void OGLC_DumpDraw(const char*, uint32_t, const char*)");
+      }
+      if (local_24 != 0) {
+        local_20[0] = 0;
+        pvVar8 = malloc(local_24 << 2);
+        (*DAT_0451ecb4)(local_28,local_24,local_20,pvVar8);
+        iVar3 = glGetError();
+        if (iVar3 != 0) {
+          FUN_0400a810("glGetError() == 0",
+                       "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                       ,0x1487,"void OGLC_DumpDraw(const char*, uint32_t, const char*)");
+        }
+        if (0 < local_24) {
+          iVar3 = 0;
+          do {
+            puVar4 = &DAT_044daca0;
+            if (DAT_044daca0 == '\0') {
+              puVar4 = &DAT_04328763;
+            }
+            sprintf((char *)local_428,"%sshader%d.txt",puVar4,
+                    *(undefined4 *)((int)pvVar8 + iVar3 * 4));
+            FUN_0401a1d0(local_428);
+            piVar5 = operator_new(0xc);
+            *piVar5 = (int)&PTR_OpenGLDebugWriter_File__Write_04308e88;
+            piVar5[1] = 0;
+            piVar5[2] = 0;
+            puVar12 = local_428;
+            do {
+              puVar11 = puVar12;
+              uVar6 = *puVar11 + 0xfefefeff & ~*puVar11;
+              uVar7 = uVar6 & 0x80808080;
+              puVar12 = puVar11 + 1;
+            } while (uVar7 == 0);
+            if ((uVar6 & 0x8080) == 0) {
+              puVar12 = (uint *)((int)puVar11 + 6);
+              uVar7 = uVar7 >> 0x10;
+            }
+            pcVar10 = (char *)((int)puVar12 +
+                              (-(int)local_428 - (uint)CARRY1((byte)uVar7,(byte)uVar7)) + -2);
+            __dest = malloc((size_t)pcVar10);
+            piVar5[1] = (int)__dest;
+            memcpy(__dest,local_428,(size_t)pcVar10);
+            uVar1 = *(undefined4 *)((int)pvVar8 + iVar3 * 4);
+            cVar2 = (*DAT_0451ec78)(uVar1);
+            if (cVar2 == '\0') {
+              iVar9 = glGetError();
+              if (iVar9 != 0) {
+                FUN_0400a810("glGetError() == 0",
+                             "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                             ,0xce0,"void OpenGL_LogState_Shader(OpenGlDebugWriter*, GLint)");
+              }
+              (**(code **)*piVar5)(piVar5,"Shader ID %d is not a valid shader ID!",uVar1);
+            }
+            else {
+              openGlDebugFunctions_040d4420();
+            }
+            iVar3 = iVar3 + 1;
+            (**(code **)(*piVar5 + 0xc))(piVar5);
+          } while (iVar3 < local_24);
+        }
+        free(pvVar8);
+      }
+      puVar4 = &DAT_044daca0;
+      if (DAT_044daca0 == '\0') {
+        puVar4 = &DAT_04328763;
+      }
+      sprintf((char *)local_428,"%stextureStages.txt",puVar4);
+      FUN_0401a1d0(local_428);
+      piVar5 = operator_new(0xc);
+      *piVar5 = (int)&PTR_OpenGLDebugWriter_File__Write_04308e88;
+      piVar5[1] = 0;
+      piVar5[2] = 0;
+      puVar12 = local_428;
+      do {
+        puVar11 = puVar12;
+        uVar6 = *puVar11 + 0xfefefeff & ~*puVar11;
+        uVar7 = uVar6 & 0x80808080;
+        puVar12 = puVar11 + 1;
+      } while (uVar7 == 0);
+      if ((uVar6 & 0x8080) == 0) {
+        puVar12 = (uint *)((int)puVar11 + 6);
+        uVar7 = uVar7 >> 0x10;
+      }
+      pcVar10 = (char *)((int)puVar12 +
+                        (-(int)local_428 - (uint)CARRY1((byte)uVar7,(byte)uVar7)) + -2);
+      pvVar8 = malloc((size_t)pcVar10);
+      piVar5[1] = (int)pvVar8;
+      memcpy(pvVar8,local_428,(size_t)pcVar10);
+      glGetIntegerv(0x8872,local_20);
+      iVar3 = glGetError();
+      if (iVar3 != 0) {
+        FUN_0400a810("glGetError() == 0",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                     ,0x14a5,"void OGLC_DumpDraw(const char*, uint32_t, const char*)");
+      }
+      if (0 < local_20[0]) {
+        iVar3 = 0;
+        do {
+          while( true ) {
+            glGetIntegerv(0x8872,&local_24);
+            iVar9 = glGetError();
+            if (iVar9 != 0) {
+              FUN_0400a810("glGetError() == 0",
+                           "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                           ,0xb22,"void OpenGL_LogState_Texture(OpenGlDebugWriter*, int32_t)");
+            }
+            if (iVar3 < local_24) break;
+            iVar9 = iVar3 + 1;
+            (**(code **)*piVar5)
+                      (piVar5,"Texture stage %d is not a valid texture stage index!\n",iVar3);
+            iVar3 = iVar9;
+            if (local_20[0] <= iVar9) goto LAB_040e01be;
+          }
+          iVar3 = iVar3 + 1;
+          OpenGL_LogState_BoundSampler();
+        } while (iVar3 < local_20[0]);
+      }
+LAB_040e01be:
+      (**(code **)(*piVar5 + 0xc))(piVar5);
+      OGLC_DumpBuffers();
+      iVar3 = eON_Int_GL_NoteCurrentContext();
+      if (iVar3 == 0) {
+        puts("No valid OpenGL context in calling thread!.");
+      }
+      else {
+        if (DAT_044dac80 == 0) {
+          FUN_040d9ba0();
+        }
+        glGetIntegerv(0x8872,&local_24);
+        iVar3 = glGetError();
+        if (iVar3 != 0) {
+          FUN_0400a810("glGetError() == 0",
+                       "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                       ,0x144a,"void OGLC_DumpBoundTextures()");
+        }
+        if (0 < local_24) {
+          iVar3 = 0;
+          do {
+            iVar9 = iVar3 + 1;
+            OGLC_DumpBoundTexturesInStage(iVar3);
+            iVar3 = iVar9;
+          } while (iVar9 < local_24);
+        }
+      }
+    }
+    OGLC_DumpFB();
+    OGLC_SetRootSavePath(local_828);
+  }
+  return;
+}
+

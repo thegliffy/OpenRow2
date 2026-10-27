@@ -1,0 +1,15 @@
+
+void eON_ExitProcess(undefined4 param_1)
+
+{
+  char *pcVar1;
+  
+  pcVar1 = "Exiting through Windows call ExitProcess(%u)";
+  FUN_0402cd10(0x14,"Exiting through Windows call ExitProcess(%u)",param_1);
+  Exit_eON(param_1);
+  FUN_0402cd10(0xf,"Exiting through Windows call FatalExit(%d)!",pcVar1);
+  DAT_04410a04 = pcVar1;
+  Exit_eON(pcVar1);
+  return;
+}
+

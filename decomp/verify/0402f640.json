@@ -1,0 +1,56 @@
+
+void eON_AppendShaderCompileMessage(undefined4 *param_1,char *param_2)
+
+{
+  int iVar1;
+  int iVar2;
+  uint uVar3;
+  uint uVar4;
+  void *pvVar5;
+  int iVar6;
+  uint *puVar7;
+  uint *puVar8;
+  uint local_401c [4099];
+  
+  iVar2 = vsnprintf((char *)local_401c,0x4000,param_2,&stack0x0000000c);
+  puVar8 = local_401c;
+  if (0x3fff < iVar2) {
+    FUN_0402cd10(0xf,"Shader compilation message doesn\'t fit into the buffer!");
+    return;
+  }
+  do {
+    puVar7 = puVar8;
+    uVar3 = *puVar7 + 0xfefefeff & ~*puVar7;
+    uVar4 = uVar3 & 0x80808080;
+    puVar8 = puVar7 + 1;
+  } while (uVar4 == 0);
+  iVar2 = param_1[1];
+  if ((uVar3 & 0x8080) == 0) {
+    puVar8 = (uint *)((int)puVar7 + 6);
+    uVar4 = uVar4 >> 0x10;
+  }
+  iVar6 = param_1[2];
+  iVar1 = (-3 - (uint)CARRY1((byte)uVar4,(byte)uVar4)) - (int)local_401c;
+  if ((int)puVar8 + iVar2 + iVar1 < iVar6) {
+    pvVar5 = (void *)*param_1;
+  }
+  else {
+    do {
+      if (iVar6 == 0) {
+        pvVar5 = malloc(0x4000);
+        *param_1 = pvVar5;
+      }
+      else {
+        pvVar5 = realloc((void *)*param_1,iVar6 + 0x4000);
+        *param_1 = pvVar5;
+      }
+      iVar2 = param_1[1];
+      iVar6 = param_1[2] + 0x4000;
+      param_1[2] = iVar6;
+    } while (iVar6 <= (int)puVar8 + iVar2 + iVar1);
+  }
+  strcpy((char *)(iVar2 + (int)pvVar5),(char *)local_401c);
+  param_1[1] = (int)puVar8 + param_1[1] + iVar1;
+  return;
+}
+

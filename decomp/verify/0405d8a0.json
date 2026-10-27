@@ -1,0 +1,256 @@
+
+char * D3D9_FormatToString(uint param_1)
+
+{
+  char *pcVar1;
+  
+  pcVar1 = "D3DFMT_D24X8";
+  if (param_1 != 0x4d) {
+    if (param_1 < 0x4e) {
+      pcVar1 = "D3DFMT_A2R10G10B10";
+      if (param_1 != 0x23) {
+        if (param_1 < 0x24) {
+          pcVar1 = "D3DFMT_A4R4G4B4";
+          if (param_1 != 0x1a) {
+            if (param_1 < 0x1b) {
+              pcVar1 = "D3DFMT_X8R8G8B8";
+              if (param_1 != 0x16) {
+                if (param_1 < 0x17) {
+                  pcVar1 = "D3DFMT_R8G8B8";
+                  if ((param_1 != 0x14) && (pcVar1 = "D3DFMT_A8R8G8B8", param_1 < 0x15)) {
+                    if (param_1 == 0) {
+                      return "D3DFMT_UNKNOWN";
+                    }
+                    goto LAB_0405d970;
+                  }
+                }
+                else {
+                  pcVar1 = "D3DFMT_X1R5G5B5";
+                  if (param_1 != 0x18) {
+                    pcVar1 = "D3DFMT_R5G6B5";
+                    if (0x18 < param_1) {
+                      pcVar1 = "D3DFMT_A1R5G5B5";
+                    }
+                    return pcVar1;
+                  }
+                }
+              }
+            }
+            else {
+              pcVar1 = "D3DFMT_X4R4G4B4";
+              if (param_1 != 0x1e) {
+                if (param_1 < 0x1f) {
+                  pcVar1 = "D3DFMT_A8";
+                  if (param_1 != 0x1c) {
+                    pcVar1 = "D3DFMT_R3G3B2";
+                    if (0x1c < param_1) {
+                      pcVar1 = "D3DFMT_A8R3G3B2";
+                    }
+                    return pcVar1;
+                  }
+                }
+                else {
+                  pcVar1 = "D3DFMT_A8B8G8R8";
+                  if (((param_1 != 0x20) && (pcVar1 = "D3DFMT_A2B10G10R10", 0x1f < param_1)) &&
+                     (pcVar1 = "D3DFMT_X8B8G8R8", param_1 != 0x21)) {
+                    if (param_1 == 0x22) {
+                      return "D3DFMT_G16R16";
+                    }
+                    goto LAB_0405d970;
+                  }
+                }
+              }
+            }
+          }
+        }
+        else {
+          pcVar1 = "D3DFMT_L6V5U5";
+          if (param_1 != 0x3d) {
+            if (param_1 < 0x3e) {
+              pcVar1 = "D3DFMT_L8";
+              if (param_1 != 0x32) {
+                if (param_1 < 0x33) {
+                  pcVar1 = "D3DFMT_A8P8";
+                  if (((param_1 != 0x28) && (pcVar1 = "D3DFMT_P8", param_1 != 0x29)) &&
+                     (pcVar1 = "D3DFMT_A16B16G16R16", param_1 != 0x24)) goto LAB_0405d970;
+                }
+                else {
+                  pcVar1 = "D3DFMT_A4L4";
+                  if ((param_1 != 0x34) && (pcVar1 = "D3DFMT_A8L8", 0x33 < param_1)) {
+                    if (param_1 == 0x3c) {
+                      return "D3DFMT_V8U8";
+                    }
+                    goto LAB_0405d970;
+                  }
+                }
+              }
+            }
+            else {
+              pcVar1 = "D3DFMT_A2W10V10U10";
+              if (param_1 != 0x43) {
+                if (param_1 < 0x44) {
+                  pcVar1 = "D3DFMT_Q8W8V8U8";
+                  if ((param_1 != 0x3f) && (pcVar1 = "D3DFMT_X8L8V8U8", 0x3e < param_1)) {
+                    if (param_1 == 0x40) {
+                      return "D3DFMT_V16U16";
+                    }
+                    goto LAB_0405d970;
+                  }
+                }
+                else {
+                  pcVar1 = "D3DFMT_D32";
+                  if (param_1 != 0x47) {
+                    if (param_1 < 0x48) {
+                      if (param_1 == 0x46) {
+                        return "D3DFMT_D16_LOCKABLE";
+                      }
+                    }
+                    else {
+                      if (param_1 == 0x49) {
+                        return "D3DFMT_D15S1";
+                      }
+                      if (param_1 == 0x4b) {
+                        return "D3DFMT_D24S8";
+                      }
+                    }
+                    goto LAB_0405d970;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    else {
+      pcVar1 = "D3DFMT_MULTI2_ARGB8";
+      if (param_1 != 0x3154454d) {
+        if (param_1 < 0x3154454e) {
+          pcVar1 = "D3DFMT_INDEX32";
+          if (param_1 != 0x66) {
+            if (param_1 < 0x67) {
+              pcVar1 = "D3DFMT_D32F_LOCKABLE";
+              if (param_1 != 0x52) {
+                if (param_1 < 0x53) {
+                  pcVar1 = "D3DFMT_D16";
+                  if ((param_1 != 0x50) && (pcVar1 = "D3DFMT_L16", param_1 < 0x51)) {
+                    if (param_1 == 0x4f) {
+                      return "D3DFMT_D24X4S4";
+                    }
+                    goto LAB_0405d970;
+                  }
+                }
+                else {
+                  pcVar1 = "D3DFMT_VERTEXDATA";
+                  if ((param_1 != 100) && (pcVar1 = "D3DFMT_INDEX16", param_1 < 0x65)) {
+                    if (param_1 == 0x53) {
+                      return "D3DFMT_D24FS8";
+                    }
+                    goto LAB_0405d970;
+                  }
+                }
+              }
+            }
+            else {
+              pcVar1 = "D3DFMT_A16B16G16R16F";
+              if (param_1 != 0x71) {
+                if (param_1 < 0x72) {
+                  pcVar1 = "D3DFMT_R16F";
+                  if ((param_1 != 0x6f) && (pcVar1 = "D3DFMT_G16R16F", param_1 < 0x70)) {
+                    if (param_1 == 0x6e) {
+                      return "D3DFMT_Q16W16V16U16";
+                    }
+                    goto LAB_0405d970;
+                  }
+                }
+                else {
+                  pcVar1 = "D3DFMT_G32R32F";
+                  if (((param_1 != 0x73) && (pcVar1 = "D3DFMT_R32F", 0x72 < param_1)) &&
+                     (pcVar1 = "D3DFMT_A32B32G32R32F", param_1 != 0x74)) {
+                    if (param_1 == 0x75) {
+                      return "D3DFMT_CxV8U8";
+                    }
+                    goto LAB_0405d970;
+                  }
+                }
+              }
+            }
+          }
+        }
+        else {
+          pcVar1 = "D3DFMT_AL16";
+          if (param_1 != 0x36314c41) {
+            if (param_1 < 0x36314c42) {
+              pcVar1 = "D3DFMT_DXT3";
+              if (param_1 != 0x33545844) {
+                if (param_1 < 0x33545845) {
+                  pcVar1 = "D3DFMT_DXT2";
+                  if ((param_1 != 0x32545844) && (pcVar1 = "D3DFMT_YUY2", param_1 != 0x32595559)) {
+                    if (param_1 == 0x31545844) {
+                      return "D3DFMT_DXT1";
+                    }
+                    goto LAB_0405d970;
+                  }
+                }
+                else {
+                  pcVar1 = "D3DFMT_DXT4";
+                  if (param_1 != 0x34545844) {
+                    if (param_1 < 0x34545845) {
+                      if (param_1 == 0x34324644) {
+                        return "D3DFMT_DF24";
+                      }
+                    }
+                    else {
+                      if (param_1 == 0x35545844) {
+                        return "D3DFMT_DXT5";
+                      }
+                      if (param_1 == 0x36314644) {
+                        return "D3DFMT_DF16";
+                      }
+                    }
+                    goto LAB_0405d970;
+                  }
+                }
+              }
+            }
+            else {
+              pcVar1 = "D3DFMT_R8G8_B8G8";
+              if (param_1 != 0x47424752) {
+                if (param_1 < 0x47424753) {
+                  pcVar1 = "D3DFMT_NVDB";
+                  if (((param_1 != 0x4244564e) &&
+                      (pcVar1 = "D3DFMT_G8R8_G8B8", param_1 != 0x42475247)) &&
+                     (pcVar1 = "D3DFMT_R16", param_1 != 0x36315220)) {
+LAB_0405d970:
+                    return "(unknown)";
+                  }
+                }
+                else {
+                  pcVar1 = "D3DFMT_UYVY";
+                  if (param_1 != 0x59565955) {
+                    if (param_1 < 0x59565956) {
+                      if (param_1 == 0x4c4c554e) {
+                        return "D3DFMT_NULL";
+                      }
+                    }
+                    else {
+                      if (param_1 == 0x5a544e49) {
+                        return "D3DFMT_INTZ";
+                      }
+                      if (param_1 == 0x5a574152) {
+                        return "D3DFMT_RAWZ";
+                      }
+                    }
+                    goto LAB_0405d970;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  return pcVar1;
+}
+

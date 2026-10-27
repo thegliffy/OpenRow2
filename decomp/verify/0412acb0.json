@@ -1,0 +1,279 @@
+
+undefined4 fs_FindNextFileA(int param_1,int *param_2)
+
+{
+  int *piVar1;
+  int *piVar2;
+  undefined4 *puVar3;
+  int iVar4;
+  undefined4 uVar5;
+  uint *puVar6;
+  dirent64 *pdVar7;
+  uint uVar8;
+  uint uVar9;
+  int iVar10;
+  uint *puVar11;
+  char *pcVar12;
+  char *pcVar13;
+  char *pcVar14;
+  bool bVar15;
+  undefined1 uVar16;
+  byte bVar17;
+  char *local_2198;
+  uint local_218c [1024];
+  char local_118c [4096];
+  char local_18c [256];
+  stat64 local_8c;
+  undefined4 *local_2c;
+  int local_28;
+  int local_24 [3];
+  undefined4 *local_18;
+  
+  piVar2 = param_2;
+  bVar17 = 0;
+  local_18 = &param_1;
+  if (((param_1 == -1) ||
+      (iVar4 = Synchronisation_GetObjectInfo(param_1,&local_2c,&local_28), iVar4 == 0)) ||
+     (local_28 != 7)) {
+    eON_SetLastError(6);
+  }
+  else {
+    if ((DIR *)*local_2c != (DIR *)0x0) {
+      iVar4 = local_2c[0x801];
+      if (iVar4 == -1) {
+        pdVar7 = readdir64((DIR *)*local_2c);
+        if (pdVar7 == (dirent64 *)0x0) {
+          iVar4 = local_2c[0x801];
+        }
+        else {
+          do {
+            local_2198 = pdVar7->d_name;
+            bVar15 = local_2198 == (char *)0x0;
+            iVar4 = 4;
+            pcVar12 = (char *)(local_2c + 0x401);
+            pcVar13 = pcVar12;
+            pcVar14 = "*.*";
+            do {
+              if (iVar4 == 0) break;
+              iVar4 = iVar4 + -1;
+              bVar15 = *pcVar13 == *pcVar14;
+              pcVar13 = pcVar13 + (uint)bVar17 * -2 + 1;
+              pcVar14 = pcVar14 + (uint)bVar17 * -2 + 1;
+            } while (bVar15);
+            if (bVar15) {
+LAB_0412b09a:
+              bVar15 = true;
+              iVar4 = 2;
+              pcVar12 = local_2198;
+              pcVar13 = ".";
+              do {
+                if (iVar4 == 0) break;
+                iVar4 = iVar4 + -1;
+                bVar15 = *pcVar12 == *pcVar13;
+                pcVar12 = pcVar12 + (uint)bVar17 * -2 + 1;
+                pcVar13 = pcVar13 + (uint)bVar17 * -2 + 1;
+              } while (bVar15);
+              if (!bVar15) {
+                iVar4 = 3;
+                pcVar12 = local_2198;
+                pcVar13 = "..";
+                do {
+                  if (iVar4 == 0) break;
+                  iVar4 = iVar4 + -1;
+                  bVar15 = *pcVar12 == *pcVar13;
+                  pcVar12 = pcVar12 + (uint)bVar17 * -2 + 1;
+                  pcVar13 = pcVar13 + (uint)bVar17 * -2 + 1;
+                } while (bVar15);
+                if (!bVar15) break;
+              }
+            }
+            else {
+              iVar4 = 2;
+              bVar15 = false;
+              pcVar13 = pcVar12;
+              pcVar14 = "*";
+              do {
+                if (iVar4 == 0) break;
+                iVar4 = iVar4 + -1;
+                bVar15 = *pcVar13 == *pcVar14;
+                pcVar13 = pcVar13 + (uint)bVar17 * -2 + 1;
+                pcVar14 = pcVar14 + (uint)bVar17 * -2 + 1;
+              } while (bVar15);
+              if (bVar15) goto LAB_0412b09a;
+              iVar4 = 3;
+              bVar15 = false;
+              pcVar13 = pcVar12;
+              pcVar14 = "*.";
+              do {
+                if (iVar4 == 0) break;
+                iVar4 = iVar4 + -1;
+                bVar15 = *pcVar13 == *pcVar14;
+                pcVar13 = pcVar13 + (uint)bVar17 * -2 + 1;
+                pcVar14 = pcVar14 + (uint)bVar17 * -2 + 1;
+              } while (bVar15);
+              if ((bVar15) || (iVar4 = fnmatch(pcVar12,local_2198,0x12), iVar4 == 0))
+              goto LAB_0412b09a;
+            }
+            pdVar7 = readdir64((DIR *)*local_2c);
+          } while (pdVar7 != (dirent64 *)0x0);
+          if (local_2198 != (char *)0x0) {
+LAB_0412adc3:
+            uVar16 = (char *)(local_2c + 1) == (char *)0x0;
+            strcpy((char *)local_218c,(char *)(local_2c + 1));
+            iVar4 = 2;
+            pcVar12 = local_2198;
+            pcVar13 = ".";
+            do {
+              if (iVar4 == 0) break;
+              iVar4 = iVar4 + -1;
+              uVar16 = *pcVar12 == *pcVar13;
+              pcVar12 = pcVar12 + (uint)bVar17 * -2 + 1;
+              pcVar13 = pcVar13 + (uint)bVar17 * -2 + 1;
+            } while ((bool)uVar16);
+            if (!(bool)uVar16) {
+              sprintf(local_118c,"../%s",local_2198);
+              puVar6 = (uint *)strstr((char *)local_218c,local_118c);
+              iVar4 = 3;
+              pcVar12 = local_2198;
+              pcVar13 = "..";
+              do {
+                if (iVar4 == 0) break;
+                iVar4 = iVar4 + -1;
+                uVar16 = *pcVar12 == *pcVar13;
+                pcVar12 = pcVar12 + (uint)bVar17 * -2 + 1;
+                pcVar13 = pcVar13 + (uint)bVar17 * -2 + 1;
+              } while ((bool)uVar16);
+              puVar11 = local_218c;
+              if ((bool)uVar16) {
+                if ((puVar6 != (uint *)0x0) ||
+                   ((puVar6 = (uint *)strrchr((char *)local_218c,0x2f), puVar6 != (uint *)0x0 &&
+                    (puVar6 != local_218c)))) {
+                  *(undefined1 *)puVar6 = 0;
+                }
+              }
+              else {
+                do {
+                  puVar6 = puVar11;
+                  uVar8 = *puVar6 + 0xfefefeff & ~*puVar6;
+                  uVar9 = uVar8 & 0x80808080;
+                  puVar11 = puVar6 + 1;
+                } while (uVar9 == 0);
+                if ((uVar8 & 0x8080) == 0) {
+                  puVar11 = (uint *)((int)puVar6 + 6);
+                  uVar9 = uVar9 >> 0x10;
+                }
+                pcVar12 = (char *)((int)puVar11 + (-3 - (uint)CARRY1((byte)uVar9,(byte)uVar9)));
+                pcVar12[0] = '/';
+                pcVar12[1] = '\0';
+                strcat((char *)local_218c,local_2198);
+              }
+            }
+            iVar4 = FUN_0403c400(local_218c);
+            if (iVar4 == 0) {
+              iVar4 = __xstat64(3,(char *)local_218c,&local_8c);
+              if (iVar4 == -1) {
+                FUN_0402cd10(0xf,"Internal error in fs_FindNextFileA?. Fix it.");
+              }
+            }
+            else {
+              SplitFile_GetStat(local_218c,&local_8c);
+            }
+            iVar10 = 0;
+            iVar4 = 1;
+            if ((local_8c.st_mode & 0x4000) != 0) {
+              local_8c.st_size._0_4_ = 0;
+              iVar4 = 0x11;
+              iVar10 = 0x10;
+              local_8c.st_size._4_4_ = 0;
+            }
+            if (((local_8c.st_mode & 0x80) != 0) && (iVar4 = 0x80, iVar10 != 0)) {
+              iVar4 = iVar10;
+            }
+            local_24[0] = 0;
+            *piVar2 = iVar4;
+            uVar5 = str_icuNameFromCodePage(0);
+            FUN_041d14dc(uVar5,"UTF-8",piVar2 + 0xb,0x104,local_2198,0xffffffff,local_24);
+            if (0 < local_24[0]) {
+              uVar5 = FUN_041cb935(local_24[0]);
+              FUN_0402cd10(0xf,
+                           "fs_FindNextFileA(): ucnv_convert() failed (%d) %s\n\tcopying file name unmodified - Folder: \'%s\', file: \'%s\'"
+                           ,local_24[0],uVar5,local_2c + 1,local_2198);
+              strcpy((char *)(piVar2 + 0xb),local_2198);
+            }
+            FUN_0412a370();
+            piVar2[7] = local_8c.st_size._4_4_;
+            piVar2[8] = (int)local_8c.st_size;
+            eON_Int_TimespecToFileTime(&local_8c.st_ctim,piVar2 + 1);
+            eON_Int_TimespecToFileTime(&local_8c.st_atim,piVar2 + 3);
+            eON_Int_TimespecToFileTime(&local_8c.st_mtim,piVar2 + 5);
+            piVar2[9] = 0;
+            piVar2[10] = 0;
+            return 1;
+          }
+          iVar4 = local_2c[0x801];
+        }
+        puVar3 = local_2c;
+        if (iVar4 == -1) {
+          uVar5 = FUN_0403c6f0(local_2c + 1);
+          puVar3[0x801] = uVar5;
+          iVar4 = local_2c[0x801];
+        }
+      }
+      while ((int)local_2c[0x802] < iVar4) {
+        FUN_0403c700(local_2c + 1,local_2c[0x802],local_18c,0x100);
+        iVar4 = 4;
+        piVar1 = local_2c + 0x802;
+        *piVar1 = *piVar1 + 1;
+        bVar15 = *piVar1 == 0;
+        pcVar12 = (char *)(local_2c + 0x401);
+        pcVar13 = pcVar12;
+        pcVar14 = "*.*";
+        do {
+          if (iVar4 == 0) break;
+          iVar4 = iVar4 + -1;
+          bVar15 = *pcVar13 == *pcVar14;
+          pcVar13 = pcVar13 + (uint)bVar17 * -2 + 1;
+          pcVar14 = pcVar14 + (uint)bVar17 * -2 + 1;
+        } while (bVar15);
+        if (bVar15) {
+          local_2198 = local_18c;
+          goto LAB_0412adc3;
+        }
+        iVar4 = 2;
+        bVar15 = false;
+        pcVar13 = pcVar12;
+        pcVar14 = "*";
+        do {
+          if (iVar4 == 0) break;
+          iVar4 = iVar4 + -1;
+          bVar15 = *pcVar13 == *pcVar14;
+          pcVar13 = pcVar13 + (uint)bVar17 * -2 + 1;
+          pcVar14 = pcVar14 + (uint)bVar17 * -2 + 1;
+        } while (bVar15);
+        if (bVar15) {
+          local_2198 = local_18c;
+          goto LAB_0412adc3;
+        }
+        iVar4 = 3;
+        bVar15 = false;
+        pcVar13 = pcVar12;
+        pcVar14 = "*.";
+        do {
+          if (iVar4 == 0) break;
+          iVar4 = iVar4 + -1;
+          bVar15 = *pcVar13 == *pcVar14;
+          pcVar13 = pcVar13 + (uint)bVar17 * -2 + 1;
+          pcVar14 = pcVar14 + (uint)bVar17 * -2 + 1;
+        } while (bVar15);
+        if ((bVar15) || (iVar4 = fnmatch(pcVar12,local_18c,0x12), iVar4 == 0)) {
+          local_2198 = local_18c;
+          goto LAB_0412adc3;
+        }
+        iVar4 = local_2c[0x801];
+      }
+    }
+    eON_SetLastError(0x12);
+  }
+  return 0;
+}
+

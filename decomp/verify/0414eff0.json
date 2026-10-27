@@ -1,0 +1,13 @@
+
+void EmptyFunction(void)
+
+{
+  code *pcVar1;
+  
+  FUN_0402cd10(0xf,"EmptyFunction() called !");
+  FUN_0402cfd0();
+  pcVar1 = (code *)swi(3);
+  (*pcVar1)();
+  return;
+}
+

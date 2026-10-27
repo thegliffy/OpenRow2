@@ -1,0 +1,30 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+int eON_Gdi_AllocDC(void)
+
+{
+  int *piVar1;
+  int iVar2;
+  
+  piVar1 = &DAT_04512aa8;
+  iVar2 = 0;
+  do {
+    if (*piVar1 == 0) {
+      eON_Gdi_InitDC();
+      (&DAT_04512ab4)[iVar2 * 0x18] = 0;
+      (&DAT_04512ac8)[iVar2 * 0x18] = 0;
+      (&DAT_04512aa1)[iVar2 * 0x60] = 1;
+      return iVar2 + -0x68686869;
+    }
+    iVar2 = iVar2 + 1;
+    piVar1 = piVar1 + 0x18;
+  } while (iVar2 != 0x80);
+  FUN_0402cd10(0xf,"Can\'t assign unused DC! Maximum number of resources reached!");
+  eON_Gdi_InitDC();
+  DAT_04512a41 = 1;
+  _DAT_04512a54 = 0;
+  DAT_04512a68 = 0;
+  return 0;
+}
+

@@ -1,0 +1,236 @@
+
+/* source: registryXML */
+
+void Registry_Load(void)
+
+{
+  ushort uVar1;
+  char cVar2;
+  ushort *puVar3;
+  size_t sVar4;
+  int iVar5;
+  void *pvVar6;
+  undefined4 uVar7;
+  uint uVar8;
+  byte bVar9;
+  uint uVar10;
+  uint uVar11;
+  char *pcVar12;
+  char *pcVar13;
+  bool bVar14;
+  byte bVar15;
+  uint local_70;
+  ushort local_64 [32];
+  int local_24;
+  int local_20 [4];
+  
+  bVar15 = 0;
+  if (DAT_04512a68 != (void *)0x0) {
+    FUN_0400a810("!gRegistry",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/advapi32/registryXML.cpp"
+                 ,0x98,"void Registry_Load()");
+  }
+  uVar11 = 0;
+  do {
+    local_64[0] = 0x30;
+    local_64[1] = 0;
+    local_64[2] = 0x31;
+    local_64[3] = 0;
+    local_64[4] = 0x32;
+    local_64[5] = 0;
+    local_64[6] = 0x33;
+    local_64[7] = 0;
+    local_64[8] = 0x34;
+    local_64[9] = 0;
+    local_64[10] = 0x35;
+    local_64[0xb] = 0;
+    local_64[0xc] = 0x36;
+    local_64[0xd] = 0;
+    local_64[0xe] = 0x37;
+    local_64[0xf] = 0;
+    local_64[0x10] = 0x38;
+    local_64[0x11] = 0;
+    local_64[0x12] = 0x39;
+    local_64[0x13] = 0;
+    local_64[0x14] = 0x41;
+    local_64[0x15] = 0;
+    local_64[0x16] = 0x42;
+    local_64[0x17] = 0;
+    local_64[0x18] = 0x43;
+    local_64[0x19] = 0;
+    local_64[0x1a] = 0x44;
+    local_64[0x1b] = 0;
+    local_64[0x1c] = 0x45;
+    local_64[0x1d] = 0;
+    local_64[0x1e] = 0x46;
+    local_64[0x1f] = 0;
+    uVar8 = (uint)(ushort)((ushort)(*(int *)(local_64 + (uVar11 & 0xf) * 2) << 8) |
+                          local_64[((int)(uVar11 & 0xff) >> 4) * 2]);
+    uVar10 = uVar8 & 0xff;
+    uVar8 = (int)uVar8 >> 8;
+    iVar5 = uVar10 - 0x30;
+    if (0x39 < uVar10) {
+      iVar5 = uVar10 - 0x37;
+    }
+    uVar10 = uVar8 - 0x30;
+    if (0x39 < uVar8) {
+      uVar10 = uVar8 - 0x37;
+    }
+    if (((iVar5 << 4 | uVar10) & 0xff) != uVar11) {
+      FUN_0400a810("UInt16ToByte( ByteToUInt16( (BYTE) i ) ) == i",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/advapi32/registryXML.cpp"
+                   ,0x9e,"void Registry_Load()");
+    }
+    uVar11 = uVar11 + 1;
+  } while (uVar11 != 0x100);
+  puVar3 = (ushort *)RegistryXml_EncodeHex();
+  uVar1 = *puVar3;
+  uVar11 = uVar1 & 0xff;
+  iVar5 = uVar11 - 0x30;
+  if (0x39 < uVar11) {
+    iVar5 = uVar11 - 0x37;
+  }
+  cVar2 = (char)(uVar1 >> 8);
+  bVar9 = cVar2 - 0x30;
+  if (0x39 < (uint)((int)(uint)uVar1 >> 8)) {
+    bVar9 = cVar2 - 0x37;
+  }
+  if ((byte)((byte)(iVar5 << 4) | bVar9) != 1) {
+    FUN_0400a810("DetermineValueType( val ) == 1",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/advapi32/registryXML.cpp"
+                 ,0xa4,"void Registry_Load()");
+  }
+  sVar4 = strlen((char *)puVar3);
+  if (sVar4 >> 1 == 0xb) {
+    local_70 = 10;
+LAB_04119e24:
+    uVar11 = 0;
+    do {
+      uVar8 = uVar11 + 1;
+      uVar1 = puVar3[uVar8];
+      uVar10 = uVar1 & 0xff;
+      iVar5 = uVar10 - 0x30;
+      if (0x39 < uVar10) {
+        iVar5 = uVar10 - 0x37;
+      }
+      cVar2 = (char)(uVar1 >> 8);
+      bVar9 = cVar2 - 0x30;
+      if (0x39 < (uint)((int)(uint)uVar1 >> 8)) {
+        bVar9 = cVar2 - 0x37;
+      }
+      *(byte *)((int)local_64 + uVar11) = (byte)(iVar5 << 4) | bVar9;
+      uVar11 = uVar8;
+    } while (uVar8 < local_70);
+  }
+  else {
+    FUN_0400a810("DetermineValueLength( val ) == 10",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/advapi32/registryXML.cpp"
+                 ,0xa5,"void Registry_Load()");
+    sVar4 = strlen((char *)puVar3);
+    local_70 = (sVar4 >> 1) - 1;
+    if (local_70 != 0) goto LAB_04119e24;
+  }
+  iVar5 = memcmp(local_64,"something",10);
+  if (iVar5 != 0) {
+    FUN_0400a810("!memcmp( val2, \"something\", 10 )",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/advapi32/registryXML.cpp"
+                 ,0xa9,"void Registry_Load()");
+  }
+  free(puVar3);
+  local_24 = 0x3039;
+  puVar3 = (ushort *)RegistryXml_EncodeHex();
+  uVar1 = *puVar3;
+  uVar11 = uVar1 & 0xff;
+  iVar5 = uVar11 - 0x30;
+  if (0x39 < uVar11) {
+    iVar5 = uVar11 - 0x37;
+  }
+  cVar2 = (char)(uVar1 >> 8);
+  bVar9 = cVar2 - 0x30;
+  if (0x39 < (uint)((int)(uint)uVar1 >> 8)) {
+    bVar9 = cVar2 - 0x37;
+  }
+  if ((byte)((byte)(iVar5 << 4) | bVar9) != 4) {
+    FUN_0400a810("DetermineValueType( val ) == 4",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/advapi32/registryXML.cpp"
+                 ,0xb0,"void Registry_Load()");
+  }
+  sVar4 = strlen((char *)puVar3);
+  if (sVar4 >> 1 == 5) {
+    local_70 = 4;
+  }
+  else {
+    FUN_0400a810("DetermineValueLength( val ) == 4",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/advapi32/registryXML.cpp"
+                 ,0xb1,"void Registry_Load()");
+    sVar4 = strlen((char *)puVar3);
+    local_70 = (sVar4 >> 1) - 1;
+    if (local_70 == 0) goto LAB_04119f7d;
+  }
+  uVar11 = 0;
+  do {
+    uVar8 = uVar11 + 1;
+    uVar1 = puVar3[uVar8];
+    uVar10 = uVar1 & 0xff;
+    iVar5 = uVar10 - 0x30;
+    if (0x39 < uVar10) {
+      iVar5 = uVar10 - 0x37;
+    }
+    cVar2 = (char)(uVar1 >> 8);
+    bVar9 = cVar2 - 0x30;
+    if (0x39 < (uint)((int)(uint)uVar1 >> 8)) {
+      bVar9 = cVar2 - 0x37;
+    }
+    *(byte *)((int)local_20 + uVar11) = (byte)(iVar5 << 4) | bVar9;
+    uVar11 = uVar8;
+  } while (uVar8 < local_70);
+LAB_04119f7d:
+  if (local_24 != local_20[0]) {
+    FUN_0400a810("d == d2",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/advapi32/registryXML.cpp"
+                 ,0xb5,"void Registry_Load()");
+  }
+  free(puVar3);
+  pvVar6 = operator_new(0x48);
+                    /* try { // try from 04119fc2 to 04119fc6 has its CatchHandler @ 0411a11d */
+  TiXmlDocument__TiXmlDocument(pvVar6);
+  DAT_04512a6c = pvVar6;
+  uVar7 = eON_GetEonRegistryPath(1);
+  iVar5 = FUN_041322f0(uVar7);
+  if (iVar5 != -1) {
+    uVar7 = eON_GetEonRegistryPath(0);
+    cVar2 = TiXmlDocument__LoadFile_Path(DAT_04512a6c,uVar7,0);
+    if (cVar2 == '\0') {
+      FUN_0402cd10(0xf,"Failed to decode registry - fix it!");
+    }
+  }
+  DAT_04512a68 = (void *)TiXmlNode__FirstChildElement(DAT_04512a6c);
+  if (DAT_04512a68 == (void *)0x0) {
+    pvVar6 = operator_new(0x50);
+                    /* try { // try from 0411a0ea to 0411a0ee has its CatchHandler @ 0411a10b */
+    TiXmlElement__TiXmlElement(pvVar6,&DAT_043154c6);
+    DAT_04512a68 = pvVar6;
+    TiXmlNode__LinkEndChild(DAT_04512a6c,pvVar6);
+  }
+  else {
+    iVar5 = 4;
+    pcVar12 = (char *)(*(int *)((int)DAT_04512a68 + 0x20) + 8);
+    bVar14 = pcVar12 == (char *)0x0;
+    pcVar13 = "eON";
+    do {
+      if (iVar5 == 0) break;
+      iVar5 = iVar5 + -1;
+      bVar14 = *pcVar12 == *pcVar13;
+      pcVar12 = pcVar12 + (uint)bVar15 * -2 + 1;
+      pcVar13 = pcVar13 + (uint)bVar15 * -2 + 1;
+    } while (bVar14);
+    if (!bVar14) {
+      FUN_0400a810("!strcmp( gRegistry->Value(), \"eON\" )",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/advapi32/registryXML.cpp"
+                   ,0xd0,"void Registry_Load()");
+    }
+  }
+  DAT_04512a70 = 0;
+  return;
+}
+

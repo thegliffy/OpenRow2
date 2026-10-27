@@ -1,0 +1,189 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+bool _glewInit_GL_VERSION_1_4(void)
+
+{
+  int iVar1;
+  bool bVar2;
+  bool bVar3;
+  bool bVar4;
+  bool bVar5;
+  bool bVar6;
+  bool bVar7;
+  bool bVar8;
+  bool bVar9;
+  bool bVar10;
+  bool bVar11;
+  bool bVar12;
+  bool bVar13;
+  bool bVar14;
+  bool bVar15;
+  bool bVar16;
+  bool bVar17;
+  bool bVar18;
+  bool bVar19;
+  bool bVar20;
+  bool bVar21;
+  bool bVar22;
+  bool bVar23;
+  bool bVar24;
+  bool bVar25;
+  bool bVar26;
+  bool bVar27;
+  bool bVar28;
+  bool bVar29;
+  bool bVar30;
+  bool bVar31;
+  bool bVar32;
+  bool bVar33;
+  bool bVar34;
+  bool bVar35;
+  bool bVar36;
+  bool bVar37;
+  bool bVar38;
+  bool bVar39;
+  bool bVar40;
+  bool bVar41;
+  bool bVar42;
+  bool bVar43;
+  bool bVar44;
+  bool bVar45;
+  bool bVar46;
+  
+  iVar1 = glXGetProcAddressARB("glBlendColor");
+  DAT_0451edf4 = iVar1;
+  _DAT_0451edf0 = glXGetProcAddressARB("glBlendEquation");
+  bVar2 = _DAT_0451edf0 == 0;
+  DAT_0451edec = glXGetProcAddressARB("glBlendFuncSeparate");
+  bVar3 = DAT_0451edec == 0;
+  _DAT_0451ede8 = glXGetProcAddressARB("glFogCoordPointer");
+  bVar4 = _DAT_0451ede8 == 0;
+  _DAT_0451ede4 = glXGetProcAddressARB("glFogCoordd");
+  bVar5 = _DAT_0451ede4 == 0;
+  _DAT_0451ede0 = glXGetProcAddressARB("glFogCoorddv");
+  bVar6 = _DAT_0451ede0 == 0;
+  _DAT_0451eddc = glXGetProcAddressARB("glFogCoordf");
+  bVar7 = _DAT_0451eddc == 0;
+  _DAT_0451edd8 = glXGetProcAddressARB("glFogCoordfv");
+  bVar8 = _DAT_0451edd8 == 0;
+  _DAT_0451edd4 = glXGetProcAddressARB("glMultiDrawArrays");
+  bVar9 = _DAT_0451edd4 == 0;
+  _DAT_0451edd0 = glXGetProcAddressARB("glMultiDrawElements");
+  bVar10 = _DAT_0451edd0 == 0;
+  DAT_0451edcc = glXGetProcAddressARB("glPointParameterf");
+  bVar11 = DAT_0451edcc == 0;
+  DAT_0451edc8 = glXGetProcAddressARB("glPointParameterfv");
+  bVar12 = DAT_0451edc8 == 0;
+  _DAT_0451edc4 = glXGetProcAddressARB("glPointParameteri");
+  bVar13 = _DAT_0451edc4 == 0;
+  _DAT_0451edc0 = glXGetProcAddressARB("glPointParameteriv");
+  bVar14 = _DAT_0451edc0 == 0;
+  _DAT_0451edbc = glXGetProcAddressARB("glSecondaryColor3b");
+  bVar15 = _DAT_0451edbc == 0;
+  _DAT_0451edb8 = glXGetProcAddressARB("glSecondaryColor3bv");
+  bVar16 = _DAT_0451edb8 == 0;
+  _DAT_0451edb4 = glXGetProcAddressARB("glSecondaryColor3d");
+  bVar17 = _DAT_0451edb4 == 0;
+  _DAT_0451edb0 = glXGetProcAddressARB("glSecondaryColor3dv");
+  bVar18 = _DAT_0451edb0 == 0;
+  _DAT_0451edac = glXGetProcAddressARB("glSecondaryColor3f");
+  bVar19 = _DAT_0451edac == 0;
+  _DAT_0451eda8 = glXGetProcAddressARB("glSecondaryColor3fv");
+  bVar20 = _DAT_0451eda8 == 0;
+  _DAT_0451eda4 = glXGetProcAddressARB("glSecondaryColor3i");
+  bVar21 = _DAT_0451eda4 == 0;
+  _DAT_0451eda0 = glXGetProcAddressARB("glSecondaryColor3iv");
+  bVar22 = _DAT_0451eda0 == 0;
+  _DAT_0451ed9c = glXGetProcAddressARB("glSecondaryColor3s");
+  bVar23 = _DAT_0451ed9c == 0;
+  _DAT_0451ed98 = glXGetProcAddressARB("glSecondaryColor3sv");
+  bVar24 = _DAT_0451ed98 == 0;
+  _DAT_0451ed94 = glXGetProcAddressARB("glSecondaryColor3ub");
+  bVar25 = _DAT_0451ed94 == 0;
+  _DAT_0451ed90 = glXGetProcAddressARB("glSecondaryColor3ubv");
+  bVar26 = _DAT_0451ed90 == 0;
+  _DAT_0451ed8c = glXGetProcAddressARB("glSecondaryColor3ui");
+  bVar27 = _DAT_0451ed8c == 0;
+  _DAT_0451ed88 = glXGetProcAddressARB("glSecondaryColor3uiv");
+  bVar28 = _DAT_0451ed88 == 0;
+  _DAT_0451ed84 = glXGetProcAddressARB("glSecondaryColor3us");
+  bVar29 = _DAT_0451ed84 == 0;
+  _DAT_0451ed80 = glXGetProcAddressARB("glSecondaryColor3usv");
+  bVar30 = _DAT_0451ed80 == 0;
+  _DAT_0451ed7c = glXGetProcAddressARB("glSecondaryColorPointer");
+  bVar31 = _DAT_0451ed7c == 0;
+  _DAT_0451ed78 = glXGetProcAddressARB("glWindowPos2d");
+  bVar32 = _DAT_0451ed78 == 0;
+  _DAT_0451ed74 = glXGetProcAddressARB("glWindowPos2dv");
+  bVar33 = _DAT_0451ed74 == 0;
+  _DAT_0451ed70 = glXGetProcAddressARB("glWindowPos2f");
+  bVar34 = _DAT_0451ed70 == 0;
+  _DAT_0451ed6c = glXGetProcAddressARB("glWindowPos2fv");
+  bVar35 = _DAT_0451ed6c == 0;
+  _DAT_0451ed68 = glXGetProcAddressARB("glWindowPos2i");
+  bVar36 = _DAT_0451ed68 == 0;
+  _DAT_0451ed64 = glXGetProcAddressARB("glWindowPos2iv");
+  bVar37 = _DAT_0451ed64 == 0;
+  _DAT_0451ed60 = glXGetProcAddressARB("glWindowPos2s");
+  bVar38 = _DAT_0451ed60 == 0;
+  _DAT_0451ed5c = glXGetProcAddressARB("glWindowPos2sv");
+  bVar39 = _DAT_0451ed5c == 0;
+  _DAT_0451ed58 = glXGetProcAddressARB("glWindowPos3d");
+  bVar40 = _DAT_0451ed58 == 0;
+  _DAT_0451ed54 = glXGetProcAddressARB("glWindowPos3dv");
+  bVar41 = _DAT_0451ed54 == 0;
+  _DAT_0451ed50 = glXGetProcAddressARB("glWindowPos3f");
+  bVar42 = _DAT_0451ed50 == 0;
+  _DAT_0451ed4c = glXGetProcAddressARB("glWindowPos3fv");
+  bVar43 = _DAT_0451ed4c == 0;
+  _DAT_0451ed48 = glXGetProcAddressARB("glWindowPos3i");
+  bVar44 = _DAT_0451ed48 == 0;
+  _DAT_0451ed44 = glXGetProcAddressARB("glWindowPos3iv");
+  bVar45 = _DAT_0451ed44 == 0;
+  _DAT_0451ed40 = glXGetProcAddressARB("glWindowPos3s");
+  bVar46 = _DAT_0451ed40 == 0;
+  _DAT_0451ed3c = glXGetProcAddressARB("glWindowPos3sv");
+  return _DAT_0451ed3c == 0 ||
+         (bVar46 ||
+         (bVar45 ||
+         (bVar44 ||
+         (bVar43 ||
+         (bVar42 ||
+         (bVar41 ||
+         (bVar40 ||
+         (bVar39 ||
+         (bVar38 ||
+         (bVar37 ||
+         (bVar36 ||
+         (bVar35 ||
+         (bVar34 ||
+         (bVar33 ||
+         (bVar32 ||
+         (bVar31 ||
+         (bVar30 ||
+         (bVar29 ||
+         (bVar28 ||
+         (bVar27 ||
+         (bVar26 ||
+         (bVar25 ||
+         (bVar24 ||
+         (bVar23 ||
+         (bVar22 ||
+         (bVar21 ||
+         (bVar20 ||
+         (bVar19 ||
+         (bVar18 ||
+         (bVar17 ||
+         (bVar16 ||
+         (bVar15 ||
+         (bVar14 ||
+         (bVar13 ||
+         (bVar12 ||
+         (bVar11 ||
+         (bVar10 ||
+         (bVar9 || (bVar8 || (bVar7 || (bVar6 || (bVar5 || (bVar4 || (bVar3 || (bVar2 || iVar1 == 0)
+                                                                     )))))))))))))))))))))))))))))))
+         )))))))))))));
+}
+

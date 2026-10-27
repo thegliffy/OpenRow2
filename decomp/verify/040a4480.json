@@ -1,0 +1,69 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+void Direct3DPixelShader9Imp__Direct3DPixelShader9Imp(undefined4 *param_1,undefined4 param_2)
+
+{
+  uint uVar1;
+  uint uVar2;
+  float fVar3;
+  int iVar4;
+  undefined4 *puVar5;
+  undefined4 *puVar6;
+  undefined1 *puVar7;
+  int iVar8;
+  float fVar9;
+  
+  iVar8 = 0x100;
+  puVar7 = std::__detail::__prime_list;
+  IUnknownImp__IUnknownImp(param_1,param_2);
+  *param_1 = &PTR_FUN_042f7768;
+  param_1[4] = 0;
+  param_1[5] = 0;
+  param_1[6] = 0;
+  *(undefined1 *)(param_1 + 7) = 0;
+  param_1[8] = 0;
+  param_1[9] = 0xffffffff;
+  param_1[0xf] = 0;
+  param_1[0x10] = 0x3f800000;
+  param_1[0x11] = 0x40000000;
+  param_1[0x12] = 0;
+  do {
+    while( true ) {
+      iVar4 = iVar8 >> 1;
+      if (*(uint *)((int)puVar7 + iVar4 * 4) < 10) break;
+      do {
+        iVar8 = iVar4;
+        if (iVar8 < 1) goto LAB_040a4520;
+        iVar4 = iVar8 >> 1;
+      } while (9 < *(uint *)((int)puVar7 + iVar4 * 4));
+      puVar7 = (undefined1 *)((uint *)((int)puVar7 + iVar4 * 4) + 1);
+      iVar8 = (iVar8 - iVar4) + -1;
+      if (iVar8 < 1) goto LAB_040a4520;
+    }
+    puVar7 = (undefined1 *)((uint *)((int)puVar7 + iVar4 * 4) + 1);
+    iVar8 = (iVar8 - iVar4) + -1;
+  } while (0 < iVar8);
+LAB_040a4520:
+  uVar1 = *(uint *)puVar7;
+  fVar9 = ceilf((float)(uVar1 >> 0x10) * DAT_042dbf34 + (float)(uVar1 & 0xffff));
+  fVar3 = _DAT_042dbf50;
+  param_1[0xd] = uVar1;
+  uVar2 = (uint)(fVar3 <= fVar9);
+  param_1[0x12] = (int)(fVar9 - (float)((uint)fVar3 & -uVar2)) ^ uVar2 * -0x80000000;
+  if (uVar1 + 1 < 0x40000000) {
+                    /* try { // try from 040a4596 to 040a45f0 has its CatchHandler @ 040a45f1 */
+    puVar5 = operator_new((uVar1 + 1) * 4);
+    for (puVar6 = puVar5; puVar6 != puVar5 + uVar1; puVar6 = puVar6 + 1) {
+      *puVar6 = 0;
+    }
+    puVar5[uVar1] = 0x1000;
+    param_1[0xc] = puVar5;
+    param_1[1] = "Direct3DPixelShader9Imp";
+    param_1[0xe] = param_1[0xd];
+    return;
+  }
+                    /* WARNING: Subroutine does not return */
+  std::__throw_bad_alloc();
+}
+

@@ -1,0 +1,14 @@
+
+char * SocketIoctlToString(int param_1)
+
+{
+  char *pcVar1;
+  
+  pcVar1 = "SIOCATMARK";
+  if (((param_1 != 0x40047307) && (pcVar1 = "FIONBIO", param_1 != -0x7ffb9982)) &&
+     (pcVar1 = "(unknown)", param_1 == 0x4004667f)) {
+    pcVar1 = "FIONREAD";
+  }
+  return pcVar1;
+}
+

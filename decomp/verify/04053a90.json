@@ -1,0 +1,46 @@
+
+/* source: D3DBytecodeToGLSLText */
+
+void convert_texreg2ar(int *param_1)
+
+{
+  uint uVar1;
+  int iVar2;
+  char cVar3;
+  int iVar4;
+  char *pcVar5;
+  undefined1 local_1b2 [128];
+  undefined1 local_132 [128];
+  undefined1 local_b2 [128];
+  undefined1 local_32 [16];
+  undefined1 local_22 [18];
+  
+  cVar3 = FUN_04021ee0();
+  uVar1 = param_1[3];
+  if (*(int *)(*param_1 + 0x114 + (uVar1 & 0x7ff) * 4) != 0) {
+    FUN_0400a810("state->Shader->Regs.SamplersMapping[samplerIndex] == 0",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/D3DBytecodeToGLSLText.cpp"
+                 ,0x654,"void convert_texreg2ar(ConversionState*)");
+  }
+  ShaderData_AppendDestMask();
+  iVar2 = param_1[0xe];
+  local_b2[0] = 0;
+  local_32[0] = 0;
+  eON_ShaderData__InputRegisterIsColor(local_b2);
+  iVar4 = ShaderData_AppendDestMask();
+  if (iVar4 != 0) {
+    eON_AppendShaderCompileMessage
+              (iVar2,"%s%s = %s(",local_b2,local_32,
+               (&PTR_DAT_042eb360)[*(byte *)((int)param_1 + 0xf) & 0xf]);
+  }
+  eON_ShaderData_ApplySourceModifier(0xf0000,local_1b2);
+  pcVar5 = "";
+  if (cVar3 == '\0') {
+    pcVar5 = "2D";
+  }
+  eON_AppendShaderCompileMessage
+            (param_1[0xe],"texture%s( PSampler%u, %s.wx )%s );\n",pcVar5,uVar1 & 0x7ff,local_132,
+             local_22);
+  return;
+}
+

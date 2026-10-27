@@ -1,0 +1,787 @@
+
+void LogDDSURFACEDESC(undefined4 param_1,undefined4 *param_2)
+
+{
+  undefined *puVar1;
+  bool bVar2;
+  uint uVar3;
+  uint uVar4;
+  uint *puVar5;
+  uint *puVar6;
+  uint uVar7;
+  undefined4 *puVar8;
+  undefined4 uVar9;
+  uint local_11c [67];
+  
+  FUN_0402cd10(param_1,"DDSURFACEDESC %p DATA",param_2);
+  uVar9 = *param_2;
+  FUN_0402cd10(param_1,"    Size: %u",uVar9);
+  puVar1 = (undefined *)param_2[1];
+  if (puVar1 == &DAT_007ff9ee) {
+    FUN_0402cd10(param_1,"    Flags: DDSD_ALL",uVar9);
+  }
+  else {
+    local_11c[0]._0_1_ = 0;
+    bVar2 = true;
+    puVar6 = local_11c;
+    if (((uint)puVar1 & 1) != 0) {
+      do {
+        puVar5 = puVar6;
+        uVar3 = *puVar5 + 0xfefefeff & ~*puVar5;
+        uVar4 = uVar3 & 0x80808080;
+        puVar6 = puVar5 + 1;
+      } while (uVar4 == 0);
+      if ((uVar3 & 0x8080) == 0) {
+        puVar6 = (uint *)((int)puVar5 + 6);
+        uVar4 = uVar4 >> 0x10;
+      }
+      puVar8 = (undefined4 *)((int)puVar6 + (-3 - (uint)CARRY1((byte)uVar4,(byte)uVar4)));
+      bVar2 = false;
+      *puVar8 = 0x44534444;
+      puVar8[1] = 0x5041435f;
+      *(undefined2 *)(puVar8 + 2) = 0x53;
+    }
+    if (((uint)puVar1 & 2) != 0) {
+      puVar6 = local_11c;
+      if (!bVar2) {
+        do {
+          puVar5 = puVar6;
+          uVar4 = *puVar5 + 0xfefefeff & ~*puVar5;
+          uVar3 = uVar4 & 0x80808080;
+          puVar6 = puVar5 + 1;
+        } while (uVar3 == 0);
+        uVar7 = uVar3 >> 0x10;
+        puVar6 = (uint *)((int)puVar5 + 6);
+        if ((uVar4 & 0x8080) != 0) {
+          puVar6 = puVar5 + 1;
+          uVar7 = uVar3;
+        }
+        *(undefined2 *)((int)puVar6 + (-3 - (uint)CARRY1((byte)uVar7,(byte)uVar7))) = 0x7c;
+        puVar6 = local_11c;
+      }
+      do {
+        puVar5 = puVar6;
+        uVar3 = *puVar5 + 0xfefefeff & ~*puVar5;
+        uVar4 = uVar3 & 0x80808080;
+        puVar6 = puVar5 + 1;
+      } while (uVar4 == 0);
+      if ((uVar3 & 0x8080) == 0) {
+        puVar6 = (uint *)((int)puVar5 + 6);
+        uVar4 = uVar4 >> 0x10;
+      }
+      puVar8 = (undefined4 *)((int)puVar6 + (-3 - (uint)CARRY1((byte)uVar4,(byte)uVar4)));
+      bVar2 = false;
+      *puVar8 = 0x44534444;
+      puVar8[1] = 0x4945485f;
+      puVar8[2] = &DAT_00544847;
+    }
+    if (((uint)puVar1 & 4) != 0) {
+      puVar6 = local_11c;
+      if (!bVar2) {
+        do {
+          puVar5 = puVar6;
+          uVar4 = *puVar5 + 0xfefefeff & ~*puVar5;
+          uVar3 = uVar4 & 0x80808080;
+          puVar6 = puVar5 + 1;
+        } while (uVar3 == 0);
+        uVar7 = uVar3 >> 0x10;
+        puVar6 = (uint *)((int)puVar5 + 6);
+        if ((uVar4 & 0x8080) != 0) {
+          puVar6 = puVar5 + 1;
+          uVar7 = uVar3;
+        }
+        *(undefined2 *)((int)puVar6 + (-3 - (uint)CARRY1((byte)uVar7,(byte)uVar7))) = 0x7c;
+        puVar6 = local_11c;
+      }
+      do {
+        puVar5 = puVar6;
+        uVar3 = *puVar5 + 0xfefefeff & ~*puVar5;
+        uVar4 = uVar3 & 0x80808080;
+        puVar6 = puVar5 + 1;
+      } while (uVar4 == 0);
+      if ((uVar3 & 0x8080) == 0) {
+        puVar6 = (uint *)((int)puVar5 + 6);
+        uVar4 = uVar4 >> 0x10;
+      }
+      puVar8 = (undefined4 *)((int)puVar6 + (-3 - (uint)CARRY1((byte)uVar4,(byte)uVar4)));
+      bVar2 = false;
+      *puVar8 = 0x44534444;
+      puVar8[1] = 0x4449575f;
+      *(undefined2 *)(puVar8 + 2) = 0x4854;
+      *(undefined1 *)((int)puVar8 + 10) = 0;
+    }
+    if (((uint)puVar1 & 8) != 0) {
+      puVar6 = local_11c;
+      if (!bVar2) {
+        do {
+          puVar5 = puVar6;
+          uVar4 = *puVar5 + 0xfefefeff & ~*puVar5;
+          uVar3 = uVar4 & 0x80808080;
+          puVar6 = puVar5 + 1;
+        } while (uVar3 == 0);
+        uVar7 = uVar3 >> 0x10;
+        puVar6 = (uint *)((int)puVar5 + 6);
+        if ((uVar4 & 0x8080) != 0) {
+          puVar6 = puVar5 + 1;
+          uVar7 = uVar3;
+        }
+        *(undefined2 *)((int)puVar6 + (-3 - (uint)CARRY1((byte)uVar7,(byte)uVar7))) = 0x7c;
+        puVar6 = local_11c;
+      }
+      do {
+        puVar5 = puVar6;
+        uVar3 = *puVar5 + 0xfefefeff & ~*puVar5;
+        uVar4 = uVar3 & 0x80808080;
+        puVar6 = puVar5 + 1;
+      } while (uVar4 == 0);
+      if ((uVar3 & 0x8080) == 0) {
+        puVar6 = (uint *)((int)puVar5 + 6);
+        uVar4 = uVar4 >> 0x10;
+      }
+      puVar8 = (undefined4 *)((int)puVar6 + (-3 - (uint)CARRY1((byte)uVar4,(byte)uVar4)));
+      bVar2 = false;
+      *puVar8 = 0x44534444;
+      puVar8[1] = 0x5449505f;
+      *(undefined2 *)(puVar8 + 2) = 0x4843;
+      *(undefined1 *)((int)puVar8 + 10) = 0;
+    }
+    if (((uint)puVar1 & 0x20) != 0) {
+      puVar6 = local_11c;
+      if (!bVar2) {
+        do {
+          puVar5 = puVar6;
+          uVar4 = *puVar5 + 0xfefefeff & ~*puVar5;
+          uVar3 = uVar4 & 0x80808080;
+          puVar6 = puVar5 + 1;
+        } while (uVar3 == 0);
+        uVar7 = uVar3 >> 0x10;
+        puVar6 = (uint *)((int)puVar5 + 6);
+        if ((uVar4 & 0x8080) != 0) {
+          puVar6 = puVar5 + 1;
+          uVar7 = uVar3;
+        }
+        *(undefined2 *)((int)puVar6 + (-3 - (uint)CARRY1((byte)uVar7,(byte)uVar7))) = 0x7c;
+        puVar6 = local_11c;
+      }
+      do {
+        puVar5 = puVar6;
+        uVar3 = *puVar5 + 0xfefefeff & ~*puVar5;
+        uVar4 = uVar3 & 0x80808080;
+        puVar6 = puVar5 + 1;
+      } while (uVar4 == 0);
+      if ((uVar3 & 0x8080) == 0) {
+        puVar6 = (uint *)((int)puVar5 + 6);
+        uVar4 = uVar4 >> 0x10;
+      }
+      puVar8 = (undefined4 *)((int)puVar6 + (-3 - (uint)CARRY1((byte)uVar4,(byte)uVar4)));
+      bVar2 = false;
+      *puVar8 = 0x44534444;
+      puVar8[1] = 0x4341425f;
+      puVar8[2] = 0x4655424b;
+      puVar8[3] = 0x43524546;
+      puVar8[4] = 0x544e554f;
+      *(undefined1 *)(puVar8 + 5) = 0;
+    }
+    if (((uint)puVar1 & 0x40) != 0) {
+      puVar6 = local_11c;
+      if (!bVar2) {
+        do {
+          puVar5 = puVar6;
+          uVar4 = *puVar5 + 0xfefefeff & ~*puVar5;
+          uVar3 = uVar4 & 0x80808080;
+          puVar6 = puVar5 + 1;
+        } while (uVar3 == 0);
+        uVar7 = uVar3 >> 0x10;
+        puVar6 = (uint *)((int)puVar5 + 6);
+        if ((uVar4 & 0x8080) != 0) {
+          puVar6 = puVar5 + 1;
+          uVar7 = uVar3;
+        }
+        *(undefined2 *)((int)puVar6 + (-3 - (uint)CARRY1((byte)uVar7,(byte)uVar7))) = 0x7c;
+        puVar6 = local_11c;
+      }
+      do {
+        puVar5 = puVar6;
+        uVar3 = *puVar5 + 0xfefefeff & ~*puVar5;
+        uVar4 = uVar3 & 0x80808080;
+        puVar6 = puVar5 + 1;
+      } while (uVar4 == 0);
+      if ((uVar3 & 0x8080) == 0) {
+        puVar6 = (uint *)((int)puVar5 + 6);
+        uVar4 = uVar4 >> 0x10;
+      }
+      puVar8 = (undefined4 *)((int)puVar6 + (-3 - (uint)CARRY1((byte)uVar4,(byte)uVar4)));
+      bVar2 = false;
+      *puVar8 = 0x44534444;
+      puVar8[1] = 0x55425a5f;
+      puVar8[2] = 0x52454646;
+      puVar8[3] = 0x44544942;
+      puVar8[4] = 0x48545045;
+      *(undefined1 *)(puVar8 + 5) = 0;
+    }
+    if (((uint)puVar1 & 0x80) != 0) {
+      puVar6 = local_11c;
+      if (!bVar2) {
+        do {
+          puVar5 = puVar6;
+          uVar4 = *puVar5 + 0xfefefeff & ~*puVar5;
+          uVar3 = uVar4 & 0x80808080;
+          puVar6 = puVar5 + 1;
+        } while (uVar3 == 0);
+        uVar7 = uVar3 >> 0x10;
+        puVar6 = (uint *)((int)puVar5 + 6);
+        if ((uVar4 & 0x8080) != 0) {
+          puVar6 = puVar5 + 1;
+          uVar7 = uVar3;
+        }
+        *(undefined2 *)((int)puVar6 + (-3 - (uint)CARRY1((byte)uVar7,(byte)uVar7))) = 0x7c;
+        puVar6 = local_11c;
+      }
+      do {
+        puVar5 = puVar6;
+        uVar3 = *puVar5 + 0xfefefeff & ~*puVar5;
+        uVar4 = uVar3 & 0x80808080;
+        puVar6 = puVar5 + 1;
+      } while (uVar4 == 0);
+      if ((uVar3 & 0x8080) == 0) {
+        puVar6 = (uint *)((int)puVar5 + 6);
+        uVar4 = uVar4 >> 0x10;
+      }
+      puVar8 = (undefined4 *)((int)puVar6 + (-3 - (uint)CARRY1((byte)uVar4,(byte)uVar4)));
+      bVar2 = false;
+      *puVar8 = 0x44534444;
+      puVar8[1] = 0x504c415f;
+      puVar8[2] = 0x49424148;
+      puVar8[3] = 0x50454454;
+      *(undefined2 *)(puVar8 + 4) = 0x4854;
+      *(undefined1 *)((int)puVar8 + 0x12) = 0;
+    }
+    if (((uint)puVar1 & 0x800) != 0) {
+      puVar6 = local_11c;
+      if (!bVar2) {
+        do {
+          puVar5 = puVar6;
+          uVar4 = *puVar5 + 0xfefefeff & ~*puVar5;
+          uVar3 = uVar4 & 0x80808080;
+          puVar6 = puVar5 + 1;
+        } while (uVar3 == 0);
+        uVar7 = uVar3 >> 0x10;
+        puVar6 = (uint *)((int)puVar5 + 6);
+        if ((uVar4 & 0x8080) != 0) {
+          puVar6 = puVar5 + 1;
+          uVar7 = uVar3;
+        }
+        *(undefined2 *)((int)puVar6 + (-3 - (uint)CARRY1((byte)uVar7,(byte)uVar7))) = 0x7c;
+        puVar6 = local_11c;
+      }
+      do {
+        puVar5 = puVar6;
+        uVar3 = *puVar5 + 0xfefefeff & ~*puVar5;
+        uVar4 = uVar3 & 0x80808080;
+        puVar6 = puVar5 + 1;
+      } while (uVar4 == 0);
+      if ((uVar3 & 0x8080) == 0) {
+        puVar6 = (uint *)((int)puVar5 + 6);
+        uVar4 = uVar4 >> 0x10;
+      }
+      puVar8 = (undefined4 *)((int)puVar6 + (-3 - (uint)CARRY1((byte)uVar4,(byte)uVar4)));
+      bVar2 = false;
+      *puVar8 = 0x44534444;
+      puVar8[1] = 0x53504c5f;
+      puVar8[2] = 0x41465255;
+      *(undefined2 *)(puVar8 + 3) = 0x4543;
+      *(undefined1 *)((int)puVar8 + 0xe) = 0;
+    }
+    if (((uint)puVar1 & 0x1000) != 0) {
+      puVar6 = local_11c;
+      if (!bVar2) {
+        do {
+          puVar5 = puVar6;
+          uVar4 = *puVar5 + 0xfefefeff & ~*puVar5;
+          uVar3 = uVar4 & 0x80808080;
+          puVar6 = puVar5 + 1;
+        } while (uVar3 == 0);
+        uVar7 = uVar3 >> 0x10;
+        puVar6 = (uint *)((int)puVar5 + 6);
+        if ((uVar4 & 0x8080) != 0) {
+          puVar6 = puVar5 + 1;
+          uVar7 = uVar3;
+        }
+        *(undefined2 *)((int)puVar6 + (-3 - (uint)CARRY1((byte)uVar7,(byte)uVar7))) = 0x7c;
+        puVar6 = local_11c;
+      }
+      do {
+        puVar5 = puVar6;
+        uVar3 = *puVar5 + 0xfefefeff & ~*puVar5;
+        uVar4 = uVar3 & 0x80808080;
+        puVar6 = puVar5 + 1;
+      } while (uVar4 == 0);
+      if ((uVar3 & 0x8080) == 0) {
+        puVar6 = (uint *)((int)puVar5 + 6);
+        uVar4 = uVar4 >> 0x10;
+      }
+      puVar8 = (undefined4 *)((int)puVar6 + (-3 - (uint)CARRY1((byte)uVar4,(byte)uVar4)));
+      bVar2 = false;
+      *puVar8 = 0x44534444;
+      puVar8[1] = 0x5849505f;
+      puVar8[2] = 0x4f464c45;
+      puVar8[3] = 0x54414d52;
+      *(undefined1 *)(puVar8 + 4) = 0;
+    }
+    if (((uint)puVar1 & 0x2000) != 0) {
+      puVar6 = local_11c;
+      if (!bVar2) {
+        do {
+          puVar5 = puVar6;
+          uVar4 = *puVar5 + 0xfefefeff & ~*puVar5;
+          uVar3 = uVar4 & 0x80808080;
+          puVar6 = puVar5 + 1;
+        } while (uVar3 == 0);
+        uVar7 = uVar3 >> 0x10;
+        puVar6 = (uint *)((int)puVar5 + 6);
+        if ((uVar4 & 0x8080) != 0) {
+          puVar6 = puVar5 + 1;
+          uVar7 = uVar3;
+        }
+        *(undefined2 *)((int)puVar6 + (-3 - (uint)CARRY1((byte)uVar7,(byte)uVar7))) = 0x7c;
+        puVar6 = local_11c;
+      }
+      do {
+        puVar5 = puVar6;
+        uVar3 = *puVar5 + 0xfefefeff & ~*puVar5;
+        uVar4 = uVar3 & 0x80808080;
+        puVar6 = puVar5 + 1;
+      } while (uVar4 == 0);
+      if ((uVar3 & 0x8080) == 0) {
+        puVar6 = (uint *)((int)puVar5 + 6);
+        uVar4 = uVar4 >> 0x10;
+      }
+      puVar8 = (undefined4 *)((int)puVar6 + (-3 - (uint)CARRY1((byte)uVar4,(byte)uVar4)));
+      bVar2 = false;
+      *puVar8 = 0x44534444;
+      puVar8[1] = 0x444b435f;
+      puVar8[2] = 0x4f545345;
+      puVar8[3] = 0x4c524556;
+      *(undefined2 *)(puVar8 + 4) = 0x5941;
+      *(undefined1 *)((int)puVar8 + 0x12) = 0;
+    }
+    if (((uint)puVar1 & 0x4000) != 0) {
+      puVar6 = local_11c;
+      if (!bVar2) {
+        do {
+          puVar5 = puVar6;
+          uVar4 = *puVar5 + 0xfefefeff & ~*puVar5;
+          uVar3 = uVar4 & 0x80808080;
+          puVar6 = puVar5 + 1;
+        } while (uVar3 == 0);
+        uVar7 = uVar3 >> 0x10;
+        puVar6 = (uint *)((int)puVar5 + 6);
+        if ((uVar4 & 0x8080) != 0) {
+          puVar6 = puVar5 + 1;
+          uVar7 = uVar3;
+        }
+        *(undefined2 *)((int)puVar6 + (-3 - (uint)CARRY1((byte)uVar7,(byte)uVar7))) = 0x7c;
+        puVar6 = local_11c;
+      }
+      do {
+        puVar5 = puVar6;
+        uVar3 = *puVar5 + 0xfefefeff & ~*puVar5;
+        uVar4 = uVar3 & 0x80808080;
+        puVar6 = puVar5 + 1;
+      } while (uVar4 == 0);
+      if ((uVar3 & 0x8080) == 0) {
+        puVar6 = (uint *)((int)puVar5 + 6);
+        uVar4 = uVar4 >> 0x10;
+      }
+      puVar8 = (undefined4 *)((int)puVar6 + (-3 - (uint)CARRY1((byte)uVar4,(byte)uVar4)));
+      bVar2 = false;
+      *puVar8 = 0x44534444;
+      puVar8[1] = 0x444b435f;
+      puVar8[2] = 0x42545345;
+      *(undefined2 *)(puVar8 + 3) = 0x544c;
+      *(undefined1 *)((int)puVar8 + 0xe) = 0;
+    }
+    if (((uint)puVar1 & 0x8000) != 0) {
+      puVar6 = local_11c;
+      if (!bVar2) {
+        do {
+          puVar5 = puVar6;
+          uVar4 = *puVar5 + 0xfefefeff & ~*puVar5;
+          uVar3 = uVar4 & 0x80808080;
+          puVar6 = puVar5 + 1;
+        } while (uVar3 == 0);
+        uVar7 = uVar3 >> 0x10;
+        puVar6 = (uint *)((int)puVar5 + 6);
+        if ((uVar4 & 0x8080) != 0) {
+          puVar6 = puVar5 + 1;
+          uVar7 = uVar3;
+        }
+        *(undefined2 *)((int)puVar6 + (-3 - (uint)CARRY1((byte)uVar7,(byte)uVar7))) = 0x7c;
+        puVar6 = local_11c;
+      }
+      do {
+        puVar5 = puVar6;
+        uVar3 = *puVar5 + 0xfefefeff & ~*puVar5;
+        uVar4 = uVar3 & 0x80808080;
+        puVar6 = puVar5 + 1;
+      } while (uVar4 == 0);
+      if ((uVar3 & 0x8080) == 0) {
+        puVar6 = (uint *)((int)puVar5 + 6);
+        uVar4 = uVar4 >> 0x10;
+      }
+      puVar8 = (undefined4 *)((int)puVar6 + (-3 - (uint)CARRY1((byte)uVar4,(byte)uVar4)));
+      bVar2 = false;
+      *puVar8 = 0x44534444;
+      puVar8[1] = 0x534b435f;
+      puVar8[2] = 0x564f4352;
+      puVar8[3] = 0x414c5245;
+      *(undefined2 *)(puVar8 + 4) = 0x59;
+    }
+    if (((uint)puVar1 & 0x10000) != 0) {
+      puVar6 = local_11c;
+      if (!bVar2) {
+        do {
+          puVar5 = puVar6;
+          uVar4 = *puVar5 + 0xfefefeff & ~*puVar5;
+          uVar3 = uVar4 & 0x80808080;
+          puVar6 = puVar5 + 1;
+        } while (uVar3 == 0);
+        uVar7 = uVar3 >> 0x10;
+        puVar6 = (uint *)((int)puVar5 + 6);
+        if ((uVar4 & 0x8080) != 0) {
+          puVar6 = puVar5 + 1;
+          uVar7 = uVar3;
+        }
+        *(undefined2 *)((int)puVar6 + (-3 - (uint)CARRY1((byte)uVar7,(byte)uVar7))) = 0x7c;
+        puVar6 = local_11c;
+      }
+      do {
+        puVar5 = puVar6;
+        uVar3 = *puVar5 + 0xfefefeff & ~*puVar5;
+        uVar4 = uVar3 & 0x80808080;
+        puVar6 = puVar5 + 1;
+      } while (uVar4 == 0);
+      if ((uVar3 & 0x8080) == 0) {
+        puVar6 = (uint *)((int)puVar5 + 6);
+        uVar4 = uVar4 >> 0x10;
+      }
+      puVar8 = (undefined4 *)((int)puVar6 + (-3 - (uint)CARRY1((byte)uVar4,(byte)uVar4)));
+      bVar2 = false;
+      *puVar8 = 0x44534444;
+      puVar8[1] = 0x534b435f;
+      puVar8[2] = 0x4c424352;
+      *(undefined2 *)(puVar8 + 3) = 0x54;
+    }
+    if (((uint)puVar1 & 0x20000) != 0) {
+      puVar6 = local_11c;
+      if (!bVar2) {
+        do {
+          puVar5 = puVar6;
+          uVar4 = *puVar5 + 0xfefefeff & ~*puVar5;
+          uVar3 = uVar4 & 0x80808080;
+          puVar6 = puVar5 + 1;
+        } while (uVar3 == 0);
+        uVar7 = uVar3 >> 0x10;
+        puVar6 = (uint *)((int)puVar5 + 6);
+        if ((uVar4 & 0x8080) != 0) {
+          puVar6 = puVar5 + 1;
+          uVar7 = uVar3;
+        }
+        *(undefined2 *)((int)puVar6 + (-3 - (uint)CARRY1((byte)uVar7,(byte)uVar7))) = 0x7c;
+        puVar6 = local_11c;
+      }
+      do {
+        puVar5 = puVar6;
+        uVar3 = *puVar5 + 0xfefefeff & ~*puVar5;
+        uVar4 = uVar3 & 0x80808080;
+        puVar6 = puVar5 + 1;
+      } while (uVar4 == 0);
+      if ((uVar3 & 0x8080) == 0) {
+        puVar6 = (uint *)((int)puVar5 + 6);
+        uVar4 = uVar4 >> 0x10;
+      }
+      puVar8 = (undefined4 *)((int)puVar6 + (-3 - (uint)CARRY1((byte)uVar4,(byte)uVar4)));
+      bVar2 = false;
+      *puVar8 = 0x44534444;
+      puVar8[1] = 0x50494d5f;
+      puVar8[2] = 0x4350414d;
+      puVar8[3] = 0x544e554f;
+      *(undefined1 *)(puVar8 + 4) = 0;
+    }
+    if (((uint)puVar1 & 0x40000) != 0) {
+      puVar6 = local_11c;
+      if (!bVar2) {
+        do {
+          puVar5 = puVar6;
+          uVar4 = *puVar5 + 0xfefefeff & ~*puVar5;
+          uVar3 = uVar4 & 0x80808080;
+          puVar6 = puVar5 + 1;
+        } while (uVar3 == 0);
+        uVar7 = uVar3 >> 0x10;
+        puVar6 = (uint *)((int)puVar5 + 6);
+        if ((uVar4 & 0x8080) != 0) {
+          puVar6 = puVar5 + 1;
+          uVar7 = uVar3;
+        }
+        *(undefined2 *)((int)puVar6 + (-3 - (uint)CARRY1((byte)uVar7,(byte)uVar7))) = 0x7c;
+        puVar6 = local_11c;
+      }
+      do {
+        puVar5 = puVar6;
+        uVar3 = *puVar5 + 0xfefefeff & ~*puVar5;
+        uVar4 = uVar3 & 0x80808080;
+        puVar6 = puVar5 + 1;
+      } while (uVar4 == 0);
+      if ((uVar3 & 0x8080) == 0) {
+        puVar6 = (uint *)((int)puVar5 + 6);
+        uVar4 = uVar4 >> 0x10;
+      }
+      puVar8 = (undefined4 *)((int)puVar6 + (-3 - (uint)CARRY1((byte)uVar4,(byte)uVar4)));
+      bVar2 = false;
+      *puVar8 = 0x44534444;
+      puVar8[1] = 0x4645525f;
+      puVar8[2] = 0x48534552;
+      puVar8[3] = 0x45544152;
+      *(undefined1 *)(puVar8 + 4) = 0;
+    }
+    if (((uint)puVar1 & 0x80000) != 0) {
+      puVar6 = local_11c;
+      if (!bVar2) {
+        do {
+          puVar5 = puVar6;
+          uVar4 = *puVar5 + 0xfefefeff & ~*puVar5;
+          uVar3 = uVar4 & 0x80808080;
+          puVar6 = puVar5 + 1;
+        } while (uVar3 == 0);
+        uVar7 = uVar3 >> 0x10;
+        puVar6 = (uint *)((int)puVar5 + 6);
+        if ((uVar4 & 0x8080) != 0) {
+          puVar6 = puVar5 + 1;
+          uVar7 = uVar3;
+        }
+        *(undefined2 *)((int)puVar6 + (-3 - (uint)CARRY1((byte)uVar7,(byte)uVar7))) = 0x7c;
+        puVar6 = local_11c;
+      }
+      do {
+        puVar5 = puVar6;
+        uVar3 = *puVar5 + 0xfefefeff & ~*puVar5;
+        uVar4 = uVar3 & 0x80808080;
+        puVar6 = puVar5 + 1;
+      } while (uVar4 == 0);
+      if ((uVar3 & 0x8080) == 0) {
+        puVar6 = (uint *)((int)puVar5 + 6);
+        uVar4 = uVar4 >> 0x10;
+      }
+      puVar8 = (undefined4 *)((int)puVar6 + (-3 - (uint)CARRY1((byte)uVar4,(byte)uVar4)));
+      bVar2 = false;
+      *puVar8 = 0x44534444;
+      puVar8[1] = 0x4e494c5f;
+      puVar8[2] = 0x53524145;
+      puVar8[3] = &DAT_00455a49;
+    }
+    if (((uint)puVar1 & 0x100000) != 0) {
+      puVar6 = local_11c;
+      if (!bVar2) {
+        do {
+          puVar5 = puVar6;
+          uVar4 = *puVar5 + 0xfefefeff & ~*puVar5;
+          uVar3 = uVar4 & 0x80808080;
+          puVar6 = puVar5 + 1;
+        } while (uVar3 == 0);
+        uVar7 = uVar3 >> 0x10;
+        puVar6 = (uint *)((int)puVar5 + 6);
+        if ((uVar4 & 0x8080) != 0) {
+          puVar6 = puVar5 + 1;
+          uVar7 = uVar3;
+        }
+        *(undefined2 *)((int)puVar6 + (-3 - (uint)CARRY1((byte)uVar7,(byte)uVar7))) = 0x7c;
+        puVar6 = local_11c;
+      }
+      do {
+        puVar5 = puVar6;
+        uVar3 = *puVar5 + 0xfefefeff & ~*puVar5;
+        uVar4 = uVar3 & 0x80808080;
+        puVar6 = puVar5 + 1;
+      } while (uVar4 == 0);
+      if ((uVar3 & 0x8080) == 0) {
+        puVar6 = (uint *)((int)puVar5 + 6);
+        uVar4 = uVar4 >> 0x10;
+      }
+      puVar8 = (undefined4 *)((int)puVar6 + (-3 - (uint)CARRY1((byte)uVar4,(byte)uVar4)));
+      bVar2 = false;
+      *puVar8 = 0x44534444;
+      puVar8[1] = 0x5845545f;
+      puVar8[2] = 0x45525554;
+      puVar8[3] = 0x47415453;
+      *(undefined2 *)(puVar8 + 4) = 0x45;
+    }
+    if (((uint)puVar1 & 0x200000) != 0) {
+      puVar6 = local_11c;
+      if (!bVar2) {
+        do {
+          puVar5 = puVar6;
+          uVar4 = *puVar5 + 0xfefefeff & ~*puVar5;
+          uVar3 = uVar4 & 0x80808080;
+          puVar6 = puVar5 + 1;
+        } while (uVar3 == 0);
+        uVar7 = uVar3 >> 0x10;
+        puVar6 = (uint *)((int)puVar5 + 6);
+        if ((uVar4 & 0x8080) != 0) {
+          puVar6 = puVar5 + 1;
+          uVar7 = uVar3;
+        }
+        *(undefined2 *)((int)puVar6 + (-3 - (uint)CARRY1((byte)uVar7,(byte)uVar7))) = 0x7c;
+        puVar6 = local_11c;
+      }
+      do {
+        puVar5 = puVar6;
+        uVar3 = *puVar5 + 0xfefefeff & ~*puVar5;
+        uVar4 = uVar3 & 0x80808080;
+        puVar6 = puVar5 + 1;
+      } while (uVar4 == 0);
+      if ((uVar3 & 0x8080) == 0) {
+        puVar6 = (uint *)((int)puVar5 + 6);
+        uVar4 = uVar4 >> 0x10;
+      }
+      puVar8 = (undefined4 *)((int)puVar6 + (-3 - (uint)CARRY1((byte)uVar4,(byte)uVar4)));
+      bVar2 = false;
+      *puVar8 = 0x44534444;
+      puVar8[1] = 0x4656465f;
+      *(undefined1 *)(puVar8 + 2) = 0;
+    }
+    if (((uint)puVar1 & 0x400000) == 0) {
+      puVar6 = local_11c;
+      if (bVar2) {
+        do {
+          puVar5 = puVar6;
+          uVar3 = *puVar5 + 0xfefefeff & ~*puVar5;
+          uVar4 = uVar3 & 0x80808080;
+          puVar6 = puVar5 + 1;
+        } while (uVar4 == 0);
+        if ((uVar3 & 0x8080) == 0) {
+          puVar6 = (uint *)((int)puVar5 + 6);
+          uVar4 = uVar4 >> 0x10;
+        }
+        *(undefined2 *)((int)puVar6 + (-3 - (uint)CARRY1((byte)uVar4,(byte)uVar4))) = 0x30;
+      }
+    }
+    else {
+      puVar6 = local_11c;
+      if (!bVar2) {
+        do {
+          puVar5 = puVar6;
+          uVar3 = *puVar5 + 0xfefefeff & ~*puVar5;
+          uVar4 = uVar3 & 0x80808080;
+          puVar6 = puVar5 + 1;
+        } while (uVar4 == 0);
+        if ((uVar3 & 0x8080) == 0) {
+          puVar6 = (uint *)((int)puVar5 + 6);
+          uVar4 = uVar4 >> 0x10;
+        }
+        *(undefined2 *)((int)puVar6 + (-3 - (uint)CARRY1((byte)uVar4,(byte)uVar4))) = 0x7c;
+        puVar6 = local_11c;
+      }
+      do {
+        puVar5 = puVar6;
+        uVar3 = *puVar5 + 0xfefefeff & ~*puVar5;
+        uVar4 = uVar3 & 0x80808080;
+        puVar6 = puVar5 + 1;
+      } while (uVar4 == 0);
+      if ((uVar3 & 0x8080) == 0) {
+        puVar6 = (uint *)((int)puVar5 + 6);
+        uVar4 = uVar4 >> 0x10;
+      }
+      puVar8 = (undefined4 *)((int)puVar6 + (-3 - (uint)CARRY1((byte)uVar4,(byte)uVar4)));
+      *puVar8 = 0x44534444;
+      puVar8[1] = 0x4352535f;
+      puVar8[2] = 0x41484256;
+      puVar8[3] = 0x454c444e;
+      *(undefined1 *)(puVar8 + 4) = 0;
+      puVar6 = local_11c;
+      do {
+        puVar5 = puVar6;
+        uVar3 = *puVar5 + 0xfefefeff & ~*puVar5;
+        uVar4 = uVar3 & 0x80808080;
+        puVar6 = puVar5 + 1;
+      } while (uVar4 == 0);
+      if ((uVar3 & 0x8080) == 0) {
+        puVar6 = (uint *)((int)puVar5 + 6);
+        uVar4 = uVar4 >> 0x10;
+      }
+      *(undefined2 *)((int)puVar6 + (-3 - (uint)CARRY1((byte)uVar4,(byte)uVar4))) = 0x7c;
+      puVar6 = local_11c;
+      do {
+        puVar5 = puVar6;
+        uVar3 = *puVar5 + 0xfefefeff & ~*puVar5;
+        uVar4 = uVar3 & 0x80808080;
+        puVar6 = puVar5 + 1;
+      } while (uVar4 == 0);
+      if ((uVar3 & 0x8080) == 0) {
+        puVar6 = (uint *)((int)puVar5 + 6);
+        uVar4 = uVar4 >> 0x10;
+      }
+      puVar8 = (undefined4 *)((int)puVar6 + (-3 - (uint)CARRY1((byte)uVar4,(byte)uVar4)));
+      *puVar8 = 0x44534444;
+      puVar8[1] = 0x4352535f;
+      puVar8[2] = 0x41484256;
+      puVar8[3] = 0x454c444e;
+      *(undefined1 *)(puVar8 + 4) = 0;
+    }
+    FUN_0402cd10(param_1,"    Flags: %s",local_11c);
+  }
+  uVar4 = param_2[1];
+  if ((uVar4 & 1) != 0) {
+    LogDDCAPS(param_1,param_2 + 0x1a);
+    uVar4 = param_2[1];
+  }
+  if ((uVar4 & 4) != 0) {
+    FUN_0402cd10(param_1,"    Width: %u",param_2[3]);
+    uVar4 = param_2[1];
+  }
+  if ((uVar4 & 2) != 0) {
+    FUN_0402cd10(param_1,"    Height: %u",param_2[2]);
+    uVar4 = param_2[1];
+  }
+  if ((uVar4 & 8) != 0) {
+    FUN_0402cd10(param_1,"    Pitch: %d",param_2[4]);
+    uVar4 = param_2[1];
+  }
+  if ((uVar4 & 0x20) != 0) {
+    FUN_0402cd10(param_1,"    Back buffer count: %d",param_2[5]);
+    uVar4 = param_2[1];
+  }
+  if ((uVar4 & 0x40000) != 0) {
+    FUN_0402cd10(param_1,"    Refresh rate: %u",param_2[6]);
+    uVar4 = param_2[1];
+  }
+  if ((uVar4 & 0x800) != 0) {
+    FUN_0402cd10(param_1,"    Surface memory pointer: %p",param_2[9]);
+    uVar4 = param_2[1];
+  }
+  if ((uVar4 & 0x1000) != 0) {
+    LogPIXELFORMAT(param_1,param_2 + 0x12);
+    uVar4 = param_2[1];
+  }
+  if ((uVar4 & 0x8000) != 0) {
+    FUN_0402cd10(param_1,"    Source color key for overlay - low: %u, high: %u",param_2[0xe],
+                 param_2[0xf]);
+    uVar4 = param_2[1];
+  }
+  if ((uVar4 & 0x10000) != 0) {
+    FUN_0402cd10(param_1,"    Source color key for blit - low: %u, high: %u",param_2[0x10],
+                 param_2[0x11]);
+    uVar4 = param_2[1];
+  }
+  if ((uVar4 & 0x2000) != 0) {
+    FUN_0402cd10(param_1,"    Destination color key for overlay - low: %u, high: %u",param_2[10],
+                 param_2[0xb]);
+    uVar4 = param_2[1];
+  }
+  if ((uVar4 & 0x4000) != 0) {
+    FUN_0402cd10(param_1,"    Destination color key for blit - low: %u, high: %u",param_2[0xc],
+                 param_2[0xd]);
+  }
+  FUN_0402cd10(param_1,"DDSURFACEDESC %p END",param_2);
+  return;
+}
+

@@ -1,0 +1,23 @@
+
+undefined4 *
+eON_SetWindowsHookExW(int param_1,undefined4 param_2,undefined4 param_3,undefined4 param_4)
+
+{
+  undefined4 *puVar1;
+  undefined4 *puVar2;
+  
+  if (param_1 != 2) {
+    FUN_0402cd10(5,
+                 "Application tries to install unhandled hook in SetWindowsHookExW. Write code to handle it. idHook %d %p %u"
+                 ,param_1,param_3,param_4);
+    return (undefined4 *)0xdeadbabe;
+  }
+  puVar2 = malloc(0xc);
+  puVar2[2] = 2;
+  puVar1 = puVar2;
+  *puVar2 = DAT_0451c020;
+  DAT_0451c020 = puVar1;
+  puVar2[1] = param_2;
+  return puVar2;
+}
+

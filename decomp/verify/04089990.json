@@ -1,0 +1,266 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+undefined4 Direct3DDevice9Imp__SetRenderState(int param_1,int param_2,float param_3)
+
+{
+  undefined4 uVar1;
+  int *piVar2;
+  undefined4 *puVar3;
+  
+  if (*(float *)(param_1 + 4 + (param_2 + 0x114) * 4) == param_3) {
+    return 0;
+  }
+  switch(param_2) {
+  case 7:
+  case 8:
+  case 0xe:
+  case 0xf:
+  case 0x13:
+  case 0x14:
+  case 0x17:
+  case 0x18:
+  case 0x1a:
+  case 0x1b:
+  case 0x22:
+  case 0x24:
+  case 0x25:
+  case 0x26:
+  case 0x28:
+  case 0x34:
+  case 0x35:
+  case 0x36:
+  case 0x37:
+  case 0x38:
+  case 0x39:
+  case 0x3a:
+  case 0x3b:
+  case 0x3c:
+  case 0x89:
+  case 0x8b:
+  case 0x9a:
+  case 0x9b:
+  case 0x9c:
+  case 0x9d:
+  case 0x9e:
+  case 0x9f:
+  case 0xa0:
+  case 0xa6:
+  case 0xa8:
+  case 0xab:
+  case 0xae:
+  case 0xaf:
+  case 0xb0:
+  case 0xb9:
+  case 0xba:
+  case 0xbb:
+  case 0xbc:
+  case 0xbd:
+  case 0xbe:
+  case 0xbf:
+  case 0xc0:
+  case 0xc1:
+  case 0xc2:
+  case 0xc3:
+  case 0xce:
+  case 0xcf:
+  case 0xd0:
+  case 0xd1:
+    goto switchD_04089a00_caseD_7;
+  case 9:
+    if ((*(char *)(param_1 + 0xeb4c) != '\0') && (param_3 == 1.4013e-45)) {
+      FUN_0402cd10(10,
+                   "SetRenderState( D3DRS_SHADEMODEL, D3DSHADE_FLAT ) unhandled in OpenGL Core profile!"
+                  );
+    }
+    goto switchD_04089a00_caseD_7;
+  default:
+    FUN_0402cd10(10,
+                 "Unsupported State %u Value %u (search for D3DRENDERSTATETYPE to see states list)."
+                 ,param_2,param_3);
+    break;
+  case 0x10:
+    if (param_3 != 1.4013e-45) {
+      FUN_0402cd10(10,"Unsupported State D3DRS_LASTPIXEL Value: %#x",param_3);
+    }
+    break;
+  case 0x16:
+    if (2 < (int)param_3 - 1U) break;
+    goto switchD_04089a00_caseD_7;
+  case 0x19:
+    switch(param_3) {
+    default:
+      return 0x8876086c;
+    case 1.4013e-45:
+      *(undefined4 *)(param_1 + 0x75b8) = 0x200;
+      break;
+    case 2.8026e-45:
+      *(undefined4 *)(param_1 + 0x75b8) = 0x201;
+      break;
+    case 4.2039e-45:
+      *(undefined4 *)(param_1 + 0x75b8) = 0x202;
+      break;
+    case 5.60519e-45:
+      *(undefined4 *)(param_1 + 0x75b8) = 0x203;
+      break;
+    case 7.00649e-45:
+      *(undefined4 *)(param_1 + 0x75b8) = 0x204;
+      break;
+    case 8.40779e-45:
+      *(undefined4 *)(param_1 + 0x75b8) = 0x205;
+      break;
+    case 9.80909e-45:
+      *(undefined4 *)(param_1 + 0x75b8) = 0x206;
+      break;
+    case 1.12104e-44:
+      *(undefined4 *)(param_1 + 0x75b8) = 0x207;
+    }
+    puVar3 = (undefined4 *)D3D9CommandQueue__GetNextCommandPointer(param_1 + 0xec00,param_1,0x1c,8);
+    uVar1 = *(undefined4 *)(param_1 + 0x75b8);
+    *puVar3 = 0x19;
+    puVar3[1] = uVar1;
+    D3D9CommandQueue__CommandSubmitted(param_1 + 0xec00);
+    break;
+  case 0x1c:
+  case 0x1d:
+  case 0x23:
+  case 0x30:
+  case 0x88:
+  case 0x8c:
+  case 0x8d:
+  case 0x8e:
+  case 0x8f:
+  case 0x91:
+  case 0x92:
+  case 0x93:
+  case 0x94:
+  case 0x97:
+  case 0xa1:
+    break;
+  case 0x80:
+  case 0x81:
+  case 0x82:
+  case 0x83:
+  case 0x84:
+  case 0x85:
+  case 0x86:
+  case 0x87:
+  case 0xc6:
+  case 199:
+  case 200:
+  case 0xc9:
+  case 0xca:
+  case 0xcb:
+  case 0xcc:
+  case 0xcd:
+    if (param_3 != 0.0) {
+      FUN_0402cd10(0xf,"One of D3DRS_WRAP states set to wrapping. Handle it!");
+    }
+    break;
+  case 0x98:
+    if (*(char *)(param_1 + 0xeb4c) == '\0') {
+      if ((param_3 == 0.0) || (*(int *)(param_1 + 0x6b4) != 0)) break;
+    }
+    else {
+      *(uint *)(param_1 + 0x75b4) = (uint)(((uint)param_3 & 1) != 0);
+      if (((uint)param_3 >> 1 & 1) != 0) {
+        *(int *)(param_1 + 0x75b4) = *(int *)(param_1 + 0x75b4) + 1;
+      }
+      if (((uint)param_3 >> 2 & 1) != 0) {
+        *(int *)(param_1 + 0x75b4) = *(int *)(param_1 + 0x75b4) + 1;
+      }
+      if (((uint)param_3 >> 3 & 1) != 0) {
+        *(int *)(param_1 + 0x75b4) = *(int *)(param_1 + 0x75b4) + 1;
+      }
+      if (((uint)param_3 >> 4 & 1) != 0) {
+        *(int *)(param_1 + 0x75b4) = *(int *)(param_1 + 0x75b4) + 1;
+      }
+      if (((uint)param_3 >> 4 & 2) != 0) {
+        *(int *)(param_1 + 0x75b4) = *(int *)(param_1 + 0x75b4) + 1;
+      }
+    }
+    goto switchD_04089a00_caseD_7;
+  case 0xa2:
+    if (param_3 != -NAN) {
+      FUN_0402cd10(0xf,
+                   "Trying to disable some bits in maskable multisample antialiasing!!! Handle it.")
+      ;
+    }
+    break;
+  case 0xa3:
+    if (param_3 != 0.0) {
+      FUN_0402cd10(10,"Unsupported State D3DRS_PATCHEDGESTYLE Value: %#x",param_3);
+    }
+    break;
+  case 0xa5:
+    if (param_3 != -0.0013259349) {
+      FUN_0402cd10(10,"Unsupported State D3DRS_DEBUGMONITORTOKEN Value: %#x",param_3);
+    }
+    break;
+  case 0xa7:
+    if (param_3 != 0.0) {
+      FUN_0402cd10(10,"Unsupported State D3DRS_INDEXEDVERTEXBLENDENABLE Value: %#x",param_3);
+    }
+    break;
+  case 0xaa:
+    if (param_3 != _DAT_042dbf44) {
+      FUN_0402cd10(10,"Unsupported State D3DRS_TWEENFACTOR Value: %f",(double)param_3);
+    }
+    break;
+  case 0xac:
+    if (param_3 != 4.2039e-45) {
+      FUN_0402cd10(10,"Unsupported State D3DRS_POSITIONDEGREE Value: %#x",param_3);
+    }
+    break;
+  case 0xad:
+    if (param_3 != 1.4013e-45) {
+      FUN_0402cd10(10,"Unsupported State D3DRS_NORMALDEGREE Value: %#x",param_3);
+    }
+    break;
+  case 0xb2:
+    if (param_3 != _DAT_042dbf44) {
+      FUN_0402cd10(10,"Unsupported State D3DRS_MINTESSELLATIONLEVEL Value: %f",(double)param_3);
+    }
+    break;
+  case 0xb3:
+    if (param_3 != DAT_042dbf3c) {
+      FUN_0402cd10(10,"Unsupported State D3DRS_MAXTESSELLATIONLEVEL Value: %f",(double)param_3);
+    }
+    break;
+  case 0xb4:
+    if ((param_3 != _DAT_042dbf44) && ((param_3 != 49.084282 || (DAT_0451c9ca == '\0')))) {
+      FUN_0402cd10(10,"Unsupported State D3DRS_ADAPTIVETESS_X Value: %f",(double)param_3);
+      break;
+    }
+    goto switchD_04089a00_caseD_7;
+  case 0xb5:
+    if (param_3 != _DAT_042dbf44) {
+      FUN_0402cd10(10,"Unsupported State D3DRS_ADAPTIVETESS_Y Value: %f",(double)param_3);
+    }
+    break;
+  case 0xb6:
+    if ((param_3 != DAT_042dbf3c) && (DAT_0451c9ca == '\0')) {
+      FUN_0402cd10(10,"Unsupported State D3DRS_ADAPTIVETESS_Z Value: %f",(double)param_3);
+      break;
+    }
+    goto switchD_04089a00_caseD_7;
+  case 0xb7:
+    if ((param_3 != _DAT_042dbf44) && (DAT_0451c9ca == '\0')) {
+      FUN_0402cd10(10,"Unsupported State D3DRS_ADAPTIVETESS_W Value: %f",(double)param_3);
+      break;
+    }
+switchD_04089a00_caseD_7:
+    piVar2 = (int *)D3D9CommandQueue__GetNextCommandPointer(param_1 + 0xec00,param_1,0x1c,8);
+    *piVar2 = param_2;
+    piVar2[1] = (int)param_3;
+    D3D9CommandQueue__CommandSubmitted(param_1 + 0xec00);
+    break;
+  case 0xb8:
+    if (param_3 != 0.0) {
+      FUN_0402cd10(10,"Unsupported State D3DRS_ENABLEADAPTIVETESSELLATION Value: %#x",param_3);
+    }
+  }
+  *(float *)(param_1 + 4 + (param_2 + 0x114) * 4) = param_3;
+  return 0;
+}
+

@@ -1,0 +1,23 @@
+
+/* source: openGlContextCache */
+
+void OpenGLContextCache__EnableClipDistance(int param_1,int param_2,char param_3)
+
+{
+  if (*(char *)(param_1 + 0x218) == '\0') {
+    FUN_0400a810("mUsingOpenGLCore",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlContextCache.cpp"
+                 ,0x277,"void OpenGLContextCache::EnableClipDistance(int32_t, bool)");
+  }
+  if (*(char *)(param_1 + 0x428 + param_2) != param_3) {
+    if (param_3 == '\0') {
+      glDisable();
+    }
+    else {
+      glEnable(param_2 + 0x3000);
+    }
+    *(char *)(param_1 + 0x428 + param_2) = param_3;
+  }
+  return;
+}
+

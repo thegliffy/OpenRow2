@@ -1,0 +1,48 @@
+
+/* source: tinyxml */
+
+void TiXmlElement__RemoveAttribute(int param_1,char *param_2)
+
+{
+  int *piVar1;
+  int *piVar2;
+  int iVar3;
+  int *piVar4;
+  int iVar5;
+  
+  piVar1 = *(int **)(param_1 + 0x4c);
+  piVar2 = piVar1;
+  while( true ) {
+    if (piVar2 == (int *)(param_1 + 0x2c)) {
+      return;
+    }
+    iVar5 = strcmp((char *)(piVar2[5] + 8),param_2);
+    piVar4 = piVar1;
+    if (iVar5 == 0) break;
+    piVar2 = (int *)piVar2[8];
+  }
+  do {
+    if (piVar1 == (int *)(param_1 + 0x2c)) {
+      FUN_0400a810("0",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxml.cpp"
+                   ,0x608,"void TiXmlAttributeSet::Remove(TiXmlAttribute*)");
+LAB_041c353f:
+                    /* WARNING: Could not recover jumptable at 0x041c354e. Too many branches */
+                    /* WARNING: Treating indirect jump as call */
+      (**(code **)(*piVar2 + 4))();
+      return;
+    }
+    if (piVar1 == piVar2) {
+      iVar5 = piVar4[7];
+      *(int *)(iVar5 + 0x20) = piVar4[8];
+      iVar3 = piVar4[8];
+      piVar4[8] = 0;
+      *(int *)(iVar3 + 0x1c) = iVar5;
+      piVar4[7] = 0;
+      goto LAB_041c353f;
+    }
+    piVar1 = (int *)piVar1[8];
+    piVar4 = piVar2;
+  } while( true );
+}
+

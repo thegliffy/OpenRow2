@@ -1,0 +1,83 @@
+
+/* source: direct3dsurface9imp */
+
+undefined4 direct3dsurface9imp_040af8e0(int *param_1,undefined4 param_2,int *param_3)
+
+{
+  int *piVar1;
+  int iVar2;
+  undefined4 *__ptr;
+  undefined4 uVar3;
+  code *pcVar4;
+  int **ppiVar5;
+  uint uVar6;
+  uint uVar7;
+  int *local_4c;
+  char *local_48;
+  undefined4 local_44;
+  char *local_40;
+  int *local_3c;
+  undefined4 local_24;
+  uint local_20;
+  
+  ppiVar5 = &local_4c;
+  local_20 = (uint)*(byte *)(param_3 + 1);
+  local_24 = *(undefined4 *)(*param_3 + 4);
+  if (param_1[0x1b] == 0x4c4c554e) {
+    local_40 = "void Direct3DSurface9Imp::SystemDataUpdated(LPBYTE, bool, const RECT*)";
+    local_44 = 0x5c7;
+    local_48 = 
+    "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3dsurface9imp.cpp";
+    local_4c = (int *)0x42f8592;
+    FUN_0400a810();
+  }
+  if (param_1[0x23] == 1) {
+    local_40 = "void Direct3DSurface9Imp::SystemDataUpdated(LPBYTE, bool, const RECT*)";
+    local_44 = 0x5c8;
+    local_48 = 
+    "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3dsurface9imp.cpp";
+    local_4c = (int *)0x42f84ec;
+    FUN_0400a810();
+  }
+  local_48 = (char *)0x0;
+  local_4c = param_1;
+  local_40 = (char *)local_20;
+  local_44 = local_24;
+  local_3c = param_3 + 2;
+  Direct3DSurface9Imp__UploadOpenGLObjectData();
+  if ((param_1[0x24] != 0) && (1 < *(uint *)(param_1[0x24] + 0x284))) {
+    uVar6 = 1;
+    do {
+      uVar7 = uVar6 + 1;
+      local_4c = param_1;
+      local_40 = (char *)local_20;
+      local_44 = local_24;
+      local_48 = (char *)uVar6;
+      local_3c = param_3 + 2;
+      Direct3DSurface9Imp__UploadOpenGLObjectData();
+      uVar6 = uVar7;
+    } while (uVar7 < *(uint *)(param_1[0x24] + 0x284));
+  }
+  __ptr = (undefined4 *)*param_3;
+  LOCK();
+  piVar1 = __ptr + 2;
+  iVar2 = *piVar1;
+  *piVar1 = *piVar1 + -1;
+  UNLOCK();
+  if (iVar2 == 1) {
+    uVar3 = *__ptr;
+    local_4c = (int *)eON_GetProcessHeap();
+    local_48 = (char *)0x0;
+    local_44 = uVar3;
+    eON_HeapFree();
+    ppiVar5 = (int **)&stack0xffffffa8;
+    free(__ptr);
+  }
+  iVar2 = *param_1;
+  *ppiVar5 = param_1;
+  pcVar4 = *(code **)(iVar2 + 0x10);
+  ppiVar5[-1] = (int *)0x40af9d1;
+  (*pcVar4)();
+  return 0x18;
+}
+

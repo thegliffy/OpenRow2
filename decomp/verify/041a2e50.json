@@ -1,0 +1,1970 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+undefined4 glxewInit(void)
+
+{
+  char *pcVar1;
+  int iVar2;
+  char cVar3;
+  undefined4 uVar4;
+  int iVar5;
+  int iVar6;
+  char *pcVar7;
+  bool bVar8;
+  bool bVar9;
+  bool bVar10;
+  bool bVar11;
+  bool bVar12;
+  bool bVar13;
+  bool bVar14;
+  bool bVar15;
+  bool bVar16;
+  bool bVar17;
+  bool bVar18;
+  bool bVar19;
+  bool bVar20;
+  bool bVar21;
+  bool bVar22;
+  int local_24;
+  int local_20 [4];
+  
+  DAT_0451c8b4 = (code *)glXGetProcAddressARB("glXGetCurrentDisplay");
+  if (DAT_0451c8b4 == (code *)0x0) {
+    return 3;
+  }
+  DAT_0451c6ea = 1;
+  DAT_0451c6e9 = 1;
+  DAT_0451c6e8 = 1;
+  DAT_0451c6e7 = '\x01';
+  DAT_0451c6e6 = 1;
+  uVar4 = (*DAT_0451c8b4)();
+  glXQueryVersion(uVar4,&local_24,local_20);
+  if ((local_24 == 1) && (local_20[0] < 4)) {
+    if (local_20[0] == 2) {
+      DAT_0451c6e6 = 0;
+      DAT_0451c6e7 = '\0';
+    }
+    else {
+      if (local_20[0] != 3) {
+        return 3;
+      }
+      DAT_0451c6e6 = 0;
+    }
+  }
+  pcVar7 = "";
+  if (DAT_0451c8b4 != (code *)0x0) {
+    uVar4 = (*DAT_0451c8b4)();
+    pcVar7 = (char *)glXGetClientString(uVar4,3);
+    if (pcVar7 == (char *)0x0) {
+      pcVar7 = "";
+    }
+  }
+  cVar3 = *pcVar7;
+  while (cVar3 != '\0') {
+    pcVar7 = pcVar7 + 1;
+    cVar3 = *pcVar7;
+  }
+  if ((DAT_0451c6a4 != '\0') || (DAT_0451c6e7 != '\0')) {
+    iVar5 = glXGetProcAddressARB("glXChooseFBConfig");
+    _DAT_0451c8b0 = iVar5;
+    _DAT_0451c8ac = glXGetProcAddressARB("glXCreateNewContext");
+    bVar8 = _DAT_0451c8ac != 0;
+    _DAT_0451c8a8 = glXGetProcAddressARB("glXCreatePbuffer");
+    bVar9 = _DAT_0451c8a8 != 0;
+    _DAT_0451c8a4 = glXGetProcAddressARB("glXCreatePixmap");
+    bVar10 = _DAT_0451c8a4 != 0;
+    _DAT_0451c8a0 = glXGetProcAddressARB("glXCreateWindow");
+    bVar11 = _DAT_0451c8a0 != 0;
+    _DAT_0451c89c = glXGetProcAddressARB("glXDestroyPbuffer");
+    bVar12 = _DAT_0451c89c != 0;
+    _DAT_0451c898 = glXGetProcAddressARB("glXDestroyPixmap");
+    bVar13 = _DAT_0451c898 != 0;
+    _DAT_0451c894 = glXGetProcAddressARB("glXDestroyWindow");
+    bVar14 = _DAT_0451c894 != 0;
+    _DAT_0451c890 = glXGetProcAddressARB("glXGetCurrentReadDrawable");
+    bVar15 = _DAT_0451c890 != 0;
+    _DAT_0451c88c = glXGetProcAddressARB("glXGetFBConfigAttrib");
+    bVar16 = _DAT_0451c88c != 0;
+    _DAT_0451c888 = glXGetProcAddressARB("glXGetFBConfigs");
+    bVar17 = _DAT_0451c888 != 0;
+    _DAT_0451c884 = glXGetProcAddressARB("glXGetSelectedEvent");
+    bVar18 = _DAT_0451c884 != 0;
+    _DAT_0451c880 = glXGetProcAddressARB("glXGetVisualFromFBConfig");
+    bVar19 = _DAT_0451c880 != 0;
+    _DAT_0451c87c = glXGetProcAddressARB("glXMakeContextCurrent");
+    bVar20 = _DAT_0451c87c != 0;
+    _DAT_0451c878 = glXGetProcAddressARB("glXQueryContext");
+    bVar21 = _DAT_0451c878 != 0;
+    _DAT_0451c874 = glXGetProcAddressARB("glXQueryDrawable");
+    bVar22 = _DAT_0451c874 != 0;
+    _DAT_0451c870 = glXGetProcAddressARB("glXSelectEvent");
+    DAT_0451c6e7 = _DAT_0451c870 != 0 &&
+                   (bVar22 &&
+                   (bVar21 &&
+                   (bVar20 &&
+                   (bVar19 &&
+                   (bVar18 &&
+                   (bVar17 &&
+                   (bVar16 &&
+                   (bVar15 &&
+                   (bVar14 &&
+                   (bVar13 && (bVar12 && (bVar11 && (bVar10 && (bVar9 && (bVar8 && iVar5 != 0)))))))
+                   ))))))));
+  }
+  if (DAT_0451eedc == 0) {
+    DAT_0451c6e5 = FUN_041a2ad0();
+LAB_041a31d3:
+    cVar3 = FUN_041a2ad0();
+  }
+  else {
+    if (DAT_0451eee0 < 1) {
+      DAT_0451c6e5 = 0;
+    }
+    else {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_3DFX_multisample"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_3DFX_multisample"[iVar2] == '\0') {
+              DAT_0451c6e5 = 1;
+              goto LAB_041a511a;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      DAT_0451c6e5 = 0;
+LAB_041a511a:
+      if (DAT_0451eedc == 0) goto LAB_041a31d3;
+    }
+    cVar3 = '\0';
+    if (0 < DAT_0451eee0) {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_AMD_gpu_association"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_AMD_gpu_association"[iVar2] == '\0') {
+              cVar3 = '\x01';
+              goto LAB_041a31e1;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      cVar3 = '\0';
+    }
+  }
+LAB_041a31e1:
+  DAT_0451c6e4 = cVar3;
+  if ((DAT_0451c6a4 != '\0') || (cVar3 != '\0')) {
+    iVar5 = glXGetProcAddressARB("glXBlitContextFramebufferAMD");
+    _DAT_0451c86c = iVar5;
+    _DAT_0451c868 = glXGetProcAddressARB("glXCreateAssociatedContextAMD");
+    bVar8 = _DAT_0451c868 != 0;
+    _DAT_0451c864 = glXGetProcAddressARB("glXCreateAssociatedContextAttribsAMD");
+    bVar9 = _DAT_0451c864 != 0;
+    _DAT_0451c860 = glXGetProcAddressARB("glXDeleteAssociatedContextAMD");
+    bVar10 = _DAT_0451c860 != 0;
+    _DAT_0451c85c = glXGetProcAddressARB(&DAT_04359a41);
+    bVar11 = _DAT_0451c85c != 0;
+    _DAT_0451c858 = glXGetProcAddressARB("glXGetCurrentAssociatedContextAMD");
+    bVar12 = _DAT_0451c858 != 0;
+    _DAT_0451c854 = glXGetProcAddressARB("glXGetGPUIDsAMD");
+    bVar13 = _DAT_0451c854 != 0;
+    _DAT_0451c850 = glXGetProcAddressARB("glXGetGPUInfoAMD");
+    bVar14 = _DAT_0451c850 != 0;
+    _DAT_0451c84c = glXGetProcAddressARB("glXMakeAssociatedContextCurrentAMD");
+    DAT_0451c6e4 = _DAT_0451c84c != 0 &&
+                   (bVar14 &&
+                   (bVar13 && (bVar12 && (bVar11 && (bVar10 && (bVar9 && (bVar8 && iVar5 != 0)))))))
+    ;
+  }
+  if (DAT_0451eedc == 0) {
+    DAT_0451c6e3 = FUN_041a2ad0();
+LAB_041a3373:
+    cVar3 = FUN_041a2ad0();
+  }
+  else {
+    if (DAT_0451eee0 < 1) {
+      DAT_0451c6e3 = 0;
+    }
+    else {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_ARB_context_flush_control"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_ARB_context_flush_control"[iVar2] == '\0') {
+              DAT_0451c6e3 = 1;
+              goto LAB_041a520a;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      DAT_0451c6e3 = 0;
+LAB_041a520a:
+      if (DAT_0451eedc == 0) goto LAB_041a3373;
+    }
+    cVar3 = '\0';
+    if (0 < DAT_0451eee0) {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_ARB_create_context"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_ARB_create_context"[iVar2] == '\0') {
+              cVar3 = '\x01';
+              goto LAB_041a3381;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      cVar3 = '\0';
+    }
+  }
+LAB_041a3381:
+  DAT_0451c6e2 = cVar3;
+  if ((DAT_0451c6a4 != '\0') || (cVar3 != '\0')) {
+    _DAT_0451c848 = glXGetProcAddressARB("glXCreateContextAttribsARB");
+    DAT_0451c6e2 = _DAT_0451c848 != 0;
+  }
+  if (DAT_0451eedc == 0) {
+    DAT_0451c6e1 = FUN_041a2ad0();
+LAB_041a3433:
+    DAT_0451c6e0 = FUN_041a2ad0();
+LAB_041a3446:
+    DAT_0451c6df = FUN_041a2ad0();
+LAB_041a3459:
+    DAT_0451c6de = FUN_041a2ad0();
+LAB_041a346c:
+    DAT_0451c6dd = FUN_041a2ad0();
+LAB_041a347f:
+    DAT_0451c6dc = FUN_041a2ad0();
+LAB_041a3492:
+    DAT_0451c6db = FUN_041a2ad0();
+LAB_041a34a5:
+    DAT_0451c6da = FUN_041a2ad0();
+LAB_041a34b8:
+    DAT_0451c6d9 = FUN_041a2ad0();
+LAB_041a34cb:
+    DAT_0451c6d8 = FUN_041a2ad0();
+LAB_041a34de:
+    cVar3 = FUN_041a2ad0();
+  }
+  else {
+    if (DAT_0451eee0 < 1) {
+      DAT_0451c6e1 = 0;
+    }
+    else {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_ARB_create_context_profile"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_ARB_create_context_profile"[iVar2] == '\0') {
+              DAT_0451c6e1 = 1;
+              goto LAB_041a530a;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      DAT_0451c6e1 = 0;
+LAB_041a530a:
+      if (DAT_0451eedc == 0) goto LAB_041a3433;
+    }
+    if (DAT_0451eee0 < 1) {
+      DAT_0451c6e0 = 0;
+    }
+    else {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_ARB_create_context_robustness"[iVar2] == pcVar7[iVar6 + 1])
+          {
+            iVar6 = iVar6 + 1;
+            if ("GLX_ARB_create_context_robustness"[iVar2] == '\0') {
+              DAT_0451c6e0 = 1;
+              goto LAB_041a537a;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      DAT_0451c6e0 = 0;
+LAB_041a537a:
+      if (DAT_0451eedc == 0) goto LAB_041a3446;
+    }
+    if (DAT_0451eee0 < 1) {
+      DAT_0451c6df = 0;
+    }
+    else {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_ARB_fbconfig_float"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_ARB_fbconfig_float"[iVar2] == '\0') {
+              DAT_0451c6df = 1;
+              goto LAB_041a53ea;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      DAT_0451c6df = 0;
+LAB_041a53ea:
+      if (DAT_0451eedc == 0) goto LAB_041a3459;
+    }
+    if (DAT_0451eee0 < 1) {
+      DAT_0451c6de = 0;
+    }
+    else {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_ARB_framebuffer_sRGB"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_ARB_framebuffer_sRGB"[iVar2] == '\0') {
+              DAT_0451c6de = 1;
+              goto LAB_041a545a;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      DAT_0451c6de = 0;
+LAB_041a545a:
+      if (DAT_0451eedc == 0) goto LAB_041a346c;
+    }
+    if (DAT_0451eee0 < 1) {
+      DAT_0451c6dd = 0;
+    }
+    else {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_ARB_get_proc_address"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_ARB_get_proc_address"[iVar2] == '\0') {
+              DAT_0451c6dd = 1;
+              goto LAB_041a54ca;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      DAT_0451c6dd = 0;
+LAB_041a54ca:
+      if (DAT_0451eedc == 0) goto LAB_041a347f;
+    }
+    if (DAT_0451eee0 < 1) {
+      DAT_0451c6dc = 0;
+    }
+    else {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_ARB_multisample"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_ARB_multisample"[iVar2] == '\0') {
+              DAT_0451c6dc = 1;
+              goto LAB_041a553a;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      DAT_0451c6dc = 0;
+LAB_041a553a:
+      if (DAT_0451eedc == 0) goto LAB_041a3492;
+    }
+    if (DAT_0451eee0 < 1) {
+      DAT_0451c6db = 0;
+    }
+    else {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1,
+                "GLX_ARB_robustness_application_isolation"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_ARB_robustness_application_isolation"[iVar2] == '\0') {
+              DAT_0451c6db = 1;
+              goto LAB_041a55aa;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      DAT_0451c6db = 0;
+LAB_041a55aa:
+      if (DAT_0451eedc == 0) goto LAB_041a34a5;
+    }
+    if (DAT_0451eee0 < 1) {
+      DAT_0451c6da = 0;
+    }
+    else {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1,
+                "GLX_ARB_robustness_share_group_isolation"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_ARB_robustness_share_group_isolation"[iVar2] == '\0') {
+              DAT_0451c6da = 1;
+              goto LAB_041a561a;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      DAT_0451c6da = 0;
+LAB_041a561a:
+      if (DAT_0451eedc == 0) goto LAB_041a34b8;
+    }
+    if (DAT_0451eee0 < 1) {
+      DAT_0451c6d9 = 0;
+    }
+    else {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_ARB_vertex_buffer_object"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_ARB_vertex_buffer_object"[iVar2] == '\0') {
+              DAT_0451c6d9 = 1;
+              goto LAB_041a568a;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      DAT_0451c6d9 = 0;
+LAB_041a568a:
+      if (DAT_0451eedc == 0) goto LAB_041a34cb;
+    }
+    if (DAT_0451eee0 < 1) {
+      DAT_0451c6d8 = 0;
+    }
+    else {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_ATI_pixel_format_float"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_ATI_pixel_format_float"[iVar2] == '\0') {
+              DAT_0451c6d8 = 1;
+              goto LAB_041a56fa;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      DAT_0451c6d8 = 0;
+LAB_041a56fa:
+      if (DAT_0451eedc == 0) goto LAB_041a34de;
+    }
+    cVar3 = '\0';
+    if (0 < DAT_0451eee0) {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_ATI_render_texture"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_ATI_render_texture"[iVar2] == '\0') {
+              cVar3 = '\x01';
+              goto LAB_041a34ec;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      cVar3 = '\0';
+    }
+  }
+LAB_041a34ec:
+  DAT_0451c6d7 = cVar3;
+  if ((DAT_0451c6a4 != '\0') || (cVar3 != '\0')) {
+    iVar5 = glXGetProcAddressARB("glXBindTexImageATI");
+    _DAT_0451c844 = iVar5;
+    _DAT_0451c840 = glXGetProcAddressARB("glXDrawableAttribATI");
+    bVar8 = _DAT_0451c840 != 0;
+    _DAT_0451c83c = glXGetProcAddressARB("glXReleaseTexImageATI");
+    DAT_0451c6d7 = _DAT_0451c83c != 0 && (bVar8 && iVar5 != 0);
+  }
+  if (DAT_0451eedc == 0) {
+    DAT_0451c6d6 = FUN_041a2ad0();
+LAB_041a35d3:
+    DAT_0451c6d5 = FUN_041a2ad0();
+LAB_041a35e6:
+    DAT_0451c6d4 = FUN_041a2ad0();
+LAB_041a35f9:
+    DAT_0451c6d3 = FUN_041a2ad0();
+LAB_041a360c:
+    DAT_0451c6d2 = FUN_041a2ad0();
+LAB_041a361f:
+    cVar3 = FUN_041a2ad0();
+  }
+  else {
+    if (DAT_0451eee0 < 1) {
+      DAT_0451c6d6 = 0;
+    }
+    else {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_EXT_buffer_age"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_EXT_buffer_age"[iVar2] == '\0') {
+              DAT_0451c6d6 = 1;
+              goto LAB_041a5192;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      DAT_0451c6d6 = 0;
+LAB_041a5192:
+      if (DAT_0451eedc == 0) goto LAB_041a35d3;
+    }
+    if (DAT_0451eee0 < 1) {
+      DAT_0451c6d5 = 0;
+    }
+    else {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_EXT_create_context_es2_profile"[iVar2] == pcVar7[iVar6 + 1]
+                ) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_EXT_create_context_es2_profile"[iVar2] == '\0') {
+              DAT_0451c6d5 = 1;
+              goto LAB_041a587a;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      DAT_0451c6d5 = 0;
+LAB_041a587a:
+      if (DAT_0451eedc == 0) goto LAB_041a35e6;
+    }
+    if (DAT_0451eee0 < 1) {
+      DAT_0451c6d4 = 0;
+    }
+    else {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_EXT_create_context_es_profile"[iVar2] == pcVar7[iVar6 + 1])
+          {
+            iVar6 = iVar6 + 1;
+            if ("GLX_EXT_create_context_es_profile"[iVar2] == '\0') {
+              DAT_0451c6d4 = 1;
+              goto LAB_041a597a;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      DAT_0451c6d4 = 0;
+LAB_041a597a:
+      if (DAT_0451eedc == 0) goto LAB_041a35f9;
+    }
+    if (DAT_0451eee0 < 1) {
+      DAT_0451c6d3 = 0;
+    }
+    else {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_EXT_fbconfig_packed_float"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_EXT_fbconfig_packed_float"[iVar2] == '\0') {
+              DAT_0451c6d3 = 1;
+              goto LAB_041a5afa;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      DAT_0451c6d3 = 0;
+LAB_041a5afa:
+      if (DAT_0451eedc == 0) goto LAB_041a360c;
+    }
+    if (DAT_0451eee0 < 1) {
+      DAT_0451c6d2 = 0;
+    }
+    else {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_EXT_framebuffer_sRGB"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_EXT_framebuffer_sRGB"[iVar2] == '\0') {
+              DAT_0451c6d2 = 1;
+              goto LAB_041a5b6a;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      DAT_0451c6d2 = 0;
+LAB_041a5b6a:
+      if (DAT_0451eedc == 0) goto LAB_041a361f;
+    }
+    cVar3 = '\0';
+    if (0 < DAT_0451eee0) {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_EXT_import_context"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_EXT_import_context"[iVar2] == '\0') {
+              cVar3 = '\x01';
+              goto LAB_041a362d;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      cVar3 = '\0';
+    }
+  }
+LAB_041a362d:
+  DAT_0451c6d1 = cVar3;
+  if ((DAT_0451c6a4 != '\0') || (cVar3 != '\0')) {
+    iVar5 = glXGetProcAddressARB("glXFreeContextEXT");
+    _DAT_0451c838 = iVar5;
+    _DAT_0451c834 = glXGetProcAddressARB("glXGetContextIDEXT");
+    bVar8 = _DAT_0451c834 != 0;
+    _DAT_0451c830 = glXGetProcAddressARB("glXImportContextEXT");
+    bVar9 = _DAT_0451c830 != 0;
+    _DAT_0451c82c = glXGetProcAddressARB("glXQueryContextInfoEXT");
+    DAT_0451c6d1 = _DAT_0451c82c != 0 && (bVar9 && (bVar8 && iVar5 != 0));
+  }
+  if (DAT_0451eedc == 0) {
+    DAT_0451c6d0 = FUN_041a2ad0();
+LAB_041a3733:
+    DAT_0451c6cf = FUN_041a2ad0();
+LAB_041a3746:
+    cVar3 = FUN_041a2ad0();
+  }
+  else {
+    if (DAT_0451eee0 < 1) {
+      DAT_0451c6d0 = 0;
+    }
+    else {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_EXT_scene_marker"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_EXT_scene_marker"[iVar2] == '\0') {
+              DAT_0451c6d0 = 1;
+              goto LAB_041a578a;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      DAT_0451c6d0 = 0;
+LAB_041a578a:
+      if (DAT_0451eedc == 0) goto LAB_041a3733;
+    }
+    if (DAT_0451eee0 < 1) {
+      DAT_0451c6cf = 0;
+    }
+    else {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_EXT_stereo_tree"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_EXT_stereo_tree"[iVar2] == '\0') {
+              DAT_0451c6cf = 1;
+              goto LAB_041a57fa;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      DAT_0451c6cf = 0;
+LAB_041a57fa:
+      if (DAT_0451eedc == 0) goto LAB_041a3746;
+    }
+    cVar3 = '\0';
+    if (0 < DAT_0451eee0) {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_EXT_swap_control"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_EXT_swap_control"[iVar2] == '\0') {
+              cVar3 = '\x01';
+              goto LAB_041a3754;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      cVar3 = '\0';
+    }
+  }
+LAB_041a3754:
+  DAT_0451c6ce = cVar3;
+  if ((DAT_0451c6a4 != '\0') || (cVar3 != '\0')) {
+    _DAT_0451c828 = glXGetProcAddressARB("glXSwapIntervalEXT");
+    DAT_0451c6ce = _DAT_0451c828 != 0;
+  }
+  if (DAT_0451eedc == 0) {
+    DAT_0451c6cd = FUN_041a2ad0();
+LAB_041a3803:
+    cVar3 = FUN_041a2ad0();
+  }
+  else {
+    if (DAT_0451eee0 < 1) {
+      DAT_0451c6cd = 0;
+    }
+    else {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_EXT_swap_control_tear"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_EXT_swap_control_tear"[iVar2] == '\0') {
+              DAT_0451c6cd = 1;
+              goto LAB_041a5282;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      DAT_0451c6cd = 0;
+LAB_041a5282:
+      if (DAT_0451eedc == 0) goto LAB_041a3803;
+    }
+    cVar3 = '\0';
+    if (0 < DAT_0451eee0) {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_EXT_texture_from_pixmap"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_EXT_texture_from_pixmap"[iVar2] == '\0') {
+              cVar3 = '\x01';
+              goto LAB_041a3811;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      cVar3 = '\0';
+    }
+  }
+LAB_041a3811:
+  DAT_0451c6cc = cVar3;
+  if ((DAT_0451c6a4 != '\0') || (cVar3 != '\0')) {
+    iVar5 = glXGetProcAddressARB("glXBindTexImageEXT");
+    _DAT_0451c824 = iVar5;
+    _DAT_0451c820 = glXGetProcAddressARB("glXReleaseTexImageEXT");
+    DAT_0451c6cc = _DAT_0451c820 != 0 && iVar5 != 0;
+  }
+  if (DAT_0451eedc == 0) {
+    DAT_0451c6cb = FUN_041a2ad0();
+LAB_041a38d3:
+    DAT_0451c6ca = FUN_041a2ad0();
+LAB_041a38e6:
+    DAT_0451c6c9 = FUN_041a2ad0();
+LAB_041a38f9:
+    cVar3 = FUN_041a2ad0();
+  }
+  else {
+    if (DAT_0451eee0 < 1) {
+      DAT_0451c6cb = 0;
+    }
+    else {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_EXT_visual_info"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_EXT_visual_info"[iVar2] == '\0') {
+              DAT_0451c6cb = 1;
+              goto LAB_041a58fa;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      DAT_0451c6cb = 0;
+LAB_041a58fa:
+      if (DAT_0451eedc == 0) goto LAB_041a38d3;
+    }
+    if (DAT_0451eee0 < 1) {
+      DAT_0451c6ca = 0;
+    }
+    else {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_EXT_visual_rating"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_EXT_visual_rating"[iVar2] == '\0') {
+              DAT_0451c6ca = 1;
+              goto LAB_041a5a0a;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      DAT_0451c6ca = 0;
+LAB_041a5a0a:
+      if (DAT_0451eedc == 0) goto LAB_041a38e6;
+    }
+    if (DAT_0451eee0 < 1) {
+      DAT_0451c6c9 = 0;
+    }
+    else {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_INTEL_swap_event"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_INTEL_swap_event"[iVar2] == '\0') {
+              DAT_0451c6c9 = 1;
+              goto LAB_041a5a7a;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      DAT_0451c6c9 = 0;
+LAB_041a5a7a:
+      if (DAT_0451eedc == 0) goto LAB_041a38f9;
+    }
+    cVar3 = '\0';
+    if (0 < DAT_0451eee0) {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_MESA_agp_offset"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_MESA_agp_offset"[iVar2] == '\0') {
+              cVar3 = '\x01';
+              goto LAB_041a3907;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      cVar3 = '\0';
+    }
+  }
+LAB_041a3907:
+  DAT_0451c6c8 = cVar3;
+  if ((DAT_0451c6a4 != '\0') || (cVar3 != '\0')) {
+    _DAT_0451c81c = glXGetProcAddressARB("glXGetAGPOffsetMESA");
+    DAT_0451c6c8 = _DAT_0451c81c != 0;
+  }
+  if (DAT_0451eedc == 0) {
+    cVar3 = FUN_041a2ad0();
+  }
+  else {
+    cVar3 = '\0';
+    if (0 < DAT_0451eee0) {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_MESA_copy_sub_buffer"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_MESA_copy_sub_buffer"[iVar2] == '\0') {
+              cVar3 = '\x01';
+              goto LAB_041a3998;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      cVar3 = '\0';
+    }
+  }
+LAB_041a3998:
+  DAT_0451c6c7 = cVar3;
+  if ((DAT_0451c6a4 != '\0') || (cVar3 != '\0')) {
+    _DAT_0451c818 = glXGetProcAddressARB("glXCopySubBufferMESA");
+    DAT_0451c6c7 = _DAT_0451c818 != 0;
+  }
+  if (DAT_0451eedc == 0) {
+    cVar3 = FUN_041a2ad0();
+  }
+  else {
+    cVar3 = '\0';
+    if (0 < DAT_0451eee0) {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_MESA_pixmap_colormap"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_MESA_pixmap_colormap"[iVar2] == '\0') {
+              cVar3 = '\x01';
+              goto LAB_041a3a28;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      cVar3 = '\0';
+    }
+  }
+LAB_041a3a28:
+  DAT_0451c6c6 = cVar3;
+  if ((DAT_0451c6a4 != '\0') || (cVar3 != '\0')) {
+    _DAT_0451c814 = glXGetProcAddressARB("glXCreateGLXPixmapMESA");
+    DAT_0451c6c6 = _DAT_0451c814 != 0;
+  }
+  if (DAT_0451eedc == 0) {
+    cVar3 = FUN_041a2ad0();
+  }
+  else {
+    cVar3 = '\0';
+    if (0 < DAT_0451eee0) {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_MESA_query_renderer"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_MESA_query_renderer"[iVar2] == '\0') {
+              cVar3 = '\x01';
+              goto LAB_041a3ab8;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      cVar3 = '\0';
+    }
+  }
+LAB_041a3ab8:
+  DAT_0451c6c5 = cVar3;
+  if ((DAT_0451c6a4 != '\0') || (cVar3 != '\0')) {
+    iVar5 = glXGetProcAddressARB("glXQueryCurrentRendererIntegerMESA");
+    DAT_0451c810 = iVar5;
+    _DAT_0451c80c = glXGetProcAddressARB("glXQueryCurrentRendererStringMESA");
+    bVar8 = _DAT_0451c80c != 0;
+    _DAT_0451c808 = glXGetProcAddressARB("glXQueryRendererIntegerMESA");
+    bVar9 = _DAT_0451c808 != 0;
+    _DAT_0451c804 = glXGetProcAddressARB("glXQueryRendererStringMESA");
+    DAT_0451c6c5 = _DAT_0451c804 != 0 && (bVar9 && (bVar8 && iVar5 != 0));
+  }
+  if (DAT_0451eedc == 0) {
+    cVar3 = FUN_041a2ad0();
+  }
+  else {
+    cVar3 = '\0';
+    if (0 < DAT_0451eee0) {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_MESA_release_buffers"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_MESA_release_buffers"[iVar2] == '\0') {
+              cVar3 = '\x01';
+              goto LAB_041a3ba0;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      cVar3 = '\0';
+    }
+  }
+LAB_041a3ba0:
+  DAT_0451c6c4 = cVar3;
+  if ((DAT_0451c6a4 != '\0') || (cVar3 != '\0')) {
+    _DAT_0451c800 = glXGetProcAddressARB("glXReleaseBuffersMESA");
+    DAT_0451c6c4 = _DAT_0451c800 != 0;
+  }
+  if (DAT_0451eedc == 0) {
+    cVar3 = FUN_041a2ad0();
+  }
+  else {
+    cVar3 = '\0';
+    if (0 < DAT_0451eee0) {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_MESA_set_3dfx_mode"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_MESA_set_3dfx_mode"[iVar2] == '\0') {
+              cVar3 = '\x01';
+              goto LAB_041a3c30;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      cVar3 = '\0';
+    }
+  }
+LAB_041a3c30:
+  DAT_0451c6c3 = cVar3;
+  if ((DAT_0451c6a4 != '\0') || (cVar3 != '\0')) {
+    _DAT_0451c7fc = glXGetProcAddressARB("glXSet3DfxModeMESA");
+    DAT_0451c6c3 = _DAT_0451c7fc != 0;
+  }
+  if (DAT_0451eedc == 0) {
+    cVar3 = FUN_041a2ad0();
+  }
+  else {
+    cVar3 = '\0';
+    if (0 < DAT_0451eee0) {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_MESA_swap_control"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_MESA_swap_control"[iVar2] == '\0') {
+              cVar3 = '\x01';
+              goto LAB_041a3cc0;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      cVar3 = '\0';
+    }
+  }
+LAB_041a3cc0:
+  DAT_0451c6c2 = cVar3;
+  if ((DAT_0451c6a4 != '\0') || (cVar3 != '\0')) {
+    iVar5 = glXGetProcAddressARB("glXGetSwapIntervalMESA");
+    _DAT_0451c7f8 = iVar5;
+    _DAT_0451c7f4 = glXGetProcAddressARB("glXSwapIntervalMESA");
+    DAT_0451c6c2 = _DAT_0451c7f4 != 0 && iVar5 != 0;
+  }
+  if (DAT_0451eedc == 0) {
+    cVar3 = FUN_041a2ad0();
+  }
+  else {
+    cVar3 = '\0';
+    if (0 < DAT_0451eee0) {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_NV_copy_buffer"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_NV_copy_buffer"[iVar2] == '\0') {
+              cVar3 = '\x01';
+              goto LAB_041a3d68;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      cVar3 = '\0';
+    }
+  }
+LAB_041a3d68:
+  DAT_0451c6c1 = cVar3;
+  if ((DAT_0451c6a4 != '\0') || (cVar3 != '\0')) {
+    iVar5 = glXGetProcAddressARB("glXCopyBufferSubDataNV");
+    _DAT_0451c7f0 = iVar5;
+    _DAT_0451c7ec = glXGetProcAddressARB("glXNamedCopyBufferSubDataNV");
+    DAT_0451c6c1 = _DAT_0451c7ec != 0 && iVar5 != 0;
+  }
+  if (DAT_0451eedc == 0) {
+    cVar3 = FUN_041a2ad0();
+  }
+  else {
+    cVar3 = '\0';
+    if (0 < DAT_0451eee0) {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_NV_copy_image"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_NV_copy_image"[iVar2] == '\0') {
+              cVar3 = '\x01';
+              goto LAB_041a3e10;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      cVar3 = '\0';
+    }
+  }
+LAB_041a3e10:
+  DAT_0451c6c0 = cVar3;
+  if ((DAT_0451c6a4 != '\0') || (cVar3 != '\0')) {
+    _DAT_0451c7e8 = glXGetProcAddressARB("glXCopyImageSubDataNV");
+    DAT_0451c6c0 = _DAT_0451c7e8 != 0;
+  }
+  if (DAT_0451eedc == 0) {
+    cVar3 = FUN_041a2ad0();
+  }
+  else {
+    cVar3 = '\0';
+    if (0 < DAT_0451eee0) {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_NV_delay_before_swap"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_NV_delay_before_swap"[iVar2] == '\0') {
+              cVar3 = '\x01';
+              goto LAB_041a3ea0;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      cVar3 = '\0';
+    }
+  }
+LAB_041a3ea0:
+  DAT_0451c6bf = cVar3;
+  if ((DAT_0451c6a4 != '\0') || (cVar3 != '\0')) {
+    _DAT_0451c7e4 = glXGetProcAddressARB("glXDelayBeforeSwapNV");
+    DAT_0451c6bf = _DAT_0451c7e4 != 0;
+  }
+  if (DAT_0451eedc == 0) {
+    DAT_0451c6be = FUN_041a2ad0();
+LAB_041a3f43:
+    DAT_0451c6bd = FUN_041a2ad0();
+LAB_041a3f56:
+    cVar3 = FUN_041a2ad0();
+  }
+  else {
+    if (DAT_0451eee0 < 1) {
+      DAT_0451c6be = 0;
+    }
+    else {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_NV_float_buffer"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_NV_float_buffer"[iVar2] == '\0') {
+              DAT_0451c6be = 1;
+              goto LAB_041a4c7a;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      DAT_0451c6be = 0;
+LAB_041a4c7a:
+      if (DAT_0451eedc == 0) goto LAB_041a3f43;
+    }
+    if (DAT_0451eee0 < 1) {
+      DAT_0451c6bd = 0;
+    }
+    else {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_NV_multisample_coverage"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_NV_multisample_coverage"[iVar2] == '\0') {
+              DAT_0451c6bd = 1;
+              goto LAB_041a4cfa;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      DAT_0451c6bd = 0;
+LAB_041a4cfa:
+      if (DAT_0451eedc == 0) goto LAB_041a3f56;
+    }
+    cVar3 = '\0';
+    if (0 < DAT_0451eee0) {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_NV_present_video"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_NV_present_video"[iVar2] == '\0') {
+              cVar3 = '\x01';
+              goto LAB_041a3f64;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      cVar3 = '\0';
+    }
+  }
+LAB_041a3f64:
+  DAT_0451c6bc = cVar3;
+  if ((DAT_0451c6a4 != '\0') || (cVar3 != '\0')) {
+    iVar5 = glXGetProcAddressARB("glXBindVideoDeviceNV");
+    _DAT_0451c7e0 = iVar5;
+    _DAT_0451c7dc = glXGetProcAddressARB("glXEnumerateVideoDevicesNV");
+    DAT_0451c6bc = _DAT_0451c7dc != 0 && iVar5 != 0;
+  }
+  if (DAT_0451eedc == 0) {
+    cVar3 = FUN_041a2ad0();
+  }
+  else {
+    cVar3 = '\0';
+    if (0 < DAT_0451eee0) {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_NV_swap_group"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_NV_swap_group"[iVar2] == '\0') {
+              cVar3 = '\x01';
+              goto LAB_041a4008;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      cVar3 = '\0';
+    }
+  }
+LAB_041a4008:
+  DAT_0451c6bb = cVar3;
+  if ((DAT_0451c6a4 != '\0') || (cVar3 != '\0')) {
+    cVar3 = _glewInit_GLX_NV_swap_group();
+    DAT_0451c6bb = cVar3 == '\0';
+  }
+  if (DAT_0451eedc == 0) {
+    cVar3 = FUN_041a2ad0();
+  }
+  else {
+    cVar3 = '\0';
+    if (0 < DAT_0451eee0) {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_NV_vertex_array_range"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_NV_vertex_array_range"[iVar2] == '\0') {
+              cVar3 = '\x01';
+              goto LAB_041a4088;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      cVar3 = '\0';
+    }
+  }
+LAB_041a4088:
+  DAT_0451c6ba = cVar3;
+  if ((DAT_0451c6a4 != '\0') || (cVar3 != '\0')) {
+    iVar5 = glXGetProcAddressARB("glXAllocateMemoryNV");
+    _DAT_0451c7c0 = iVar5;
+    _DAT_0451c7bc = glXGetProcAddressARB("glXFreeMemoryNV");
+    DAT_0451c6ba = _DAT_0451c7bc != 0 && iVar5 != 0;
+  }
+  if (DAT_0451eedc == 0) {
+    cVar3 = FUN_041a2ad0();
+  }
+  else {
+    cVar3 = '\0';
+    if (0 < DAT_0451eee0) {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_NV_video_capture"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_NV_video_capture"[iVar2] == '\0') {
+              cVar3 = '\x01';
+              goto LAB_041a4130;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      cVar3 = '\0';
+    }
+  }
+LAB_041a4130:
+  DAT_0451c6b9 = cVar3;
+  if ((DAT_0451c6a4 != '\0') || (cVar3 != '\0')) {
+    cVar3 = _glewInit_GLX_NV_video_capture();
+    DAT_0451c6b9 = cVar3 == '\0';
+  }
+  if (DAT_0451eedc == 0) {
+    cVar3 = FUN_041a2ad0();
+  }
+  else {
+    cVar3 = '\0';
+    if (0 < DAT_0451eee0) {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (pcVar1 = &DAT_0435a038 + iVar6, *pcVar1 == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if (*pcVar1 == '\0') {
+              cVar3 = '\x01';
+              goto LAB_041a41b8;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      cVar3 = '\0';
+    }
+  }
+LAB_041a41b8:
+  DAT_0451c6b8 = cVar3;
+  if ((DAT_0451c6a4 != '\0') || (cVar3 != '\0')) {
+    cVar3 = _glewInit_GLX_NV_video_out();
+    DAT_0451c6b8 = cVar3 == '\0';
+  }
+  if (DAT_0451eedc == 0) {
+    DAT_0451c6b7 = FUN_041a2ad0();
+LAB_041a4253:
+    cVar3 = FUN_041a2ad0();
+  }
+  else {
+    if (DAT_0451eee0 < 1) {
+      DAT_0451c6b7 = 0;
+    }
+    else {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_OML_swap_method"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_OML_swap_method"[iVar2] == '\0') {
+              DAT_0451c6b7 = 1;
+              goto LAB_041a4d7a;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      DAT_0451c6b7 = 0;
+LAB_041a4d7a:
+      if (DAT_0451eedc == 0) goto LAB_041a4253;
+    }
+    cVar3 = '\0';
+    if (0 < DAT_0451eee0) {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_OML_sync_control"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_OML_sync_control"[iVar2] == '\0') {
+              cVar3 = '\x01';
+              goto LAB_041a4261;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      cVar3 = '\0';
+    }
+  }
+LAB_041a4261:
+  DAT_0451c6b6 = cVar3;
+  if ((DAT_0451c6a4 != '\0') || (cVar3 != '\0')) {
+    cVar3 = _glewInit_GLX_OML_sync_control();
+    DAT_0451c6b6 = cVar3 == '\0';
+  }
+  if (DAT_0451eedc == 0) {
+    DAT_0451c6b5 = FUN_041a2ad0();
+LAB_041a4303:
+    DAT_0451c6b4 = FUN_041a2ad0();
+LAB_041a4316:
+    DAT_0451c6b3 = FUN_041a2ad0();
+LAB_041a4329:
+    DAT_0451c6b2 = FUN_041a2ad0();
+LAB_041a433c:
+    cVar3 = FUN_041a2ad0();
+  }
+  else {
+    if (DAT_0451eee0 < 1) {
+      DAT_0451c6b5 = 0;
+    }
+    else {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_SGIS_blended_overlay"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_SGIS_blended_overlay"[iVar2] == '\0') {
+              DAT_0451c6b5 = 1;
+              goto LAB_041a4e22;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      DAT_0451c6b5 = 0;
+LAB_041a4e22:
+      if (DAT_0451eedc == 0) goto LAB_041a4303;
+    }
+    if (DAT_0451eee0 < 1) {
+      DAT_0451c6b4 = 0;
+    }
+    else {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_SGIS_color_range"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_SGIS_color_range"[iVar2] == '\0') {
+              DAT_0451c6b4 = 1;
+              goto LAB_041a4eca;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      DAT_0451c6b4 = 0;
+LAB_041a4eca:
+      if (DAT_0451eedc == 0) goto LAB_041a4316;
+    }
+    if (DAT_0451eee0 < 1) {
+      DAT_0451c6b3 = 0;
+    }
+    else {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_SGIS_multisample"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_SGIS_multisample"[iVar2] == '\0') {
+              DAT_0451c6b3 = 1;
+              goto LAB_041a4f3a;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      DAT_0451c6b3 = 0;
+LAB_041a4f3a:
+      if (DAT_0451eedc == 0) goto LAB_041a4329;
+    }
+    if (DAT_0451eee0 < 1) {
+      DAT_0451c6b2 = 0;
+    }
+    else {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_SGIS_shared_multisample"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_SGIS_shared_multisample"[iVar2] == '\0') {
+              DAT_0451c6b2 = 1;
+              goto LAB_041a4faa;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      DAT_0451c6b2 = 0;
+LAB_041a4faa:
+      if (DAT_0451eedc == 0) goto LAB_041a433c;
+    }
+    cVar3 = '\0';
+    if (0 < DAT_0451eee0) {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_SGIX_fbconfig"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_SGIX_fbconfig"[iVar2] == '\0') {
+              cVar3 = '\x01';
+              goto LAB_041a434a;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      cVar3 = '\0';
+    }
+  }
+LAB_041a434a:
+  DAT_0451c6b1 = cVar3;
+  if ((DAT_0451c6a4 != '\0') || (cVar3 != '\0')) {
+    cVar3 = _glewInit_GLX_SGIX_fbconfig();
+    DAT_0451c6b1 = cVar3 == '\0';
+  }
+  if (DAT_0451eedc == 0) {
+    cVar3 = FUN_041a2ad0();
+  }
+  else {
+    cVar3 = '\0';
+    if (0 < DAT_0451eee0) {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_SGIX_hyperpipe"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_SGIX_hyperpipe"[iVar2] == '\0') {
+              cVar3 = '\x01';
+              goto LAB_041a43c8;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      cVar3 = '\0';
+    }
+  }
+LAB_041a43c8:
+  DAT_0451c6b0 = cVar3;
+  if ((DAT_0451c6a4 != '\0') || (cVar3 != '\0')) {
+    cVar3 = _glewInit_GLX_SGIX_hyperpipe();
+    DAT_0451c6b0 = cVar3 == '\0';
+  }
+  if (DAT_0451eedc == 0) {
+    cVar3 = FUN_041a2ad0();
+  }
+  else {
+    cVar3 = '\0';
+    if (0 < DAT_0451eee0) {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_SGIX_pbuffer"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_SGIX_pbuffer"[iVar2] == '\0') {
+              cVar3 = '\x01';
+              goto LAB_041a4448;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      cVar3 = '\0';
+    }
+  }
+LAB_041a4448:
+  DAT_0451c6af = cVar3;
+  if ((DAT_0451c6a4 != '\0') || (cVar3 != '\0')) {
+    cVar3 = _glewInit_GLX_SGIX_pbuffer();
+    DAT_0451c6af = cVar3 == '\0';
+  }
+  if (DAT_0451eedc == 0) {
+    cVar3 = FUN_041a2ad0();
+  }
+  else {
+    cVar3 = '\0';
+    if (0 < DAT_0451eee0) {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_SGIX_swap_barrier"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_SGIX_swap_barrier"[iVar2] == '\0') {
+              cVar3 = '\x01';
+              goto LAB_041a44c8;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      cVar3 = '\0';
+    }
+  }
+LAB_041a44c8:
+  DAT_0451c6ae = cVar3;
+  if ((DAT_0451c6a4 != '\0') || (cVar3 != '\0')) {
+    iVar5 = glXGetProcAddressARB("glXBindSwapBarrierSGIX");
+    _DAT_0451c72c = iVar5;
+    _DAT_0451c728 = glXGetProcAddressARB("glXQueryMaxSwapBarriersSGIX");
+    DAT_0451c6ae = _DAT_0451c728 != 0 && iVar5 != 0;
+  }
+  if (DAT_0451eedc == 0) {
+    cVar3 = FUN_041a2ad0();
+  }
+  else {
+    cVar3 = '\0';
+    if (0 < DAT_0451eee0) {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_SGIX_swap_group"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_SGIX_swap_group"[iVar2] == '\0') {
+              cVar3 = '\x01';
+              goto LAB_041a4570;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      cVar3 = '\0';
+    }
+  }
+LAB_041a4570:
+  DAT_0451c6ad = cVar3;
+  if ((DAT_0451c6a4 != '\0') || (cVar3 != '\0')) {
+    _DAT_0451c724 = glXGetProcAddressARB("glXJoinSwapGroupSGIX");
+    DAT_0451c6ad = _DAT_0451c724 != 0;
+  }
+  if (DAT_0451eedc == 0) {
+    cVar3 = FUN_041a2ad0();
+  }
+  else {
+    cVar3 = '\0';
+    if (0 < DAT_0451eee0) {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_SGIX_video_resize"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_SGIX_video_resize"[iVar2] == '\0') {
+              cVar3 = '\x01';
+              goto LAB_041a4600;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      cVar3 = '\0';
+    }
+  }
+LAB_041a4600:
+  DAT_0451c6ac = cVar3;
+  if ((DAT_0451c6a4 != '\0') || (cVar3 != '\0')) {
+    cVar3 = _glewInit_GLX_SGIX_video_resize();
+    DAT_0451c6ac = cVar3 == '\0';
+  }
+  if (DAT_0451eedc == 0) {
+    DAT_0451c6ab = FUN_041a2ad0();
+LAB_041a46a3:
+    cVar3 = FUN_041a2ad0();
+  }
+  else {
+    if (DAT_0451eee0 < 1) {
+      DAT_0451c6ab = 0;
+    }
+    else {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_SGIX_visual_select_group"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_SGIX_visual_select_group"[iVar2] == '\0') {
+              DAT_0451c6ab = 1;
+              goto LAB_041a509a;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      DAT_0451c6ab = 0;
+LAB_041a509a:
+      if (DAT_0451eedc == 0) goto LAB_041a46a3;
+    }
+    cVar3 = '\0';
+    if (0 < DAT_0451eee0) {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_SGI_cushion"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_SGI_cushion"[iVar2] == '\0') {
+              cVar3 = '\x01';
+              goto LAB_041a46b1;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      cVar3 = '\0';
+    }
+  }
+LAB_041a46b1:
+  DAT_0451c6aa = cVar3;
+  if ((DAT_0451c6a4 != '\0') || (cVar3 != '\0')) {
+    _DAT_0451c70c = glXGetProcAddressARB("glXCushionSGI");
+    DAT_0451c6aa = _DAT_0451c70c != 0;
+  }
+  if (DAT_0451eedc == 0) {
+    cVar3 = FUN_041a2ad0();
+  }
+  else {
+    cVar3 = '\0';
+    if (0 < DAT_0451eee0) {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_SGI_make_current_read"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_SGI_make_current_read"[iVar2] == '\0') {
+              cVar3 = '\x01';
+              goto LAB_041a4740;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      cVar3 = '\0';
+    }
+  }
+LAB_041a4740:
+  DAT_0451c6a9 = cVar3;
+  if ((DAT_0451c6a4 != '\0') || (cVar3 != '\0')) {
+    iVar5 = glXGetProcAddressARB("glXGetCurrentReadDrawableSGI");
+    _DAT_0451c708 = iVar5;
+    _DAT_0451c704 = glXGetProcAddressARB("glXMakeCurrentReadSGI");
+    DAT_0451c6a9 = _DAT_0451c704 != 0 && iVar5 != 0;
+  }
+  if (DAT_0451eedc == 0) {
+    cVar3 = FUN_041a2ad0();
+  }
+  else {
+    cVar3 = '\0';
+    if (0 < DAT_0451eee0) {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_SGI_swap_control"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_SGI_swap_control"[iVar2] == '\0') {
+              cVar3 = '\x01';
+              goto LAB_041a47e8;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      cVar3 = '\0';
+    }
+  }
+LAB_041a47e8:
+  DAT_0451c6a8 = cVar3;
+  if ((DAT_0451c6a4 != '\0') || (cVar3 != '\0')) {
+    _DAT_0451c700 = glXGetProcAddressARB("glXSwapIntervalSGI");
+    DAT_0451c6a8 = _DAT_0451c700 != 0;
+  }
+  if (DAT_0451eedc == 0) {
+    cVar3 = FUN_041a2ad0();
+  }
+  else {
+    cVar3 = '\0';
+    if (0 < DAT_0451eee0) {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_SGI_video_sync"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_SGI_video_sync"[iVar2] == '\0') {
+              cVar3 = '\x01';
+              goto LAB_041a4878;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      cVar3 = '\0';
+    }
+  }
+LAB_041a4878:
+  DAT_0451c6a7 = cVar3;
+  if ((DAT_0451c6a4 != '\0') || (cVar3 != '\0')) {
+    iVar5 = glXGetProcAddressARB("glXGetVideoSyncSGI");
+    _DAT_0451c6fc = iVar5;
+    _DAT_0451c6f8 = glXGetProcAddressARB("glXWaitVideoSyncSGI");
+    DAT_0451c6a7 = _DAT_0451c6f8 != 0 && iVar5 != 0;
+  }
+  if (DAT_0451eedc == 0) {
+    cVar3 = FUN_041a2ad0();
+  }
+  else {
+    cVar3 = '\0';
+    if (0 < DAT_0451eee0) {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_SUN_get_transparent_index"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_SUN_get_transparent_index"[iVar2] == '\0') {
+              cVar3 = '\x01';
+              goto LAB_041a4920;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      cVar3 = '\0';
+    }
+  }
+LAB_041a4920:
+  DAT_0451c6a6 = cVar3;
+  if ((DAT_0451c6a4 != '\0') || (cVar3 != '\0')) {
+    _DAT_0451c6f4 = glXGetProcAddressARB("glXGetTransparentIndexSUN");
+    DAT_0451c6a6 = _DAT_0451c6f4 != 0;
+  }
+  if (DAT_0451eedc == 0) {
+    cVar3 = FUN_041a2ad0();
+  }
+  else {
+    cVar3 = '\0';
+    if (0 < DAT_0451eee0) {
+      iVar5 = 0;
+      do {
+        pcVar7 = (char *)(*DAT_0451eb24)(0x1f03,iVar5);
+        iVar6 = 0;
+        if (*pcVar7 == 'G') {
+          while (iVar2 = iVar6 + 1, "GLX_SUN_video_resize"[iVar2] == pcVar7[iVar6 + 1]) {
+            iVar6 = iVar6 + 1;
+            if ("GLX_SUN_video_resize"[iVar2] == '\0') {
+              cVar3 = '\x01';
+              goto LAB_041a3165;
+            }
+          }
+        }
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < DAT_0451eee0);
+      cVar3 = '\0';
+    }
+  }
+LAB_041a3165:
+  DAT_0451c6a5 = cVar3;
+  if ((DAT_0451c6a4 != '\0') || (cVar3 != '\0')) {
+    iVar5 = glXGetProcAddressARB("glXGetVideoResizeSUN");
+    _DAT_0451c6f0 = iVar5;
+    _DAT_0451c6ec = glXGetProcAddressARB("glXVideoResizeSUN");
+    DAT_0451c6a5 = _DAT_0451c6ec != 0 && iVar5 != 0;
+  }
+  return 0;
+}
+

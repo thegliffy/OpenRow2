@@ -1,0 +1,23 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+bool _glewInit_GL_ARB_ES2_compatibility(void)
+
+{
+  int iVar1;
+  bool bVar2;
+  bool bVar3;
+  bool bVar4;
+  
+  iVar1 = glXGetProcAddressARB("glClearDepthf");
+  _DAT_0451e900 = iVar1;
+  _DAT_0451e8fc = glXGetProcAddressARB("glDepthRangef");
+  bVar2 = _DAT_0451e8fc == 0;
+  _DAT_0451e8f8 = glXGetProcAddressARB("glGetShaderPrecisionFormat");
+  bVar3 = _DAT_0451e8f8 == 0;
+  _DAT_0451e8f4 = glXGetProcAddressARB("glReleaseShaderCompiler");
+  bVar4 = _DAT_0451e8f4 == 0;
+  _DAT_0451e8f0 = glXGetProcAddressARB("glShaderBinary");
+  return _DAT_0451e8f0 == 0 || (bVar4 || (bVar3 || (bVar2 || iVar1 == 0)));
+}
+

@@ -1,0 +1,74 @@
+
+undefined4 NotifyAddrChange(undefined4 *param_1,undefined4 *param_2)
+
+{
+  void *__dest;
+  undefined4 *__src;
+  undefined4 *puVar1;
+  void *__dest_00;
+  int iVar2;
+  uint uVar3;
+  size_t sVar4;
+  uint uVar5;
+  
+  if (DAT_04515b10 == '\0') {
+    FUN_0402cd10(0xf,
+                 "NotifyAddrChange() called. Mac OS X doesn\'t let us know when specific adapters go up or down, so this is a safe stub only, no notifications will be coming."
+                );
+    DAT_04515b10 = '\x01';
+  }
+  if ((param_2 == (undefined4 *)0x0) && (param_1 == (undefined4 *)0x0)) {
+    return 0;
+  }
+  if (param_1 != (undefined4 *)0x0) {
+    *param_1 = 0xffffffff;
+  }
+  __src = DAT_04515b18;
+  if (param_2 != (undefined4 *)0x0) {
+    *param_2 = 0x103;
+    if (__src == DAT_04515b1c) {
+      uVar5 = (int)__src - (int)DAT_04515b14 >> 2;
+      uVar3 = 4;
+      if (uVar5 != 0) {
+        uVar3 = 0xfffffffc;
+        if ((uVar5 <= uVar5 * 2) && (uVar5 * 2 < 0x40000000)) {
+          uVar3 = uVar5 * 8;
+        }
+      }
+      __dest_00 = operator_new(uVar3);
+      puVar1 = (undefined4 *)((int)__dest_00 + uVar5 * 4);
+      if (puVar1 != (undefined4 *)0x0) {
+        *puVar1 = param_2;
+      }
+      sVar4 = 0;
+      iVar2 = (int)__src - (int)DAT_04515b14 >> 2;
+      if (iVar2 != 0) {
+        sVar4 = iVar2 * 4;
+        memmove(__dest_00,DAT_04515b14,sVar4);
+      }
+      __dest = (void *)((int)__dest_00 + sVar4 + 4);
+      sVar4 = 0;
+      iVar2 = (int)DAT_04515b18 - (int)__src >> 2;
+      if (iVar2 != 0) {
+        sVar4 = iVar2 * 4;
+        memmove(__dest,__src,sVar4);
+      }
+      if (DAT_04515b14 != (void *)0x0) {
+        operator_delete(DAT_04515b14);
+      }
+      DAT_04515b1c = (undefined4 *)(uVar3 + (int)__dest_00);
+      DAT_04515b14 = __dest_00;
+      DAT_04515b18 = (undefined4 *)(sVar4 + (int)__dest);
+    }
+    else {
+      puVar1 = (undefined4 *)0x0;
+      if (__src != (undefined4 *)0x0) {
+        *__src = param_2;
+        puVar1 = DAT_04515b18;
+      }
+      DAT_04515b18 = puVar1 + 1;
+    }
+  }
+  return 0x3e5;
+}
+

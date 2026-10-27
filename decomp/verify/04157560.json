@@ -1,0 +1,80 @@
+
+/* source: winprofile */
+
+char * __regparm3 Profile_ReadNextLine(int param_1,uint *param_2,uint param_3)
+
+{
+  bool bVar1;
+  uint uVar2;
+  char cVar3;
+  char *pcVar4;
+  char *__dest;
+  char local_41c [1036];
+  
+  __dest = (char *)0x0;
+  uVar2 = *param_2;
+  if (uVar2 < param_3) {
+    cVar3 = *(char *)(param_1 + uVar2);
+    uVar2 = uVar2 + 1;
+    *param_2 = uVar2;
+    if ((cVar3 != '\n') && (cVar3 != '\r')) {
+LAB_041575b0:
+      local_41c[(int)__dest] = cVar3;
+      pcVar4 = __dest;
+      do {
+        __dest = pcVar4 + 1;
+        if (param_3 <= uVar2) {
+          if (__dest == (char *)0x0) {
+            return (char *)0x0;
+          }
+LAB_04157628:
+          pcVar4 = pcVar4 + 2;
+          goto LAB_0415762b;
+        }
+        cVar3 = *(char *)(param_1 + uVar2);
+        uVar2 = uVar2 + 1;
+        *param_2 = uVar2;
+        if ((cVar3 == '\n') || (cVar3 == '\r')) goto LAB_04157628;
+        if ((int)__dest < 0x400) goto LAB_041575b0;
+        FUN_0400a810("totalRead < lineBufferSize",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/winprofile.cpp"
+                     ,0x4e,"char* Profile_ReadNextLine(const char*, DWORD&, DWORD)");
+        uVar2 = *param_2;
+        local_41c[(int)__dest] = cVar3;
+        pcVar4 = __dest;
+      } while( true );
+    }
+    pcVar4 = (char *)0x1;
+    __dest = (char *)0x0;
+LAB_0415762b:
+    local_41c[(int)__dest] = '\0';
+    __dest = malloc((size_t)pcVar4);
+    strcpy(__dest,local_41c);
+    cVar3 = *__dest;
+    if (cVar3 != '\0') {
+      bVar1 = false;
+      pcVar4 = __dest;
+      do {
+        while (cVar3 == '\"') {
+          pcVar4 = pcVar4 + 1;
+          bVar1 = (bool)(bVar1 ^ 1);
+          cVar3 = *pcVar4;
+          if (cVar3 == '\0') goto LAB_04157683;
+        }
+        if ((!bVar1) && (cVar3 == ';')) {
+          *pcVar4 = '\0';
+          FUN_04159ef0(__dest);
+          FUN_04159ea0(__dest);
+          return __dest;
+        }
+        pcVar4 = pcVar4 + 1;
+        cVar3 = *pcVar4;
+      } while (cVar3 != '\0');
+    }
+LAB_04157683:
+    FUN_04159ef0(__dest);
+    FUN_04159ea0(__dest);
+  }
+  return __dest;
+}
+

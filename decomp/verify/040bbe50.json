@@ -1,0 +1,90 @@
+
+/* source: eonBuffer */
+
+void MergeRegions(int *param_1)
+
+{
+  bool bVar1;
+  uint *puVar2;
+  bool bVar3;
+  uint *puVar4;
+  uint *puVar5;
+  uint uVar6;
+  uint *puVar7;
+  uint *puVar8;
+  uint uVar9;
+  uint uVar10;
+  
+  do {
+    puVar7 = (uint *)*param_1;
+    if ((uint *)puVar7[2] == puVar7) {
+      FUN_0400a810("reg->Next != reg",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/eonBuffer.cpp"
+                   ,0x3d4,"void MergeRegions(BufferRegion**)");
+    }
+    if ((puVar7 == (uint *)0x0) || ((uint *)puVar7[2] == (uint *)0x0)) break;
+    puVar2 = (uint *)puVar7[2];
+    puVar5 = (uint *)0x0;
+    uVar10 = *puVar7;
+    bVar3 = false;
+LAB_040bbe95:
+    do {
+      bVar1 = bVar3;
+      puVar8 = puVar2;
+      uVar9 = *puVar8;
+      puVar4 = puVar7;
+      if (uVar9 < uVar10) {
+        puVar7[2] = puVar8[2];
+        puVar8[2] = (uint)puVar7;
+        if (puVar5 != (uint *)0x0) {
+          puVar5[2] = (uint)puVar8;
+          bVar1 = true;
+          puVar2 = (uint *)puVar7[2];
+          puVar5 = puVar8;
+          bVar3 = true;
+          if ((uint *)puVar7[2] == (uint *)0x0) break;
+          goto LAB_040bbe95;
+        }
+        bVar1 = true;
+        *param_1 = (int)puVar8;
+        puVar4 = puVar8;
+        puVar8 = puVar7;
+        uVar9 = uVar10;
+      }
+      puVar2 = (uint *)puVar8[2];
+      puVar5 = puVar4;
+      puVar7 = puVar8;
+      uVar10 = uVar9;
+      bVar3 = bVar1;
+    } while ((uint *)puVar8[2] != (uint *)0x0);
+  } while (bVar1);
+  puVar7 = (uint *)*param_1;
+  if ((puVar7 != (uint *)0x0) && ((uint *)puVar7[2] != (uint *)0x0)) {
+    puVar2 = (uint *)puVar7[2];
+    uVar10 = *puVar7;
+    do {
+      while( true ) {
+        puVar5 = puVar2;
+        uVar9 = *puVar5;
+        uVar6 = puVar7[1] + uVar10;
+        if (uVar6 < uVar9) break;
+        if (uVar6 < uVar9 + puVar5[1]) {
+          uVar6 = uVar9 + puVar5[1];
+        }
+        puVar7[1] = uVar6 - uVar10;
+        puVar7[2] = puVar5[2];
+        puVar5[2] = (uint)DAT_044a7f2c;
+        puVar2 = (uint *)puVar7[2];
+        DAT_044a7f2c = puVar5;
+        if ((uint *)puVar7[2] == (uint *)0x0) {
+          return;
+        }
+      }
+      puVar2 = (uint *)puVar5[2];
+      puVar7 = puVar5;
+      uVar10 = uVar9;
+    } while ((uint *)puVar5[2] != (uint *)0x0);
+  }
+  return;
+}
+

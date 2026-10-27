@@ -1,0 +1,29 @@
+
+/* source: audioRenderCaptureOpenALsoft */
+
+undefined4 AudioUnit_DetermineDefaultMixFormat(int param_1,char param_2,int param_3)
+
+{
+  undefined4 uVar1;
+  
+  uVar1 = 0;
+  if ((param_1 != 0) && (param_2 == '\0')) {
+    if (*(int *)(param_1 + 4) != 0) {
+      FUN_0400a810("forAudioCapture == captureDevice",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/winmm/linux/audioRenderCaptureOpenALsoft.cpp"
+                   ,0x93,
+                   "bool AudioUnit_DetermineDefaultMixFormat(eON_AudioDevice, bool, WAVEFORMATEXTENSIBLE*)"
+                  );
+    }
+    *(undefined2 *)(param_3 + 2) = 2;
+    uVar1 = 1;
+    *(undefined4 *)(param_3 + 4) = 0xac44;
+    *(undefined2 *)(param_3 + 0xe) = 0x10;
+    *(undefined2 *)(param_3 + 0xc) = 4;
+    *(undefined **)(param_3 + 8) = &DAT_0002b110;
+    *(undefined2 *)(param_3 + 0x12) = 0x10;
+    *(undefined4 *)(param_3 + 0x14) = 3;
+  }
+  return uVar1;
+}
+

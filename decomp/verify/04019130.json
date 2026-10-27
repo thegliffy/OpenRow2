@@ -1,0 +1,78 @@
+
+int eON_GetSystem32Path(char param_1)
+
+{
+  int iVar1;
+  int *piVar2;
+  char *pcVar3;
+  code **ppcVar4;
+  code *local_90;
+  undefined1 local_6c [96];
+  
+  local_90 = (code *)0x4019150;
+  FUN_0402cd10();
+  if (DAT_04411378 == '\0') {
+    local_90 = (code *)0x4019204;
+    iVar1 = __cxa_guard_acquire();
+    if (iVar1 != 0) {
+                    /* try { // try from 0401921b to 0401921f has its CatchHandler @ 040192ff */
+      local_90 = (code *)0x4019220;
+      std::string::string((string *)&DAT_04411380,(string *)&DAT_044112d8);
+                    /* try { // try from 04019237 to 0401923b has its CatchHandler @ 040192dd */
+      local_90 = (code *)0x401923c;
+      std::string::append((char *)&DAT_04411380,0x42dcb31);
+      local_90 = (code *)0x4019248;
+      __cxa_guard_release();
+      local_90 = (code *)0x4019264;
+      __cxa_atexit();
+    }
+  }
+  ppcVar4 = (code **)&stack0xffffff74;
+  if (DAT_04411388 == '\0') {
+    local_90 = (code *)0x4019172;
+    iVar1 = __cxa_guard_acquire();
+    ppcVar4 = (code **)&stack0xffffff74;
+    if (iVar1 != 0) {
+                    /* try { // try from 0401927f to 04019283 has its CatchHandler @ 040192c7 */
+      local_90 = (code *)0x4019284;
+      FUN_0400f6e0();
+      ppcVar4 = &local_90;
+      local_90 = (code *)&DAT_04411388;
+      __cxa_guard_release();
+      local_90 = std::string::~string;
+      __cxa_atexit();
+    }
+  }
+  *ppcVar4 = (code *)0x3;
+  ppcVar4[2] = (code *)local_6c;
+  ppcVar4[1] = (code *)DAT_04411380;
+  ppcVar4[-1] = (code *)0x4019196;
+  iVar1 = __xstat64((int)*ppcVar4,(char *)ppcVar4[1],(stat64 *)ppcVar4[2]);
+  if (iVar1 != 0) {
+    ppcVar4[-1] = (code *)0x401919f;
+    piVar2 = __errno_location();
+    if (*piVar2 == 2) {
+      ppcVar4[-1] = (code *)0x40192c2;
+      eON_FileSystem__createPath();
+    }
+    else {
+      *ppcVar4 = (code *)*piVar2;
+      ppcVar4[-1] = (code *)0x40191b4;
+      pcVar3 = strerror((int)*ppcVar4);
+      ppcVar4[4] = (code *)pcVar3;
+      iVar1 = *piVar2;
+      ppcVar4[1] = (code *)"eON_FileSystem::checkPathExists() failed for path %s, (%u) %s\n";
+      ppcVar4[3] = (code *)iVar1;
+      ppcVar4[2] = (code *)DAT_04411380;
+      *ppcVar4 = (code *)stderr;
+      ppcVar4[-1] = (code *)0x40191dc;
+      fprintf((FILE *)*ppcVar4,(char *)ppcVar4[1]);
+    }
+  }
+  iVar1 = DAT_04411390;
+  if (param_1 == '\0') {
+    iVar1 = DAT_04411380;
+  }
+  return iVar1;
+}
+

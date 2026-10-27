@@ -1,0 +1,288 @@
+
+int FindResourceExW(uint param_1,short *param_2,short *param_3)
+
+{
+  undefined *puVar1;
+  undefined *puVar2;
+  short *psVar3;
+  int iVar4;
+  ushort *puVar5;
+  uint uVar6;
+  uint uVar7;
+  short sVar8;
+  short *psVar9;
+  uint *puVar10;
+  uint *puVar11;
+  undefined4 *puVar12;
+  undefined4 *puVar13;
+  undefined4 *puVar14;
+  int iVar15;
+  undefined *puVar16;
+  uint uVar17;
+  uint auStack_68 [10];
+  uint local_40;
+  ushort local_3a;
+  short *local_38;
+  short *local_34;
+  short *local_30;
+  uint local_2c;
+  short *local_28;
+  int local_24;
+  undefined4 *local_18;
+  
+  psVar3 = param_2;
+  local_18 = &param_1;
+  puVar11 = auStack_68 + 6;
+  local_2c = param_1;
+  local_30 = param_3;
+  uVar6 = param_1;
+  if (param_1 == 0) {
+    auStack_68[6] = 0;
+    auStack_68[5] = 0x415950c;
+    uVar6 = windll_041531d0();
+    puVar11 = auStack_68 + 5;
+  }
+  *puVar11 = (uint)&DAT_0451add4;
+  puVar11[-1] = 0x41590e8;
+  pthread_mutex_lock((pthread_mutex_t *)*puVar11);
+  if (DAT_0451adf4 == (undefined *)0x0) {
+LAB_04159200:
+    *puVar11 = (uint)&DAT_0451add4;
+    puVar11[-1] = 0x415920c;
+    pthread_mutex_unlock((pthread_mutex_t *)*puVar11);
+    puVar11[1] = (uint)
+                 "FindResourceExW() is trying to get resources from a module that was never loaded!"
+    ;
+    *puVar11 = 0xf;
+    puVar11[-1] = 0x4159220;
+    FUN_0402cd10();
+    return 0;
+  }
+  puVar16 = &DAT_0451adf0;
+  puVar1 = DAT_0451adf4;
+  do {
+    while (puVar2 = puVar1, *(uint *)(puVar2 + 0x10) < uVar6) {
+      puVar13 = (undefined4 *)(puVar2 + 0xc);
+      puVar2 = puVar16;
+      puVar1 = (undefined *)*puVar13;
+      if ((undefined *)*puVar13 == (undefined *)0x0) goto LAB_04159115;
+    }
+    puVar16 = puVar2;
+    puVar1 = *(undefined **)(puVar2 + 8);
+  } while (*(undefined **)(puVar2 + 8) != (undefined *)0x0);
+LAB_04159115:
+  if ((puVar2 == &DAT_0451adf0) || (uVar6 < *(uint *)(puVar2 + 0x10))) goto LAB_04159200;
+  iVar15 = *(int *)(puVar2 + 0x518);
+  local_24 = *(int *)(puVar2 + 0x528);
+  *puVar11 = (uint)&DAT_0451add4;
+  puVar11[-1] = 0x4159144;
+  pthread_mutex_unlock((pthread_mutex_t *)*puVar11);
+  if (iVar15 == 1) {
+    puVar11[1] = (uint)"FindResourceExW() is trying to get resources from an internal library!";
+    *puVar11 = 0xf;
+    puVar11[-1] = 0x41595e9;
+    FUN_0402cd10();
+    return 0;
+  }
+  if (local_24 == 0) {
+    puVar11[1] = (uint)"FindResourceExW() returning NULL. No resource section in module.";
+    *puVar11 = 0xf;
+    puVar11[-1] = 0x41595ce;
+    FUN_0402cd10();
+    return 0;
+  }
+  psVar9 = psVar3;
+  puVar13 = puVar11;
+  if (((uint)psVar3 >> 0x10 != 0) && (psVar9 = (short *)0xffffffff, *psVar3 == 0x23)) {
+    *puVar11 = (uint)psVar3;
+    puVar11[-1] = 0x4159409;
+    iVar15 = FUN_0415a040();
+    puVar13 = puVar11 + -1;
+    if (1 < iVar15) {
+      puVar14 = puVar11 + -1;
+      if ((ushort)(psVar3[1] - 0x30U) < 10) {
+        psVar9 = (short *)((ushort)psVar3[1] - 0x30);
+        iVar4 = 1;
+        do {
+          iVar4 = iVar4 + 1;
+          puVar13 = puVar11 + -1;
+          if (iVar4 == iVar15) goto LAB_04159172;
+          puVar14 = puVar11 + -1;
+        } while (((ushort)(psVar3[iVar4] - 0x30U) < 10) &&
+                (psVar9 = (short *)(((ushort)psVar3[iVar4] - 0x30) + (int)psVar9 * 10),
+                puVar14 = puVar11 + -1, psVar9 < &DAT_00010000));
+      }
+      goto LAB_04159462;
+    }
+    psVar9 = (short *)0x0;
+  }
+LAB_04159172:
+  sVar8 = (short)psVar9;
+  uVar6 = (uint)local_30 & 0xffff;
+  puVar12 = puVar13;
+  if (((uint)local_30 >> 0x10 != 0) && (uVar6 = 0xffffffff, *local_30 == 0x23)) {
+    *puVar13 = local_30;
+    puVar13[-1] = 0x415953e;
+    iVar15 = FUN_0415a040();
+    puVar12 = puVar13 + -1;
+    if (1 < iVar15) {
+      puVar14 = puVar13 + -1;
+      if ((ushort)(local_30[1] - 0x30U) < 10) {
+        local_34 = psVar3;
+        iVar4 = 1;
+        uVar6 = (ushort)local_30[1] - 0x30;
+        local_28 = (short *)CONCAT22(local_28._2_2_,sVar8);
+        do {
+          iVar4 = iVar4 + 1;
+          if (iVar4 == iVar15) goto LAB_04159192;
+          puVar14 = puVar13 + -1;
+        } while (((ushort)(local_30[iVar4] - 0x30U) < 10) &&
+                (uVar6 = ((ushort)local_30[iVar4] - 0x30) + uVar6 * 10, puVar14 = puVar13 + -1,
+                uVar6 < 0x10000));
+      }
+LAB_04159462:
+      *puVar14 = 0x57;
+      puVar14[-1] = 0x415946e;
+      eON_SetLastError();
+      return 0;
+    }
+    uVar6 = 0;
+    puVar12 = puVar13 + -1;
+  }
+LAB_04159192:
+  if (sVar8 == -1) {
+    *puVar12 = psVar3;
+    puVar12[-1] = 0x41592dc;
+    local_40 = uVar6;
+    local_28 = (short *)FUN_0415a040();
+    puVar13 = puVar12 + -1;
+    psVar9 = (short *)(uint)*(ushort *)(local_24 + 0xe);
+    puVar10 = (uint *)(local_24 + 0x10);
+    uVar6 = (uint)*(ushort *)(local_24 + 0xc);
+    local_34 = psVar9;
+    if ((undefined *)((int)psVar9 + uVar6) != (undefined *)0x0) {
+      local_3a = (ushort)local_40;
+      puVar16 = (undefined *)0x0;
+      local_38 = psVar3;
+      do {
+        if (((*(char *)((int)puVar10 + 7) < '\0') && (*(char *)((int)puVar10 + 3) < '\0')) &&
+           (puVar5 = (ushort *)((*puVar10 & 0x7fffffff) + local_24),
+           local_28 == (short *)(uint)*puVar5)) {
+          *puVar12 = puVar5 + 1;
+          puVar12[1] = local_28;
+          puVar12[-1] = local_38;
+          puVar12[-2] = 0x415949a;
+          iVar15 = FUN_04159dd0();
+          if (iVar15 == 0) {
+            uVar6 = (uint)local_3a;
+            local_28 = (short *)((puVar10[1] & 0x7fffffff) + local_24);
+            if (local_28 != (short *)0x0) goto LAB_04159240;
+            local_28 = (short *)0x0;
+            psVar3 = local_38;
+            break;
+          }
+          psVar9 = (short *)(uint)*(ushort *)(local_24 + 0xe);
+          uVar6 = (uint)*(ushort *)(local_24 + 0xc);
+        }
+        puVar16 = puVar16 + 1;
+        puVar10 = puVar10 + 2;
+        psVar3 = local_38;
+      } while (puVar16 < (undefined *)((int)psVar9 + uVar6));
+    }
+    puVar12[1] = psVar3;
+    *puVar12 = "FindResourceExW() returning NULL. Type \'%ls\' not found in module %p";
+    puVar12[-1] = 10;
+    puVar12[2] = local_2c;
+    puVar12[-2] = 0x415936a;
+    FUN_0402cd10();
+    return 0;
+  }
+  local_28 = (short *)(local_24 + 0x10);
+  iVar15 = (uint)*(ushort *)(local_24 + 0xe) + (uint)*(ushort *)(local_24 + 0xc);
+  if (iVar15 != 0) {
+    iVar4 = 0;
+    psVar9 = local_28;
+    do {
+      if (((*(char *)((int)psVar9 + 7) < '\0') && (-1 < *(char *)((int)psVar9 + 3))) &&
+         (*psVar9 == sVar8)) {
+        local_28 = (short *)((*(uint *)(psVar9 + 2) & 0x7fffffff) + local_24);
+        puVar13 = puVar12;
+        if (local_28 != (short *)0x0) goto LAB_04159240;
+        break;
+      }
+      iVar4 = iVar4 + 1;
+      psVar9 = psVar9 + 4;
+    } while (iVar15 != iVar4);
+  }
+  puVar12[2] = psVar3;
+  puVar12[1] = "FindResourceExW() returning NULL. Type with id %u not found in module %p";
+  *puVar12 = 10;
+  puVar12[3] = local_2c;
+  puVar12[-1] = 0x41591fa;
+  FUN_0402cd10();
+  return 0;
+LAB_04159240:
+  if ((short)uVar6 == -1) {
+    *puVar13 = local_30;
+    puVar13[-1] = 0x4159383;
+    local_34 = (short *)FUN_0415a040();
+    uVar6 = (uint)(ushort)local_28[7];
+    uVar7 = (uint)(ushort)local_28[6];
+    puVar10 = (uint *)(local_28 + 8);
+    if (uVar6 + uVar7 != 0) {
+      uVar17 = 0;
+      do {
+        if (((*(char *)((int)puVar10 + 7) < '\0') && (*(char *)((int)puVar10 + 3) < '\0')) &&
+           (puVar5 = (ushort *)((*puVar10 & 0x7fffffff) + local_24),
+           local_34 == (short *)(uint)*puVar5)) {
+          *puVar13 = puVar5 + 1;
+          puVar13[1] = local_34;
+          puVar13[-1] = local_30;
+          puVar13[-2] = 0x41594e1;
+          iVar15 = FUN_04159dd0();
+          if (iVar15 == 0) {
+            iVar15 = (puVar10[1] & 0x7fffffff) + local_24;
+            if (iVar15 != 0) goto LAB_041592bd;
+            break;
+          }
+          uVar6 = (uint)(ushort)local_28[7];
+          uVar7 = (uint)(ushort)local_28[6];
+        }
+        uVar17 = uVar17 + 1;
+        puVar10 = puVar10 + 2;
+      } while (uVar17 < uVar6 + uVar7);
+    }
+    *puVar13 = "FindResourceExW() returning NULL. Name \'%s\' not found in module %p";
+    puVar13[-1] = 10;
+    puVar13[2] = local_2c;
+    puVar13[1] = local_30;
+    puVar13[-2] = 0x41593fa;
+    FUN_0402cd10();
+    return 0;
+  }
+  psVar3 = local_28 + 8;
+  if ((uint)(ushort)local_28[6] + (uint)(ushort)local_28[7] != 0) {
+    iVar15 = 0;
+    do {
+      if (((*(char *)((int)psVar3 + 7) < '\0') && (-1 < *(char *)((int)psVar3 + 3))) &&
+         (*psVar3 == (short)uVar6)) {
+        iVar15 = (*(uint *)(psVar3 + 2) & 0x7fffffff) + local_24;
+        if (iVar15 != 0) {
+LAB_041592bd:
+          return *(int *)(iVar15 + 0x14) + local_24;
+        }
+        break;
+      }
+      iVar15 = iVar15 + 1;
+      psVar3 = psVar3 + 4;
+    } while ((uint)(ushort)local_28[6] + (uint)(ushort)local_28[7] != iVar15);
+  }
+  puVar13[1] = "FindResourceExW() returning NULL. Name with id %u not found in module %p";
+  puVar13[2] = uVar6 & 0xffff;
+  *puVar13 = 10;
+  puVar13[3] = local_2c;
+  puVar13[-1] = 0x41592a5;
+  FUN_0402cd10();
+  return 0;
+}
+

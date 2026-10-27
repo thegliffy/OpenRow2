@@ -1,0 +1,10 @@
+
+void eON_WindowLinux__Platform_InitializeAsSlider(void)
+
+{
+  FUN_0400a810("false",
+               "/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/linux/windowLinux.cpp",
+               0x1fe,"virtual void eON_WindowLinux::Platform_InitializeAsSlider()");
+  return;
+}
+

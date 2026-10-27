@@ -1,0 +1,299 @@
+
+/* source: fixedPipelineEmulation */
+
+void __regparm3
+fixedPipelineEmulation_040bca60
+          (int param_1,undefined4 param_2,undefined4 param_3,uint param_4,byte param_5,char *param_6
+          ,undefined4 param_7,byte param_8,char param_9)
+
+{
+  char *pcVar1;
+  int iVar2;
+  int iVar3;
+  byte bVar4;
+  undefined **ppuVar5;
+  char *pcVar6;
+  undefined4 *puVar7;
+  bool bVar8;
+  byte bVar9;
+  char *local_188;
+  char local_16c [256];
+  undefined4 local_6c [23];
+  
+  bVar9 = 0;
+  if (param_6 == (char *)0x0) {
+    FUN_0400a810("coordBias",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/fixedPipelineEmulation.cpp"
+                 ,0x428,
+                 "void FragmentShaderCompiler::GenerateTexSample(TextBuffer&, TextBuffer&, int32_t, uint8_t, const char*, const char*, bool, bool)"
+                );
+  }
+  if ((param_5 & 0x10) == 0) {
+    FUN_0400a810("textureSettings & 0x10",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/fixedPipelineEmulation.cpp"
+                 ,0x429,
+                 "void FragmentShaderCompiler::GenerateTexSample(TextBuffer&, TextBuffer&, int32_t, uint8_t, const char*, const char*, bool, bool)"
+                );
+  }
+  bVar8 = (param_5 & 0x20) == 0;
+  if ((param_5 & 8) == 0) {
+    ppuVar5 = &PTR_s_eON_Varyings_0__042ff180;
+    puVar7 = local_6c;
+    for (iVar2 = 0x14; iVar2 != 0; iVar2 = iVar2 + -1) {
+      *puVar7 = *ppuVar5;
+      ppuVar5 = ppuVar5 + (uint)bVar9 * -2 + 1;
+      puVar7 = puVar7 + (uint)bVar9 * -2 + 1;
+    }
+    if (!bVar8) {
+      if (param_4 == 0xffffffff) {
+        pcVar6 = "vec4(0.0)";
+        if (param_8 == 0) {
+          FUN_0400a810("varyingsOnly",
+                       "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/fixedPipelineEmulation.cpp"
+                       ,0x22,"const char* TexVaryingName(bool, int32_t)");
+        }
+      }
+      else {
+        pcVar6 = (char *)local_6c[(uint)(param_8 ^ 1) + param_4 * 2];
+      }
+      pcVar1 = "";
+      if (param_9 == '\0') {
+        pcVar1 = "3D";
+      }
+      sprintf(local_16c,"texture%s( PSampler%u, %s.rgb%s )",pcVar1,param_4,pcVar6,param_6);
+      goto joined_r0x040bccbc;
+    }
+LAB_040bcb3c:
+    if (param_4 == 0xffffffff) {
+      pcVar6 = "vec4(0.0)";
+      if (param_8 == 0) {
+        FUN_0400a810("varyingsOnly",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/fixedPipelineEmulation.cpp"
+                     ,0x22,"const char* TexVaryingName(bool, int32_t)");
+      }
+    }
+    else {
+      pcVar6 = (char *)local_6c[(uint)(param_8 ^ 1) + param_4 * 2];
+    }
+    pcVar1 = "";
+    if (param_9 == '\0') {
+      pcVar1 = "2D";
+    }
+    sprintf(local_16c,"texture%s( PSampler%u, %s.rg%s )",pcVar1,param_4,pcVar6,param_6);
+  }
+  else if (*param_6 == '\0') {
+    if ((param_5 & 4) == 0) goto LAB_040bcd18;
+LAB_040bcae1:
+    bVar4 = param_5 & 3;
+    if (bVar4 == 2) {
+LAB_040bce8d:
+      ppuVar5 = &PTR_s_eON_Varyings_0__042ff180;
+      puVar7 = local_6c;
+      for (iVar2 = 0x14; iVar2 != 0; iVar2 = iVar2 + -1) {
+        *puVar7 = *ppuVar5;
+        ppuVar5 = ppuVar5 + (uint)bVar9 * -2 + 1;
+        puVar7 = puVar7 + (uint)bVar9 * -2 + 1;
+      }
+      if (param_4 == 0xffffffff) {
+        pcVar6 = "vec4(0.0)";
+        local_188 = "vec4(0.0)";
+        if (param_8 == 0) {
+          FUN_0400a810("varyingsOnly",
+                       "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/fixedPipelineEmulation.cpp"
+                       ,0x22,"const char* TexVaryingName(bool, int32_t)");
+          FUN_0400a810("varyingsOnly",
+                       "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/fixedPipelineEmulation.cpp"
+                       ,0x22,"const char* TexVaryingName(bool, int32_t)");
+        }
+      }
+      else {
+        iVar2 = (uint)(param_8 ^ 1) + param_4 * 2;
+        local_188 = (char *)local_6c[iVar2];
+        ppuVar5 = &PTR_s_eON_Varyings_0__042ff180;
+        puVar7 = local_6c;
+        for (iVar3 = 0x14; iVar3 != 0; iVar3 = iVar3 + -1) {
+          *puVar7 = *ppuVar5;
+          ppuVar5 = ppuVar5 + (uint)bVar9 * -2 + 1;
+          puVar7 = puVar7 + (uint)bVar9 * -2 + 1;
+        }
+        pcVar6 = (char *)local_6c[iVar2];
+      }
+      pcVar1 = "";
+      if (param_9 == '\0') {
+        pcVar1 = "2D";
+      }
+      sprintf(local_16c,"texture%s( PSampler%u, ( %s.rg / %s.a )%s )",pcVar1,param_4,pcVar6,
+              local_188,param_6);
+    }
+    else if (bVar4 == 3) {
+      if (bVar8) goto LAB_040bce8d;
+      ppuVar5 = &PTR_s_eON_Varyings_0__042ff180;
+      puVar7 = local_6c;
+      for (iVar2 = 0x14; iVar2 != 0; iVar2 = iVar2 + -1) {
+        *puVar7 = *ppuVar5;
+        ppuVar5 = ppuVar5 + (uint)bVar9 * -2 + 1;
+        puVar7 = puVar7 + (uint)bVar9 * -2 + 1;
+      }
+      if (param_4 == 0xffffffff) {
+        pcVar6 = "vec4(0.0)";
+        if (param_8 == 0) {
+          FUN_0400a810("varyingsOnly",
+                       "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/fixedPipelineEmulation.cpp"
+                       ,0x22,"const char* TexVaryingName(bool, int32_t)");
+        }
+      }
+      else {
+        pcVar6 = (char *)local_6c[(uint)(param_8 ^ 1) + param_4 * 2];
+      }
+      pcVar1 = "";
+      if (param_9 == '\0') {
+        pcVar1 = "3D";
+      }
+      sprintf(local_16c,"texture%sProj( PSampler%u, %s )",pcVar1,param_4,pcVar6);
+    }
+    else if (bVar4 == 1) {
+      ppuVar5 = &PTR_s_eON_Varyings_0__042ff180;
+      puVar7 = local_6c;
+      for (iVar2 = 0x14; iVar2 != 0; iVar2 = iVar2 + -1) {
+        *puVar7 = *ppuVar5;
+        ppuVar5 = ppuVar5 + (uint)bVar9 * -2 + 1;
+        puVar7 = puVar7 + (uint)bVar9 * -2 + 1;
+      }
+      if (param_4 == 0xffffffff) {
+        pcVar6 = "vec4(0.0)";
+        local_188 = "vec4(0.0)";
+        if (param_8 == 0) {
+          FUN_0400a810("varyingsOnly",
+                       "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/fixedPipelineEmulation.cpp"
+                       ,0x22,"const char* TexVaryingName(bool, int32_t)");
+          FUN_0400a810("varyingsOnly",
+                       "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/fixedPipelineEmulation.cpp"
+                       ,0x22,"const char* TexVaryingName(bool, int32_t)");
+        }
+      }
+      else {
+        iVar2 = (uint)(param_8 ^ 1) + param_4 * 2;
+        local_188 = (char *)local_6c[iVar2];
+        ppuVar5 = &PTR_s_eON_Varyings_0__042ff180;
+        puVar7 = local_6c;
+        for (iVar3 = 0x14; iVar3 != 0; iVar3 = iVar3 + -1) {
+          *puVar7 = *ppuVar5;
+          ppuVar5 = ppuVar5 + (uint)bVar9 * -2 + 1;
+          puVar7 = puVar7 + (uint)bVar9 * -2 + 1;
+        }
+        pcVar6 = (char *)local_6c[iVar2];
+      }
+      pcVar1 = "";
+      if (param_9 == '\0') {
+        pcVar1 = "2D";
+      }
+      sprintf(local_16c,"texture%sProj( PSampler%u, vec3( %s.r, 0.0, %s.g ) )",pcVar1,param_4,pcVar6
+              ,local_188);
+    }
+    else {
+      FUN_0402cd10(0xf,"COUNT1|PROJECTED in texture settings!");
+    }
+  }
+  else {
+    FUN_0402cd10(10,
+                 "Texture transform flags used with texture bias! Untested, probably wrong! Make sure it\'s rendered correctly!"
+                );
+    if ((param_5 & 4) != 0) goto LAB_040bcae1;
+LAB_040bcd18:
+    bVar4 = param_5 & 3;
+    if (bVar4 == 2) {
+      ppuVar5 = &PTR_s_eON_Varyings_0__042ff180;
+      puVar7 = local_6c;
+      for (iVar2 = 0x14; iVar2 != 0; iVar2 = iVar2 + -1) {
+        *puVar7 = *ppuVar5;
+        ppuVar5 = ppuVar5 + (uint)bVar9 * -2 + 1;
+        puVar7 = puVar7 + (uint)bVar9 * -2 + 1;
+      }
+      if (bVar8) goto LAB_040bcb3c;
+      if (param_4 == 0xffffffff) {
+        pcVar6 = "vec4(0.0)";
+        if (param_8 == 0) {
+          FUN_0400a810("varyingsOnly",
+                       "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/fixedPipelineEmulation.cpp"
+                       ,0x22,"const char* TexVaryingName(bool, int32_t)");
+        }
+      }
+      else {
+        pcVar6 = (char *)local_6c[(uint)(param_8 ^ 1) + param_4 * 2];
+      }
+      pcVar1 = "";
+      if (param_9 == '\0') {
+        pcVar1 = "3D";
+      }
+      sprintf(local_16c,"texture%s( PSampler%u, %s.rgb )",pcVar1,param_4,pcVar6);
+    }
+    else if (bVar4 == 3) {
+      FUN_0402cd10(0xf,"COUNT4 without PROJECTED in texture settings!");
+    }
+    else {
+      ppuVar5 = &PTR_s_eON_Varyings_0__042ff180;
+      puVar7 = local_6c;
+      for (iVar2 = 0x14; iVar2 != 0; iVar2 = iVar2 + -1) {
+        *puVar7 = *ppuVar5;
+        ppuVar5 = ppuVar5 + (uint)bVar9 * -2 + 1;
+        puVar7 = puVar7 + (uint)bVar9 * -2 + 1;
+      }
+      if (bVar4 == 1) goto LAB_040bcb3c;
+      if (param_4 == 0xffffffff) {
+        pcVar6 = "vec4(0.0)";
+        if (param_8 == 0) {
+          FUN_0400a810("varyingsOnly",
+                       "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/fixedPipelineEmulation.cpp"
+                       ,0x22,"const char* TexVaryingName(bool, int32_t)");
+        }
+      }
+      else {
+        pcVar6 = (char *)local_6c[(uint)(param_8 ^ 1) + param_4 * 2];
+      }
+      pcVar1 = "";
+      if (param_9 == '\0') {
+        pcVar1 = "2D";
+      }
+      sprintf(local_16c,"texture%s( PSampler%u, vec2( %s.r, 0.0 )%s )",pcVar1,param_4,pcVar6,param_6
+             );
+    }
+  }
+joined_r0x040bccbc:
+  if (param_5 >> 6 == 1) {
+    eON_AppendShaderCompileMessage(param_2,"vec4( 1.0, 1.0, 1.0, %s.r )%s",local_16c,param_7);
+    goto joined_r0x040bcce6;
+  }
+  param_5 = param_5 >> 6;
+  if (param_5 != 0) {
+    if (param_5 == 2) {
+      eON_AppendShaderCompileMessage(param_2,"vec4( %s.rrr, 1.0 )%s",local_16c,param_7);
+      goto joined_r0x040bcce6;
+    }
+    if (param_5 == 3) {
+      eON_AppendShaderCompileMessage(param_2,"vec4( %s.rrrg )%s",local_16c,param_7);
+      goto joined_r0x040bcce6;
+    }
+    FUN_0400a810("false",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/fixedPipelineEmulation.cpp"
+                 ,0x45e,
+                 "void FragmentShaderCompiler::GenerateTexSample(TextBuffer&, TextBuffer&, int32_t, uint8_t, const char*, const char*, bool, bool)"
+                );
+  }
+  eON_AppendShaderCompileMessage(param_2,"%s%s",local_16c,param_7);
+joined_r0x040bcce6:
+  if (7 < param_4) {
+    FUN_0400a810("( stageNo >= 0 ) && ( stageNo < 8 )",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/fixedPipelineEmulation.cpp"
+                 ,0x465,
+                 "void FragmentShaderCompiler::GenerateTexSample(TextBuffer&, TextBuffer&, int32_t, uint8_t, const char*, const char*, bool, bool)"
+                );
+  }
+  bVar9 = (byte)(1 << ((byte)param_4 & 0x1f));
+  if ((*(byte *)(param_1 + 2) & bVar9) == 0) {
+    eON_AppendShaderCompileMessage
+              (param_3,"uniform sampler%uD PSampler%u;\n",3 - (uint)bVar8,param_4);
+    *(byte *)(param_1 + 2) = *(byte *)(param_1 + 2) | bVar9;
+  }
+  return;
+}
+

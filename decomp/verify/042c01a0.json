@@ -1,0 +1,94 @@
+
+undefined4
+png_image_write_to_stdio
+          (undefined4 *param_1,int param_2,undefined4 param_3,undefined4 param_4,undefined4 param_5,
+          undefined4 param_6)
+
+{
+  undefined4 uVar1;
+  int *piVar2;
+  int iVar3;
+  undefined2 *puVar4;
+  int *piVar5;
+  uint uVar6;
+  uint uVar7;
+  bool bVar8;
+  undefined4 *local_44 [8];
+  int local_24;
+  int local_20 [4];
+  
+  if (param_1 == (undefined4 *)0x0) {
+    return 0;
+  }
+  if (param_1[1] != 1) {
+    uVar1 = FUN_042a94d0(param_1,"png_image_write_to_stdio: incorrect PNG_IMAGE_VERSION");
+    return uVar1;
+  }
+  if (param_2 == 0) {
+    uVar1 = FUN_042a94d0(param_1,"png_image_write_to_stdio: invalid argument");
+    return uVar1;
+  }
+  local_24 = FUN_042be830(&DAT_04398bf1,param_1,png_set_strip_error_numbers,FUN_042aa000);
+  if (local_24 != 0) {
+    local_20[0] = FUN_042a55e0(local_24);
+    if (local_20[0] != 0) {
+      piVar2 = (int *)FUN_042aa3a0(local_24,0x18);
+      if (piVar2 != (int *)0x0) {
+        bVar8 = ((uint)piVar2 & 1) != 0;
+        uVar7 = 0x18;
+        piVar5 = piVar2;
+        if (bVar8) {
+          *(undefined1 *)piVar2 = 0;
+          piVar5 = (int *)((int)piVar2 + 1);
+          uVar7 = 0x17;
+        }
+        if (((uint)piVar5 & 2) != 0) {
+          *(undefined2 *)piVar5 = 0;
+          uVar7 = uVar7 - 2;
+          piVar5 = (int *)((int)piVar5 + 2);
+        }
+        uVar6 = 0;
+        do {
+          *(undefined4 *)((int)piVar5 + uVar6) = 0;
+          uVar6 = uVar6 + 4;
+        } while (uVar6 < (uVar7 & 0xfffffffc));
+        puVar4 = (undefined2 *)((int)piVar5 + uVar6);
+        if ((uVar7 & 2) != 0) {
+          *puVar4 = 0;
+          puVar4 = puVar4 + 1;
+        }
+        if (bVar8) {
+          *(undefined1 *)puVar4 = 0;
+        }
+        *piVar2 = local_24;
+        *(byte *)(piVar2 + 5) = *(byte *)(piVar2 + 5) | 1;
+        piVar2[1] = local_20[0];
+        *param_1 = piVar2;
+        goto LAB_042c02ae;
+      }
+      FUN_042a5ce0(local_24,local_20);
+    }
+    FUN_042bf1f0(&local_24,0);
+  }
+  iVar3 = FUN_042a94d0(param_1,"png_image_write_: out of memory");
+  if (iVar3 == 0) {
+    return 0;
+  }
+  piVar2 = (int *)*param_1;
+LAB_042c02ae:
+  *(int *)(*piVar2 + 0xbc) = param_2;
+  uVar7 = 0;
+  do {
+    *(undefined4 *)((int)local_44 + uVar7) = 0;
+    uVar7 = uVar7 + 4;
+  } while (uVar7 < 0x20);
+  local_44[0] = param_1;
+  local_44[1] = (undefined4 *)param_4;
+  local_44[2] = (undefined4 *)param_5;
+  local_44[3] = (undefined4 *)param_6;
+  local_44[4] = (undefined4 *)param_3;
+  uVar1 = FUN_042aa050(param_1,png_image_write,local_44);
+  FUN_042a9490(param_1);
+  return uVar1;
+}
+

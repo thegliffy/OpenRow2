@@ -1,0 +1,11 @@
+
+undefined4 eON_IgnoreInvalidStdOutputHandle(int param_1,int param_2)
+
+{
+  if ((param_2 == -1) && (param_1 == -0xb)) {
+    FUN_0402cd10(5,"Game tries to set standard output to invalid handle. Ignoring.");
+    return 1;
+  }
+  return 0;
+}
+

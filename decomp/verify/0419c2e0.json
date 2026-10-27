@@ -1,0 +1,56 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+bool _glewInit_GL_ATI_fragment_shader(void)
+
+{
+  int iVar1;
+  bool bVar2;
+  bool bVar3;
+  bool bVar4;
+  bool bVar5;
+  bool bVar6;
+  bool bVar7;
+  bool bVar8;
+  bool bVar9;
+  bool bVar10;
+  bool bVar11;
+  bool bVar12;
+  bool bVar13;
+  
+  iVar1 = glXGetProcAddressARB("glAlphaFragmentOp1ATI");
+  _DAT_0451ddc8 = iVar1;
+  _DAT_0451ddc4 = glXGetProcAddressARB("glAlphaFragmentOp2ATI");
+  bVar2 = _DAT_0451ddc4 == 0;
+  _DAT_0451ddc0 = glXGetProcAddressARB("glAlphaFragmentOp3ATI");
+  bVar3 = _DAT_0451ddc0 == 0;
+  _DAT_0451ddbc = glXGetProcAddressARB("glBeginFragmentShaderATI");
+  bVar4 = _DAT_0451ddbc == 0;
+  _DAT_0451ddb8 = glXGetProcAddressARB("glBindFragmentShaderATI");
+  bVar5 = _DAT_0451ddb8 == 0;
+  _DAT_0451ddb4 = glXGetProcAddressARB("glColorFragmentOp1ATI");
+  bVar6 = _DAT_0451ddb4 == 0;
+  _DAT_0451ddb0 = glXGetProcAddressARB("glColorFragmentOp2ATI");
+  bVar7 = _DAT_0451ddb0 == 0;
+  _DAT_0451ddac = glXGetProcAddressARB("glColorFragmentOp3ATI");
+  bVar8 = _DAT_0451ddac == 0;
+  _DAT_0451dda8 = glXGetProcAddressARB("glDeleteFragmentShaderATI");
+  bVar9 = _DAT_0451dda8 == 0;
+  _DAT_0451dda4 = glXGetProcAddressARB("glEndFragmentShaderATI");
+  bVar10 = _DAT_0451dda4 == 0;
+  _DAT_0451dda0 = glXGetProcAddressARB("glGenFragmentShadersATI");
+  bVar11 = _DAT_0451dda0 == 0;
+  _DAT_0451dd9c = glXGetProcAddressARB("glPassTexCoordATI");
+  bVar12 = _DAT_0451dd9c == 0;
+  _DAT_0451dd98 = glXGetProcAddressARB("glSampleMapATI");
+  bVar13 = _DAT_0451dd98 == 0;
+  _DAT_0451dd94 = glXGetProcAddressARB("glSetFragmentShaderConstantATI");
+  return _DAT_0451dd94 == 0 ||
+         (bVar13 ||
+         (bVar12 ||
+         (bVar11 ||
+         (bVar10 ||
+         (bVar9 || (bVar8 || (bVar7 || (bVar6 || (bVar5 || (bVar4 || (bVar3 || (bVar2 || iVar1 == 0)
+                                                                     )))))))))));
+}
+

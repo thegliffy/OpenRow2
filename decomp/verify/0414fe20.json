@@ -1,0 +1,24 @@
+
+/* source: windll */
+
+undefined4 dll_Init(void)
+
+{
+  int iVar1;
+  pthread_mutexattr_t local_10 [2];
+  
+  pthread_mutexattr_init(local_10);
+  pthread_mutexattr_setprioceiling(local_10,0);
+  pthread_mutexattr_setprotocol(local_10,0);
+  pthread_mutexattr_setpshared(local_10,1);
+  pthread_mutexattr_settype(local_10,1);
+  iVar1 = pthread_mutex_init((pthread_mutex_t *)&DAT_0451add4,local_10);
+  if (iVar1 != 0) {
+    FUN_0400a810("pthread_mutex_init( &gDLLsMutex, &attr ) == 0",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/windll.cpp"
+                 ,0x3aa,"bool dll_Init()");
+  }
+  pthread_mutexattr_destroy(local_10);
+  return 1;
+}
+

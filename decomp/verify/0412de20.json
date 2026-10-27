@@ -1,0 +1,88 @@
+
+/* source: fs_filemapping */
+
+int fs_MapViewOfFileEx(undefined4 param_1,uint param_2,int param_3,uint param_4,int param_5,
+                      undefined4 param_6)
+
+{
+  char cVar1;
+  undefined4 uVar2;
+  uint uVar3;
+  uint uVar4;
+  undefined4 uVar5;
+  int iVar6;
+  undefined *puVar7;
+  int iVar8;
+  int iVar9;
+  int *local_28;
+  int local_24 [3];
+  undefined4 *local_18;
+  
+  uVar5 = param_6;
+  iVar9 = param_5;
+  uVar4 = param_4;
+  iVar8 = param_3;
+  uVar3 = param_2;
+  uVar2 = param_1;
+  local_18 = &param_1;
+  iVar6 = Synchronisation_GetObjectInfo(param_1,&local_28,local_24);
+  if (iVar6 == 0) {
+    return 0;
+  }
+  if (local_24[0] != 6) {
+    return 0;
+  }
+  cVar1 = (char)local_28[2];
+  if (((((uVar3 & 0x20) != 0) && (cVar1 != ' ')) && (cVar1 != -0x80)) && (cVar1 != '@')) {
+    return 0;
+  }
+  puVar7 = (undefined *)(uVar3 & 0xffffffdf);
+  if (puVar7 == (undefined *)0x2) {
+LAB_0412dfa0:
+    if (*local_28 != -1) {
+      FUN_0402cd10(10,
+                   "Game wants to map a real file with write enabled! We should be able to handle it, but it seems rare..."
+                  );
+    }
+    if ((cVar1 != '\x04') && (cVar1 != '@')) {
+      return 0;
+    }
+LAB_0412def8:
+    if (iVar8 != 0) {
+      FUN_0400a810("!dwFileOffsetHigh",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/fs_filemapping.cpp"
+                   ,0x1c1,"void* fs_MapViewOfFileEx(HANDLE, DWORD, DWORD, DWORD, SIZE_T, PVOID)");
+    }
+    if (iVar9 == 0) {
+      iVar9 = local_28[3];
+    }
+    if ((uVar4 & 0xffff) == 0) {
+      iVar8 = FUN_0413df00(uVar5,iVar9,uVar3,uVar2,uVar4,iVar8);
+      if (iVar8 == -1) {
+        iVar8 = 0;
+      }
+    }
+    else {
+      eON_SetLastError(0x57);
+      iVar8 = 0;
+    }
+  }
+  else {
+    if (puVar7 < (undefined *)0x3) {
+      if (((puVar7 == (undefined *)0x1) && (cVar1 != '\x10')) && (cVar1 != '\x01'))
+      goto LAB_0412def8;
+    }
+    else {
+      if (puVar7 == (undefined *)0x4) {
+        if (((cVar1 != '\x04') && (cVar1 != '@')) && ((cVar1 != '\x02' && (cVar1 != ' ')))) {
+          return 0;
+        }
+        goto LAB_0412def8;
+      }
+      if (puVar7 == &DAT_000f001f) goto LAB_0412dfa0;
+    }
+    iVar8 = 0;
+  }
+  return iVar8;
+}
+

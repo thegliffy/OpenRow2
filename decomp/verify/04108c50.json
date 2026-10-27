@@ -1,0 +1,8 @@
+
+undefined4 XAudio2MasteringVoiceImp__SetOutputMatrix(void)
+
+{
+  FUN_0402cd10(10,"Trying to set output matrix for a mastering voice. It doesn\'t make sense.");
+  return 0;
+}
+

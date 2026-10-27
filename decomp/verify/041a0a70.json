@@ -1,0 +1,26 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+bool _glewInit_GL_NV_texture_multisample(void)
+
+{
+  int iVar1;
+  bool bVar2;
+  bool bVar3;
+  bool bVar4;
+  bool bVar5;
+  
+  iVar1 = glXGetProcAddressARB("glTexImage2DMultisampleCoverageNV");
+  _DAT_0451cfac = iVar1;
+  _DAT_0451cfa8 = glXGetProcAddressARB("glTexImage3DMultisampleCoverageNV");
+  bVar2 = _DAT_0451cfa8 == 0;
+  _DAT_0451cfa4 = glXGetProcAddressARB("glTextureImage2DMultisampleCoverageNV");
+  bVar3 = _DAT_0451cfa4 == 0;
+  _DAT_0451cfa0 = glXGetProcAddressARB("glTextureImage2DMultisampleNV");
+  bVar4 = _DAT_0451cfa0 == 0;
+  _DAT_0451cf9c = glXGetProcAddressARB("glTextureImage3DMultisampleCoverageNV");
+  bVar5 = _DAT_0451cf9c == 0;
+  _DAT_0451cf98 = glXGetProcAddressARB("glTextureImage3DMultisampleNV");
+  return _DAT_0451cf98 == 0 || (bVar5 || (bVar4 || (bVar3 || (bVar2 || iVar1 == 0))));
+}
+

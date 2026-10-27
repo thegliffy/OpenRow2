@@ -1,0 +1,72 @@
+
+/* source: d3dstructs */
+
+undefined4 Direct3DDevice9Imp__CreateQuery(int param_1,int param_2,undefined4 *param_3)
+
+{
+  int iVar1;
+  char cVar2;
+  int *piVar3;
+  undefined4 uVar4;
+  int *piVar5;
+  undefined4 local_50;
+  undefined1 local_20 [16];
+  
+  piVar5 = (int *)&stack0xffffffb4;
+  if (param_3 == (undefined4 *)0x0) {
+    uVar4 = 0;
+    if (1 < param_2 - 8U) {
+      uVar4 = 0x8876086a;
+      local_50 = 0x40710c5;
+      FUN_0402cd10();
+    }
+  }
+  else {
+    local_50 = 0x4070f60;
+    direct3ddevice9imp_040704e0();
+                    /* try { // try from 04070f67 to 04070f6b has its CatchHandler @ 040710e6 */
+    local_50 = 0x4070f6c;
+    piVar3 = operator_new(0x54);
+    *piVar3 = (int)&PTR_FUN_042f7088;
+                    /* try { // try from 04070f81 to 04070f85 has its CatchHandler @ 040710ca */
+    local_50 = 0x4070f86;
+    Direct3DQuery9Imp__Direct3DQuery9Imp();
+                    /* try { // try from 04070f9a to 04070faa has its CatchHandler @ 040710e6 */
+    local_50 = 0x4070f9f;
+    cVar2 = Direct3DQuery9Imp__Initialize();
+    if (cVar2 == '\0') {
+      local_50 = 0x4070fab;
+      (**(code **)(*piVar3 + 8))();
+      piVar5 = &local_50;
+      uVar4 = 0x8876086a;
+      *param_3 = 0;
+    }
+    else {
+      local_50 = 0x4070fe9;
+      pthread_mutex_lock((pthread_mutex_t *)(param_1 + 0xeb20));
+      if (piVar3[6] != 0) {
+                    /* try { // try from 0407100f to 0407103e has its CatchHandler @ 040710e6 */
+        local_50 = 0x4071014;
+        FUN_0400a810();
+      }
+      if (piVar3[7] != 0) {
+        local_50 = 0x407103f;
+        FUN_0400a810();
+      }
+      piVar3[6] = param_1 + 0xeb14;
+      piVar3[7] = *(int *)(param_1 + 0xeb1c);
+      iVar1 = *(int *)(param_1 + 0xeb1c);
+      *(int **)(param_1 + 0xeb1c) = piVar3 + 5;
+      *(int **)(iVar1 + 4) = piVar3 + 5;
+      local_50 = 0x407106e;
+      pthread_mutex_unlock((pthread_mutex_t *)(param_1 + 0xeb20));
+      *param_3 = piVar3;
+      uVar4 = 0;
+    }
+    *piVar5 = (int)local_20;
+    piVar5[-1] = 0x4070fc4;
+    direct3ddevice9imp_040a2df0();
+  }
+  return uVar4;
+}
+

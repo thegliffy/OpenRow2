@@ -1,0 +1,81 @@
+
+char * eON_GetCurrentDirectoryW(char *param_1,undefined4 param_2)
+
+{
+  int iVar1;
+  uint uVar2;
+  uint uVar3;
+  char *pcVar4;
+  uint *puVar5;
+  uint *puVar6;
+  char *pcVar7;
+  undefined4 *puVar8;
+  undefined4 local_2468;
+  char *local_2464;
+  char *local_2460;
+  char *local_245c;
+  undefined4 uStackY_2454;
+  char *local_2428;
+  uint local_2420 [2048];
+  char local_420 [1032];
+  undefined4 *local_18;
+  
+  pcVar4 = param_1;
+  local_18 = &param_1;
+  puVar8 = (undefined4 *)&stack0xffffdbb0;
+  local_2428 = local_420;
+  if ((char *)0x400 < param_1) {
+    uStackY_2454 = 0x412d438;
+    local_2428 = malloc((size_t)param_1);
+  }
+  uStackY_2454 = 0x412d330;
+  iVar1 = FUN_04049cf0();
+  puVar6 = local_2420;
+  if (iVar1 == 0) {
+    pcVar7 = (char *)0x0;
+    uStackY_2454 = 0x412d45e;
+    FUN_0402cd10();
+  }
+  else {
+    do {
+      puVar5 = puVar6;
+      uVar2 = *puVar5 + 0xfefefeff & ~*puVar5;
+      uVar3 = uVar2 & 0x80808080;
+      puVar6 = puVar5 + 1;
+    } while (uVar3 == 0);
+    if ((uVar2 & 0x8080) == 0) {
+      puVar6 = (uint *)((int)puVar5 + 6);
+      uVar3 = uVar3 >> 0x10;
+    }
+    pcVar7 = (char *)((int)puVar6 + ((-3 - (uint)CARRY1((byte)uVar3,(byte)uVar3)) - (int)local_2420)
+                     );
+    if (pcVar7 < pcVar4) {
+      uStackY_2454 = 0x412d3c2;
+      strcpy(local_2428,(char *)local_2420);
+    }
+    else {
+      pcVar7 = pcVar7 + 1;
+    }
+    puVar8 = (undefined4 *)&stack0xffffdbb0;
+    if ((pcVar7 <= pcVar4) && (puVar8 = (undefined4 *)&stack0xffffdbb0, pcVar7 != (char *)0x0)) {
+      uStackY_2454 = 0x412d3fd;
+      pcVar4 = (char *)eON_MultiByteToWideChar();
+      puVar8 = &local_2468;
+      if (pcVar7 + 1 != pcVar4) {
+        local_2464 = "(%u) convertLen != len + 1 (%u) in GetCurrentDirectoryW()";
+        local_2468 = 0xf;
+        local_2460 = pcVar4;
+        local_245c = pcVar7 + 1;
+        FUN_0402cd10();
+        puVar8 = &local_2468;
+      }
+    }
+  }
+  if (local_2428 != local_420) {
+    *puVar8 = local_2428;
+    puVar8[-1] = 0x412d38f;
+    free((void *)*puVar8);
+  }
+  return pcVar7;
+}
+

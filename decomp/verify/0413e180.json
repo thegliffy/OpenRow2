@@ -1,0 +1,38 @@
+
+/* source: mem_vm */
+
+undefined4 vmm_PrepareImageRegion(uint param_1)
+
+{
+  int iVar1;
+  undefined4 uVar2;
+  int local_10;
+  
+  if (param_1 != (param_1 & 0xffff0000)) {
+    FUN_0400a810("(PVOID) RoundDownToAddrBoundary( (SIZE_T) address ) == address",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/mem_vm.cpp"
+                 ,0x7db,"void* vmm_PrepareImageRegion(PVOID, SIZE_T)");
+  }
+  pthread_mutex_lock((pthread_mutex_t *)&DAT_04515bf4);
+  local_10 = 0;
+  iVar1 = vmm_ReserveRegion(1,0,&local_10);
+  if (iVar1 == 0) {
+    uVar2 = 0;
+    pthread_mutex_unlock((pthread_mutex_t *)&DAT_04515bf4);
+  }
+  else {
+    *(byte *)(local_10 + 0x1c) = *(byte *)(local_10 + 0x1c) | 1;
+    if (*(uint *)(local_10 + 8) != (*(uint *)(local_10 + 8) + 0xffff & 0xffff0000)) {
+      FUN_0400a810("region->Address == (PVOID) RoundUpToAddrBoundary( (SIZE_T)region->Address )",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/mem_vm.cpp"
+                   ,0x7eb,"void* vmm_PrepareImageRegion(PVOID, SIZE_T)");
+    }
+    *(undefined4 *)(local_10 + 0x28) = 0x40;
+    *(undefined4 *)(local_10 + 0x2c) = 0x40;
+    vmm_CommitRegion(7);
+    uVar2 = *(undefined4 *)(local_10 + 8);
+    pthread_mutex_unlock((pthread_mutex_t *)&DAT_04515bf4);
+  }
+  return uVar2;
+}
+

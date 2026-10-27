@@ -1,0 +1,51 @@
+
+/* source: vpfsdb */
+
+undefined4 __regparm3 WriteRecord(int param_1,undefined4 *param_2)
+
+{
+  size_t sVar1;
+  undefined1 uVar2;
+  char cVar3;
+  undefined4 uVar4;
+  ssize_t sVar5;
+  size_t sVar6;
+  size_t local_24;
+  undefined1 local_1d [13];
+  
+  uVar4 = 1;
+  if (param_2 != (undefined4 *)0x0) {
+    uVar2 = 2;
+    if (param_2[2] != 0) {
+      uVar2 = 3;
+    }
+    local_1d[0] = param_2[2] != 0;
+    if (param_2[3] != 0) {
+      local_1d[0] = uVar2;
+    }
+    sVar5 = write(param_1,local_1d,1);
+    if (sVar5 == 1) {
+      local_24 = strlen((char *)*param_2);
+      if (0x400 < local_24) {
+        FUN_0400a810("nameLen <= 1024",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/vpfs/vpfsdb.cpp",0xbf
+                     ,"bool WriteRecord(int, DbEntry*)");
+      }
+      sVar5 = write(param_1,&local_24,4);
+      sVar1 = local_24;
+      if (((sVar5 == 4) && (sVar6 = write(param_1,(void *)*param_2,local_24), sVar1 == sVar6)) &&
+         (sVar5 = write(param_1,param_2 + 4,0x18), sVar5 == 0x18)) {
+        cVar3 = WriteRecord();
+        if (cVar3 == '\0') {
+          return 0;
+        }
+        uVar4 = WriteRecord();
+        return uVar4;
+      }
+    }
+    DAT_04468ab4 = DAT_04468ab4 & 4;
+    uVar4 = 0;
+  }
+  return uVar4;
+}
+

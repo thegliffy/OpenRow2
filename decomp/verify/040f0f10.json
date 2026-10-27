@@ -1,0 +1,204 @@
+
+undefined4 DirectInput8Imp__EnumDevices(int param_1,int param_2,code *param_3,int param_4)
+
+{
+  char cVar1;
+  undefined4 *puVar2;
+  int *piVar3;
+  bool bVar4;
+  undefined1 auStackY_6e4 [8];
+  undefined4 local_6dc;
+  undefined1 *local_6d8;
+  wchar16 *local_6d4;
+  undefined4 local_6d0;
+  undefined4 *local_6b0;
+  undefined4 local_6ac;
+  undefined4 local_6a8;
+  undefined4 local_6a4;
+  undefined4 local_6a0;
+  undefined4 local_69c;
+  undefined *local_698;
+  undefined4 local_694;
+  undefined4 local_690;
+  undefined4 local_68c;
+  int local_688;
+  undefined1 local_684 [520];
+  undefined1 local_47c [520];
+  undefined4 local_274;
+  undefined4 local_270;
+  undefined4 local_26c;
+  undefined4 local_268;
+  undefined2 local_264;
+  undefined2 local_262;
+  undefined4 local_260;
+  undefined4 local_25c;
+  undefined4 local_258;
+  undefined4 local_254;
+  undefined4 local_250;
+  undefined *local_24c;
+  undefined4 local_248;
+  undefined4 local_244;
+  undefined4 local_240;
+  int local_23c;
+  char local_238 [260];
+  char local_134 [260];
+  undefined4 local_30;
+  undefined4 local_2c;
+  undefined4 local_28;
+  undefined4 local_24;
+  undefined2 local_20;
+  undefined2 local_1e;
+  
+  piVar3 = (int *)&stack0xfffff934;
+  puVar2 = (undefined4 *)&stack0xfffff934;
+  bVar4 = param_2 == 0;
+  if ((param_2 == 4) || (bVar4)) {
+    local_6d0 = 0x40f1415;
+    GamepadControl__SetInitialMinMaxValues();
+    local_6d0 = 0x40f141a;
+    FUN_04010dd0();
+  }
+  if ((param_2 == 3) || (bVar4)) {
+    if (*(char *)(param_1 + 0x18) == '\0') goto LAB_040f0f53;
+LAB_040f12f0:
+    local_6b0 = &local_6ac;
+    local_6d0 = 0x40f130c;
+    bzero(local_6b0,0x44c);
+    local_6ac = 0x44c;
+    local_264 = 1;
+    local_262 = 6;
+    local_6a8 = DAT_042dbbf8;
+    local_6a4 = DAT_042dbbfc;
+    local_6a0 = DAT_042dbc00;
+    local_69c = DAT_042dbc04;
+    local_698 = PTR_DAT_042daa58;
+    local_694 = DAT_042daa5c;
+    local_690 = DAT_042daa60;
+    local_68c = DAT_042daa64;
+    local_274 = DAT_042dbb38;
+    local_270 = DAT_042dbb3c;
+    local_26c = DAT_042dbb40;
+    local_268 = DAT_042dbb44;
+    local_688 = (-(uint)(*(char *)(param_1 + 0x19) == '\0') & 0x10) + 0x403;
+    local_6d0 = 0x40f13de;
+    FUN_0415a1f0();
+    local_6d8 = local_684;
+    local_6d0 = 0x104;
+    local_6d4 = L"Keyboard";
+    local_6dc = 0x40f13ff;
+    FUN_0415a1f0();
+    puVar2 = (undefined4 *)auStackY_6e4;
+  }
+  else {
+    if (param_2 != 0x13) goto LAB_040f1063;
+    if (*(char *)(param_1 + 0x18) != '\0') goto LAB_040f12f0;
+LAB_040f0f53:
+    local_6b0 = &local_260;
+    local_6d0 = 0x40f0f6f;
+    bzero(local_6b0,0x244);
+    local_20 = 1;
+    local_1e = 6;
+    local_260 = 0x244;
+    local_25c = DAT_042dbbf8;
+    local_258 = DAT_042dbbfc;
+    local_254 = DAT_042dbc00;
+    local_250 = DAT_042dbc04;
+    local_24c = PTR_DAT_042daa58;
+    local_248 = DAT_042daa5c;
+    local_244 = DAT_042daa60;
+    local_240 = DAT_042daa64;
+    local_30 = DAT_042dbb38;
+    local_2c = DAT_042dbb3c;
+    local_28 = DAT_042dbb40;
+    local_24 = DAT_042dbb44;
+    local_23c = (-(uint)(*(char *)(param_1 + 0x19) == '\0') & 0x10) + 0x403;
+    local_6d0 = 0x40f102f;
+    strncpy(local_134,"Keyboard",0x104);
+    local_6d0 = 0x40f104d;
+    strncpy(local_238,"Keyboard",0x104);
+  }
+  puVar2[1] = param_4;
+  *puVar2 = local_6b0;
+  puVar2[-1] = 0x40f1060;
+  (*param_3)();
+  piVar3 = puVar2 + -2;
+LAB_040f1063:
+  if (((param_2 != 2) && (!bVar4)) && (param_2 != 0x12)) {
+    return 0;
+  }
+  if (*(char *)(param_1 + 0x18) == '\0') {
+    local_6b0 = &local_260;
+    piVar3[1] = 0x244;
+    *piVar3 = (int)local_6b0;
+    piVar3[-1] = 0x40f1098;
+    bzero((void *)*piVar3,piVar3[1]);
+    local_20 = 1;
+    cVar1 = *(char *)(param_1 + 0x19);
+    local_1e = 2;
+    local_260 = 0x244;
+    piVar3[2] = 0x104;
+    local_25c = DAT_042dbc08;
+    piVar3[1] = (int)"Mouse";
+    local_258 = DAT_042dbc0c;
+    local_254 = DAT_042dbc10;
+    local_250 = DAT_042dbc14;
+    local_24c = PTR_DAT_042daa48;
+    local_248 = DAT_042daa4c;
+    local_244 = DAT_042daa50;
+    local_240 = DAT_042daa54;
+    local_30 = DAT_042dbb38;
+    local_2c = DAT_042dbb3c;
+    local_28 = DAT_042dbb40;
+    local_24 = DAT_042dbb44;
+    local_23c = (-(uint)(cVar1 == '\0') & 0x10) + 0x202;
+    *piVar3 = (int)local_134;
+    piVar3[-1] = 0x40f1158;
+    strncpy((char *)*piVar3,(char *)piVar3[1],piVar3[2]);
+    piVar3[2] = 0x104;
+    piVar3[1] = (int)"Mouse";
+    *piVar3 = (int)local_238;
+    piVar3[-1] = 0x40f1176;
+    strncpy((char *)*piVar3,(char *)piVar3[1],piVar3[2]);
+  }
+  else {
+    local_6b0 = &local_6ac;
+    piVar3[1] = 0x44c;
+    *piVar3 = (int)local_6b0;
+    piVar3[-1] = 0x40f11f4;
+    bzero((void *)*piVar3,piVar3[1]);
+    local_6ac = 0x44c;
+    local_264 = 1;
+    cVar1 = *(char *)(param_1 + 0x19);
+    local_262 = 2;
+    piVar3[2] = 0x104;
+    local_6a8 = DAT_042dbc08;
+    piVar3[1] = (int)L"Mouse";
+    local_6a4 = DAT_042dbc0c;
+    local_6a0 = DAT_042dbc10;
+    local_69c = DAT_042dbc14;
+    local_698 = PTR_DAT_042daa48;
+    local_694 = DAT_042daa4c;
+    local_690 = DAT_042daa50;
+    local_68c = DAT_042daa54;
+    local_274 = DAT_042dbb38;
+    local_270 = DAT_042dbb3c;
+    local_26c = DAT_042dbb40;
+    local_268 = DAT_042dbb44;
+    local_688 = (-(uint)(cVar1 == '\0') & 0x10) + 0x202;
+    *piVar3 = (int)local_47c;
+    piVar3[-1] = 0x40f12c6;
+    FUN_0415a1f0();
+    piVar3[-1] = 0x104;
+    piVar3[-2] = (int)L"Mouse";
+    piVar3[-3] = (int)local_684;
+    piVar3[-4] = 0x40f12e7;
+    FUN_0415a1f0();
+    piVar3 = piVar3 + -6;
+  }
+  piVar3[1] = param_4;
+  *piVar3 = (int)local_6b0;
+  piVar3[-1] = 0x40f1189;
+  (*param_3)();
+  return 0;
+}
+

@@ -1,0 +1,370 @@
+
+/* source: audioallocator, xaudio2helpers, xaudio2voiceimpl */
+
+void XAudio2VoiceImp__Process(int *param_1)
+
+{
+  int *piVar1;
+  int iVar2;
+  undefined4 *puVar3;
+  char cVar4;
+  undefined4 *puVar5;
+  int iVar6;
+  uint *puVar7;
+  undefined4 uVar8;
+  int *piVar9;
+  int *piVar10;
+  int *piVar11;
+  int *piVar12;
+  undefined4 *puVar13;
+  int *piVar14;
+  uint *__src;
+  undefined4 *puVar15;
+  int iVar16;
+  uint uVar17;
+  undefined4 *puVar18;
+  size_t __n;
+  int *local_8c;
+  uint *local_88;
+  int *local_84;
+  int local_80;
+  int *local_7c;
+  int *local_78;
+  int *local_74;
+  int *local_70;
+  uint local_64;
+  undefined4 local_60;
+  undefined4 local_5c;
+  undefined4 local_58;
+  uint local_54;
+  void *local_50;
+  undefined4 local_4c;
+  undefined4 local_48;
+  uint local_44;
+  void *local_40;
+  undefined4 local_3c;
+  undefined4 local_38;
+  int *local_34;
+  int *local_30;
+  int local_2c;
+  uint local_28;
+  undefined4 local_24;
+  uint local_20 [4];
+  
+  if (param_1[0x34] != param_1[0x33]) {
+    cVar4 = (**(code **)(*param_1 + 0x50))(param_1);
+    if ((cVar4 != '\0') && ((float)param_1[2] != DAT_042dbf3c)) {
+      FUN_0410e150(param_1,param_1 + 0x33,param_1[2]);
+    }
+    iVar16 = param_1[0x43];
+    local_80 = param_1[0x42];
+    if ((iVar16 != local_80) && ((iVar16 - local_80 >> 2) * -0x55555555 != 0)) {
+      uVar17 = 0;
+      local_7c = (int *)0x0;
+      do {
+        if ((*(uint *)(param_1[0x45] + (uVar17 >> 5) * 4) & 1 << ((byte)uVar17 & 0x1f)) != 0) {
+          Dsp__ProcessEffect(local_80 + (int)local_7c,param_1 + 0x31,param_1 + 0x33);
+          local_80 = param_1[0x42];
+          iVar16 = param_1[0x43];
+        }
+        local_7c = (int *)((int)local_7c + 0xc);
+        uVar17 = uVar17 + 1;
+      } while (uVar17 < (uint)((iVar16 - local_80 >> 2) * -0x55555555));
+    }
+    if ((char)param_1[0x15] != '\0') {
+      FUN_04103110(param_1 + 0x33,param_1 + 3);
+    }
+    cVar4 = (**(code **)(*param_1 + 0x50))(param_1);
+    if ((cVar4 == '\0') && ((float)param_1[2] != DAT_042dbf3c)) {
+      FUN_0410e150(param_1,param_1 + 0x33,param_1[2]);
+    }
+    if (param_1[7] != param_1[6]) {
+      Dsp__ChangeVolume(param_1 + 0x33,param_1 + 6);
+    }
+    if ((float)param_1[0x4a] != (float)param_1[0x31] / (float)param_1[1]) {
+      uVar8 = (**(code **)(*(int *)(*(int *)param_1[0x39] + 4) + 0x54))(*(int *)param_1[0x39] + 4);
+      Dsp__ChangeSampleRate
+                (param_1 + 0x33,((float)param_1[0x31] / (float)param_1[1]) / (float)param_1[0x4a],
+                 uVar8);
+    }
+    local_88 = (uint *)param_1[0x39];
+    while ((uint *)param_1[0x3a] != local_88) {
+      local_20[0] = *local_88;
+      cVar4 = FUN_04106ee0(param_1[0x37] + 4,local_20[0]);
+      if (cVar4 == '\0') {
+        puVar7 = (uint *)param_1[0x3a];
+        __src = local_88 + 1;
+        if ((puVar7 != __src) && (iVar16 = (int)puVar7 - (int)__src >> 2, iVar16 != 0)) {
+          memmove(local_88,__src,iVar16 << 2);
+          puVar7 = (uint *)param_1[0x3a];
+        }
+        param_1[0x3a] = (int)(puVar7 + -1);
+        FUN_0410fd50(param_1 + 0x3c,local_20);
+        FUN_0410fea0(param_1 + 0xf,local_20);
+        FUN_04110660(param_1 + 9,local_20);
+      }
+      else {
+        local_34 = (int *)0x0;
+        local_30 = (int *)0x0;
+        local_2c = 0;
+        local_84 = (int *)param_1[0x34];
+        local_7c = (int *)param_1[0x33];
+        iVar16 = (int)local_84 - (int)local_7c >> 2;
+        uVar17 = iVar16 * -0x55555555;
+        if (uVar17 == 0) {
+          local_8c = (int *)0x0;
+          uVar17 = 0;
+        }
+        else {
+          if (0x15555555 < uVar17) {
+                    /* WARNING: Subroutine does not return */
+            std::__throw_bad_alloc();
+          }
+          uVar17 = iVar16 << 2;
+          local_8c = operator_new(uVar17);
+          local_84 = (int *)param_1[0x34];
+          local_7c = (int *)param_1[0x33];
+        }
+        local_2c = uVar17 + (int)local_8c;
+        local_34 = local_8c;
+        local_30 = local_8c;
+        for (; local_84 != local_7c; local_7c = local_7c + 3) {
+          if (local_8c != (int *)0x0) {
+            __n = 0;
+            puVar18 = (undefined4 *)0x0;
+            iVar16 = local_7c[1];
+            iVar2 = *local_7c;
+            *local_8c = 0;
+            local_8c[1] = 0;
+            local_8c[2] = 0;
+            iVar16 = iVar16 - iVar2 >> 2;
+            if (iVar16 != 0) {
+              __n = iVar16 * 4;
+              puVar18 = (undefined4 *)memalign(0x10,__n);
+              if (puVar18 == (undefined4 *)0x0) {
+                    /* try { // try from 0410ebdc to 0410ebe0 has its CatchHandler @ 0410ece8 */
+                FUN_0400a810("memory",
+                             "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/xaudio2_full/audioallocator.h"
+                             ,0x4b,
+                             "T* AudioAllocator<T>::allocate(AudioAllocator<T>::size_type, const void*) [with T = float, AudioAllocator<T>::pointer = float*, AudioAllocator<T>::size_type = unsigned int]"
+                            );
+              }
+              bzero(puVar18,__n);
+            }
+            *local_8c = (int)puVar18;
+            local_8c[1] = (int)puVar18;
+            local_8c[2] = __n + (int)puVar18;
+            puVar3 = (undefined4 *)*local_7c;
+            puVar15 = (undefined4 *)local_7c[1];
+            puVar5 = puVar18;
+            puVar13 = puVar3;
+            if (puVar15 != puVar3) {
+              do {
+                if (puVar5 != (undefined4 *)0x0) {
+                  *puVar5 = *puVar13;
+                }
+                puVar13 = puVar13 + 1;
+                puVar5 = puVar5 + 1;
+              } while (puVar15 != puVar13);
+              puVar18 = (undefined4 *)
+                        ((int)puVar18 + ((int)puVar15 - (int)(puVar3 + 1) & 0xfffffffcU) + 4);
+            }
+            local_8c[1] = (int)puVar18;
+          }
+          local_8c = local_8c + 3;
+        }
+        piVar14 = (int *)param_1[0x11];
+        local_30 = local_8c;
+        if (piVar14 != (int *)0x0) {
+          piVar9 = param_1 + 0x10;
+          piVar11 = piVar9;
+          piVar12 = piVar14;
+          do {
+            while (piVar10 = piVar12, local_20[0] <= (uint)piVar10[4]) {
+              piVar11 = piVar10;
+              piVar12 = (int *)piVar10[2];
+              if ((int *)piVar10[2] == (int *)0x0) goto LAB_0410e7b5;
+            }
+            piVar1 = piVar10 + 3;
+            piVar10 = piVar11;
+            piVar12 = (int *)*piVar1;
+          } while ((int *)*piVar1 != (int *)0x0);
+LAB_0410e7b5:
+          if ((piVar9 != piVar10) && (piVar11 = piVar9, (uint)piVar10[4] <= local_20[0])) {
+            do {
+              while (piVar12 = piVar14, local_20[0] <= (uint)piVar12[4]) {
+                piVar14 = (int *)piVar12[2];
+                piVar11 = piVar12;
+                if ((int *)piVar12[2] == (int *)0x0) goto LAB_0410e7da;
+              }
+              piVar10 = piVar12 + 3;
+              piVar14 = (int *)*piVar10;
+              piVar12 = piVar11;
+            } while ((int *)*piVar10 != (int *)0x0);
+LAB_0410e7da:
+            if ((piVar9 == piVar12) || (local_20[0] < (uint)piVar12[4])) {
+              local_60 = 0;
+              local_5c = 0;
+              local_58 = 0;
+              local_64 = local_20[0];
+                    /* try { // try from 0410e811 to 0410e82a has its CatchHandler @ 0410ed18 */
+              FUN_0410c230(&local_64);
+              piVar12 = local_70;
+            }
+            FUN_04103110(&local_34,piVar12 + 5);
+          }
+        }
+        piVar14 = (int *)param_1[0xb];
+        if (piVar14 == (int *)0x0) {
+          local_84 = (int *)0x0;
+        }
+        else {
+          piVar9 = param_1 + 10;
+          piVar11 = piVar14;
+          piVar12 = piVar9;
+          do {
+            while (piVar10 = piVar11, local_20[0] <= (uint)piVar10[4]) {
+              piVar11 = (int *)piVar10[2];
+              piVar12 = piVar10;
+              if ((int *)piVar10[2] == (int *)0x0) goto LAB_0410e865;
+            }
+            piVar1 = piVar10 + 3;
+            piVar11 = (int *)*piVar1;
+            piVar10 = piVar12;
+          } while ((int *)*piVar1 != (int *)0x0);
+LAB_0410e865:
+          local_84 = (int *)0x0;
+          if ((piVar9 != piVar10) &&
+             (piVar11 = piVar14, piVar12 = piVar9, (uint)piVar10[4] <= local_20[0])) {
+            do {
+              while (piVar10 = piVar11, local_20[0] <= (uint)piVar10[4]) {
+                piVar11 = (int *)piVar10[2];
+                piVar12 = piVar10;
+                if ((int *)piVar10[2] == (int *)0x0) goto LAB_0410e89a;
+              }
+              piVar1 = piVar10 + 3;
+              piVar11 = (int *)*piVar1;
+              piVar10 = piVar12;
+            } while ((int *)*piVar1 != (int *)0x0);
+LAB_0410e89a:
+            piVar11 = piVar9;
+            if ((piVar9 == piVar10) || (local_20[0] < (uint)piVar10[4])) {
+              local_50 = (void *)0x0;
+              local_4c = 0;
+              local_48 = 0;
+              local_54 = local_20[0];
+                    /* try { // try from 0410e8de to 0410e8e2 has its CatchHandler @ 0410ecd5 */
+              FUN_0410b560(&local_54);
+              if (local_50 == (void *)0x0) {
+                piVar14 = (int *)param_1[0xb];
+              }
+              else {
+                operator_delete(local_50);
+                piVar14 = (int *)param_1[0xb];
+              }
+              local_84 = (int *)local_74[5];
+              if (piVar14 != (int *)0x0) goto LAB_0410e91e;
+LAB_0410e946:
+              local_40 = (void *)0x0;
+              local_3c = 0;
+              local_38 = 0;
+              local_44 = local_20[0];
+                    /* try { // try from 0410e96c to 0410e970 has its CatchHandler @ 0410ecb4 */
+              FUN_0410b560(&local_44);
+              piVar12 = local_74;
+              if (local_40 != (void *)0x0) {
+                operator_delete(local_40);
+              }
+            }
+            else {
+              local_84 = (int *)piVar10[5];
+LAB_0410e91e:
+              do {
+                while (piVar12 = piVar14, local_20[0] <= (uint)piVar12[4]) {
+                  piVar14 = (int *)piVar12[2];
+                  piVar11 = piVar12;
+                  if ((int *)piVar12[2] == (int *)0x0) goto LAB_0410e92a;
+                }
+                piVar10 = piVar12 + 3;
+                piVar14 = (int *)*piVar10;
+                piVar12 = piVar11;
+              } while ((int *)*piVar10 != (int *)0x0);
+LAB_0410e92a:
+              if ((piVar9 == piVar12) || (local_20[0] < (uint)piVar12[4])) goto LAB_0410e946;
+            }
+            iVar16 = piVar12[5];
+            iVar2 = piVar12[6];
+            iVar6 = param_1[0x32];
+            piVar14 = (int *)param_1[0x3e];
+            piVar11 = param_1 + 0x3d;
+            if ((int *)param_1[0x3e] == (int *)0x0) {
+LAB_0410e9d6:
+              local_24 = 0;
+              local_28 = local_20[0];
+                    /* try { // try from 0410e9ef to 0410eab0 has its CatchHandler @ 0410ed18 */
+              FUN_0410bf10(&local_28);
+              piVar12 = local_78;
+            }
+            else {
+              do {
+                while (piVar12 = piVar14, local_20[0] <= (uint)piVar12[4]) {
+                  piVar14 = (int *)piVar12[2];
+                  piVar11 = piVar12;
+                  if ((int *)piVar12[2] == (int *)0x0) goto LAB_0410e9cd;
+                }
+                piVar9 = piVar12 + 3;
+                piVar14 = (int *)*piVar9;
+                piVar12 = piVar11;
+              } while ((int *)*piVar9 != (int *)0x0);
+LAB_0410e9cd:
+              if ((param_1 + 0x3d == piVar12) || (local_20[0] < (uint)piVar12[4]))
+              goto LAB_0410e9d6;
+            }
+            if (iVar6 * piVar12[5] - (iVar2 - iVar16 >> 2) != 0) {
+              FUN_0400a810("(signed) mCurrentParameters.outputMatrices[output].size() == mFormat.numOfChannels * mOutputChannels[output]"
+                           ,
+                           "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/xaudio2_full/xaudio2voiceimpl.cpp"
+                           ,0x1e5,"void XAudio2VoiceImp::Process()");
+            }
+          }
+        }
+        uVar17 = local_20[0];
+        if (((int)local_30 - (int)local_34 >> 2) * -0x55555555 == 0) {
+                    /* try { // try from 0410ec19 to 0410ec1d has its CatchHandler @ 0410ed18 */
+          FUN_0400a810("pcm.channels.size() > 0",
+                       "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/xaudio2_full/xaudio2helpers.h"
+                       ,0x13,"int GetNumOfSamples(const PcmData&)");
+        }
+        iVar16 = *local_34;
+        iVar2 = local_34[1];
+        iVar6 = (**(code **)(*(int *)(uVar17 + 4) + 0x54))(uVar17 + 4);
+        if ((iVar2 - iVar16 >> 2) + -8 != iVar6) {
+          FUN_0400a810("GetNumOfSamples( pcmData ) - kNumOfPaddingSamples == GetSamplesNeeded()",
+                       "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/xaudio2_full/xaudio2voiceimpl.cpp"
+                       ,0x204,"void XAudio2VoiceImp::AddToMix(const PcmData&, float*)");
+        }
+        Dsp__Mix(uVar17 + 0xd0,&local_34,*(undefined4 *)(uVar17 + 0xcc),local_84);
+        piVar11 = local_30;
+        local_88 = local_88 + 1;
+        for (piVar14 = local_34; piVar11 != piVar14; piVar14 = piVar14 + 3) {
+          if ((void *)*piVar14 != (void *)0x0) {
+            free((void *)*piVar14);
+          }
+        }
+        if (local_34 != (int *)0x0) {
+          operator_delete(local_34);
+        }
+      }
+    }
+    puVar3 = (undefined4 *)param_1[0x34];
+    puVar18 = (undefined4 *)param_1[0x33];
+    for (puVar15 = puVar18; puVar15 != puVar3; puVar15 = puVar15 + 3) {
+      if ((void *)*puVar15 != (void *)0x0) {
+        free((void *)*puVar15);
+      }
+    }
+    param_1[0x34] = (int)puVar18;
+  }
+  return;
+}
+

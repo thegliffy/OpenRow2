@@ -1,0 +1,48 @@
+
+/* WARNING: Type propagation algorithm not settling */
+/* source: xaudio2voiceimpl */
+
+void xaudio2voiceimpl_0410d140(int param_1)
+
+{
+  int *piVar1;
+  int iVar2;
+  code *pcVar3;
+  int *piVar4;
+  int *piVar5;
+  int *piVar6;
+  int local_30 [8];
+  
+  piVar6 = local_30 + 1;
+  piVar5 = *(int **)(param_1 + 0x108);
+  piVar1 = *(int **)(param_1 + 0x10c);
+  if (piVar5 != piVar1) {
+    do {
+      piVar4 = (int *)*piVar5;
+      if (piVar4 == (int *)0x0) {
+        piVar6[3] = (int)"void XAudio2VoiceImp::DeleteEffectChain()";
+        piVar6[2] = 0x219;
+        piVar6[1] = (int)
+                    "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/xaudio2_full/xaudio2voiceimpl.cpp"
+        ;
+        *piVar6 = (int)"effect.pEffect";
+        piVar6[-1] = 0x410d1cc;
+        FUN_0400a810();
+        piVar4 = (int *)*piVar5;
+      }
+      iVar2 = *piVar4;
+      *piVar6 = (int)piVar4;
+      piVar5 = piVar5 + 3;
+      pcVar3 = *(code **)(iVar2 + 8);
+      piVar6[-1] = 0x410d171;
+      (*pcVar3)();
+      piVar6 = piVar6 + -1;
+    } while (piVar1 != piVar5);
+    piVar5 = *(int **)(param_1 + 0x108);
+  }
+  *(int **)(param_1 + 0x10c) = piVar5;
+  *(undefined4 *)(param_1 + 0x120) = *(undefined4 *)(param_1 + 0x118);
+  *(undefined4 *)(param_1 + 0x11c) = *(undefined4 *)(param_1 + 0x114);
+  return;
+}
+

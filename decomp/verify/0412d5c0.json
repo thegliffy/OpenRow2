@@ -1,0 +1,306 @@
+
+/* source: fs_filemapping */
+
+byte * fs_CreateFileMappingA
+                 (byte *param_1,int param_2,uint param_3,int param_4,int param_5,byte *param_6)
+
+{
+  undefined4 uVar1;
+  char cVar2;
+  int iVar3;
+  int iVar4;
+  undefined4 *puVar5;
+  byte *pbVar6;
+  byte **ppbVar7;
+  byte **ppbVar8;
+  uint uVar9;
+  uint uVar10;
+  byte **ppbVar11;
+  size_t *psVar12;
+  byte **ppbVar13;
+  char *__dest;
+  byte *pbVar14;
+  bool bVar15;
+  bool bVar16;
+  bool bVar17;
+  byte bVar18;
+  byte *local_8b8;
+  byte *local_8b4;
+  undefined4 local_8b0;
+  undefined4 local_8ac;
+  undefined4 uStack_8a8;
+  byte *local_8a4;
+  int local_8a0;
+  undefined4 *local_89c;
+  undefined4 local_898;
+  undefined4 uStack_88c;
+  byte **local_888;
+  undefined4 local_884;
+  undefined4 local_880;
+  undefined4 local_87c;
+  undefined1 *local_878;
+  undefined **local_874;
+  byte *local_870;
+  byte **local_86c;
+  undefined4 local_868;
+  char *local_864;
+  byte *local_848;
+  int local_844;
+  byte *local_840;
+  uint local_83c;
+  byte *local_838;
+  byte **local_834;
+  undefined1 local_830 [1024];
+  byte *local_430 [256];
+  byte *local_30;
+  int local_2c;
+  int local_28;
+  int local_24 [3];
+  undefined4 *local_18;
+  
+  iVar4 = param_2;
+  bVar18 = 0;
+  local_18 = &param_1;
+  ppbVar11 = &local_870;
+  local_838 = param_1;
+  local_840 = param_6;
+  local_83c = param_3;
+  local_844 = param_5;
+  local_870 = param_1;
+  local_874 = (undefined **)0x412d60d;
+  cVar2 = FUN_0403c420();
+  if (cVar2 != '\0') {
+    local_864 = 
+    "void* fs_CreateFileMappingA(HANDLE, LPSECURITY_ATTRIBUTES, DWORD, DWORD, DWORD, LPCSTR)";
+    local_868 = 0xca;
+    local_86c = (byte **)0x43283e8;
+    local_870 = (byte *)0x4328444;
+    local_874 = (undefined **)0x412d734;
+    FUN_0400a810();
+  }
+  pbVar6 = (byte *)0x0;
+  if (local_838 != (byte *)0xffffffff) {
+    pbVar6 = local_838;
+  }
+  local_838 = pbVar6;
+  if (local_840 != (byte *)0x0) {
+    local_86c = &local_30;
+    local_870 = local_840;
+    local_874 = (undefined **)0x412d64d;
+    iVar3 = Synchronisation_ObjectExistsForName();
+    if (iVar3 != 0) {
+      if (local_30 != (byte *)0x0) {
+        return local_30;
+      }
+      local_870 = (byte *)0x6;
+      local_874 = (undefined **)0x412da1b;
+      eON_SetLastError();
+      return (byte *)0x0;
+    }
+  }
+  if (iVar4 != 0) {
+    local_86c = (byte **)0x4328478;
+    local_870 = (byte *)0xa;
+    local_874 = (undefined **)0x412d688;
+    FUN_0402cd10();
+  }
+  if ((local_83c & 0x1000000) != 0) {
+    return (byte *)0x0;
+  }
+  uVar10 = local_83c | 0x8000000;
+  if ((local_83c & 0x1d800000) != 0) {
+    uVar10 = local_83c;
+  }
+  __dest = (char *)0x0;
+  pbVar6 = local_838;
+  local_83c = uVar10;
+  if (local_838 != (byte *)0x0) {
+LAB_0412d6c8:
+    *ppbVar11 = pbVar6;
+    ppbVar11[2] = (byte *)&local_28;
+    ppbVar11[1] = (byte *)&local_2c;
+    ppbVar11[-1] = (byte *)0x412d6de;
+    iVar4 = Synchronisation_GetObjectInfo();
+    if ((iVar4 == 0) || (local_28 != 1)) {
+      *ppbVar11 = (byte *)__dest;
+      ppbVar11[-1] = (byte *)0x412d6ec;
+      free(*ppbVar11);
+      ppbVar11[1] = (byte *)"fs_CreateFileMappingA() fail - invalid file handle passed";
+      *ppbVar11 = (byte *)0xa;
+      ppbVar11[-1] = (byte *)0x412d700;
+      FUN_0402cd10();
+      return (byte *)0x0;
+    }
+    psVar12 = (size_t *)ppbVar11;
+    if (local_838 != (byte *)0x0) {
+      local_24[0] = 0;
+      ppbVar11[1] = (byte *)local_24;
+      *ppbVar11 = local_838;
+      ppbVar11[-1] = (byte *)0x412d76c;
+      iVar4 = FUN_041303e0();
+      psVar12 = (size_t *)(ppbVar11 + -2);
+      if (iVar4 == -1) {
+        ppbVar11[-2] = (byte *)__dest;
+        ppbVar11[-3] = (byte *)0x412da7b;
+        free(ppbVar11[-2]);
+        ppbVar11[-2] = local_838;
+        ppbVar11[-3] = (byte *)0x412da89;
+        eON_CloseHandle();
+        return (byte *)0x0;
+      }
+      if ((iVar4 == 0) && (local_24[0] == 0)) {
+        ppbVar11[-2] = (byte *)__dest;
+        ppbVar11[-3] = (byte *)0x412da43;
+        free(ppbVar11[-2]);
+        ppbVar11[-2] = (byte *)0x3ee;
+        ppbVar11[-3] = (byte *)0x412da4f;
+        eON_SetLastError();
+        return (byte *)0x0;
+      }
+      if (local_844 == 0 && param_4 == 0) {
+        param_4 = local_24[0];
+        local_844 = iVar4;
+      }
+      ppbVar11[-2] = local_838;
+      ppbVar11[-3] = (byte *)0x412d7ac;
+      Synchronisation_AddRefHandle();
+    }
+    *psVar12 = 0x18;
+    psVar12[-1] = 0x412d7b8;
+    puVar5 = malloc(*psVar12);
+    *puVar5 = pbVar6;
+    puVar5[3] = local_844;
+    puVar5[4] = param_4;
+    uVar1 = *(undefined4 *)(local_2c + 4);
+    puVar5[5] = __dest;
+    puVar5[1] = uVar1;
+    puVar5[2] = local_83c;
+    psVar12[1] = (size_t)puVar5;
+    *psVar12 = 6;
+    psVar12[-1] = 0x412d7ee;
+    pbVar6 = (byte *)Synchronisation_AllocObject();
+    if (local_840 == (byte *)0x0) {
+      return pbVar6;
+    }
+    *psVar12 = (size_t)pbVar6;
+    psVar12[1] = (size_t)local_840;
+    psVar12[-1] = 0x412d810;
+    Synchronisation_RegisterNamedObject();
+    return pbVar6;
+  }
+  if (local_844 == 0 && param_4 == 0) {
+    local_870 = (byte *)0x3ee;
+    local_874 = (undefined **)0x412da63;
+    eON_SetLastError();
+    return local_838;
+  }
+  bVar15 = false;
+  bVar17 = local_840 == (byte *)0x0;
+  if (!bVar17) {
+    iVar4 = 5;
+    pbVar6 = local_840;
+    pbVar14 = (byte *)"Local";
+    do {
+      if (iVar4 == 0) break;
+      iVar4 = iVar4 + -1;
+      bVar15 = *pbVar6 < *pbVar14;
+      bVar17 = *pbVar6 == *pbVar14;
+      pbVar6 = pbVar6 + (uint)bVar18 * -2 + 1;
+      pbVar14 = pbVar14 + (uint)bVar18 * -2 + 1;
+    } while (bVar17);
+    bVar16 = (!bVar15 && !bVar17) < bVar15;
+    if ((!bVar15 && !bVar17) == bVar15) {
+      return (byte *)0x0;
+    }
+    iVar4 = 6;
+    bVar15 = false;
+    pbVar6 = local_840;
+    pbVar14 = (byte *)0x4340421;
+    do {
+      if (iVar4 == 0) break;
+      iVar4 = iVar4 + -1;
+      bVar16 = *pbVar6 < *pbVar14;
+      bVar15 = *pbVar6 == *pbVar14;
+      pbVar6 = pbVar6 + (uint)bVar18 * -2 + 1;
+      pbVar14 = pbVar14 + (uint)bVar18 * -2 + 1;
+    } while (bVar15);
+    if ((!bVar16 && !bVar15) == bVar16) {
+      return (byte *)0x0;
+    }
+  }
+  local_870 = (byte *)0x400;
+  local_874 = (undefined **)0x412d89d;
+  local_86c = (byte **)local_830;
+  iVar4 = eON_GetTempPathA();
+  if (iVar4 == 0) {
+    return (byte *)0x0;
+  }
+  local_86c = local_430;
+  local_870 = (byte *)0x0;
+  local_874 = &PTR_DAT_0438b764;
+  local_87c = 0x412d8d0;
+  local_878 = local_830;
+  local_834 = local_86c;
+  iVar4 = eON_GetTempFileNameA();
+  if (iVar4 == 0) {
+    return (byte *)0x0;
+  }
+  local_888 = local_430;
+  local_870 = (byte *)0x0;
+  local_874 = (undefined **)0x0;
+  local_878 = (undefined1 *)0x3;
+  local_87c = 0;
+  local_880 = 3;
+  local_884 = 0xc0000000;
+  uStack_88c = 0x412d919;
+  local_8a4 = (byte *)fs_CreateFileA();
+  if (local_8a4 == (byte *)0xffffffff) {
+    return (byte *)0x0;
+  }
+  local_89c = &param_4;
+  local_898 = 0;
+  local_8a0 = local_844;
+  uStack_8a8 = 0x412d952;
+  local_848 = local_8a4;
+  iVar4 = fs_SetFilePointer();
+  ppbVar13 = &local_8b4;
+  local_8b4 = local_848;
+  if (iVar4 != -1) {
+    local_8b8 = (byte *)0x412d96c;
+    iVar4 = fs_files_04131860();
+    ppbVar13 = &local_8b8;
+    if (iVar4 != 0) {
+      local_8ac = 0;
+      local_8b0 = 0;
+      local_8b4 = (byte *)0x0;
+      local_8b8 = local_848;
+      iVar4 = fs_SetFilePointer();
+      ppbVar11 = (byte **)&stack0xfffff738;
+      ppbVar8 = local_430;
+      if (iVar4 == -1) {
+        FUN_04131a90();
+        return (byte *)0x0;
+      }
+      do {
+        ppbVar7 = ppbVar8;
+        uVar9 = (uint)(*ppbVar7 + -0x1010101) & ~(uint)*ppbVar7;
+        uVar10 = uVar9 & 0x80808080;
+        ppbVar8 = ppbVar7 + 1;
+      } while (uVar10 == 0);
+      if ((uVar9 & 0x8080) == 0) {
+        ppbVar8 = (byte **)((int)ppbVar7 + 6);
+        uVar10 = uVar10 >> 0x10;
+      }
+      __dest = malloc((int)ppbVar8 +
+                      (-(int)local_834 - (uint)CARRY1((byte)uVar10,(byte)uVar10)) + -2);
+      strcpy(__dest,(char *)local_430);
+      pbVar6 = local_848;
+      goto LAB_0412d6c8;
+    }
+    local_8b8 = local_848;
+  }
+  *(undefined4 *)((int)ppbVar13 + -4) = 0x412da31;
+  FUN_04131a90();
+  return (byte *)0x0;
+}
+

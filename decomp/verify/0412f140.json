@@ -1,0 +1,227 @@
+
+int vpfs_CreateFileA(byte *param_1,uint param_2,undefined4 param_3,undefined4 param_4,
+                    undefined4 param_5,uint param_6,undefined4 param_7)
+
+{
+  byte bVar1;
+  uint uVar2;
+  undefined4 uVar3;
+  undefined4 uVar4;
+  undefined4 uVar5;
+  undefined4 uVar6;
+  char cVar7;
+  size_t sVar8;
+  int iVar9;
+  ushort **ppuVar10;
+  int iVar11;
+  byte *__s1;
+  byte *pbVar12;
+  byte *pbVar13;
+  bool bVar14;
+  bool bVar15;
+  byte bVar16;
+  undefined4 local_1098;
+  uint local_1084;
+  char local_1080 [4096];
+  undefined1 local_80 [16];
+  uint local_70;
+  undefined4 *local_18;
+  
+  uVar6 = param_7;
+  uVar5 = param_5;
+  uVar4 = param_4;
+  uVar3 = param_3;
+  uVar2 = param_2;
+  __s1 = param_1;
+  bVar16 = 0;
+  local_18 = &param_1;
+  local_1084 = param_6;
+  if ((param_1 == (byte *)0x0) || (sVar8 = strlen((char *)param_1), sVar8 == 0)) {
+    eON_SetLastError(3);
+    return -1;
+  }
+  bVar14 = sVar8 < 3;
+  if (sVar8 == 3) {
+    iVar9 = strcasecmp((char *)__s1,"NUL");
+    bVar14 = false;
+    bVar15 = false;
+    if (iVar9 == 0) {
+      strcpy(local_1080,(char *)__s1);
+      goto LAB_0412f312;
+    }
+  }
+  else {
+    bVar15 = false;
+    if (3 < sVar8) {
+      iVar9 = strcasecmp((char *)(__s1 + (sVar8 - 3)),"NUL");
+      bVar14 = false;
+      bVar15 = false;
+      if (iVar9 == 0) {
+        bVar1 = __s1[sVar8 - 4];
+        if (bVar1 != 0x5c) {
+          bVar14 = bVar1 < 0x2f;
+          bVar15 = bVar1 == 0x2f;
+          if (!bVar15) goto LAB_0412f218;
+        }
+        strcpy(local_1080,(char *)__s1);
+        local_1080[sVar8 - 4] = '\0';
+LAB_0412f312:
+        iVar9 = VPFS_GetStatIfDiskObject_Fast(local_1080,local_80,0);
+        if (iVar9 == 0) {
+          iVar9 = FUN_04042f10(local_1080,0,&DAT_00120089);
+          if (iVar9 == 0) {
+            eON_SetLastError(0);
+            return -1;
+          }
+          iVar11 = VPFS_IsFolder(iVar9);
+          bVar14 = iVar11 != 0;
+          eON_VPFS_Close(iVar9);
+        }
+        else {
+          bVar14 = (local_70 & 0x3f000) == 0x4000;
+        }
+        eON_SetLastError(0);
+        if (bVar14) {
+          iVar9 = fs_CreateFileA(&DAT_04328764,uVar2,uVar3,uVar4,uVar5,local_1084,uVar6);
+          return iVar9;
+        }
+        return -1;
+      }
+    }
+  }
+LAB_0412f218:
+  iVar9 = 8;
+  pbVar12 = __s1;
+  pbVar13 = &DAT_0432875c;
+  do {
+    if (iVar9 == 0) break;
+    iVar9 = iVar9 + -1;
+    bVar14 = *pbVar12 < *pbVar13;
+    bVar15 = *pbVar12 == *pbVar13;
+    pbVar12 = pbVar12 + (uint)bVar16 * -2 + 1;
+    pbVar13 = pbVar13 + (uint)bVar16 * -2 + 1;
+  } while (bVar15);
+  if ((!bVar14 && !bVar15) == bVar14) {
+    return -1;
+  }
+  cVar7 = FUN_04132d70(__s1);
+  if (cVar7 != '\0') {
+    eON_SetLastError(0x7b);
+    FUN_0402cd10(10,"vpfs_CreateFileA returns ERROR_INVALID_NAME for file \'%s\'",__s1);
+    return -1;
+  }
+  if ((*__s1 == 0x2f) || (*__s1 == 0x5c)) {
+    ppuVar10 = __ctype_b_loc();
+    __s1 = __s1 + (((*ppuVar10)[(char)__s1[1]] & 8) != 0);
+  }
+  bVar14 = (local_1084 & 0x40000000) != 0;
+  if ((local_1084 & 0x1200000) != 0) {
+    FUN_0402cd10(0xf,"\tWarning: unsupported attribute in dwFlagsAndAttributes: %#x",local_1084);
+  }
+  switch(uVar5) {
+  default:
+    FUN_0402cd10(0xf,"\tWarning: unknown dwCreationDisposition flag: %u",uVar5);
+    local_1098 = 0;
+    break;
+  case 1:
+    iVar9 = vpfs_04047220(__s1,bVar14,uVar2);
+    local_1098 = 0x50;
+joined_r0x0412f522:
+    if (iVar9 != 0) {
+      VPFS_SetFileAttributes(iVar9,local_1084);
+      local_1098 = 0;
+      goto LAB_0412f2c6;
+    }
+    break;
+  case 2:
+    iVar9 = FUN_04042f10(__s1,bVar14,uVar2);
+    if (iVar9 != 0) {
+      iVar11 = VPFS_IsFile(iVar9);
+      if (iVar11 != 0) {
+        vpfs_04046d10(iVar9,0,0);
+        local_1098 = 0xb7;
+        goto LAB_0412f2c6;
+      }
+      eON_VPFS_Close(iVar9);
+    }
+    iVar9 = vpfs_04047220(__s1,bVar14,uVar2);
+    local_1098 = 0;
+    if (iVar9 != 0) {
+      local_1098 = 0;
+      VPFS_SetFileAttributes(iVar9,local_1084);
+      goto LAB_0412f2c6;
+    }
+    break;
+  case 3:
+    iVar9 = FUN_04042f10(__s1,bVar14,&DAT_00120089);
+    local_1098 = 2;
+    if (iVar9 != 0) {
+      iVar11 = VPFS_IsFile(iVar9);
+      if ((iVar11 == 0) && ((local_1084 & 0x2000000) == 0)) {
+        eON_VPFS_Close(iVar9);
+        local_1098 = 2;
+      }
+      else {
+        local_1098 = 0;
+        if ((uVar2 & 0x40120116) == 0) goto LAB_0412f2c6;
+LAB_0412f5fb:
+        local_1084 = VPFS_GetFileAttributes(iVar9);
+        eON_VPFS_Close(iVar9);
+        local_1098 = 5;
+        if ((local_1084 & 1) == 0) {
+          iVar9 = FUN_04042f10(__s1,bVar14,uVar2);
+          local_1098 = 0;
+          goto LAB_0412f63d;
+        }
+      }
+    }
+    break;
+  case 4:
+    iVar9 = FUN_04042f10(__s1,bVar14,&DAT_00120089);
+    if (iVar9 == 0) {
+      iVar9 = vpfs_04047220(__s1,bVar14,uVar2);
+      local_1098 = 0;
+      goto joined_r0x0412f522;
+    }
+    iVar11 = VPFS_IsFile(iVar9);
+    if (iVar11 == 0) {
+      eON_VPFS_Close(iVar9);
+      local_1098 = 0;
+    }
+    else {
+      if ((uVar2 & 0x40120116) != 0) goto LAB_0412f5fb;
+      eON_VPFS_Close(iVar9);
+      iVar9 = FUN_04042f10(__s1,bVar14,uVar2);
+      local_1098 = 0xb7;
+LAB_0412f63d:
+      if (iVar9 != 0) goto LAB_0412f2c6;
+    }
+    break;
+  case 5:
+    iVar9 = FUN_04042f10(__s1,bVar14,&DAT_00120089);
+    local_1098 = 2;
+    if (iVar9 != 0) {
+      local_1098 = 2;
+      iVar11 = VPFS_IsFile(iVar9);
+      if (iVar11 == 0) {
+        eON_VPFS_Close();
+      }
+      else {
+        local_1084 = VPFS_GetFileAttributes(iVar9);
+        eON_VPFS_Close(iVar9);
+        local_1098 = 5;
+        if ((local_1084 & 1) == 0) {
+          iVar9 = FUN_04042f10(__s1,bVar14,uVar2);
+          vpfs_04046d10(iVar9,0,0);
+          local_1098 = 0;
+          goto LAB_0412f63d;
+        }
+      }
+    }
+  }
+  iVar9 = -1;
+LAB_0412f2c6:
+  eON_SetLastError(local_1098);
+  return iVar9;
+}
+

@@ -1,0 +1,152 @@
+
+/* source: vpfs */
+
+void VPFS_Hint_ContentsOfFolderWillNotChange(char *param_1)
+
+{
+  size_t __size;
+  size_t sVar1;
+  uint uVar2;
+  uint uVar3;
+  __int32_t **pp_Var4;
+  int iVar5;
+  char *pcVar6;
+  uint *puVar7;
+  uint *puVar8;
+  int iVar9;
+  size_t __size_00;
+  char cVar10;
+  uint uVar11;
+  undefined1 *puVar12;
+  uint *local_24;
+  
+  if (DAT_04417800 == '\0') {
+    FUN_0400a810("VPFSInitialized",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/vpfs/vpfs.cpp",0x362,
+                 "void VPFS_Hint_ContentsOfFolderWillNotChange(const char*)");
+  }
+  sVar1 = strlen(param_1);
+  if (*param_1 == '/') {
+    uVar3 = 0;
+    local_24 = malloc(sVar1 + 1);
+    do {
+      cVar10 = param_1[uVar3];
+      if ((int)cVar10 + 0x80U < 0x180) {
+        pp_Var4 = __ctype_tolower_loc();
+        cVar10 = (char)(*pp_Var4)[cVar10];
+      }
+      *(char *)((int)local_24 + uVar3) = cVar10;
+      uVar3 = uVar3 + 1;
+    } while (uVar3 <= sVar1);
+    FUN_0403cbe0();
+    puVar8 = local_24;
+    do {
+      puVar7 = puVar8;
+      uVar2 = *puVar7 + 0xfefefeff & ~*puVar7;
+      uVar3 = uVar2 & 0x80808080;
+      puVar8 = puVar7 + 1;
+    } while (uVar3 == 0);
+    if ((uVar2 & 0x8080) == 0) {
+      puVar8 = (uint *)((int)puVar7 + 6);
+      uVar3 = uVar3 >> 0x10;
+    }
+    iVar9 = (int)puVar8 + ((-3 - (uint)CARRY1((byte)uVar3,(byte)uVar3)) - (int)local_24);
+    iVar5 = iVar9 + -1;
+    pcVar6 = (char *)((int)local_24 + iVar5);
+    if (*pcVar6 == '/') {
+      while( true ) {
+        *pcVar6 = '\0';
+        pcVar6 = (char *)((int)local_24 + iVar5 + -1);
+        iVar9 = iVar5;
+        if (*(char *)((int)local_24 + iVar5 + -1) != '/') break;
+        iVar5 = iVar5 + -1;
+      }
+    }
+    __size_00 = iVar9 + 1;
+    if (__size_00 == sVar1 + 1) goto LAB_040405bc;
+  }
+  else {
+    puVar8 = &DAT_04417820;
+    do {
+      puVar7 = puVar8;
+      uVar2 = *puVar7 + 0xfefefeff & ~*puVar7;
+      uVar3 = uVar2 & 0x80808080;
+      puVar8 = puVar7 + 1;
+    } while (uVar3 == 0);
+    if ((uVar2 & 0x8080) == 0) {
+      puVar8 = (uint *)((int)puVar7 + 6);
+      uVar3 = uVar3 >> 0x10;
+    }
+    iVar5 = -(uint)CARRY1((byte)uVar3,(byte)uVar3);
+    uVar2 = (uint)(DAT_04417820._1_1_ == ':');
+    uVar11 = (int)puVar8 + iVar5 + -0x4417822;
+    uVar3 = uVar2 * 2;
+    iVar5 = (int)puVar8 + uVar2 * -2 + iVar5 + -0x4417823;
+    __size = iVar5 + 2 + sVar1;
+    local_24 = malloc(__size);
+    if (uVar3 < uVar11) {
+      do {
+        cVar10 = *(char *)((int)&DAT_04417820 + uVar3);
+        if ((int)cVar10 + 0x80U < 0x180) {
+          pp_Var4 = __ctype_tolower_loc();
+          cVar10 = (char)(*pp_Var4)[cVar10];
+        }
+        *(char *)((int)local_24 + uVar3 + uVar2 * -2) = cVar10;
+        uVar3 = uVar3 + 1;
+      } while (uVar3 != uVar11);
+    }
+    uVar3 = 0;
+    puVar12 = (undefined1 *)((int)local_24 + iVar5);
+    *puVar12 = 0x2f;
+    do {
+      cVar10 = param_1[uVar3];
+      if ((int)cVar10 + 0x80U < 0x180) {
+        pp_Var4 = __ctype_tolower_loc();
+        cVar10 = (char)(*pp_Var4)[cVar10];
+      }
+      puVar12[uVar3 + 1] = cVar10;
+      uVar3 = uVar3 + 1;
+    } while (uVar3 <= sVar1);
+    FUN_0403cbe0();
+    puVar8 = local_24;
+    do {
+      puVar7 = puVar8;
+      uVar2 = *puVar7 + 0xfefefeff & ~*puVar7;
+      uVar3 = uVar2 & 0x80808080;
+      puVar8 = puVar7 + 1;
+    } while (uVar3 == 0);
+    if ((uVar2 & 0x8080) == 0) {
+      puVar8 = (uint *)((int)puVar7 + 6);
+      uVar3 = uVar3 >> 0x10;
+    }
+    iVar9 = (int)puVar8 + ((-3 - (uint)CARRY1((byte)uVar3,(byte)uVar3)) - (int)local_24);
+    iVar5 = iVar9 + -1;
+    pcVar6 = (char *)((int)local_24 + iVar5);
+    if (*pcVar6 == '/') {
+      while( true ) {
+        *pcVar6 = '\0';
+        pcVar6 = (char *)((int)local_24 + iVar5 + -1);
+        iVar9 = iVar5;
+        if (*(char *)((int)local_24 + iVar5 + -1) != '/') break;
+        iVar5 = iVar5 + -1;
+      }
+    }
+    __size_00 = iVar9 + 1;
+    if (__size_00 == __size) goto LAB_040405bc;
+  }
+  local_24 = realloc(local_24,__size_00);
+LAB_040405bc:
+  if (DAT_04417c20 == (void *)0x0) {
+    DAT_04417c20 = malloc(4);
+    DAT_04417c24 = 1;
+    *DAT_04417c20 = local_24;
+    return;
+  }
+  iVar5 = DAT_04417c24 + 1;
+  iVar9 = DAT_04417c24 * 4;
+  DAT_04417c24 = iVar5;
+  DAT_04417c20 = realloc(DAT_04417c20,iVar5 * 4);
+  *(uint **)((int)DAT_04417c20 + iVar9) = local_24;
+  return;
+}
+

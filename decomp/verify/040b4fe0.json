@@ -1,0 +1,18 @@
+
+/* source: direct3dvertexshader9imp */
+
+undefined4 Direct3DVertexShader9Imp__ShaderSetsPointSize(int param_1)
+
+{
+  int iVar1;
+  
+  iVar1 = *(int *)(param_1 + 0x1c);
+  if (iVar1 != -1) {
+    return CONCAT31((int3)((uint)iVar1 >> 8),iVar1 == 1);
+  }
+  FUN_0400a810("SetsPointSize != -1",
+               "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3dvertexshader9imp.cpp"
+               ,0x9a,"bool Direct3DVertexShader9Imp::ShaderSetsPointSize()");
+  return CONCAT31((int3)((uint)*(int *)(param_1 + 0x1c) >> 8),*(int *)(param_1 + 0x1c) == 1);
+}
+

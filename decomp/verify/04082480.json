@@ -1,0 +1,601 @@
+
+/* source: direct3ddevice9imp */
+
+undefined4
+Direct3DDevice9Imp__DirectX8_CopyRects
+          (int *param_1,int *param_2,int *param_3,int *param_4,int *param_5,int *param_6)
+
+{
+  uint uVar1;
+  code *pcVar2;
+  char cVar3;
+  int *piVar4;
+  int iVar5;
+  int *piVar6;
+  int *piVar7;
+  int iVar8;
+  int **ppiVar9;
+  int *piVar10;
+  int *piVar11;
+  int *piVar12;
+  int *piVar13;
+  int **ppiVar14;
+  int *piVar15;
+  int *piVar16;
+  int *piVar17;
+  int *piVar18;
+  undefined4 uVar19;
+  bool bVar20;
+  int iStack_b0;
+  int *local_ac [2];
+  int local_a4;
+  int *local_a0 [8];
+  int *local_80;
+  int *local_7c;
+  int local_78;
+  int local_74;
+  int local_70;
+  int *local_6c;
+  int *local_68;
+  int *local_64;
+  int *local_60;
+  int *local_5c;
+  int *local_58;
+  int *local_54;
+  int *local_50;
+  int local_44 [3];
+  int local_38;
+  int local_34;
+  int local_30;
+  int local_2c;
+  int local_28;
+  int local_24;
+  undefined1 local_20 [16];
+  
+  if (((param_5 == (int *)0x0) || (param_2 == (int *)0x0)) || (param_2 == param_5)) {
+    return 0x8876086c;
+  }
+  local_24 = param_1[3];
+  direct3ddevice9imp_040704e0();
+  if ((char)param_2[0xf] == '\0') {
+    piVar4 = param_2 + 1;
+    local_ac[0] = piVar4;
+    local_6c = piVar4;
+                    /* try { // try from 040824e9 to 04082ee6 has its CatchHandler @ 04082f00 */
+    cVar3 = direct3dsurface9imp_040adca0();
+    if (((cVar3 == '\0') &&
+        (local_ac[0] = piVar4, cVar3 = direct3dsurface9imp_040add10(), cVar3 == '\0')) &&
+       ((char)param_5[0xf] == '\0')) {
+      piVar4 = param_5 + 1;
+      local_ac[0] = piVar4;
+      local_7c = piVar4;
+      cVar3 = direct3dsurface9imp_040adca0();
+      if ((cVar3 == '\0') &&
+         (local_ac[0] = piVar4, cVar3 = direct3dsurface9imp_040add10(), cVar3 == '\0')) {
+        uVar19 = 0x8876086c;
+        ppiVar9 = local_ac;
+        if (param_2[0x1c] != param_5[0x1c]) goto LAB_040824cc;
+        if (param_3 == (int *)0x0) {
+          local_44[0] = 0;
+          local_44[1] = 0;
+          local_58 = (int *)0x1;
+          local_44[2] = param_2[0x22];
+          local_38 = param_2[0x23];
+          param_3 = local_44;
+        }
+        else {
+          if (param_4 == (int *)0x0) {
+            local_a0[0] = (int *)0x42f48c0;
+            local_a4 = 0xeb2;
+            local_ac[1] = (int *)0x42f002c;
+            local_ac[0] = (int *)0x42f61eb;
+            FUN_0400a810();
+            local_54 = param_3;
+            local_58 = (int *)0x0;
+LAB_040825d3:
+            piVar4 = local_54;
+            if (param_6 == (int *)0x0) {
+              uVar1 = param_5[0x22];
+              if ((uVar1 < (uint)param_2[0x22]) && (local_58 != (int *)0x0)) {
+                if (local_54[2] <= (int)uVar1) {
+                  local_60 = param_2;
+                  piVar7 = (int *)0x0;
+                  do {
+                    piVar7 = (int *)((int)piVar7 + 1);
+                    if (piVar7 == local_58) goto LAB_04082851;
+                  } while (local_54[(int)piVar7 * 4 + 2] <= (int)uVar1);
+                }
+              }
+              else {
+LAB_04082851:
+                uVar1 = param_5[0x23];
+                if (((uint)param_2[0x23] <= uVar1) || (local_58 == (int *)0x0)) goto LAB_040826c9;
+                if (local_54[3] <= (int)uVar1) {
+                  local_60 = param_2;
+                  piVar7 = (int *)0x0;
+                  do {
+                    piVar7 = (int *)((int)piVar7 + 1);
+                    if (piVar7 == local_58) goto LAB_040826c9;
+                  } while (local_54[(int)piVar7 * 4 + 3] <= (int)uVar1);
+                }
+              }
+            }
+            else {
+              if (local_58 == (int *)0x0) {
+LAB_040826c9:
+                if (param_2[0x24] == 2) {
+                  iVar5 = param_5[0x24];
+                  if (iVar5 == 2) {
+                    if (param_2[0x1f] != 0) goto LAB_040828e7;
+                    if (param_5[0x31] == 0) {
+                      local_60 = (int *)param_5[0x25];
+                      bVar20 = false;
+                      if (local_60 != (int *)0x0) {
+                        bVar20 = local_60[0x8a] == 2;
+                      }
+                    }
+                    else {
+                      bVar20 = false;
+                      local_60 = (int *)0x0;
+                    }
+                    if (param_6 == (int *)0x0) {
+                      if (local_58 != (int *)0x0) {
+                        local_54 = (int *)0x0;
+                        if (local_60 == (int *)0x0) {
+                          do {
+                            local_a4 = (int)param_5;
+                            local_ac[0] = param_1;
+                            local_ac[1] = param_2;
+                            local_a0[0] = piVar4;
+                            local_a0[1] = piVar4;
+                            FUN_04082350();
+                            local_54 = (int *)((int)local_54 + 1);
+                            piVar4 = piVar4 + 4;
+                          } while (local_54 != local_58);
+                          uVar19 = 0;
+                          ppiVar9 = local_ac;
+                        }
+                        else {
+                          ppiVar9 = local_ac;
+                          ppiVar14 = local_ac;
+                          if (bVar20) {
+                            do {
+                              ppiVar9[4] = piVar4;
+                              ppiVar9[3] = piVar4;
+                              ppiVar9[1] = param_2;
+                              ppiVar9[2] = param_5;
+                              *ppiVar9 = param_1;
+                              ppiVar9[-1] = (int *)0x4082c9e;
+                              FUN_04082350();
+                              iVar5 = *local_60;
+                              ppiVar9[2] = piVar4;
+                              ppiVar9[1] = (int *)(param_5[0x32] + -0x8515);
+                              *ppiVar9 = local_60;
+                              pcVar2 = *(code **)(iVar5 + 0x54);
+                              ppiVar9[-1] = (int *)0x4082cc3;
+                              (*pcVar2)();
+                              local_54 = (int *)((int)local_54 + 1);
+                              piVar16 = (int *)(ppiVar9 + -3);
+                              piVar4 = piVar4 + 4;
+                              ppiVar9 = ppiVar9 + -3;
+                            } while (local_54 != local_58);
+                            uVar19 = 0;
+                            ppiVar9 = (int **)piVar16;
+                          }
+                          else {
+                            do {
+                              ppiVar14[4] = piVar4;
+                              ppiVar14[3] = piVar4;
+                              ppiVar14[1] = param_2;
+                              ppiVar14[2] = param_5;
+                              *ppiVar14 = param_1;
+                              ppiVar14[-1] = (int *)0x4082c52;
+                              FUN_04082350();
+                              iVar5 = *local_60;
+                              ppiVar14[1] = piVar4;
+                              *ppiVar14 = local_60;
+                              pcVar2 = *(code **)(iVar5 + 0x54);
+                              ppiVar14[-1] = (int *)0x4082c61;
+                              (*pcVar2)();
+                              local_54 = (int *)((int)local_54 + 1);
+                              piVar15 = (int *)(ppiVar14 + -2);
+                              piVar4 = piVar4 + 4;
+                              ppiVar14 = ppiVar14 + -2;
+                            } while (local_54 != local_58);
+                            uVar19 = 0;
+                            ppiVar9 = (int **)piVar15;
+                          }
+                        }
+                        goto LAB_040824cc;
+                      }
+                    }
+                    else if (local_58 != (int *)0x0) {
+                      local_64 = param_6;
+                      if (local_60 == (int *)0x0) {
+                        local_60 = (int *)0x0;
+                        local_54 = &local_34;
+                        do {
+                          local_34 = *local_64;
+                          local_2c = (piVar4[2] - *piVar4) + local_34;
+                          local_30 = local_64[1];
+                          local_28 = local_30 + (piVar4[3] - piVar4[1]);
+                          local_ac[0] = param_1;
+                          local_a4 = (int)param_5;
+                          local_a0[1] = local_54;
+                          local_ac[1] = param_2;
+                          local_a0[0] = piVar4;
+                          FUN_04082350();
+                          local_60 = (int *)((int)local_60 + 1);
+                          piVar4 = piVar4 + 4;
+                          local_64 = local_64 + 2;
+                        } while (local_60 != local_58);
+                        uVar19 = 0;
+                        ppiVar9 = local_ac;
+                      }
+                      else {
+                        local_68 = (int *)0x0;
+                        ppiVar9 = local_ac;
+                        ppiVar14 = local_ac;
+                        local_54 = &local_34;
+                        if (bVar20) {
+                          do {
+                            iVar5 = piVar4[3];
+                            local_34 = *local_64;
+                            iVar8 = piVar4[1];
+                            local_2c = (piVar4[2] - *piVar4) + local_34;
+                            local_30 = local_64[1];
+                            ppiVar9[3] = piVar4;
+                            ppiVar9[1] = param_2;
+                            local_28 = (iVar5 - iVar8) + local_30;
+                            *ppiVar9 = param_1;
+                            ppiVar9[4] = local_54;
+                            ppiVar9[2] = param_5;
+                            ppiVar9[-1] = (int *)0x4082ba7;
+                            FUN_04082350();
+                            iVar5 = *local_60;
+                            ppiVar9[2] = local_54;
+                            ppiVar9[1] = (int *)(param_5[0x32] + -0x8515);
+                            *ppiVar9 = local_60;
+                            pcVar2 = *(code **)(iVar5 + 0x54);
+                            ppiVar9[-1] = (int *)0x4082bcf;
+                            (*pcVar2)();
+                            local_68 = (int *)((int)local_68 + 1);
+                            piVar13 = (int *)(ppiVar9 + -3);
+                            piVar4 = piVar4 + 4;
+                            local_64 = local_64 + 2;
+                            ppiVar9 = ppiVar9 + -3;
+                          } while (local_68 != local_58);
+                          uVar19 = 0;
+                          ppiVar9 = (int **)piVar13;
+                        }
+                        else {
+                          do {
+                            iVar5 = piVar4[3];
+                            local_34 = *local_64;
+                            iVar8 = piVar4[1];
+                            local_2c = (piVar4[2] - *piVar4) + local_34;
+                            local_30 = local_64[1];
+                            ppiVar14[3] = piVar4;
+                            ppiVar14[1] = param_2;
+                            local_28 = (iVar5 - iVar8) + local_30;
+                            *ppiVar14 = param_1;
+                            ppiVar14[4] = local_54;
+                            ppiVar14[2] = param_5;
+                            ppiVar14[-1] = (int *)0x4082b2a;
+                            FUN_04082350();
+                            iVar5 = *local_60;
+                            *ppiVar14 = local_60;
+                            ppiVar14[1] = local_54;
+                            pcVar2 = *(code **)(iVar5 + 0x54);
+                            ppiVar14[-1] = (int *)0x4082b3c;
+                            (*pcVar2)();
+                            local_68 = (int *)((int)local_68 + 1);
+                            piVar12 = (int *)(ppiVar14 + -2);
+                            piVar4 = piVar4 + 4;
+                            local_64 = local_64 + 2;
+                            ppiVar14 = ppiVar14 + -2;
+                          } while (local_68 != local_58);
+                          uVar19 = 0;
+                          ppiVar9 = (int **)piVar12;
+                        }
+                      }
+                      goto LAB_040824cc;
+                    }
+                  }
+                  else {
+LAB_040828bd:
+                    if (iVar5 == 3) {
+                      uVar19 = 0;
+                      ppiVar9 = local_ac;
+                      if ((param_2[0x1f] == 0) || (ppiVar9 = local_ac, param_5[0x1f] == 0))
+                      goto LAB_040824cc;
+                    }
+                    else if (param_2[0x1f] == 0) {
+                      uVar19 = 0;
+                      ppiVar9 = local_ac;
+                      goto LAB_040824cc;
+                    }
+LAB_040826fc:
+                    if (param_6 == (int *)0x0) {
+                      if (local_58 != (int *)0x0) {
+                        piVar7 = (int *)0x0;
+                        do {
+                          local_ac[1] = local_7c;
+                          local_ac[0] = local_6c;
+                          local_a4 = (int)piVar4;
+                          local_a0[0] = piVar4;
+                          Direct3DSurface9Imp__TransferToDifferentSurface();
+                          piVar7 = (int *)((int)piVar7 + 1);
+                          piVar4 = piVar4 + 4;
+                        } while (piVar7 != local_58);
+                        uVar19 = 0;
+                        ppiVar9 = local_ac;
+                        goto LAB_040824cc;
+                      }
+                    }
+                    else if (local_58 != (int *)0x0) {
+                      local_50 = (int *)0x0;
+                      local_54 = &local_34;
+                      do {
+                        local_34 = *param_6;
+                        local_2c = (piVar4[2] - *piVar4) + local_34;
+                        local_30 = param_6[1];
+                        local_ac[0] = local_6c;
+                        local_28 = (piVar4[3] - piVar4[1]) + local_30;
+                        local_ac[1] = local_7c;
+                        local_a0[0] = local_54;
+                        local_a4 = (int)piVar4;
+                        Direct3DSurface9Imp__TransferToDifferentSurface();
+                        local_50 = (int *)((int)local_50 + 1);
+                        piVar4 = piVar4 + 4;
+                        param_6 = param_6 + 2;
+                      } while (local_50 != local_58);
+                    }
+                  }
+                }
+                else {
+                  iVar5 = param_5[0x24];
+                  if (param_2[0x24] == 3) {
+                    if (iVar5 != 2) goto LAB_040828bd;
+                    if (param_2[0x1f] == 0) goto LAB_04082777;
+                  }
+                  else if (iVar5 != 2) {
+                    if ((iVar5 == 3) && (param_5[0x1f] == 0)) {
+                      uVar19 = 0;
+                      ppiVar9 = local_ac;
+                      goto LAB_040824cc;
+                    }
+                    goto LAB_040826fc;
+                  }
+LAB_040828e7:
+                  if (param_5[0x31] == 0) {
+                    local_5c = (int *)param_5[0x25];
+                    bVar20 = false;
+                    if (local_5c != (int *)0x0) {
+                      bVar20 = local_5c[0x8a] == 2;
+                    }
+                  }
+                  else {
+                    bVar20 = false;
+                    local_5c = (int *)0x0;
+                  }
+                  if (param_6 == (int *)0x0) {
+                    if (local_58 != (int *)0x0) {
+                      piVar7 = (int *)0x0;
+                      if (local_5c == (int *)0x0) {
+                        do {
+                          local_ac[1] = local_7c;
+                          local_ac[0] = local_6c;
+                          local_a4 = (int)piVar4;
+                          local_a0[0] = piVar4;
+                          Direct3DSurface9Imp__TransferToOpenGLTextureInDifferentSurface();
+                          piVar7 = (int *)((int)piVar7 + 1);
+                          piVar4 = piVar4 + 4;
+                        } while (piVar7 != local_58);
+                        uVar19 = 0;
+                        ppiVar9 = local_ac;
+                      }
+                      else {
+                        ppiVar9 = local_ac;
+                        ppiVar14 = local_ac;
+                        if (bVar20) {
+                          do {
+                            ppiVar9[3] = piVar4;
+                            ppiVar9[2] = piVar4;
+                            ppiVar9[1] = local_7c;
+                            *ppiVar9 = local_6c;
+                            ppiVar9[-1] = (int *)0x4082d8a;
+                            Direct3DSurface9Imp__TransferToOpenGLTextureInDifferentSurface();
+                            iVar5 = *local_5c;
+                            ppiVar9[2] = piVar4;
+                            ppiVar9[1] = (int *)(param_5[0x32] + -0x8515);
+                            *ppiVar9 = local_5c;
+                            pcVar2 = *(code **)(iVar5 + 0x54);
+                            ppiVar9[-1] = (int *)0x4082daf;
+                            (*pcVar2)();
+                            piVar7 = (int *)((int)piVar7 + 1);
+                            piVar18 = (int *)(ppiVar9 + -3);
+                            piVar4 = piVar4 + 4;
+                            ppiVar9 = ppiVar9 + -3;
+                          } while (piVar7 != local_58);
+                          uVar19 = 0;
+                          ppiVar9 = (int **)piVar18;
+                        }
+                        else {
+                          do {
+                            ppiVar14[3] = piVar4;
+                            ppiVar14[2] = piVar4;
+                            ppiVar14[1] = local_7c;
+                            *ppiVar14 = local_6c;
+                            ppiVar14[-1] = (int *)0x4082d4b;
+                            Direct3DSurface9Imp__TransferToOpenGLTextureInDifferentSurface();
+                            iVar5 = *local_5c;
+                            ppiVar14[1] = piVar4;
+                            *ppiVar14 = local_5c;
+                            pcVar2 = *(code **)(iVar5 + 0x54);
+                            ppiVar14[-1] = (int *)0x4082d5a;
+                            (*pcVar2)();
+                            piVar7 = (int *)((int)piVar7 + 1);
+                            piVar17 = (int *)(ppiVar14 + -2);
+                            piVar4 = piVar4 + 4;
+                            ppiVar14 = ppiVar14 + -2;
+                          } while (piVar7 != local_58);
+                          uVar19 = 0;
+                          ppiVar9 = (int **)piVar17;
+                        }
+                      }
+                      goto LAB_040824cc;
+                    }
+                  }
+                  else if (local_58 != (int *)0x0) {
+                    if (local_5c == (int *)0x0) {
+                      local_50 = (int *)0x0;
+                      local_54 = &local_34;
+                      do {
+                        local_34 = *param_6;
+                        local_2c = (piVar4[2] - *piVar4) + local_34;
+                        local_30 = param_6[1];
+                        local_ac[1] = local_7c;
+                        local_28 = (piVar4[3] - piVar4[1]) + local_30;
+                        local_ac[0] = local_6c;
+                        local_a0[0] = local_54;
+                        local_a4 = (int)piVar4;
+                        Direct3DSurface9Imp__TransferToOpenGLTextureInDifferentSurface();
+                        local_50 = (int *)((int)local_50 + 1);
+                        piVar4 = piVar4 + 4;
+                        param_6 = param_6 + 2;
+                      } while (local_50 != local_58);
+                      uVar19 = 0;
+                      ppiVar9 = local_ac;
+                    }
+                    else if (bVar20) {
+                      local_64 = (int *)0x0;
+                      ppiVar9 = local_ac;
+                      local_54 = &local_34;
+                      do {
+                        local_34 = *param_6;
+                        iVar5 = piVar4[3];
+                        iVar8 = piVar4[1];
+                        local_2c = (piVar4[2] - *piVar4) + local_34;
+                        local_30 = param_6[1];
+                        ppiVar9[2] = piVar4;
+                        ppiVar9[3] = local_54;
+                        local_28 = (iVar5 - iVar8) + local_30;
+                        ppiVar9[1] = local_7c;
+                        *ppiVar9 = local_6c;
+                        ppiVar9[-1] = (int *)0x4082a41;
+                        Direct3DSurface9Imp__TransferToOpenGLTextureInDifferentSurface();
+                        iVar5 = *local_5c;
+                        ppiVar9[2] = local_54;
+                        ppiVar9[1] = (int *)(param_5[0x32] + -0x8515);
+                        *ppiVar9 = local_5c;
+                        pcVar2 = *(code **)(iVar5 + 0x54);
+                        ppiVar9[-1] = (int *)0x4082a69;
+                        (*pcVar2)();
+                        local_64 = (int *)((int)local_64 + 1);
+                        piVar11 = (int *)(ppiVar9 + -3);
+                        piVar4 = piVar4 + 4;
+                        param_6 = param_6 + 2;
+                        ppiVar9 = ppiVar9 + -3;
+                      } while (local_64 != local_58);
+                      uVar19 = 0;
+                      ppiVar9 = (int **)piVar11;
+                    }
+                    else {
+                      local_50 = (int *)0x0;
+                      ppiVar9 = local_ac;
+                      local_54 = &local_34;
+                      do {
+                        local_34 = *param_6;
+                        iVar5 = piVar4[3];
+                        iVar8 = piVar4[1];
+                        local_2c = (piVar4[2] - *piVar4) + local_34;
+                        local_30 = param_6[1];
+                        ppiVar9[2] = piVar4;
+                        *ppiVar9 = local_6c;
+                        local_28 = (iVar5 - iVar8) + local_30;
+                        ppiVar9[1] = local_7c;
+                        ppiVar9[3] = local_54;
+                        ppiVar9[-1] = (int *)0x408298a;
+                        Direct3DSurface9Imp__TransferToOpenGLTextureInDifferentSurface();
+                        iVar5 = *local_5c;
+                        *ppiVar9 = local_5c;
+                        ppiVar9[1] = local_54;
+                        pcVar2 = *(code **)(iVar5 + 0x54);
+                        ppiVar9[-1] = (int *)0x408299c;
+                        (*pcVar2)();
+                        local_50 = (int *)((int)local_50 + 1);
+                        piVar10 = (int *)(ppiVar9 + -2);
+                        piVar4 = piVar4 + 4;
+                        param_6 = param_6 + 2;
+                        ppiVar9 = ppiVar9 + -2;
+                      } while (local_50 != local_58);
+                      uVar19 = 0;
+                      ppiVar9 = (int **)piVar10;
+                    }
+                    goto LAB_040824cc;
+                  }
+                }
+LAB_04082777:
+                uVar19 = 0;
+                ppiVar9 = local_ac;
+                goto LAB_040824cc;
+              }
+              piVar7 = (int *)local_54[3];
+              local_50 = (int *)local_54[2];
+              local_60 = (int *)local_54[1];
+              local_68 = piVar7;
+              if (((-1 < *param_6) && (iVar5 = param_6[1], -1 < iVar5)) &&
+                 (local_74 = param_5[0x22], (int)local_50 + (*param_6 - *local_54) <= local_74)) {
+                local_80 = param_2;
+                local_68 = (int *)0x0;
+                local_78 = param_5[0x23];
+                iVar8 = (int)piVar7 - (int)local_60;
+                piVar7 = local_54 + 6;
+                piVar6 = param_6 + 3;
+                while (iVar8 + iVar5 <= local_78) {
+                  local_68 = (int *)((int)local_68 + 1);
+                  if (local_68 == local_58) goto LAB_040826c9;
+                  local_60 = (int *)*piVar7;
+                  local_70 = piVar7[-2];
+                  local_50 = (int *)piVar6[-1];
+                  iVar8 = piVar7[1] - piVar7[-1];
+                  if (((int)local_50 < 0) || (iVar5 = *piVar6, iVar5 < 0)) break;
+                  piVar6 = piVar6 + 2;
+                  piVar7 = piVar7 + 4;
+                  local_60 = (int *)((int)local_60 - local_70);
+                  if (local_74 < (int)local_50 + (int)local_60) break;
+                }
+              }
+            }
+            goto LAB_040824c7;
+          }
+          ppiVar9 = local_ac;
+          if (*param_3 < 0) goto LAB_040824cc;
+          local_58 = param_4;
+        }
+        local_54 = param_3;
+        if (((-1 < param_3[1]) && (param_3[2] <= param_2[0x22])) && (param_3[3] <= param_2[0x23])) {
+          local_60 = param_2;
+          piVar7 = (int *)0x0;
+          piVar4 = param_3 + 7;
+          do {
+            piVar7 = (int *)((int)piVar7 + 1);
+            if (local_58 <= piVar7) goto LAB_040825d3;
+          } while (((-1 < piVar4[-3]) && (-1 < piVar4[-2])) &&
+                  ((piVar4[-1] <= param_2[0x22] &&
+                   (iVar5 = *piVar4, piVar4 = piVar4 + 4, iVar5 <= param_2[0x23]))));
+        }
+      }
+    }
+  }
+LAB_040824c7:
+  uVar19 = 0x8876086c;
+  ppiVar9 = local_ac;
+LAB_040824cc:
+  *ppiVar9 = (int *)local_20;
+  ppiVar9[-1] = (int *)0x40824d4;
+  direct3ddevice9imp_040a2df0();
+  return uVar19;
+}
+

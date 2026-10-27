@@ -1,0 +1,14 @@
+
+undefined4 eON_FindWindow_LogLookup(char *param_1,char *param_2)
+
+{
+  if (((uint)param_2 & 0xffff0000) == 0) {
+    param_2 = "(atom)";
+  }
+  if (((uint)param_1 & 0xffff0000) == 0) {
+    param_1 = "(atom)";
+  }
+  FUN_0402cd10(5,"Looking for window class \'%s\', window name \'%s\'",param_1,param_2);
+  return 0;
+}
+

@@ -1,0 +1,32 @@
+
+undefined4 SetProcessAffinityMask(int param_1,uint param_2)
+
+{
+  byte bVar1;
+  undefined4 uVar2;
+  uint uVar3;
+  
+  if (param_1 == -1) {
+    bVar1 = FUN_0402f3e0();
+    uVar3 = (1 << (bVar1 & 0x1f)) - 1;
+    if (((~uVar3 & param_2) == 0) && (param_2 != 0)) {
+      uVar2 = 1;
+      if (param_2 != uVar3) {
+        FUN_0402cd10(10,
+                     "SetProcessAffinityMask() is telling the game to use mask %#x, which is a subset of mask %#x of all processors available on a system. We can\'t do it, so ignoring the call."
+                     ,param_2,uVar3);
+        return 1;
+      }
+    }
+    else {
+      eON_SetLastError(0x57);
+      uVar2 = 0;
+    }
+  }
+  else {
+    eON_SetLastError(6);
+    uVar2 = 0;
+  }
+  return uVar2;
+}
+

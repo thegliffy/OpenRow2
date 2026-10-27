@@ -1,0 +1,29 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+bool _glewInit_GL_SGI_color_table(void)
+
+{
+  int iVar1;
+  bool bVar2;
+  bool bVar3;
+  bool bVar4;
+  bool bVar5;
+  bool bVar6;
+  
+  iVar1 = glXGetProcAddressARB("glColorTableParameterfvSGI");
+  _DAT_0451cbe0 = iVar1;
+  _DAT_0451cbdc = glXGetProcAddressARB("glColorTableParameterivSGI");
+  bVar2 = _DAT_0451cbdc == 0;
+  _DAT_0451cbd8 = glXGetProcAddressARB("glColorTableSGI");
+  bVar3 = _DAT_0451cbd8 == 0;
+  _DAT_0451cbd4 = glXGetProcAddressARB("glCopyColorTableSGI");
+  bVar4 = _DAT_0451cbd4 == 0;
+  _DAT_0451cbd0 = glXGetProcAddressARB("glGetColorTableParameterfvSGI");
+  bVar5 = _DAT_0451cbd0 == 0;
+  _DAT_0451cbcc = glXGetProcAddressARB("glGetColorTableParameterivSGI");
+  bVar6 = _DAT_0451cbcc == 0;
+  _DAT_0451cbc8 = glXGetProcAddressARB("glGetColorTableSGI");
+  return _DAT_0451cbc8 == 0 || (bVar6 || (bVar5 || (bVar4 || (bVar3 || (bVar2 || iVar1 == 0)))));
+}
+

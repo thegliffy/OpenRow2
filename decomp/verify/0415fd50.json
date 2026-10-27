@@ -1,0 +1,28 @@
+
+/* source: comalloc */
+
+undefined4 comalloc_0415fd50(undefined4 param_1,int *param_2)
+
+{
+  int *piVar1;
+  
+  if (param_2 != (int *)0x0) {
+    if (DAT_0451bd84 == (int *)0x0) {
+      piVar1 = operator_new(0x18);
+                    /* try { // try from 0415fdb9 to 0415fdbd has its CatchHandler @ 0415fdf7 */
+      MallocImp__MallocImp(piVar1);
+      DAT_0451bd84 = piVar1;
+      if (piVar1 == (int *)0x0) {
+        FUN_0400a810("gMalloc",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/ole32/comalloc.cpp"
+                     ,0x30,"HRESULT eON_CoGetMalloc(DWORD, IMalloc**)");
+      }
+    }
+    piVar1 = DAT_0451bd84;
+    *param_2 = DAT_0451bd84[3];
+    (**(code **)(*piVar1 + 0xc))(piVar1);
+    return 0;
+  }
+  return 0x57;
+}
+

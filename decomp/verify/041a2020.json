@@ -1,0 +1,29 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+bool _glewInit_GL_SUN_triangle_list(void)
+
+{
+  int iVar1;
+  bool bVar2;
+  bool bVar3;
+  bool bVar4;
+  bool bVar5;
+  bool bVar6;
+  
+  iVar1 = glXGetProcAddressARB("glReplacementCodePointerSUN");
+  _DAT_0451cb9c = iVar1;
+  _DAT_0451cb98 = glXGetProcAddressARB("glReplacementCodeubSUN");
+  bVar2 = _DAT_0451cb98 == 0;
+  _DAT_0451cb94 = glXGetProcAddressARB("glReplacementCodeubvSUN");
+  bVar3 = _DAT_0451cb94 == 0;
+  _DAT_0451cb90 = glXGetProcAddressARB("glReplacementCodeuiSUN");
+  bVar4 = _DAT_0451cb90 == 0;
+  _DAT_0451cb8c = glXGetProcAddressARB("glReplacementCodeuivSUN");
+  bVar5 = _DAT_0451cb8c == 0;
+  _DAT_0451cb88 = glXGetProcAddressARB("glReplacementCodeusSUN");
+  bVar6 = _DAT_0451cb88 == 0;
+  _DAT_0451cb84 = glXGetProcAddressARB("glReplacementCodeusvSUN");
+  return _DAT_0451cb84 == 0 || (bVar6 || (bVar5 || (bVar4 || (bVar3 || (bVar2 || iVar1 == 0)))));
+}
+

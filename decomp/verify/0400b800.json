@@ -1,0 +1,174 @@
+
+/* WARNING: Removing unreachable block (ram,0x0400bc6a) */
+/* WARNING: Enum "__rlimit_resource": Some values do not have unique names */
+
+undefined4 PrepareOpenGLDisplayInformation(void)
+
+{
+  int *piVar1;
+  char cVar2;
+  int iVar3;
+  char *pcVar4;
+  uint *puVar5;
+  uint uVar6;
+  undefined4 uVar7;
+  undefined1 auVar8 [4];
+  _union_1051 local_c4;
+  sigset_t local_c0;
+  undefined4 local_40;
+  undefined1 local_38 [4];
+  char *local_34;
+  undefined4 local_30;
+  undefined4 local_2c;
+  int local_28;
+  int local_24;
+  allocator local_1e [14];
+  
+  tzset();
+  SDL_SetMainReady();
+  iVar3 = SDL_Init(&DAT_00104020);
+  if (iVar3 != 0) {
+    uVar7 = SDL_GetError();
+    fprintf(stderr,"eON_Core::init() - failed to initialise SDL2: %s\n",uVar7);
+    return 0;
+  }
+  cVar2 = dll_Init();
+  if (cVar2 == '\0') {
+    return 0;
+  }
+  cVar2 = readSymbolicLink();
+  if (cVar2 == '\0') {
+    return 0;
+  }
+  cVar2 = eON_Int_Wnd_InitHighResTimer();
+  if (cVar2 == '\0') {
+    return 0;
+  }
+  cVar2 = eON_LogSystem_Initialise();
+  if (cVar2 == '\0') {
+    return 0;
+  }
+  cVar2 = eON_SystemInfo__queryCPUForInfo();
+  if (cVar2 == '\0') {
+    return 0;
+  }
+  cVar2 = minidump_descriptor_04014d80();
+  if (cVar2 == '\0') {
+    return 0;
+  }
+  pcVar4 = (char *)FUN_04018ae0();
+  std::string::string((string *)&local_28,pcVar4,local_1e);
+                    /* try { // try from 0400b8a3 to 0400b8e3 has its CatchHandler @ 0400bc55 */
+  FUN_041cab80(local_28);
+  local_24 = 0;
+  FUN_041cc8c3(&local_24);
+  if (local_24 < 1) {
+    iVar3 = getrlimit64(RLIMIT_NOFILE,(rlimit64 *)local_38);
+    if (iVar3 == 0) {
+      puVar5 = (uint *)__errno_location();
+      *puVar5 = 0;
+      uVar6 = sysconf(4);
+      if ((int)uVar6 < 0) {
+        if (*puVar5 == 0) {
+          uVar6 = 0x100;
+        }
+        else {
+          FUN_0402cd10(0xf,"sysconf(_SC_OPEN_MAX) fails!");
+        }
+      }
+                    /* try { // try from 0400b9ba to 0400bc4f has its CatchHandler @ 0400bc55 */
+      FUN_0402cd10(0x14,"Default allowed number of simultaneously open files in the system is %u.",
+                   local_38,local_34);
+      pcVar4 = (char *)((int)uVar6 >> 0x1f);
+      if ((local_34 <= pcVar4) && ((local_34 < pcVar4 || ((uint)local_38 < uVar6)))) {
+        FUN_0402cd10(0x14,"Setting allowed number of simultaneously open files to OPEN_MAX = %u",
+                     uVar6,pcVar4);
+        local_30 = 0xffffffff;
+        local_2c = 0xffffffff;
+        local_38 = (undefined1  [4])uVar6;
+        local_34 = pcVar4;
+        iVar3 = setrlimit64(RLIMIT_NOFILE,(rlimit64 *)local_38);
+        if (iVar3 == -1) {
+          pcVar4 = strerror(*puVar5);
+                    /* try { // try from 0400bc9b to 0400bcb8 has its CatchHandler @ 0400bc55 */
+          FUN_0402cd10(0x14,"setrlimit(RLIMIT_NOFILE) failed, (%d) %s",*puVar5,pcVar4);
+        }
+      }
+    }
+    else {
+      puVar5 = (uint *)__errno_location();
+      pcVar4 = strerror(*puVar5);
+      FUN_0402cd10(0x14,"getrlimit(RLIMIT_NOFILE) failed, (%d) %s",*puVar5,pcVar4);
+    }
+    iVar3 = getrlimit64(__RLIMIT_MEMLOCK,(rlimit64 *)local_38);
+    if (iVar3 == 0) {
+      auVar8 = local_38;
+      pcVar4 = local_34;
+      FUN_0402cd10(0x14,"Current memlock limit is %u.",local_38,local_34);
+      if ((local_34 != (char *)0xffffffff) || (local_38 != (undefined1  [4])0xffffffff)) {
+        local_38 = (undefined1  [4])0xffffffff;
+        local_34 = (char *)0xffffffff;
+        local_30 = 0xffffffff;
+        local_2c = 0xffffffff;
+        iVar3 = setrlimit64(__RLIMIT_MEMLOCK,(rlimit64 *)local_38);
+        if (iVar3 == -1) {
+          pcVar4 = strerror(*puVar5);
+          auVar8 = (undefined1  [4])*puVar5;
+          FUN_0402cd10(0x14,"setrlimit(RLIMIT_MEMLOCK) failed, (%d) %s",auVar8,pcVar4);
+        }
+      }
+    }
+    else {
+      pcVar4 = strerror(*puVar5);
+      auVar8 = (undefined1  [4])*puVar5;
+      FUN_0402cd10(0x14,"getrlimit(RLIMIT_MEMLOCK) failed, (%d) %s",auVar8,pcVar4);
+    }
+    SDL_GL_LoadLibrary(0);
+    cVar2 = kernel32_Init();
+    if (cVar2 == '\0') {
+      FUN_0402cd10(0xf,"kernel32_Init() failed!!",auVar8,pcVar4);
+    }
+    else {
+      cVar2 = thread_PrepareThreadForRunloop();
+      if (cVar2 == '\0') {
+        FUN_0402cd10(0xf,"thread_PrepareThreadForRunloop() failed!!");
+      }
+      else {
+        eON_LogLinuxVersions();
+        cVar2 = DetermineMaxSamplesForFormat();
+        if (cVar2 != '\0') {
+          ApplySDLGamepadConfigEnv();
+          bzero(&local_c4,0x8c);
+          sigemptyset(&local_c0);
+          local_40 = 4;
+          local_c4.sa_handler = FUN_0400b310;
+          sigaction(2,(sigaction *)&local_c4,(sigaction *)0x0);
+          bzero(&local_c4,0x8c);
+          uVar7 = 1;
+          local_c4 = (_union_1051)0x1;
+          sigaction(0xd,(sigaction *)&local_c4,(sigaction *)0x0);
+          goto LAB_0400b8e6;
+        }
+        FUN_0402cd10(0xf,"PrepareOpenGLDisplayInformation() failed!!");
+      }
+    }
+  }
+  else {
+    FUN_0402cd10(0xf,"eON_Core::init() - failed to initialise libICU at path \'%s\', error %u\n",
+                 local_28,local_24);
+  }
+  uVar7 = 0;
+LAB_0400b8e6:
+  if ((allocator *)(local_28 + -0xc) != (allocator *)&std::string::_Rep::_S_empty_rep_storage) {
+    LOCK();
+    piVar1 = (int *)(local_28 + -4);
+    iVar3 = *piVar1;
+    *piVar1 = *piVar1 + -1;
+    UNLOCK();
+    if (iVar3 < 1) {
+      std::string::_Rep::_M_destroy((allocator *)(local_28 + -0xc));
+    }
+  }
+  return uVar7;
+}
+

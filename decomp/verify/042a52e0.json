@@ -1,0 +1,21 @@
+
+void png_calculate_crc(int param_1,undefined4 param_2,int param_3)
+
+{
+  undefined4 uVar1;
+  
+  if ((*(byte *)(param_1 + 0x17b) & 0x20) == 0) {
+    if ((*(byte *)(param_1 + 0xd5) & 8) != 0) {
+      return;
+    }
+  }
+  else if ((*(uint *)(param_1 + 0xd4) & 0x300) == 0x300) {
+    return;
+  }
+  if (param_3 != 0) {
+    uVar1 = crc32(*(undefined4 *)(param_1 + 0x19c),param_2,param_3);
+    *(undefined4 *)(param_1 + 0x19c) = uVar1;
+  }
+  return;
+}
+

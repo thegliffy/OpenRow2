@@ -1,0 +1,173 @@
+
+/* source: direct3ddevice9imp */
+
+void Direct3DDevice9Imp__OpenGLThreadRunloop(int param_1)
+
+{
+  code *pcVar1;
+  int *piVar2;
+  char cVar3;
+  int iVar4;
+  int iVar5;
+  int iVar6;
+  int *piVar7;
+  int in_FS_OFFSET;
+  undefined1 local_3c [16];
+  int local_2c;
+  char local_25;
+  uint local_24;
+  int local_20;
+  
+  piVar7 = (int *)local_3c;
+  local_25 = '\0';
+  *(undefined4 *)(param_1 + 0xebf8) =
+       *(undefined4 *)(*(int *)(*(int *)(in_FS_OFFSET + 0x18) + 0x130) + 0xc);
+  do {
+    *piVar7 = param_1 + 0xec00;
+    piVar7[-1] = 0x40808c3;
+    iVar4 = D3D9CommandQueue__TryExecuteNextCommand();
+    iVar6 = 0;
+    if (*(int *)(param_1 + 0xebe8) != 0) {
+      if (*(int *)(param_1 + 0xebe8) == 1) {
+        iVar6 = *(int *)(param_1 + 0xebec);
+        local_24 = *(uint *)(iVar6 + 0x24);
+        local_20 = *(int *)(iVar6 + 0x28);
+        iVar5 = (local_20 - *(int *)(param_1 + 0xec84)) -
+                (uint)(local_24 < *(uint *)(param_1 + 0xec80));
+        if ((-1 < iVar5) && ((0 < iVar5 || (local_24 != *(uint *)(param_1 + 0xec80))))) {
+          do {
+            *piVar7 = param_1 + 0xec00;
+            piVar7[-1] = 0x4080a31;
+            iVar6 = D3D9CommandQueue__TryExecuteNextCommand();
+            if (iVar6 == 0) {
+              piVar7[3] = (int)"void Direct3DDevice9Imp::FlushUntilCommand(ULONGLONG)";
+              piVar7[2] = 0x4c8;
+              piVar7[1] = (int)
+                          "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+              ;
+              *piVar7 = (int)"commandExecuted";
+              piVar7[-1] = 0x4080b14;
+              FUN_0400a810();
+            }
+          } while (((local_20 != *(int *)(param_1 + 0xec84) ||
+                     local_24 != *(uint *)(param_1 + 0xec80)) &&
+                   (*(char *)(param_1 + 0xebf4) == '\0')) && (DAT_0441163c == '\0'));
+          goto LAB_04080a68;
+        }
+LAB_04080a6e:
+        *piVar7 = iVar6;
+        piVar7[-1] = 0x4080a76;
+        Direct3DQuery9Imp__TestQuery();
+      }
+      else {
+        if (*(int *)(param_1 + 0xebe8) == 2) {
+LAB_04080a68:
+          iVar6 = *(int *)(param_1 + 0xebec);
+          goto LAB_04080a6e;
+        }
+        piVar7[3] = (int)"bool Direct3DDevice9Imp::ExecuteOutOfBoundsCommand()";
+        piVar7[2] = 0x4de;
+        piVar7[1] = (int)
+                    "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+        ;
+        *piVar7 = (int)"false";
+        piVar7[-1] = 0x408090d;
+        FUN_0400a810();
+      }
+      *(undefined4 *)(param_1 + 0xebe8) = 0;
+      *piVar7 = *(undefined4 *)(param_1 + 0xebf0);
+      piVar7[-1] = 0x4080925;
+      eON_SetEvent();
+      iVar6 = 1;
+      piVar7 = piVar7 + -1;
+    }
+    if (iVar4 == 0) {
+      piVar7[1] = *(undefined4 *)(param_1 + 0xeb48);
+      *piVar7 = *(undefined4 *)(param_1 + 0xeb54);
+      piVar7[-1] = 0x4080a9b;
+      local_2c = iVar6;
+      cVar3 = ShaderCache__PrecompileNextShaderOrProgramInTable();
+      if (cVar3 == '\0' && local_2c == 0) {
+        if (local_25 == '\0') {
+          piVar7[1] = 1000;
+          *piVar7 = *(undefined4 *)(param_1 + 0xec1c);
+          piVar7[-1] = 0x4080b36;
+          iVar4 = eON_WaitForSingleObject();
+          piVar7 = piVar7 + -2;
+          local_25 = iVar4 == 0x102;
+        }
+        else {
+          piVar7[1] = (int)
+                      "No OpenGL commands for full second. Flushing GL to make sure it hasn\'t deadlocked."
+          ;
+          *piVar7 = 0x14;
+          piVar7[-1] = 0x4080ac3;
+          FUN_0402cd10();
+          piVar7[-1] = 0x4080ac8;
+          glFlush();
+          piVar7[1] = 0xffffffff;
+          *piVar7 = *(undefined4 *)(param_1 + 0xec1c);
+          piVar7[-1] = 0x4080ade;
+          eON_WaitForSingleObject();
+          local_25 = '\0';
+          piVar7 = piVar7 + -2;
+        }
+      }
+    }
+    if ((*(char *)(param_1 + 0xebf4) != '\0') || (DAT_0441163c != '\0')) {
+      iVar4 = *(int *)(param_1 + 0xeb54);
+      if (iVar4 == 0) {
+        piVar7[3] = (int)"void Direct3DDevice9Imp::OpenGLThreadRunloop()";
+        piVar7[2] = 0x514;
+        piVar7[1] = (int)
+                    "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+        ;
+        *piVar7 = (int)"mShaderCache";
+        piVar7[-1] = 0x4080b84;
+        FUN_0400a810();
+        iVar4 = *(int *)(param_1 + 0xeb54);
+      }
+      *piVar7 = iVar4;
+      piVar7[-1] = 0x4080961;
+      FUN_040e55f0();
+      if (*(int *)(param_1 + 0xeb48) != 0) {
+        iVar4 = *(int *)(*(int *)(param_1 + 0xeb48) + 0x224);
+        iVar6 = **(int **)(param_1 + 0xeb44);
+        *piVar7 = (int)*(int **)(param_1 + 0xeb44);
+        piVar7[1] = iVar4;
+        pcVar1 = *(code **)(iVar6 + 0x18);
+        piVar7[-1] = 0x4080983;
+        (*pcVar1)();
+        iVar4 = *(int *)(param_1 + 0xeb48);
+        if (iVar4 != 0) {
+          *piVar7 = iVar4;
+          piVar7[-1] = 0x4080995;
+          OpenGLContextCache___OpenGLContextCache();
+          *piVar7 = iVar4;
+          piVar7[-1] = 0x408099d;
+          operator_delete((void *)*piVar7);
+        }
+        *(undefined4 *)(param_1 + 0xeb48) = 0;
+      }
+      piVar2 = *(int **)(param_1 + 0xeb44);
+      if (piVar2 != (int *)0x0) {
+        iVar4 = *piVar2;
+        *piVar7 = (int)piVar2;
+        pcVar1 = *(code **)(iVar4 + 4);
+        piVar7[-1] = 0x40809b9;
+        (*pcVar1)();
+        *(undefined4 *)(param_1 + 0xeb44) = 0;
+      }
+      *piVar7 = *(undefined4 *)(param_1 + 0xecc0);
+      piVar7[-1] = 0x40809d1;
+      eON_SetEvent();
+      if (DAT_0441163c != '\0') {
+        piVar7[-1] = *(undefined4 *)(param_1 + 0xebf8);
+        piVar7[-2] = 0x40809eb;
+        eON_SuspendThread();
+      }
+      return;
+    }
+  } while( true );
+}
+

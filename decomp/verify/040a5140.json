@@ -1,0 +1,188 @@
+
+uint Direct3DQuery9Imp__GetData(int param_1,undefined4 *param_2,uint param_3,uint param_4)
+
+{
+  undefined4 uVar1;
+  undefined4 uVar2;
+  char cVar3;
+  uint uVar4;
+  int iVar5;
+  
+  iVar5 = *(int *)(param_1 + 0x20);
+  if (iVar5 == 8) {
+    if (*(char *)(param_1 + 0x3c) != '\0') {
+      if (*(char *)(param_1 + 0x38) != '\0') {
+        return 0;
+      }
+      *(undefined1 *)(param_1 + 0x3d) = 1;
+    }
+    iVar5 = 0;
+    if (*(int *)(param_1 + 0x1c) != 0) {
+      direct3ddevice9imp_040803c0(*(int *)(param_1 + 0x1c) + 0x40);
+      iVar5 = *(int *)(param_1 + 0x1c);
+    }
+    if ((*(char *)(param_1 + 0x3d) == '\0') && ((param_4 & 1) != 0)) {
+                    /* try { // try from 040a557e to 040a5582 has its CatchHandler @ 040a5601 */
+      FUN_04080640(iVar5 + 0x40,1,param_1);
+      *(undefined1 *)(param_1 + 0x3d) = 1;
+    }
+    else {
+                    /* try { // try from 040a5484 to 040a5488 has its CatchHandler @ 040a5601 */
+      FUN_04080640(iVar5 + 0x40,2,param_1);
+    }
+    if (*(int *)(param_1 + 0x1c) != 0) {
+      direct3ddevice9imp_04080490(*(int *)(param_1 + 0x1c) + 0x40);
+    }
+    return (uint)(*(byte *)(param_1 + 0x38) ^ 1);
+  }
+  if (iVar5 == 9) {
+    cVar3 = FUN_0401f1e0();
+    if (cVar3 == '\0') {
+      if (*(int *)(param_1 + 0x40) == 0) {
+        *param_2 = *(undefined4 *)(param_1 + 0x48);
+        uVar4 = 0;
+      }
+      else if (*(int *)(param_1 + 0x40) == 1) {
+        uVar4 = 0x8876086c;
+      }
+      else if (*(int *)(param_1 + 0x1c) == 0) {
+        FUN_0402cd10(10,
+                     "Occlusion query returning fake result - Direc3DDevice9 already deleted, or game waited several frames before asking for answer"
+                    );
+        *param_2 = 0;
+        uVar4 = 0;
+        *(undefined4 *)(param_1 + 0x40) = 0;
+      }
+      else if (*(char *)(param_1 + 0x4c) == '\0') {
+        if (*(int *)(param_1 + 0x44) != 0) {
+          direct3ddevice9imp_040803c0(*(int *)(param_1 + 0x1c) + 0x40);
+          if ((*(int *)(param_1 + 0x40) == 2) && ((param_4 & 1) != 0)) {
+                    /* try { // try from 040a55c2 to 040a55c6 has its CatchHandler @ 040a55dd */
+            FUN_04080640(*(int *)(param_1 + 0x1c) + 0x40,1,param_1);
+            *(undefined4 *)(param_1 + 0x40) = 3;
+          }
+          else {
+                    /* try { // try from 040a552d to 040a5531 has its CatchHandler @ 040a55dd */
+            FUN_04080640(*(int *)(param_1 + 0x1c) + 0x40,2,param_1);
+          }
+          if (*(int *)(param_1 + 0x1c) != 0) {
+            direct3ddevice9imp_04080490(*(int *)(param_1 + 0x1c) + 0x40);
+          }
+          if (*(int *)(param_1 + 0x44) != 0) {
+            return 1;
+          }
+        }
+        *param_2 = *(undefined4 *)(param_1 + 0x48);
+        uVar4 = 0;
+        *(undefined4 *)(param_1 + 0x40) = 0;
+      }
+      else {
+        uVar4 = 1;
+      }
+    }
+    else {
+      *param_2 = 0;
+      uVar4 = 0;
+    }
+  }
+  else if (iVar5 == 5) {
+    if (*(int *)(param_1 + 0x1c) != 0) {
+      direct3ddevice9imp_040803c0(*(int *)(param_1 + 0x1c) + 0x40);
+    }
+    if ((param_3 < 0x160) || (param_2 == (undefined4 *)0x0)) {
+                    /* try { // try from 040a51c4 to 040a51c8 has its CatchHandler @ 040a55ef */
+      FUN_0402cd10(0xf,"Invalid arguments to Direct3DQuery9Imp::GetData! Memory leak may occur.");
+    }
+    bzero(param_2,0x160);
+    uVar1 = DAT_0446cd24;
+    param_2[0xb] = 0;
+    uVar2 = DAT_0446cd28;
+    param_2[0xd] = 0;
+    param_2[0xf] = 0;
+    param_2[0x16] = 0;
+    param_2[0xe] = uVar1;
+    param_2[0xc] = uVar2;
+    param_2[0x10] = uVar1;
+    param_2[0x11] = uVar2;
+    param_2[0x12] = uVar1;
+    param_2[0x13] = uVar2;
+    param_2[0x14] = uVar1;
+    uVar1 = DAT_044a3864;
+    param_2[0x15] = uVar2;
+    uVar2 = DAT_044a3868;
+    param_2[0x18] = 0;
+    param_2[0x1a] = 0;
+    param_2[0x19] = uVar1;
+    param_2[0x17] = uVar2;
+    param_2[0x1b] = uVar1;
+    param_2[0x1c] = uVar2;
+    param_2[0x1d] = uVar1;
+    param_2[0x1e] = uVar2;
+    param_2[0x1f] = uVar1;
+    uVar1 = DAT_044a7edc;
+    param_2[0x20] = uVar2;
+    uVar2 = DAT_044a7ee0;
+    param_2[0x2c] = 0;
+    param_2[0x2e] = 0;
+    param_2[0x2f] = uVar1;
+    param_2[0x2d] = uVar2;
+    param_2[0x30] = 0;
+    param_2[0x31] = uVar1;
+    param_2[0x32] = uVar2;
+    param_2[0x34] = uVar2;
+    param_2[0x36] = uVar2;
+    uVar2 = DAT_04468c18;
+    param_2[0x33] = uVar1;
+    param_2[0x35] = uVar1;
+    uVar1 = DAT_04468c14;
+    param_2[0x37] = 0;
+    param_2[0x38] = uVar2;
+    param_2[0x3d] = uVar2;
+    param_2[0x3f] = uVar2;
+    param_2[0x41] = uVar2;
+    uVar2 = DAT_044a3854;
+    param_2[0x3a] = uVar1;
+    param_2[0x3c] = uVar1;
+    param_2[0x3e] = uVar1;
+    param_2[0x40] = uVar1;
+    uVar1 = DAT_044a3850;
+    param_2[0x43] = uVar2;
+    param_2[0x48] = uVar2;
+    param_2[0x4a] = uVar2;
+    param_2[0x4c] = uVar2;
+    uVar2 = DAT_04468ce4;
+    param_2[0x45] = uVar1;
+    param_2[0x47] = uVar1;
+    param_2[0x49] = uVar1;
+    param_2[0x4b] = uVar1;
+    uVar1 = DAT_04468ce0;
+    param_2[0x39] = 0;
+    param_2[0x3b] = 0;
+    param_2[0x42] = 0;
+    param_2[0x44] = 0;
+    param_2[0x46] = 0;
+    param_2[0x4d] = 0;
+    param_2[0x4e] = uVar2;
+    param_2[0x53] = uVar2;
+    param_2[0x55] = uVar2;
+    param_2[0x57] = uVar2;
+    param_2[0x50] = uVar1;
+    param_2[0x52] = uVar1;
+    param_2[0x54] = uVar1;
+    param_2[0x56] = uVar1;
+    iVar5 = *(int *)(param_1 + 0x1c);
+    uVar4 = 0;
+    param_2[0x4f] = 0;
+    param_2[0x51] = 0;
+    if (iVar5 != 0) {
+      direct3ddevice9imp_04080490(iVar5 + 0x40);
+      return 0;
+    }
+  }
+  else {
+    FUN_0402cd10(10,"Query type %u wanted in GetData()!",iVar5);
+    uVar4 = 0;
+  }
+  return uVar4;
+}
+

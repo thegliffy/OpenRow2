@@ -1,0 +1,45 @@
+
+/* source: tinyxmlparser */
+
+byte * TiXmlBase__ReadName(byte *param_1,undefined4 param_2)
+
+{
+  ushort **ppuVar1;
+  byte bVar2;
+  byte *pbVar3;
+  
+  TiXmlString__assign(param_2,&DAT_04328763,0);
+  if (param_1 == (byte *)0x0) {
+    pbVar3 = (byte *)0x0;
+    FUN_0400a810(&DAT_04361ca0,
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxmlparser.cpp"
+                 ,0x197,
+                 "static const char* TiXmlBase::ReadName(const char*, TiXmlString*, TiXmlEncoding)")
+    ;
+  }
+  else {
+    bVar2 = *param_1;
+    pbVar3 = (byte *)0x0;
+    if (bVar2 != 0) {
+      pbVar3 = param_1;
+      if (((bVar2 < 0x7f) &&
+          (ppuVar1 = __ctype_b_loc(), (*(byte *)((int)*ppuVar1 + (uint)bVar2 * 2 + 1) & 4) == 0)) &&
+         (bVar2 != 0x5f)) {
+        pbVar3 = (byte *)0x0;
+      }
+      else {
+        while ((((0x7e < bVar2 || (ppuVar1 = __ctype_b_loc(), ((*ppuVar1)[bVar2] & 8) != 0)) ||
+                ((bVar2 == 0x5f || ((bVar2 == 0x2d || (bVar2 == 0x2e)))))) || (bVar2 == 0x3a))) {
+          pbVar3 = pbVar3 + 1;
+          if ((pbVar3 == (byte *)0x0) || (bVar2 = *pbVar3, bVar2 == 0)) break;
+        }
+        if (0 < (int)pbVar3 - (int)param_1) {
+          TiXmlString__assign(param_2,param_1,(int)pbVar3 - (int)param_1);
+          return pbVar3;
+        }
+      }
+    }
+  }
+  return pbVar3;
+}
+

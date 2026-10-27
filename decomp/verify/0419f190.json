@@ -1,0 +1,40 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+bool _glewInit_GL_INTEL_performance_query(void)
+
+{
+  int iVar1;
+  bool bVar2;
+  bool bVar3;
+  bool bVar4;
+  bool bVar5;
+  bool bVar6;
+  bool bVar7;
+  bool bVar8;
+  bool bVar9;
+  
+  iVar1 = glXGetProcAddressARB("glBeginPerfQueryINTEL");
+  _DAT_0451d46c = iVar1;
+  _DAT_0451d468 = glXGetProcAddressARB("glCreatePerfQueryINTEL");
+  bVar2 = _DAT_0451d468 == 0;
+  _DAT_0451d464 = glXGetProcAddressARB("glDeletePerfQueryINTEL");
+  bVar3 = _DAT_0451d464 == 0;
+  _DAT_0451d460 = glXGetProcAddressARB("glEndPerfQueryINTEL");
+  bVar4 = _DAT_0451d460 == 0;
+  _DAT_0451d45c = glXGetProcAddressARB("glGetFirstPerfQueryIdINTEL");
+  bVar5 = _DAT_0451d45c == 0;
+  _DAT_0451d458 = glXGetProcAddressARB("glGetNextPerfQueryIdINTEL");
+  bVar6 = _DAT_0451d458 == 0;
+  _DAT_0451d454 = glXGetProcAddressARB("glGetPerfCounterInfoINTEL");
+  bVar7 = _DAT_0451d454 == 0;
+  _DAT_0451d450 = glXGetProcAddressARB("glGetPerfQueryDataINTEL");
+  bVar8 = _DAT_0451d450 == 0;
+  _DAT_0451d44c = glXGetProcAddressARB("glGetPerfQueryIdByNameINTEL");
+  bVar9 = _DAT_0451d44c == 0;
+  _DAT_0451d448 = glXGetProcAddressARB("glGetPerfQueryInfoINTEL");
+  return _DAT_0451d448 == 0 ||
+         (bVar9 || (bVar8 || (bVar7 || (bVar6 || (bVar5 || (bVar4 || (bVar3 || (bVar2 || iVar1 == 0)
+                                                                     )))))));
+}
+

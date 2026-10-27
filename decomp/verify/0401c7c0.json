@@ -1,0 +1,70 @@
+
+void GamepadForceFeedback_Shutdown(void)
+
+{
+  void *pvVar1;
+  int iVar2;
+  ssize_t sVar3;
+  ushort uVar4;
+  undefined1 local_1c [8];
+  undefined2 local_14;
+  ushort local_12;
+  undefined4 local_10;
+  
+  if (DAT_044114c0 != '\0') {
+    FUN_0401dfa0(GamepadDetectionCallback);
+    pvVar1 = DAT_044114c4;
+    while (pvVar1 != (void *)0x0) {
+      DAT_044114c4 = *(void **)((int)pvVar1 + 0x4f4);
+      iVar2 = *(int *)((int)pvVar1 + 0x4e8);
+      if (iVar2 != -1) {
+        uVar4 = *(ushort *)((int)pvVar1 + 0x4ec);
+        if (uVar4 != 0xffff) {
+          if (*(char *)((int)pvVar1 + 0x4f2) != '\0') {
+            local_14 = 0x15;
+            local_10 = 0;
+            local_12 = uVar4;
+            sVar3 = write((uint)uVar4,local_1c,0x10);
+            if (sVar3 < 0) {
+              FUN_0402cd10(10,"Force feedback effect stop failed!");
+              uVar4 = *(ushort *)((int)pvVar1 + 0x4ec);
+              iVar2 = *(int *)((int)pvVar1 + 0x4e8);
+            }
+            else {
+              *(undefined1 *)((int)pvVar1 + 0x4f2) = 0;
+              uVar4 = *(ushort *)((int)pvVar1 + 0x4ec);
+              iVar2 = *(int *)((int)pvVar1 + 0x4e8);
+            }
+          }
+          iVar2 = ioctl(iVar2,0x40044581,(uint)uVar4);
+          if (iVar2 < 0) {
+            FUN_0402cd10(10,"Force feedback effect destroy failed!");
+          }
+          *(undefined2 *)((int)pvVar1 + 0x4ec) = 0xffff;
+          iVar2 = *(int *)((int)pvVar1 + 0x4e8);
+        }
+        close(iVar2);
+        *(undefined4 *)((int)pvVar1 + 0x4e8) = 0xffffffff;
+      }
+      if (*(int *)((int)pvVar1 + 0x4e0) != 0) {
+        close(*(int *)((int)pvVar1 + 0x4e0));
+        *(undefined4 *)((int)pvVar1 + 0x4e0) = 0;
+      }
+      if (*(void **)((int)pvVar1 + 0x28) != (void *)0x0) {
+        free(*(void **)((int)pvVar1 + 0x28));
+        *(undefined4 *)((int)pvVar1 + 0x28) = 0;
+      }
+      if (*(void **)((int)pvVar1 + 0x4dc) != (void *)0x0) {
+        free(*(void **)((int)pvVar1 + 0x4dc));
+        *(undefined4 *)((int)pvVar1 + 0x4dc) = 0;
+      }
+      operator_delete(pvVar1);
+      pvVar1 = DAT_044114c4;
+    }
+    DAT_044114c4 = pvVar1;
+    DAT_044114c0 = 0;
+    return;
+  }
+  return;
+}
+

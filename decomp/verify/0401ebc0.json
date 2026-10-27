@@ -1,0 +1,45 @@
+
+void udev_EnumerateInputDevices(void)
+
+{
+  char cVar1;
+  int iVar2;
+  int iVar3;
+  undefined4 uVar4;
+  int iVar5;
+  
+  cVar1 = udev_InitializeLibrary();
+  if (cVar1 != '\0') {
+    iVar2 = (*DAT_0441157c)(DAT_04411540);
+    if (iVar2 != 0) {
+      (*DAT_04411574)(iVar2,&DAT_042dd9d8);
+      (*DAT_04411580)(iVar2);
+      for (iVar3 = (*DAT_04411578)(iVar2); iVar3 != 0; iVar3 = (*DAT_0441158c)(iVar3)) {
+        uVar4 = (*DAT_04411588)(iVar3);
+        iVar5 = (*DAT_0441156c)(DAT_04411540,uVar4);
+        if (iVar5 != 0) {
+          udev_HandleInputDeviceEvent();
+          (*DAT_04411570)(iVar5);
+        }
+      }
+      (*DAT_04411584)(iVar2);
+      return;
+    }
+    FUN_0402cd10(0xf,"udev - failed to create device enumerator!");
+    if (DAT_04411534 != 0) {
+      if (DAT_04411538 != 0) {
+        (*DAT_0441153c)(DAT_04411538);
+        DAT_04411538 = 0;
+      }
+      if (DAT_04411540 != 0) {
+        (*DAT_04411544)(DAT_04411540);
+        DAT_04411540 = 0;
+      }
+      dlclose(DAT_04411534);
+      DAT_04411534 = 0;
+    }
+    DAT_04411548 = 1;
+  }
+  return;
+}
+

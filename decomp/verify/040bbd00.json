@@ -1,0 +1,28 @@
+
+/* source: eonBuffer */
+
+undefined4 eON_Buffer__GetOpenGLSideDataRegion(int param_1,undefined4 param_2)
+
+{
+  int iVar1;
+  
+  if (*(int *)(param_1 + 0x24) != 0) {
+    return *(undefined4 *)(*(int *)(param_1 + 0x24) + 8);
+  }
+  iVar1 = FUN_040ba680();
+  *(int *)(param_1 + 0x24) = iVar1;
+  if (iVar1 == 0) {
+    FUN_0400a810("mOpenGLData",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/eonBuffer.cpp"
+                 ,0x39c,"UCHAR* eON_Buffer::GetOpenGLSideDataRegion(OpenGLContextCache*)");
+  }
+  OpenGLContextCache____glewBindBuffer
+            (param_2,*(undefined4 *)(param_1 + 0xc),*(undefined4 *)(param_1 + 0x18));
+  FUN_0402cd10(10,
+               "PERFORMANCE WARNING: Implicit sync. Enabling OpenGL-side data copy for a buffer (as it was either used as source for zero-stride draw, or as instance buffer and OpenGL doesn\'t support instance drawing on its own!"
+              );
+  (*DAT_0451ed0c)(*(undefined4 *)(param_1 + 0xc),0,*(undefined4 *)(param_1 + 8),
+                  *(undefined4 *)(*(int *)(param_1 + 0x24) + 8));
+  return *(undefined4 *)(*(int *)(param_1 + 0x24) + 8);
+}
+

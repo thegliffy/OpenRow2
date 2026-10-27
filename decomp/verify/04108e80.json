@@ -1,0 +1,97 @@
+
+/* source: audioallocator */
+
+undefined4 * audioallocator_04108e80(undefined4 *param_1,int param_2)
+
+{
+  undefined4 uVar1;
+  undefined4 uVar2;
+  undefined4 uVar3;
+  int *piVar4;
+  int *piVar5;
+  int iVar6;
+  undefined4 *puVar7;
+  undefined4 *puVar8;
+  undefined4 *puVar9;
+  undefined4 *__s;
+  undefined4 *puVar10;
+  size_t local_28;
+  undefined4 *local_24;
+  int *local_20;
+  
+  if (*(int *)(param_2 + 0xd0) != *(int *)(param_2 + 0xcc)) {
+    FUN_0410e150(param_2,param_2 + 0xcc,*(undefined4 *)(param_2 + 8));
+    uVar1 = *(undefined4 *)(param_2 + 0xd4);
+    *(undefined4 *)(param_2 + 0xd4) = 0;
+    uVar2 = *(undefined4 *)(param_2 + 0xcc);
+    *(undefined4 *)(param_2 + 0xcc) = 0;
+    uVar3 = *(undefined4 *)(param_2 + 0xd0);
+    *(undefined4 *)(param_2 + 0xd0) = 0;
+    param_1[2] = uVar1;
+    *param_1 = uVar2;
+    param_1[1] = uVar3;
+    return param_1;
+  }
+  *param_1 = 0;
+  param_1[1] = 0;
+  param_1[2] = 0;
+  piVar4 = *(int **)(param_2 + 0xd0);
+  local_20 = *(int **)(param_2 + 0xcc);
+  if (piVar4 == local_20) {
+    puVar9 = (undefined4 *)0x0;
+LAB_04108fcf:
+    param_1[1] = puVar9;
+    return param_1;
+  }
+  do {
+    puVar9 = (undefined4 *)&DAT_0000000c;
+    piVar5 = local_20;
+    while( true ) {
+      local_20 = piVar5 + 3;
+      if (piVar4 == local_20) goto LAB_04108fcf;
+      if (puVar9 == (undefined4 *)0x0) break;
+      __s = (undefined4 *)0x0;
+      *puVar9 = 0;
+      puVar9[1] = 0;
+      puVar9[2] = 0;
+      local_28 = 0;
+      puVar10 = (undefined4 *)piVar5[4];
+      local_24 = (undefined4 *)*local_20;
+      iVar6 = (int)puVar10 - (int)local_24 >> 2;
+      if (iVar6 != 0) {
+        local_28 = iVar6 << 2;
+        __s = (undefined4 *)memalign(0x10,local_28);
+        if (__s == (undefined4 *)0x0) {
+                    /* try { // try from 0410903a to 0410903e has its CatchHandler @ 04109045 */
+          FUN_0400a810("memory",
+                       "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/xaudio2_full/audioallocator.h"
+                       ,0x4b,
+                       "T* AudioAllocator<T>::allocate(AudioAllocator<T>::size_type, const void*) [with T = float, AudioAllocator<T>::pointer = float*, AudioAllocator<T>::size_type = unsigned int]"
+                      );
+        }
+        bzero(__s,local_28);
+        local_24 = (undefined4 *)*local_20;
+        puVar10 = (undefined4 *)piVar5[4];
+      }
+      *puVar9 = __s;
+      puVar9[1] = __s;
+      puVar9[2] = local_28 + (int)__s;
+      puVar7 = local_24;
+      puVar8 = __s;
+      if (local_24 != puVar10) {
+        do {
+          if (puVar8 != (undefined4 *)0x0) {
+            *puVar8 = *puVar7;
+          }
+          puVar7 = puVar7 + 1;
+          puVar8 = puVar8 + 1;
+        } while (puVar7 != puVar10);
+        __s = (undefined4 *)((int)__s + ((int)puVar7 - (int)(local_24 + 1) & 0xfffffffcU) + 4);
+      }
+      puVar9[1] = __s;
+      puVar9 = puVar9 + 3;
+      piVar5 = local_20;
+    }
+  } while( true );
+}
+

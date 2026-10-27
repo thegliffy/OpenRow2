@@ -1,0 +1,80 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+bool _glewInit_GL_ARB_robustness(void)
+
+{
+  int iVar1;
+  bool bVar2;
+  bool bVar3;
+  bool bVar4;
+  bool bVar5;
+  bool bVar6;
+  bool bVar7;
+  bool bVar8;
+  bool bVar9;
+  bool bVar10;
+  bool bVar11;
+  bool bVar12;
+  bool bVar13;
+  bool bVar14;
+  bool bVar15;
+  bool bVar16;
+  bool bVar17;
+  bool bVar18;
+  bool bVar19;
+  
+  iVar1 = glXGetProcAddressARB("glGetGraphicsResetStatusARB");
+  _DAT_0451e418 = iVar1;
+  _DAT_0451e414 = glXGetProcAddressARB("glGetnColorTableARB");
+  bVar2 = _DAT_0451e414 == 0;
+  _DAT_0451e410 = glXGetProcAddressARB("glGetnCompressedTexImageARB");
+  bVar3 = _DAT_0451e410 == 0;
+  _DAT_0451e40c = glXGetProcAddressARB("glGetnConvolutionFilterARB");
+  bVar4 = _DAT_0451e40c == 0;
+  _DAT_0451e408 = glXGetProcAddressARB("glGetnHistogramARB");
+  bVar5 = _DAT_0451e408 == 0;
+  _DAT_0451e404 = glXGetProcAddressARB("glGetnMapdvARB");
+  bVar6 = _DAT_0451e404 == 0;
+  _DAT_0451e400 = glXGetProcAddressARB("glGetnMapfvARB");
+  bVar7 = _DAT_0451e400 == 0;
+  _DAT_0451e3fc = glXGetProcAddressARB("glGetnMapivARB");
+  bVar8 = _DAT_0451e3fc == 0;
+  _DAT_0451e3f8 = glXGetProcAddressARB("glGetnMinmaxARB");
+  bVar9 = _DAT_0451e3f8 == 0;
+  _DAT_0451e3f4 = glXGetProcAddressARB("glGetnPixelMapfvARB");
+  bVar10 = _DAT_0451e3f4 == 0;
+  _DAT_0451e3f0 = glXGetProcAddressARB("glGetnPixelMapuivARB");
+  bVar11 = _DAT_0451e3f0 == 0;
+  _DAT_0451e3ec = glXGetProcAddressARB("glGetnPixelMapusvARB");
+  bVar12 = _DAT_0451e3ec == 0;
+  _DAT_0451e3e8 = glXGetProcAddressARB("glGetnPolygonStippleARB");
+  bVar13 = _DAT_0451e3e8 == 0;
+  _DAT_0451e3e4 = glXGetProcAddressARB("glGetnSeparableFilterARB");
+  bVar14 = _DAT_0451e3e4 == 0;
+  _DAT_0451e3e0 = glXGetProcAddressARB("glGetnTexImageARB");
+  bVar15 = _DAT_0451e3e0 == 0;
+  _DAT_0451e3dc = glXGetProcAddressARB("glGetnUniformdvARB");
+  bVar16 = _DAT_0451e3dc == 0;
+  _DAT_0451e3d8 = glXGetProcAddressARB("glGetnUniformfvARB");
+  bVar17 = _DAT_0451e3d8 == 0;
+  _DAT_0451e3d4 = glXGetProcAddressARB("glGetnUniformivARB");
+  bVar18 = _DAT_0451e3d4 == 0;
+  _DAT_0451e3d0 = glXGetProcAddressARB("glGetnUniformuivARB");
+  bVar19 = _DAT_0451e3d0 == 0;
+  _DAT_0451e3cc = glXGetProcAddressARB("glReadnPixelsARB");
+  return _DAT_0451e3cc == 0 ||
+         (bVar19 ||
+         (bVar18 ||
+         (bVar17 ||
+         (bVar16 ||
+         (bVar15 ||
+         (bVar14 ||
+         (bVar13 ||
+         (bVar12 ||
+         (bVar11 ||
+         (bVar10 ||
+         (bVar9 || (bVar8 || (bVar7 || (bVar6 || (bVar5 || (bVar4 || (bVar3 || (bVar2 || iVar1 == 0)
+                                                                     )))))))))))))))));
+}
+

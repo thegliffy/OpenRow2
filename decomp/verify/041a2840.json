@@ -1,0 +1,23 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+bool _glewInit_GLX_SGIX_pbuffer(void)
+
+{
+  int iVar1;
+  bool bVar2;
+  bool bVar3;
+  bool bVar4;
+  
+  iVar1 = glXGetProcAddressARB("glXCreateGLXPbufferSGIX");
+  _DAT_0451c740 = iVar1;
+  _DAT_0451c73c = glXGetProcAddressARB("glXDestroyGLXPbufferSGIX");
+  bVar2 = _DAT_0451c73c == 0;
+  _DAT_0451c738 = glXGetProcAddressARB("glXGetSelectedEventSGIX");
+  bVar3 = _DAT_0451c738 == 0;
+  _DAT_0451c734 = glXGetProcAddressARB("glXQueryGLXPbufferSGIX");
+  bVar4 = _DAT_0451c734 == 0;
+  _DAT_0451c730 = glXGetProcAddressARB("glXSelectEventSGIX");
+  return _DAT_0451c730 == 0 || (bVar4 || (bVar3 || (bVar2 || iVar1 == 0)));
+}
+

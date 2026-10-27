@@ -1,0 +1,125 @@
+
+void shader_pch_InitStreamedBufferNames(undefined4 *param_1,undefined4 param_2)
+
+{
+  *param_1 = 1;
+  param_1[1] = 1;
+  param_1[2] = 1;
+  param_1[3] = 1;
+  param_1[4] = 1;
+  param_1[5] = 1;
+  param_1[6] = 1;
+  param_1[7] = 1;
+  param_1[8] = 1;
+  param_1[9] = 1;
+  param_1[10] = 1;
+  param_1[0xb] = param_2;
+  param_1[0x4c] = 1;
+  param_1[0x5d] = 1;
+  param_1[0x9e] = 1;
+  param_1[0xaf] = 1;
+  FUN_040eeb80(param_1 + 0xb0,param_2,&DAT_003e8000,"mAsmVertexFloatStreamedBuffer");
+                    /* try { // try from 040efa1b to 040efa1f has its CatchHandler @ 040eff02 */
+  FUN_040eeb80(param_1 + 0xc1,param_2,&DAT_003e8000,"mAsmPixelFloatStreamedBuffer");
+                    /* try { // try from 040efa40 to 040efa44 has its CatchHandler @ 040eff9a */
+  FUN_040eeb80(param_1 + 0xd2,param_2,&DAT_0003e800,"mAsmVertexIntStreamedBuffer");
+                    /* try { // try from 040efa65 to 040efa69 has its CatchHandler @ 040eff96 */
+  FUN_040eeb80(param_1 + 0xe3,param_2,&DAT_0003e800,"mAsmPixelIntStreamedBuffer");
+                    /* try { // try from 040efa8a to 040efa8e has its CatchHandler @ 040eff92 */
+  FUN_040eeb80(param_1 + 0xf4,param_2,64000,"mAsmVertexBoolStreamedBuffer");
+                    /* try { // try from 040efaaf to 040efab3 has its CatchHandler @ 040eff8b */
+  FUN_040eeb80(param_1 + 0x105,param_2,64000,"mAsmPixelBoolStreamedBuffer");
+                    /* try { // try from 040efad4 to 040efad8 has its CatchHandler @ 040eff87 */
+  FUN_040eeb80(param_1 + 0x116,param_2,&DAT_00061a80,"mFixedPipelinePixelStreamedBuffer");
+                    /* try { // try from 040efaf9 to 040efafd has its CatchHandler @ 040eff83 */
+  FUN_040eeb80(param_1 + 0x127,param_2,&DAT_00023280,"mCommonVariablesStreamedBuffer");
+  param_1[0x138] = 1;
+  param_1[0x139] = 1;
+                    /* try { // try from 040efb32 to 040efb36 has its CatchHandler @ 040eff7f */
+  FUN_040eeb80(param_1 + 0x13a,param_2,&DAT_0004e200,"mFixedPipelineVertexStreamedBuffer");
+                    /* try { // try from 040efb54 to 040efb58 has its CatchHandler @ 040eff7b */
+  FUN_040eeb80(param_1 + 0x14b,param_2,&DAT_00027d80,"mFixedPipelineVertexRareStreamedBuffer");
+                    /* try { // try from 040efb76 to 040efb7a has its CatchHandler @ 040eff17 */
+  FUN_040eeb80(param_1 + 0x15c,param_2,0xf0,"mAsmPixelOnlyStreamedBuffer");
+  bzero(param_1 + 0xc,0x100);
+  bzero(param_1 + 0x4d,0x40);
+  bzero(param_1 + 0x5e,0x100);
+  bzero(param_1 + 0x9f,0x40);
+  bzero(param_1 + 0x16d,0x18);
+  bzero(param_1 + 0x173,400);
+  bzero(param_1 + 0x1d7,0x90);
+  bzero(param_1 + 0x1fb,0x140);
+  bzero(param_1 + 0x24b,0x660);
+  param_1[0x193] = 0x3f800000;
+  param_1[0x194] = 0x3f800000;
+  param_1[0x195] = 0x3f800000;
+  param_1[0x196] = 0x3f800000;
+  param_1[0x20a] = 0x3f800000;
+  param_1[0x205] = 0x3f800000;
+  param_1[0x200] = 0x3f800000;
+  param_1[0x1fb] = 0x3f800000;
+  param_1[0x21a] = 0x3f800000;
+  param_1[0x215] = 0x3f800000;
+  param_1[0x210] = 0x3f800000;
+  param_1[0x20b] = 0x3f800000;
+  param_1[0x22a] = 0x3f800000;
+  param_1[0x225] = 0x3f800000;
+  param_1[0x220] = 0x3f800000;
+  param_1[0x21b] = 0x3f800000;
+  param_1[0x23a] = 0x3f800000;
+  param_1[0x235] = 0x3f800000;
+  param_1[0x230] = 0x3f800000;
+  param_1[0x22b] = 0x3f800000;
+  param_1[0x25a] = 0x3f800000;
+  param_1[0x255] = 0x3f800000;
+  param_1[0x250] = 0x3f800000;
+  param_1[0x24b] = 0x3f800000;
+  param_1[0x26a] = 0x3f800000;
+  param_1[0x265] = 0x3f800000;
+  param_1[0x260] = 0x3f800000;
+  param_1[0x25b] = 0x3f800000;
+  param_1[0x27a] = 0x3f800000;
+  param_1[0x275] = 0x3f800000;
+  param_1[0x270] = 0x3f800000;
+  param_1[0x26b] = 0x3f800000;
+  param_1[0x28a] = 0x3f800000;
+  param_1[0x285] = 0x3f800000;
+  param_1[0x280] = 0x3f800000;
+  param_1[0x27b] = 0x3f800000;
+  param_1[0x29a] = 0x3f800000;
+  param_1[0x295] = 0x3f800000;
+  param_1[0x290] = 0x3f800000;
+  param_1[0x28b] = 0x3f800000;
+  param_1[0x2aa] = 0x3f800000;
+  param_1[0x2a5] = 0x3f800000;
+  param_1[0x2a0] = 0x3f800000;
+  param_1[0x29b] = 0x3f800000;
+  param_1[0x2ba] = 0x3f800000;
+  param_1[0x2b5] = 0x3f800000;
+  param_1[0x2b0] = 0x3f800000;
+  param_1[0x2ab] = 0x3f800000;
+  param_1[0x2ca] = 0x3f800000;
+  param_1[0x2c5] = 0x3f800000;
+  param_1[0x2c0] = 0x3f800000;
+  param_1[699] = 0x3f800000;
+  param_1[0x2da] = 0x3f800000;
+  param_1[0x2d5] = 0x3f800000;
+  param_1[0x2d0] = 0x3f800000;
+  param_1[0x2cb] = 0x3f800000;
+  param_1[0x2ea] = 0x3f800000;
+  param_1[0x2e5] = 0x3f800000;
+  param_1[0x2e0] = 0x3f800000;
+  param_1[0x2db] = 0x3f800000;
+  param_1[0x2fa] = 0x3f800000;
+  param_1[0x2f5] = 0x3f800000;
+  param_1[0x2f0] = 0x3f800000;
+  param_1[0x2eb] = 0x3f800000;
+  param_1[0x30a] = 0x3f800000;
+  param_1[0x305] = 0x3f800000;
+  param_1[0x300] = 0x3f800000;
+  param_1[0x2fb] = 0x3f800000;
+  param_1[0x23d] = 0x446d8000;
+  param_1[0x23e] = 0xc4000000;
+  return;
+}
+

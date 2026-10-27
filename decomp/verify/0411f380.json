@@ -1,0 +1,283 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+/* source: gdi32 */
+
+undefined1 * eON_CreateFontIndirectW(int *param_1)
+
+{
+  short sVar1;
+  char cVar2;
+  int iVar3;
+  size_t sVar4;
+  uint uVar5;
+  uint uVar6;
+  undefined1 *puVar7;
+  int **ppiVar8;
+  int *piVar9;
+  int *piVar10;
+  byte bVar11;
+  undefined1 local_ac [8];
+  undefined4 local_a4;
+  int *local_a0;
+  char *local_9c;
+  undefined4 *local_98;
+  undefined4 local_94;
+  int **local_90;
+  short *local_78;
+  undefined4 local_74;
+  undefined4 local_70;
+  undefined4 local_6c;
+  undefined4 local_68;
+  undefined4 local_64;
+  undefined4 local_60;
+  int local_5c;
+  int local_58;
+  uint local_54;
+  undefined1 local_44 [4];
+  int local_40;
+  int local_38;
+  undefined4 local_34;
+  undefined4 local_30;
+  int *local_2c;
+  int local_28;
+  undefined1 local_24 [12];
+  undefined4 *local_18;
+  
+  piVar9 = param_1;
+  bVar11 = 0;
+  local_18 = &param_1;
+  puVar7 = (undefined1 *)0x0;
+  ppiVar8 = &local_a0;
+  if (param_1 != (int *)0x0) {
+    local_98 = &local_30;
+    local_a0 = param_1;
+    local_9c = (char *)&local_34;
+    local_a4 = 0x411f3b9;
+    cVar2 = eON_FontCache_GetFontInMemory();
+    if (cVar2 != '\0') {
+      local_78 = (short *)local_30;
+      local_a4 = 0x411f3cf;
+      local_a0 = (int *)eON_FontCache_EnsureInitialized();
+      local_90 = &local_2c;
+      local_94 = 0;
+      local_9c = (char *)local_34;
+      local_98 = (undefined4 *)local_78;
+      local_a4 = 0x411f3f1;
+      iVar3 = FT_New_Memory_Face();
+      if (iVar3 == 0) {
+        local_9c = (char *)0x756e6963;
+        local_a0 = local_2c;
+        local_a4 = 0x411f40c;
+        iVar3 = FT_Select_Charmap();
+        if (iVar3 == 0x26) {
+          local_9c = (char *)0x73796d62;
+          local_a0 = local_2c;
+          local_a4 = 0x411f6e3;
+          iVar3 = FT_Select_Charmap();
+        }
+        if (iVar3 == 0) {
+          iVar3 = *piVar9;
+          if (iVar3 < 1) {
+            sVar4 = 0x380;
+            if (iVar3 != 0) {
+              local_98 = (undefined4 *)0x60;
+              local_a0 = (int *)(iVar3 * -0x40);
+              local_9c = (char *)0x48;
+              local_a4 = 0x411f668;
+              sVar4 = eON_MulDiv();
+              ppiVar8 = (int **)local_ac;
+            }
+          }
+          else {
+            local_a0 = (int *)(iVar3 << 6);
+            local_98 = (undefined4 *)0x60;
+            local_9c = (char *)0x32;
+            local_a4 = 0x411f445;
+            sVar4 = eON_MulDiv();
+            ppiVar8 = (int **)local_ac;
+          }
+          ppiVar8[2] = (int *)sVar4;
+          ppiVar8[4] = (int *)0x60;
+          ppiVar8[3] = (int *)0x0;
+          ppiVar8[1] = (int *)0x0;
+          *ppiVar8 = local_2c;
+          ppiVar8[-1] = (int *)0x411f46f;
+          sVar4 = FT_Set_Char_Size();
+          if (sVar4 == 0) {
+            local_54 = local_2c[2];
+            iVar3 = local_2c[0x15];
+            ppiVar8[2] = (int *)0x0;
+            ppiVar8[1] = (int *)0x0;
+            *ppiVar8 = local_2c;
+            ppiVar8[-1] = (int *)0x411f49d;
+            sVar4 = FT_Load_Glyph();
+            if (sVar4 == 0) {
+              *ppiVar8 = (int *)iVar3;
+              ppiVar8[1] = &local_28;
+              ppiVar8[-1] = (int *)0x411f4b6;
+              sVar4 = FT_Get_Glyph();
+              if (sVar4 == 0) {
+                ppiVar8[1] = (int *)0x3;
+                ppiVar8[2] = (int *)local_44;
+                *ppiVar8 = (int *)local_28;
+                ppiVar8[-1] = (int *)0x411f4da;
+                FT_Glyph_Get_CBox();
+                local_58 = local_38;
+                local_5c = local_40;
+                if (*(int *)(local_28 + 8) != 0x62697473) {
+                  *ppiVar8 = &local_28;
+                  ppiVar8[3] = (int *)0x1;
+                  ppiVar8[2] = (int *)0x0;
+                  ppiVar8[1] = (int *)0x0;
+                  ppiVar8[-1] = (int *)0x411f512;
+                  sVar4 = FT_Glyph_To_Bitmap();
+                  if (sVar4 != 0) {
+                    *ppiVar8 = (int *)local_28;
+                    ppiVar8[-1] = (int *)0x411f808;
+                    FT_Done_Glyph();
+                    *ppiVar8 = local_2c;
+                    ppiVar8[-1] = (int *)0x411f813;
+                    FT_Done_Face();
+                    ppiVar8[2] = (int *)sVar4;
+                    ppiVar8[1] = (int *)"FreeType FT_Glyph_To_Bitmap() error: %d";
+                    *ppiVar8 = (int *)0xf;
+                    ppiVar8[-1] = (int *)0x411f82d;
+                    FUN_0402cd10();
+                    return (undefined1 *)0x0;
+                  }
+                }
+                local_60 = *(undefined4 *)(local_28 + 0x18);
+                *ppiVar8 = (int *)local_28;
+                ppiVar8[-1] = (int *)0x411f52d;
+                FT_Done_Glyph();
+                if ((*(byte *)(local_2c + 2) & 8) == 0) {
+                  ppiVar8[3] = (int *)"void* eON_CreateFontIndirectW(const LOGFONTW*)";
+                  ppiVar8[2] = (int *)0xcfa;
+                  ppiVar8[1] = (int *)
+                               "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/gdi32/gdi32.cpp"
+                  ;
+                  *ppiVar8 = (int *)"( fontFace->face_flags & ( 1L << 3 ) )";
+                  ppiVar8[-1] = (int *)0x411f6c4;
+                  FUN_0400a810();
+                }
+                ppiVar8[1] = (int *)0x2;
+                *ppiVar8 = local_2c;
+                ppiVar8[-1] = (int *)0x411f54a;
+                local_78 = (short *)FT_Get_Sfnt_Table();
+                if (local_78 == (short *)0x0) {
+                  ppiVar8[3] = (int *)"void* eON_CreateFontIndirectW(const LOGFONTW*)";
+                  ppiVar8[2] = (int *)0xcfc;
+                  ppiVar8[1] = (int *)
+                               "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/gdi32/gdi32.cpp"
+                  ;
+                  *ppiVar8 = (int *)&PTR_DAT_042dc67e;
+                  ppiVar8[-1] = (int *)0x411f7c7;
+                  FUN_0400a810();
+                }
+                local_64 = *(undefined4 *)(local_78 + 0x2a);
+                sVar1 = *local_78;
+                uVar5 = *(uint *)(local_78 + 0x28);
+                local_68 = *(undefined4 *)(local_78 + 0x16);
+                local_6c = *(undefined4 *)(local_78 + 0x18);
+                local_70 = *(undefined4 *)(local_78 + 0x1a);
+                local_74 = *(undefined4 *)(local_78 + 0x1c);
+                local_78 = (short *)uVar5;
+                if (sVar1 == 0) {
+                  ppiVar8[1] = (int *)local_24;
+                  *ppiVar8 = local_2c;
+                  ppiVar8[-1] = (int *)0x411f685;
+                  uVar5 = FT_Get_First_Char();
+                  uVar6 = (uint)local_78 | 1;
+                  local_78 = (short *)((uint)local_78 | 0x80000000);
+                  if (uVar5 < 0x100) {
+                    local_78 = (short *)uVar6;
+                  }
+                }
+                *ppiVar8 = (int *)0x98;
+                ppiVar8[-1] = (int *)0x411f58c;
+                puVar7 = malloc((size_t)*ppiVar8);
+                *puVar7 = 6;
+                puVar7[1] = 0;
+                puVar7[2] = 0;
+                puVar7[3] = 0;
+                *(undefined4 *)(puVar7 + 4) = 0;
+                piVar10 = (int *)(puVar7 + 8);
+                for (iVar3 = 0x17; iVar3 != 0; iVar3 = iVar3 + -1) {
+                  *piVar10 = *piVar9;
+                  piVar9 = piVar9 + (uint)bVar11 * -2 + 1;
+                  piVar10 = piVar10 + (uint)bVar11 * -2 + 1;
+                }
+                *(undefined4 *)(puVar7 + 0x8c) = 0;
+                *(undefined4 *)(puVar7 + 0x90) = 0xffffffff;
+                *(undefined4 *)(puVar7 + 0x94) = 0;
+                *(int **)(puVar7 + 100) = local_2c;
+                *(undefined4 *)(puVar7 + 0x74) = local_68;
+                *(uint *)(puVar7 + 0x68) = local_54 & 0x40;
+                *(undefined4 *)(puVar7 + 0x7c) = local_70;
+                *(int *)(puVar7 + 0x6c) = (int)((float)(local_58 - local_5c) * _DAT_04311b30);
+                *(undefined4 *)(puVar7 + 0x70) = local_60;
+                *(undefined4 *)(puVar7 + 0x78) = local_6c;
+                *(undefined4 *)(puVar7 + 0x80) = local_74;
+                *(short **)(puVar7 + 0x84) = local_78;
+                *(undefined4 *)(puVar7 + 0x88) = local_64;
+              }
+              else {
+                puVar7 = (undefined1 *)0x0;
+                *ppiVar8 = local_2c;
+                ppiVar8[-1] = (int *)0x411f77d;
+                FT_Done_Face();
+                ppiVar8[2] = (int *)sVar4;
+                ppiVar8[1] = (int *)"FreeType FT_Get_Glyph() error: %d";
+                *ppiVar8 = (int *)0xf;
+                ppiVar8[-1] = (int *)0x411f795;
+                FUN_0402cd10();
+              }
+            }
+            else {
+              *ppiVar8 = local_2c;
+              ppiVar8[-1] = (int *)0x411f74b;
+              FT_Done_Face();
+              ppiVar8[2] = (int *)sVar4;
+              puVar7 = (undefined1 *)0x0;
+              ppiVar8[1] = (int *)"FreeType FT_Load_Glyph() error: %d";
+              *ppiVar8 = (int *)0xf;
+              ppiVar8[-1] = (int *)0x411f765;
+              FUN_0402cd10();
+            }
+          }
+          else {
+            *ppiVar8 = local_2c;
+            ppiVar8[-1] = (int *)0x411f718;
+            FT_Done_Face();
+            ppiVar8[2] = (int *)sVar4;
+            puVar7 = (undefined1 *)0x0;
+            ppiVar8[1] = (int *)"FreeType FT_Set_Char_Size() error: %d";
+            *ppiVar8 = (int *)0xf;
+            ppiVar8[-1] = (int *)0x411f732;
+            FUN_0402cd10();
+          }
+        }
+        else {
+          local_a0 = local_2c;
+          local_a4 = 0x411f7db;
+          FT_Done_Face();
+          puVar7 = (undefined1 *)0x0;
+          local_9c = "FreeType FT_Select_Charmap() error: %d";
+          local_a0 = (int *)0xf;
+          local_a4 = 0x411f7f5;
+          local_98 = (undefined4 *)iVar3;
+          FUN_0402cd10();
+        }
+      }
+      else {
+        local_9c = "FreeType FT_New_Memory_Face() error: %d";
+        local_a0 = (int *)0xf;
+        local_a4 = 0x411f708;
+        local_98 = (undefined4 *)iVar3;
+        FUN_0402cd10();
+      }
+    }
+  }
+  return puVar7;
+}
+

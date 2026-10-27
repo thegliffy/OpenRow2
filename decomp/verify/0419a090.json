@@ -1,0 +1,33 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+bool _glewInit_GL_ARB_occlusion_query(void)
+
+{
+  int iVar1;
+  bool bVar2;
+  bool bVar3;
+  bool bVar4;
+  bool bVar5;
+  bool bVar6;
+  bool bVar7;
+  
+  iVar1 = glXGetProcAddressARB("glBeginQueryARB");
+  _DAT_0451e45c = iVar1;
+  _DAT_0451e458 = glXGetProcAddressARB("glDeleteQueriesARB");
+  bVar2 = _DAT_0451e458 == 0;
+  _DAT_0451e454 = glXGetProcAddressARB("glEndQueryARB");
+  bVar3 = _DAT_0451e454 == 0;
+  _DAT_0451e450 = glXGetProcAddressARB("glGenQueriesARB");
+  bVar4 = _DAT_0451e450 == 0;
+  _DAT_0451e44c = glXGetProcAddressARB("glGetQueryObjectivARB");
+  bVar5 = _DAT_0451e44c == 0;
+  _DAT_0451e448 = glXGetProcAddressARB("glGetQueryObjectuivARB");
+  bVar6 = _DAT_0451e448 == 0;
+  _DAT_0451e444 = glXGetProcAddressARB("glGetQueryivARB");
+  bVar7 = _DAT_0451e444 == 0;
+  _DAT_0451e440 = glXGetProcAddressARB("glIsQueryARB");
+  return _DAT_0451e440 == 0 ||
+         (bVar7 || (bVar6 || (bVar5 || (bVar4 || (bVar3 || (bVar2 || iVar1 == 0))))));
+}
+

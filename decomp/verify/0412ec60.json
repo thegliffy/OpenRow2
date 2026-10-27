@@ -1,0 +1,192 @@
+
+/* source: fs_files */
+
+undefined4
+fs_CreateFileA(byte *param_1,undefined *param_2,undefined4 param_3,undefined4 param_4,int param_5,
+              uint param_6)
+
+{
+  byte *pbVar1;
+  undefined *puVar2;
+  int iVar3;
+  uint uVar4;
+  char cVar5;
+  undefined4 uVar6;
+  int *piVar7;
+  undefined4 *puVar8;
+  int iVar9;
+  uint uVar10;
+  byte *pbVar11;
+  byte *pbVar12;
+  int iVar13;
+  bool bVar14;
+  bool bVar15;
+  int local_209c;
+  char local_2084 [4096];
+  char local_1084 [4096];
+  stat64 local_84;
+  int local_24 [3];
+  undefined4 *local_18;
+  
+  uVar4 = param_6;
+  iVar3 = param_5;
+  puVar2 = param_2;
+  pbVar1 = param_1;
+  local_18 = &param_1;
+  if (param_1 != (byte *)0x0) {
+    bVar14 = false;
+    bVar15 = *param_1 == 0;
+    if (!bVar15) {
+      iVar9 = 8;
+      pbVar11 = param_1;
+      pbVar12 = &DAT_0432875c;
+      do {
+        if (iVar9 == 0) break;
+        iVar9 = iVar9 + -1;
+        bVar14 = *pbVar11 < *pbVar12;
+        bVar15 = *pbVar11 == *pbVar12;
+        pbVar11 = pbVar11 + 1;
+        pbVar12 = pbVar12 + 1;
+      } while (bVar15);
+      if ((!bVar14 && !bVar15) == bVar14) {
+        return 0xffffffff;
+      }
+      cVar5 = FUN_04132d70(param_1);
+      if (cVar5 != '\0') {
+        eON_SetLastError(0x7b);
+        return 0xffffffff;
+      }
+      FUN_0400f520(pbVar1,local_2084);
+      iVar9 = FUN_0403c400(local_2084);
+      if (iVar9 != 0) {
+        if (1 < iVar3 - 3U) {
+          FUN_0400a810("( dwCreationDisposition == 4 ) || ( dwCreationDisposition == 3 )",
+                       "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/fs_files.cpp"
+                       ,0x45a,
+                       "void* fs_CreateFileA(LPCSTR, DWORD, DWORD, LPSECURITY_ATTRIBUTES, DWORD, DWORD, HANDLE)"
+                      );
+        }
+        uVar6 = FUN_0403c410(local_2084);
+        return uVar6;
+      }
+      switch(iVar3) {
+      default:
+        iVar13 = 0;
+        iVar9 = 2;
+        FUN_0402cd10(0xf,"\tWarning: unknown dwCreationDisposition flag: %u",iVar3);
+        local_209c = 1;
+        break;
+      case 1:
+        local_209c = 0x2c1;
+        iVar9 = 0x2c2;
+        iVar13 = 0x2c0;
+        break;
+      case 2:
+        local_209c = 0x241;
+        iVar9 = 0x242;
+        iVar13 = 0x240;
+        break;
+      case 3:
+        local_209c = 1;
+        iVar9 = 2;
+        iVar13 = 0;
+        break;
+      case 4:
+        local_209c = 0x41;
+        iVar9 = 0x42;
+        iVar13 = 0x40;
+        break;
+      case 5:
+        local_209c = 0x201;
+        iVar9 = 0x202;
+        iVar13 = 0x200;
+      }
+      if (((int)puVar2 < 0) || (uVar10 = (uint)puVar2 & 1, puVar2 == &DAT_00120089)) {
+        uVar10 = 1;
+      }
+      bVar14 = ((uint)puVar2 & 0x40000002) != 0;
+      if (uVar10 == 0) {
+        if ((puVar2 != &DAT_00120116 && !bVar14) &&
+           (local_209c = iVar13, ((uint)puVar2 & 0x180) == 0)) {
+          if (puVar2 == (undefined *)0x0) {
+            FUN_0402cd10(5,
+                         "Game gets file handle without actually opening file. This can be used to get file attributes etc. We open file on eON side, for reading, to get the same info. We should really make sure ReadFile will fail on such file..."
+                        );
+          }
+          else {
+            FUN_0402cd10(0xf,
+                         "Unrecognized access rights in fs_CreateFileA - make sure you recognize those properly ( %#x )"
+                         ,puVar2);
+          }
+        }
+      }
+      else {
+        local_209c = iVar13;
+        if (puVar2 == &DAT_00120116 || bVar14) {
+          local_209c = iVar9;
+        }
+      }
+      local_24[0] = 0;
+      uVar6 = str_icuNameFromCodePage(0);
+      FUN_041d14dc("UTF-8",uVar6,local_1084,0x104,local_2084,0xffffffff,local_24);
+      if (0 < local_24[0]) {
+        eON_SetLastError(0x7b);
+        return 0xffffffff;
+      }
+      if (iVar3 != 3) {
+LAB_0412ee90:
+        iVar9 = open64(local_1084,local_209c,0x1b4);
+        if (iVar9 != -1) {
+          puVar8 = malloc(0x100c);
+          *puVar8 = &DAT_000fdead;
+          puVar8[1] = iVar9;
+          puVar8[2] = uVar4 & 0x40000000;
+          strcpy((char *)(puVar8 + 3),local_2084);
+          uVar6 = Synchronisation_AllocObject(1,puVar8);
+          return uVar6;
+        }
+        piVar7 = __errno_location();
+        iVar9 = *piVar7;
+        if (iVar9 == 0x18) {
+          FUN_0402cd10(0xf,
+                       "A file could not be opened, because there are too many open files, and OS refused to open a new one!"
+                      );
+        }
+        if ((iVar3 == 3) || (iVar3 == 5)) {
+          if (iVar9 != 2) {
+            return 0xffffffff;
+          }
+          eON_SetLastError(2);
+          return 0xffffffff;
+        }
+        if (iVar3 != 1) {
+          return 0xffffffff;
+        }
+        if (iVar9 != 0x11) {
+          return 0xffffffff;
+        }
+        eON_SetLastError(0x50);
+        return 0xffffffff;
+      }
+      iVar9 = __xstat64(3,local_1084,&local_84);
+      if (iVar9 == 0) {
+        if (((local_84.st_mode._1_1_ & 0x40) == 0) || ((uVar4 & 0x2000000) != 0)) goto LAB_0412ee90;
+      }
+      else {
+        piVar7 = __errno_location();
+        if (*piVar7 != 2) {
+          FUN_0402cd10(0xf,
+                       "While checking if file already exists in fs_CreateFileA(), stat() error = %u"
+                       ,*piVar7);
+          eON_SetLastError(0x54f);
+          return 0xffffffff;
+        }
+      }
+      eON_SetLastError(2);
+      return 0xffffffff;
+    }
+  }
+  eON_SetLastError(3);
+  return 0xffffffff;
+}
+

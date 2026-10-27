@@ -1,0 +1,117 @@
+
+/* source: windll */
+
+size_t windll_04153380(uint param_1,char *param_2,uint param_3)
+
+{
+  undefined4 *puVar1;
+  char *__dest;
+  uint __n;
+  undefined *puVar2;
+  uint uVar3;
+  uint uVar4;
+  size_t sVar5;
+  uint *puVar6;
+  char cVar7;
+  uint uVar8;
+  uint *puVar9;
+  char *pcVar10;
+  undefined *puVar11;
+  undefined *puVar12;
+  undefined4 local_420;
+  undefined4 *local_18;
+  
+  __n = param_3;
+  __dest = param_2;
+  uVar3 = param_1;
+  local_18 = &param_1;
+  eON_SetLastError(0);
+  if (__n == 0) {
+    return 0;
+  }
+  if (uVar3 != 0) {
+    if (DAT_0451adc0 == 0) {
+      FUN_0400a810("gMainExecutableHandle",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/windll.cpp"
+                   ,0x55c,"void* eON_GetModuleHandleA(LPCSTR)");
+    }
+    if (uVar3 != DAT_0451adc0) {
+      pthread_mutex_lock((pthread_mutex_t *)&DAT_0451add4);
+      puVar2 = DAT_0451adf4;
+      puVar11 = &DAT_0451adf0;
+      if (DAT_0451adf4 == (undefined *)0x0) {
+LAB_04153560:
+        pthread_mutex_unlock((pthread_mutex_t *)&DAT_0451add4);
+        return 0;
+      }
+      do {
+        while (puVar12 = puVar2, uVar3 <= *(uint *)(puVar12 + 0x10)) {
+          puVar2 = *(undefined **)(puVar12 + 8);
+          puVar11 = puVar12;
+          if (*(undefined **)(puVar12 + 8) == (undefined *)0x0) goto LAB_04153415;
+        }
+        puVar1 = (undefined4 *)(puVar12 + 0xc);
+        puVar2 = (undefined *)*puVar1;
+        puVar12 = puVar11;
+      } while ((undefined *)*puVar1 != (undefined *)0x0);
+LAB_04153415:
+      if ((puVar12 == &DAT_0451adf0) || (uVar3 < *(uint *)(puVar12 + 0x10))) goto LAB_04153560;
+      if (puVar12[0x118] == '\0') {
+        strcpy((char *)&local_420,&DAT_04519dc0);
+        strcat((char *)&local_420,puVar12 + 0x14);
+      }
+      else {
+        strcpy((char *)&local_420,puVar12 + 0x118);
+        puVar9 = &local_420;
+        do {
+          puVar6 = puVar9;
+          uVar3 = *puVar6 + 0xfefefeff & ~*puVar6;
+          uVar4 = uVar3 & 0x80808080;
+          puVar9 = puVar6 + 1;
+        } while (uVar4 == 0);
+        uVar8 = uVar4 >> 0x10;
+        puVar9 = (uint *)((int)puVar6 + 6);
+        if ((uVar3 & 0x8080) != 0) {
+          puVar9 = puVar6 + 1;
+          uVar8 = uVar4;
+        }
+        pcVar10 = (char *)((int)puVar9 + (-3 - (uint)CARRY1((byte)uVar8,(byte)uVar8)));
+        pcVar10[0] = '\\';
+        pcVar10[1] = '\0';
+        strcat((char *)&local_420,puVar12 + 0x14);
+      }
+      pthread_mutex_unlock((pthread_mutex_t *)&DAT_0451add4);
+      goto LAB_04153530;
+    }
+  }
+  strcpy((char *)&local_420,&DAT_04519dc0);
+  strcat((char *)&local_420,&DAT_04518dc0);
+LAB_04153530:
+  pcVar10 = (char *)&local_420;
+  cVar7 = (char)local_420;
+  if ((char)local_420 != '\0') {
+    do {
+      if (cVar7 == '/') {
+        *pcVar10 = '\\';
+      }
+      cVar7 = pcVar10[1];
+      pcVar10 = pcVar10 + 1;
+    } while (cVar7 != '\0');
+    pcVar10 = (char *)((int)&local_420 + 1);
+    if ((char)local_420 != '\"') {
+      pcVar10 = (char *)&local_420;
+    }
+  }
+  sVar5 = strlen(pcVar10);
+  if (pcVar10[sVar5 - 1] == '\"') {
+    pcVar10[sVar5 - 1] = '\0';
+    sVar5 = sVar5 - 1;
+  }
+  if (sVar5 + 1 <= __n) {
+    strcpy(__dest,pcVar10);
+    return sVar5;
+  }
+  strncpy(__dest,pcVar10,__n);
+  return __n;
+}
+

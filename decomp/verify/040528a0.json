@@ -1,0 +1,12 @@
+
+void eON_ShaderData_emit_if(int param_1)
+
+{
+  undefined1 local_10c [128];
+  undefined1 local_8c [132];
+  
+  eON_ShaderData_ApplySourceModifier(0x10000,local_10c);
+  eON_AppendShaderCompileMessage(*(undefined4 *)(param_1 + 0x38),"if( %s )\n{\n",local_8c);
+  return;
+}
+

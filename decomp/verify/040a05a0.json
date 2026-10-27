@@ -1,0 +1,490 @@
+
+/* WARNING: Restarted to delay deadcode elimination for space: stack */
+/* source: direct3ddevice9imp */
+
+undefined4
+Direct3DDevice9Imp__OpenGLSide_DrawIndexedPrimitive
+          (int param_1,undefined4 param_2,undefined4 *param_3)
+
+{
+  int *piVar1;
+  int iVar2;
+  int iVar3;
+  bool bVar4;
+  bool bVar5;
+  char cVar6;
+  char *pcVar7;
+  int iVar8;
+  int iVar9;
+  char *pcVar10;
+  int iVar11;
+  uint uVar12;
+  undefined4 *puVar13;
+  int iVar14;
+  int iVar15;
+  int iVar16;
+  uint uVar17;
+  char *local_b0;
+  uint local_a4;
+  undefined1 local_98 [64];
+  int local_58;
+  int local_54;
+  int local_50;
+  uint local_4c;
+  int local_48;
+  int local_44;
+  void *local_40;
+  int *local_3c;
+  int *local_38;
+  int *local_34;
+  int *local_30;
+  int *local_2c;
+  int local_28;
+  int local_24;
+  char local_1d [13];
+  
+  cVar6 = OpenGLContextCache__MaterialShininess(param_1,*param_3,param_3[1],local_1d);
+  if (cVar6 == '\0') {
+    FUN_0402cd10(0xf,"Couldn\'t set up render pipeline in DrawIndexedPrimitive! Skipping the draw.")
+    ;
+    return 0x28;
+  }
+  if ((DAT_0451ca41 == '\0') || (*(char *)(param_1 + 0xeb4c) == '\0')) {
+    Direct3DDevice9Imp__MakeSureTexturesForDrawAreCurrent(param_1,local_98);
+    OpenGLContextCache__PointAttenuation(param_1);
+    OpenGLContextCache__glLodBias(param_1,local_98);
+    bVar4 = false;
+    cVar6 = *(char *)(param_1 + 0xeb4c);
+  }
+  else {
+    OpenGLContextCache__PointAttenuation(param_1);
+    Direct3DDevice9Imp__SetupTexturesForDraw(param_1);
+    bVar4 = true;
+    cVar6 = *(char *)(param_1 + 0xeb4c);
+  }
+  if ((cVar6 == '\0') &&
+     (FUN_0408b2e0(param_1,*(undefined4 *)(param_1 + 0xe9ec)), local_1d[0] != '\0')) {
+    FUN_040e8c90(*(undefined4 *)(param_1 + 0xe9ec),*(undefined4 *)(param_1 + 0xc));
+  }
+  OpenGLContextCache__UpdateTextureMatrices(param_1,*(undefined1 *)(param_3 + 9));
+  uVar12 = (uint)(*(int *)(*(int *)(param_1 + 0x7c0c) + 0x3c) == 0x66);
+  iVar2 = uVar12 * 2 + 0x1403;
+  if (param_3[2] == 0) {
+    Direct3DDevice9Imp__SetupVertexAttributeArrays(param_1,param_3[3],0);
+    OpenGLContextCache____glewBindBuffer
+              (*(undefined4 *)(param_1 + 0xeb48),0x8893,
+               *(undefined4 *)(*(int *)(*(int *)(param_1 + 0x7c0c) + 0x50) + 0x18));
+    iVar15 = *(int *)(param_1 + 0xeb48);
+    if (*(char *)(iVar15 + 0x18c) != '\0') {
+      if (*(int *)(iVar15 + 0x14c) != 0) {
+        (*DAT_0451e548)(0,0);
+        *(undefined4 *)(iVar15 + 0x14c) = 0;
+      }
+      if (*(int *)(iVar15 + 0x150) != 0) {
+        (*DAT_0451e548)(1,0);
+        *(undefined4 *)(iVar15 + 0x150) = 0;
+      }
+      if (*(int *)(iVar15 + 0x154) != 0) {
+        (*DAT_0451e548)(2,0);
+        *(undefined4 *)(iVar15 + 0x154) = 0;
+      }
+      if (*(int *)(iVar15 + 0x158) != 0) {
+        (*DAT_0451e548)(3,0);
+        *(undefined4 *)(iVar15 + 0x158) = 0;
+      }
+      if (*(int *)(iVar15 + 0x15c) != 0) {
+        (*DAT_0451e548)(4,0);
+        *(undefined4 *)(iVar15 + 0x15c) = 0;
+      }
+      if (*(int *)(iVar15 + 0x160) != 0) {
+        (*DAT_0451e548)(5,0);
+        *(undefined4 *)(iVar15 + 0x160) = 0;
+      }
+      if (*(int *)(iVar15 + 0x164) != 0) {
+        (*DAT_0451e548)(6,0);
+        *(undefined4 *)(iVar15 + 0x164) = 0;
+      }
+      if (*(int *)(iVar15 + 0x168) != 0) {
+        (*DAT_0451e548)(7,0);
+        *(undefined4 *)(iVar15 + 0x168) = 0;
+      }
+      if (*(int *)(iVar15 + 0x16c) != 0) {
+        (*DAT_0451e548)(8,0);
+        *(undefined4 *)(iVar15 + 0x16c) = 0;
+      }
+      if (*(int *)(iVar15 + 0x170) != 0) {
+        (*DAT_0451e548)(9,0);
+        *(undefined4 *)(iVar15 + 0x170) = 0;
+      }
+      if (*(int *)(iVar15 + 0x174) != 0) {
+        (*DAT_0451e548)(10,0);
+        *(undefined4 *)(iVar15 + 0x174) = 0;
+      }
+      if (*(int *)(iVar15 + 0x178) != 0) {
+        (*DAT_0451e548)(0xb,0);
+        *(undefined4 *)(iVar15 + 0x178) = 0;
+      }
+      if (*(int *)(iVar15 + 0x17c) != 0) {
+        (*DAT_0451e548)(0xc,0);
+        *(undefined4 *)(iVar15 + 0x17c) = 0;
+      }
+      if (*(int *)(iVar15 + 0x180) != 0) {
+        (*DAT_0451e548)(0xd,0);
+        *(undefined4 *)(iVar15 + 0x180) = 0;
+      }
+      if (*(int *)(iVar15 + 0x184) != 0) {
+        (*DAT_0451e548)(0xe,0);
+        *(undefined4 *)(iVar15 + 0x184) = 0;
+      }
+      if (*(int *)(iVar15 + 0x188) != 0) {
+        (*DAT_0451e548)(0xf,0);
+        *(undefined4 *)(iVar15 + 0x188) = 0;
+      }
+      *(undefined1 *)(iVar15 + 0x18c) = 0;
+    }
+    if (DAT_04468c2c == 0) {
+      FUN_0400a810("DrawRangeElements_MaxVertices",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+                   ,0x2d1e,
+                   "DWORD Direct3DDevice9Imp::OpenGLSide_DrawIndexedPrimitive(DWORD, LPVOID)");
+    }
+    if (DAT_04468c28 == 0) {
+      FUN_0400a810("DrawRangeElements_MaxIndices",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+                   ,0x2d1f,
+                   "DWORD Direct3DDevice9Imp::OpenGLSide_DrawIndexedPrimitive(DWORD, LPVOID)");
+    }
+    if (DAT_04468c2c < (int)param_3[6]) {
+      iVar15 = param_3[8];
+LAB_040a0b19:
+      glDrawElements(param_3[7],iVar15,iVar2,param_3[4]);
+    }
+    else {
+      iVar15 = param_3[8];
+      if (DAT_04468c28 < iVar15) goto LAB_040a0b19;
+      (*DAT_0451eeb8)(param_3[7],param_3[5],param_3[6] + param_3[5],iVar15,iVar2,param_3[4]);
+    }
+    DAT_044dac20 = 0;
+    DAT_044dac2c = param_3[5];
+    DAT_044dac28 = param_3[6];
+    DAT_04408c8c = param_3[4];
+    DAT_044dac24 = uVar12;
+    OpenGLDebugEvent(1,"DrawPrimitive: glDraw(Range)Elements()");
+    DAT_044dac28 = 0;
+    DAT_04408c8c = 0xffffffff;
+    goto LAB_040a0750;
+  }
+  if ((*(char *)(param_1 + 0xeb4c) != '\0') || (DAT_0451ca5a != '\0')) {
+    Direct3DDevice9Imp__SetupVertexAttributeArrays(param_1,param_3[3],param_3[2]);
+    OpenGLContextCache____glewBindBuffer
+              (*(undefined4 *)(param_1 + 0xeb48),0x8893,
+               *(undefined4 *)(*(int *)(*(int *)(param_1 + 0x7c0c) + 0x50) + 0x18));
+    if (*(char *)(param_1 + 0xeb4c) == '\0') {
+      (*DAT_0451e54c)(param_3[7],param_3[8],iVar2,param_3[4],param_3[2]);
+    }
+    else {
+      (*DAT_0451ea80)(param_3[7],param_3[8],iVar2,param_3[4],param_3[2]);
+    }
+    DAT_044dac2c = param_3[5];
+    DAT_044dac28 = param_3[6];
+    DAT_04408c8c = param_3[4];
+    DAT_044dac20 = param_3[2];
+    DAT_044dac24 = uVar12;
+    OpenGLDebugEvent(1,"DrawIndexedPrimitive: instanced glDrawElementsInstancedARB");
+    DAT_044dac28 = 0;
+    DAT_04408c8c = 0xffffffff;
+    goto LAB_040a0750;
+  }
+  local_38 = (int *)0x0;
+  local_2c = (int *)0x0;
+  local_40 = (void *)0x0;
+  local_3c = (int *)0x0;
+  iVar15 = param_3[3];
+  local_34 = (int *)0x0;
+  iVar3 = *(int *)(param_1 + 0xe9d4);
+  local_30 = (int *)0x0;
+  local_b0 = (char *)(*(int *)(param_1 + 0xe9ec) + 9);
+  cVar6 = *(char *)(*(int *)(param_1 + 0xe9ec) + 9);
+  pcVar10 = local_b0;
+  while (cVar6 != -1) {
+    if (cVar6 == '\0') {
+      if (pcVar10[1] == '\0') goto LAB_040a0cf5;
+    }
+    else if (cVar6 == '\t') {
+      if (pcVar10[1] != '\0') {
+        FUN_0400a810("positionInfo->UsageIndex == 0",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+                     ,0x2943,
+                     "void Direct3DDevice9Imp::PrepareVertexArraysForInstancedDraw(INT, std::vector<Direct3DDevice9Imp::InstanceDataUpdateInfo>&, std::vector<Direct3DDevice9Imp::InstancedStreamSource>&)"
+                    );
+      }
+LAB_040a0cf5:
+      if (*pcVar10 != -1) goto LAB_040a0d04;
+      break;
+    }
+    pcVar10 = pcVar10 + 2;
+    cVar6 = *pcVar10;
+  }
+  FUN_0400a810("positionInfo->Usage != 0xFF",
+               "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+               ,0x2948,
+               "void Direct3DDevice9Imp::PrepareVertexArraysForInstancedDraw(INT, std::vector<Direct3DDevice9Imp::InstanceDataUpdateInfo>&, std::vector<Direct3DDevice9Imp::InstancedStreamSource>&)"
+              );
+LAB_040a0d04:
+  bVar5 = false;
+  local_a4 = 0;
+  do {
+    if (local_a4 == 0) {
+      iVar8 = *(int *)(iVar3 + 0x24);
+      iVar16 = (*(int *)(iVar3 + 0x28) - iVar8 >> 3) * -0x55555555;
+      if (iVar16 != 0) {
+        iVar11 = 0;
+        iVar14 = 0;
+        do {
+          cVar6 = *(char *)(iVar8 + iVar11);
+          if (cVar6 == '\0') {
+            if (((char *)(iVar8 + iVar11))[1] == '\0') goto LAB_040a0dc8;
+          }
+          else if (cVar6 == '\t') goto LAB_040a0dc8;
+          iVar14 = iVar14 + 1;
+          iVar11 = iVar11 + 0x18;
+        } while (iVar14 != iVar16);
+      }
+LAB_040a1215:
+      (*DAT_0451ecc8)(local_a4);
+      if (local_a4 == 0) {
+        FUN_0400a810("i",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+                     ,0x2976,
+                     "void Direct3DDevice9Imp::PrepareVertexArraysForInstancedDraw(INT, std::vector<Direct3DDevice9Imp::InstanceDataUpdateInfo>&, std::vector<Direct3DDevice9Imp::InstancedStreamSource>&)"
+                    );
+      }
+      (*DAT_0451eb9c)(local_a4,0,0,0,0);
+    }
+    else {
+      pcVar7 = pcVar10 + 2;
+      if (pcVar10 != local_b0) {
+        pcVar7 = local_b0;
+      }
+      if (*pcVar7 == -1) goto LAB_040a11b0;
+      iVar8 = *(int *)(iVar3 + 0x24);
+      iVar14 = -1;
+      iVar16 = (*(int *)(iVar3 + 0x28) - iVar8 >> 3) * -0x55555555;
+      if (iVar16 != 0) {
+        iVar11 = 0;
+        iVar14 = 0;
+        do {
+          if ((*pcVar7 == *(char *)(iVar8 + iVar11)) && (((char *)(iVar8 + iVar11))[1] == pcVar7[1])
+             ) goto LAB_040a0dbd;
+          iVar14 = iVar14 + 1;
+          iVar11 = iVar11 + 0x18;
+        } while (iVar14 != iVar16);
+        iVar14 = -1;
+      }
+LAB_040a0dbd:
+      local_b0 = pcVar7 + 2;
+LAB_040a0dc8:
+      if (iVar14 == -1) goto LAB_040a1215;
+      iVar8 = iVar8 + iVar14 * 0x18;
+      if (*(int *)(iVar8 + 4) == 0) {
+                    /* try { // try from 040a0deb to 040a14ec has its CatchHandler @ 040a15a5 */
+        (*DAT_0451ecc0)();
+        OpenGLContextCache____glewBindBuffer
+                  (*(undefined4 *)(param_1 + 0xeb48),0x8892,
+                   *(undefined4 *)(*(int *)(*(int *)(param_1 + 0x8178) + 0x54) + 0x18));
+        iVar16 = *(int *)(param_1 + 0x8180);
+        iVar11 = iVar15 * iVar16 + *(int *)(param_1 + 0x817c);
+        (&DAT_044dac40)[local_a4] = iVar11;
+        (*DAT_0451eb7c)(local_a4,*(undefined4 *)(iVar8 + 0x10),*(undefined4 *)(iVar8 + 0xc),
+                        *(undefined1 *)(iVar8 + 0x14),iVar16,iVar11 + *(int *)(iVar8 + 8));
+        bVar5 = true;
+      }
+      else {
+        (*DAT_0451ecc8)(local_a4);
+        local_54 = *(int *)(iVar8 + 0x10);
+        local_58 = local_a4;
+        iVar16 = *(int *)(iVar8 + 4);
+        local_50 = *(int *)(iVar8 + 0xc);
+        local_4c = (uint)*(byte *)(iVar8 + 0x14);
+        local_48 = *(int *)(param_1 + 0x10 + (iVar16 + 0x817) * 0x10);
+        iVar11 = (int)local_30 - (int)local_34 >> 3;
+        if (iVar11 == 0) {
+LAB_040a1382:
+          if (*(int *)(param_1 + 0x14 + (iVar16 + 0x817) * 0x10) != -0x7fffffff) {
+            FUN_0400a810("mOGLDeviceState.StreamSources[a.Stream].Divider == (UINT) ( (2<<30) | 1 )"
+                         ,
+                         "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+                         ,0x29a1,
+                         "void Direct3DDevice9Imp::PrepareVertexArraysForInstancedDraw(INT, std::vector<Direct3DDevice9Imp::InstanceDataUpdateInfo>&, std::vector<Direct3DDevice9Imp::InstancedStreamSource>&)"
+                        );
+            iVar16 = *(int *)(iVar8 + 4);
+          }
+          local_28 = iVar16;
+          local_24 = eON_Buffer__GetOpenGLSideDataRegion
+                               (*(undefined4 *)
+                                 (*(int *)(param_1 + 8 + (iVar16 + 0x817) * 0x10) + 0x54),
+                                *(undefined4 *)(param_1 + 0xeb48));
+          if (local_30 == local_2c) {
+                    /* try { // try from 040a15e9 to 040a15ed has its CatchHandler @ 040a15a5 */
+            FUN_040a36c0(&local_34,local_30,&local_28);
+          }
+          else {
+            if (local_30 != (int *)0x0) {
+              *local_30 = local_28;
+              local_30[1] = local_24;
+            }
+            local_30 = local_30 + 2;
+          }
+          iVar16 = *(int *)(iVar8 + 4);
+          iVar11 = iVar15 * local_48 + local_24;
+        }
+        else {
+          iVar9 = 0;
+          iVar14 = *local_34;
+          piVar1 = local_34;
+          while (iVar16 != iVar14) {
+            iVar9 = iVar9 + 1;
+            if (iVar11 == iVar9) goto LAB_040a1382;
+            piVar1 = local_34 + iVar9 * 2;
+            iVar14 = *piVar1;
+          }
+          iVar11 = iVar15 * local_48 + piVar1[1];
+          if (iVar11 == 0) goto LAB_040a1382;
+        }
+        local_44 = iVar11 + *(int *)(iVar8 + 8) + *(int *)(param_1 + 0xc + (iVar16 + 0x817) * 0x10);
+        if (local_3c == local_38) {
+                    /* try { // try from 040a1538 to 040a159f has its CatchHandler @ 040a15a5 */
+          FUN_040a3870(&local_40,local_3c,&local_58);
+        }
+        else {
+          if (local_3c != (int *)0x0) {
+            *local_3c = local_58;
+            local_3c[1] = local_54;
+            local_3c[2] = local_50;
+            local_3c[3] = local_4c;
+            local_3c[4] = local_48;
+            local_3c[5] = local_44;
+          }
+          local_3c = local_3c + 6;
+        }
+      }
+    }
+    local_a4 = local_a4 + 1;
+  } while (local_a4 != 0x10);
+LAB_040a0e7b:
+  if (!bVar5) {
+    FUN_0400a810("zeroSourceUsed",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+                 ,0x29b5,
+                 "void Direct3DDevice9Imp::PrepareVertexArraysForInstancedDraw(INT, std::vector<Direct3DDevice9Imp::InstanceDataUpdateInfo>&, std::vector<Direct3DDevice9Imp::InstancedStreamSource>&)"
+                );
+  }
+  OpenGLContextCache____glewBindBuffer
+            (*(undefined4 *)(param_1 + 0xeb48),0x8893,
+             *(undefined4 *)(*(int *)(*(int *)(param_1 + 0x7c0c) + 0x50) + 0x18));
+  uVar17 = 0;
+  if (param_3[2] != 0) {
+    local_a4 = 0;
+    do {
+      if (((int)local_3c - (int)local_40 >> 3) * -0x55555555 != 0) {
+        iVar15 = 0;
+        uVar17 = 0;
+        do {
+          puVar13 = (undefined4 *)((int)local_40 + iVar15);
+          Direct3DDevice9Imp__SetVertexAttrib
+                    (param_1,*puVar13,puVar13[1],puVar13[2],puVar13[3],puVar13[5]);
+          uVar17 = uVar17 + 1;
+          iVar15 = iVar15 + 0x18;
+          puVar13[5] = puVar13[5] + puVar13[4];
+        } while (uVar17 < (uint)(((int)local_3c - (int)local_40 >> 3) * -0x55555555));
+      }
+      if (DAT_04468c2c == 0) {
+        FUN_0400a810("DrawRangeElements_MaxVertices",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+                     ,0x2cfe,
+                     "DWORD Direct3DDevice9Imp::OpenGLSide_DrawIndexedPrimitive(DWORD, LPVOID)");
+      }
+      if (DAT_04468c28 == 0) {
+        FUN_0400a810("DrawRangeElements_MaxIndices",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+                     ,0x2cff,
+                     "DWORD Direct3DDevice9Imp::OpenGLSide_DrawIndexedPrimitive(DWORD, LPVOID)");
+      }
+      if (DAT_04468c2c < (int)param_3[6]) {
+        iVar15 = param_3[8];
+LAB_040a0f94:
+        glDrawElements(param_3[7],iVar15,iVar2,param_3[4]);
+      }
+      else {
+        iVar15 = param_3[8];
+        if (DAT_04468c28 < iVar15) goto LAB_040a0f94;
+        (*DAT_0451eeb8)(param_3[7],param_3[5],param_3[6] + param_3[5],iVar15,iVar2,param_3[4]);
+      }
+      local_a4 = local_a4 + 1;
+      uVar17 = param_3[2];
+    } while (local_a4 < uVar17);
+  }
+  DAT_044dac2c = param_3[5];
+  DAT_044dac28 = param_3[6];
+  DAT_04408c8c = param_3[4];
+  DAT_044dac20 = uVar17;
+  DAT_044dac24 = uVar12;
+  OpenGLDebugEvent(1,"DrawIndexedPrimitive: instanced glDrawElements/glDrawRangeElements");
+  DAT_044dac28 = 0;
+  DAT_04408c8c = 0xffffffff;
+  (*DAT_0451ecc8)(0);
+  (*DAT_0451ecc8)(1);
+  (*DAT_0451ecc8)(2);
+  (*DAT_0451ecc8)(3);
+  (*DAT_0451ecc8)(4);
+  (*DAT_0451ecc8)(5);
+  (*DAT_0451ecc8)(6);
+  (*DAT_0451ecc8)(7);
+  (*DAT_0451ecc8)(8);
+  (*DAT_0451ecc8)(9);
+  (*DAT_0451ecc8)(10);
+  (*DAT_0451ecc8)(0xb);
+  (*DAT_0451ecc8)(0xc);
+  (*DAT_0451ecc8)(0xd);
+  (*DAT_0451ecc8)(0xe);
+  (*DAT_0451ecc8)(0xf);
+  puVar13 = *(undefined4 **)(param_1 + 0xeb48);
+  puVar13[0x65] = 0;
+  *puVar13 = 0xffffffff;
+  puVar13[1] = 0xffffffff;
+  puVar13[2] = 0xffffffff;
+  puVar13[3] = 0xffffffff;
+  puVar13[4] = 0xffffffff;
+  puVar13[5] = 0xffffffff;
+  puVar13[6] = 0xffffffff;
+  puVar13[7] = 0xffffffff;
+  puVar13[8] = 0xffffffff;
+  puVar13[9] = 0xffffffff;
+  puVar13[10] = 0xffffffff;
+  puVar13[0xb] = 0xffffffff;
+  puVar13[0xc] = 0xffffffff;
+  puVar13[0xd] = 0xffffffff;
+  puVar13[0xe] = 0xffffffff;
+  puVar13[0xf] = 0xffffffff;
+  puVar13[0x10] = 0;
+  if (local_34 != (int *)0x0) {
+    operator_delete(local_34);
+  }
+  if (local_40 != (void *)0x0) {
+    operator_delete(local_40);
+  }
+LAB_040a0750:
+  DAT_04468c38 = 0;
+  if (!bVar4) {
+    FUN_040972d0(param_1);
+  }
+  *(uint *)(param_1 + 0xea04) = *(uint *)(param_1 + 0xea04) & 0xffffe01c;
+  return 0x28;
+LAB_040a11b0:
+  do {
+    (*DAT_0451ecc8)(local_a4);
+    local_a4 = local_a4 + 1;
+  } while (local_a4 != 0x10);
+  goto LAB_040a0e7b;
+}
+

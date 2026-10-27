@@ -1,0 +1,93 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+/* source: xaudio2dsp */
+
+void Dsp__ChangeVolume(int *param_1,int *param_2)
+
+{
+  undefined1 (*pauVar1) [16];
+  float *pfVar2;
+  float fVar3;
+  int iVar4;
+  float fVar5;
+  float fVar6;
+  undefined1 auVar7 [16];
+  undefined1 auVar8 [16];
+  int iVar9;
+  int iVar10;
+  uint uVar11;
+  int iVar12;
+  uint uVar13;
+  uint uVar14;
+  float fVar15;
+  undefined1 auVar16 [16];
+  int *local_28;
+  int local_24;
+  int local_20;
+  
+  local_28 = (int *)*param_1;
+  iVar9 = param_1[1] - (int)local_28;
+  if ((iVar9 >> 2) * -0x55555555 - (param_2[1] - *param_2 >> 2) != 0) {
+    FUN_0400a810("GetNumOfChannels( pcm ) == (signed) volumes.size()",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/xaudio2_full/xaudio2dsp.cpp"
+                 ,0x140,"void Dsp::ChangeVolume(PcmData&, const std::vector<float>&)");
+    local_28 = (int *)*param_1;
+    iVar9 = param_1[1] - (int)local_28;
+  }
+  fVar5 = DAT_042dbf3c;
+  if (0xb < iVar9) {
+    iVar4 = *param_2;
+    local_24 = 0;
+    local_20 = 0;
+    uVar14 = local_28[1] - *local_28 >> 2;
+    uVar13 = uVar14 & 0xfffffff4;
+    do {
+      auVar8 = _DAT_04310080;
+      auVar7 = _DAT_04310070;
+      fVar3 = *(float *)(iVar4 + local_20 * 4);
+      if (0 < (int)uVar13) {
+        iVar12 = *(int *)((int)local_28 + local_24);
+        iVar10 = 0;
+        do {
+          pauVar1 = (undefined1 (*) [16])(iVar12 + iVar10 * 4);
+          iVar10 = iVar10 + 4;
+          auVar16._4_4_ = *(float *)(*pauVar1 + 4) * fVar3 + *(float *)(*pauVar1 + 4) * 0.0;
+          auVar16._0_4_ = *(float *)*pauVar1 * fVar3 + *(float *)*pauVar1 * 0.0;
+          auVar16._8_4_ = *(float *)(*pauVar1 + 8) * fVar3 + *(float *)(*pauVar1 + 8) * 0.0;
+          auVar16._12_4_ = *(float *)(*pauVar1 + 0xc) * fVar3 + *(float *)(*pauVar1 + 0xc) * 0.0;
+          auVar16 = maxps(auVar7,auVar16);
+          auVar16 = minps(auVar8,auVar16);
+          *pauVar1 = auVar16;
+        } while (iVar10 < (int)uVar13);
+      }
+      fVar6 = DAT_042e6f58;
+      if ((int)uVar13 < (int)uVar14) {
+        iVar10 = *(int *)((int)local_28 + local_24);
+        iVar12 = uVar13 * 4;
+        uVar11 = uVar13;
+        do {
+          while( true ) {
+            pfVar2 = (float *)(iVar10 + iVar12);
+            fVar15 = *pfVar2 * 0.0 + *pfVar2 * fVar3;
+            if (fVar15 < fVar5) break;
+            uVar11 = uVar11 + 1;
+            iVar12 = iVar12 + 4;
+            *pfVar2 = fVar5;
+            if ((int)uVar14 <= (int)uVar11) goto LAB_041030ee;
+          }
+          if (fVar15 <= fVar6) {
+            fVar15 = fVar6;
+          }
+          uVar11 = uVar11 + 1;
+          iVar12 = iVar12 + 4;
+          *pfVar2 = fVar15;
+        } while ((int)uVar11 < (int)uVar14);
+      }
+LAB_041030ee:
+      local_20 = local_20 + 1;
+      local_24 = local_24 + 0xc;
+    } while (local_20 < (iVar9 >> 2) * -0x55555555);
+  }
+  return;
+}
+

@@ -1,0 +1,40 @@
+
+void DirectInputKeyboardDeviceImp___DirectInputKeyboardDeviceImp(undefined4 *param_1)
+
+{
+  int iVar1;
+  void *pvVar2;
+  undefined4 *puVar3;
+  
+  *param_1 = &PTR_DirectInputKeyboardDeviceImp___DirectInputKeyboardDeviceImp_0430ce88;
+  if (*(char *)(param_1 + 0x5b) != '\0') {
+    *(undefined1 *)(param_1 + 9) = 0;
+    DAT_0451be3c = 0;
+                    /* try { // try from 040f5d05 to 040f5d09 has its CatchHandler @ 040f5d16 */
+    FUN_0402cd10(5,"DirectInput 7/8 keyboard unacquired.");
+    *(undefined1 *)(param_1 + 0x5b) = 0;
+  }
+  if ((void *)param_1[0x61] != (void *)0x0) {
+    free((void *)param_1[0x61]);
+  }
+  if ((void *)param_1[0x62] != (void *)0x0) {
+    operator_delete((void *)param_1[0x62]);
+  }
+  pvVar2 = (void *)param_1[0xb];
+  if (pvVar2 != (void *)0x0) {
+    iVar1 = param_1[0x14];
+    puVar3 = (undefined4 *)param_1[0x10];
+    if (puVar3 < (undefined4 *)(iVar1 + 4)) {
+      do {
+        pvVar2 = (void *)*puVar3;
+        puVar3 = puVar3 + 1;
+        operator_delete(pvVar2);
+      } while (puVar3 < (undefined4 *)(iVar1 + 4));
+      pvVar2 = (void *)param_1[0xb];
+    }
+    operator_delete(pvVar2);
+  }
+  FUN_040f1ef0();
+  return;
+}
+

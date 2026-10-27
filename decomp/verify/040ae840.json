@@ -1,0 +1,22 @@
+
+/* source: direct3dsurface9imp */
+
+void Direct3DSurface9Imp__TransferDataFromPBO(int param_1)
+
+{
+  undefined4 uVar1;
+  
+  if (*(int *)(param_1 + 0xd4) == 0) {
+    FUN_0400a810("GRTD",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3dsurface9imp.cpp"
+                 ,0x426,"void Direct3DSurface9Imp::TransferDataFromPBO()");
+  }
+  uVar1 = Direct3DDevice9Imp__GetContextCache(*(int *)(param_1 + 0x1c) + 0x40);
+  OpenGLContextCache____glewBindBuffer(uVar1,0x88eb,**(undefined4 **)(param_1 + 0xd4));
+  (*DAT_0451ed0c)(0x88eb,0,*(undefined4 *)(param_1 + 0xbc),
+                  *(undefined4 *)(*(int *)(param_1 + 200) + 4));
+  *(undefined1 *)(param_1 + 0x68) = 0;
+  Direct3DDevice9Imp__GRTD_Delete(*(int *)(param_1 + 0x1c) + 0x40,*(undefined4 *)(param_1 + 0xd4));
+  return;
+}
+

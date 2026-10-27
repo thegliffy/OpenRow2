@@ -1,0 +1,72 @@
+
+undefined8 VPFS_FileOffset(int param_1)
+
+{
+  int iVar1;
+  int iVar2;
+  uint uVar3;
+  uint uVar4;
+  char local_47c [1024];
+  stat64 local_7c;
+  
+  uVar3 = 0xffffffff;
+  uVar4 = 0xffffffff;
+  if (param_1 == 0) goto LAB_04046ab3;
+  if (0x2800 < param_1 + 0x54545455U) {
+    FUN_0402cd10(0xf,"Invalid handle given to VPFS_FileOffset()!!");
+    goto LAB_04046ab3;
+  }
+  param_1 = param_1 + 0x54545454;
+  pthread_mutex_lock((pthread_mutex_t *)&DAT_0441804c);
+  iVar2 = param_1 * 0x20;
+  iVar1 = (&DAT_04418280)[param_1 * 8];
+  if ((((iVar1 == 4) || (iVar1 == 0)) || (iVar1 == 6)) || (iVar1 == 1)) {
+    uVar3 = 0xffffffff;
+    pthread_mutex_unlock((pthread_mutex_t *)&DAT_0441804c);
+    uVar4 = 0xffffffff;
+    goto LAB_04046ab3;
+  }
+  if ((iVar1 == 7) || (iVar1 == 5)) {
+    iVar1 = FUN_0403c400(*(undefined4 *)(&DAT_04418284 + iVar2));
+    if (iVar1 == 0) {
+      iVar1 = __xstat64(3,*(char **)(&DAT_04418284 + iVar2),&local_7c);
+      if (iVar1 == -1) {
+        if ((&DAT_04418280)[param_1 * 8] == 7) {
+          iVar1 = FUN_0403c9d0();
+          if (iVar1 != 0) {
+            iVar1 = FUN_0403c400(local_47c);
+            if (iVar1 == 0) {
+              iVar1 = __xstat64(3,local_47c,&local_7c);
+              if (iVar1 == -1) goto LAB_04046be8;
+            }
+            else {
+              SplitFile_GetStat(local_47c,&local_7c);
+            }
+            goto LAB_04046baa;
+          }
+        }
+LAB_04046be8:
+        FUN_0403cbc0();
+        uVar3 = 0xffffffff;
+        uVar4 = uVar3;
+        goto LAB_04046ab3;
+      }
+    }
+    else {
+      SplitFile_GetStat(*(undefined4 *)(&DAT_04418284 + iVar2),&local_7c);
+    }
+LAB_04046baa:
+    uVar4 = local_7c.st_ino._4_4_ | (uint)local_7c.st_dev;
+    uVar3 = (uint)local_7c.st_ino;
+  }
+  else {
+    uVar3 = (uint)*(ushort *)(DAT_04468a94 + 2 + (&DAT_04418288)[param_1 * 8]);
+    iVar1 = (&DAT_04418288)[param_1 * 8] + DAT_04468a94;
+    uVar4 = *(uint *)(uVar3 + 0x38 + iVar1);
+    uVar3 = *(uint *)(uVar3 + 0x34 + iVar1);
+  }
+  pthread_mutex_unlock((pthread_mutex_t *)&DAT_0441804c);
+LAB_04046ab3:
+  return CONCAT44(uVar4,uVar3);
+}
+

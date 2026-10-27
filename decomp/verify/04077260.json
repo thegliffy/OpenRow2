@@ -1,0 +1,166 @@
+
+undefined4
+Direct3DDevice9Imp__UpdateSurface(int param_1,int param_2,int *param_3,int param_4,int *param_5)
+
+{
+  int *piVar1;
+  char cVar2;
+  int iVar3;
+  int **ppiVar4;
+  undefined1 auStack_88 [4];
+  undefined1 auStack_84 [4];
+  undefined4 uStack_80;
+  int *local_7c;
+  int *local_78;
+  int *local_74;
+  int *local_70;
+  int *local_6c;
+  int local_68;
+  int local_64;
+  int local_60;
+  int *local_5c;
+  int local_58;
+  int local_54;
+  undefined4 local_50;
+  int local_44;
+  int local_40;
+  int local_3c;
+  int local_38;
+  int local_34;
+  int local_30;
+  int local_2c;
+  int local_28;
+  undefined4 local_24;
+  undefined1 local_20 [16];
+  
+  if (((param_4 == 0) || (param_2 == 0)) || (param_2 == param_4)) {
+    return 0x8876086c;
+  }
+  local_24 = *(undefined4 *)(param_1 + 0xc);
+  uStack_80 = 0x40772a3;
+  direct3ddevice9imp_040704e0();
+  if (*(char *)(param_2 + 0x3c) == '\0') {
+    local_7c = (int *)(param_2 + 4);
+                    /* try { // try from 040772d9 to 04077564 has its CatchHandler @ 04077574 */
+    uStack_80 = 0x40772de;
+    local_5c = local_7c;
+    cVar2 = direct3dsurface9imp_040adca0();
+    if (cVar2 == '\0') {
+      local_7c = local_5c;
+      uStack_80 = 0x40772ed;
+      cVar2 = direct3dsurface9imp_040add10();
+      if ((((cVar2 == '\0') && (*(int *)(param_2 + 0x90) != 3)) &&
+          ((*(int *)(param_2 + 0x90) != 2 || ((*(byte *)(param_2 + 0x78) & 1) == 0)))) &&
+         ((*(int *)(param_2 + 0xa0) < 2 && (*(char *)(param_4 + 0x3c) == '\0')))) {
+        local_7c = (int *)(param_4 + 4);
+        uStack_80 = 0x4077322;
+        local_6c = local_7c;
+        cVar2 = direct3dsurface9imp_040adca0();
+        if (cVar2 == '\0') {
+          local_7c = local_6c;
+          uStack_80 = 0x4077331;
+          cVar2 = direct3dsurface9imp_040add10();
+          if ((cVar2 == '\0') && (*(int *)(param_4 + 0xa0) < 2)) {
+            local_50 = 0x8876086c;
+            ppiVar4 = &local_7c;
+            if ((*(int *)(param_2 + 0x7c) != 2) ||
+               (ppiVar4 = &local_7c, *(int *)(param_4 + 0x7c) != 0)) goto LAB_040772b0;
+            if (*(int *)(param_2 + 0x70) == *(int *)(param_4 + 0x70)) {
+              if (param_3 == (int *)0x0) {
+                local_38 = *(int *)(param_2 + 0x8c);
+                local_44 = 0;
+                local_3c = *(int *)(param_2 + 0x88);
+                local_40 = 0;
+              }
+              else {
+                local_44 = *param_3;
+                local_40 = param_3[1];
+                local_3c = param_3[2];
+                local_38 = param_3[3];
+                ppiVar4 = &local_7c;
+                if ((((local_44 < 0) || (ppiVar4 = &local_7c, local_40 < 0)) ||
+                    (ppiVar4 = &local_7c, *(int *)(param_2 + 0x88) < local_3c)) ||
+                   (ppiVar4 = &local_7c, local_60 = local_38, *(int *)(param_2 + 0x8c) < local_38))
+                goto LAB_040772b0;
+              }
+              local_60 = local_38;
+              if (param_5 == (int *)0x0) {
+                local_34 = 0;
+                local_30 = 0;
+              }
+              else {
+                local_30 = param_5[1];
+                local_34 = *param_5;
+              }
+              local_64 = local_44;
+              local_68 = local_40;
+              iVar3 = (local_3c - local_44) + local_34;
+              local_54 = (local_38 - local_40) + local_30;
+              local_2c = *(int *)(param_4 + 0x88);
+              local_58 = local_30;
+              if (local_2c < iVar3) {
+                local_3c = local_3c - (iVar3 - local_2c);
+                local_50 = 0;
+                ppiVar4 = &local_7c;
+                local_28 = local_54;
+                if ((local_3c <= local_44) ||
+                   (ppiVar4 = &local_7c, iVar3 = local_2c, local_2c <= local_34)) goto LAB_040772b0;
+              }
+              local_2c = iVar3;
+              local_28 = *(int *)(param_4 + 0x8c);
+              iVar3 = local_54;
+              if (local_28 < local_54) {
+                local_50 = 0;
+                local_38 = local_38 - (local_54 - local_28);
+                ppiVar4 = &local_7c;
+                if ((local_38 <= local_40) ||
+                   (ppiVar4 = &local_7c, iVar3 = local_28, local_28 <= local_30)) goto LAB_040772b0;
+              }
+              local_28 = iVar3;
+              local_74 = &local_44;
+              local_7c = local_5c;
+              local_78 = local_6c;
+              uStack_80 = 0x40774ae;
+              local_70 = &local_34;
+              Direct3DSurface9Imp__TransferToOpenGLTextureInDifferentSurface();
+              local_50 = 0;
+              ppiVar4 = &local_7c;
+              if ((*(int *)(param_4 + 0xc4) == 0) &&
+                 (piVar1 = *(int **)(param_4 + 0x94), ppiVar4 = &local_7c, piVar1 != (int *)0x0)) {
+                local_7c = piVar1;
+                if (piVar1[0x8a] == 2) {
+                  local_78 = (int *)(*(int *)(param_4 + 200) + -0x8515);
+                  uStack_80 = 0x4077565;
+                  local_74 = &local_34;
+                  (**(code **)(*piVar1 + 0x54))();
+                  ppiVar4 = (int **)auStack_88;
+                  local_50 = 0;
+                }
+                else {
+                  uStack_80 = 0x40774e6;
+                  local_78 = &local_34;
+                  (**(code **)(*piVar1 + 0x54))();
+                  ppiVar4 = (int **)auStack_84;
+                  local_50 = 0;
+                }
+              }
+              goto LAB_040772b0;
+            }
+            local_78 = (int *)0x42f0d2c;
+            local_7c = (int *)0xf;
+            uStack_80 = 0x407737e;
+            FUN_0402cd10();
+          }
+        }
+      }
+    }
+  }
+  local_50 = 0x8876086c;
+  ppiVar4 = &local_7c;
+LAB_040772b0:
+  *ppiVar4 = (int *)local_20;
+  ppiVar4[-1] = (int *)0x40772b8;
+  direct3ddevice9imp_040a2df0();
+  return local_50;
+}
+

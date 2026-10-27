@@ -1,0 +1,34 @@
+
+void eON_KeyDown(undefined4 param_1,undefined4 param_2)
+
+{
+  uint uVar1;
+  uint uVar2;
+  uint uVar3;
+  
+  uVar1 = KeycodeToWindowsScancode(param_2);
+  if (uVar1 == 0xffffffff) {
+    FUN_0402cd10();
+    return;
+  }
+  uVar2 = KeycodeToVirtualKeyCode(param_2);
+  uVar3 = (uVar1 & 0x1ff) << 0x10;
+  uVar1 = uVar3 | 1;
+  if ((&DAT_04468ae0)[uVar2] != '\0') {
+    uVar1 = uVar3 | 0x40000001;
+  }
+  (&DAT_04468ae0)[uVar2] = (&DAT_04468ae0)[uVar2] + '\x01';
+  if ((DAT_04468be4 & 0x1024) != 0) {
+    uVar1 = uVar1 | 0x20000000;
+  }
+  eON_Int_PostMessage_IfWindow(param_1,0x100,uVar2,uVar1);
+  if ((((((10 < uVar2 - 0x10) && (uVar2 != 0)) && (3 < uVar2 - 0x1c)) &&
+       ((0xe < uVar2 - 0x21 && (3 < uVar2 - 0x5b)))) &&
+      ((0x49 < uVar2 - 0x70 && ((0x19 < uVar2 - 0xc1 && (uVar2 < 0xe0)))))) &&
+     ((uVar2 == 0x1b || (uVar2 == 8)))) {
+    eON_Int_PostMessage_IfWindow();
+    return;
+  }
+  return;
+}
+

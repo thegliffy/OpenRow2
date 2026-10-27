@@ -1,0 +1,421 @@
+
+/* source: eonBuffer */
+
+int eON_Buffer__OpenGLSide_Unlock(int *param_1,undefined4 param_2,int *param_3)
+
+{
+  int *piVar1;
+  size_t *psVar2;
+  int iVar3;
+  code *pcVar4;
+  char cVar5;
+  int iVar6;
+  void *pvVar7;
+  int *piVar8;
+  char cVar9;
+  uint uVar10;
+  bool bVar11;
+  bool bVar12;
+  bool bVar13;
+  bool bVar14;
+  bool bVar15;
+  
+  iVar3 = param_3[2];
+  Direct3DDevice9Imp__GetContextCache();
+  cVar5 = DAT_0451ca7c;
+  bVar15 = false;
+  bVar11 = (param_3[1] & 0x2000U) != 0;
+  bVar12 = (param_3[1] & 0x1000U) != 0;
+  if ((param_3[2] == 1) && (param_3[3] == 0)) {
+    bVar15 = param_3[4] == param_1[2];
+  }
+  bVar13 = DAT_0451ca88 != '\0';
+  bVar14 = DAT_0451ca55 == '\0';
+  cVar9 = '\x01';
+  if (bVar14) {
+    cVar9 = *(char *)(*param_1 + 0xeb8d);
+  }
+  switch(param_1[0xe]) {
+  case 0:
+    if (param_1[6] != 0) {
+      FUN_0400a810();
+    }
+    iVar6 = FUN_040ba100();
+    param_1[6] = iVar6;
+    OpenGLContextCache____glewBindBuffer();
+    if ((bVar12) && (cVar9 != '\0')) {
+      if (bVar13) {
+        (*DAT_0451e894)();
+        iVar6 = (*DAT_0451e520)();
+        param_1[7] = iVar6;
+        if (iVar6 == 0) {
+          FUN_0400a810();
+        }
+        if (param_3[2] != 0) {
+          uVar10 = 0;
+          piVar8 = param_3;
+          do {
+            piVar1 = piVar8 + 3;
+            uVar10 = uVar10 + 1;
+            psVar2 = (size_t *)(piVar8 + 4);
+            piVar8 = piVar8 + 2;
+            memcpy((void *)(*piVar1 + param_1[7]),(void *)(*piVar1 + *(int *)(*param_3 + 8)),*psVar2
+                  );
+          } while (uVar10 < (uint)param_3[2]);
+        }
+      }
+      else {
+        (*DAT_0451ed30)();
+        if (param_3[2] != 0) {
+          uVar10 = 0;
+          piVar8 = param_3;
+          do {
+            pvVar7 = (void *)(*DAT_0451e520)();
+            if (pvVar7 == (void *)0x0) {
+              FUN_0400a810();
+            }
+            memcpy(pvVar7,(void *)(*(int *)(*param_3 + 8) + piVar8[3]),piVar8[4]);
+            cVar5 = (*DAT_0451ecf0)();
+            if (cVar5 != '\x01') {
+              FUN_0400a810();
+            }
+            uVar10 = uVar10 + 1;
+            piVar8 = piVar8 + 2;
+          } while (uVar10 < (uint)param_3[2]);
+        }
+      }
+      param_1[0xe] = 1;
+      break;
+    }
+    if (*(char *)((int)param_1 + 0x11) == '\0') {
+      if (bVar15) {
+        if (cVar5 != '\0') {
+          if (bVar13) {
+            (*DAT_0451e894)();
+          }
+          else {
+            (*DAT_0451ed30)();
+          }
+          param_1[0xe] = 2;
+          break;
+        }
+        goto LAB_040bb456;
+      }
+LAB_040bb1b7:
+      if (bVar13) {
+        (*DAT_0451e894)();
+      }
+      else {
+        (*DAT_0451ed30)();
+      }
+      if (param_3[2] != 0) {
+        uVar10 = 0;
+        do {
+          uVar10 = uVar10 + 1;
+          (*DAT_0451ed2c)();
+        } while (uVar10 < (uint)param_3[2]);
+      }
+    }
+    else {
+      if (!bVar15) goto LAB_040bb1b7;
+LAB_040bb456:
+      if (bVar13) {
+        (*DAT_0451e894)();
+      }
+      else {
+        (*DAT_0451ed30)();
+      }
+    }
+    param_1[0xe] = 3;
+    break;
+  case 1:
+    if ((bVar11) || (bVar12)) {
+      param_1[0xe] = 4;
+      goto switchD_040babeb_caseD_4;
+    }
+    if (!bVar15) {
+      iVar6 = FUN_040ba100();
+      param_1[6] = iVar6;
+      OpenGLContextCache____glewBindBuffer();
+      if (bVar13) {
+        (*DAT_0451e894)();
+      }
+      else {
+        (*DAT_0451ed30)();
+      }
+      if (param_3[2] != 0) {
+        uVar10 = 0;
+        do {
+          uVar10 = uVar10 + 1;
+          (*DAT_0451ed2c)();
+        } while (uVar10 < (uint)param_3[2]);
+      }
+      if (bVar13) {
+        OpenGLContextCache____glewBindBuffer();
+        cVar5 = (*DAT_0451ecf0)();
+        if (cVar5 != '\x01') {
+          FUN_0400a810();
+        }
+        param_1[7] = 0;
+      }
+      Direct3DDevice9Imp__VertexArrays_VertexBufferInvalidated();
+      FUN_040ba120();
+      break;
+    }
+    if (bVar13) {
+      OpenGLContextCache____glewBindBuffer();
+      cVar5 = (*DAT_0451ecf0)();
+      if (cVar5 != '\x01') {
+        FUN_0400a810();
+      }
+      param_1[7] = 0;
+    }
+    Direct3DDevice9Imp__VertexArrays_VertexBufferInvalidated();
+    FUN_040ba120();
+    iVar6 = FUN_040ba100();
+    param_1[6] = iVar6;
+    OpenGLContextCache____glewBindBuffer();
+    if (!bVar13) {
+      (*DAT_0451ed30)();
+      break;
+    }
+    goto LAB_040bb177;
+  case 2:
+    if (bVar12) {
+      FUN_0400a810();
+    }
+    if (bVar15) {
+      Direct3DDevice9Imp__VertexArrays_VertexBufferInvalidated();
+      FUN_040ba120();
+      iVar6 = FUN_040ba100();
+      param_1[6] = iVar6;
+      OpenGLContextCache____glewBindBuffer();
+      if (bVar13) {
+        (*DAT_0451e894)();
+      }
+      else {
+        (*DAT_0451ed30)();
+      }
+    }
+    else {
+      iVar6 = FUN_040ba100();
+      param_1[6] = iVar6;
+      OpenGLContextCache____glewBindBuffer();
+      if (bVar13) {
+        (*DAT_0451e894)();
+      }
+      else {
+        (*DAT_0451ed30)();
+      }
+      (*DAT_0451ed34)();
+      (*DAT_0451ed34)();
+      (*DAT_0451e85c)();
+      (*DAT_0451ed34)();
+      (*DAT_0451ed34)();
+      Direct3DDevice9Imp__VertexArrays_VertexBufferInvalidated();
+      FUN_040ba120();
+      OpenGLContextCache____glewBindBuffer();
+      if (param_3[2] != 0) {
+        uVar10 = 0;
+        do {
+          uVar10 = uVar10 + 1;
+          (*DAT_0451ed2c)();
+        } while (uVar10 < (uint)param_3[2]);
+      }
+    }
+    param_1[0xe] = 5;
+    break;
+  case 3:
+    if ((bVar12) && (cVar9 != '\0')) {
+      Direct3DDevice9Imp__VertexArrays_VertexBufferInvalidated();
+      FUN_040ba120();
+      iVar6 = FUN_040ba100();
+      param_1[6] = iVar6;
+      OpenGLContextCache____glewBindBuffer();
+      if (bVar13) {
+        (*DAT_0451e894)();
+        iVar6 = (*DAT_0451e520)();
+        param_1[7] = iVar6;
+        if (iVar6 == 0) {
+          FUN_0400a810();
+        }
+        if (param_3[2] != 0) {
+          uVar10 = 0;
+          piVar8 = param_3;
+          do {
+            piVar1 = piVar8 + 3;
+            uVar10 = uVar10 + 1;
+            psVar2 = (size_t *)(piVar8 + 4);
+            piVar8 = piVar8 + 2;
+            memcpy((void *)(*piVar1 + param_1[7]),(void *)(*piVar1 + *(int *)(*param_3 + 8)),*psVar2
+                  );
+          } while (uVar10 < (uint)param_3[2]);
+        }
+      }
+      else {
+        (*DAT_0451ed30)();
+        if (param_3[2] != 0) {
+          uVar10 = 0;
+          piVar8 = param_3;
+          do {
+            pvVar7 = (void *)(*DAT_0451e520)();
+            if (pvVar7 == (void *)0x0) {
+              FUN_0400a810();
+            }
+            memcpy(pvVar7,(void *)(*(int *)(*param_3 + 8) + piVar8[3]),piVar8[4]);
+            cVar5 = (*DAT_0451ecf0)();
+            if (cVar5 != '\x01') {
+              FUN_0400a810();
+            }
+            uVar10 = uVar10 + 1;
+            piVar8 = piVar8 + 2;
+          } while (uVar10 < (uint)param_3[2]);
+        }
+      }
+      param_1[0xe] = 4;
+      break;
+    }
+    param_1[0xe] = 5;
+  case 5:
+    if ((bVar12) && (DAT_044a7f34 != '\0')) {
+      if (bVar14) {
+        FUN_0402cd10();
+      }
+      else {
+        FUN_0402cd10();
+      }
+      DAT_044a7f34 = '\x01';
+    }
+    if (bVar11) {
+      if (bVar13) {
+        Direct3DDevice9Imp__VertexArrays_VertexBufferInvalidated();
+        FUN_040ba120();
+        iVar6 = FUN_040ba100();
+        param_1[6] = iVar6;
+        OpenGLContextCache____glewBindBuffer();
+        if (bVar15) {
+LAB_040bb177:
+          (*DAT_0451e894)();
+        }
+        else {
+          (*DAT_0451e894)();
+          if (param_3[2] != 0) {
+            uVar10 = 0;
+            do {
+              uVar10 = uVar10 + 1;
+              (*DAT_0451ed2c)();
+            } while (uVar10 < (uint)param_3[2]);
+          }
+        }
+      }
+      else {
+        OpenGLContextCache____glewBindBuffer();
+        (*DAT_0451ed30)();
+        if (param_3[2] != 0) {
+          uVar10 = 0;
+          do {
+            uVar10 = uVar10 + 1;
+            (*DAT_0451ed2c)();
+          } while (uVar10 < (uint)param_3[2]);
+        }
+      }
+    }
+    else {
+      OpenGLContextCache____glewBindBuffer();
+      if (param_3[2] != 0) {
+        uVar10 = 0;
+        do {
+          uVar10 = uVar10 + 1;
+          (*DAT_0451ed2c)();
+        } while (uVar10 < (uint)param_3[2]);
+      }
+    }
+    break;
+  case 4:
+switchD_040babeb_caseD_4:
+    if ((!bVar11) && (!bVar12)) {
+      FUN_0400a810();
+    }
+    if (bVar13) {
+      if (bVar11) {
+        OpenGLContextCache____glewBindBuffer();
+        cVar5 = (*DAT_0451ecf0)();
+        if (cVar5 != '\x01') {
+          FUN_0400a810();
+        }
+        iVar6 = (*DAT_0451e520)();
+        param_1[7] = iVar6;
+        if (iVar6 == 0) {
+          FUN_0400a810();
+        }
+      }
+      if (param_3[2] != 0) {
+        uVar10 = 0;
+        piVar8 = param_3;
+        do {
+          piVar1 = piVar8 + 3;
+          uVar10 = uVar10 + 1;
+          psVar2 = (size_t *)(piVar8 + 4);
+          piVar8 = piVar8 + 2;
+          memcpy((void *)(*piVar1 + param_1[7]),(void *)(*piVar1 + *(int *)(*param_3 + 8)),*psVar2);
+        } while (uVar10 < (uint)param_3[2]);
+      }
+    }
+    else {
+      OpenGLContextCache____glewBindBuffer();
+      if (param_3[2] != 0) {
+        uVar10 = 0;
+        piVar8 = param_3;
+        do {
+          pvVar7 = (void *)(*DAT_0451e520)();
+          if (pvVar7 == (void *)0x0) {
+            FUN_0400a810();
+          }
+          memcpy(pvVar7,(void *)(*(int *)(*param_3 + 8) + piVar8[3]),piVar8[4]);
+          cVar5 = (*DAT_0451ecf0)();
+          if (cVar5 != '\x01') {
+            FUN_0400a810();
+          }
+          uVar10 = uVar10 + 1;
+          piVar8 = piVar8 + 2;
+        } while (uVar10 < (uint)param_3[2]);
+      }
+    }
+    break;
+  default:
+    FUN_0400a810();
+  }
+  iVar6 = param_1[9];
+  if ((iVar6 != 0) && (param_3[2] != 0)) {
+    uVar10 = 0;
+    piVar8 = param_3;
+    while( true ) {
+      piVar1 = piVar8 + 3;
+      uVar10 = uVar10 + 1;
+      psVar2 = (size_t *)(piVar8 + 4);
+      piVar8 = piVar8 + 2;
+      memcpy((void *)(*(int *)(iVar6 + 8) + *piVar1),(void *)(*piVar1 + *(int *)(*param_3 + 8)),
+             *psVar2);
+      if ((uint)param_3[2] <= uVar10) break;
+      iVar6 = param_1[9];
+    }
+  }
+  param_3 = (int *)*param_3;
+  LOCK();
+  iVar6 = *param_3;
+  *param_3 = *param_3 + -1;
+  UNLOCK();
+  piVar8 = (int *)&stack0xffffffa4;
+  if ((iVar6 == 1) && (piVar8 = (int *)&stack0xffffffa4, param_3[3] == 0)) {
+    eON_VirtualFree();
+    piVar8 = (int *)&stack0xffffff98;
+    free(param_3);
+  }
+  iVar6 = *(int *)param_1[1];
+  *piVar8 = param_1[1];
+  pcVar4 = *(code **)(iVar6 + 0x10);
+  piVar8[-1] = 0x40babd6;
+  (*pcVar4)();
+  return iVar3 * 8 + 0xc;
+}
+

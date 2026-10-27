@@ -1,0 +1,99 @@
+
+/* source: direct3ddevice9imp */
+
+undefined4 Direct3DDevice9Imp__SetStreamSourceFreq(int param_1,uint param_2,uint param_3)
+
+{
+  undefined4 uVar1;
+  int iVar2;
+  int iVar3;
+  uint *puVar4;
+  int *piVar5;
+  undefined4 uStack_50;
+  int local_4c;
+  char *local_48;
+  uint local_44;
+  int local_30;
+  int local_24;
+  int *local_20 [4];
+  
+  piVar5 = &local_4c;
+  if (0xf < param_2) {
+    local_44 = param_2;
+    local_48 = "ERROR!! game wants to set freq in stream %u";
+    local_4c = 0xf;
+    uStack_50 = 0x4071d58;
+    FUN_0402cd10();
+  }
+  local_20[0] = &local_24;
+  iVar3 = *(int *)(param_1 + 0xc);
+  local_24 = iVar3;
+  if (iVar3 != 0) {
+    piVar5 = &local_4c;
+    if (*(char *)(iVar3 + 0xebbc) != '\0') {
+      local_4c = iVar3 + 0xebc4;
+      uStack_50 = 0x4071dae;
+      EnterCriticalSection();
+      piVar5 = &uStack_50;
+    }
+    if (*(int *)(iVar3 + 0xec64) == 0) {
+      if (*(int *)(iVar3 + 0xebc0) != 0) {
+        piVar5[3] = (int)"void Direct3DDevice9Imp::MultithreadedGuard_Enter()";
+        piVar5[2] = 0x3ae;
+        piVar5[1] = (int)
+                    "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+        ;
+        *piVar5 = (int)"!mCurrentD3D9Thread";
+        piVar5[-1] = 0x4071d34;
+        FUN_0400a810();
+      }
+      piVar5[-1] = 0x4071cbb;
+      uVar1 = FUN_0415b750();
+      *(undefined4 *)(iVar3 + 0xebc0) = uVar1;
+    }
+    else {
+      local_30 = *(int *)(iVar3 + 0xebc0);
+      piVar5[-1] = 0x4071d6e;
+      iVar2 = FUN_0415b750();
+      if (local_30 != iVar2) {
+        piVar5[3] = (int)"void Direct3DDevice9Imp::MultithreadedGuard_Enter()";
+        piVar5[2] = 0x3b3;
+        piVar5[1] = (int)
+                    "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+        ;
+        *piVar5 = (int)"mCurrentD3D9Thread == thread_GetCurrentThreadId()";
+        piVar5[-1] = 0x4071d9b;
+        FUN_0400a810();
+      }
+    }
+    *(int *)(iVar3 + 0xec64) = *(int *)(iVar3 + 0xec64) + 1;
+  }
+  iVar3 = *(int *)(param_1 + 0x75ec);
+  if (iVar3 == 0) {
+    iVar3 = (param_2 + 0xcc) * 0x10 + param_1;
+    if (*(uint *)(iVar3 + 0x18) != param_3) {
+      *(uint *)(iVar3 + 0x18) = param_3;
+      piVar5[3] = 8;
+      piVar5[2] = 0x26;
+      piVar5[1] = param_1;
+      *piVar5 = param_1 + 0xec00;
+                    /* try { // try from 04071dfb to 04071e0c has its CatchHandler @ 04071e12 */
+      piVar5[-1] = 0x4071e00;
+      puVar4 = (uint *)D3D9CommandQueue__GetNextCommandPointer();
+      *puVar4 = param_2;
+      puVar4[1] = param_3;
+      *piVar5 = param_1 + 0xec00;
+      piVar5[-1] = 0x4071e0d;
+      D3D9CommandQueue__CommandSubmitted();
+    }
+  }
+  else {
+    *(undefined4 *)(iVar3 + 0x9d4 + param_2 * 4) = 1;
+    *(uint *)(iVar3 + 0x10 + (param_2 + 0xa1) * 0x10) = param_3;
+  }
+  *piVar5 = (int)local_20;
+  piVar5[-1] = 0x4071cfc;
+  direct3ddevice9imp_040a2df0();
+  return 0;
+}
+

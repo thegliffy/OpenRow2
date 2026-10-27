@@ -1,0 +1,20 @@
+
+/* source: vpfs */
+
+undefined1 vpfs_0403dc90(void)
+
+{
+  undefined1 uVar1;
+  int iVar2;
+  undefined1 local_40c [1028];
+  
+  iVar2 = VPFS_PathToPathInArchive();
+  if (iVar2 == 0) {
+    FUN_0400a810("VPFS_PathToPathInArchive( absolutePath, buffer, 1024 ) != 0",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/vpfs/vpfs.cpp",0x96c,
+                 "int VPFS_ObjectAtAbsolutePathDeleted(const char*)");
+  }
+  uVar1 = FUN_0404c4c0(local_40c);
+  return uVar1;
+}
+

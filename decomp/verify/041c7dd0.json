@@ -1,0 +1,37 @@
+
+/* source: tinyxmlparser */
+
+void TiXmlDocument__SetError
+               (int param_1,int param_2,int param_3,undefined4 *param_4,undefined4 param_5)
+
+{
+  char *__s;
+  undefined4 uVar1;
+  size_t sVar2;
+  
+  if (*(char *)(param_1 + 0x2c) == '\0') {
+    if (0xe < param_2 - 1U) {
+      FUN_0400a810("err > 0 && err < TIXML_ERROR_STRING_COUNT",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxmlparser.cpp"
+                   ,0x324,
+                   "void TiXmlDocument::SetError(int, const char*, TiXmlParsingData*, TiXmlEncoding)"
+                  );
+    }
+    *(int *)(param_1 + 0x30) = param_2;
+    __s = (&PTR_s_No_error_04410c00)[param_2];
+    *(undefined1 *)(param_1 + 0x2c) = 1;
+    sVar2 = strlen(__s);
+    TiXmlString__assign(param_1 + 0x34,__s,sVar2);
+    *(undefined4 *)(param_1 + 0x40) = 0xffffffff;
+    *(undefined4 *)(param_1 + 0x3c) = 0xffffffff;
+    if ((param_4 != (undefined4 *)0x0) && (param_3 != 0)) {
+      TiXmlParsingData__Stamp(param_4,param_3,param_5);
+      uVar1 = param_4[1];
+      *(undefined4 *)(param_1 + 0x3c) = *param_4;
+      *(undefined4 *)(param_1 + 0x40) = uVar1;
+      return;
+    }
+  }
+  return;
+}
+

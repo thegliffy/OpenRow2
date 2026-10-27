@@ -1,0 +1,151 @@
+
+undefined4 EnumDisplaySettingsA(char *param_1,uint param_2,char *param_3)
+
+{
+  ulong uVar1;
+  uint uVar2;
+  size_t __n;
+  int iVar3;
+  char *pcVar4;
+  undefined4 uVar5;
+  char *pcVar6;
+  uint uVar7;
+  bool bVar8;
+  undefined4 local_30;
+  undefined4 local_2c;
+  int local_20;
+  undefined4 local_1c;
+  undefined1 local_18 [4];
+  undefined4 local_14;
+  
+  if (param_1 == (char *)0x0) {
+    uVar7 = 0;
+  }
+  else {
+    iVar3 = 0xb;
+    bVar8 = false;
+    pcVar4 = param_1;
+    pcVar6 = "\\\\.\\DISPLAY";
+    do {
+      if (iVar3 == 0) break;
+      iVar3 = iVar3 + -1;
+      bVar8 = *pcVar4 == *pcVar6;
+      pcVar4 = pcVar4 + 1;
+      pcVar6 = pcVar6 + 1;
+    } while (bVar8);
+    if (!bVar8) {
+      FUN_0402cd10(10,"EnumDisplaySettingsA() - unrecognised device name passed %s",param_1);
+      return 0;
+    }
+    uVar1 = strtoul(param_1 + 0xb,(char **)0x0,10);
+    uVar7 = uVar1 - 1;
+    uVar2 = OpenGLDisplay_GetCount();
+    if (uVar2 <= uVar7) {
+      return 0;
+    }
+  }
+  uVar5 = 0;
+  if (param_3 != (char *)0x0) {
+    uVar5 = OpenGLDisplay_GetByIndex(uVar7);
+    if (param_2 + 2 < 2) {
+      OpenGLDisplayWorkArea(uVar5,local_18,&local_14,0,0);
+      OpenGLDisplay_RefreshCurrentMode(uVar5,&local_30);
+    }
+    else {
+      uVar2 = OpenGLDisplay_GetModeCount(uVar5);
+      if (uVar2 <= param_2) {
+        return 0;
+      }
+      OpenGLDisplayWorkArea(uVar5,local_18,&local_14,0,0);
+      OpenGLDisplay_GetMode(uVar5,param_2,&local_30);
+    }
+    if (*(ushort *)(param_3 + 0x24) < 0x9c) {
+      if (*(ushort *)(param_3 + 0x24) < 0x94) {
+        param_3[0x20] = ' ';
+        param_3[0x21] = '\x03';
+        __n = 0x54;
+        param_3[0x24] = '|';
+        param_3[0x25] = '\0';
+      }
+      else {
+        param_3[0x20] = '\0';
+        param_3[0x21] = '\x04';
+        __n = 0x6c;
+        param_3[0x24] = -0x6c;
+        param_3[0x25] = '\0';
+      }
+    }
+    else {
+      param_3[0x20] = '\x01';
+      param_3[0x21] = '\x04';
+      __n = 0x74;
+      param_3[0x24] = -100;
+      param_3[0x25] = '\0';
+    }
+    bzero(param_3 + 0x28,__n);
+    if (0x93 < *(ushort *)(param_3 + 0x24)) {
+      FUN_0402cd10(10,
+                   "EnumDisplaySettings() is passed the DEVMODE struct size indicating that the game wants additional information, which we aren\'t filling. Returning spec indicating older Windows and less information."
+                  );
+    }
+    param_3[0x20] = ' ';
+    param_3[0x21] = '\x03';
+    param_3[0x24] = '|';
+    param_3[0x25] = '\0';
+    snprintf(param_3,0x20,"\\\\.\\DISPLAY%u",uVar7 + 1);
+    param_3[0x22] = '\x01';
+    param_3[0x23] = '\0';
+    param_3[0x28] = -0x60;
+    param_3[0x29] = '\0';
+    param_3[0x2a] = '~';
+    param_3[0x2b] = ' ';
+    param_3[0x2c] = '\0';
+    param_3[0x2d] = '\0';
+    param_3[0x2e] = '\0';
+    param_3[0x2f] = '\0';
+    *(undefined4 *)(param_3 + 0x30) = local_14;
+    param_3[0x66] = '`';
+    param_3[0x67] = '\0';
+    param_3[0x74] = '\0';
+    param_3[0x75] = '\0';
+    param_3[0x76] = '\0';
+    param_3[0x77] = '\0';
+    *(undefined4 *)(param_3 + 0x6c) = local_30;
+    *(undefined4 *)(param_3 + 0x70) = local_2c;
+    if (local_20 == 0) {
+      local_20 = 0x3c;
+    }
+    *(int *)(param_3 + 0x78) = local_20;
+    switch(local_1c) {
+    default:
+      FUN_0402cd10(10,"EnumDisplaySettingsA() - Invalid pixel encoding! - %08x",local_1c);
+      *(uint *)(param_3 + 0x28) = *(uint *)(param_3 + 0x28) & 0xfffbffff;
+      uVar5 = 1;
+      break;
+    case 1:
+    case 4:
+    case 5:
+      param_3[0x68] = ' ';
+      param_3[0x69] = '\0';
+      param_3[0x6a] = '\0';
+      param_3[0x6b] = '\0';
+      uVar5 = 1;
+      break;
+    case 2:
+      param_3[0x68] = '\x10';
+      param_3[0x69] = '\0';
+      param_3[0x6a] = '\0';
+      param_3[0x6b] = '\0';
+      uVar5 = 1;
+      break;
+    case 3:
+      param_3[0x68] = '\b';
+      param_3[0x69] = '\0';
+      param_3[0x6a] = '\0';
+      param_3[0x6b] = '\0';
+      uVar5 = 1;
+    }
+  }
+  return uVar5;
+}
+

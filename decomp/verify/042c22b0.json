@@ -1,0 +1,11 @@
+
+void png_write_sRGB(undefined4 param_1,int param_2)
+
+{
+  if (3 < param_2) {
+    png_warning(param_1,"Invalid sRGB rendering intent specified");
+  }
+  png_write_complete_chunk(1);
+  return;
+}
+

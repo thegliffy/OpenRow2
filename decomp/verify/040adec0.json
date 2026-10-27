@@ -1,0 +1,77 @@
+
+/* source: direct3dsurface9imp */
+
+void Direct3DSurface9Imp__TransferToOpenGLTextureInDifferentSurface
+               (int *param_1,int param_2,int *param_3,int *param_4)
+
+{
+  int iVar1;
+  int iVar2;
+  int *piVar3;
+  int iVar4;
+  int *piVar5;
+  
+  if (param_1[0x1b] == 0x4c4c554e) {
+    FUN_0400a810("mDesc.Format != D3DFMT_NULL",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3dsurface9imp.cpp"
+                 ,0x2e2,
+                 "void Direct3DSurface9Imp::TransferToOpenGLTextureInDifferentSurface(Direct3DSurface9Imp&, const RECT&, const RECT&)"
+                );
+  }
+  direct3dsurface9imp_040ace10();
+  if (param_1[0x32] == 0) {
+    FUN_0400a810("mData",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3dsurface9imp.cpp"
+                 ,0x2e5,
+                 "void Direct3DSurface9Imp::TransferToOpenGLTextureInDifferentSurface(Direct3DSurface9Imp&, const RECT&, const RECT&)"
+                );
+  }
+  piVar5 = (int *)D3D9CommandQueue__GetNextCommandPointer(param_1[7] + 0xec40,param_1,0x3c,0x28);
+  iVar1 = param_1[0x32];
+  iVar2 = *(int *)(iVar1 + 8);
+  *piVar5 = iVar1;
+  if (iVar2 < 1) {
+    FUN_0400a810("surfaceData->RefCount > 0",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3dsurface9imp.cpp"
+                 ,0xb5,"void RetainSurfaceData(SurfaceData*)");
+  }
+  LOCK();
+  *(int *)(iVar1 + 8) = *(int *)(iVar1 + 8) + 1;
+  UNLOCK();
+  piVar3 = *(int **)(param_2 + 0xc);
+  iVar1 = *piVar3;
+  piVar5[1] = (int)piVar3;
+  (**(code **)(iVar1 + 4))(piVar3);
+  piVar5[2] = *param_3;
+  piVar5[3] = param_3[1];
+  piVar5[4] = param_3[2];
+  piVar5[5] = param_3[3];
+  piVar5[6] = *param_4;
+  piVar5[7] = param_4[1];
+  piVar5[8] = param_4[2];
+  piVar5[9] = param_4[3];
+  (**(code **)(*param_1 + 0xc))(param_1);
+  D3D9CommandQueue__CommandSubmitted(param_1[7] + 0xec40);
+  iVar1 = *(int *)(param_1[7] + 0xec80);
+  iVar2 = *(int *)(param_1[7] + 0xec84);
+  if (DAT_044a3840 == (int *)0x0) {
+    piVar5 = malloc(0x1c);
+  }
+  else {
+    piVar5 = DAT_044a3840;
+    DAT_044a3840 = (int *)DAT_044a3840[6];
+  }
+  iVar4 = *param_3;
+  piVar5[4] = iVar1;
+  piVar5[5] = iVar2;
+  *piVar5 = iVar4;
+  piVar5[1] = param_3[1];
+  piVar5[2] = param_3[2];
+  piVar5[3] = param_3[3];
+  piVar5[6] = param_1[0x15];
+  param_1[0x15] = (int)piVar5;
+  *(int *)(param_2 + 0x58) = iVar1;
+  *(int *)(param_2 + 0x5c) = iVar2;
+  return;
+}
+

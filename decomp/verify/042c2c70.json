@@ -1,0 +1,39 @@
+
+void png_write_zTXt(int param_1,undefined4 param_2,char *param_3,int param_4)
+
+{
+  int iVar1;
+  int iVar2;
+  undefined1 local_5d;
+  undefined1 auStack_5c [80];
+  
+  if (param_4 == -1) {
+    png_write_tEXt(param_1,param_2,param_3,0);
+  }
+  else {
+    if (param_4 != 0) {
+                    /* WARNING: Subroutine does not return */
+      png_error(param_1,"zTXt: invalid compression type");
+    }
+    iVar1 = FUN_042c1130();
+    if (iVar1 == 0) {
+                    /* WARNING: Subroutine does not return */
+      png_error(param_1,"zTXt: invalid keyword");
+    }
+    auStack_5c[iVar1] = 0;
+    if (param_3 != (char *)0x0) {
+      strlen(param_3);
+    }
+    iVar2 = png_text_compress(iVar1 + 2);
+    if (iVar2 != 0) {
+                    /* WARNING: Subroutine does not return */
+      png_error(param_1,*(undefined4 *)(param_1 + 0xf8));
+    }
+    FUN_042c1080();
+    FUN_042c1940(param_1,&local_5d,iVar1 + 2);
+    png_write_compressed_data_out();
+    FUN_042c1a20(param_1);
+  }
+  return;
+}
+

@@ -1,0 +1,52 @@
+
+char * ShaderData_GetColorVaryingName_VS(int param_1)
+
+{
+  int iVar1;
+  char **ppcVar2;
+  char *local_80 [4];
+  char *local_70;
+  char *local_6c;
+  char *local_68;
+  char *local_64;
+  char *local_60;
+  char *local_5c;
+  char *local_58;
+  char *local_54;
+  char *local_50;
+  undefined *local_4c;
+  char *local_48;
+  undefined *local_44;
+  char *local_40;
+  undefined *local_3c;
+  char *local_38;
+  char *local_34;
+  
+  ppcVar2 = local_80;
+  for (iVar1 = 0x1e; iVar1 != 0; iVar1 = iVar1 + -1) {
+    *ppcVar2 = (char *)0x0;
+    ppcVar2 = ppcVar2 + 1;
+  }
+  local_80[0] = "eON_Varyings[0]";
+  local_80[1] = "gl_FrontColor";
+  local_80[2] = "eON_Varyings[1]";
+  local_80[3] = "gl_FrontSecondaryColor";
+  local_70 = "eON_Varyings[2]";
+  local_6c = "gl_TexCoord[7]";
+  local_68 = "eON_Varyings[3]";
+  local_64 = "gl_TexCoord[6]";
+  local_60 = "eON_Varyings[4]";
+  local_5c = "gl_TexCoord[5]";
+  local_58 = "eON_Varyings[5]";
+  local_54 = "gl_TexCoord[4]";
+  local_50 = "eON_Varyings[6]";
+  local_4c = &DAT_042e76f9;
+  local_48 = "eON_Varyings[7]";
+  local_44 = &DAT_042e76da;
+  local_40 = "eON_Varyings[8]";
+  local_3c = &DAT_042e76bb;
+  local_38 = "eON_Varyings[9]";
+  local_34 = "gl_TexCoord[0]";
+  return local_80[(DAT_04468c04 ^ 1) + param_1 * 2];
+}
+

@@ -1,0 +1,59 @@
+
+/* source: direct3dcubetexture9imp */
+
+undefined4
+Direct3DCubeTexture9Imp__GetCubeMapSurface(int param_1,int param_2,uint param_3,undefined4 *param_4)
+
+{
+  int iVar1;
+  undefined4 uVar2;
+  int **ppiVar3;
+  undefined4 local_40;
+  int *local_3c;
+  char *local_38;
+  undefined4 local_34;
+  char *local_30;
+  int *local_20;
+  
+  ppiVar3 = &local_3c;
+  local_20 = (int *)(param_1 + 0x1c);
+  if (*(int *)(param_1 + 0x1c) != 0) {
+    local_3c = (int *)(*(int *)(param_1 + 0x1c) + 0x40);
+    local_40 = 0x406ef5a;
+    direct3ddevice9imp_040803c0();
+  }
+  iVar1 = *(int *)(param_1 + 0x1bc);
+  if (iVar1 != (iVar1 / 6) * 6) {
+    local_30 = 
+    "virtual HRESULT Direct3DCubeTexture9Imp::GetCubeMapSurface(D3DCUBEMAP_FACES, UINT, IDirect3DSurface9**)"
+    ;
+    local_34 = 0x84;
+    local_38 = 
+    "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3dcubetexture9imp.cpp"
+    ;
+    local_3c = (int *)0x42efa18;
+                    /* try { // try from 0406efef to 0406eff3 has its CatchHandler @ 0406f007 */
+    local_40 = 0x406eff4;
+    FUN_0400a810();
+    iVar1 = *(int *)(param_1 + 0x1bc);
+  }
+  if ((param_3 < (uint)(iVar1 / 6)) && (param_2 < 6)) {
+    local_3c = *(int **)(param_1 + 0xc + (param_2 + 0xc + param_3 * 6) * 4);
+    *param_4 = local_3c;
+                    /* try { // try from 0406efa5 to 0406efa7 has its CatchHandler @ 0406f007 */
+    local_40 = 0x406efa8;
+    (**(code **)(*local_3c + 4))();
+    ppiVar3 = (int **)&local_40;
+    uVar2 = 0;
+  }
+  else {
+    uVar2 = 0x8876086c;
+  }
+  if (*local_20 != 0) {
+    *ppiVar3 = (int *)(*local_20 + 0x40);
+    ppiVar3[-1] = (int *)0x406efc1;
+    direct3ddevice9imp_04080490();
+  }
+  return uVar2;
+}
+

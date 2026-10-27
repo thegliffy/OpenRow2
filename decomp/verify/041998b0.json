@@ -1,0 +1,132 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+bool LoadGL_ARB_imaging(void)
+
+{
+  int iVar1;
+  bool bVar2;
+  bool bVar3;
+  bool bVar4;
+  bool bVar5;
+  bool bVar6;
+  bool bVar7;
+  bool bVar8;
+  bool bVar9;
+  bool bVar10;
+  bool bVar11;
+  bool bVar12;
+  bool bVar13;
+  bool bVar14;
+  bool bVar15;
+  bool bVar16;
+  bool bVar17;
+  bool bVar18;
+  bool bVar19;
+  bool bVar20;
+  bool bVar21;
+  bool bVar22;
+  bool bVar23;
+  bool bVar24;
+  bool bVar25;
+  bool bVar26;
+  bool bVar27;
+  bool bVar28;
+  bool bVar29;
+  bool bVar30;
+  bool bVar31;
+  bool bVar32;
+  
+  iVar1 = glXGetProcAddressARB("glBlendEquation");
+  _DAT_0451edf0 = iVar1;
+  _DAT_0451e5d8 = glXGetProcAddressARB("glColorSubTable");
+  bVar2 = _DAT_0451e5d8 == 0;
+  _DAT_0451e5d4 = glXGetProcAddressARB("glColorTable");
+  bVar3 = _DAT_0451e5d4 == 0;
+  _DAT_0451e5d0 = glXGetProcAddressARB("glColorTableParameterfv");
+  bVar4 = _DAT_0451e5d0 == 0;
+  _DAT_0451e5cc = glXGetProcAddressARB("glColorTableParameteriv");
+  bVar5 = _DAT_0451e5cc == 0;
+  _DAT_0451e5c8 = glXGetProcAddressARB("glConvolutionFilter1D");
+  bVar6 = _DAT_0451e5c8 == 0;
+  _DAT_0451e5c4 = glXGetProcAddressARB("glConvolutionFilter2D");
+  bVar7 = _DAT_0451e5c4 == 0;
+  _DAT_0451e5c0 = glXGetProcAddressARB("glConvolutionParameterf");
+  bVar8 = _DAT_0451e5c0 == 0;
+  _DAT_0451e5bc = glXGetProcAddressARB("glConvolutionParameterfv");
+  bVar9 = _DAT_0451e5bc == 0;
+  _DAT_0451e5b8 = glXGetProcAddressARB("glConvolutionParameteri");
+  bVar10 = _DAT_0451e5b8 == 0;
+  _DAT_0451e5b4 = glXGetProcAddressARB("glConvolutionParameteriv");
+  bVar11 = _DAT_0451e5b4 == 0;
+  _DAT_0451e5b0 = glXGetProcAddressARB("glCopyColorSubTable");
+  bVar12 = _DAT_0451e5b0 == 0;
+  _DAT_0451e5ac = glXGetProcAddressARB("glCopyColorTable");
+  bVar13 = _DAT_0451e5ac == 0;
+  _DAT_0451e5a8 = glXGetProcAddressARB("glCopyConvolutionFilter1D");
+  bVar14 = _DAT_0451e5a8 == 0;
+  _DAT_0451e5a4 = glXGetProcAddressARB("glCopyConvolutionFilter2D");
+  bVar15 = _DAT_0451e5a4 == 0;
+  _DAT_0451e5a0 = glXGetProcAddressARB("glGetColorTable");
+  bVar16 = _DAT_0451e5a0 == 0;
+  _DAT_0451e59c = glXGetProcAddressARB("glGetColorTableParameterfv");
+  bVar17 = _DAT_0451e59c == 0;
+  _DAT_0451e598 = glXGetProcAddressARB("glGetColorTableParameteriv");
+  bVar18 = _DAT_0451e598 == 0;
+  _DAT_0451e594 = glXGetProcAddressARB("glGetConvolutionFilter");
+  bVar19 = _DAT_0451e594 == 0;
+  _DAT_0451e590 = glXGetProcAddressARB("glGetConvolutionParameterfv");
+  bVar20 = _DAT_0451e590 == 0;
+  _DAT_0451e58c = glXGetProcAddressARB("glGetConvolutionParameteriv");
+  bVar21 = _DAT_0451e58c == 0;
+  _DAT_0451e588 = glXGetProcAddressARB("glGetHistogram");
+  bVar22 = _DAT_0451e588 == 0;
+  _DAT_0451e584 = glXGetProcAddressARB("glGetHistogramParameterfv");
+  bVar23 = _DAT_0451e584 == 0;
+  _DAT_0451e580 = glXGetProcAddressARB("glGetHistogramParameteriv");
+  bVar24 = _DAT_0451e580 == 0;
+  _DAT_0451e57c = glXGetProcAddressARB("glGetMinmax");
+  bVar25 = _DAT_0451e57c == 0;
+  _DAT_0451e578 = glXGetProcAddressARB("glGetMinmaxParameterfv");
+  bVar26 = _DAT_0451e578 == 0;
+  _DAT_0451e574 = glXGetProcAddressARB("glGetMinmaxParameteriv");
+  bVar27 = _DAT_0451e574 == 0;
+  _DAT_0451e570 = glXGetProcAddressARB("glGetSeparableFilter");
+  bVar28 = _DAT_0451e570 == 0;
+  _DAT_0451e56c = glXGetProcAddressARB("glHistogram");
+  bVar29 = _DAT_0451e56c == 0;
+  _DAT_0451e568 = glXGetProcAddressARB(&DAT_043526b3);
+  bVar30 = _DAT_0451e568 == 0;
+  _DAT_0451e564 = glXGetProcAddressARB("glResetHistogram");
+  bVar31 = _DAT_0451e564 == 0;
+  _DAT_0451e560 = glXGetProcAddressARB("glResetMinmax");
+  bVar32 = _DAT_0451e560 == 0;
+  _DAT_0451e55c = glXGetProcAddressARB("glSeparableFilter2D");
+  return _DAT_0451e55c == 0 ||
+         (bVar32 ||
+         (bVar31 ||
+         (bVar30 ||
+         (bVar29 ||
+         (bVar28 ||
+         (bVar27 ||
+         (bVar26 ||
+         (bVar25 ||
+         (bVar24 ||
+         (bVar23 ||
+         (bVar22 ||
+         (bVar21 ||
+         (bVar20 ||
+         (bVar19 ||
+         (bVar18 ||
+         (bVar17 ||
+         (bVar16 ||
+         (bVar15 ||
+         (bVar14 ||
+         (bVar13 ||
+         (bVar12 ||
+         (bVar11 ||
+         (bVar10 ||
+         (bVar9 || (bVar8 || (bVar7 || (bVar6 || (bVar5 || (bVar4 || (bVar3 || (bVar2 || iVar1 == 0)
+                                                                     ))))))))))))))))))))))))))))));
+}
+

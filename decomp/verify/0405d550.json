@@ -1,0 +1,43 @@
+
+void __regparm3 D3DTA_ToString(undefined4 param_1,undefined4 param_2,uint param_3)
+
+{
+  char *pcVar1;
+  char *pcVar2;
+  
+  pcVar1 = "|D3DTA_COMPLEMENT";
+  if ((param_3 & 0x10) == 0) {
+    pcVar1 = "";
+  }
+  pcVar2 = "|D3DTA_ALPHAREPLICATE";
+  if ((param_3 & 0x20) == 0) {
+    pcVar2 = "";
+  }
+  switch(param_3) {
+  case 0:
+    FUN_0402cd10(param_1,"%s: D3DTA_DIFFUSE%s%s",param_2,pcVar1,pcVar2);
+    return;
+  case 1:
+    FUN_0402cd10(param_1,"%s: D3DTA_CURRENT%s%s",param_2,pcVar1,pcVar2);
+    return;
+  case 2:
+    FUN_0402cd10(param_1,"%s: D3DTA_TEXTURE%s%s",param_2,pcVar1,pcVar2);
+    return;
+  case 3:
+    FUN_0402cd10(param_1,"%s: D3DTA_TFACTOR%s%s",param_2,pcVar1,pcVar2);
+    return;
+  case 4:
+    FUN_0402cd10(param_1,"%s: D3DTA_SPECULAR%s%s",param_2,pcVar1,pcVar2);
+    return;
+  case 5:
+    FUN_0402cd10(param_1,"%s: D3DTA_TEMP%s%s",param_2,pcVar1,pcVar2);
+    return;
+  case 6:
+    FUN_0402cd10(param_1,"%s: D3DTA_CONSTANT%s%s",param_2,pcVar1,pcVar2);
+    return;
+  default:
+    FUN_0402cd10(param_1,"%s: !unhandled!%s%s",param_2,pcVar1,pcVar2);
+    return;
+  }
+}
+

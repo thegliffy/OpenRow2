@@ -1,0 +1,8 @@
+
+void eON_ShaderData_convert_texbem(void)
+
+{
+  FUN_0402cd10(0xf,"texbem conversion not implemented yet, add it when you need it.");
+  return;
+}
+

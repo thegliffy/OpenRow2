@@ -1,0 +1,68 @@
+
+undefined4 __regparm3
+FUN_042a4fe0(undefined4 param_1,int param_2,undefined4 param_3,uint param_4,undefined4 param_5)
+
+{
+  int iVar1;
+  undefined4 uVar2;
+  int iVar3;
+  undefined1 uVar4;
+  undefined1 uVar5;
+  undefined1 local_10c;
+  undefined1 local_f8 [196];
+  undefined1 local_34 [24];
+  undefined1 local_1c [12];
+  
+  if (param_2 != 0) {
+    *(ushort *)(param_2 + 0x4a) = *(ushort *)(param_2 + 0x4a) | 0x8000;
+  }
+  iVar1 = FUN_042a95f0(local_f8,0xc4,0,"profile \'");
+  uVar2 = FUN_042a95f0(local_f8,iVar1 + 0x4f,iVar1,param_3);
+  iVar3 = FUN_042a95f0(local_f8,0xc4,uVar2,&PTR_DAT_04398be9);
+  iVar1 = FUN_042a4fb0();
+  if (iVar1 != 0) {
+    iVar1 = FUN_042a4fb0();
+    if (iVar1 != 0) {
+      iVar1 = FUN_042a4fb0();
+      if (iVar1 != 0) {
+        iVar1 = FUN_042a4fb0();
+        if (iVar1 != 0) {
+          local_10c = (undefined1)(param_4 >> 0x18);
+          uVar4 = 0x3f;
+          if (0x5e < (param_4 >> 0x18) - 0x20) {
+            local_10c = 0x3f;
+          }
+          local_f8[iVar3 + 1] = local_10c;
+          local_f8[iVar3] = 0x27;
+          local_f8[iVar3 + 5] = 0x27;
+          uVar5 = (undefined1)(param_4 >> 0x10);
+          if (0x5e < (param_4 >> 0x10 & 0xff) - 0x20) {
+            uVar5 = 0x3f;
+          }
+          local_f8[iVar3 + 2] = uVar5;
+          uVar5 = (undefined1)(param_4 >> 8);
+          if (0x5e < (param_4 >> 8 & 0xff) - 0x20) {
+            uVar5 = 0x3f;
+          }
+          local_f8[iVar3 + 3] = uVar5;
+          if ((param_4 & 0xff) - 0x20 < 0x5f) {
+            uVar4 = (undefined1)param_4;
+          }
+          local_f8[iVar3 + 4] = uVar4;
+          local_f8[iVar3 + 6] = 0x3a;
+          local_f8[iVar3 + 7] = 0x20;
+          iVar3 = iVar3 + 8;
+          goto LAB_042a50ef;
+        }
+      }
+    }
+  }
+  uVar2 = png_format_number(local_34,local_1c,3,param_4);
+  uVar2 = FUN_042a95f0(local_f8,0xc4,iVar3,uVar2);
+  iVar3 = FUN_042a95f0(local_f8,0xc4,uVar2,&PTR_DAT_04398bed);
+LAB_042a50ef:
+  FUN_042a95f0(local_f8,0xc4,iVar3,param_5);
+  FUN_042a9e50(param_1,local_f8,2 - (uint)(param_2 == 0));
+  return 0;
+}
+

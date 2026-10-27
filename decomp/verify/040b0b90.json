@@ -1,0 +1,109 @@
+
+/* source: direct3dtexture9imp */
+
+undefined4
+Direct3DTexture9Imp__Initialize
+          (int param_1,undefined4 param_2,uint param_3,uint param_4,uint param_5,uint param_6,
+          undefined4 param_7,undefined4 param_8)
+
+{
+  int iVar1;
+  uint uVar2;
+  undefined4 uVar3;
+  int iVar4;
+  uint uVar5;
+  undefined4 *puVar6;
+  bool bVar7;
+  uint local_34;
+  uint local_30;
+  undefined4 local_2c;
+  undefined4 local_28;
+  uint local_24;
+  uint local_20;
+  
+  *(undefined4 *)(param_1 + 0x224) = 1;
+  *(uint *)(param_1 + 0x20c) = param_6;
+  *(undefined4 *)(param_1 + 0x210) = param_7;
+  Direct3DBaseTexture9Imp__Initialize(param_1,param_2,param_8);
+  if ((param_6 & 0x400) == 0) {
+    uVar5 = 1;
+    uVar2 = param_3;
+    if (param_3 <= param_4) {
+      uVar2 = param_4;
+    }
+    while (uVar2 >> 1 != 0) {
+      uVar5 = uVar5 + 1;
+      uVar2 = uVar2 >> 1;
+    }
+    if (uVar5 < param_5) {
+      *(uint *)(param_1 + 0x228) = uVar5;
+    }
+    else {
+      if (param_5 != 0) {
+        uVar5 = param_5;
+      }
+      *(uint *)(param_1 + 0x228) = uVar5;
+    }
+  }
+  else {
+    *(undefined4 *)(param_1 + 0x228) = 1;
+  }
+  if (param_3 == 0) {
+    param_3 = 1;
+  }
+  if (param_4 == 0) {
+    param_4 = 1;
+  }
+  local_2c = 0;
+  local_28 = 0;
+  local_24 = param_3;
+  local_20 = param_4;
+  FUN_0406df10(param_1 + 0x28c,&local_2c);
+  *(uint *)(param_1 + 0x22c) = param_3;
+  *(uint *)(param_1 + 0x230) = param_4;
+  *(undefined4 *)(param_1 + 0x234) = 1;
+  *(undefined4 *)(param_1 + 0x238) = 0;
+  uVar3 = D3D9_FormatToPixelSize(*(undefined4 *)(param_1 + 0x210));
+  if (*(int *)(param_1 + 0x228) != 0) {
+    local_34 = 0;
+    local_30 = param_3;
+    do {
+      puVar6 = operator_new(0xdc);
+      *puVar6 = &PTR_FUN_042efbe8;
+                    /* try { // try from 040b0d13 to 040b0d17 has its CatchHandler @ 040b0e04 */
+      Direct3DSurface9Imp__Direct3DSurface9Imp(puVar6 + 1,puVar6);
+      FUN_040ad8f0(puVar6 + 1,*(undefined4 *)(param_1 + 0x1c),*(undefined4 *)(param_1 + 0xc),
+                   local_30,param_4,param_7,param_6,param_8,local_34,0xde1);
+      iVar4 = *(int *)(param_1 + 0x1bc);
+      if (0x5f < iVar4) {
+        FUN_0400a810("mD3DSurfacesCount < (6*16)",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3dtexture9imp.cpp"
+                     ,0x4d,
+                     "virtual bool Direct3DTexture9Imp::Initialize(IDirect3DDevice9*, UINT, UINT, UINT, DWORD, D3DFORMAT, D3DPOOL)"
+                    );
+        iVar4 = *(int *)(param_1 + 0x1bc);
+      }
+      *(undefined4 **)(param_1 + 0x3c + iVar4 * 4) = puVar6;
+      iVar1 = *(int *)(param_1 + 0x238);
+      *(int *)(param_1 + 0x1bc) = iVar4 + 1;
+      iVar4 = FUN_0406dec0(uVar3,local_30,param_4,*(undefined1 *)(param_1 + 0x220));
+      *(int *)(param_1 + 0x238) = iVar1 + iVar4;
+      uVar5 = local_30 >> 1;
+      bVar7 = 1 < local_30;
+      local_30 = 1;
+      if (bVar7) {
+        local_30 = uVar5;
+      }
+      uVar5 = param_4 >> 1;
+      bVar7 = 1 < param_4;
+      param_4 = 1;
+      if (bVar7) {
+        param_4 = uVar5;
+      }
+      local_34 = local_34 + 1;
+    } while (local_34 < *(uint *)(param_1 + 0x228));
+  }
+  FUN_0406d840(param_1);
+  return 1;
+}
+

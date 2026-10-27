@@ -1,0 +1,25 @@
+
+/* WARNING: Function: __i686.get_pc_thunk.bx replaced with injection: get_pc_thunk_bx */
+
+void google_breakpad__UntypedMDRVA__Copy(undefined4 *param_1,int param_2,int param_3,int param_4)
+
+{
+  if (param_3 == 0) {
+                    /* WARNING: Subroutine does not return */
+    __assert_fail((char *)&PTR_DAT_0439d69c,"src/client/minidump_file_writer.cc",0x116,
+                  "bool google_breakpad::UntypedMDRVA::Copy(MDRVA, const void*, size_t)");
+  }
+  if (param_4 != 0) {
+    if ((uint)(param_4 + param_2) <= (uint)(param_1[1] + param_1[2])) {
+      google_breakpad__MinidumpFileWriter__Copy(*param_1,param_2,param_3,param_4);
+      return;
+    }
+                    /* WARNING: Subroutine does not return */
+    __assert_fail("pos + size <= position_ + size_","src/client/minidump_file_writer.cc",0x118,
+                  "bool google_breakpad::UntypedMDRVA::Copy(MDRVA, const void*, size_t)");
+  }
+                    /* WARNING: Subroutine does not return */
+  __assert_fail("size","src/client/minidump_file_writer.cc",0x117,
+                "bool google_breakpad::UntypedMDRVA::Copy(MDRVA, const void*, size_t)");
+}
+

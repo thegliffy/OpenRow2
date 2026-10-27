@@ -1,0 +1,56 @@
+
+/* source: vpfs */
+
+void __regparm3 VPFS_OpenFolder_AddToBuffer(char *param_1,undefined4 param_2,char *param_3)
+
+{
+  int iVar1;
+  undefined4 *puVar2;
+  size_t sVar3;
+  uint uVar4;
+  stat64 local_7c;
+  
+  iVar1 = __xstat64(3,param_1,&local_7c);
+  if (iVar1 != 0) {
+    FUN_0402cd10(0xf,
+                 "VPFS_OpenFolder_AddToBuffer() internal error - addressed element \'%s\' does not exist on disk!"
+                 ,param_1);
+    FUN_0400a810("false","/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/vpfs/vpfs.cpp",
+                 0x7ca,
+                 "void VPFS_OpenFolder_AddToBuffer(const char*, TemporaryDirElemList*, const char*)"
+                );
+  }
+  if ((local_7c.st_mode & 0x3f000) == 0x4000) {
+    uVar4 = (uint)((local_7c.st_mode & 0x80) == 0);
+  }
+  else {
+    FUN_0402cd10(0xf,
+                 "VPFS_OpenFolder_AddToBuffer() internal error - addressed element \'%s\' is not a folder!"
+                 ,param_1);
+    FUN_0400a810("false","/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/vpfs/vpfs.cpp",
+                 0x7d1,
+                 "void VPFS_OpenFolder_AddToBuffer(const char*, TemporaryDirElemList*, const char*)"
+                );
+    uVar4 = (uint)((local_7c.st_mode & 0x80) == 0);
+    if ((local_7c.st_mode & 0x3f000) != 0x4000) {
+      uVar4 = (-(uint)(uVar4 == 0) & 0x7f) + 1;
+      goto LAB_0403d4d9;
+    }
+  }
+  uVar4 = uVar4 | 0x10;
+LAB_0403d4d9:
+  puVar2 = malloc(300);
+  *puVar2 = 0;
+  sVar3 = strlen(param_3);
+  puVar2[9] = 0;
+  puVar2[10] = 0;
+  puVar2[1] = sVar3 + 1;
+  puVar2[8] = uVar4;
+  eON_Int_TimespecToFileTime(&local_7c.st_ctim,puVar2 + 2);
+  eON_Int_TimespecToFileTime(&local_7c.st_atim,puVar2 + 6);
+  eON_Int_TimespecToFileTime(&local_7c.st_mtim,puVar2 + 4);
+  strcpy((char *)(puVar2 + 0xb),param_3);
+  TemporaryDirElemList_Add();
+  return;
+}
+

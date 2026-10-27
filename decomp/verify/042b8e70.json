@@ -1,0 +1,69 @@
+
+void png_handle_tEXt(int param_1,undefined4 param_2,int param_3)
+
+{
+  char cVar1;
+  uint uVar2;
+  char *pcVar3;
+  int iVar4;
+  undefined4 local_28;
+  char *local_24;
+  char *local_20;
+  size_t local_1c;
+  undefined4 local_18;
+  undefined4 local_14;
+  undefined4 local_10;
+  
+  iVar4 = *(int *)(param_1 + 0x2f4);
+  if (iVar4 != 0) {
+    if (iVar4 == 1) {
+      png_crc_finish(param_1,param_3);
+      return;
+    }
+    *(int *)(param_1 + 0x2f4) = iVar4 + -1;
+    if (iVar4 + -1 == 1) {
+      png_crc_finish(param_1,param_3);
+      png_chunk_benign_error(param_1,"no space in chunk cache");
+      return;
+    }
+  }
+  uVar2 = *(uint *)(param_1 + 0xd0);
+  if ((uVar2 & 1) == 0) {
+                    /* WARNING: Subroutine does not return */
+    png_chunk_error(param_1,"missing IHDR");
+  }
+  if ((uVar2 & 4) != 0) {
+    *(uint *)(param_1 + 0xd0) = uVar2 | 8;
+  }
+  pcVar3 = (char *)png_read_buffer();
+  if (pcVar3 == (char *)0x0) {
+    png_chunk_benign_error(param_1,"out of memory");
+  }
+  else {
+    png_crc_read(param_1,pcVar3,param_3);
+    iVar4 = png_crc_finish(param_1,0);
+    if (iVar4 == 0) {
+      pcVar3[param_3] = '\0';
+      cVar1 = *pcVar3;
+      local_20 = pcVar3;
+      while (cVar1 != '\0') {
+        local_20 = local_20 + 1;
+        cVar1 = *local_20;
+      }
+      local_20 = local_20 + (local_20 != pcVar3 + param_3);
+      local_28 = 0xffffffff;
+      local_14 = 0;
+      local_10 = 0;
+      local_18 = 0;
+      local_24 = pcVar3;
+      local_1c = strlen(local_20);
+      iVar4 = png_set_text_2(param_1,param_2,&local_28,1);
+      if (iVar4 != 0) {
+        png_warning(param_1,"Insufficient memory to process text chunk");
+        return;
+      }
+    }
+  }
+  return;
+}
+

@@ -1,0 +1,82 @@
+
+int eON_RegQueryValueExA
+              (undefined4 param_1,char *param_2,undefined4 param_3,int *param_4,void *param_5,
+              size_t *param_6)
+
+{
+  size_t sVar1;
+  void *pvVar2;
+  int iVar3;
+  bool bVar4;
+  undefined4 *puVar5;
+  void *__src;
+  undefined4 local_c0;
+  char *local_bc;
+  undefined4 uStackY_a4;
+  uint local_2c;
+  int local_28;
+  int local_24;
+  
+  if (param_2 == (char *)0x0) {
+    sVar1 = 2;
+  }
+  else {
+    sVar1 = strlen(param_2);
+    sVar1 = (sVar1 + 1) * 2;
+  }
+  pvVar2 = malloc(sVar1);
+  eON_MultiByteToWideChar();
+  if ((param_6 == (size_t *)0x0) || (*param_6 == 0)) {
+    local_2c = 0;
+    __src = (void *)0x0;
+  }
+  else {
+    local_2c = *param_6 * 2;
+    if ((local_2c == 0) || (param_5 == (void *)0x0)) {
+      __src = (void *)0x0;
+    }
+    else {
+      __src = malloc(local_2c);
+    }
+  }
+  iVar3 = eON_RegQueryValueExW();
+  puVar5 = (undefined4 *)&stack0xffffff60;
+  if (-1 < iVar3) {
+    if (param_4 != (int *)0x0) {
+      *param_4 = local_28;
+    }
+    bVar4 = local_28 - 1U < 2 || local_28 == 7;
+    if ((param_6 != (size_t *)0x0) && (bVar4)) {
+      *param_6 = local_2c >> 1;
+    }
+    puVar5 = (undefined4 *)&stack0xffffff60;
+    if (__src != (void *)0x0) {
+      if (bVar4) {
+        uStackY_a4 = 0x4118466;
+        eON_WideCharToMultiByte();
+        puVar5 = &local_c0;
+        if (local_24 != 0) {
+          local_bc = 
+          "Warning! Some characters couldn\'t be converted when converting Unicode string to Ascii in RegQueryValueExA"
+          ;
+          local_c0 = 10;
+          FUN_0402cd10();
+          puVar5 = &local_c0;
+        }
+      }
+      else {
+        uStackY_a4 = 0x41183d5;
+        memcpy(param_5,__src,*param_6);
+        puVar5 = (undefined4 *)&stack0xffffff60;
+      }
+      *puVar5 = __src;
+      puVar5[-1] = 0x41183dd;
+      free((void *)*puVar5);
+    }
+  }
+  *puVar5 = pvVar2;
+  puVar5[-1] = 0x41183e5;
+  free((void *)*puVar5);
+  return iVar3;
+}
+

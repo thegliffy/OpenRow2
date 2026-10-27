@@ -1,0 +1,14 @@
+
+void png_start_read_image(int param_1)
+
+{
+  if (param_1 != 0) {
+    if ((*(byte *)(param_1 + 0xd4) & 0x40) == 0) {
+      png_read_start_row();
+      return;
+    }
+    FUN_042a9df0(param_1,"png_start_read_image/png_read_update_info: duplicate call");
+  }
+  return;
+}
+

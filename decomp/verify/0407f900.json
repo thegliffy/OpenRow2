@@ -1,0 +1,268 @@
+
+/* source: direct3ddevice9imp */
+
+void Direct3DDevice9Imp__CreateScreenBuffers(int *param_1)
+
+{
+  uint uVar1;
+  code *pcVar2;
+  int iVar3;
+  char cVar4;
+  int *piVar5;
+  int iVar6;
+  undefined4 *puVar7;
+  int *piVar8;
+  undefined4 *puVar9;
+  uint uVar10;
+  uint *puVar11;
+  undefined4 local_4c;
+  int *local_48;
+  char *local_44;
+  undefined4 local_40;
+  
+  puVar11 = (uint *)&stack0xffffffc4;
+  if ((param_1[0x14bf] != 0) || (param_1[0x14c0] != 0)) {
+    local_40 = 0x407f93e;
+    FUN_0400a810();
+  }
+  if ((char)param_1[0x3ad4] == '\0') {
+LAB_0407f94b:
+    local_40 = 0x407f957;
+    piVar5 = operator_new(0x2ac);
+    *piVar5 = (int)&PTR_FUN_042f6b48;
+                    /* try { // try from 0407f969 to 0407f96d has its CatchHandler @ 0407fe9c */
+    local_40 = 0x407f96e;
+    Direct3DTexture9Imp__Direct3DTexture9Imp();
+    local_40 = 0x407f9aa;
+    cVar4 = Direct3DTexture9Imp__Initialize();
+    if (cVar4 == '\0') {
+      local_40 = 0x407fc94;
+      FUN_0400a810();
+    }
+    local_40 = 0x407f9cc;
+    iVar6 = (**(code **)(*piVar5 + 0x48))();
+    if (iVar6 < 0) {
+      local_40 = 0x30a;
+      local_44 = 
+      "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+      ;
+      local_48 = (int *)0x42f130c;
+      local_4c = 0x407fcc4;
+      FUN_0400a810();
+    }
+    *(undefined4 *)(param_1[0x14bf] + 0xa4) = 1;
+    local_4c = 0x407f9ef;
+    local_48 = piVar5;
+    (**(code **)(*piVar5 + 8))();
+    puVar11 = &local_4c;
+  }
+  else {
+    uVar10 = param_1[0x13];
+    if (uVar10 != 1) {
+      if (uVar10 != 0) {
+        if (uVar10 < 0x11) goto LAB_0407fbdf;
+        local_40 = 0x407fe1c;
+        FUN_0402cd10();
+      }
+      goto LAB_0407f94b;
+    }
+    if (*(char *)((int)param_1 + 0x7609) == '\0') {
+      if ((char)param_1[0x1d82] == '\0') {
+        if (*(char *)((int)param_1 + 0x7607) == '\0') {
+          if (*(char *)((int)param_1 + 0x7606) == '\0') {
+            if (*(char *)((int)param_1 + 0x7605) == '\0') {
+              if ((char)param_1[0x1d81] == '\0') {
+                if (*(char *)((int)param_1 + 0x7603) == '\0') {
+                  if (*(char *)((int)param_1 + 0x7602) == '\0') {
+                    if (*(char *)((int)param_1 + 0x7601) == '\0') {
+                      if ((char)param_1[0x1d80] == '\0') {
+                        if (*(char *)((int)param_1 + 0x75ff) == '\0') {
+                          if (*(char *)((int)param_1 + 0x75fe) == '\0') {
+                            if (*(char *)((int)param_1 + 0x75fd) == '\0') {
+                              if ((char)param_1[0x1d7f] == '\0') {
+                                iVar6 = 0;
+                                if (*(char *)((int)param_1 + 0x75fb) == '\0') goto LAB_0407f94b;
+                              }
+                              else {
+                                iVar6 = 1;
+                              }
+                            }
+                            else {
+                              iVar6 = 2;
+                            }
+                          }
+                          else {
+                            iVar6 = 3;
+                          }
+                        }
+                        else {
+                          iVar6 = 4;
+                        }
+                      }
+                      else {
+                        iVar6 = 5;
+                      }
+                    }
+                    else {
+                      iVar6 = 6;
+                    }
+                  }
+                  else {
+                    iVar6 = 7;
+                  }
+                }
+                else {
+                  iVar6 = 8;
+                }
+              }
+              else {
+                iVar6 = 9;
+              }
+            }
+            else {
+              iVar6 = 10;
+            }
+          }
+          else {
+            iVar6 = 0xb;
+          }
+        }
+        else {
+          iVar6 = 0xc;
+        }
+      }
+      else {
+        iVar6 = 0xd;
+      }
+    }
+    else {
+      iVar6 = 0xe;
+    }
+    uVar10 = iVar6 + 2;
+LAB_0407fbdf:
+    if (uVar10 == 1) goto LAB_0407f94b;
+    local_40 = 0x407fbf4;
+    puVar9 = operator_new(0xdc);
+    *puVar9 = &PTR_FUN_042efbe8;
+                    /* try { // try from 0407fc06 to 0407fc0a has its CatchHandler @ 0407fe88 */
+    local_40 = 0x407fc0b;
+    Direct3DSurface9Imp__Direct3DSurface9Imp();
+    param_1[0x14bf] = (int)puVar9;
+    local_40 = 0x407fc4b;
+    Direct3DSurface9Imp__InitializeRenderbuffer();
+  }
+  if (param_1[0x18] == 0) goto LAB_0407fab2;
+  *puVar11 = 0xdc;
+  puVar11[-1] = 0x407fa09;
+  puVar7 = operator_new(*puVar11);
+  *puVar7 = &PTR_FUN_042efbe8;
+  puVar9 = puVar7 + 1;
+  puVar11[1] = (uint)puVar7;
+  *puVar11 = (uint)puVar9;
+                    /* try { // try from 0407fa1b to 0407fa1f has its CatchHandler @ 0407fe9a */
+  puVar11[-1] = 0x407fa20;
+  Direct3DSurface9Imp__Direct3DSurface9Imp();
+  uVar10 = param_1[0x19];
+  param_1[0x14c0] = (int)puVar7;
+  if (uVar10 < 0x51) {
+    if ((uVar10 < 0x4f) && (uVar10 != 0x49)) {
+      if (uVar10 < 0x4a) {
+        if (uVar10 != 0x47) goto LAB_0407fa4b;
+      }
+      else if ((uVar10 != 0x4b) && (uVar10 != 0x4d)) goto LAB_0407fa4b;
+    }
+  }
+  else if (uVar10 != 0x36314644) {
+    if (uVar10 < 0x36314645) {
+      if ((uVar10 != 0x53) && (uVar10 != 0x34324644)) {
+LAB_0407fa4b:
+        puVar11[3] = (uint)"void Direct3DDevice9Imp::CreateScreenBuffers()";
+        puVar11[2] = 0x313;
+        puVar11[1] = (uint)
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+        ;
+        *puVar11 = (uint)"!IsLockableFormat( mPresentParameters.AutoDepthStencilFormat )";
+        puVar11[-1] = 0x407fa6f;
+        FUN_0400a810();
+        uVar10 = param_1[0x19];
+        puVar9 = (undefined4 *)(param_1[0x14c0] + 4);
+      }
+    }
+    else if ((uVar10 != 0x5a544e49) && (uVar10 != 0x5a574152)) goto LAB_0407fa4b;
+  }
+  puVar11[7] = 1;
+  puVar11[6] = param_1[0x14];
+  uVar1 = param_1[0x13];
+  puVar11[4] = uVar10;
+  puVar11[5] = uVar1;
+  puVar11[3] = param_1[0x10];
+  puVar11[2] = param_1[0xf];
+  uVar10 = param_1[3];
+  *puVar11 = (uint)puVar9;
+  puVar11[1] = uVar10;
+  puVar11[-1] = 0x407fab2;
+  Direct3DSurface9Imp__InitializeRenderbuffer();
+LAB_0407fab2:
+  puVar11[3] = 4;
+  puVar11[2] = 5;
+  puVar11[1] = (uint)param_1;
+  *puVar11 = (uint)(param_1 + 0x3b00);
+  puVar11[-1] = 0x407fad4;
+  piVar8 = (int *)D3D9CommandQueue__GetNextCommandPointer();
+  piVar5 = (int *)param_1[0x14bf];
+  *piVar8 = (int)piVar5;
+  if (piVar5 != (int *)0x0) {
+    iVar6 = *piVar5;
+    *puVar11 = (uint)piVar5;
+    pcVar2 = *(code **)(iVar6 + 4);
+    puVar11[-1] = 0x407fae8;
+    (*pcVar2)();
+    puVar11 = puVar11 + -1;
+  }
+  *puVar11 = (uint)(param_1 + 0x3b00);
+  puVar11[-1] = 0x407faf3;
+  D3D9CommandQueue__CommandSubmitted();
+  iVar6 = param_1[0x14bf];
+  iVar3 = *param_1;
+  puVar11[1] = 0;
+  *puVar11 = (uint)param_1;
+  puVar11[2] = iVar6;
+  pcVar2 = *(code **)(iVar3 + 0x9c);
+  puVar11[-1] = 0x407fb10;
+  (*pcVar2)();
+  if (param_1[0x18] != 0) {
+    iVar6 = param_1[0x14c0];
+    iVar3 = *param_1;
+    *puVar11 = (uint)param_1;
+    puVar11[1] = iVar6;
+    pcVar2 = *(code **)(iVar3 + 0xa4);
+    puVar11[-1] = 0x407fc65;
+    (*pcVar2)();
+  }
+  iVar6 = *param_1;
+  puVar11[6] = 0;
+  puVar11[5] = 0;
+  puVar11[4] = -0x1000000;
+  puVar11[3] = 7;
+  puVar11[2] = 0;
+  puVar11[1] = 0;
+  *puVar11 = (uint)param_1;
+  pcVar2 = *(code **)(iVar6 + 0xb4);
+  puVar11[-1] = 0x407fb56;
+  iVar6 = (*pcVar2)();
+  if (iVar6 < 0) {
+    puVar11[3] = (uint)"void Direct3DDevice9Imp::CreateScreenBuffers()";
+    puVar11[2] = 0x323;
+    puVar11[1] = (uint)
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+    ;
+    *puVar11 = (uint)
+               "((HRESULT)(Clear( 0, __null, 0x01|0x02|0x04, ((D3DCOLOR)((((0xFF)&0xff)<<24)|(((0)&0xff)<<16)|(((0)&0xff)<<8)|((0)&0xff))), 0.0f, 0 )) >= 0)"
+    ;
+    puVar11[-1] = 0x407fcf4;
+    FUN_0400a810();
+    return;
+  }
+  return;
+}
+

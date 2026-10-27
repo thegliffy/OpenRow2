@@ -1,0 +1,24 @@
+
+/* source: tinyxml */
+
+void TiXmlComment__Print(undefined4 param_1,FILE *param_2,int param_3)
+
+{
+  int iVar1;
+  
+  if (param_2 == (FILE *)0x0) {
+    FUN_0400a810("cfile",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxml.cpp"
+                 ,0x513,"virtual void TiXmlComment::Print(FILE*, int) const");
+  }
+  if (0 < param_3) {
+    iVar1 = 0;
+    do {
+      iVar1 = iVar1 + 1;
+      fwrite(&DAT_043025f0,1,4,param_2);
+    } while (iVar1 != param_3);
+  }
+  fprintf(param_2,"<!--%s-->");
+  return;
+}
+

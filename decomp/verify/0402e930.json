@@ -1,0 +1,96 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+/* source: mouseDeltas */
+
+void MouseDeltas_GetLastMouseDelta(int param_1,int *param_2,int *param_3)
+
+{
+  float __x;
+  char cVar1;
+  int iVar2;
+  float fVar3;
+  float fVar4;
+  float fVar5;
+  int local_38;
+  int local_34;
+  int local_2c;
+  int local_28;
+  int local_24;
+  int local_20 [4];
+  
+  if ((_DAT_042e2470 < (float)((uint)DAT_04411730 & DAT_042e2460)) ||
+     (_DAT_042e2470 < (float)((uint)DAT_04411734 & DAT_042e2460))) {
+    pthread_mutex_lock((pthread_mutex_t *)&DAT_044116e4);
+    if (DAT_04411700 != 0) {
+      DAT_04411704 = DAT_04411704 - DAT_04411730;
+      DAT_04411708 = DAT_04411708 - DAT_04411734;
+    }
+    if (DAT_0441170c != 0) {
+      DAT_04411710 = DAT_04411710 - DAT_04411730;
+      DAT_04411714 = DAT_04411714 - DAT_04411734;
+    }
+    if (DAT_04411718 != 0) {
+      DAT_0441171c = DAT_0441171c - DAT_04411730;
+      DAT_04411720 = DAT_04411720 - DAT_04411734;
+    }
+    if (DAT_04411724 != 0) {
+      DAT_04411728 = DAT_04411728 - DAT_04411730;
+      DAT_0441172c = DAT_0441172c - DAT_04411734;
+    }
+    DAT_04411730 = 0.0;
+    DAT_04411734 = 0.0;
+    pthread_mutex_unlock((pthread_mutex_t *)&DAT_044116e4);
+  }
+  pthread_mutex_lock((pthread_mutex_t *)&DAT_044116e4);
+  if (DAT_044116e0 == 0) {
+    FUN_0400a810("sInitialized",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/mouseDeltas.cpp",0xa6,
+                 "void MouseDeltas_GetLastMouseDelta(int32_t, int32_t*, int32_t*)");
+  }
+  if (3 < param_1) {
+    FUN_0400a810("regNum < 4",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/mouseDeltas.cpp",0xa7,
+                 "void MouseDeltas_GetLastMouseDelta(int32_t, int32_t*, int32_t*)");
+  }
+  if ((&DAT_04411700)[param_1 * 3] == 0) {
+    FUN_0400a810("sRegistrations[regNum].Used",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/mouseDeltas.cpp",0xa8,
+                 "void MouseDeltas_GetLastMouseDelta(int32_t, int32_t*, int32_t*)");
+  }
+  __x = DAT_04411734;
+  fVar3 = DAT_04411730;
+  fVar5 = (&DAT_04411708)[param_1 * 3];
+  fVar4 = (&DAT_04411704)[param_1 * 3];
+  cVar1 = FUN_0402d6a0();
+  if (cVar1 == '\0') {
+    fVar3 = floorf(fVar3);
+    fVar4 = floorf(fVar4);
+    iVar2 = (int)fVar3 - (int)fVar4;
+    fVar4 = floorf(__x);
+    fVar5 = floorf(fVar5);
+    local_38 = (int)fVar4 - (int)fVar5;
+  }
+  else {
+    FUN_0402d560(&local_2c,&local_28);
+    FUN_0402d6b0(&local_24,local_20);
+    fVar4 = floorf(fVar4 * ((float)local_24 / (float)local_2c));
+    local_34 = (int)(longlong)fVar4;
+    iVar2 = local_34;
+    fVar4 = floorf(((float)local_24 / (float)local_2c) * fVar3);
+    local_34 = (int)(longlong)fVar4;
+    iVar2 = local_34 - iVar2;
+    fVar5 = floorf(fVar5 * ((float)local_20[0] / (float)local_28));
+    local_34 = (int)(longlong)fVar5;
+    local_38 = local_34;
+    fVar5 = floorf(((float)local_20[0] / (float)local_28) * __x);
+    local_34 = (int)(longlong)fVar5;
+    local_38 = local_34 - local_38;
+  }
+  (&DAT_04411704)[param_1 * 3] = DAT_04411730;
+  (&DAT_04411708)[param_1 * 3] = DAT_04411734;
+  pthread_mutex_unlock((pthread_mutex_t *)&DAT_044116e4);
+  *param_2 = iVar2;
+  *param_3 = -local_38;
+  return;
+}
+

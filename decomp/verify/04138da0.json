@@ -1,0 +1,147 @@
+
+/* source: heapImplementation */
+
+undefined4 Heap_Free(int *param_1,byte param_2,undefined4 *param_3)
+
+{
+  int *piVar1;
+  undefined4 *puVar2;
+  undefined4 uVar3;
+  undefined4 *puVar4;
+  int iVar5;
+  undefined4 *puVar6;
+  undefined4 *puVar7;
+  char **ppcVar8;
+  char **ppcVar9;
+  int aiStack_44 [2];
+  char *local_3c [6];
+  undefined4 *local_24;
+  byte local_1d;
+  
+  ppcVar9 = local_3c;
+  if (DAT_04515b5c == 0) {
+    local_3c[3] = "WINBOOL Heap_Free(HANDLE, DWORD, PVOID)";
+    local_3c[2] = (char *)0x65a;
+    local_3c[1] = 
+    "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/heapImplementation.cpp"
+    ;
+    local_3c[0] = "sProcessHeap";
+    FUN_0400a810();
+  }
+  uVar3 = 1;
+  if (param_3 != (undefined4 *)0x0) {
+    if ((param_1 != (int *)0x0) && (*param_1 == 0x59372851)) {
+      local_1d = (param_2 | (byte)param_1[1]) & 1 ^ 1;
+      if (local_1d != 0) {
+        ppcVar8 = local_3c;
+        while( true ) {
+          *ppcVar8 = (char *)(param_1 + 0xa00);
+          ppcVar8[-1] = (char *)0x4138e9d;
+          iVar5 = TryEnterCriticalSection();
+          ppcVar9 = ppcVar8 + -1;
+          if (iVar5 != 0) break;
+          ppcVar8[-2] = (char *)0x4138e95;
+          sched_yield();
+          ppcVar8 = ppcVar8 + -1;
+        }
+      }
+      puVar4 = (undefined4 *)param_1[3];
+      puVar2 = param_3 + -2;
+      puVar6 = puVar4;
+      if (puVar4 == (undefined4 *)0x0) {
+        local_24 = puVar4;
+        ppcVar9[3] = "eON_Subheap* FindSubheapByAddress(const eON_Heap*, LPCVOID)";
+        ppcVar9[2] = (char *)0x22f;
+        ppcVar9[1] = 
+        "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/heapImplementation.cpp"
+        ;
+        *ppcVar9 = "startSubheap";
+        ppcVar9[-1] = (char *)0x4138f87;
+        FUN_0400a810();
+        puVar4 = local_24;
+        puVar6 = local_24;
+      }
+      do {
+        if ((puVar4 <= puVar2) && (puVar2 < (undefined4 *)(puVar4[2] + (int)puVar4))) {
+          if (((((uint)puVar2 & 7) != 0) ||
+              (((*(char *)((int)param_3 + -3) != -0x1b || (*(char *)((int)param_3 + -2) != '\0')) ||
+               ((*(byte *)(param_3 + -1) & 1) != 0)))) || ((uint)param_3[-2] < 0x18))
+          goto LAB_04138e58;
+          ppcVar9[-1] = (char *)0x4138efb;
+          Subheap_FreeArea();
+          goto LAB_04138f00;
+        }
+        piVar1 = puVar4 + 1;
+        puVar4 = (undefined4 *)*piVar1;
+      } while (puVar6 != (undefined4 *)*piVar1);
+      puVar2 = (undefined4 *)param_1[4];
+      if (puVar2 != (undefined4 *)0x0) {
+        puVar4 = puVar2 + 2;
+        do {
+          if (param_3 == puVar4 + 2) {
+            puVar6 = puVar4 + -2;
+            if (puVar6 != (undefined4 *)0x0) {
+              puVar7 = (undefined4 *)param_3[-1];
+              if (puVar7 == puVar4) {
+                if (puVar2 != puVar6) {
+                  local_24 = puVar6;
+                  ppcVar9[3] = "void LargeArea_Free(eON_Heap*, LPVOID)";
+                  ppcVar9[2] = (char *)0x37b;
+                  ppcVar9[1] = 
+                  "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/heapImplementation.cpp"
+                  ;
+                  *ppcVar9 = "heap->LargeAreasList == area";
+                  ppcVar9[-1] = (char *)0x4138ffd;
+                  FUN_0400a810();
+                  puVar6 = local_24;
+                }
+                param_1[4] = 0;
+              }
+              else {
+                if (puVar2 == puVar6) {
+                  param_1[4] = (int)(puVar7 + -2);
+                  puVar7 = (undefined4 *)param_3[-1];
+                }
+                *puVar7 = param_3[-2];
+                *(undefined4 **)(param_3[-2] + 4) = puVar7;
+              }
+              ppcVar9[2] = (char *)0x8000;
+              ppcVar9[1] = (char *)0x0;
+              *ppcVar9 = (char *)puVar6;
+              ppcVar9[-1] = (char *)0x4138fca;
+              eON_VirtualFree();
+              ppcVar9 = ppcVar9 + -3;
+LAB_04138f00:
+              if (local_1d == 0) {
+                return 1;
+              }
+              local_24 = (undefined4 *)0x1;
+              *ppcVar9 = (char *)(param_1 + 0xa00);
+              ppcVar9[-1] = (char *)0x4138f20;
+              LeaveCriticalSection();
+              return local_24;
+            }
+            break;
+          }
+          puVar4 = (undefined4 *)puVar4[1];
+        } while (puVar2 + 2 != puVar4);
+      }
+LAB_04138e58:
+      if (local_1d != 0) {
+        *ppcVar9 = (char *)(param_1 + 0xa00);
+        ppcVar9[-1] = (char *)0x4138ebe;
+        LeaveCriticalSection();
+        ppcVar9 = ppcVar9 + -1;
+      }
+      *ppcVar9 = (char *)0x57;
+      ppcVar9[-1] = (char *)0x4138e6a;
+      eON_SetLastError();
+      return 0;
+    }
+    local_3c[0] = (char *)0x6;
+    eON_SetLastError();
+    uVar3 = 0;
+  }
+  return uVar3;
+}
+

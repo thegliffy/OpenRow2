@@ -1,0 +1,60 @@
+
+undefined4 eON_getpeername(int param_1,undefined4 *param_2,int *param_3)
+
+{
+  undefined4 *puVar1;
+  int iVar2;
+  int *piVar3;
+  sockaddr local_24;
+  socklen_t local_14;
+  undefined4 *local_10;
+  
+  puVar1 = param_2;
+  local_10 = &param_1;
+  if (((param_3 == (int *)0x0) || (param_2 == (undefined4 *)0x0)) || (*param_3 < 0x10)) {
+LAB_04195e14:
+    eON_SetLastError(0x271e);
+    return 0xffffffff;
+  }
+  local_14 = 0x10;
+  iVar2 = getpeername(param_1,&local_24,&local_14);
+  if (iVar2 != -1) {
+    *puVar1 = local_24._0_4_;
+    puVar1[1] = local_24.sa_data._2_4_;
+    puVar1[2] = local_24.sa_data._6_4_;
+    puVar1[3] = local_24.sa_data._10_4_;
+    return 0;
+  }
+  piVar3 = __errno_location();
+  iVar2 = *piVar3;
+  if (iVar2 == 0x58) {
+LAB_04195e58:
+    eON_SetLastError(0x2736);
+  }
+  else {
+    if (iVar2 < 0x59) {
+      if (iVar2 == 0xe) {
+        FUN_0402cd10(0xf,"Local stack variable reported at invalid address!");
+        goto LAB_04195e14;
+      }
+      if ((iVar2 == 0x16) || (iVar2 == 9)) goto LAB_04195e58;
+    }
+    else {
+      if (iVar2 == 0x69) {
+        eON_SetLastError(0x2747);
+        return 0xffffffff;
+      }
+      if (iVar2 == 0x6b) {
+        eON_SetLastError(0x2749);
+        return 0xffffffff;
+      }
+      if (iVar2 == 0x5f) {
+        eON_SetLastError(0x273d);
+        return 0xffffffff;
+      }
+    }
+    FUN_0402cd10(0xf,"SOCKETS: getpeername() - unknown error - %d.",iVar2);
+  }
+  return 0xffffffff;
+}
+

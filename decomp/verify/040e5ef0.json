@@ -1,0 +1,177 @@
+
+/* source: shadercache */
+
+undefined4 ShaderCache__GetCopyProgram(int param_1,int param_2,char param_3)
+
+{
+  char cVar1;
+  int iVar2;
+  void *pvVar3;
+  int iVar4;
+  int iVar5;
+  int iVar6;
+  undefined4 uVar7;
+  char *local_30;
+  char *local_2c;
+  char *local_28;
+  size_t local_24;
+  size_t local_20 [4];
+  
+  if (*(int *)(param_1 + 0x100) == 0) {
+    cVar1 = FUN_04021ee0();
+    if (cVar1 == '\0') {
+      local_30 = 
+      "\n// Vertex program for StretchRect() and other direct copying functions\n\nattribute vec3 eON_Position;\nattribute vec2 eON_TexCoord;\nvarying vec2 eON_TexCoordV;\n\nvoid main()\n{\n\tgl_Position = vec4( eON_Position, 1.0 );\n\teON_TexCoordV.xy = eON_TexCoord.xy;\n}\n"
+      ;
+      local_28 = 
+      "// Fragment program for StretchRect() and other direct copying functions\n\nuniform sampler2D CopySampler;\nvarying vec2 eON_TexCoordV;\nvoid main()\n{\n\tgl_FragColor = clamp( texture2D( CopySampler, eON_TexCoordV.xy), 0.0, 1.0 );\n}\n"
+      ;
+      local_2c = 
+      "// Fragment program for StretchRect() and other direct copying functions\n\nuniform sampler2D CopySampler;\nvarying vec2 eON_TexCoordV;\nvoid main()\n{\n\tgl_FragColor = texture2D( CopySampler, eON_TexCoordV.xy);\n}\n"
+      ;
+    }
+    else {
+      local_30 = 
+      "\n#version 150\n\n// Vertex program for StretchRect() and other direct copying functions\n\nin vec3 eON_Position;\nin vec2 eON_TexCoord;\nout vec2 eON_TexCoordV;\n\nvoid main()\n{\n\tgl_Position = vec4( eON_Position, 1.0 );\n\teON_TexCoordV.xy = eON_TexCoord.xy;\n}\n"
+      ;
+      local_28 = 
+      "\n#version 150\n\n// Fragment program for StretchRect() and other direct copying functions\n\nuniform sampler2D CopySampler;\nin vec2 eON_TexCoordV;\nout vec4 FragColor;\n\nvoid main()\n{\n\tFragColor = clamp( texture( CopySampler, eON_TexCoordV.xy ), 0.0, 1.0 );\n}\n"
+      ;
+      local_2c = 
+      "\n#version 150\n\n// Fragment program for StretchRect() and other direct copying functions\n\nuniform sampler2D CopySampler;\nin vec2 eON_TexCoordV;\nout vec4 FragColor;\n\nvoid main()\n{\n\tFragColor = texture( CopySampler, eON_TexCoordV.xy );\n}\n"
+      ;
+    }
+    FUN_0402cd10(5,"Compiling and linking special GLSL copy program in OpenGL...");
+    iVar2 = (*DAT_0451ecd8)(0x8b31);
+    if (iVar2 == 0) {
+      FUN_0400a810("vertexShader",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/shadercache.cpp"
+                   ,0x233,"GLuint ShaderCache::GetCopyProgram(OpenGLContextCache*, bool)");
+    }
+    local_24 = strlen(local_30);
+    (*DAT_0451ec70)(iVar2,1,&local_30,&local_24);
+    (*DAT_0451ece0)(iVar2);
+    (*DAT_0451ec9c)(iVar2,0x8b81,local_20);
+    if (local_20[0] != 1) {
+      FUN_0402cd10(0xf,"Copy vertex shader failed to compile!");
+      FUN_0402cd10(0xf,"Shader code:\n%s",local_30);
+      (*DAT_0451ec9c)(iVar2,0x8b84,local_20);
+      if (local_20[0] == 0) {
+        FUN_0402cd10(0xf,"No shader info log.");
+      }
+      else {
+        pvVar3 = malloc(local_20[0]);
+        (*DAT_0451eca4)(iVar2,local_20[0],0,pvVar3);
+        FUN_0402cd10(0xf,"Shader info log:\n%s",pvVar3);
+        free(pvVar3);
+      }
+    }
+    iVar4 = (*DAT_0451ecd8)(0x8b30);
+    if (iVar4 == 0) {
+      FUN_0400a810("fragmentShader",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/shadercache.cpp"
+                   ,0x24d,"GLuint ShaderCache::GetCopyProgram(OpenGLContextCache*, bool)");
+    }
+    local_24 = strlen(local_2c);
+    (*DAT_0451ec70)(iVar4,1,&local_2c,&local_24);
+    (*DAT_0451ece0)(iVar4);
+    (*DAT_0451ec9c)(iVar4,0x8b81,local_20);
+    if (local_20[0] != 1) {
+      FUN_0402cd10(0xf,"Copy fragment shader failed to compile!");
+      FUN_0402cd10(0xf,"Shader code:\n%s",local_2c);
+      (*DAT_0451ec9c)(iVar4,0x8b84,local_20);
+      if (local_20[0] == 0) {
+        FUN_0402cd10(0xf,"No shader info log.");
+      }
+      else {
+        pvVar3 = malloc(local_20[0]);
+        (*DAT_0451eca4)(iVar4,local_20[0],0,pvVar3);
+        FUN_0402cd10(0xf,"Shader info log:\n%s",pvVar3);
+        free(pvVar3);
+      }
+    }
+    iVar5 = (*DAT_0451ecd8)(0x8b30);
+    if (iVar5 == 0) {
+      FUN_0400a810("fragmentShaderClamp",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/shadercache.cpp"
+                   ,0x266,"GLuint ShaderCache::GetCopyProgram(OpenGLContextCache*, bool)");
+    }
+    local_24 = strlen(local_28);
+    (*DAT_0451ec70)(iVar5,1,&local_28,&local_24);
+    (*DAT_0451ece0)(iVar5);
+    (*DAT_0451ec9c)(iVar5,0x8b81,local_20);
+    if (local_20[0] != 1) {
+      FUN_0402cd10(0xf,"Copy fragment shader with clamp failed to compile!");
+      FUN_0402cd10(0xf,"Shader code:\n%s",local_28);
+      (*DAT_0451ec9c)(iVar5,0x8b84,local_20);
+      if (local_20[0] == 0) {
+        FUN_0402cd10(0xf,"No shader info log.");
+      }
+      else {
+        pvVar3 = malloc(local_20[0]);
+        (*DAT_0451eca4)(iVar5,local_20[0],0,pvVar3);
+        FUN_0402cd10(0xf,"Shader info log:\n%s",pvVar3);
+        free(pvVar3);
+      }
+    }
+    iVar6 = (*DAT_0451ecdc)();
+    *(int *)(param_1 + 0x100) = iVar6;
+    if (iVar6 == 0) {
+      FUN_0400a810("mCopyProgram",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/shadercache.cpp"
+                   ,0x27f,"GLuint ShaderCache::GetCopyProgram(OpenGLContextCache*, bool)");
+      iVar6 = *(int *)(param_1 + 0x100);
+    }
+    (*DAT_0451ecec)(iVar6,iVar2);
+    (*DAT_0451ecec)(*(undefined4 *)(param_1 + 0x100),iVar4);
+    (*DAT_0451ec74)(*(undefined4 *)(param_1 + 0x100));
+    iVar4 = *(int *)(param_1 + 0x100);
+    if (iVar4 != *(int *)(param_2 + 0x338)) {
+      (*DAT_0451ec14)(iVar4);
+      *(int *)(param_2 + 0x338) = iVar4;
+      iVar4 = *(int *)(param_1 + 0x100);
+    }
+    (*DAT_0451ece8)(iVar4,0,"eON_Position");
+    (*DAT_0451ece8)(*(undefined4 *)(param_1 + 0x100),1,"eON_TexCoord");
+    (*DAT_0451ec74)(*(undefined4 *)(param_1 + 0x100));
+    uVar7 = (*DAT_0451ec98)(*(undefined4 *)(param_1 + 0x100),"CopySampler");
+    (*DAT_0451ec58)(uVar7,0);
+    if (*(int *)(param_1 + 0x100) == 0) {
+      FUN_0400a810("mCopyProgram",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/shadercache.cpp"
+                   ,0x28c,"GLuint ShaderCache::GetCopyProgram(OpenGLContextCache*, bool)");
+    }
+    iVar4 = (*DAT_0451ecdc)();
+    *(int *)(param_1 + 0x104) = iVar4;
+    if (iVar4 == 0) {
+      FUN_0400a810("mCopyProgramClamp",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/shadercache.cpp"
+                   ,0x290,"GLuint ShaderCache::GetCopyProgram(OpenGLContextCache*, bool)");
+      iVar4 = *(int *)(param_1 + 0x104);
+    }
+    (*DAT_0451ecec)(iVar4,iVar2);
+    (*DAT_0451ecec)(*(undefined4 *)(param_1 + 0x104),iVar5);
+    (*DAT_0451ec74)(*(undefined4 *)(param_1 + 0x104));
+    iVar2 = *(int *)(param_1 + 0x104);
+    if (iVar2 != *(int *)(param_2 + 0x338)) {
+      (*DAT_0451ec14)(iVar2);
+      *(int *)(param_2 + 0x338) = iVar2;
+      iVar2 = *(int *)(param_1 + 0x104);
+    }
+    (*DAT_0451ece8)(iVar2,0,"eON_Position");
+    (*DAT_0451ece8)(*(undefined4 *)(param_1 + 0x104),1,"eON_TexCoord");
+    (*DAT_0451ec74)(*(undefined4 *)(param_1 + 0x104));
+    uVar7 = (*DAT_0451ec98)(*(undefined4 *)(param_1 + 0x104),"CopySampler");
+    (*DAT_0451ec58)(uVar7,0);
+    if (*(int *)(param_1 + 0x104) == 0) {
+      FUN_0400a810("mCopyProgramClamp",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/shadercache.cpp"
+                   ,0x29d,"GLuint ShaderCache::GetCopyProgram(OpenGLContextCache*, bool)");
+    }
+  }
+  if (param_3 == '\0') {
+    return *(undefined4 *)(param_1 + 0x100);
+  }
+  return *(undefined4 *)(param_1 + 0x104);
+}
+

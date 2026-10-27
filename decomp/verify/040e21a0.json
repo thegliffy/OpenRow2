@@ -1,0 +1,119 @@
+
+/* source: pixelformatdata */
+
+undefined4 __regparm3
+PixelFormatData__PrepareRenderbuffer
+          (undefined4 param_1,int *param_2,undefined4 param_3,char param_4,int param_5)
+
+{
+  char cVar1;
+  int iVar2;
+  undefined4 uVar3;
+  bool bVar4;
+  bool bVar5;
+  undefined1 local_30 [4];
+  undefined1 local_2c [4];
+  uint local_28;
+  undefined4 local_24;
+  char local_1e;
+  undefined1 local_1d [13];
+  
+  cVar1 = PixelFormatData__MapTextureFormatToGL
+                    (param_1,param_3,local_30,local_2c,&local_28,&local_1e,local_1d);
+  if (cVar1 == '\0') {
+    return 0;
+  }
+  if (local_1e != '\0') {
+    return 0;
+  }
+  (*DAT_0451e664)(1,param_2);
+  if (*param_2 == 0) {
+    return 0;
+  }
+  iVar2 = glGetError();
+  if (iVar2 != 0) {
+    FUN_0400a810("glGetError() == 0",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/pixelformatdata.cpp"
+                 ,600,
+                 "bool PixelFormatData::PrepareRenderbuffer(D3DFORMAT, GLuint&, bool, bool, bool*)")
+    ;
+  }
+  (*DAT_0451e690)(0x8d41,*param_2);
+  (*DAT_0451e64c)(0x8d41,local_28,0x80,0x80);
+  iVar2 = glGetError();
+  if (iVar2 != 0) {
+    return 0;
+  }
+  bVar4 = local_28 == 0x88f0;
+  bVar5 = local_28 == 0x84f9;
+  if (bVar5) {
+    FUN_0400a810("false",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/pixelformatdata.cpp"
+                 ,0x192,"bool IsStencil(GLuint)");
+  }
+  bVar5 = bVar5 || bVar4;
+  if (param_5 != 0) {
+    *(bool *)param_5 = bVar5;
+  }
+  if ((char)param_3 == '\0') {
+    return 1;
+  }
+  if (param_4 == '\0') {
+    return 1;
+  }
+  if (local_28 == 0x84f9) {
+    FUN_0400a810("false",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/pixelformatdata.cpp"
+                 ,0x186,"bool IsDepth(GLuint)");
+LAB_040e2474:
+    (*DAT_0451e668)(1,&local_24);
+    (*DAT_0451e694)(0x8d40,local_24);
+    bVar4 = false;
+  }
+  else {
+    if (local_28 < 0x84fa) {
+      if (2 < local_28 - 0x81a5) goto LAB_040e2474;
+    }
+    else if (local_28 != 0x88f0) goto LAB_040e2474;
+    (*DAT_0451e668)(1,&local_24);
+    (*DAT_0451e694)(0x8d40,local_24);
+    (*DAT_0451e67c)(0x8d40,0x8d00,0x8d41,*param_2);
+    bVar4 = true;
+  }
+  if (bVar5) {
+    (*DAT_0451e67c)(0x8d40,0x8d20,0x8d41,*param_2);
+  }
+  if ((bVar4) || (bVar5)) {
+    (*DAT_0451eed0)(0);
+    (*DAT_0451eed4)(0);
+  }
+  else {
+    (*DAT_0451e67c)(0x8d40,0x8ce0,0x8d41,*param_2);
+    (*DAT_0451eed0)(0x8ce0);
+    (*DAT_0451eed4)(0x8ce0);
+  }
+  iVar2 = (*DAT_0451e688)(0x8d40);
+  (*DAT_0451e694)(0x8d40,0);
+  (*DAT_0451e684)(1,&local_24);
+  uVar3 = 0;
+  if (iVar2 == 0x8cd6) {
+    if (*param_2 == 0) {
+      FUN_0400a810("index",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/pixelformatdata.cpp"
+                   ,0x287,
+                   "bool PixelFormatData::PrepareRenderbuffer(D3DFORMAT, GLuint&, bool, bool, bool*)"
+                  );
+      uVar3 = 0;
+    }
+  }
+  else if ((iVar2 != 0x8cdd) && (uVar3 = 1, iVar2 != 0x8cd5)) {
+    FUN_0400a810("false",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/pixelformatdata.cpp"
+                 ,0x28a,
+                 "bool PixelFormatData::PrepareRenderbuffer(D3DFORMAT, GLuint&, bool, bool, bool*)")
+    ;
+    uVar3 = 0;
+  }
+  return uVar3;
+}
+

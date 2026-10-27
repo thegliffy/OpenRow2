@@ -1,0 +1,23 @@
+
+void eON_SetThreadName(char *param_1)
+
+{
+  size_t sVar1;
+  pthread_t pVar2;
+  char local_1c [15];
+  undefined1 local_d;
+  
+  FUN_0402cd10(5,"Thread name now: %s",param_1);
+  sVar1 = strlen(param_1);
+  if (sVar1 < 0x10) {
+    pVar2 = pthread_self();
+    pthread_setname_np(pVar2,param_1);
+    return;
+  }
+  local_d = 0;
+  strncpy(local_1c,param_1,0xf);
+  pVar2 = pthread_self();
+  pthread_setname_np(pVar2,local_1c);
+  return;
+}
+

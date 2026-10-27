@@ -1,0 +1,528 @@
+
+/* source: windll */
+
+uint AddTLSSlot(char *param_1,char *param_2,_Rb_tree_node_base param_3)
+
+{
+  _Rb_tree_node_base *p_Var1;
+  int iVar2;
+  int iVar3;
+  int iVar4;
+  int *piVar5;
+  int iVar6;
+  int iVar7;
+  void *__src;
+  code *pcVar8;
+  char cVar9;
+  uint uVar10;
+  uint uVar11;
+  int iVar12;
+  size_t __size;
+  void *pvVar13;
+  int *piVar14;
+  void *pvVar15;
+  void *__dest;
+  uint *puVar16;
+  _Rb_tree_node_base *p_Var17;
+  _Rb_tree_node_base *p_Var18;
+  undefined4 *puVar19;
+  uint *puVar20;
+  uint *puVar21;
+  char *pcVar22;
+  undefined4 *puVar23;
+  _Rb_tree_node_base *p_Var24;
+  byte bVar25;
+  undefined4 local_1a28;
+  char *local_1a24;
+  uint *local_1a20;
+  undefined1 *local_19f0;
+  _Rb_tree_node_base *local_19e0;
+  uint local_19dc;
+  _Rb_tree_node_base *local_19c0;
+  undefined4 local_19b8 [65];
+  undefined4 local_18b4 [256];
+  undefined4 local_14b4;
+  undefined1 local_14b0;
+  undefined1 local_14af;
+  undefined1 local_14ae;
+  undefined4 local_14ac;
+  undefined4 local_14a8;
+  undefined4 local_14a4;
+  undefined4 local_14a0;
+  undefined4 local_1498;
+  undefined4 local_1494;
+  undefined4 *local_1490;
+  undefined4 *local_148c;
+  undefined4 local_1488;
+  void *local_1484;
+  undefined4 local_1480;
+  undefined4 local_147c;
+  undefined4 local_1478;
+  uint local_1474;
+  undefined4 local_1470 [65];
+  undefined4 local_136c [256];
+  undefined4 local_f6c;
+  undefined1 local_f68;
+  undefined1 local_f67;
+  undefined1 local_f66;
+  undefined4 local_f64;
+  undefined4 local_f60;
+  undefined4 local_f5c;
+  undefined4 local_f58;
+  undefined4 local_f50;
+  undefined4 local_f4c;
+  undefined4 *local_f48;
+  undefined4 *local_f44;
+  undefined4 local_f40;
+  undefined4 local_f3c;
+  undefined4 local_f38;
+  undefined4 local_f34;
+  undefined4 local_f30;
+  char local_f2c [260];
+  char local_e28 [1024];
+  undefined4 local_a28;
+  _Rb_tree_node_base local_a24;
+  _Rb_tree_node_base local_a23;
+  _Rb_tree_node_base local_a22;
+  undefined4 local_a20;
+  undefined4 local_a1c;
+  undefined4 local_a18;
+  code *local_a14;
+  undefined1 local_a10 [4];
+  undefined4 local_a0c;
+  int local_a08;
+  undefined4 *local_a04;
+  undefined4 *local_a00;
+  undefined4 local_9fc;
+  int local_9f8;
+  undefined4 local_9f4;
+  undefined4 local_9f0;
+  undefined4 local_9ec;
+  undefined4 local_9e8 [65];
+  undefined4 local_8e4 [263];
+  undefined1 local_4c8 [8];
+  undefined1 *local_4c0;
+  undefined1 *local_4bc;
+  void *local_4b4;
+  uint local_4a4 [288];
+  uint local_24;
+  
+  bVar25 = 0;
+  puVar20 = (uint *)&stack0xffffe5e4;
+  piVar14 = (int *)&stack0xffffe5e4;
+  local_1a20 = (uint *)0x4150e45;
+  strcpy((char *)local_4a4,param_1);
+  if (*param_1 == '\0') {
+    local_1a20 = (uint *)0x415187c;
+    FUN_0400a810();
+  }
+  puVar16 = local_4a4;
+  do {
+    puVar21 = puVar16;
+    uVar10 = *puVar21 + 0xfefefeff & ~*puVar21;
+    uVar11 = uVar10 & 0x80808080;
+    puVar16 = puVar21 + 1;
+  } while (uVar11 == 0);
+  if ((uVar10 & 0x8080) == 0) {
+    puVar16 = (uint *)((int)puVar21 + 6);
+    uVar11 = uVar11 >> 0x10;
+  }
+  *(undefined2 *)((int)puVar16 + (-3 - (uint)CARRY1((byte)uVar11,(byte)uVar11))) = 0x5c;
+  local_1a20 = (uint *)0x4150e9c;
+  strcat((char *)local_4a4,param_2);
+  local_a04 = &local_a0c;
+  local_a0c = 0;
+  local_a08 = 0;
+  local_9fc = 0;
+  local_9f8 = 0;
+  local_9f4 = 0;
+  local_9f0 = 0;
+  local_1a20 = (uint *)0x4150f0b;
+  local_a00 = local_a04;
+  strcpy(local_f2c,param_2);
+  local_1a20 = (uint *)0x4150f23;
+  strcpy(local_e28,param_1);
+  local_a22 = param_3;
+  local_9ec = 0;
+  local_a28 = 2;
+  if (param_3 == (_Rb_tree_node_base)0x0) {
+                    /* try { // try from 04150f5e to 04150ff0 has its CatchHandler @ 04151a01 */
+    local_1a20 = (uint *)0x4150f63;
+    iVar12 = FUN_04042f10();
+  }
+  else {
+    local_1a20 = (uint *)0x4151504;
+    iVar12 = VPFS_OpenExec();
+  }
+  if (iVar12 == 0) {
+    local_19dc = 0;
+    goto LAB_0415181b;
+  }
+  local_1a20 = (uint *)0x4150f81;
+  __size = VPFS_GetSize();
+  local_1a20 = (uint *)0x4150f8b;
+  pvVar13 = malloc(__size);
+  if (pvVar13 == (void *)0x0) {
+    local_1a20 = (uint *)0x41519ad;
+    FUN_0402cd10();
+    local_19dc = 0;
+  }
+  else {
+    local_1a20 = (uint *)0x4150fba;
+    iVar12 = FUN_04045da0();
+    if (iVar12 == 1) {
+      local_1a20 = (uint *)0x415190e;
+      local_19dc = winpe_LoadFromMemory();
+    }
+    else {
+      local_1a20 = (uint *)0x4150fd7;
+      FUN_0402cd10();
+      local_19dc = 0;
+    }
+    local_1a20 = (uint *)0x4150fe9;
+    free(pvVar13);
+  }
+  local_1a20 = (uint *)0x4150ff1;
+  eON_VPFS_Close();
+  piVar14 = (int *)&stack0xffffe5e4;
+  if (local_19dc == 0) goto LAB_0415181b;
+  p_Var18 = (_Rb_tree_node_base *)&DAT_0451adf0;
+  local_1a20 = (uint *)0x4151010;
+  pthread_mutex_lock((pthread_mutex_t *)&DAT_0451add4);
+  p_Var24 = DAT_0451adf4;
+  if (DAT_0451adf4 == (_Rb_tree_node_base *)0x0) {
+LAB_04151054:
+    local_f68 = 0;
+    local_f50 = 0;
+    puVar19 = local_9e8;
+    for (iVar12 = 0x151; iVar12 != 0; iVar12 = iVar12 + -1) {
+      *puVar19 = 0;
+      puVar19 = puVar19 + (uint)bVar25 * -2 + 1;
+    }
+    local_f67 = 0;
+    local_4c0 = local_4c8;
+    local_4bc = local_4c8;
+    local_f4c = 0;
+    local_f66 = 0;
+    puVar19 = local_9e8;
+    puVar23 = local_1470;
+    for (iVar12 = 0x41; iVar12 != 0; iVar12 = iVar12 + -1) {
+      *puVar23 = *puVar19;
+      puVar19 = puVar19 + (uint)bVar25 * -2 + 1;
+      puVar23 = puVar23 + (uint)bVar25 * -2 + 1;
+    }
+    local_f40 = 0;
+    local_f3c = 0;
+    local_f38 = 0;
+    local_1474 = local_19dc;
+    local_f48 = &local_f50;
+    local_f44 = &local_f50;
+    local_f34 = 0;
+    puVar19 = local_8e4;
+    puVar23 = local_136c;
+    for (iVar12 = 0x100; iVar12 != 0; iVar12 = iVar12 + -1) {
+      *puVar23 = *puVar19;
+      puVar19 = puVar19 + (uint)bVar25 * -2 + 1;
+      puVar23 = puVar23 + (uint)bVar25 * -2 + 1;
+    }
+    local_f6c = 0;
+    local_f64 = 0;
+    local_f60 = 0;
+    local_f5c = 0;
+    local_f58 = 0;
+    local_f30 = 0;
+    puVar19 = local_1470;
+    puVar23 = local_19b8;
+    for (iVar12 = 0x41; iVar12 != 0; iVar12 = iVar12 + -1) {
+      *puVar23 = *puVar19;
+      puVar19 = puVar19 + (uint)bVar25 * -2 + 1;
+      puVar23 = puVar23 + (uint)bVar25 * -2 + 1;
+    }
+    puVar19 = local_136c;
+    puVar23 = local_18b4;
+    for (iVar12 = 0x100; iVar12 != 0; iVar12 = iVar12 + -1) {
+      *puVar23 = *puVar19;
+      puVar19 = puVar19 + (uint)bVar25 * -2 + 1;
+      puVar23 = puVar23 + (uint)bVar25 * -2 + 1;
+    }
+    local_14b4 = 0;
+    local_14b0 = 0;
+    local_14af = 0;
+    local_14ae = 0;
+    local_14ac = 0;
+    local_14a8 = 0;
+    local_14a4 = 0;
+    local_14a0 = 0;
+    local_1498 = 0;
+    local_1494 = 0;
+    local_1488 = 0;
+    local_1484 = (void *)0x0;
+    local_1480 = 0;
+    local_147c = 0;
+    local_1478 = 0;
+    local_1a20 = (uint *)0x4151237;
+    local_1490 = &local_1498;
+    local_148c = &local_1498;
+    FUN_04153bf0();
+                    /* try { // try from 04151245 to 04151249 has its CatchHandler @ 04151a16 */
+    local_1a20 = (uint *)0x415124a;
+    FUN_0414f610();
+    if (local_1484 != (void *)0x0) {
+      local_1a20 = (uint *)0x4151262;
+      operator_delete(local_1484);
+    }
+    local_1a20 = (uint *)0x415127a;
+    FUN_04153bf0();
+    if (local_4b4 != (void *)0x0) {
+      local_1a20 = (uint *)0x415128c;
+      operator_delete(local_4b4);
+    }
+    local_1a20 = (uint *)0x41512a4;
+    FUN_04153bf0();
+    p_Var17 = local_19c0;
+  }
+  else {
+    do {
+      while (p_Var17 = p_Var24, local_19dc <= *(uint *)(p_Var17 + 0x10)) {
+        p_Var24 = *(_Rb_tree_node_base **)(p_Var17 + 8);
+        p_Var18 = p_Var17;
+        if (*(_Rb_tree_node_base **)(p_Var17 + 8) == (_Rb_tree_node_base *)0x0) goto LAB_0415103d;
+      }
+      p_Var1 = p_Var17 + 0xc;
+      p_Var24 = *(_Rb_tree_node_base **)p_Var1;
+      p_Var17 = p_Var18;
+    } while (*(_Rb_tree_node_base **)p_Var1 != (_Rb_tree_node_base *)0x0);
+LAB_0415103d:
+    if ((p_Var17 == (_Rb_tree_node_base *)&DAT_0451adf0) || (local_19dc < *(uint *)(p_Var17 + 0x10))
+       ) goto LAB_04151054;
+  }
+  *(undefined4 *)(p_Var17 + 0x518) = local_a28;
+  pcVar22 = local_f2c;
+  p_Var24 = p_Var17 + 0x14;
+  for (iVar12 = 0x41; iVar12 != 0; iVar12 = iVar12 + -1) {
+    *(undefined4 *)p_Var24 = *(undefined4 *)pcVar22;
+    pcVar22 = pcVar22 + ((uint)bVar25 * -2 + 1) * 4;
+    p_Var24 = p_Var24 + (uint)bVar25 * -8 + 4;
+  }
+  p_Var17[0x51c] = local_a24;
+  p_Var17[0x51d] = local_a23;
+  pcVar22 = local_e28;
+  p_Var24 = p_Var17 + 0x118;
+  for (iVar12 = 0x100; iVar12 != 0; iVar12 = iVar12 + -1) {
+    *(undefined4 *)p_Var24 = *(undefined4 *)pcVar22;
+    pcVar22 = pcVar22 + (uint)bVar25 * -8 + 4;
+    p_Var24 = p_Var24 + (uint)bVar25 * -8 + 4;
+  }
+  p_Var17[0x51e] = local_a22;
+  *(undefined4 *)(p_Var17 + 0x520) = local_a20;
+  *(undefined4 *)(p_Var17 + 0x524) = local_a1c;
+  *(undefined4 *)(p_Var17 + 0x528) = local_a18;
+  *(code **)(p_Var17 + 0x52c) = local_a14;
+                    /* try { // try from 0415133d to 04151803 has its CatchHandler @ 04151a01 */
+  local_1a20 = (uint *)0x4151342;
+  FUN_04150d90();
+  local_1a20 = (uint *)0x4151353;
+  FUN_0414f170();
+  *(undefined4 *)(p_Var17 + 0x554) = local_9ec;
+  local_1a20 = (uint *)0x415136b;
+  pthread_mutex_unlock((pthread_mutex_t *)&DAT_0451add4);
+  local_1a20 = (uint *)0x4151393;
+  FUN_0402cd10();
+  local_1a20 = (uint *)0x41513ac;
+  cVar9 = winpe_LinkImports();
+  if (cVar9 != '\0') {
+    local_1a20 = (uint *)0x415154c;
+    FUN_0402cd10();
+    if (DAT_0451add0 == '\0') {
+      local_24 = local_19dc;
+      if (DAT_0451adc8 == DAT_0451adcc) {
+        local_1a20 = (uint *)0x41519fc;
+        FUN_04154b70();
+        piVar14 = (int *)&stack0xffffe5e4;
+      }
+      else {
+        puVar16 = (uint *)0x0;
+        if (DAT_0451adc8 != (uint *)0x0) {
+          *DAT_0451adc8 = local_19dc;
+          puVar16 = DAT_0451adc8;
+        }
+        DAT_0451adc8 = puVar16 + 1;
+        piVar14 = (int *)&stack0xffffe5e4;
+      }
+    }
+    else {
+      local_1a20 = (uint *)0x4151565;
+      pthread_mutex_lock((pthread_mutex_t *)&DAT_0451add4);
+      iVar12 = *(int *)(local_19dc + 0xc0 + *(int *)(local_19dc + 0x3c));
+      if (iVar12 != 0) {
+        piVar14 = (int *)(iVar12 + local_19dc);
+        iVar12 = piVar14[1] - *piVar14;
+        if (iVar12 == 0) {
+          local_1a20 = (uint *)0x41519e0;
+          FUN_0400a810();
+        }
+        uVar11 = DAT_04518da8;
+        local_1a20 = (uint *)0x41515ad;
+        pvVar13 = malloc(DAT_04518da8 * 4 + 4);
+        local_1a20 = (uint *)0x41515d5;
+        memcpy(pvVar13,DAT_04518da0,uVar11 * 4);
+        *(int **)((int)pvVar13 + uVar11 * 4) = piVar14;
+        local_1a20 = (uint *)0x41515f0;
+        pthread_mutex_lock((pthread_mutex_t *)&DAT_0451bd4c);
+        local_19e0 = DAT_0451bd40;
+        if (DAT_0451bd40 != (_Rb_tree_node_base *)&DAT_0451bd38) {
+          do {
+            iVar3 = *(int *)(*(int *)(local_19e0 + 0x14) + 0x90);
+            iVar4 = *(int *)(iVar3 + 0x2c);
+            local_1a20 = (uint *)0x4151642;
+            pvVar15 = malloc(DAT_04518da8 * 4 + 4);
+            if (pvVar15 == (void *)0x0) {
+              local_1a20 = (uint *)0x4151986;
+              FUN_0400a810();
+            }
+            local_1a20 = (uint *)0x4151664;
+            __dest = malloc(iVar12 + DAT_04518da4);
+            if (__dest == (void *)0x0) {
+              local_1a20 = (uint *)0x415195d;
+              FUN_0400a810();
+            }
+            if (DAT_04518da8 != 0) {
+              uVar11 = 0;
+              do {
+                piVar5 = *(int **)((int)DAT_04518da0 + uVar11 * 4);
+                iVar6 = piVar5[1];
+                iVar7 = *piVar5;
+                *(void **)((int)pvVar15 + uVar11 * 4) = __dest;
+                iVar2 = uVar11 * 4;
+                uVar11 = uVar11 + 1;
+                local_1a20 = (uint *)0x41516bd;
+                memcpy(__dest,*(void **)(iVar4 + iVar2),piVar5[4] + (iVar6 - iVar7));
+                __dest = (void *)((int)__dest + (iVar6 - iVar7) + piVar5[4]);
+              } while (uVar11 < DAT_04518da8);
+            }
+            __src = (void *)*piVar14;
+            iVar4 = piVar14[1];
+            *(void **)((int)pvVar15 + DAT_04518da8 * 4) = __dest;
+            local_1a20 = (uint *)0x41516f9;
+            memcpy(__dest,__src,iVar4 - (int)__src);
+            local_1a20 = (uint *)0x4151714;
+            bzero((void *)((int)__dest + iVar12),piVar14[4]);
+            *(void **)(iVar3 + 0x2c) = pvVar15;
+            local_1a20 = (uint *)0x4151731;
+            local_19e0 = (_Rb_tree_node_base *)std::_Rb_tree_increment(local_19e0);
+          } while (local_19e0 != (_Rb_tree_node_base *)&DAT_0451bd38);
+        }
+        local_1a20 = (uint *)0x415174e;
+        pthread_mutex_unlock((pthread_mutex_t *)&DAT_0451bd4c);
+        piVar14[2] = DAT_04518da8;
+        pvVar15 = DAT_04518da0;
+        local_1a20 = (uint *)0x4151775;
+        DAT_04518da0 = pvVar13;
+        free(pvVar15);
+        DAT_04518da8 = DAT_04518da8 + 1;
+        DAT_04518da4 = DAT_04518da4 + iVar12;
+      }
+      local_1a20 = (uint *)0x4151796;
+      FUN_0414fd00();
+      iVar12 = *(int *)(local_19dc + 0xc0 + *(int *)(local_19dc + 0x3c));
+      puVar16 = (uint *)&stack0xffffe5e4;
+      if ((iVar12 != 0) &&
+         (puVar19 = *(undefined4 **)(local_19dc + 0xc + iVar12), puVar16 = (uint *)&stack0xffffe5e4,
+         puVar19 != (undefined4 *)0x0)) {
+        for (; pcVar8 = (code *)*puVar19, puVar16 = puVar20, pcVar8 != (code *)0x0;
+            puVar19 = puVar19 + 1) {
+          puVar20[2] = 0;
+          puVar20[1] = 1;
+          *puVar20 = local_19dc;
+          puVar20[-1] = 0x41517d3;
+          (*pcVar8)();
+          puVar20 = puVar20 + -3;
+        }
+      }
+      puVar21 = puVar16;
+      if (local_a14 != (code *)0x0) {
+        puVar16[2] = 0;
+        puVar16[1] = 1;
+        *puVar16 = local_19dc;
+        puVar16[-1] = 0x4151804;
+        iVar12 = (*local_a14)();
+        puVar21 = puVar16 + -3;
+        if (iVar12 == 0) {
+          puVar16[-2] = (uint)"DllMain of \'%s\' failed to initialize!";
+          puVar16[-3] = 0xf;
+          puVar16[-1] = (uint)param_2;
+          puVar16[-4] = 0x4151934;
+          FUN_0402cd10();
+          puVar21 = puVar16 + -3;
+        }
+      }
+      *puVar21 = (uint)&DAT_0451add4;
+      puVar21[-1] = 0x415181b;
+      pthread_mutex_unlock((pthread_mutex_t *)*puVar21);
+      piVar14 = (int *)puVar21;
+    }
+    goto LAB_0415181b;
+  }
+  local_1a20 = (uint *)0x41513dc;
+  FUN_0402cd10();
+  local_1a20 = (uint *)0x41513e8;
+  pthread_mutex_lock((pthread_mutex_t *)&DAT_0451add4);
+  if (DAT_0451adf4 == (_Rb_tree_node_base *)0x0) {
+LAB_041518c4:
+                    /* try { // try from 041518e3 to 041519fb has its CatchHandler @ 04151a01 */
+    local_1a20 = (uint *)0x41518e8;
+    FUN_0400a810();
+    p_Var17 = (_Rb_tree_node_base *)&DAT_0451adf0;
+  }
+  else {
+    p_Var24 = DAT_0451adf4;
+    p_Var18 = (_Rb_tree_node_base *)&DAT_0451adf0;
+    do {
+      while (p_Var17 = p_Var24, local_19dc <= *(uint *)(p_Var17 + 0x10)) {
+        p_Var24 = *(_Rb_tree_node_base **)(p_Var17 + 8);
+        p_Var18 = p_Var17;
+        if (*(_Rb_tree_node_base **)(p_Var17 + 8) == (_Rb_tree_node_base *)0x0) goto LAB_0415141d;
+      }
+      p_Var1 = p_Var17 + 0xc;
+      p_Var24 = *(_Rb_tree_node_base **)p_Var1;
+      p_Var17 = p_Var18;
+    } while (*(_Rb_tree_node_base **)p_Var1 != (_Rb_tree_node_base *)0x0);
+LAB_0415141d:
+    if ((p_Var17 == (_Rb_tree_node_base *)&DAT_0451adf0) || (local_19dc < *(uint *)(p_Var17 + 0x10))
+       ) goto LAB_041518c4;
+  }
+  local_1a20 = (uint *)0x4151448;
+  pvVar13 = (void *)std::_Rb_tree_rebalance_for_erase(p_Var17,(_Rb_tree_node_base *)&DAT_0451adf0);
+  if (*(void **)((int)pvVar13 + 0x548) != (void *)0x0) {
+    local_1a20 = (uint *)0x415145c;
+    operator_delete(*(void **)((int)pvVar13 + 0x548));
+  }
+  local_1a20 = (uint *)0x4151474;
+  FUN_04153bf0();
+  local_1a20 = (uint *)0x415147c;
+  operator_delete(pvVar13);
+  DAT_0451ae00 = DAT_0451ae00 + -1;
+  local_1a20 = (uint *)0x415148f;
+  pthread_mutex_unlock((pthread_mutex_t *)&DAT_0451add4);
+  local_1a20 = (uint *)0x41514ad;
+  eON_VirtualFree();
+  local_1a20 = local_4a4;
+  local_1a24 = "DLL LOADING: Binding failed for %s at %p, module unloaded";
+  local_1a28 = 10;
+  FUN_0402cd10();
+  local_19dc = 0;
+  piVar14 = &local_1a28;
+LAB_0415181b:
+  local_19f0 = local_a10;
+  if (local_9f8 != 0) {
+    *piVar14 = local_9f8;
+    piVar14[-1] = 0x415182d;
+    operator_delete((void *)*piVar14);
+  }
+  piVar14[1] = local_a08;
+  *piVar14 = (int)local_19f0;
+  piVar14[-1] = 0x4151845;
+  FUN_04153bf0();
+  return local_19dc;
+}
+

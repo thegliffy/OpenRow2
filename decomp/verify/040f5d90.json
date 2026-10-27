@@ -1,0 +1,82 @@
+
+/* source: directinputkeyboarddevice8imp */
+
+void KeyboardEventReceiver__Internal_ProcessKeyUp(int param_1,int param_2,int param_3)
+
+{
+  ushort uVar1;
+  byte *pbVar2;
+  int *piVar3;
+  int iVar4;
+  byte *pbVar5;
+  int iVar6;
+  int local_40;
+  int local_30;
+  int local_2c;
+  int local_28;
+  int local_24;
+  int local_20;
+  
+  local_40 = *(int *)(param_1 + 8);
+  iVar6 = param_3;
+  if (*(char *)(local_40 + 0x16d) == '\0') {
+    uVar1 = *(ushort *)((int)&DAT_04408e44 + param_3 * 0x28 + 1);
+    if (0xff < uVar1) {
+      FUN_0400a810("buttonNum < 256",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/dinput8/directinputkeyboarddevice8imp.cpp"
+                   ,0x1b7,"void KeyboardEventReceiver::Internal_ProcessKeyUp(DWORD, DWORD)");
+      local_40 = *(int *)(param_1 + 8);
+    }
+    pbVar2 = *(byte **)(local_40 + 0x188);
+    iVar6 = *(int *)(local_40 + 0x18c) - (int)pbVar2 >> 3;
+    if (iVar6 == 0) {
+LAB_040f5e0f:
+      pthread_mutex_lock((pthread_mutex_t *)(local_40 + 0x54));
+      *(undefined1 *)(*(int *)(param_1 + 8) + 0x6c + param_3) = 0;
+      pthread_mutex_unlock((pthread_mutex_t *)(*(int *)(param_1 + 8) + 0x54));
+      return;
+    }
+    pbVar5 = pbVar2;
+    if (*pbVar2 != uVar1) {
+      iVar4 = 0;
+      do {
+        iVar4 = iVar4 + 1;
+        if (iVar4 == iVar6) goto LAB_040f5e0f;
+        pbVar5 = pbVar2 + iVar4 * 8;
+      } while (*pbVar5 != uVar1);
+    }
+    iVar6 = *(int *)(pbVar5 + 4);
+  }
+  pthread_mutex_lock((pthread_mutex_t *)(local_40 + 0x54));
+  *(undefined1 *)(*(int *)(param_1 + 8) + 0x6c + param_3) = 0;
+  pthread_mutex_unlock((pthread_mutex_t *)(*(int *)(param_1 + 8) + 0x54));
+  if (iVar6 != -1) {
+    bzero(&local_30,0x14);
+    local_2c = 0;
+    local_24 = param_2;
+    local_30 = iVar6;
+    local_28 = eON_timeGetTime();
+    local_20 = 0;
+    pthread_mutex_lock((pthread_mutex_t *)(*(int *)(param_1 + 8) + 0x54));
+    iVar6 = *(int *)(param_1 + 8);
+    piVar3 = *(int **)(iVar6 + 0x44);
+    if (piVar3 == (int *)(*(int *)(iVar6 + 0x4c) + -0x14)) {
+      FUN_040f5850();
+      iVar6 = *(int *)(param_1 + 8);
+    }
+    else {
+      if (piVar3 != (int *)0x0) {
+        *piVar3 = local_30;
+        piVar3[1] = local_2c;
+        piVar3[2] = local_28;
+        piVar3[3] = local_24;
+        piVar3[4] = local_20;
+      }
+      *(int **)(iVar6 + 0x44) = piVar3 + 5;
+    }
+    pthread_mutex_unlock((pthread_mutex_t *)(iVar6 + 0x54));
+    FUN_040f22b0(*(undefined4 *)(param_1 + 8));
+  }
+  return;
+}
+

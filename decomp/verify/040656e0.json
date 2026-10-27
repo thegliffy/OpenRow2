@@ -1,0 +1,52 @@
+
+/* source: dataTransferBuffer */
+
+undefined4
+eON_DataTransferBuffer__StoreData
+          (int param_1,undefined4 param_2,void *param_3,size_t param_4,undefined4 *param_5)
+
+{
+  char cVar1;
+  void *__dest;
+  undefined4 uVar2;
+  
+  if (*(int *)(param_1 + 4) == 0) {
+    FUN_0400a810("mBuffer",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/dataTransferBuffer.cpp"
+                 ,0x71,
+                 "GLuint eON_DataTransferBuffer::StoreData(OpenGLContextCache*, const void*, uint32_t, uint32_t*)"
+                );
+  }
+  if (*(uint *)(param_1 + 0xc) < *(int *)(param_1 + 0x10) + param_4) {
+    DataTransferBuffer_Grow(param_1,param_2);
+    *(undefined4 *)(param_1 + 0x10) = 0;
+    uVar2 = 0;
+  }
+  else {
+    OpenGLContextCache____glewBindBuffer(param_2,0x88ec,*(undefined4 *)(param_1 + 4));
+    uVar2 = *(undefined4 *)(param_1 + 0x10);
+  }
+  __dest = (void *)(*DAT_0451e520)(0x88ec,uVar2,param_4,
+                                   (-(*(char *)(param_1 + 0x14) == '\0') & 0x1cU) + 10);
+  if (__dest == (void *)0x0) {
+    FUN_0400a810("newArea",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/dataTransferBuffer.cpp"
+                 ,0x80,
+                 "GLuint eON_DataTransferBuffer::StoreData(OpenGLContextCache*, const void*, uint32_t, uint32_t*)"
+                );
+  }
+  memcpy(__dest,param_3,param_4);
+  cVar1 = (*DAT_0451ecf0)(0x88ec);
+  if (cVar1 != '\x01') {
+    FUN_0400a810("__glewUnmapBuffer( 0x88EC ) == 1",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/dataTransferBuffer.cpp"
+                 ,0x84,
+                 "GLuint eON_DataTransferBuffer::StoreData(OpenGLContextCache*, const void*, uint32_t, uint32_t*)"
+                );
+  }
+  *(undefined1 *)(param_1 + 0x14) = 0;
+  *param_5 = *(undefined4 *)(param_1 + 0x10);
+  *(size_t *)(param_1 + 0x10) = param_4 + 0x1f + *(int *)(param_1 + 0x10) & 0xffffffe0;
+  return *(undefined4 *)(param_1 + 4);
+}
+

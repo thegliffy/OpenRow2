@@ -1,0 +1,126 @@
+
+/* source: direct3ddevice9imp */
+
+undefined4
+Direct3DDevice9Imp__CreateDepthStencilSurface
+          (int param_1,uint param_2,uint param_3,uint param_4,uint param_5,uint param_6,uint param_7
+          ,undefined4 *param_8,int param_9)
+
+{
+  int iVar1;
+  undefined4 uVar2;
+  undefined4 *puVar3;
+  int iVar4;
+  uint *puVar5;
+  undefined4 uStack_60;
+  int local_5c;
+  char *local_58;
+  undefined4 *local_30;
+  int local_24;
+  int *local_20 [4];
+  
+  puVar5 = (uint *)&local_5c;
+  if (param_9 != 0) {
+    local_58 = "Non-zero pSharedHandle in CreateDepthStencilSurface()!";
+    local_5c = 10;
+    uStack_60 = 0x40775ba;
+    FUN_0402cd10();
+  }
+  iVar1 = *(int *)(param_1 + 0xc);
+  local_20[0] = &local_24;
+  local_24 = iVar1;
+  if (iVar1 != 0) {
+    puVar5 = (uint *)&local_5c;
+    if (*(char *)(iVar1 + 0xebbc) != '\0') {
+      local_5c = iVar1 + 0xebc4;
+      uStack_60 = 0x407776e;
+      EnterCriticalSection();
+      puVar5 = &uStack_60;
+    }
+    if (*(int *)(iVar1 + 0xec64) == 0) {
+      if (*(int *)(iVar1 + 0xebc0) != 0) {
+        puVar5[3] = (uint)"void Direct3DDevice9Imp::MultithreadedGuard_Enter()";
+        puVar5[2] = 0x3ae;
+        puVar5[1] = (uint)
+                    "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+        ;
+        *puVar5 = (uint)"!mCurrentD3D9Thread";
+        puVar5[-1] = 0x4077714;
+        FUN_0400a810();
+      }
+      puVar5[-1] = 0x40775f8;
+      uVar2 = FUN_0415b750();
+      *(undefined4 *)(iVar1 + 0xebc0) = uVar2;
+    }
+    else {
+      local_30 = *(undefined4 **)(iVar1 + 0xebc0);
+      puVar5[-1] = 0x407772e;
+      iVar4 = FUN_0415b750();
+      if (local_30 != (undefined4 *)iVar4) {
+        puVar5[3] = (uint)"void Direct3DDevice9Imp::MultithreadedGuard_Enter()";
+        puVar5[2] = 0x3b3;
+        puVar5[1] = (uint)
+                    "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+        ;
+        *puVar5 = (uint)"mCurrentD3D9Thread == thread_GetCurrentThreadId()";
+        puVar5[-1] = 0x407775b;
+        FUN_0400a810();
+      }
+    }
+    *(int *)(iVar1 + 0xec64) = *(int *)(iVar1 + 0xec64) + 1;
+  }
+  *puVar5 = 0xdc;
+                    /* try { // try from 0407760c to 04077610 has its CatchHandler @ 040777da */
+  puVar5[-1] = 0x4077611;
+  puVar3 = operator_new(*puVar5);
+  *puVar3 = &PTR_FUN_042efbe8;
+  local_30 = puVar3 + 1;
+  puVar5[1] = (uint)puVar3;
+  *puVar5 = (uint)local_30;
+                    /* try { // try from 04077626 to 0407762a has its CatchHandler @ 040777bb */
+  puVar5[-1] = 0x407762b;
+  Direct3DSurface9Imp__Direct3DSurface9Imp();
+  if (param_4 < 0x51) {
+    if ((0x4e < param_4) || (param_4 == 0x49)) goto LAB_04077638;
+    if (param_4 < 0x4a) {
+      if (param_4 == 0x47) goto LAB_04077638;
+    }
+    else if ((param_4 == 0x4b) || (param_4 == 0x4d)) goto LAB_04077638;
+  }
+  else {
+    if (param_4 == 0x36314644) goto LAB_04077638;
+    if (param_4 < 0x36314645) {
+      if ((param_4 == 0x53) || (param_4 == 0x34324644)) goto LAB_04077638;
+    }
+    else if ((param_4 == 0x5a544e49) || (param_4 == 0x5a574152)) goto LAB_04077638;
+  }
+  puVar5[3] = (uint)
+              "virtual HRESULT Direct3DDevice9Imp::CreateDepthStencilSurface(UINT, UINT, D3DFORMAT, D3DMULTISAMPLE_TYPE, DWORD, WINBOOL, IDirect3DSurface9**, void**)"
+  ;
+  puVar5[2] = 0xcf2;
+  puVar5[1] = (uint)
+              "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+  ;
+  *puVar5 = (uint)"!IsLockableFormat( Format )";
+                    /* try { // try from 040776e5 to 040776e9 has its CatchHandler @ 040777da */
+  puVar5[-1] = 0x40776ea;
+  FUN_0400a810();
+LAB_04077638:
+  puVar5[4] = param_4;
+  puVar5[7] = param_7;
+  puVar5[6] = param_6;
+  puVar5[5] = param_5;
+  puVar5[3] = param_3;
+  puVar5[2] = param_2;
+  puVar5[1] = *(uint *)(param_1 + 0xc);
+  *puVar5 = (uint)local_30;
+                    /* try { // try from 0407766c to 04077670 has its CatchHandler @ 040777da */
+  puVar5[-1] = 0x4077671;
+  Direct3DSurface9Imp__InitializeRenderbuffer();
+  *param_8 = puVar3;
+  *puVar5 = (uint)local_20;
+  puVar5[-1] = 0x4077681;
+  direct3ddevice9imp_040a2df0();
+  return 0;
+}
+

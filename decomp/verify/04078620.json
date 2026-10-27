@@ -1,0 +1,175 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+/* source: direct3ddevice9imp */
+
+undefined4 Direct3DDevice9Imp__Present(int *param_1,int param_2,int param_3,int param_4,int param_5)
+
+{
+  code *pcVar1;
+  char cVar2;
+  undefined4 uVar3;
+  uint uVar4;
+  int iVar5;
+  int iVar6;
+  int *piVar7;
+  int *piVar8;
+  undefined4 local_50;
+  int local_4c [7];
+  int local_30;
+  int local_24;
+  int *local_20 [4];
+  
+  local_20[0] = &local_24;
+  piVar8 = local_4c;
+  iVar5 = param_1[3];
+  local_24 = iVar5;
+  if (iVar5 != 0) {
+    piVar8 = local_4c;
+    if (*(char *)(iVar5 + 0xebbc) != '\0') {
+      local_4c[0] = iVar5 + 0xebc4;
+      local_50 = 0x40788fe;
+      EnterCriticalSection();
+      piVar8 = &local_50;
+    }
+    if (*(int *)(iVar5 + 0xec64) == 0) {
+      if (*(int *)(iVar5 + 0xebc0) != 0) {
+        piVar8[3] = (int)"void Direct3DDevice9Imp::MultithreadedGuard_Enter()";
+        piVar8[2] = 0x3ae;
+        piVar8[1] = (int)
+                    "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+        ;
+        *piVar8 = (int)"!mCurrentD3D9Thread";
+        piVar8[-1] = 0x4078834;
+        FUN_0400a810();
+      }
+      piVar8[-1] = 0x407866d;
+      uVar3 = FUN_0415b750();
+      *(undefined4 *)(iVar5 + 0xebc0) = uVar3;
+    }
+    else {
+      local_30 = *(int *)(iVar5 + 0xebc0);
+      piVar8[-1] = 0x40788b6;
+      iVar6 = FUN_0415b750();
+      if (local_30 != iVar6) {
+        piVar8[3] = (int)"void Direct3DDevice9Imp::MultithreadedGuard_Enter()";
+        piVar8[2] = 0x3b3;
+        piVar8[1] = (int)
+                    "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+        ;
+        *piVar8 = (int)"mCurrentD3D9Thread == thread_GetCurrentThreadId()";
+        piVar8[-1] = 0x40788e3;
+        FUN_0400a810();
+      }
+    }
+    *(int *)(iVar5 + 0xec64) = *(int *)(iVar5 + 0xec64) + 1;
+  }
+  if ((char)param_1[0x1d7e] != '\0') {
+    piVar8[1] = (int)
+                "Direct3DDevice9Imp::Present() seems to be called between BeginScene() and EndScene()!"
+    ;
+    *piVar8 = 10;
+    piVar8[-1] = 0x407889c;
+    FUN_0402cd10();
+  }
+  if (*(char *)((int)param_1 + 0x75f9) == '\0') {
+    piVar8[1] = (int)"Present() call with no BeginScene()/EndScene() pair and no Clear() call!";
+    *piVar8 = 10;
+    piVar8[-1] = 0x407887c;
+    FUN_0402cd10();
+  }
+  *(undefined1 *)((int)param_1 + 0x75f9) = 0;
+  if ((((param_3 != 0) || (param_2 != 0)) || ((param_4 != 0 && (param_1[0x16] != param_4)))) ||
+     (param_5 != 0)) {
+    piVar8[1] = (int)"Direct3DDevice9Imp::Present() - not all arguments are NULL!";
+    *piVar8 = 10;
+                    /* try { // try from 040786c9 to 0407877e has its CatchHandler @ 04078935 */
+    piVar8[-1] = 0x40786ce;
+    FUN_0402cd10();
+  }
+  piVar8[-1] = 0x40786d3;
+  uVar4 = FUN_0413d940();
+  if (0xfa000000 < uVar4) {
+    if (DAT_04468c3c == '\0') {
+      piVar8[1] = (int)
+                  "Free virtual address space dangerously low (3.9 GB taken out of 4 GB possible to address in a 32-bit process)!\r\nReleasing old OpenGL textures, trying to avoid crash.\r\nPlease consider lowering graphic quality settings or resolution to decrease the amount of memory used by the game.\r\nThis warning is given only once per game run."
+      ;
+      *piVar8 = 0xf;
+                    /* try { // try from 040787af to 040787f6 has its CatchHandler @ 04078935 */
+      piVar8[-1] = 0x40787b4;
+      FUN_0402cd10();
+      piVar8[-1] = 0x40787b9;
+      cVar2 = FUN_0402d6a0();
+      if (cVar2 != '\0') {
+        *piVar8 = (int)param_1;
+                    /* try { // try from 04078913 to 04078917 has its CatchHandler @ 04078935 */
+        piVar8[-1] = 0x4078918;
+        FUN_040b9a40();
+      }
+      piVar8[-1] = 0x40787c6;
+      cVar2 = FUN_0402d6a0();
+      if ((cVar2 == '\0') && (DAT_04468c3c == '\0')) {
+        piVar8[3] = 0;
+        piVar8[2] = (int)"Free virtual memory address space dangerously low!";
+        piVar8[1] = (int)
+                    "Free virtual address space dangerously low (3.9 GB taken out of 4 GB possible to address in a 32-bit process)!\r\nReleasing old OpenGL textures, trying to avoid crash.\r\nPlease consider lowering graphic quality settings or resolution to decrease the amount of memory used by the game.\r\nThis warning is given only once per game run."
+        ;
+        *piVar8 = 0;
+        piVar8[-1] = 0x40787f7;
+        eON_MessageBoxA();
+        piVar8 = piVar8 + -4;
+      }
+      DAT_04468c3c = '\x01';
+    }
+    iVar5 = *param_1;
+    *piVar8 = (int)param_1;
+    pcVar1 = *(code **)(iVar5 + 0x1c);
+    piVar8[-1] = 0x40786ef;
+    (*pcVar1)();
+  }
+  *piVar8 = param_1[0x3b30];
+  piVar8[-1] = 0x40786fd;
+  eON_ResetEvent();
+  piVar8[2] = 4;
+  piVar8[1] = 4;
+  *piVar8 = (int)param_1;
+  piVar8[-1] = (int)(param_1 + 0x3b00);
+  piVar8[-2] = 0x4078722;
+  D3D9CommandQueue__GetNextCommandPointer();
+  piVar8[-1] = (int)(param_1 + 0x3b00);
+  piVar8[-2] = 0x407872a;
+  D3D9CommandQueue__CommandSubmitted();
+  cVar2 = DAT_04468c30;
+  param_1[0x1d83] = param_1[0x1d83] + 1;
+  if (cVar2 != '\0') {
+                    /* try { // try from 04078840 to 0407889b has its CatchHandler @ 04078935 */
+    piVar8[-2] = 0x4078845;
+    FUN_040bc390();
+    piVar8[-2] = 0x407884a;
+    FUN_040bca00();
+    piVar8[-2] = 0x407884f;
+    FUN_040ad510();
+    piVar8[-2] = 0x4078855;
+    FUN_040b7150();
+    DAT_04468c30 = '\0';
+  }
+  *piVar8 = 0xffffffff;
+  piVar8[-1] = param_1[0x3b30];
+  piVar8[-2] = 0x4078756;
+  eON_WaitForSingleObject();
+  piVar7 = piVar8 + -3;
+  piVar8[-4] = 0x407875e;
+  iVar5 = eON_timeGetTime();
+  uVar4 = iVar5 - _DAT_04468c40;
+  _DAT_04468c40 = iVar5;
+  if (uVar4 < 0x19) {
+    piVar8[-3] = 0x19 - uVar4;
+    piVar8[-4] = 0x407877f;
+    eON_Sleep();
+    piVar7 = piVar8 + -4;
+  }
+  *piVar7 = (int)local_20;
+  piVar7[-1] = 0x407878d;
+  direct3ddevice9imp_040a2df0();
+  return 0;
+}
+

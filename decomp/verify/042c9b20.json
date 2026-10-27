@@ -1,0 +1,81 @@
+
+/* WARNING: Function: __i686.get_pc_thunk.bx replaced with injection: get_pc_thunk_bx */
+
+undefined4 __regparm2 ElfFileSoName(int param_1,undefined4 param_2,uint param_3)
+
+{
+  int iVar1;
+  undefined4 uVar2;
+  char cVar3;
+  int iVar4;
+  uint uVar5;
+  uint uVar6;
+  int *piVar7;
+  undefined4 uVar8;
+  int in_GS_OFFSET;
+  int *local_13c;
+  uint local_138;
+  undefined1 local_134 [4];
+  int local_130;
+  uint local_12c;
+  int local_128;
+  uint local_124;
+  undefined1 local_11f [255];
+  int local_20;
+  undefined4 uStack_14;
+  
+  uVar8 = 0;
+  uStack_14 = 0x42c9b2f;
+  local_20 = *(int *)(in_GS_OFFSET + 0x14);
+  iVar1 = param_1 + 0xd;
+  iVar4 = FUN_042d43f0(iVar1,"/dev/",5);
+  if (iVar4 != 0) {
+    uVar5 = FUN_042d4380(iVar1);
+    if (0xfe < uVar5) {
+                    /* WARNING: Subroutine does not return */
+      __assert_fail("false","src/client/linux/minidump_writer/linux_dumper.cc",0xca,
+                    "bool google_breakpad::{anonymous}::ElfFileSoName(const google_breakpad::MappingInfo&, char*, size_t)"
+                   );
+    }
+    __memcpy_chk(local_11f,iVar1,uVar5,0xff);
+    uVar2 = *(undefined4 *)(param_1 + 8);
+    local_11f[uVar5] = 0;
+    FUN_042d4ad0(&local_128,local_11f,uVar2);
+    if ((local_128 != 0) && (3 < local_124)) {
+                    /* try { // try from 042c9c1b to 042c9c1f has its CatchHandler @ 042c9d2e */
+      cVar3 = FUN_042d36b0(local_128);
+      if (cVar3 != '\0') {
+                    /* try { // try from 042c9c67 to 042c9d01 has its CatchHandler @ 042c9d2e */
+        cVar3 = elfutils_inl_042d36f0(local_128,".dynamic",6,&local_13c,&local_138,local_134);
+        if ((cVar3 != '\0') &&
+           (uVar8 = elfutils_inl_042d36f0(local_128,".dynstr",3,&local_130,&local_12c,local_134),
+           (char)uVar8 != '\0')) {
+          piVar7 = (int *)((local_138 & 0xfffffff8) + (int)local_13c);
+          for (; local_13c < piVar7; local_13c = local_13c + 2) {
+            if (*local_13c == 0xe) {
+              uVar5 = local_13c[1];
+              if (uVar5 < local_12c) {
+                uVar6 = local_12c - uVar5;
+                if (param_3 <= local_12c - uVar5) {
+                  uVar6 = param_3;
+                }
+                FUN_042d4710(param_2,local_130 + uVar5,uVar6);
+                goto LAB_042c9c29;
+              }
+              break;
+            }
+          }
+        }
+      }
+      uVar8 = 0;
+    }
+LAB_042c9c29:
+    FUN_042d48b0(&local_128);
+  }
+  if (local_20 == *(int *)(in_GS_OFFSET + 0x14)) {
+    return uVar8;
+  }
+                    /* WARNING: Subroutine does not return */
+  FUN_042d5e70();
+}
+

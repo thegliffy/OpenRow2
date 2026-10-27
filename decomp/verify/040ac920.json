@@ -1,0 +1,150 @@
+
+/* source: direct3dsurface9imp */
+
+undefined4 Direct3DSurface9Imp__UnlockRect(int *param_1)
+
+{
+  int *piVar1;
+  int iVar2;
+  int iVar3;
+  undefined4 *puVar4;
+  undefined4 uVar5;
+  int *piVar6;
+  uint uVar7;
+  undefined4 uVar8;
+  int iVar9;
+  undefined4 *puVar10;
+  int iVar11;
+  undefined1 auStackY_68 [4];
+  undefined1 local_64 [4];
+  undefined4 local_60;
+  int local_44;
+  int local_40;
+  
+  if (param_1[7] != 0) {
+    local_60 = 0x40ac944;
+    direct3ddevice9imp_040803c0();
+  }
+  if (param_1[0x1b] == 0x4c4c554e) {
+    local_60 = 0x40acbb4;
+    FUN_0400a810();
+  }
+  if ((char)param_1[0xe] == '\0') {
+                    /* try { // try from 040acb27 to 040acc0e has its CatchHandler @ 040acc31 */
+    local_60 = 0x40acb2c;
+    FUN_0402cd10();
+  }
+  uVar7 = param_1[0xf];
+  *(undefined1 *)(param_1 + 0xe) = 0;
+  puVar10 = (undefined4 *)&stack0xffffffa4;
+  if ((uVar7 & 0x10) == 0) {
+    if (param_1[0x23] != 1) {
+                    /* try { // try from 040ac996 to 040acab3 has its CatchHandler @ 040acc31 */
+      local_60 = 0x40ac99b;
+      piVar6 = (int *)D3D9CommandQueue__GetNextCommandPointer();
+      iVar2 = param_1[0x32];
+      *piVar6 = iVar2;
+      if (*(int *)(iVar2 + 8) < 1) {
+        local_60 = 0x40acbe4;
+        FUN_0400a810();
+      }
+      LOCK();
+      *(int *)(iVar2 + 8) = *(int *)(iVar2 + 8) + 1;
+      UNLOCK();
+      *(char *)(piVar6 + 1) = (char)param_1[0x10];
+      piVar6[2] = param_1[0x11];
+      piVar6[3] = param_1[0x12];
+      piVar6[4] = param_1[0x13];
+      piVar6[5] = param_1[0x14];
+      local_60 = 0x40ac9dc;
+      (**(code **)(*param_1 + 0xc))();
+      local_60 = 0x40ac9ec;
+      D3D9CommandQueue__CommandSubmitted();
+      iVar2 = param_1[7];
+      local_40 = param_1[0x13];
+      iVar11 = param_1[0x12];
+      iVar9 = *(int *)(iVar2 + 0xec80);
+      iVar3 = *(int *)(iVar2 + 0xec84);
+      param_1[0x16] = iVar9;
+      param_1[0x18] = iVar9;
+      local_44 = param_1[0x14];
+      param_1[0x17] = iVar3;
+      param_1[0x19] = iVar3;
+      iVar9 = param_1[0x11];
+      if ((char)param_1[0x10] != '\0') {
+        local_40 = param_1[0x21];
+        iVar11 = 0;
+        iVar9 = 0;
+        local_44 = param_1[0x22];
+      }
+      iVar3 = *(int *)(iVar2 + 0xec80);
+      iVar2 = *(int *)(iVar2 + 0xec84);
+      if (DAT_044a3840 == (int *)0x0) {
+        local_60 = 0x40acc2c;
+        piVar6 = malloc(0x1c);
+      }
+      else {
+        piVar6 = DAT_044a3840;
+        DAT_044a3840 = (int *)DAT_044a3840[6];
+      }
+      *piVar6 = iVar9;
+      piVar6[1] = iVar11;
+      piVar6[4] = iVar3;
+      piVar6[5] = iVar2;
+      piVar6[3] = local_44;
+      piVar6[2] = local_40;
+      piVar6[6] = param_1[0x15];
+      param_1[0x15] = (int)piVar6;
+      uVar7 = param_1[0xf];
+    }
+    puVar10 = (undefined4 *)&stack0xffffffa4;
+    if ((((uVar7 & 0x8000) == 0) &&
+        (piVar6 = (int *)param_1[0x24], puVar10 = (undefined4 *)&stack0xffffffa4,
+        piVar6 != (int *)0x0)) && (puVar10 = (undefined4 *)&stack0xffffffa4, param_1[0x30] == 0)) {
+      if (piVar6[0x8a] == 2) {
+        local_60 = 0x40acc0f;
+        (**(code **)(*piVar6 + 0x54))();
+        puVar10 = (undefined4 *)auStackY_68;
+      }
+      else {
+        local_60 = 0x40acab4;
+        (**(code **)(*piVar6 + 0x54))();
+        puVar10 = (undefined4 *)local_64;
+      }
+    }
+  }
+  piVar6 = puVar10;
+  if ((param_1[0xd] == 0) && ((*(byte *)((int)param_1 + 0x75) & 2) == 0)) {
+    puVar4 = (undefined4 *)param_1[0x32];
+    LOCK();
+    piVar1 = puVar4 + 2;
+    iVar2 = *piVar1;
+    *piVar1 = *piVar1 + -1;
+    UNLOCK();
+    if (iVar2 == 1) {
+      uVar5 = *puVar4;
+      puVar10[-1] = 0x40acb5f;
+      uVar8 = eON_GetProcessHeap();
+      puVar10[2] = uVar5;
+      puVar10[1] = 0;
+      *puVar10 = uVar8;
+      puVar10[-1] = 0x40acb73;
+      eON_HeapFree();
+      piVar6 = puVar10 + -3;
+      puVar10[-3] = puVar4;
+      puVar10[-4] = 0x40acb7e;
+      free((void *)puVar10[-3]);
+      param_1[0x32] = 0;
+    }
+    else {
+      param_1[0x32] = 0;
+    }
+  }
+  if (param_1[7] != 0) {
+    *piVar6 = param_1[7] + 0x40;
+    piVar6[-1] = 0x40acae1;
+    direct3ddevice9imp_04080490();
+  }
+  return 0;
+}
+

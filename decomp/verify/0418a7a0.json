@@ -1,0 +1,25 @@
+
+undefined4 winmm_DllGetClassObject(void *param_1,void *param_2,undefined4 *param_3)
+
+{
+  undefined4 uVar1;
+  int iVar2;
+  void *pvVar3;
+  
+  iVar2 = memcmp(param_1,&DAT_042db0c8,0x10);
+  if (iVar2 == 0) {
+    iVar2 = memcmp(param_2,&DAT_042db0b8,0x10);
+    if (iVar2 == 0) {
+      pvVar3 = operator_new(0x18);
+                    /* try { // try from 0418a7fd to 0418a801 has its CatchHandler @ 0418a844 */
+      MMDeviceEnumeratorImp__MMDeviceEnumeratorImp(pvVar3);
+      uVar1 = *(undefined4 *)((int)pvVar3 + 0xc);
+      *param_3 = uVar1;
+      FUN_0402cd10(5,"winmm_DllGetClassObject() - creating MMDeviceEnumerator object ( %p )",uVar1);
+      return 0;
+    }
+  }
+  *param_3 = 0;
+  return 0x80040154;
+}
+

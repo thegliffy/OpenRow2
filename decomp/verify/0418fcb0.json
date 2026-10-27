@@ -1,0 +1,40 @@
+
+undefined4 WaveInDevice_Stop(pthread_mutex_t *param_1)
+
+{
+  int iVar1;
+  char cVar2;
+  undefined4 *puVar3;
+  undefined1 auStackY_40 [16];
+  undefined4 uStackY_30;
+  
+  uStackY_30 = 0x418fcc2;
+  pthread_mutex_lock(param_1);
+  if (*(char *)((int)param_1 + 0x2c) != '\0') {
+    uStackY_30 = 0x418fcf3;
+    cVar2 = AudioUnit_Pause();
+    if (cVar2 == '\0') {
+      uStackY_30 = 0x418fd48;
+      pthread_mutex_unlock(param_1);
+      uStackY_30 = 0x418fd5c;
+      FUN_0402cd10();
+      return 7;
+    }
+    *(undefined1 *)((int)param_1 + 0x2c) = 0;
+  }
+  iVar1 = param_1[1].__data.__lock;
+  puVar3 = (undefined4 *)&stack0xffffffd4;
+  if ((iVar1 != 0) && (puVar3 = (undefined4 *)&stack0xffffffd4, *(int *)(iVar1 + 8) != 0)) {
+    *(uint *)(iVar1 + 0x10) = *(uint *)(iVar1 + 0x10) & 0xffffffef | 1;
+    param_1[1].__data.__lock = *(int *)(iVar1 + 0x18);
+    *(undefined4 *)(iVar1 + 0x18) = 0;
+    uStackY_30 = 0x418fd3a;
+    (**(code **)((int)param_1 + 0x20))();
+    puVar3 = (undefined4 *)auStackY_40;
+  }
+  *puVar3 = param_1;
+  puVar3[-1] = 0x418fcde;
+  pthread_mutex_unlock((pthread_mutex_t *)*puVar3);
+  return 0;
+}
+

@@ -1,0 +1,32 @@
+
+/* source: direct3ddevice9imp */
+
+void direct3ddevice9imp_040a2df0(undefined4 *param_1)
+
+{
+  int iVar1;
+  int iVar2;
+  int iVar3;
+  
+  iVar1 = *(int *)*param_1;
+  if (iVar1 != 0) {
+    iVar3 = *(int *)(iVar1 + 0xebc0);
+    iVar2 = FUN_0415b750();
+    if (iVar3 != iVar2) {
+      FUN_0400a810("mCurrentD3D9Thread == thread_GetCurrentThreadId()",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+                   ,0x3bf,"void Direct3DDevice9Imp::MultithreadedGuard_Leave()");
+    }
+    iVar3 = *(int *)(iVar1 + 0xec64) + -1;
+    *(int *)(iVar1 + 0xec64) = iVar3;
+    if (iVar3 == 0) {
+      *(undefined4 *)(iVar1 + 0xebc0) = 0;
+    }
+    if (*(char *)(iVar1 + 0xebbc) != '\0') {
+      LeaveCriticalSection(iVar1 + 0xebc4);
+      return;
+    }
+  }
+  return;
+}
+

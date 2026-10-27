@@ -1,0 +1,52 @@
+
+undefined4 __regparm3 eON_Int_Wnd_GetWMInfo(int param_1,undefined4 *param_2,undefined4 *param_3)
+
+{
+  int iVar1;
+  undefined4 uVar2;
+  undefined1 local_40;
+  undefined1 local_3f;
+  undefined1 local_3e;
+  int local_3c;
+  undefined4 local_38;
+  undefined4 local_34;
+  undefined1 local_30 [4];
+  undefined1 local_2c [4];
+  int local_28;
+  undefined1 local_24 [4];
+  undefined4 *local_20 [4];
+  
+  uVar2 = 0;
+  local_40 = 2;
+  local_3f = 0;
+  local_3e = 3;
+  iVar1 = SDL_GetWindowWMInfo(*(undefined4 *)(param_1 + 0x7c),&local_40);
+  if ((iVar1 != 0) && (local_3c == 2)) {
+    iVar1 = XInternAtom(local_38,"_NET_FRAME_EXTENTS",0);
+    if (iVar1 != 0) {
+      local_20[0] = (undefined4 *)0x0;
+      iVar1 = XGetWindowProperty(local_38,local_34,iVar1,0,4,0,6,local_30,local_2c,&local_28,
+                                 local_24,local_20);
+      if ((iVar1 == 0) && (local_28 == 4)) {
+        if (local_20[0] != (undefined4 *)0x0) {
+          if (param_2 != (undefined4 *)0x0) {
+            *param_2 = *local_20[0];
+          }
+          if (param_3 != (undefined4 *)0x0) {
+            *param_3 = local_20[0][2];
+          }
+          uVar2 = 1;
+          XFree(local_20[0]);
+        }
+      }
+      else {
+        uVar2 = 0;
+        if (local_20[0] != (undefined4 *)0x0) {
+          XFree(local_20[0]);
+        }
+      }
+    }
+  }
+  return uVar2;
+}
+

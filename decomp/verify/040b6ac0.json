@@ -1,0 +1,246 @@
+
+/* source: direct3dvolume9imp */
+
+undefined4 LockBox(int param_1,int *param_2,uint *param_3,uint param_4)
+
+{
+  uint uVar1;
+  uint uVar2;
+  void *pvVar3;
+  uint uVar4;
+  size_t __n;
+  char cVar5;
+  int *piVar6;
+  undefined4 uVar7;
+  int iVar8;
+  uint uVar9;
+  undefined4 *puVar10;
+  void *__dest;
+  int iVar11;
+  size_t *psVar12;
+  int *piVar13;
+  size_t *psVar14;
+  bool local_30;
+  
+  piVar6 = (int *)&stack0xffffffa4;
+  piVar13 = (int *)&stack0xffffffa4;
+  psVar12 = (size_t *)&stack0xffffffa4;
+  psVar14 = (size_t *)&stack0xffffffa4;
+  if (param_2 == (int *)0x0) {
+    return 0x8876086c;
+  }
+  if ((param_4 & 0x4000) != 0) {
+    FUN_0402cd10();
+  }
+  if (*(int *)(param_1 + 0x54) != 0) {
+    direct3ddevice9imp_040803c0();
+  }
+  if (*(char *)(param_1 + 0x10) != '\0') {
+    uVar7 = 0x8876086c;
+    goto LAB_040b6c86;
+  }
+  *(undefined1 *)(param_1 + 0x10) = 1;
+  *(uint *)(param_1 + 0x14) = param_4;
+  if (param_3 == (uint *)0x0) {
+    *(undefined1 *)(param_1 + 0x18) = 1;
+  }
+  else {
+    local_30 = false;
+    *(uint *)(param_1 + 0x1c) = *param_3;
+    *(uint *)(param_1 + 0x20) = param_3[1];
+    uVar9 = param_3[2];
+    *(uint *)(param_1 + 0x24) = uVar9;
+    uVar1 = param_3[3];
+    *(uint *)(param_1 + 0x28) = uVar1;
+    *(uint *)(param_1 + 0x2c) = param_3[4];
+    uVar2 = param_3[5];
+    *(uint *)(param_1 + 0x30) = uVar2;
+    if ((((*(int *)(param_1 + 0x1c) == 0) && (*(int *)(param_1 + 0x20) == 0)) &&
+        (*(int *)(param_1 + 0x2c) == 0)) &&
+       ((uVar9 == *(uint *)(param_1 + 0x70) && (uVar1 == *(uint *)(param_1 + 0x74))))) {
+      local_30 = uVar2 == *(uint *)(param_1 + 0x78);
+    }
+    *(bool *)(param_1 + 0x18) = local_30;
+  }
+  if (*(int *)(param_1 + 0x60) == 0x4c4c554e) {
+    FUN_0400a810();
+  }
+  if ((param_4 & 0x2000) == 0) {
+    iVar8 = *(int *)(param_1 + 0x9c);
+    if (iVar8 == 0) {
+      *(undefined4 *)(param_1 + 0x40) = 0;
+      *(undefined4 *)(param_1 + 0x44) = 0;
+    }
+    if (*(int *)(param_1 + 0x6c) - 2U < 2) {
+LAB_040b6cd0:
+      if (iVar8 == 0) goto LAB_040b6bc4;
+      cVar5 = FUN_040b69b0();
+      if (cVar5 != '\0') {
+        pvVar3 = *(void **)(param_1 + 0x9c);
+        piVar6 = malloc(0xc);
+        piVar6[2] = 1;
+        eON_GetProcessHeap();
+        iVar8 = HeapAlloc();
+        psVar14 = (size_t *)&stack0xffffff98;
+        *piVar6 = iVar8;
+        if (iVar8 == 0) {
+          FUN_0400a810();
+          iVar8 = *piVar6;
+        }
+        __n = *(size_t *)(param_1 + 0x98);
+        __dest = (void *)(iVar8 + 0xfU & 0xfffffff0);
+        piVar6[1] = (int)__dest;
+        *(int **)(param_1 + 0x9c) = piVar6;
+        memcpy(__dest,*(void **)((int)pvVar3 + 4),__n);
+        LOCK();
+        piVar6 = (int *)((int)pvVar3 + 8);
+        iVar8 = *piVar6;
+        *piVar6 = *piVar6 + -1;
+        UNLOCK();
+        if (iVar8 == 1) {
+          eON_GetProcessHeap();
+          eON_HeapFree();
+          psVar14 = (size_t *)&stack0xffffff8c;
+          free(pvVar3);
+        }
+        iVar8 = *(int *)(param_1 + 0x34);
+        while (iVar11 = iVar8, iVar11 != 0) {
+          *(undefined4 *)(param_1 + 0x34) = *(undefined4 *)(iVar11 + 0x20);
+          *(int *)(iVar11 + 0x20) = DAT_044a7ed0;
+          DAT_044a7ed0 = iVar11;
+          iVar8 = *(int *)(param_1 + 0x34);
+        }
+      }
+      uVar9 = *(uint *)(*(int *)(param_1 + 0x9c) + 4);
+    }
+    else {
+      if ((*(uint *)(param_1 + 0x3c) < *(uint *)(param_1 + 0x44)) ||
+         ((*(uint *)(param_1 + 0x3c) <= *(uint *)(param_1 + 0x44) &&
+          (*(uint *)(param_1 + 0x38) <= *(uint *)(param_1 + 0x40))))) goto LAB_040b6cd0;
+      if (iVar8 == 0) {
+        piVar6 = malloc(0xc);
+        piVar6[2] = 1;
+        eON_GetProcessHeap();
+        iVar8 = HeapAlloc();
+        piVar13 = (int *)&stack0xffffff98;
+        *piVar6 = iVar8;
+        if (iVar8 == 0) {
+          FUN_0400a810();
+          iVar8 = *piVar6;
+        }
+        piVar6[1] = iVar8 + 0xfU & 0xfffffff0;
+        *(int **)(param_1 + 0x9c) = piVar6;
+      }
+      *piVar13 = *(undefined4 *)(*(int *)(param_1 + 0x54) + 0xed00);
+                    /* try { // try from 040b6dd2 to 040b70b5 has its CatchHandler @ 040b70ba */
+      piVar13[-1] = 0x40b6dd7;
+      eON_ResetEvent();
+      piVar13[2] = 8;
+      piVar13[1] = 0x40;
+      *piVar13 = param_1;
+      piVar13[-1] = *(int *)(param_1 + 0x54) + 0xec40;
+      piVar13[-2] = 0x40b6dfe;
+      puVar10 = (undefined4 *)D3D9CommandQueue__GetNextCommandPointer();
+      uVar7 = *(undefined4 *)(param_1 + 0x3c);
+      *puVar10 = *(undefined4 *)(param_1 + 0x38);
+      puVar10[1] = uVar7;
+      piVar13[-1] = *(int *)(param_1 + 0x54) + 0xec40;
+      piVar13[-2] = 0x40b6e19;
+      D3D9CommandQueue__CommandSubmitted();
+      *piVar13 = 0xffffffff;
+      piVar13[-1] = *(undefined4 *)(*(int *)(param_1 + 0x54) + 0xed00);
+      piVar13[-2] = 0x40b6e32;
+      eON_WaitForSingleObject();
+      psVar14 = (size_t *)(piVar13 + -3);
+      uVar9 = *(uint *)(*(int *)(param_1 + 0x9c) + 4);
+    }
+  }
+  else {
+    pvVar3 = *(void **)(param_1 + 0x9c);
+    *(undefined4 *)(param_1 + 0x38) = 0;
+    *(undefined4 *)(param_1 + 0x3c) = 0;
+    psVar12 = (size_t *)&stack0xffffffa4;
+    if (pvVar3 != (void *)0x0) {
+      iVar8 = *(int *)(param_1 + 0x34);
+      while (iVar11 = iVar8, iVar11 != 0) {
+        *(undefined4 *)(param_1 + 0x34) = *(undefined4 *)(iVar11 + 0x20);
+        *(int *)(iVar11 + 0x20) = DAT_044a7ed0;
+        DAT_044a7ed0 = iVar11;
+        iVar8 = *(int *)(param_1 + 0x34);
+      }
+      LOCK();
+      piVar6 = (int *)((int)pvVar3 + 8);
+      iVar8 = *piVar6;
+      *piVar6 = *piVar6 + -1;
+      UNLOCK();
+      psVar12 = (size_t *)&stack0xffffffa4;
+      if (iVar8 == 1) {
+        eON_GetProcessHeap();
+        eON_HeapFree();
+        psVar12 = (size_t *)&stack0xffffff98;
+        free(pvVar3);
+      }
+    }
+LAB_040b6bc4:
+    iVar8 = *(int *)(param_1 + 0x98);
+    *psVar12 = 0xc;
+    psVar12[-1] = 0x40b6bd9;
+    piVar6 = malloc(*psVar12);
+    piVar6[2] = 1;
+                    /* try { // try from 040b6be2 to 040b6c00 has its CatchHandler @ 040b70ba */
+    psVar12[-1] = 0x40b6be7;
+    uVar7 = eON_GetProcessHeap();
+    psVar12[1] = 8;
+    *psVar12 = uVar7;
+    psVar12[2] = iVar8 + 0x10;
+    psVar12[-1] = 0x40b6c01;
+    iVar8 = HeapAlloc();
+    psVar14 = psVar12 + -3;
+    *piVar6 = iVar8;
+    if (iVar8 == 0) {
+      *psVar12 = (size_t)"VolumeData* GetVolumeData(UINT, bool)";
+      psVar12[-1] = 0xa7;
+      psVar12[-2] = (size_t)
+                    "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3dvolume9imp.cpp"
+      ;
+      psVar12[-3] = (size_t)"volumeData->DataBuffer";
+      psVar12[-4] = 0x40b6ffc;
+      FUN_0400a810();
+      iVar8 = *piVar6;
+    }
+    uVar9 = iVar8 + 0xfU & 0xfffffff0;
+    piVar6[1] = uVar9;
+    *(int **)(param_1 + 0x9c) = piVar6;
+  }
+  iVar8 = *(int *)(param_1 + 0x90);
+  iVar11 = *(int *)(param_1 + 0x94);
+  *param_2 = iVar8;
+  param_2[1] = iVar11;
+  if (param_3 != (uint *)0x0) {
+    uVar1 = param_3[4];
+    uVar2 = param_3[1];
+    uVar4 = *param_3;
+    if (((uVar1 != 0) || (uVar2 != 0)) || (uVar4 != 0)) {
+      if (*(char *)(param_1 + 0x88) == '\0') {
+        iVar11 = iVar11 * uVar1;
+        iVar8 = iVar8 * uVar2 + uVar4 * *(int *)(param_1 + 0x8c);
+      }
+      else {
+        iVar11 = iVar11 * uVar1 + iVar8 * (uVar2 >> 2);
+        iVar8 = *(int *)(param_1 + 0x8c) * 4 * (uVar4 >> 2);
+      }
+      uVar9 = uVar9 + iVar8 + iVar11;
+    }
+  }
+  uVar7 = 0;
+  param_2[2] = uVar9;
+  piVar6 = (int *)psVar14;
+LAB_040b6c86:
+  if (*(int *)(param_1 + 0x54) != 0) {
+    *piVar6 = *(int *)(param_1 + 0x54) + 0x40;
+    piVar6[-1] = 0x40b6c9a;
+    direct3ddevice9imp_04080490();
+  }
+  return uVar7;
+}
+

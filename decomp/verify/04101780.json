@@ -1,0 +1,44 @@
+
+/* source: audioconverter */
+
+undefined * AudioConverter__DetermineAudioFormatType(short *param_1)
+
+{
+  short sVar1;
+  undefined *puVar2;
+  int iVar3;
+  
+  sVar1 = *param_1;
+  if (sVar1 == -2) {
+    if ((ushort)param_1[8] < 0x16) {
+      FUN_0400a810("format->cbSize >= 22",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/xaudio2_full/audioconverter.cpp"
+                   ,0x62,"static int AudioConverter::DetermineAudioFormatType(const WAVEFORMATEX*)")
+      ;
+    }
+    param_1 = param_1 + 0xc;
+    iVar3 = memcmp(param_1,&DAT_042db6d8,0x10);
+    puVar2 = (undefined *)0x10000;
+    if (iVar3 != 0) {
+      iVar3 = memcmp(param_1,&DAT_042db6c8,0x10);
+      puVar2 = &DAT_00011006;
+      if (iVar3 != 0) {
+        iVar3 = memcmp(param_1,&DAT_042db6b8,0x10);
+        puVar2 = &DAT_00010015;
+        if (iVar3 != 0) {
+          iVar3 = memcmp(param_1,&DAT_042db6a8,0x10);
+          puVar2 = (undefined *)((-(uint)(iVar3 == 0) & 0x15009) - 1);
+        }
+      }
+    }
+  }
+  else {
+    puVar2 = (undefined *)0x10000;
+    if (((sVar1 != 1) && (puVar2 = &DAT_00011006, sVar1 != 2)) &&
+       (puVar2 = (undefined *)0xffffffff, sVar1 == 3)) {
+      puVar2 = &DAT_00010015;
+    }
+  }
+  return puVar2;
+}
+

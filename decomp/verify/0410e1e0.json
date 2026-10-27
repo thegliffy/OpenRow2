@@ -1,0 +1,131 @@
+
+/* source: xaudio2voiceimpl */
+
+void XAudio2VoiceImp__GetOutputMatrix(int param_1,uint param_2,int param_3,int param_4,int param_5)
+
+{
+  int iVar1;
+  int iVar2;
+  int iVar3;
+  int iVar4;
+  int *piVar5;
+  int *piVar6;
+  bool bVar7;
+  int aiStackY_78 [2];
+  int local_50 [4];
+  uint local_40;
+  void *local_3c;
+  undefined4 local_38;
+  undefined4 local_34;
+  uint local_30;
+  int local_2c;
+  undefined4 local_28;
+  undefined4 local_24;
+  pthread_mutex_t *local_20;
+  
+  piVar5 = (int *)&stack0xffffff94;
+  if (param_5 == 0) {
+    return;
+  }
+  local_20 = (pthread_mutex_t *)(param_1 + 0xac);
+  iVar1 = pthread_mutex_lock(local_20);
+  if (iVar1 != 0) {
+                    /* WARNING: Subroutine does not return */
+    std::__throw_system_error(iVar1);
+  }
+  iVar1 = param_1 + 0x7c;
+  iVar2 = iVar1;
+  iVar4 = *(int *)(param_1 + 0x80);
+  if (*(int *)(param_1 + 0x80) == 0) {
+LAB_0410e350:
+    local_40 = param_2;
+    local_3c = (void *)0x0;
+    local_38 = 0;
+    local_34 = 0;
+                    /* try { // try from 0410e380 to 0410e384 has its CatchHandler @ 0410e3d6 */
+    FUN_04110440();
+    iVar3 = local_50[0];
+    piVar5 = (int *)&stack0xffffff90;
+    if (local_3c != (void *)0x0) {
+      operator_delete(local_3c);
+      piVar5 = (int *)&stack0xffffff90;
+    }
+  }
+  else {
+    do {
+      while (iVar3 = iVar4, param_2 <= *(uint *)(iVar3 + 0x10)) {
+        iVar2 = iVar3;
+        iVar4 = *(int *)(iVar3 + 8);
+        if (*(int *)(iVar3 + 8) == 0) goto LAB_0410e245;
+      }
+      piVar6 = (int *)(iVar3 + 0xc);
+      iVar3 = iVar2;
+      iVar4 = *piVar6;
+    } while (*piVar6 != 0);
+LAB_0410e245:
+    if ((iVar1 == iVar3) || (param_2 < *(uint *)(iVar3 + 0x10))) goto LAB_0410e350;
+  }
+  if (param_3 * param_4 != *(int *)(iVar3 + 0x18) - *(int *)(iVar3 + 0x14) >> 2) {
+    piVar5[3] = (int)
+                "virtual void XAudio2VoiceImp::GetOutputMatrix(IXAudio2Voice*, UINT32, UINT32, float*)"
+    ;
+    piVar5[2] = 0x1a9;
+    piVar5[1] = (int)
+                "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/xaudio2_full/xaudio2voiceimpl.cpp"
+    ;
+    *piVar5 = (int)
+              "SourceChannels * DestinationChannels == mNextParameters.outputMatrices[(XAudio2Voice*) pDestinationVoice].size()"
+    ;
+                    /* try { // try from 0410e28d to 0410e291 has its CatchHandler @ 0410e3ca */
+    piVar5[-1] = 0x410e292;
+    FUN_0400a810();
+  }
+  iVar2 = *(int *)(param_1 + 0x80);
+  iVar4 = iVar1;
+  if (*(int *)(param_1 + 0x80) != 0) {
+    do {
+      while (iVar3 = iVar2, param_2 <= *(uint *)(iVar3 + 0x10)) {
+        iVar2 = *(int *)(iVar3 + 8);
+        iVar4 = iVar3;
+        if (*(int *)(iVar3 + 8) == 0) goto LAB_0410e2b5;
+      }
+      piVar6 = (int *)(iVar3 + 0xc);
+      iVar2 = *piVar6;
+      iVar3 = iVar4;
+    } while (*piVar6 != 0);
+LAB_0410e2b5:
+    bVar7 = iVar1 != iVar3;
+    iVar1 = iVar3;
+    if ((bVar7) && (piVar6 = piVar5, *(uint *)(iVar3 + 0x10) <= param_2)) goto LAB_0410e30e;
+  }
+  local_30 = param_2;
+  local_2c = 0;
+  local_28 = 0;
+  local_24 = 0;
+  piVar5[3] = (int)&local_30;
+  piVar5[2] = iVar1;
+  piVar5[1] = param_1 + 0x78;
+  *piVar5 = (int)local_50;
+                    /* try { // try from 0410e2ee to 0410e2f2 has its CatchHandler @ 0410e3a9 */
+  piVar5[-1] = 0x410e2f3;
+  FUN_04110440();
+  iVar3 = local_50[0];
+  piVar6 = piVar5 + -1;
+  if (local_2c != 0) {
+    piVar5[-1] = local_2c;
+    piVar5[-2] = 0x410e30b;
+    operator_delete((void *)piVar5[-1]);
+    piVar6 = piVar5 + -1;
+  }
+LAB_0410e30e:
+  piVar6[1] = *(int *)(iVar3 + 0x14);
+  piVar6[2] = param_3 * param_4 * 4;
+  *piVar6 = param_5;
+  piVar6[-1] = 0x410e32a;
+  memcpy((void *)*piVar6,(void *)piVar6[1],piVar6[2]);
+  *piVar6 = (int)local_20;
+  piVar6[-1] = 0x410e33e;
+  pthread_mutex_unlock((pthread_mutex_t *)*piVar6);
+  return;
+}
+

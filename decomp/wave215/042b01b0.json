@@ -1,0 +1,35 @@
+
+void FUN_042b01b0(int param_1,undefined4 *param_2,int param_3,int param_4,undefined4 param_5)
+
+{
+  undefined2 uVar1;
+  uint uVar2;
+  uint uVar3;
+  int iVar4;
+  
+  iVar4 = FUN_042aff30();
+  if ((iVar4 != 0) && (param_2 != (undefined4 *)0x0)) {
+    if (param_3 == 0) {
+      png_warning();
+      return;
+    }
+    uVar2 = *(uint *)(param_1 + 0xd8);
+    *(uint *)(param_1 + 0xd4) = *(uint *)(param_1 + 0xd4) & 0xffffdfff;
+    uVar3 = uVar2 & 0xff7fffff;
+    *(uint *)(param_1 + 0xd8) = uVar3 | 0x40080;
+    *(undefined4 *)(param_1 + 0x1c4) = *param_2;
+    *(undefined4 *)(param_1 + 0x1c8) = param_2[1];
+    uVar1 = *(undefined2 *)(param_2 + 2);
+    *(undefined4 *)(param_1 + 0x1c0) = param_5;
+    *(undefined2 *)(param_1 + 0x1cc) = uVar1;
+    *(char *)(param_1 + 0x1be) = (char)param_3;
+    if (param_4 == 0) {
+      *(uint *)(param_1 + 0xd8) = uVar2 & 0xff7ffeff | 0x40080;
+    }
+    else {
+      *(uint *)(param_1 + 0xd8) = uVar3 | 0x40180;
+    }
+  }
+  return;
+}
+

@@ -1,0 +1,51 @@
+
+/* source: audioRenderCaptureOpenALsoft */
+
+undefined4 AudioUnit_SubmitData(undefined4 *param_1,undefined4 param_2,int param_3)
+
+{
+  undefined4 uVar1;
+  char cVar2;
+  undefined4 uVar3;
+  int iVar4;
+  undefined1 local_a4 [128];
+  undefined4 local_24;
+  int local_20 [4];
+  
+  uVar3 = 0;
+  if (param_1 != (undefined4 *)0x0) {
+    local_24 = 0;
+    alGenBuffers(1,&local_24);
+    cVar2 = alIsBuffer(local_24);
+    if (cVar2 == '\0') {
+      FUN_0400a810("alIsBuffer( alBuf )",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/winmm/linux/audioRenderCaptureOpenALsoft.cpp"
+                   ,0x187,"bool AudioUnit_SubmitData(eON_AudioUnit, LPVOID, ULONG, bool)");
+    }
+    alBufferData(local_24,*param_1,param_2,param_3 * param_1[2],param_1[1]);
+    alSourceQueueBuffers(param_1[4],1,&local_24);
+    if (*(char *)(param_1 + 3) != '\0') {
+      alGetSourcei(param_1[4],0x1010,local_20);
+      if (local_20[0] != 0x1012) {
+        alSourcePlay(param_1[4]);
+      }
+    }
+    uVar1 = param_1[4];
+    alGetSourcei(uVar1,0x1016,local_20);
+    uVar3 = 1;
+    if (local_20[0] != 0) {
+      do {
+        iVar4 = 0x20;
+        if (local_20[0] < 0x21) {
+          iVar4 = local_20[0];
+        }
+        alSourceUnqueueBuffers(uVar1,iVar4,local_a4);
+        alDeleteBuffers(iVar4,local_a4);
+        local_20[0] = local_20[0] - iVar4;
+      } while (local_20[0] != 0);
+      uVar3 = 1;
+    }
+  }
+  return uVar3;
+}
+

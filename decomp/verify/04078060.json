@@ -1,0 +1,128 @@
+
+/* source: direct3ddevice9imp */
+
+undefined4
+Direct3DDevice9Imp__CreateTexture
+          (int param_1,uint param_2,uint param_3,uint param_4,uint param_5,uint param_6,uint param_7
+          ,undefined4 *param_8)
+
+{
+  int iVar1;
+  uint uVar2;
+  int iVar3;
+  code *pcVar4;
+  char cVar5;
+  undefined4 uVar6;
+  int *piVar7;
+  int iVar8;
+  uint *puVar9;
+  int aiStack_68 [13];
+  int local_34;
+  int *local_30;
+  undefined1 local_2c [4];
+  undefined1 local_28 [4];
+  undefined1 local_24 [6];
+  undefined1 local_1e;
+  undefined1 local_1d [13];
+  
+  local_30 = &local_34;
+  puVar9 = (uint *)(aiStack_68 + 3);
+  iVar1 = *(int *)(param_1 + 0xc);
+  local_34 = iVar1;
+  if (iVar1 != 0) {
+    puVar9 = (uint *)(aiStack_68 + 3);
+    if (*(char *)(iVar1 + 0xebbc) != '\0') {
+      aiStack_68[3] = iVar1 + 0xebc4;
+      aiStack_68[2] = 0x40781fe;
+      EnterCriticalSection();
+      puVar9 = (uint *)(aiStack_68 + 2);
+    }
+    if (*(int *)(iVar1 + 0xec64) == 0) {
+      if (*(int *)(iVar1 + 0xebc0) != 0) {
+        puVar9[3] = (uint)"void Direct3DDevice9Imp::MultithreadedGuard_Enter()";
+        puVar9[2] = 0x3ae;
+        puVar9[1] = (uint)
+                    "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+        ;
+        *puVar9 = (uint)"!mCurrentD3D9Thread";
+        puVar9[-1] = 0x40781a4;
+        FUN_0400a810();
+      }
+      puVar9[-1] = 0x40780aa;
+      uVar6 = FUN_0415b750();
+      *(undefined4 *)(iVar1 + 0xebc0) = uVar6;
+    }
+    else {
+      iVar3 = *(int *)(iVar1 + 0xebc0);
+      puVar9[-1] = 0x40781bb;
+      iVar8 = FUN_0415b750();
+      if (iVar3 != iVar8) {
+        puVar9[3] = (uint)"void Direct3DDevice9Imp::MultithreadedGuard_Enter()";
+        puVar9[2] = 0x3b3;
+        puVar9[1] = (uint)
+                    "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+        ;
+        *puVar9 = (uint)"mCurrentD3D9Thread == thread_GetCurrentThreadId()";
+        puVar9[-1] = 0x40781e7;
+        FUN_0400a810();
+      }
+    }
+    *(int *)(iVar1 + 0xec64) = *(int *)(iVar1 + 0xec64) + 1;
+  }
+  puVar9[6] = (uint)local_1d;
+  puVar9[5] = (uint)&local_1e;
+  puVar9[4] = (uint)local_24;
+  puVar9[3] = (uint)local_28;
+  puVar9[2] = (uint)local_2c;
+  puVar9[1] = param_5 & 1;
+  *puVar9 = param_6;
+                    /* try { // try from 040780ea to 04078102 has its CatchHandler @ 0407823e */
+  puVar9[-1] = 0x40780ef;
+  cVar5 = PixelFormatData__MapTextureFormatToGL();
+  if (cVar5 == '\0') {
+    uVar6 = 0x8876086c;
+  }
+  else {
+    *puVar9 = 0x2ac;
+    puVar9[-1] = 0x4078103;
+    piVar7 = operator_new(*puVar9);
+    *piVar7 = (int)&PTR_FUN_042f6b48;
+    puVar9[1] = (uint)piVar7;
+    *puVar9 = (uint)(piVar7 + 1);
+                    /* try { // try from 04078115 to 04078119 has its CatchHandler @ 04078253 */
+    puVar9[-1] = 0x407811a;
+    Direct3DTexture9Imp__Direct3DTexture9Imp();
+    puVar9[7] = param_7;
+    puVar9[6] = param_6;
+    puVar9[5] = param_5;
+    puVar9[4] = param_4;
+    puVar9[3] = param_3;
+    puVar9[2] = param_2;
+    uVar2 = *(uint *)(param_1 + 0xc);
+    *puVar9 = (uint)(piVar7 + 1);
+    puVar9[1] = uVar2;
+                    /* try { // try from 0407814e to 04078152 has its CatchHandler @ 0407823e */
+    puVar9[-1] = 0x4078153;
+    cVar5 = Direct3DTexture9Imp__Initialize();
+    if (cVar5 == '\0') {
+      iVar1 = *piVar7;
+      *puVar9 = (uint)piVar7;
+                    /* try { // try from 04078225 to 04078227 has its CatchHandler @ 0407823e */
+      pcVar4 = *(code **)(iVar1 + 8);
+      puVar9[-1] = 0x4078228;
+      (*pcVar4)();
+      puVar9 = puVar9 + -1;
+      uVar6 = 0x8876086c;
+      *param_8 = 0;
+    }
+    else {
+      *param_8 = piVar7;
+      uVar6 = 0;
+    }
+  }
+  *puVar9 = (uint)&local_30;
+  puVar9[-1] = 0x407816d;
+  direct3ddevice9imp_040a2df0();
+  return uVar6;
+}
+

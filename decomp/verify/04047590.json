@@ -1,0 +1,163 @@
+
+/* source: vpfs */
+
+undefined4 VPFS_CreateFolder(char *param_1)
+
+{
+  size_t sVar1;
+  int iVar2;
+  int iVar3;
+  char *pcVar4;
+  undefined4 uVar5;
+  int *piVar6;
+  char cVar7;
+  char local_1020 [1024];
+  char local_c20 [1024];
+  undefined1 local_820 [1024];
+  char local_420 [1024];
+  int local_20 [4];
+  
+  sVar1 = strlen(param_1);
+  if (3 < sVar1) {
+    iVar2 = strcasecmp(param_1 + (sVar1 - 4),".exe");
+    if (((iVar2 == 0) || (iVar2 = strcasecmp(param_1 + (sVar1 - 4),".dll"), iVar2 == 0)) ||
+       (iVar2 = strcasecmp(param_1 + (sVar1 - 3),(char *)&PTR_DAT_042e5d3b), iVar2 == 0)) {
+      FUN_0402cd10(0xf,"VPFS_CreateFile() error - creation of executables is not permitted: %s",
+                   param_1);
+      return 0;
+    }
+  }
+  pthread_mutex_lock((pthread_mutex_t *)&DAT_0441804c);
+  if (*param_1 != '\0') {
+    iVar2 = FUN_0403d0f0();
+    if (iVar2 != 0) {
+      iVar2 = FUN_0403c9d0();
+      iVar3 = VPFS_FileOrFolderExists(local_20,0);
+      if (iVar3 == 0) {
+        pcVar4 = strrchr(local_1020,0x2f);
+        if (pcVar4 != (char *)0x0) {
+          *pcVar4 = '\0';
+          if (local_1020[0] == '\0') {
+            *pcVar4 = '/';
+          }
+          else {
+            iVar3 = VPFS_MakeSureFolderExistsOnDisk();
+            *pcVar4 = '/';
+            if (iVar3 == 0) goto switchD_04047898_caseD_11;
+          }
+        }
+        pcVar4 = local_1020;
+        if (iVar2 != 0) {
+          FUN_0403c9d0();
+          pcVar4 = local_c20;
+        }
+        iVar3 = mkdir(pcVar4,0x1ed);
+        if (iVar3 != -1) {
+          pcVar4 = local_c20;
+          if (iVar2 == 0) {
+            pcVar4 = local_1020;
+          }
+          VPFS_MadeChangesAtPath(pcVar4);
+          if (local_20[0] != 0) {
+            iVar2 = FUN_0404c040(local_820,0);
+            if (iVar2 == 0) {
+              FUN_0400a810("dbObj",
+                           "/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/vpfs/vpfs.cpp",
+                           0x159a,"VPFSHandle VPFS_CreateFolder(const char*)");
+            }
+            FUN_0404c310(iVar2);
+            VPFS_SetAllFolderContentsAsDeleted();
+          }
+          pthread_mutex_unlock((pthread_mutex_t *)&DAT_0441804c);
+          pcVar4 = local_420;
+          if (local_1020[0] == '/') {
+            local_420[0] = 'C';
+            pcVar4 = local_420 + 2;
+            local_420[1] = 0x3a;
+          }
+          strcpy(pcVar4,local_1020);
+          uVar5 = 0;
+          if (local_420[0] != '\0') {
+            pcVar4 = local_420;
+            cVar7 = local_420[0];
+            do {
+              while (cVar7 != '/') {
+                pcVar4 = pcVar4 + 1;
+                cVar7 = *pcVar4;
+                if (cVar7 == '\0') goto LAB_0404778c;
+              }
+              *pcVar4 = '\\';
+              pcVar4 = pcVar4 + 1;
+              cVar7 = *pcVar4;
+            } while (cVar7 != '\0');
+LAB_0404778c:
+            uVar5 = 0;
+            if (local_420[0] != '\0') {
+              uVar5 = VPFS_Open();
+            }
+          }
+          return uVar5;
+        }
+        piVar6 = __errno_location();
+        switch(*piVar6) {
+        default:
+          FUN_0402cd10(0xf,"VPFS_CreateFolder() error - unhandled error in stat(): %d for path: %s",
+                       *piVar6,param_1);
+          break;
+        case 2:
+          FUN_0402cd10(0xf,
+                       "VPFS_CreateFolder() error - empty path, or parent folder doesn\'t exist. Path: %s"
+                       ,param_1);
+          break;
+        case 5:
+          FUN_0402cd10(0xf,"VPFS_CreateFolder() error - IO error occured. Path: %s",param_1);
+          break;
+        case 0xd:
+          FUN_0402cd10(0xf,"VPFS_CreateFolder() error - access to part of path denied: %s",param_1);
+          break;
+        case 0xe:
+          FUN_0402cd10(0xf,
+                       "VPFS_CreateFolder() error - path points outside the process\'s allocated address space: %s"
+                       ,param_1);
+          break;
+        case 0x11:
+          break;
+        case 0x14:
+          FUN_0402cd10(0xf,
+                       "VPFS_CreateFolder() error - component of path prefix is not a directory. Path: %s"
+                       ,param_1);
+          break;
+        case 0x1c:
+          FUN_0402cd10(0xf,"VPFS_CreateFolder() error - no space left on filesystem. Path: %s",
+                       param_1);
+          break;
+        case 0x1e:
+          FUN_0402cd10(0xf,
+                       "VPFS_CreateFolder() error - parent directory esides on read-only filesystem. Path: %s"
+                       ,param_1);
+          break;
+        case 0x1f:
+          FUN_0402cd10(0xf,
+                       "VPFS_CreateFolder() error - parent folder already has maximal number of links. Path: %s"
+                       ,param_1);
+          break;
+        case 0x24:
+          FUN_0402cd10(0xf,"VPFS_CreateFolder() error - path too long: %s",param_1);
+          break;
+        case 0x28:
+          FUN_0402cd10(0xf,"VPFS_CreateFolder() error - loop in path: %s",param_1);
+          break;
+        case 0x7a:
+          FUN_0402cd10(0xf,"VPFS_CreateFolder() error - user quota exceeded. Path: %s",param_1);
+        }
+      }
+switchD_04047898_caseD_11:
+      pthread_mutex_unlock((pthread_mutex_t *)&DAT_0441804c);
+      return 0;
+    }
+  }
+  FUN_0402cd10(0xf,"VPFS_CreateFolder() error - couldn\'t get absolute path for path: %s",param_1);
+  pthread_mutex_unlock((pthread_mutex_t *)&DAT_0441804c);
+  return 0;
+}
+

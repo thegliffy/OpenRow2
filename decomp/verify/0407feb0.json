@@ -1,0 +1,77 @@
+
+/* source: direct3ddevice9imp */
+
+undefined4
+Direct3DDevice9Imp__OpenGLSide_CreateScreenBuffers(int param_1,undefined4 param_2,int *param_3)
+
+{
+  char cVar1;
+  undefined4 uVar2;
+  int iVar3;
+  int iVar4;
+  
+  if (*(int *)(param_1 + 0xc650) != 0) {
+    FUN_0400a810("!mOGLDeviceState.ScreenRenderTarget",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+                 ,0x32c,"DWORD Direct3DDevice9Imp::OpenGLSide_CreateScreenBuffers(DWORD, LPVOID)");
+  }
+  iVar3 = *param_3;
+  *(int *)(param_1 + 0xc650) = iVar3;
+  if (*(int *)(iVar3 + 0x94) == 0) {
+    if (*(int *)(param_1 + 0xc654) != 0) {
+      FUN_0400a810("!mOGLDeviceState.DownsampleTexture",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+                   ,0x334,"DWORD Direct3DDevice9Imp::OpenGLSide_CreateScreenBuffers(DWORD, LPVOID)")
+      ;
+    }
+    if (*(int *)(param_1 + 0xc658) != 0) {
+      FUN_0400a810("!mOGLDeviceState.DownsampleFramebuffer",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+                   ,0x335,"DWORD Direct3DDevice9Imp::OpenGLSide_CreateScreenBuffers(DWORD, LPVOID)")
+      ;
+    }
+    uVar2 = Direct3DDevice9Imp__CreateTextureInOpenGL(param_1);
+    iVar4 = *(int *)(param_1 + 0xeb48);
+    *(undefined4 *)(param_1 + 0xc654) = uVar2;
+    if (*(int *)(iVar4 + 0x234) != 0x84c0) {
+      (*DAT_0451eeac)(0x84c0);
+      *(undefined4 *)(iVar4 + 0x234) = 0x84c0;
+      iVar4 = *(int *)(param_1 + 0xeb48);
+      uVar2 = *(undefined4 *)(param_1 + 0xc654);
+    }
+    FUN_040c6ee0(iVar4,0xde1,uVar2);
+    glTexParameteri(0xde1,0x2802,0x812f);
+    glTexParameteri(0xde1,0x2803,0x812f);
+    glTexParameteri(0xde1,0x2800,0x2601);
+    glTexParameteri(0xde1,0x2801,0x2601);
+    glTexParameteri(0xde1,0x8a48,0x8a4a);
+    if (*(char *)(param_1 + 0xeb4c) == '\0') {
+      glTexParameteri(0xde1,0x8191,0);
+    }
+    cVar1 = FUN_04021f50();
+    if (cVar1 == '\0') {
+      glTexImage2D(0xde1,0,*(undefined4 *)(iVar3 + 0xb0),*(undefined4 *)(iVar3 + 0x88),
+                   *(undefined4 *)(iVar3 + 0x8c),0,*(undefined4 *)(iVar3 + 0xac),
+                   *(undefined4 *)(iVar3 + 0xa8),0);
+    }
+    else {
+      (*DAT_0451e148)(0xde1,1,*(undefined4 *)(iVar3 + 0xb0),*(undefined4 *)(iVar3 + 0x88),
+                      *(undefined4 *)(iVar3 + 0x8c));
+    }
+    glTexParameteri(0xde1,0x813d,0);
+    uVar2 = FUN_040c6d40(*(undefined4 *)(param_1 + 0xeb48));
+    *(undefined4 *)(param_1 + 0xc658) = uVar2;
+    (*DAT_0451e674)(0x8d40,0x8ce0,0xde1,*(undefined4 *)(param_1 + 0xc654),0);
+    OpenGLContextCache____glewBindFramebuffer
+              (*(undefined4 *)(param_1 + 0xeb48),0x8ca9,*(undefined4 *)(param_1 + 0xc658));
+    iVar3 = (*DAT_0451e688)(0x8ca9);
+    if (iVar3 != 0x8cd5) {
+      FUN_0400a810("__glewCheckFramebufferStatus( 0x8CA9 ) == 0x8CD5",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+                   ,0x350,"DWORD Direct3DDevice9Imp::OpenGLSide_CreateScreenBuffers(DWORD, LPVOID)")
+      ;
+    }
+  }
+  return 4;
+}
+

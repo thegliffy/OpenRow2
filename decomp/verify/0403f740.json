@@ -1,0 +1,295 @@
+
+/* source: vpfs */
+
+undefined4 __regparm3 VPFS_ConvertDiskFileToWriteableLocation(int param_1,char *param_2)
+
+{
+  char cVar1;
+  int iVar2;
+  int iVar3;
+  void *pvVar4;
+  int iVar5;
+  char *pcVar6;
+  undefined4 uVar7;
+  uint uVar8;
+  int *piVar9;
+  int *piVar10;
+  int *piVar11;
+  bool bVar12;
+  uint local_c44;
+  int local_c40;
+  int local_c34;
+  undefined1 local_c28 [1024];
+  char local_828 [1024];
+  undefined1 local_428 [16];
+  uint local_418;
+  uint local_28;
+  int local_24;
+  uint local_20 [4];
+  
+  iVar2 = fs_CreateFileA();
+  if (iVar2 == -1) {
+    FUN_0402cd10();
+    return 0;
+  }
+  iVar3 = fs_CreateFileA();
+  if (iVar3 == -1) {
+    FUN_04131a90();
+    FUN_0402cd10();
+    uVar7 = 0;
+  }
+  else {
+    VPFS_MadeChangesAtPath();
+    FUN_04130770();
+    local_c40 = local_24;
+    local_c44 = local_28;
+    if ((0 < local_24) || ((-1 < local_24 && (0xfffff < local_28)))) {
+      local_c44 = 0x100000;
+      local_c40 = 0;
+    }
+    pvVar4 = malloc(local_c44);
+    piVar11 = (int *)&stack0xfffff344;
+    if (pvVar4 == (void *)0x0) {
+      FUN_0402cd10();
+      FUN_04131a90();
+      FUN_04131a90(iVar3);
+      uVar7 = 0;
+    }
+    else {
+      do {
+        piVar10 = piVar11;
+        uVar8 = local_c44;
+        if ((local_24 <= local_c40) && ((local_24 < local_c40 || (local_28 <= local_c44)))) {
+          uVar8 = local_28;
+        }
+        bVar12 = local_28 < uVar8;
+        local_28 = local_28 - uVar8;
+        local_24 = local_24 - (uint)bVar12;
+        piVar10[4] = 0;
+        piVar10[1] = (int)pvVar4;
+        piVar10[3] = (int)local_20;
+        piVar10[2] = uVar8;
+        *piVar10 = iVar2;
+        piVar10[-1] = 0x403f8b4;
+        iVar5 = fs_ReadFile();
+        if ((iVar5 == 0) || (local_20[0] < uVar8)) {
+          piVar10[-5] = (int)pvVar4;
+          piVar10[-6] = 0x403fc2f;
+          free((void *)piVar10[-5]);
+          piVar10[-5] = iVar2;
+          piVar10[-6] = 0x403fc3d;
+          FUN_04131a90();
+          piVar10[-6] = iVar3;
+          piVar10[-7] = 0x403fc4e;
+          FUN_04131a90();
+          piVar10[-6] = (int)
+                        "VPFS_ConvertDiskFileToWriteableLocation() error - couldn\'t read bytes from source file"
+          ;
+          piVar10[-7] = 0xf;
+          piVar10[-8] = 0x403fc65;
+          FUN_0402cd10();
+          return 0;
+        }
+        piVar10[-3] = uVar8;
+        piVar10[-1] = 0;
+        piVar10[-2] = (int)local_20;
+        piVar10[-4] = (int)pvVar4;
+        piVar10[-5] = iVar3;
+        piVar10[-6] = 0x403f8f3;
+        iVar5 = fs_WriteFile();
+        if ((iVar5 == 0) || (local_20[0] < uVar8)) {
+          piVar10[-10] = (int)pvVar4;
+          piVar10[-0xb] = 0x403fc8f;
+          free((void *)piVar10[-10]);
+          piVar10[-10] = iVar2;
+          piVar10[-0xb] = 0x403fc9d;
+          FUN_04131a90();
+          piVar10[-0xb] = iVar3;
+          piVar10[-0xc] = 0x403fcae;
+          FUN_04131a90();
+          piVar10[-0xb] =
+               (int)
+               "VPFS_ConvertDiskFileToWriteableLocation() error - couldn\'t write bytes to target file"
+          ;
+          piVar10[-0xc] = 0xf;
+          piVar10[-0xd] = 0x403fcc5;
+          FUN_0402cd10();
+          return 0;
+        }
+        piVar11 = piVar10 + -10;
+      } while ((0 < local_24) || ((-1 < local_24 && (piVar11 = piVar10 + -10, local_28 != 0))));
+      piVar10[-10] = (int)pvVar4;
+      piVar10[-0xb] = 0x403f935;
+      free((void *)piVar10[-10]);
+      piVar10[-10] = iVar2;
+      piVar10[-0xb] = 0x403f943;
+      FUN_04131a90();
+      piVar10[-0xb] = iVar3;
+      piVar10[-0xc] = 0x403f954;
+      FUN_04131a90();
+      piVar10[-10] = (int)local_428;
+      piVar10[-0xc] = 3;
+      piVar10[-0xb] = param_1;
+      piVar10[-0xd] = 0x403f971;
+      iVar2 = __xstat64(piVar10[-0xc],(char *)piVar10[-0xb],(stat64 *)piVar10[-10]);
+      if (iVar2 != 0) {
+        piVar10[-9] = (int)"int VPFS_ConvertDiskFileToWriteableLocation(const char*, const char*)";
+        piVar10[-10] = 0x138b;
+        piVar10[-0xb] =
+             (int)"/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/vpfs/vpfs.cpp";
+        piVar10[-0xc] = (int)"stat( sourcePath, &elemStat ) == 0";
+        piVar10[-0xd] = 0x403fd1c;
+        FUN_0400a810();
+      }
+      local_20[0] = (uint)((local_418 & 0x80) == 0);
+      if ((local_418 & 0x3f000) == 0x4000) {
+        local_20[0] = local_20[0] | 0x10;
+      }
+      else {
+        local_20[0] = (-(uint)(local_20[0] == 0) & 0x7f) + 1;
+      }
+      piVar10[-0xd] = 0x403f9ba;
+      iVar2 = VPFS_PathToPathInArchive();
+      if (iVar2 == 0) {
+        piVar10[-9] = (int)"int VPFS_ConvertDiskFileToWriteableLocation(const char*, const char*)";
+        piVar10[-10] = 0x138f;
+        piVar10[-0xb] =
+             (int)"/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/vpfs/vpfs.cpp";
+        piVar10[-0xc] = (int)"VPFS_PathToPathInArchive( sourcePath, pathInArchive, 1024 ) != 0";
+        piVar10[-0xd] = 0x403fcf3;
+        FUN_0400a810();
+      }
+      piVar10[-0xc] = (int)local_c28;
+      piVar10[-0xb] = 0;
+      piVar10[-0xd] = 0x403f9d2;
+      iVar2 = FUN_0404c040();
+      if (iVar2 != 0) {
+        piVar10[-0xc] = iVar2;
+        piVar10[-0xd] = 0x403f9e0;
+        cVar1 = FUN_0404c630();
+        if (cVar1 != '\0') {
+          piVar10[-9] = (int)"int VPFS_ConvertDiskFileToWriteableLocation(const char*, const char*)"
+          ;
+          piVar10[-10] = 0x1395;
+          piVar10[-0xb] =
+               (int)"/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/vpfs/vpfs.cpp";
+          piVar10[-0xc] = (int)"!VPFSDB_IsDeleted( dbObj )";
+          piVar10[-0xd] = 0x403fd8a;
+          FUN_0400a810();
+        }
+        piVar10[-0xc] = iVar2;
+        piVar10[-0xb] = (int)local_20;
+        piVar10[-0xd] = 0x403f9f7;
+        FUN_0404c710();
+        piVar10[-0xc] = iVar2;
+        piVar10[-0xd] = 0x403f9ff;
+        FUN_0404c310();
+      }
+      pcVar6 = local_828;
+      if (*param_2 == '/') {
+        local_828[0] = 'C';
+        pcVar6 = local_828 + 2;
+        local_828[1] = 0x3a;
+      }
+      piVar10[-0xb] = (int)param_2;
+      piVar10[-0xc] = (int)pcVar6;
+      piVar10[-0xd] = 0x403fa20;
+      strcpy((char *)piVar10[-0xc],(char *)piVar10[-0xb]);
+      if (local_828[0] != '\0') {
+        pcVar6 = local_828;
+        cVar1 = local_828[0];
+        do {
+          while (cVar1 != '/') {
+            pcVar6 = pcVar6 + 1;
+            cVar1 = *pcVar6;
+            if (cVar1 == '\0') goto LAB_0403fa54;
+          }
+          *pcVar6 = '\\';
+          pcVar6 = pcVar6 + 1;
+          cVar1 = *pcVar6;
+        } while (cVar1 != '\0');
+      }
+LAB_0403fa54:
+      piVar10[-0xb] = local_20[0];
+      piVar10[-0xc] = (int)local_828;
+      piVar10[-0xd] = 0x403fa69;
+      fs_SetFileAttributesA();
+      piVar11 = piVar10 + -0xe;
+      piVar10[-0xe] = (int)local_828;
+      piVar10[-0xd] = param_1;
+      piVar10[-0xf] = 0x403fa84;
+      strcpy((char *)piVar10[-0xe],(char *)piVar10[-0xd]);
+      piVar10[-0xf] = 0x403fa91;
+      iVar2 = VPFS_PathToPathInArchive();
+      local_c34 = -1;
+      if (iVar2 != 0) {
+        piVar10[-0xf] = 0x403fc76;
+        local_c34 = VPFS_FindInVirtualFilesystem();
+      }
+      piVar9 = &DAT_04418280;
+      iVar2 = 1;
+      do {
+        while (iVar3 = *piVar9, iVar3 != 3) {
+          if (iVar3 == 5) {
+            piVar11[1] = (int)local_828;
+            *piVar11 = piVar9[1];
+            piVar11[-1] = 0x403fb85;
+            iVar3 = strcmp((char *)*piVar11,(char *)piVar11[1]);
+            if (iVar3 == 0) goto LAB_0403fae9;
+          }
+          else if (iVar3 == 2) break;
+LAB_0403fac0:
+          iVar2 = iVar2 + 1;
+          piVar9 = piVar9 + 8;
+          if (iVar2 == 0x2801) goto LAB_0403fb50;
+        }
+        if (piVar9[2] != local_c34) goto LAB_0403fac0;
+LAB_0403fae9:
+        uVar8 = piVar9[4];
+        iVar3 = piVar9[3];
+        piVar11[-1] = 0x403fb02;
+        VPFS_CloseHandle();
+        piVar11[1] = (int)&DAT_0012019f;
+        *piVar11 = (int)param_2;
+        piVar11[-1] = 0x403fb26;
+        iVar5 = VPFS_OpenFileOnDisk();
+        if (iVar5 != 0) {
+          iVar5 = piVar9[2];
+          piVar11[3] = 0;
+          piVar11[1] = iVar3;
+          piVar11[2] = (int)local_20;
+          *piVar11 = iVar5;
+          piVar11[-1] = 0x403fbbf;
+          local_20[0] = uVar8;
+          iVar5 = fs_SetFilePointer();
+          if (iVar5 == -1) {
+            piVar11[-2] = iVar2;
+            piVar11[-3] = (int)
+                          "VPFS_ConvertAllFileHandlesToDiskType() - internal logic error! Failed to convert handle %d (SetFiePointer failed)"
+            ;
+            piVar11[-4] = 0xf;
+            piVar11[-5] = 0x403fbf8;
+            FUN_0402cd10();
+          }
+          piVar9[3] = iVar3;
+          piVar9[4] = uVar8;
+          piVar11 = piVar11 + -4;
+          goto LAB_0403fac0;
+        }
+        piVar11[2] = iVar2;
+        iVar2 = iVar2 + 1;
+        piVar9 = piVar9 + 8;
+        piVar11[1] = (int)
+                     "VPFS_ConvertAllFileHandlesToDiskType() - internal logic error! Failed to convert handle %d"
+        ;
+        *piVar11 = 0xf;
+        piVar11[-1] = 0x403fb48;
+        FUN_0402cd10();
+      } while (iVar2 != 0x2801);
+LAB_0403fb50:
+      uVar7 = 1;
+    }
+  }
+  return uVar7;
+}
+

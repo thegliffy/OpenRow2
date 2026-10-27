@@ -1,0 +1,97 @@
+
+/* source: direct3ddevice9imp */
+
+undefined4 Direct3DDevice9Imp__ShowCursor(int param_1,int param_2)
+
+{
+  int iVar1;
+  undefined4 uVar2;
+  undefined4 uVar3;
+  int iVar4;
+  int *piVar5;
+  int *piVar6;
+  int aiStack_5c [11];
+  int local_30;
+  undefined4 local_2c;
+  undefined4 local_28;
+  int local_24;
+  int *local_20 [4];
+  
+  local_20[0] = &local_24;
+  piVar5 = aiStack_5c + 4;
+  iVar1 = *(int *)(param_1 + 0xc);
+  local_24 = iVar1;
+  if (iVar1 != 0) {
+    piVar5 = aiStack_5c + 4;
+    if (*(char *)(iVar1 + 0xebbc) != '\0') {
+      aiStack_5c[4] = iVar1 + 0xebc4;
+      aiStack_5c[3] = 0x40708be;
+      EnterCriticalSection();
+      piVar5 = aiStack_5c + 3;
+    }
+    if (*(int *)(iVar1 + 0xec64) == 0) {
+      if (*(int *)(iVar1 + 0xebc0) != 0) {
+        piVar5[3] = (int)"void Direct3DDevice9Imp::MultithreadedGuard_Enter()";
+        piVar5[2] = 0x3ae;
+        piVar5[1] = (int)
+                    "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+        ;
+        *piVar5 = (int)"!mCurrentD3D9Thread";
+        piVar5[-1] = 0x4070844;
+        FUN_0400a810();
+      }
+      piVar5[-1] = 0x407079d;
+      uVar2 = FUN_0415b750();
+      *(undefined4 *)(iVar1 + 0xebc0) = uVar2;
+    }
+    else {
+      local_30 = *(int *)(iVar1 + 0xebc0);
+      piVar5[-1] = 0x4070876;
+      iVar4 = FUN_0415b750();
+      if (local_30 != iVar4) {
+        piVar5[3] = (int)"void Direct3DDevice9Imp::MultithreadedGuard_Enter()";
+        piVar5[2] = 0x3b3;
+        piVar5[1] = (int)
+                    "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+        ;
+        *piVar5 = (int)"mCurrentD3D9Thread == thread_GetCurrentThreadId()";
+        piVar5[-1] = 0x40708a3;
+        FUN_0400a810();
+      }
+    }
+    *(int *)(iVar1 + 0xec64) = *(int *)(iVar1 + 0xec64) + 1;
+  }
+  uVar2 = *(undefined4 *)(param_1 + 0xeb38);
+  *piVar5 = (int)&local_2c;
+                    /* try { // try from 040707b6 to 040707f5 has its CatchHandler @ 040708c6 */
+  piVar5[-1] = 0x40707bb;
+  eON_GetCursorPos();
+  *(undefined4 *)(param_1 + 0xeb3c) = local_2c;
+  *(undefined4 *)(param_1 + 0xeb40) = local_28;
+  if (*(int *)(param_1 + 0x75d4) == 0) {
+    piVar6 = piVar5 + -1;
+    if (*(int *)(param_1 + 0x75d8) != 0) {
+      *(int *)(param_1 + 0xeb38) = param_2;
+      piVar6 = piVar5 + -1;
+    }
+  }
+  else {
+    *(int *)(param_1 + 0xeb38) = param_2;
+    piVar5[-1] = param_2;
+    piVar5[-2] = 0x40707e8;
+    eON_SetCursorVisible();
+    uVar3 = 0;
+    if (param_2 != 0) {
+      uVar3 = *(undefined4 *)(param_1 + 0x75d4);
+    }
+    piVar5[-1] = uVar3;
+    piVar5[-2] = 0x40707f6;
+    eON_SetCursor();
+    piVar6 = piVar5 + -2;
+  }
+  *piVar6 = (int)local_20;
+  piVar6[-1] = 0x4070804;
+  direct3ddevice9imp_040a2df0();
+  return uVar2;
+}
+

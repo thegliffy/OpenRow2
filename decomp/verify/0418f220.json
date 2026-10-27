@@ -1,0 +1,38 @@
+
+void LogWAVEFORMATEX(undefined4 param_1,ushort *param_2)
+
+{
+  bool bVar1;
+  uint uVar2;
+  undefined4 uVar3;
+  undefined1 local_44 [52];
+  
+  uVar2 = (uint)*param_2;
+  FUN_0402cd10(param_1,"Format tag: %d",uVar2);
+  if (*param_2 == 1) {
+    bVar1 = false;
+  }
+  else {
+    bVar1 = true;
+    if (*param_2 != 0xfffe) {
+      FUN_0402cd10(param_1,"\tunrecognized format tag.",uVar2);
+      return;
+    }
+  }
+  FUN_0402cd10(param_1,"\tchannels: %u",param_2[1]);
+  FUN_0402cd10(param_1,"\tsamples per sec: %u",*(undefined4 *)(param_2 + 2));
+  FUN_0402cd10(param_1,"\tavg bytes per sec: %u",*(undefined4 *)(param_2 + 4));
+  FUN_0402cd10(param_1,"\tblock align: %u",param_2[6]);
+  FUN_0402cd10(param_1,"\tbits per sample: %u",param_2[7]);
+  uVar3 = 0x12;
+  FUN_0402cd10(param_1,"\tsize: %u (WAVEFORMATEX size is %u)",param_2[8],0x12);
+  if (!bVar1) {
+    return;
+  }
+  FUN_0402cd10(param_1,"\tvalid bits per sample/samples per block: %u",param_2[9],uVar3);
+  FUN_0402cd10(param_1,"\tchannel mask: %u",*(undefined4 *)(param_2 + 10));
+  GUID_FormatLower(param_2 + 0xc,local_44);
+  FUN_0402cd10(param_1,"\tformat GUID: %s",local_44);
+  return;
+}
+

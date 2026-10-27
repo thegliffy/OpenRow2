@@ -1,0 +1,36 @@
+
+/* source: opengl_objects */
+
+void OpenGLWrapperLinux___OpenGLWrapperLinux(undefined4 *param_1)
+
+{
+  char cVar1;
+  
+  *param_1 = &PTR_OpenGLWrapperLinux___OpenGLWrapperLinux_042e0968;
+  if ((int)(param_1[0xf] - param_1[0xe]) >> 2 != 0) {
+    FUN_0400a810("OtherContexts.size() == 0",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/linux/opengl_objects.cpp"
+                 ,0x7f6,"virtual OpenGLWrapperLinux::~OpenGLWrapperLinux()");
+  }
+  if (param_1[0x11] != 0) {
+                    /* try { // try from 040200b7 to 04020142 has its CatchHandler @ 0402014f */
+    SDL_GL_DeleteContext(param_1[0x11]);
+    param_1[0x11] = 0;
+  }
+  if ((param_1[10] == 0) && (param_1[0xd] != 0)) {
+    cVar1 = eON_Int_IsMainThread();
+    if (cVar1 == '\0') {
+      ThreadBlocked(FUN_04020010,param_1);
+    }
+    else {
+      SDL_DestroyWindow(param_1[0xd]);
+      param_1[0xd] = 0;
+    }
+  }
+  if ((void *)param_1[0xe] != (void *)0x0) {
+    operator_delete((void *)param_1[0xe]);
+  }
+  *param_1 = &PTR_FUN_042e09a8;
+  return;
+}
+

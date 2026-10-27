@@ -1,0 +1,38 @@
+
+char * eON_GetCurrentDirectoryA(char *param_1,char *param_2)
+
+{
+  int iVar1;
+  uint uVar2;
+  uint uVar3;
+  char *pcVar4;
+  uint *puVar5;
+  uint *puVar6;
+  char *pcVar7;
+  uint local_2010 [2049];
+  
+  iVar1 = FUN_04049cf0(local_2010,0x2000);
+  puVar6 = local_2010;
+  if (iVar1 == 0) {
+    FUN_0402cd10(0xf,"    can\'t get current dir!!!");
+    return (char *)0x0;
+  }
+  do {
+    puVar5 = puVar6;
+    uVar2 = *puVar5 + 0xfefefeff & ~*puVar5;
+    uVar3 = uVar2 & 0x80808080;
+    puVar6 = puVar5 + 1;
+  } while (uVar3 == 0);
+  if ((uVar2 & 0x8080) == 0) {
+    puVar6 = (uint *)((int)puVar5 + 6);
+    uVar3 = uVar3 >> 0x10;
+  }
+  pcVar7 = (char *)((int)puVar6 + ((-3 - (uint)CARRY1((byte)uVar3,(byte)uVar3)) - (int)local_2010));
+  pcVar4 = pcVar7 + 1;
+  if (pcVar7 < param_1) {
+    strcpy(param_2,(char *)local_2010);
+    pcVar4 = pcVar7;
+  }
+  return pcVar4;
+}
+

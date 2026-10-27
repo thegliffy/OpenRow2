@@ -1,0 +1,77 @@
+
+/* source: asyncSelectSystem */
+
+void AsyncSelect_AddEvent(uint param_1,undefined4 param_2,undefined4 param_3,undefined4 param_4)
+
+{
+  uint uVar1;
+  uint *puVar2;
+  int iVar3;
+  int iVar4;
+  int iVar5;
+  bool bVar6;
+  
+  if (DAT_0451c180 == '\0') {
+    pthread_mutex_init((pthread_mutex_t *)&DAT_0451c184,(pthread_mutexattr_t *)0x0);
+    DAT_0451c180 = '\x01';
+  }
+  pthread_mutex_lock((pthread_mutex_t *)&DAT_0451c184);
+  iVar3 = DAT_0451c19c;
+  iVar5 = DAT_0451c19c;
+  if (DAT_0451c19c < 1) {
+LAB_04190a1c:
+    DAT_0451c19c = iVar3 + 1;
+    bVar6 = DAT_0451c19c == 0;
+    (&DAT_0451c1a0)[iVar5 * 5] = param_1;
+    (&DAT_0451c1a4)[iVar5 * 5] = param_2;
+    (&DAT_0451c1a8)[iVar5 * 5] = 0;
+    (&DAT_0451c1b0)[iVar5 * 5] = param_4;
+    (&DAT_0451c1ac)[iVar5 * 5] = param_3;
+    if (bVar6) goto LAB_04190a5a;
+  }
+  else {
+    iVar4 = 0;
+    puVar2 = &DAT_0451c1b4;
+    uVar1 = DAT_0451c1a0;
+    while (uVar1 < param_1) {
+      iVar4 = iVar4 + 1;
+      if (iVar4 == DAT_0451c19c) goto LAB_04190a0b;
+      uVar1 = *puVar2;
+      puVar2 = puVar2 + 5;
+    }
+    iVar5 = iVar4;
+    if (param_1 != uVar1) {
+LAB_04190a0b:
+      if (0xf < DAT_0451c19c) {
+        FUN_0400a810("mNumObservedSockets < MAX_OBSERVED_SOCKETS",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/winsock/asyncSelectSystem.cpp"
+                     ,0xaf,"void AsyncSelect_AddEvent(SOCKET, LONG, HWND, UINT)");
+        iVar3 = DAT_0451c19c;
+      }
+      if (iVar5 < iVar3) {
+        DAT_0451c19c = iVar3;
+        memmove(&DAT_0451c1a0 + iVar5 * 5 + 5,&DAT_0451c1a0 + iVar5 * 5,(iVar3 - iVar5) * 0x14);
+      }
+      goto LAB_04190a1c;
+    }
+    (&DAT_0451c1a0)[iVar4 * 5] = param_1;
+    (&DAT_0451c1a8)[iVar4 * 5] = 0;
+    (&DAT_0451c1a4)[iVar4 * 5] = param_2;
+    (&DAT_0451c1b0)[iVar4 * 5] = param_4;
+    (&DAT_0451c1ac)[iVar4 * 5] = param_3;
+  }
+  if (DAT_0451c2e0 == '\0') {
+    iVar3 = eON_CreateThread(0,0x10000,AsyncSelect_ThreadRoutine,0,0,0);
+    if (iVar3 == 0) {
+      FUN_0400a810("eON_CreateThread( __null, 65536, AsyncSelect_ThreadRoutine, __null, 0, 0 ) != __null"
+                   ,
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/winsock/asyncSelectSystem.cpp"
+                   ,0xc1,"void AsyncSelect_AddEvent(SOCKET, LONG, HWND, UINT)");
+    }
+    DAT_0451c2e0 = '\x01';
+  }
+LAB_04190a5a:
+  pthread_mutex_unlock((pthread_mutex_t *)&DAT_0451c184);
+  return;
+}
+

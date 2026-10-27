@@ -1,0 +1,123 @@
+
+/* source: fontcache */
+
+int __regparm3 FontCache__AddFontResource(int *param_1,void *param_2,size_t param_3)
+
+{
+  void *__dest;
+  int *__src;
+  undefined4 uVar1;
+  int iVar2;
+  size_t sVar3;
+  void *__dest_00;
+  int *piVar4;
+  int iVar5;
+  char *__s;
+  uint uVar6;
+  size_t local_60;
+  int local_4c;
+  int local_48;
+  int local_44;
+  int local_40;
+  int local_3c;
+  int local_38;
+  int local_34;
+  int local_30;
+  undefined4 local_2c;
+  void *local_28;
+  size_t local_24;
+  int local_20 [4];
+  
+  uVar1 = FontCache__GetFTLibraryForThisThread(param_1);
+  iVar2 = FT_New_Memory_Face(uVar1,param_2,param_3,0,local_20);
+  iVar5 = 0;
+  if (iVar2 == 0) {
+    __s = *(char **)(local_20[0] + 0x14);
+    sVar3 = strlen(__s);
+    if (0x1f < sVar3) {
+      FUN_0400a810("strlen( fontFace->family_name ) < 32",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/gdi32/fontcache.cpp"
+                   ,0x168,"FontCacheResID FontCache::AddFontResource(const void*, uint32_t)");
+      __s = *(char **)(local_20[0] + 0x14);
+    }
+    strcpy((char *)&local_4c,__s);
+    FUN_0402cd10(5,"Added font resource: \'%s\'",&local_4c);
+    local_2c = CONCAT22(local_2c._2_2_,
+                        CONCAT11((char)*(uint *)(local_20[0] + 0xc),
+                                 (*(uint *)(local_20[0] + 0xc) & 2) != 0)) & 0xffff01ff;
+    local_24 = param_3;
+    local_28 = malloc(param_3);
+    memcpy(local_28,param_2,param_3);
+    iVar5 = param_1[3] + 1;
+    param_1[3] = iVar5;
+    FT_Done_Face(local_20[0]);
+    __src = (int *)param_1[1];
+    if (__src == (int *)param_1[2]) {
+      iVar2 = (int)__src - *param_1 >> 4;
+      uVar6 = 0x30;
+      if (iVar2 * -0x55555555 != 0) {
+        uVar6 = 0xfffffff0;
+        if (((uint)(iVar2 * -0x55555555) < (uint)(iVar2 * 0x55555556) || iVar2 * 0x55555555 == 0) &&
+           ((uint)(iVar2 * 0x55555556) < 0x5555556)) {
+          uVar6 = iVar2 * 0x20;
+        }
+      }
+      __dest_00 = operator_new(uVar6);
+      piVar4 = (int *)(iVar2 * 0x10 + (int)__dest_00);
+      if (piVar4 != (int *)0x0) {
+        *piVar4 = iVar5;
+        piVar4[1] = local_4c;
+        piVar4[2] = local_48;
+        piVar4[3] = local_44;
+        piVar4[4] = local_40;
+        piVar4[5] = local_3c;
+        piVar4[6] = local_38;
+        piVar4[7] = local_34;
+        piVar4[8] = local_30;
+        piVar4[9] = local_2c;
+        piVar4[10] = (int)local_28;
+        piVar4[0xb] = local_24;
+      }
+      sVar3 = 0;
+      iVar2 = (int)__src - *param_1 >> 4;
+      if (iVar2 * -0x55555555 != 0) {
+        sVar3 = iVar2 << 4;
+        memmove(__dest_00,(void *)*param_1,sVar3);
+      }
+      __dest = (void *)((int)__dest_00 + sVar3 + 0x30);
+      local_60 = 0;
+      iVar2 = param_1[1] - (int)__src >> 4;
+      if (iVar2 * -0x55555555 != 0) {
+        local_60 = iVar2 << 4;
+        memmove(__dest,__src,local_60);
+      }
+      if ((void *)*param_1 != (void *)0x0) {
+        operator_delete((void *)*param_1);
+      }
+      *param_1 = (int)__dest_00;
+      param_1[1] = (int)__dest + local_60;
+      param_1[2] = uVar6 + (int)__dest_00;
+    }
+    else {
+      iVar2 = 0;
+      if (__src != (int *)0x0) {
+        *__src = iVar5;
+        __src[1] = local_4c;
+        __src[2] = local_48;
+        __src[3] = local_44;
+        __src[4] = local_40;
+        __src[5] = local_3c;
+        __src[6] = local_38;
+        __src[7] = local_34;
+        __src[8] = local_30;
+        __src[9] = local_2c;
+        __src[10] = (int)local_28;
+        __src[0xb] = local_24;
+        iVar2 = param_1[1];
+      }
+      param_1[1] = iVar2 + 0x30;
+    }
+  }
+  return iVar5;
+}
+

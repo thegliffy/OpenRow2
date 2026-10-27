@@ -1,0 +1,191 @@
+
+/* source: ImageScaling */
+
+void ScaleImage1(int param_1,undefined4 param_2,undefined4 param_3,byte *param_4,int param_5,
+                int param_6,uint param_7,int param_8,int param_9)
+
+{
+  float fVar1;
+  int iVar2;
+  float fVar3;
+  void *__ptr;
+  void *__ptr_00;
+  int *__ptr_01;
+  int *__ptr_02;
+  int iVar4;
+  int iVar5;
+  int *piVar6;
+  uint uVar7;
+  void *pvVar8;
+  byte *pbVar9;
+  int iVar10;
+  int iVar11;
+  int iVar12;
+  float fVar13;
+  float fVar14;
+  float fVar15;
+  float fVar16;
+  int local_48;
+  int *local_44;
+  byte *local_40;
+  int *local_3c;
+  byte *local_2c;
+  void *local_28;
+  int local_24;
+  int local_20;
+  
+  local_40 = param_4;
+  if ((param_7 & 0x600000) != 0) {
+    FUN_0402cd10(10,"D3DX_FILTER_SRGB_IN and D3DX_FILTER_SRGB_OUT not implemented! Add them.");
+  }
+  param_7 = param_7 & 0xffff;
+  if (param_7 == 0) {
+    FUN_0400a810("filterMethod != 0",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/ImageScaling.cpp",0x299,
+                 "void ScaleImage1(const uint32_t*, uint32_t, uint32_t, uint32_t*, uint32_t, uint32_t, uint32_t, uint32_t, uint32_t)"
+                );
+  }
+  else {
+    if (param_7 == 3) {
+LAB_04014a40:
+      __ptr_01 = (int *)FUN_04010fd0();
+      __ptr_02 = (int *)FUN_04010fd0();
+      fVar3 = DAT_042dbf3c;
+      if (param_6 != 0) {
+        local_48 = 0;
+        local_44 = __ptr_02;
+        local_3c = __ptr_01;
+        do {
+          iVar4 = param_8 * *local_44 + param_1;
+          iVar5 = param_8 * local_44[1] + param_1;
+          if (param_5 != 0) {
+            local_20 = 0;
+            local_24 = 0;
+            local_2c = local_40;
+            piVar6 = __ptr_01;
+            do {
+              while( true ) {
+                iVar12 = *piVar6;
+                iVar11 = iVar12 + 7;
+                if (-1 < iVar12) {
+                  iVar11 = iVar12;
+                }
+                fVar13 = 0.0;
+                if ((*(byte *)(iVar4 + (iVar11 >> 3)) >> (iVar12 % 8 & 0x1fU) & 1) != 0) {
+                  fVar13 = fVar3;
+                }
+                iVar2 = piVar6[1];
+                iVar10 = iVar2;
+                if (iVar2 < 0) {
+                  iVar10 = iVar2 + 7;
+                }
+                fVar16 = 0.0;
+                if ((*(byte *)(iVar4 + (iVar10 >> 3)) >> (iVar2 % 8 & 0x1fU) & 1) != 0) {
+                  fVar16 = fVar3;
+                }
+                fVar15 = 0.0;
+                if ((*(byte *)(iVar5 + (iVar11 >> 3)) >> (iVar12 % 8 & 0x1fU) & 1) != 0) {
+                  fVar15 = fVar3;
+                }
+                fVar14 = 0.0;
+                if ((*(byte *)(iVar5 + (iVar10 >> 3)) >> (iVar2 % 8 & 0x1fU) & 1) != 0) {
+                  fVar14 = fVar3;
+                }
+                fVar1 = (float)piVar6[2];
+                if ((fVar3 - (float)local_3c[2]) * (fVar13 * (fVar3 - fVar1) + fVar16 * fVar1) +
+                    ((fVar3 - fVar1) * fVar15 + fVar1 * fVar14) * (float)local_3c[2] < DAT_042dbf38)
+                break;
+                *local_2c = *local_2c | (byte)(1 << ((byte)local_20 & 0x1f));
+                if (local_20 != 7) goto LAB_04014aee;
+LAB_04014bf5:
+                local_24 = local_24 + 1;
+                piVar6 = piVar6 + 4;
+                local_20 = 0;
+                local_2c = local_2c + 1;
+                if (local_24 == param_5) goto LAB_04014c13;
+              }
+              *local_2c = *local_2c &
+                          ((byte)(-2 << ((byte)local_20 & 0x1f)) |
+                          (byte)(0xfffffffe >> 0x20 - ((byte)local_20 & 0x1f)));
+              if (local_20 == 7) goto LAB_04014bf5;
+LAB_04014aee:
+              local_20 = local_20 + 1;
+              local_24 = local_24 + 1;
+              piVar6 = piVar6 + 4;
+            } while (local_24 != param_5);
+          }
+LAB_04014c13:
+          local_48 = local_48 + 1;
+          local_44 = local_44 + 4;
+          local_40 = local_40 + param_9;
+          local_3c = local_3c + 4;
+        } while (local_48 != param_6);
+      }
+      free(__ptr_01);
+      free(__ptr_02);
+      return;
+    }
+    if (param_7 < 4) {
+      if (param_7 == 2) {
+        __ptr = (void *)FUN_04010fd0();
+        __ptr_00 = (void *)FUN_04010fd0();
+        if (param_6 != 0) {
+          local_2c = (byte *)0x0;
+          local_28 = __ptr_00;
+          do {
+            iVar4 = *(int *)((int)local_28 + 0xc);
+            if (param_5 != 0) {
+              uVar7 = 0;
+              local_3c = (int *)0x0;
+              pvVar8 = __ptr;
+              pbVar9 = local_40;
+              do {
+                while( true ) {
+                  iVar5 = *(int *)((int)pvVar8 + 0xc);
+                  iVar12 = iVar5 + 7;
+                  if (-1 < iVar5) {
+                    iVar12 = iVar5;
+                  }
+                  if ((*(byte *)(param_8 * iVar4 + param_1 + (iVar12 >> 3)) >> (iVar5 % 8 & 0x1fU) &
+                      1) == 0) break;
+                  *pbVar9 = *pbVar9 | (byte)(1 << ((byte)uVar7 & 0x1f));
+                  if (uVar7 != 7) goto LAB_0401497e;
+LAB_040149d1:
+                  local_3c = (int *)((int)local_3c + 1);
+                  pbVar9 = pbVar9 + 1;
+                  uVar7 = uVar7 + 1 & 0xffffff00;
+                  pvVar8 = (void *)((int)pvVar8 + 0x10);
+                  if (local_3c == (int *)param_5) goto LAB_040149e5;
+                }
+                *pbVar9 = *pbVar9 & ~(byte)(1 << ((byte)uVar7 & 0x1f));
+                if (uVar7 == 7) goto LAB_040149d1;
+LAB_0401497e:
+                uVar7 = uVar7 + 1;
+                local_3c = (int *)((int)local_3c + 1);
+                pvVar8 = (void *)((int)pvVar8 + 0x10);
+              } while (local_3c != (int *)param_5);
+            }
+LAB_040149e5:
+            local_2c = (byte *)((int)local_2c + 1);
+            local_28 = (void *)((int)local_28 + 0x10);
+            local_40 = local_40 + param_9;
+          } while (local_2c != (byte *)param_6);
+        }
+        free(__ptr);
+        free(__ptr_00);
+        return;
+      }
+    }
+    else if (param_7 == 4) {
+      FUN_0400a810("false",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/ImageScaling.cpp",0x2b6
+                   ,
+                   "void ScaleImage1(const uint32_t*, uint32_t, uint32_t, uint32_t*, uint32_t, uint32_t, uint32_t, uint32_t, uint32_t)"
+                  );
+      goto LAB_04014a40;
+    }
+  }
+  FUN_0400a810();
+  return;
+}
+

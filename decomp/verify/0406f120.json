@@ -1,0 +1,24 @@
+
+/* source: direct3dcubetexture9imp */
+
+undefined4 Direct3DCubeTexture9Imp__AddDirtyRect(int param_1,uint param_2,undefined4 param_3)
+
+{
+  if (*(int *)(param_1 + 0x1c) != 0) {
+    direct3ddevice9imp_040803c0(*(int *)(param_1 + 0x1c) + 0x40);
+  }
+  if (5 < param_2) {
+                    /* try { // try from 0406f16a to 0406f187 has its CatchHandler @ 0406f1a5 */
+    FUN_0400a810("(DWORD) FaceType < 6",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3dcubetexture9imp.cpp"
+                 ,0xc4,
+                 "virtual HRESULT Direct3DCubeTexture9Imp::AddDirtyRect(D3DCUBEMAP_FACES, const RECT*)"
+                );
+  }
+  FUN_0406df80(param_1 + 0x290 + param_2 * 0x1c,param_3);
+  if (*(int *)(param_1 + 0x1c) != 0) {
+    direct3ddevice9imp_04080490(*(int *)(param_1 + 0x1c) + 0x40);
+  }
+  return 0;
+}
+

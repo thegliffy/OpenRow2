@@ -1,0 +1,116 @@
+
+/* source: shadercache */
+
+void ShaderCache__ClearCaches(int param_1)
+
+{
+  int iVar1;
+  void *pvVar2;
+  undefined4 uVar3;
+  undefined4 *puVar4;
+  void *pvVar5;
+  int iVar6;
+  int iVar7;
+  uint uVar8;
+  
+  iVar6 = *(int *)(param_1 + 0x10);
+  iVar1 = *(int *)(param_1 + 0xc);
+  uVar3 = 0;
+  if (iVar6 != 0) {
+    iVar7 = 0;
+    do {
+      pvVar5 = *(void **)(iVar1 + iVar7 * 4);
+      while (pvVar5 != (void *)0x0) {
+        pvVar2 = *(void **)((int)pvVar5 + 0xc);
+        operator_delete(pvVar5);
+        pvVar5 = pvVar2;
+      }
+      *(undefined4 *)(iVar1 + iVar7 * 4) = 0;
+      iVar7 = iVar7 + 1;
+    } while (iVar7 != iVar6);
+    uVar3 = *(undefined4 *)(param_1 + 0x10);
+  }
+  iVar6 = *(int *)(param_1 + 0x34);
+  *(undefined4 *)(param_1 + 0x14) = uVar3;
+  iVar1 = *(int *)(param_1 + 0x30);
+  *(undefined4 *)(param_1 + 0x18) = 0;
+  uVar3 = 0;
+  if (iVar6 != 0) {
+    iVar7 = 0;
+    do {
+      pvVar5 = *(void **)(iVar1 + iVar7 * 4);
+      while (pvVar5 != (void *)0x0) {
+        pvVar2 = *(void **)((int)pvVar5 + 0xc);
+        operator_delete(pvVar5);
+        pvVar5 = pvVar2;
+      }
+      *(undefined4 *)(iVar1 + iVar7 * 4) = 0;
+      iVar7 = iVar7 + 1;
+    } while (iVar7 != iVar6);
+    uVar3 = *(undefined4 *)(param_1 + 0x34);
+  }
+  iVar6 = *(int *)(param_1 + 0x58);
+  *(undefined4 *)(param_1 + 0x38) = uVar3;
+  iVar1 = *(int *)(param_1 + 0x54);
+  *(undefined4 *)(param_1 + 0x3c) = 0;
+  uVar3 = 0;
+  if (iVar6 != 0) {
+    iVar7 = 0;
+    do {
+      pvVar5 = *(void **)(iVar1 + iVar7 * 4);
+      while (pvVar5 != (void *)0x0) {
+        pvVar2 = *(void **)((int)pvVar5 + 0x28);
+        operator_delete(pvVar5);
+        pvVar5 = pvVar2;
+      }
+      *(undefined4 *)(iVar1 + iVar7 * 4) = 0;
+      iVar7 = iVar7 + 1;
+    } while (iVar7 != iVar6);
+    uVar3 = *(undefined4 *)(param_1 + 0x58);
+  }
+  iVar6 = *(int *)(param_1 + 0x7c);
+  *(undefined4 *)(param_1 + 0x5c) = uVar3;
+  iVar1 = *(int *)(param_1 + 0x78);
+  *(undefined4 *)(param_1 + 0x60) = 0;
+  uVar3 = 0;
+  if (iVar6 != 0) {
+    iVar7 = 0;
+    do {
+      pvVar5 = *(void **)(iVar1 + iVar7 * 4);
+      while (pvVar5 != (void *)0x0) {
+        pvVar2 = *(void **)((int)pvVar5 + 0x70);
+        operator_delete(pvVar5);
+        pvVar5 = pvVar2;
+      }
+      *(undefined4 *)(iVar1 + iVar7 * 4) = 0;
+      iVar7 = iVar7 + 1;
+    } while (iVar7 != iVar6);
+    uVar3 = *(undefined4 *)(param_1 + 0x7c);
+  }
+  *(undefined4 *)(param_1 + 0x80) = uVar3;
+  pvVar5 = *(void **)(param_1 + 0xb8);
+  *(undefined4 *)(param_1 + 0x84) = 0;
+  if (pvVar5 != (void *)0x0) {
+    if (*(int *)(param_1 + 0xbc) != 0) {
+      iVar6 = 0;
+      uVar8 = 0;
+      do {
+        puVar4 = (undefined4 *)((int)pvVar5 + iVar6);
+        if (puVar4[1] != 0) {
+          FUN_0400a810("!PreparedShaders[i].ShaderID",
+                       "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/shadercache.cpp"
+                       ,0x6b,"void ShaderCache::ClearCaches()");
+          puVar4 = (undefined4 *)(*(int *)(param_1 + 0xb8) + iVar6);
+        }
+        uVar8 = uVar8 + 1;
+        iVar6 = iVar6 + 0xc;
+        free((void *)*puVar4);
+        pvVar5 = *(void **)(param_1 + 0xb8);
+      } while (uVar8 < *(uint *)(param_1 + 0xbc));
+    }
+    free(pvVar5);
+    *(undefined4 *)(param_1 + 0xb8) = 0;
+  }
+  return;
+}
+

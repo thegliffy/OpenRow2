@@ -1,0 +1,33 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+bool _glewInit_GL_SUN_global_alpha(void)
+
+{
+  int iVar1;
+  bool bVar2;
+  bool bVar3;
+  bool bVar4;
+  bool bVar5;
+  bool bVar6;
+  bool bVar7;
+  
+  iVar1 = glXGetProcAddressARB("glGlobalAlphaFactorbSUN");
+  _DAT_0451cbc0 = iVar1;
+  _DAT_0451cbbc = glXGetProcAddressARB("glGlobalAlphaFactordSUN");
+  bVar2 = _DAT_0451cbbc == 0;
+  _DAT_0451cbb8 = glXGetProcAddressARB("glGlobalAlphaFactorfSUN");
+  bVar3 = _DAT_0451cbb8 == 0;
+  _DAT_0451cbb4 = glXGetProcAddressARB("glGlobalAlphaFactoriSUN");
+  bVar4 = _DAT_0451cbb4 == 0;
+  _DAT_0451cbb0 = glXGetProcAddressARB("glGlobalAlphaFactorsSUN");
+  bVar5 = _DAT_0451cbb0 == 0;
+  _DAT_0451cbac = glXGetProcAddressARB("glGlobalAlphaFactorubSUN");
+  bVar6 = _DAT_0451cbac == 0;
+  _DAT_0451cba8 = glXGetProcAddressARB("glGlobalAlphaFactoruiSUN");
+  bVar7 = _DAT_0451cba8 == 0;
+  _DAT_0451cba4 = glXGetProcAddressARB("glGlobalAlphaFactorusSUN");
+  return _DAT_0451cba4 == 0 ||
+         (bVar7 || (bVar6 || (bVar5 || (bVar4 || (bVar3 || (bVar2 || iVar1 == 0))))));
+}
+

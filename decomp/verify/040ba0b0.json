@@ -1,0 +1,18 @@
+
+/* source: display */
+
+void Direct3DDevice9Imp__DeleteRenderbufferInOpenGL(void)
+
+{
+  int iVar1;
+  
+  iVar1 = eON_Int_GL_NoteCurrentContext();
+  if (iVar1 == 0) {
+    FUN_0400a810("GetRawCurrentOpenGLContext()",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/display.cpp"
+                 ,0x12e,"void Direct3DDevice9Imp::DeleteRenderbufferInOpenGL(GLuint)");
+  }
+  (*DAT_0451e680)(1,&stack0x00000008);
+  return;
+}
+

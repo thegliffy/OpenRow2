@@ -1,0 +1,56 @@
+
+/* source: winsock */
+
+undefined4 eON_getsockname(int param_1,undefined4 *param_2,int *param_3)
+
+{
+  undefined4 *puVar1;
+  int iVar2;
+  int *piVar3;
+  sockaddr local_34;
+  socklen_t local_24 [4];
+  undefined4 *local_14;
+  
+  piVar3 = param_3;
+  puVar1 = param_2;
+  local_14 = &param_1;
+  if (((param_3 == (int *)0x0) || (param_2 == (undefined4 *)0x0)) || (*param_3 < 0x10)) {
+    eON_SetLastError(0x271e);
+    return 0xffffffff;
+  }
+  local_24[0] = 0x10;
+  iVar2 = getsockname(param_1,&local_34,local_24);
+  if (iVar2 != -1) {
+    *puVar1 = local_34._0_4_;
+    puVar1[1] = local_34.sa_data._2_4_;
+    puVar1[2] = local_34.sa_data._6_4_;
+    puVar1[3] = local_34.sa_data._10_4_;
+    *piVar3 = 0x10;
+    return 0;
+  }
+  piVar3 = __errno_location();
+  iVar2 = *piVar3;
+  if (iVar2 == 0xe) {
+    FUN_0400a810("false",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/winsock/winsock.cpp"
+                 ,0x9ec,"INT eON_getsockname(SOCKET, eON_sockaddr*, INT*)");
+LAB_04194ebc:
+    eON_SetLastError(0x2726);
+  }
+  else {
+    if (iVar2 < 0xf) {
+      if (iVar2 != 9) {
+LAB_04194e75:
+        FUN_0402cd10(0xf,"SOCKETS: Unhandled error %d in select()",iVar2);
+        return 0xffffffff;
+      }
+    }
+    else {
+      if (iVar2 == 0x16) goto LAB_04194ebc;
+      if (iVar2 != 0x58) goto LAB_04194e75;
+    }
+    eON_SetLastError(0x2736);
+  }
+  return 0xffffffff;
+}
+

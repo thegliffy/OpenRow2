@@ -1,0 +1,150 @@
+
+int eON_ShellExecuteA(undefined4 param_1,char *param_2,char *param_3,char *param_4,
+                     undefined4 param_5,undefined4 param_6)
+
+{
+  char cVar1;
+  size_t sVar2;
+  int iVar3;
+  char *pcVar4;
+  char *pcVar5;
+  bool bVar6;
+  byte bVar7;
+  
+  bVar7 = 0;
+  if (param_3 == (char *)0x0) {
+LAB_0416b320:
+    FUN_0402cd10(5,"eON_ShellExecuteA called with window handle: %p",param_1);
+    FUN_0402cd10(5,"                                  operation: %s",param_2);
+    FUN_0402cd10(5,"                                       file: %s",param_3);
+    FUN_0402cd10(5,"                                 parameters: %s",param_4);
+    FUN_0402cd10(5,"                                  directory: %s",param_5);
+    switch(param_6) {
+    case 0:
+      iVar3 = 0;
+      FUN_0402cd10(5,"                               show command: SW_HIDE",param_5);
+      break;
+    case 1:
+      iVar3 = 0;
+      FUN_0402cd10(5,"                               show command: SW_SHOWNORMAL",param_5);
+      break;
+    case 2:
+      iVar3 = 0;
+      FUN_0402cd10(5,"                               show command: SW_SHOWMINIMIZED",param_5);
+      break;
+    case 3:
+      iVar3 = 0;
+      FUN_0402cd10(5,
+                   "                               show command: SW_MAXIMIZE (or SW_SHOWMAXIMIZED)",
+                   param_5);
+      break;
+    case 4:
+      iVar3 = 0;
+      FUN_0402cd10(5,"                               show command: SW_SHOWNOACTIVATE",param_5);
+      break;
+    case 5:
+      iVar3 = 0;
+      FUN_0402cd10(5,"                               show command: SW_SHOW",param_5);
+      break;
+    case 6:
+      iVar3 = 0;
+      FUN_0402cd10(5,"                               show command: SW_MINIMIZE",param_5);
+      break;
+    case 7:
+      iVar3 = 0;
+      FUN_0402cd10(5,"                               show command: SW_SHOWMINNOACTIVE",param_5);
+      break;
+    case 8:
+      iVar3 = 0;
+      FUN_0402cd10(5,"                               show command: SW_SHOWNA",param_5);
+      break;
+    case 9:
+      iVar3 = 0;
+      FUN_0402cd10(5,"                               show command: SW_RESTORE",param_5);
+      break;
+    case 10:
+      iVar3 = 0;
+      FUN_0402cd10(5,"                               show command: SW_SHOWDEFAULT",param_5);
+      break;
+    default:
+      iVar3 = 0;
+      FUN_0402cd10(5,"                               show command: !!!unknown!!!",param_5);
+    }
+  }
+  else {
+    iVar3 = 7;
+    bVar6 = false;
+    pcVar4 = param_3;
+    pcVar5 = "http://";
+    do {
+      if (iVar3 == 0) break;
+      iVar3 = iVar3 + -1;
+      bVar6 = *pcVar4 == *pcVar5;
+      pcVar4 = pcVar4 + 1;
+      pcVar5 = pcVar5 + 1;
+    } while (bVar6);
+    if (bVar6) {
+      bVar6 = param_2 == (char *)0x0;
+      if (!bVar6) {
+        iVar3 = 5;
+        pcVar4 = param_2;
+        pcVar5 = "open";
+        do {
+          if (iVar3 == 0) break;
+          iVar3 = iVar3 + -1;
+          bVar6 = *pcVar4 == *pcVar5;
+          pcVar4 = pcVar4 + 1;
+          pcVar5 = pcVar5 + 1;
+        } while (bVar6);
+        if (!bVar6) goto LAB_0416b2c0;
+      }
+      cVar1 = FUN_0402d6a0();
+      if (cVar1 != '\0') {
+        FUN_0401f210();
+      }
+    }
+    else {
+LAB_0416b2c0:
+      iVar3 = 0xd;
+      pcVar4 = param_3;
+      pcVar5 = "rundll32.exe";
+      do {
+        if (iVar3 == 0) break;
+        iVar3 = iVar3 + -1;
+        bVar6 = *pcVar4 == *pcVar5;
+        pcVar4 = pcVar4 + 1;
+        pcVar5 = pcVar5 + 1;
+      } while (bVar6);
+      if (!bVar6) goto LAB_0416b320;
+      if (param_4 == (char *)0x0) {
+        return 2;
+      }
+      sVar2 = strlen(param_4);
+      bVar6 = sVar2 == 7;
+      if ((int)sVar2 < 8) {
+        return 2;
+      }
+      iVar3 = 7;
+      pcVar4 = param_4;
+      pcVar5 = "url.dll";
+      do {
+        if (iVar3 == 0) break;
+        iVar3 = iVar3 + -1;
+        bVar6 = *pcVar4 == *pcVar5;
+        pcVar4 = pcVar4 + (uint)bVar7 * -2 + 1;
+        pcVar5 = pcVar5 + (uint)bVar7 * -2 + 1;
+      } while (bVar6);
+      if (!bVar6) {
+        return 2;
+      }
+      param_3 = strstr(param_4,"http");
+      if (param_3 == (char *)0x0) {
+        return 2;
+      }
+    }
+    cVar1 = OpenURLInDefaultBrowser(param_3);
+    iVar3 = (-(uint)(cVar1 == '\0') & 0xffffffc2) + 0x40;
+  }
+  return iVar3;
+}
+

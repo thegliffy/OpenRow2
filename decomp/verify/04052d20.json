@@ -1,0 +1,22 @@
+
+void eON_ShaderData_convert_texkill(int *param_1)
+
+{
+  undefined **ppuVar1;
+  undefined1 local_ac [128];
+  undefined1 local_2c;
+  
+  local_ac[0] = 0;
+  local_2c = 0;
+  eON_ShaderData__InputRegisterIsColor(local_ac);
+  ShaderData_AppendDestMask();
+  ppuVar1 = &PTR_DAT_042fc19b;
+  if (1 < *(int *)(*param_1 + 8)) {
+    ppuVar1 = (undefined **)&DAT_042e767d;
+  }
+  eON_AppendShaderCompileMessage
+            (param_1[0xe],"if( any( lessThan( %s.%s, vec%d(0.0) ) ) ) discard;\n",local_ac,ppuVar1,
+             (1 < *(int *)(*param_1 + 8)) + '\x03');
+  return;
+}
+

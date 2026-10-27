@@ -1,0 +1,107 @@
+
+/* source: mem_vm */
+
+int __regparm3 GetPagesProtection(int param_1,int param_2,int param_3,undefined4 *param_4)
+
+{
+  uint *puVar1;
+  uint uVar2;
+  int iVar3;
+  uint uVar4;
+  uint uVar5;
+  uint *puVar6;
+  int local_34;
+  uint local_24;
+  
+  if ((param_1 == 0) || (*(int *)(param_1 + 0x30) == 0)) {
+    FUN_0400a810("region && region->ProtectTable",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/mem_vm.cpp"
+                 ,0x37a,"SIZE_T GetPagesProtection(ReservedRegion*, LPVOID, SIZE_T, LPDWORD)");
+  }
+  if (param_3 == 0) {
+    FUN_0400a810("pageCount",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/mem_vm.cpp"
+                 ,0x37b,"SIZE_T GetPagesProtection(ReservedRegion*, LPVOID, SIZE_T, LPDWORD)");
+    return 0;
+  }
+  local_24 = 0xffffffff;
+  uVar5 = ((uint)(param_2 - *(int *)(param_1 + 8)) >> 0xc) * 3;
+  uVar4 = uVar5 & 0x1f;
+  puVar6 = (uint *)(*(int *)(param_1 + 0x30) + (uVar5 >> 5) * 4);
+  local_34 = 0;
+  do {
+    while( true ) {
+      uVar5 = *puVar6;
+      uVar2 = (uint)((1 << ((byte)uVar4 & 0x1f) & uVar5) != 0);
+      if (uVar4 + 1 != 0x20) break;
+      uVar5 = puVar6[1];
+      puVar6 = puVar6 + 1;
+      iVar3 = 1;
+      if ((uVar5 & 1) != 0) {
+        uVar2 = uVar2 | 2;
+      }
+LAB_0413b4bd:
+      uVar4 = iVar3 + 1;
+      if ((1 << ((byte)iVar3 & 0x1f) & uVar5) != 0) {
+        uVar2 = uVar2 | 4;
+      }
+      if (uVar4 != 0x20) goto LAB_0413b4d6;
+      puVar6 = puVar6 + 1;
+      uVar4 = 0;
+      if (local_24 == 0xffffffff) goto LAB_0413b560;
+LAB_0413b4e0:
+      if (local_24 != uVar2) {
+        return local_34;
+      }
+      local_34 = local_34 + 1;
+      if (local_34 == param_3) {
+        return local_34;
+      }
+    }
+    iVar3 = uVar4 + 2;
+    if ((1 << ((byte)(uVar4 + 1) & 0x1f) & uVar5) != 0) {
+      uVar2 = uVar2 | 2;
+    }
+    if (iVar3 != 0x20) goto LAB_0413b4bd;
+    puVar1 = puVar6 + 1;
+    puVar6 = puVar6 + 1;
+    uVar4 = 1;
+    if ((*puVar1 & 1) != 0) {
+      uVar2 = uVar2 | 4;
+    }
+LAB_0413b4d6:
+    if (local_24 != 0xffffffff) goto LAB_0413b4e0;
+LAB_0413b560:
+    switch(uVar2) {
+    default:
+      *param_4 = 1;
+      break;
+    case 1:
+      *param_4 = 2;
+      break;
+    case 2:
+      *param_4 = 8;
+      break;
+    case 3:
+      *param_4 = 4;
+      break;
+    case 4:
+      *param_4 = 0x10;
+      break;
+    case 5:
+      *param_4 = 0x20;
+      break;
+    case 6:
+      *param_4 = 0x80;
+      break;
+    case 7:
+      *param_4 = 0x40;
+    }
+    local_34 = local_34 + 1;
+    local_24 = uVar2;
+    if (local_34 == param_3) {
+      return local_34;
+    }
+  } while( true );
+}
+

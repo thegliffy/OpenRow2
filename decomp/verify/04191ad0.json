@@ -1,0 +1,13 @@
+
+char * SocketTypeToString(uint param_1)
+
+{
+  char *pcVar1;
+  
+  pcVar1 = "(unknown type)";
+  if (param_1 < 6) {
+    pcVar1 = (&PTR_s_SOCK_ANY_04350164)[param_1];
+  }
+  return pcVar1;
+}
+

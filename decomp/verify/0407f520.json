@@ -1,0 +1,132 @@
+
+/* source: direct3ddevice9imp */
+
+undefined4 Direct3DDevice9Imp__GetLight(int param_1,uint param_2,undefined4 *param_3)
+
+{
+  int *piVar1;
+  undefined2 uVar2;
+  undefined4 uVar3;
+  uint uVar4;
+  int iVar5;
+  uint uVar6;
+  int iVar7;
+  int iVar8;
+  int *piVar9;
+  undefined4 *puVar10;
+  bool bVar11;
+  byte bVar12;
+  undefined4 uStack_50;
+  int local_4c [7];
+  int local_30;
+  int local_24;
+  int *local_20 [4];
+  
+  bVar12 = 0;
+  piVar9 = local_4c;
+  if (param_3 == (undefined4 *)0x0) {
+    uVar3 = 0x8876086c;
+  }
+  else {
+    iVar8 = *(int *)(param_1 + 0xc);
+    local_20[0] = &local_24;
+    local_24 = iVar8;
+    if (iVar8 != 0) {
+      piVar9 = local_4c;
+      if (*(char *)(iVar8 + 0xebbc) != '\0') {
+        local_4c[0] = iVar8 + 0xebc4;
+        uStack_50 = 0x407f6be;
+        EnterCriticalSection();
+        piVar9 = &uStack_50;
+      }
+      if (*(int *)(iVar8 + 0xec64) == 0) {
+        if (*(int *)(iVar8 + 0xebc0) != 0) {
+          piVar9[3] = (int)"void Direct3DDevice9Imp::MultithreadedGuard_Enter()";
+          piVar9[2] = 0x3ae;
+          piVar9[1] = (int)
+                      "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+          ;
+          *piVar9 = (int)"!mCurrentD3D9Thread";
+          piVar9[-1] = 0x407f65c;
+          FUN_0400a810();
+        }
+        piVar9[-1] = 0x407f578;
+        uVar3 = FUN_0415b750();
+        *(undefined4 *)(iVar8 + 0xebc0) = uVar3;
+      }
+      else {
+        local_30 = *(int *)(iVar8 + 0xebc0);
+        piVar9[-1] = 0x407f676;
+        iVar5 = FUN_0415b750();
+        if (local_30 != iVar5) {
+          piVar9[3] = (int)"void Direct3DDevice9Imp::MultithreadedGuard_Enter()";
+          piVar9[2] = 0x3b3;
+          piVar9[1] = (int)
+                      "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+          ;
+          *piVar9 = (int)"mCurrentD3D9Thread == thread_GetCurrentThreadId()";
+          piVar9[-1] = 0x407f6a3;
+          FUN_0400a810();
+        }
+      }
+      *(int *)(iVar8 + 0xec64) = *(int *)(iVar8 + 0xec64) + 1;
+    }
+    uVar3 = 0x8876086c;
+    if (*(int *)(param_1 + 0x75c4) != 0) {
+      iVar8 = *(int *)(param_1 + 0x75c4);
+      iVar5 = param_1 + 0x75c0;
+      do {
+        while (iVar7 = iVar8, param_2 <= *(uint *)(iVar7 + 0x10)) {
+          iVar8 = *(int *)(iVar7 + 8);
+          iVar5 = iVar7;
+          if (*(int *)(iVar7 + 8) == 0) goto LAB_0407f5b5;
+        }
+        piVar1 = (int *)(iVar7 + 0xc);
+        iVar8 = *piVar1;
+        iVar7 = iVar5;
+      } while (*piVar1 != 0);
+LAB_0407f5b5:
+      uVar3 = 0x8876086c;
+      if ((param_1 + 0x75c0 != iVar7) && (*(uint *)(iVar7 + 0x10) <= param_2)) {
+        puVar10 = (undefined4 *)(iVar7 + 0x18);
+        uVar4 = 0x68;
+        bVar11 = ((uint)param_3 & 1) != 0;
+        if (bVar11) {
+          puVar10 = (undefined4 *)(iVar7 + 0x19);
+          *(undefined1 *)param_3 = *(undefined1 *)(iVar7 + 0x18);
+          param_3 = (undefined4 *)((int)param_3 + 1);
+          uVar4 = 0x67;
+        }
+        if (((uint)param_3 & 2) != 0) {
+          uVar2 = *(undefined2 *)puVar10;
+          uVar4 = uVar4 - 2;
+          puVar10 = (undefined4 *)((int)puVar10 + 2);
+          *(undefined2 *)param_3 = uVar2;
+          param_3 = (undefined4 *)((int)param_3 + 2);
+        }
+        iVar8 = 0;
+        for (uVar6 = uVar4 >> 2; uVar6 != 0; uVar6 = uVar6 - 1) {
+          *param_3 = *puVar10;
+          puVar10 = puVar10 + (uint)bVar12 * -2 + 1;
+          param_3 = param_3 + (uint)bVar12 * -2 + 1;
+        }
+        if ((uVar4 & 2) != 0) {
+          *(undefined2 *)param_3 = *(undefined2 *)puVar10;
+          iVar8 = 2;
+        }
+        if (bVar11) {
+          uVar3 = 0;
+          *(undefined1 *)((int)param_3 + iVar8) = *(undefined1 *)((int)puVar10 + iVar8);
+        }
+        else {
+          uVar3 = 0;
+        }
+      }
+    }
+    *piVar9 = (int)local_20;
+    piVar9[-1] = 0x407f604;
+    direct3ddevice9imp_040a2df0();
+  }
+  return uVar3;
+}
+

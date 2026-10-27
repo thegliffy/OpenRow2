@@ -1,0 +1,18 @@
+
+void eON_LogSystem_Shutdown(void)
+
+{
+  FUN_0402cd10(0x14,"Log system shutdown");
+  pthread_mutex_lock((pthread_mutex_t *)&DAT_04411678);
+  if (DAT_0441166c != '\0') {
+    DAT_0441166c = '\0';
+    if (DAT_04411674 != (FILE *)0x0) {
+      fflush(DAT_04411674);
+      fclose(DAT_04411674);
+      DAT_04411674 = (FILE *)0x0;
+    }
+  }
+  pthread_mutex_unlock((pthread_mutex_t *)&DAT_04411678);
+  return;
+}
+

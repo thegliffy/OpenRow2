@@ -1,0 +1,23 @@
+
+void Direct3DCubeTexture9Imp__Direct3DCubeTexture9Imp(undefined4 *param_1,undefined4 param_2)
+
+{
+  Direct3DBaseTexture9Imp__Direct3DBaseTexture9Imp(param_1,param_2);
+  *param_1 = &PTR_FUN_042efac8;
+                    /* try { // try from 0406f260 to 0406f264 has its CatchHandler @ 0406f2c6 */
+  FUN_0406d680(param_1 + 0xa4);
+                    /* try { // try from 0406f26e to 0406f272 has its CatchHandler @ 0406f322 */
+  FUN_0406d680(param_1 + 0xab);
+                    /* try { // try from 0406f27c to 0406f280 has its CatchHandler @ 0406f31b */
+  FUN_0406d680(param_1 + 0xb2);
+                    /* try { // try from 0406f28a to 0406f28e has its CatchHandler @ 0406f314 */
+  FUN_0406d680(param_1 + 0xb9);
+                    /* try { // try from 0406f298 to 0406f29c has its CatchHandler @ 0406f30d */
+  FUN_0406d680(param_1 + 0xc0);
+                    /* try { // try from 0406f2a6 to 0406f2aa has its CatchHandler @ 0406f2f3 */
+  FUN_0406d680(param_1 + 199);
+  param_1[1] = "Direct3DCubeTexture9Imp";
+  param_1[8] = 5;
+  return;
+}
+

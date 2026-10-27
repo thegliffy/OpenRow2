@@ -1,0 +1,35 @@
+
+size_t eON_SetBitmapBits(int param_1,uint param_2,void *param_3)
+
+{
+  void *__dest;
+  size_t __size;
+  uint uVar1;
+  
+  __size = 0;
+  if (((param_3 != (void *)0x0) && (param_1 != 0)) && (param_2 != 0)) {
+    if (*(int *)(param_1 + 0x20) == 0) {
+      param_2 = param_2 / *(uint *)(param_1 + 0x14);
+      uVar1 = *(uint *)(param_1 + 0x10);
+      if ((int)param_2 <= (int)*(uint *)(param_1 + 0x10)) {
+        uVar1 = param_2;
+      }
+      __dest = *(void **)(param_1 + 0x1c);
+      __size = uVar1 * *(uint *)(param_1 + 0x14);
+      if (__dest == (void *)0x0) {
+        __dest = malloc(__size);
+        *(void **)(param_1 + 0x1c) = __dest;
+        if (__dest == (void *)0x0) {
+          return 0;
+        }
+      }
+      memcpy(__dest,param_3,__size);
+    }
+    else {
+      FUN_0402cd10(5,"Add DIB capability to SetBitmapBits");
+      __size = 0;
+    }
+  }
+  return __size;
+}
+

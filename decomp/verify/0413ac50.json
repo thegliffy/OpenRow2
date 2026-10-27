@@ -1,0 +1,171 @@
+
+/* source: mem_vm */
+
+undefined4 __regparm2
+vmm_ReserveRegion(void *param_1,size_t param_2,undefined4 param_3,char param_4,undefined4 *param_5)
+
+{
+  void *pvVar1;
+  uint uVar2;
+  undefined4 *puVar3;
+  int *piVar4;
+  undefined4 uVar5;
+  undefined4 *puVar6;
+  undefined8 uVar7;
+  undefined8 uVar8;
+  undefined4 *local_20 [4];
+  
+  if (param_1 == (void *)0x0) {
+    param_1 = (void *)vmm_ReserveNewRegion(param_4,local_20);
+    if (param_1 != (void *)0x0) goto LAB_0413acea;
+    pthread_mutex_unlock((pthread_mutex_t *)&DAT_04515bf4);
+    uVar7 = eON_GetTickCount();
+    FUN_0402cd10(0xf,
+                 "Stalling to avoid going out of memory in vmm_ReserveRegion! Lower your memory requirements to avoid a crash!"
+                );
+    do {
+      sched_yield();
+      pthread_mutex_lock((pthread_mutex_t *)&DAT_04515bf4);
+      param_1 = (void *)vmm_ReserveNewRegion(param_4,local_20);
+      if (param_1 != (void *)0x0) {
+        pthread_mutex_lock((pthread_mutex_t *)&DAT_04515bf4);
+        goto LAB_0413acea;
+      }
+      pthread_mutex_unlock((pthread_mutex_t *)&DAT_04515bf4);
+      uVar8 = eON_GetTickCount();
+    } while (((int)((ulonglong)uVar8 >> 0x20) - (int)((ulonglong)uVar7 >> 0x20) ==
+              (uint)((uint)uVar8 < (uint)uVar7)) && ((uint)uVar8 - (uint)uVar7 < 100));
+    pthread_mutex_lock((pthread_mutex_t *)&DAT_04515bf4);
+    piVar4 = __errno_location();
+    uVar5 = 0x57;
+    if (*piVar4 == 0xc) {
+      uVar5 = 8;
+    }
+    eON_SetLastError(uVar5);
+  }
+  else {
+    pvVar1 = (void *)FUN_0402e5e0();
+    if ((pvVar1 <= param_1) && (param_1 < (void *)0xd0000000)) {
+      pvVar1 = (void *)FUN_0402e5f0();
+      if (param_1 < pvVar1) {
+        if (param_4 != '\0') {
+          FUN_0400a810("!needHighMemory",
+                       "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/mem_vm.cpp"
+                       ,0x644,
+                       "WINBOOL vmm_ReserveRegion(PVOID, SIZE_T, bool, bool, bool, ReservedRegion**)"
+                      );
+        }
+        uVar2 = FUN_0402e5f0();
+        if (uVar2 < param_2 + (int)param_1) {
+          eON_SetLastError(0x1e7);
+          return 0;
+        }
+        local_20[0] = DAT_04515be8;
+        if (DAT_04515be8 != (undefined4 *)0x0) {
+          uVar2 = DAT_04515be8[2];
+          pvVar1 = (void *)(DAT_04515be8[3] + uVar2);
+          puVar6 = DAT_04515be8;
+          while (pvVar1 <= param_1) {
+            local_20[0] = (undefined4 *)*puVar6;
+            if (local_20[0] == (undefined4 *)0x0) goto LAB_0413acea;
+            uVar2 = local_20[0][2];
+            puVar6 = local_20[0];
+            pvVar1 = (void *)(local_20[0][3] + uVar2);
+          }
+          local_20[0] = puVar6;
+          if (uVar2 < param_2 + (int)param_1) {
+            eON_SetLastError(0x1e7);
+            FUN_0402cd10(10,
+                         "Trying to reserve region at offset %p, size %#zx, colliding with region at address %p, size %#zx. Failed."
+                         ,param_1,param_2,puVar6[2],puVar6[3]);
+            return 0;
+          }
+        }
+        goto LAB_0413acea;
+      }
+      pvVar1 = mmap64(param_1,param_2,0,0x4022,0,0);
+      if (pvVar1 == (void *)0xffffffff) {
+        if (param_1 != pvVar1) {
+LAB_0413ada5:
+          piVar4 = __errno_location();
+          uVar5 = 8;
+          if (*piVar4 != 0xc) {
+            uVar5 = 0x57;
+          }
+          eON_SetLastError(uVar5);
+          return 0;
+        }
+      }
+      else if (param_1 != pvVar1) {
+        munmap(pvVar1,param_2);
+        goto LAB_0413ada5;
+      }
+      local_20[0] = (undefined4 *)0x0;
+      if (DAT_04515c0c != (undefined4 *)0x0) {
+        uVar2 = DAT_04515c0c[2];
+        puVar6 = DAT_04515c0c;
+        if (param_1 < (void *)(DAT_04515c0c[3] + uVar2)) {
+          do {
+            if (uVar2 < (int)param_1 + param_2) {
+              FUN_0400a810("(SIZE_T)region->Address >= (SIZE_T)addressAligned + sizeAligned",
+                           "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/mem_vm.cpp"
+                           ,0x683,
+                           "WINBOOL vmm_ReserveRegion(PVOID, SIZE_T, bool, bool, bool, ReservedRegion**)"
+                          );
+            }
+            puVar6 = (undefined4 *)puVar6[1];
+            local_20[0] = (undefined4 *)0x0;
+            if (puVar6 == (undefined4 *)0x0) goto LAB_0413acea;
+            uVar2 = puVar6[2];
+          } while (param_1 < (void *)(puVar6[3] + uVar2));
+        }
+        local_20[0] = (undefined4 *)*puVar6;
+      }
+LAB_0413acea:
+      puVar6 = local_20[0];
+      puVar3 = calloc(1,0x34);
+      puVar3[2] = param_1;
+      puVar3[3] = param_2;
+      if (puVar6 == (undefined4 *)0x0) {
+        if (DAT_04515c0c == (undefined4 *)0x0) {
+          if (DAT_04515be8 != (undefined4 *)0x0) {
+            FUN_0400a810("!FirstRegion",
+                         "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/mem_vm.cpp"
+                         ,0x6cb,
+                         "WINBOOL vmm_ReserveRegion(PVOID, SIZE_T, bool, bool, bool, ReservedRegion**)"
+                        );
+          }
+          puVar3[1] = 0;
+          *puVar3 = 0;
+          DAT_04515be8 = puVar3;
+          DAT_04515c0c = puVar3;
+        }
+        else {
+          *puVar3 = 0;
+          puVar3[1] = DAT_04515c0c;
+          *DAT_04515c0c = puVar3;
+          DAT_04515c0c = puVar3;
+        }
+      }
+      else {
+        uVar5 = puVar6[1];
+        *puVar3 = puVar6;
+        puVar3[1] = uVar5;
+        if ((undefined4 *)puVar6[1] == (undefined4 *)0x0) {
+          puVar6 = DAT_04515be8 + 1;
+          DAT_04515be8 = puVar3;
+          *puVar6 = puVar3;
+        }
+        else {
+          *(undefined4 *)puVar6[1] = puVar3;
+          puVar6[1] = puVar3;
+        }
+      }
+      *param_5 = puVar3;
+      return 1;
+    }
+    eON_SetLastError(0x57);
+  }
+  return 0;
+}
+

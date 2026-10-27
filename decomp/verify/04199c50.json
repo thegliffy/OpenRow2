@@ -1,0 +1,23 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+bool _glewInit_GL_ARB_matrix_palette(void)
+
+{
+  int iVar1;
+  bool bVar2;
+  bool bVar3;
+  bool bVar4;
+  
+  iVar1 = glXGetProcAddressARB("glCurrentPaletteMatrixARB");
+  _DAT_0451e51c = iVar1;
+  _DAT_0451e518 = glXGetProcAddressARB("glMatrixIndexPointerARB");
+  bVar2 = _DAT_0451e518 == 0;
+  _DAT_0451e514 = glXGetProcAddressARB("glMatrixIndexubvARB");
+  bVar3 = _DAT_0451e514 == 0;
+  _DAT_0451e510 = glXGetProcAddressARB("glMatrixIndexuivARB");
+  bVar4 = _DAT_0451e510 == 0;
+  _DAT_0451e50c = glXGetProcAddressARB("glMatrixIndexusvARB");
+  return _DAT_0451e50c == 0 || (bVar4 || (bVar3 || (bVar2 || iVar1 == 0)));
+}
+

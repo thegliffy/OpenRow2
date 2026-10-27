@@ -1,0 +1,13 @@
+
+char * D3DRESOURCETYPE_ToString(int param_1)
+
+{
+  char *pcVar1;
+  
+  pcVar1 = "!!!UNKNOWNTYPE!!!";
+  if (param_1 - 1U < 7) {
+    pcVar1 = (&PTR_s_D3DRTYPE_SURFACE_042f7c1c)[param_1 - 1U];
+  }
+  return pcVar1;
+}
+

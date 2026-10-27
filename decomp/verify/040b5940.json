@@ -1,0 +1,110 @@
+
+/* source: direct3dbasetexture9imp, direct3dvolume9imp */
+
+void __regparm3 direct3dbasetexture9imp_040b5940(int param_1,int param_2,char param_3,int *param_4)
+
+{
+  int iVar1;
+  int iVar2;
+  int iVar3;
+  int iVar4;
+  undefined4 uVar5;
+  int iVar6;
+  int iVar7;
+  bool bVar8;
+  
+  if (*(int *)(param_1 + 0x60) == 0x4c4c554e) {
+    FUN_0400a810("mDesc.Format != D3DFMT_NULL",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3dvolume9imp.cpp"
+                 ,0x271,
+                 "void Direct3DVolume9Imp::UploadOpenGLObjectData(INT, LPBYTE, bool, const D3DBOX*)"
+                );
+    iVar1 = *(int *)(param_1 + 0x6c);
+  }
+  else {
+    iVar1 = *(int *)(param_1 + 0x6c);
+  }
+  if (iVar1 - 2U < 2) {
+    FUN_0400a810("!IsPlainVolume()",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3dvolume9imp.cpp"
+                 ,0x272,
+                 "void Direct3DVolume9Imp::UploadOpenGLObjectData(INT, LPBYTE, bool, const D3DBOX*)"
+                );
+  }
+  direct3dbasetexture9imp_0406db60(*(int *)(param_1 + 0x58) + 4,0);
+  iVar1 = *(int *)(param_1 + 0x58);
+  if (*(int *)(iVar1 + 0x284) < 1) {
+    FUN_0400a810("(INT) mOpenGLTexturesCount > index",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3dbasetexture9imp.h"
+                 ,0x8c,"OpenGLTexture* Direct3DBaseTexture9Imp::GetOpenGLTexture(INT)");
+  }
+  iVar1 = *(int *)(iVar1 + 0x244);
+  if (iVar1 == 0) {
+    FUN_0400a810(&PTR_DAT_042e85bd,
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3dvolume9imp.cpp"
+                 ,0x282,
+                 "void Direct3DVolume9Imp::UploadOpenGLObjectData(INT, LPBYTE, bool, const D3DBOX*)"
+                );
+  }
+  uVar5 = Direct3DDevice9Imp__GetContextCache(*(int *)(param_1 + 0x54) + 0x40);
+  FUN_0406d620(iVar1,uVar5);
+  if (*(char *)(param_1 + 0x88) == '\0') {
+    bVar8 = (*(uint *)(param_1 + 0x90) & 3) != 0;
+    if (bVar8) {
+      glPixelStorei(0xcf5,2 - (*(uint *)(param_1 + 0x90) & 1));
+    }
+    if (param_3 == '\0') {
+      param_2 = *(int *)(param_1 + 0x8c) * *param_4 +
+                param_4[1] * *(int *)(param_1 + 0x90) + param_4[4] * *(int *)(param_1 + 0x94) +
+                param_2;
+      iVar7 = param_4[3] - param_4[1];
+      iVar6 = param_4[2] - *param_4;
+      iVar2 = param_4[5];
+      iVar3 = param_4[4];
+      iVar4 = *(int *)(param_1 + 0x70);
+      if (iVar6 != iVar4) {
+        glPixelStorei(0xcf2,iVar4);
+      }
+      if (iVar7 == *(int *)(param_1 + 0x74)) {
+        (*DAT_0451eeb0)(0x806f,*(undefined4 *)(param_1 + 0x5c),*param_4,param_4[1],param_4[4],iVar6,
+                        iVar7,iVar2 - iVar3,*(undefined4 *)(param_1 + 0x80),
+                        *(undefined4 *)(param_1 + 0x7c),param_2);
+      }
+      else {
+        glPixelStorei(0x806e,*(int *)(param_1 + 0x74));
+        (*DAT_0451eeb0)(0x806f,*(undefined4 *)(param_1 + 0x5c),*param_4,param_4[1],param_4[4],iVar6,
+                        iVar7,iVar2 - iVar3,*(undefined4 *)(param_1 + 0x80),
+                        *(undefined4 *)(param_1 + 0x7c),param_2);
+        glPixelStorei(0x806e,0);
+      }
+      if (iVar6 != iVar4) {
+        glPixelStorei(0xcf2,0);
+      }
+    }
+    else {
+      (*DAT_0451eeb0)(0x806f,*(undefined4 *)(param_1 + 0x5c),0,0,0,*(undefined4 *)(param_1 + 0x70),
+                      *(undefined4 *)(param_1 + 0x74),*(undefined4 *)(param_1 + 0x78),
+                      *(undefined4 *)(param_1 + 0x80),*(undefined4 *)(param_1 + 0x7c),param_2);
+    }
+    if (bVar8) {
+      glPixelStorei(0xcf5,4);
+      *(undefined1 *)(iVar1 + 0x10) = 1;
+      return;
+    }
+  }
+  else {
+    if (param_3 == '\0') {
+      FUN_0400a810("fullUpdate",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3dvolume9imp.cpp"
+                   ,0x294,
+                   "void Direct3DVolume9Imp::UploadOpenGLObjectData(INT, LPBYTE, bool, const D3DBOX*)"
+                  );
+    }
+    (*DAT_0451ee90)(0x806f,*(undefined4 *)(param_1 + 0x5c),0,0,0,*(undefined4 *)(param_1 + 0x70),
+                    *(undefined4 *)(param_1 + 0x74),*(undefined4 *)(param_1 + 0x78),
+                    *(undefined4 *)(param_1 + 0x80),*(undefined4 *)(param_1 + 0x98),param_2);
+  }
+  *(undefined1 *)(iVar1 + 0x10) = 1;
+  return;
+}
+

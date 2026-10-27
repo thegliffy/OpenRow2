@@ -1,0 +1,1474 @@
+
+/* source: fixedPipelineEmulation */
+
+void * VertexShaderCompiler__GenerateProgram(undefined4 param_1,uint *param_2,undefined4 *param_3)
+
+{
+  bool bVar1;
+  bool bVar2;
+  bool bVar3;
+  bool bVar4;
+  byte bVar5;
+  char *pcVar6;
+  char *pcVar7;
+  uint uVar8;
+  void *__dest;
+  undefined **ppuVar9;
+  char cVar10;
+  int iVar11;
+  undefined **ppuVar12;
+  undefined **ppuVar13;
+  uint uVar14;
+  undefined **ppuVar15;
+  char *pcVar16;
+  uint *puVar17;
+  uint uVar18;
+  void *__dest_00;
+  bool bVar19;
+  bool bVar20;
+  bool bVar21;
+  bool bVar22;
+  bool bVar23;
+  bool bVar24;
+  byte bVar25;
+  char *pcVar26;
+  uint local_a8;
+  void **local_a4;
+  int local_9c;
+  uint local_98;
+  int local_94;
+  uint local_84 [20];
+  void *local_34;
+  size_t local_30;
+  undefined4 local_2c;
+  void *local_28;
+  size_t local_24;
+  undefined4 local_20;
+  
+  bVar25 = 0;
+  local_34 = (void *)0x0;
+  local_30 = 0;
+  local_2c = 0;
+  local_28 = (void *)0x0;
+  local_24 = 0;
+  local_20 = 0;
+  *param_3 = 0xffffffff;
+  param_3[1] = 0xffffffff;
+  param_3[2] = 0xffffffff;
+  param_3[3] = 0xffffffff;
+  param_3[4] = 0xffffffff;
+  ppuVar12 = (undefined **)"eON_AttrPosition0";
+  if ((*param_2 & 0x100) != 0) {
+    ppuVar12 = (undefined **)"eON_AttrPositionT0";
+  }
+  if ((*param_2 & 0x20000) == 0) {
+    eON_AppendShaderCompileMessage(&local_34,"#version 120\n\n");
+  }
+  else {
+                    /* try { // try from 040bece1 to 040bffca has its CatchHandler @ 040c1223 */
+    eON_AppendShaderCompileMessage(&local_34,"#version 150\n\n");
+  }
+  local_a4 = &local_34;
+  eON_AppendShaderCompileMessage(local_a4,"\n// Fixed function vertex shader for eON\n\n");
+  pcVar6 = "in";
+  if ((*param_2 & 0x20000) == 0) {
+    pcVar6 = "attribute";
+  }
+  pcVar26 = (char *)ppuVar12;
+  eON_AppendShaderCompileMessage(local_a4,"%s vec4 %s;\n",pcVar6,ppuVar12);
+  if ((*param_2 & 0x20000) != 0) {
+    eON_AppendShaderCompileMessage
+              (local_a4,
+               "layout(std140) uniform CommonVariables {\n\tvec4 PositionFix;\n\tvec4 GlFogcolor;\n\tfloat GlFogdensity;\n\tfloat GlFogend;\n\tfloat GlFogscale;\n\tfloat AlphaRef;\n\tvec4 ClipPlanes[6];\n};\n\n"
+               ,pcVar6,pcVar26);
+    eON_AppendShaderCompileMessage
+              (local_a4,
+               "layout(std140) uniform FixedPipelineVertexOnly {\n\tmat4 ModelViewMatrix;\n\tmat4 ProjectionMatrix;\n\tmat4 ModelViewProjectionMatrix;\n\tmat4 ViewTransform;\n\tvec4 ViewportSizes;\n\tmat3 NormalMatrix;\n};\n\n"
+              );
+    pcVar26 = (char *)0x8;
+    pcVar6 = (char *)0x8;
+    eON_AppendShaderCompileMessage
+              (local_a4,
+               "struct LightSource {\n\tvec4\tambient;\n\tvec4\tdiffuse;\n\tvec4\tspecular;\n\tvec4\tposition;\n\tvec3\tspotDirection;\n\tfloat\tspotExponent;\n\tfloat\tspotCosCutoff;\n\tfloat\tconstantAttenuation;\n\tfloat\tlinearAttenuation;\n\tfloat\tquadraticAttenuation;\n};\n\nstruct MaterialInfo {\n\tvec4\temission;\n\tvec4\tambient;\n\tvec4\tdiffuse;\n\tvec4\tspecular;\n\tfloat\tshininess;\n};\n\nlayout(std140) uniform FixedPipelineVertexOnlyRare {\n\tmat4 TextureMatrix[%u];\n\tmat4 WorldTransforms[4];\n\tLightSource LightSources[%u];\n\tvec4 LightModelAmbient;\n\tMaterialInfo Material;\n};\n\n"
+               ,8,8);
+  }
+  pcVar7 = pcVar6;
+  if (*(byte *)((int)param_2 + 5) != 0) {
+    pcVar7 = "in";
+    if ((*param_2 & 0x20000) == 0) {
+      eON_AppendShaderCompileMessage(local_a4,"uniform mat4 ViewTransform;\n",pcVar6,pcVar26);
+      eON_AppendShaderCompileMessage(local_a4,"uniform mat4 WorldTransforms0;\n");
+      eON_AppendShaderCompileMessage(local_a4,"uniform mat4 WorldTransforms1;\n");
+      pcVar7 = "in";
+      if ((*param_2 & 0x20000) == 0) {
+        pcVar7 = "attribute";
+      }
+    }
+    eON_AppendShaderCompileMessage(local_a4,"%s vec4 eON_AttrBlendWeight0;\n",pcVar7,pcVar26);
+    bVar5 = *(byte *)((int)param_2 + 5);
+    if (1 < bVar5) {
+      if ((*param_2 & 0x20000) == 0) {
+        eON_AppendShaderCompileMessage(local_a4,"uniform mat4 WorldTransforms2;\n",pcVar7,pcVar26);
+        bVar5 = *(byte *)((int)param_2 + 5);
+      }
+      if ((2 < bVar5) && ((*param_2 & 0x20000) == 0)) {
+        eON_AppendShaderCompileMessage(local_a4,"uniform mat4 WorldTransforms3;\n",pcVar7);
+      }
+    }
+  }
+  eON_AppendShaderCompileMessage(&local_28,"\n\nvoid main( void )\n{\n",pcVar7,pcVar26);
+  uVar18 = *param_2;
+  if ((uVar18 & 0x10000) != 0) {
+    eON_AppendShaderCompileMessage(&local_28,"\teON_Varyings[0] = vec4(0.0);\n",pcVar7,pcVar26);
+    eON_AppendShaderCompileMessage(&local_28,"\teON_Varyings[1] = vec4(0.0);\n");
+    eON_AppendShaderCompileMessage(&local_28,"\teON_Varyings[2] = vec4(0.0);\n");
+    eON_AppendShaderCompileMessage(&local_28,"\teON_Varyings[3] = vec4(0.0);\n");
+    eON_AppendShaderCompileMessage(&local_28,"\teON_Varyings[4] = vec4(0.0);\n");
+    eON_AppendShaderCompileMessage(&local_28,"\teON_Varyings[5] = vec4(0.0);\n");
+    eON_AppendShaderCompileMessage(&local_28,"\teON_Varyings[6] = vec4(0.0);\n");
+    eON_AppendShaderCompileMessage(&local_28,"\teON_Varyings[7] = vec4(0.0);\n");
+    eON_AppendShaderCompileMessage(&local_28,"\teON_Varyings[8] = vec4(0.0);\n");
+    eON_AppendShaderCompileMessage(&local_28,"\teON_Varyings[9] = vec4(0.0);\n");
+    eON_AppendShaderCompileMessage(&local_28,"\teON_VaryingFog = 0.0;\n");
+    eON_AppendShaderCompileMessage(&local_28,"\n");
+    uVar18 = *param_2;
+  }
+  if ((uVar18 & 1) == 0) {
+    if ((uVar18 & 0x100) != 0) goto LAB_040beef9;
+    cVar10 = '\0';
+    if (*(byte *)((int)param_2 + 5) == 0) goto LAB_040bee0a;
+LAB_040bfa97:
+    if ((cVar10 != '\0') || (bVar4 = false, (uVar18 & 0x20) != 0)) {
+      ppuVar13 = (undefined **)&DAT_04328763;
+      if ((uVar18 & 0x20000) == 0) {
+        ppuVar13 = &PTR_DAT_042e7930;
+      }
+      eON_AppendShaderCompileMessage
+                (&local_28,"\tvec4 eyeCoordPosition = %sModelViewMatrix * %s;\n",ppuVar13,ppuVar12);
+      eON_AppendShaderCompileMessage
+                (&local_28,"\tvec3 eyeCoordPos3 = eyeCoordPosition.xyz / eyeCoordPosition.w;\n");
+      bVar4 = true;
+      uVar18 = *param_2;
+    }
+    ppuVar13 = &PTR_DAT_042e8492;
+    if ((uVar18 & 0x20000) == 0) {
+      ppuVar13 = (undefined **)0x42dd794;
+    }
+    ppuVar15 = ppuVar12;
+    eON_AppendShaderCompileMessage
+              (&local_28,"\tvec4 position = WorldTransforms%s * eON_AttrBlendWeight0.x * %s;\n",
+               ppuVar13,ppuVar12);
+    bVar3 = false;
+    if (cVar10 != '\0') {
+      ppuVar13 = &PTR_DAT_042e8492;
+      if ((*param_2 & 0x20000) == 0) {
+        ppuVar13 = (undefined **)0x42dd794;
+      }
+      eON_AppendShaderCompileMessage
+                (&local_28,
+                 "\tvec4 normal = WorldTransforms%s * eON_AttrBlendWeight0.x * vec4(eON_AttrNormal0, 1.0);\n"
+                 ,ppuVar13,ppuVar15);
+      bVar3 = true;
+    }
+    if (*(byte *)((int)param_2 + 5) == 1) {
+      ppuVar13 = &PTR_DAT_042e76c6;
+      if ((*param_2 & 0x20000) == 0) {
+        ppuVar13 = (undefined **)0x439ca4d;
+      }
+      pcVar26 = (char *)ppuVar12;
+      eON_AppendShaderCompileMessage
+                (&local_28,
+                 "\tposition += WorldTransforms%s * ( 1.0 - eON_AttrBlendWeight0.x ) * %s;\n",
+                 ppuVar13,ppuVar12);
+      if (cVar10 != '\0') {
+        ppuVar13 = &PTR_DAT_042e76c6;
+        if ((*param_2 & 0x20000) == 0) {
+          ppuVar13 = (undefined **)0x439ca4d;
+        }
+        eON_AppendShaderCompileMessage
+                  (&local_28,
+                   "\tnormal += WorldTransforms%s * ( 1.0 - eON_AttrBlendWeight0.x ) * vec4(eON_AttrNormal0, 1.0);\n"
+                   ,ppuVar13,pcVar26);
+        goto LAB_040bfca2;
+      }
+    }
+    else if (*(byte *)((int)param_2 + 5) == 2) {
+      ppuVar13 = &PTR_DAT_042e76c6;
+      if ((*param_2 & 0x20000) == 0) {
+        ppuVar13 = (undefined **)0x439ca4d;
+      }
+      eON_AppendShaderCompileMessage
+                (&local_28,"\tposition += WorldTransforms%s * eON_AttrBlendWeight0.y * %s;\n",
+                 ppuVar13,ppuVar12);
+      ppuVar13 = &PTR_DAT_042e76e5;
+      if ((*param_2 & 0x20000) == 0) {
+        ppuVar13 = (undefined **)0x430a836;
+      }
+      pcVar26 = (char *)ppuVar12;
+      eON_AppendShaderCompileMessage
+                (&local_28,
+                 "\tposition += WorldTransforms%s * ( 1.0 - eON_AttrBlendWeight0.x - eON_AttrBlendWeight0.y ) * %s;\n"
+                 ,ppuVar13,ppuVar12);
+      if (cVar10 != '\0') {
+        ppuVar13 = &PTR_DAT_042e76c6;
+        if ((*param_2 & 0x20000) == 0) {
+          ppuVar13 = (undefined **)0x439ca4d;
+        }
+        eON_AppendShaderCompileMessage
+                  (&local_28,
+                   "\tnormal += WorldTransforms%s * eON_AttrBlendWeight0.y * vec4(eON_AttrNormal0, 1.0);\n"
+                   ,ppuVar13,pcVar26);
+        ppuVar13 = &PTR_DAT_042e76e5;
+        if ((*param_2 & 0x20000) == 0) {
+          ppuVar13 = (undefined **)0x430a836;
+        }
+        eON_AppendShaderCompileMessage
+                  (&local_28,
+                   "\tnormal += WorldTransforms%s * ( 1.0 - eON_AttrBlendWeight0.x - eON_AttrBlendWeight0.y ) * vec4(eON_AttrNormal0, 1.0);\n"
+                   ,ppuVar13,pcVar26);
+        goto LAB_040bfca2;
+      }
+    }
+    else {
+      ppuVar13 = &PTR_DAT_042e76c6;
+      if ((*param_2 & 0x20000) == 0) {
+        ppuVar13 = (undefined **)0x439ca4d;
+      }
+      eON_AppendShaderCompileMessage
+                (&local_28,"\tposition += WorldTransforms%s * eON_AttrBlendWeight0.y * %s;\n",
+                 ppuVar13,ppuVar12);
+      ppuVar13 = &PTR_DAT_042e76e5;
+      if ((*param_2 & 0x20000) == 0) {
+        ppuVar13 = (undefined **)0x430a836;
+      }
+      eON_AppendShaderCompileMessage
+                (&local_28,"\tposition += WorldTransforms%s * eON_AttrBlendWeight0.z * %s;\n",
+                 ppuVar13,ppuVar12);
+      ppuVar13 = &PTR_DAT_042e7704;
+      if ((*param_2 & 0x20000) == 0) {
+        ppuVar13 = (undefined **)0x42f60aa;
+      }
+      pcVar26 = (char *)ppuVar12;
+      eON_AppendShaderCompileMessage
+                (&local_28,
+                 "\tposition += WorldTransforms%s * ( 1.0 - eON_AttrBlendWeight0.x - eON_AttrBlendWeight0.y - eON_AttrBlendWeight0.z ) * %s;\n"
+                 ,ppuVar13,ppuVar12);
+      if (cVar10 != '\0') {
+        ppuVar13 = &PTR_DAT_042e76c6;
+        if ((*param_2 & 0x20000) == 0) {
+          ppuVar13 = (undefined **)0x439ca4d;
+        }
+        eON_AppendShaderCompileMessage
+                  (&local_28,
+                   "\tnormal += WorldTransforms%s * eON_AttrBlendWeight0.y * vec4(eON_AttrNormal0, 1.0);\n"
+                   ,ppuVar13,pcVar26);
+        ppuVar13 = &PTR_DAT_042e76e5;
+        if ((*param_2 & 0x20000) == 0) {
+          ppuVar13 = (undefined **)0x430a836;
+        }
+        eON_AppendShaderCompileMessage
+                  (&local_28,
+                   "\tnormal += WorldTransforms%s * eON_AttrBlendWeight0.z * vec4(eON_AttrNormal0, 1.0);\n"
+                   ,ppuVar13,pcVar26);
+        ppuVar13 = &PTR_DAT_042e7704;
+        if ((*param_2 & 0x20000) == 0) {
+          ppuVar13 = (undefined **)0x42f60aa;
+        }
+        eON_AppendShaderCompileMessage
+                  (&local_28,
+                   "\tnormal += WorldTransforms%s * ( 1.0 - eON_AttrBlendWeight0.x - eON_AttrBlendWeight0.y - eON_AttrBlendWeight0.z ) * vec4(eON_AttrNormal0, 1.0);\n"
+                   ,ppuVar13,pcVar26);
+LAB_040bfca2:
+        bVar3 = true;
+      }
+    }
+    eON_AppendShaderCompileMessage
+              (&local_28,"\tposition = ViewTransform * position;\n",ppuVar13,pcVar26);
+    ppuVar13 = (undefined **)&DAT_04328763;
+    if ((*param_2 & 0x20000) == 0) {
+      ppuVar13 = &PTR_DAT_042e7930;
+    }
+    eON_AppendShaderCompileMessage
+              (&local_28,"\tgl_Position = %sProjectionMatrix * position;\n",ppuVar13,pcVar26);
+    if (cVar10 != '\0') {
+      eON_AppendShaderCompileMessage
+                (&local_28,"\tnormal = ViewTransform * normal;\n",ppuVar13,pcVar26);
+    }
+    bVar21 = false;
+    bVar2 = false;
+    uVar18 = *param_2;
+    if ((uVar18 & 0x20) != 0) {
+      if ((uVar18 & 0x4000) == 0) {
+        bVar21 = true;
+        if ((uVar18 & 0x3000) != 0) {
+          if ((uVar18 & 0x800) == 0) {
+            eON_AppendShaderCompileMessage
+                      (&local_28,"\tfloat fogCoord = abs( eyeCoordPos3.z );\n",ppuVar13);
+            bVar21 = false;
+            bVar2 = true;
+            uVar18 = *param_2;
+          }
+          else {
+            eON_AppendShaderCompileMessage
+                      (&local_28,"\tfloat fogCoord = length( eyeCoordPos3 );\n",ppuVar13);
+            bVar2 = true;
+            uVar18 = *param_2;
+            bVar21 = false;
+          }
+        }
+      }
+      else {
+        pcVar6 = "eON_VaryingFog";
+        if ((uVar18 & 0x10000) == 0) {
+          pcVar6 = "gl_FogFragCoord";
+        }
+        eON_AppendShaderCompileMessage(&local_28,"\t%s = length( eyeCoordPos3 );\n",pcVar6);
+        bVar2 = false;
+        uVar18 = *param_2;
+        ppuVar13 = (undefined **)pcVar6;
+      }
+    }
+  }
+  else if ((uVar18 & 0x100) == 0) {
+    cVar10 = (*(byte *)((int)param_2 + 0xe) & 0xf) +
+             (*(byte *)((int)param_2 + 0xd) >> 4) + (*(byte *)((int)param_2 + 0xd) & 0xf);
+    if (*(byte *)((int)param_2 + 5) != 0) goto LAB_040bfa97;
+LAB_040bee0a:
+    if ((cVar10 != '\0') || (bVar4 = false, (uVar18 & 0x20) != 0)) {
+      ppuVar13 = (undefined **)&DAT_04328763;
+      if ((uVar18 & 0x20000) == 0) {
+        ppuVar13 = &PTR_DAT_042e7930;
+      }
+      eON_AppendShaderCompileMessage
+                (&local_28,"\tvec4 eyeCoordPosition = %sModelViewMatrix * %s;\n",ppuVar13,ppuVar12);
+      eON_AppendShaderCompileMessage
+                (&local_28,"\tvec3 eyeCoordPos3 = eyeCoordPosition.xyz / eyeCoordPosition.w;\n");
+      bVar4 = true;
+      uVar18 = *param_2;
+    }
+    ppuVar13 = (undefined **)&DAT_04328763;
+    if ((uVar18 & 0x20000) == 0) {
+      ppuVar13 = &PTR_DAT_042e7930;
+    }
+    pcVar26 = (char *)ppuVar12;
+    eON_AppendShaderCompileMessage
+              (&local_28,"\tgl_Position = %sModelViewProjectionMatrix * %s;\n",ppuVar13,ppuVar12);
+    uVar18 = *param_2;
+    if ((uVar18 & 0x20) == 0) {
+      bVar3 = false;
+      bVar21 = false;
+      bVar2 = false;
+    }
+    else if ((uVar18 & 0x4000) == 0) {
+      if ((uVar18 & 0x3000) == 0) {
+        bVar3 = false;
+        bVar21 = true;
+        bVar2 = false;
+      }
+      else if ((uVar18 & 0x800) == 0) {
+        eON_AppendShaderCompileMessage
+                  (&local_28,"\tfloat fogCoord = abs( eyeCoordPos3.z );\n",ppuVar13,pcVar26);
+        bVar3 = false;
+        bVar21 = false;
+        bVar2 = true;
+        uVar18 = *param_2;
+      }
+      else {
+        eON_AppendShaderCompileMessage
+                  (&local_28,"\tfloat fogCoord = length( eyeCoordPos3 );\n",ppuVar13,pcVar26);
+        bVar3 = false;
+        bVar2 = true;
+        uVar18 = *param_2;
+        bVar21 = false;
+      }
+    }
+    else {
+      pcVar6 = "eON_VaryingFog";
+      if ((uVar18 & 0x10000) == 0) {
+        pcVar6 = "gl_FogFragCoord";
+      }
+      eON_AppendShaderCompileMessage(&local_28,"\t%s = length( eyeCoordPos3 );\n",pcVar6,pcVar26);
+      bVar3 = false;
+      bVar21 = false;
+      bVar2 = false;
+      uVar18 = *param_2;
+      ppuVar13 = (undefined **)pcVar6;
+    }
+  }
+  else {
+LAB_040beef9:
+    if ((uVar18 & 0x20000) == 0) {
+      eON_AppendShaderCompileMessage
+                (local_a4,
+                 "uniform vec4 ViewportSizes;\t// For scaling D3D transformed vertices to OpenGL way\n"
+                 ,pcVar7);
+    }
+    ppuVar13 = ppuVar12;
+    eON_AppendShaderCompileMessage(&local_28,"\tgl_Position = %s;\n",ppuVar12);
+    eON_AppendShaderCompileMessage
+              (&local_28,"\tgl_Position.xy = gl_Position.xy - ViewportSizes.xy;\n");
+    eON_AppendShaderCompileMessage
+              (&local_28,"\tgl_Position.xy = gl_Position.xy / ViewportSizes.zw + vec2(-1.0,1.0);\n")
+    ;
+    eON_AppendShaderCompileMessage(&local_28,"\tfloat rhw = 1.0 / gl_Position.w;\n");
+    eON_AppendShaderCompileMessage(&local_28,"\tgl_Position.xyz *= rhw;\n");
+    eON_AppendShaderCompileMessage(&local_28,"\tgl_Position.w = rhw;\n");
+    uVar18 = *param_2;
+    if ((uVar18 & 0x20) != 0) {
+      if ((uVar18 & 0x4000) == 0) {
+        if ((uVar18 & 0x3000) == 0) {
+          cVar10 = '\0';
+          bVar21 = true;
+          bVar4 = false;
+          bVar3 = false;
+          bVar2 = false;
+        }
+        else {
+          eON_AppendShaderCompileMessage(&local_28,"\tfloat fogCoord = abs( gl_Position.z );\n");
+          bVar4 = false;
+          bVar21 = false;
+          cVar10 = '\0';
+          bVar3 = false;
+          bVar2 = true;
+          uVar18 = *param_2;
+        }
+        goto LAB_040bef9c;
+      }
+      pcVar6 = "eON_VaryingFog";
+      if ((uVar18 & 0x10000) == 0) {
+        pcVar6 = "gl_FogFragCoord";
+      }
+      eON_AppendShaderCompileMessage(&local_28,"\t%s = abs( gl_Position.z );\n",pcVar6);
+      uVar18 = *param_2;
+      ppuVar13 = (undefined **)pcVar6;
+    }
+    cVar10 = '\0';
+    bVar21 = false;
+    bVar4 = false;
+    bVar3 = false;
+    bVar2 = false;
+  }
+LAB_040bef9c:
+  pcVar6 = (char *)ppuVar13;
+  if ((uVar18 & 0x20000) == 0) {
+    eON_AppendShaderCompileMessage(local_a4,"uniform vec4 PositionFix;\n",ppuVar13,pcVar26);
+    pcVar6 = (char *)ppuVar13;
+  }
+  eON_AppendShaderCompileMessage(&local_28,"\tgl_Position.y = -gl_Position.y;\n",pcVar6,pcVar26);
+  eON_AppendShaderCompileMessage(&local_28,"\tgl_Position.xy += gl_Position.ww * PositionFix.zw;\n")
+  ;
+  eON_AppendShaderCompileMessage
+            (&local_28,"\tgl_Position.z = gl_Position.z * 2.0 - gl_Position.w;\n");
+  if (bVar21) {
+    uVar18 = *param_2;
+    if ((uVar18 & 0x400) != 0) {
+      pcVar6 = "eON_VaryingFog";
+      if ((uVar18 & 0x10000) == 0) {
+        pcVar6 = "gl_FogFragCoord";
+      }
+      eON_AppendShaderCompileMessage
+                (&local_28,"\t%s = clamp( eON_AttrColor1.a, 0.0, 1.0 );\n",pcVar6);
+      uVar18 = *param_2;
+    }
+  }
+  else {
+    uVar18 = *param_2;
+  }
+  local_a8 = -1;
+  local_9c = -1;
+  if ((uVar18 & 0x10000) != 0) {
+    ppuVar13 = &PTR_DAT_0435a044;
+    if ((uVar18 & 0x20000) == 0) {
+      ppuVar13 = (undefined **)"varying";
+    }
+    eON_AppendShaderCompileMessage(local_a4,"%s vec4 eON_Varyings[10];\n",ppuVar13);
+    eON_AppendShaderCompileMessage(local_a4,"%s float eON_VaryingFog;\n",ppuVar13);
+    local_9c = -1;
+    uVar18 = param_2[2];
+    if ((uVar18 & 0xf) == 0xf) {
+      *(undefined1 *)param_3 = 0;
+      *(undefined1 *)((int)param_3 + 1) = 0;
+      local_9c = 0;
+      uVar18 = param_2[2];
+    }
+    local_a8 = -1;
+    if ((uVar18 >> 4 & 0xf) == 0xf) {
+      if (local_9c == -1) {
+        local_a8 = local_9c;
+        *(undefined1 *)param_3 = 0;
+        *(undefined1 *)((int)param_3 + 1) = 1;
+        local_9c = 1;
+        uVar18 = param_2[2];
+      }
+      else {
+        *(undefined1 *)((int)param_3 + 2) = 1;
+        *(undefined1 *)((int)param_3 + 3) = 1;
+        local_a8 = 1;
+        local_9c = 0;
+        uVar18 = param_2[2];
+      }
+    }
+    if ((uVar18 >> 8 & 0xf) == 0xf) {
+      if (local_9c == -1) {
+        *(undefined1 *)param_3 = 0;
+        *(undefined1 *)((int)param_3 + 1) = 2;
+        local_9c = 2;
+        uVar18 = param_2[2];
+        goto LAB_040bf0a7;
+      }
+      if (local_a8 == -1) {
+        *(undefined1 *)((int)param_3 + 2) = 1;
+        *(undefined1 *)((int)param_3 + 3) = 2;
+        local_a8 = 2;
+        uVar18 = param_2[2];
+        goto LAB_040bf0a7;
+      }
+    }
+    else {
+LAB_040bf0a7:
+      if ((uVar18 >> 0xc & 0xf) == 0xf) {
+        if (local_9c == -1) {
+          *(undefined1 *)param_3 = 0;
+          *(undefined1 *)((int)param_3 + 1) = 3;
+          local_9c = 3;
+          uVar18 = param_2[2];
+        }
+        else {
+          if (local_a8 != -1) goto LAB_040bf11b;
+          *(undefined1 *)((int)param_3 + 2) = 1;
+          *(undefined1 *)((int)param_3 + 3) = 3;
+          local_a8 = 3;
+          uVar18 = param_2[2];
+        }
+      }
+      if ((uVar18 >> 0x10 & 0xf) == 0xf) {
+        if (local_9c == -1) {
+          *(undefined1 *)param_3 = 0;
+          *(undefined1 *)((int)param_3 + 1) = 4;
+          local_9c = 4;
+          uVar18 = param_2[2];
+        }
+        else {
+          if (local_a8 != -1) goto LAB_040bf11b;
+          *(undefined1 *)((int)param_3 + 2) = 1;
+          *(undefined1 *)((int)param_3 + 3) = 4;
+          local_a8 = 4;
+          uVar18 = param_2[2];
+        }
+      }
+      if ((uVar18 >> 0x14 & 0xf) == 0xf) {
+        if (local_9c == -1) {
+          *(undefined1 *)param_3 = 0;
+          *(undefined1 *)((int)param_3 + 1) = 5;
+          local_9c = 5;
+          uVar18 = param_2[2];
+        }
+        else {
+          if (local_a8 != -1) goto LAB_040bf11b;
+          *(undefined1 *)((int)param_3 + 2) = 1;
+          *(undefined1 *)((int)param_3 + 3) = 5;
+          local_a8 = 5;
+          uVar18 = param_2[2];
+        }
+      }
+      if ((uVar18 >> 0x18 & 0xf) == 0xf) {
+        if (local_9c == -1) {
+          *(undefined1 *)param_3 = 0;
+          *(undefined1 *)((int)param_3 + 1) = 6;
+          local_9c = 6;
+          uVar18 = param_2[2];
+        }
+        else {
+          if (local_a8 != -1) goto LAB_040bf11b;
+          *(undefined1 *)((int)param_3 + 2) = 1;
+          *(undefined1 *)((int)param_3 + 3) = 6;
+          local_a8 = 6;
+          uVar18 = param_2[2];
+        }
+      }
+      if (uVar18 >> 0x1c == 0xf) {
+        if (local_9c == -1) {
+          *(undefined1 *)param_3 = 0;
+          *(undefined1 *)((int)param_3 + 1) = 7;
+          local_9c = 7;
+        }
+        else {
+          if (local_a8 != -1) goto LAB_040bf11b;
+          *(undefined1 *)((int)param_3 + 2) = 1;
+          *(undefined1 *)((int)param_3 + 3) = 7;
+          local_a8 = 7;
+        }
+      }
+      pcVar26 = 
+      "char* VertexShaderCompiler::GenerateProgram(const VertexShaderConfig&, ColorRegisterAssignment*)"
+      ;
+      ppuVar13 = (undefined **)0x2b4;
+      FUN_0400a810("i < 8",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/fixedPipelineEmulation.cpp"
+                   ,0x2b4,
+                   "char* VertexShaderCompiler::GenerateProgram(const VertexShaderConfig&, ColorRegisterAssignment*)"
+                  );
+    }
+LAB_040bf11b:
+    uVar18 = *param_2;
+    pcVar6 = (char *)ppuVar13;
+  }
+  if (((uVar18 & 1) == 0) || ((uVar18 & 0x100) != 0)) {
+    if ((uVar18 & 0x200) == 0) {
+      pcVar6 = "gl_FrontColor";
+      if ((uVar18 & 0x10000) != 0) {
+        pcVar6 = "vec4(0.0)";
+        ppuVar13 = &PTR_s_eON_Varyings_0__042ff180;
+        puVar17 = local_84;
+        for (iVar11 = 0x14; iVar11 != 0; iVar11 = iVar11 + -1) {
+          *puVar17 = (uint)*ppuVar13;
+          ppuVar13 = ppuVar13 + (uint)bVar25 * -2 + 1;
+          puVar17 = puVar17 + (uint)bVar25 * -2 + 1;
+        }
+        if (local_9c != -1) {
+          pcVar6 = (char *)local_84[local_9c * 2];
+        }
+      }
+      eON_AppendShaderCompileMessage(&local_28,"\t%s = vec4( 1.0 );\n",pcVar6);
+      uVar18 = *param_2;
+      if ((uVar18 & 0x10000) == 0) {
+        eON_AppendShaderCompileMessage(&local_28,"\tgl_BackColor = vec4( 1.0 );\n",pcVar6);
+        goto LAB_040c0747;
+      }
+    }
+    else {
+      pcVar6 = "in";
+      if ((uVar18 & 0x20000) == 0) {
+        pcVar6 = "attribute";
+      }
+                    /* try { // try from 040c0068 to 040c11f0 has its CatchHandler @ 040c1223 */
+      eON_AppendShaderCompileMessage(local_a4,"%s vec4 eON_AttrColor0;\n",pcVar6);
+      pcVar6 = "gl_FrontColor";
+      if ((*param_2 & 0x10000) != 0) {
+        pcVar6 = "vec4(0.0)";
+        ppuVar13 = &PTR_s_eON_Varyings_0__042ff180;
+        puVar17 = local_84;
+        for (iVar11 = 0x14; iVar11 != 0; iVar11 = iVar11 + -1) {
+          *puVar17 = (uint)*ppuVar13;
+          ppuVar13 = ppuVar13 + (uint)bVar25 * -2 + 1;
+          puVar17 = puVar17 + (uint)bVar25 * -2 + 1;
+        }
+        if (local_9c != -1) {
+          pcVar6 = (char *)local_84[local_9c * 2];
+        }
+      }
+      eON_AppendShaderCompileMessage(&local_28,"\t%s = eON_AttrColor0.bgra;\n",pcVar6);
+      uVar18 = *param_2;
+      if ((uVar18 & 0x10000) == 0) {
+        eON_AppendShaderCompileMessage(&local_28,"\tgl_BackColor = eON_AttrColor0.bgra;\n",pcVar6);
+LAB_040c0747:
+        uVar18 = *param_2;
+      }
+    }
+    if ((uVar18 & 0x400) == 0) {
+      pcVar6 = "gl_FrontSecondaryColor";
+      if ((uVar18 & 0x10000) != 0) {
+        pcVar6 = "vec4(0.0)";
+        ppuVar13 = &PTR_s_eON_Varyings_0__042ff180;
+        puVar17 = local_84;
+        for (iVar11 = 0x14; iVar11 != 0; iVar11 = iVar11 + -1) {
+          *puVar17 = (uint)*ppuVar13;
+          ppuVar13 = ppuVar13 + (uint)bVar25 * -2 + 1;
+          puVar17 = puVar17 + (uint)bVar25 * -2 + 1;
+        }
+        if (local_a8 != -1) {
+          pcVar6 = (char *)local_84[local_a8 * 2];
+        }
+      }
+      eON_AppendShaderCompileMessage(&local_28,"\t%s = vec4( 0.0 );\n",pcVar6);
+      uVar18 = *param_2;
+      if ((uVar18 & 0x10000) == 0) {
+        eON_AppendShaderCompileMessage(&local_28,"\tgl_BackSecondaryColor = vec4( 0.0 );\n",pcVar6);
+        uVar18 = *param_2;
+      }
+    }
+    else {
+      pcVar6 = "in";
+      if ((uVar18 & 0x20000) == 0) {
+        pcVar6 = "attribute";
+      }
+      eON_AppendShaderCompileMessage(local_a4,"%s vec4 eON_AttrColor1;\n",pcVar6);
+      pcVar6 = "gl_FrontSecondaryColor";
+      if ((*param_2 & 0x10000) != 0) {
+        pcVar6 = "vec4(0.0)";
+        ppuVar13 = &PTR_s_eON_Varyings_0__042ff180;
+        puVar17 = local_84;
+        for (iVar11 = 0x14; iVar11 != 0; iVar11 = iVar11 + -1) {
+          *puVar17 = (uint)*ppuVar13;
+          ppuVar13 = ppuVar13 + (uint)bVar25 * -2 + 1;
+          puVar17 = puVar17 + (uint)bVar25 * -2 + 1;
+        }
+        if (local_a8 != -1) {
+          pcVar6 = (char *)local_84[local_a8 * 2];
+        }
+      }
+      eON_AppendShaderCompileMessage(&local_28,"\t%s = eON_AttrColor1.bgra;\n",pcVar6);
+      uVar18 = *param_2;
+      if ((uVar18 & 0x10000) == 0) {
+        eON_AppendShaderCompileMessage
+                  (&local_28,"\tgl_BackSecondaryColor = eON_AttrColor1.bgra;\n",pcVar6);
+        goto LAB_040bf806;
+      }
+    }
+  }
+  else {
+    pcVar7 = "gl_FrontMaterial";
+    if ((uVar18 & 0x20000) != 0) {
+      pcVar7 = "Material";
+    }
+    if (cVar10 == '\0') {
+      bVar21 = false;
+      bVar19 = false;
+      if ((uVar18 & 0x200) != 0) {
+        bVar5 = (byte)param_2[3];
+        bVar19 = (bVar5 & 3) == 1;
+        if (bVar19) {
+          eON_AppendShaderCompileMessage
+                    (&local_28,"\tvec4 materialAmbient = eON_AttrColor0.bgra;\n",pcVar6);
+          bVar5 = (byte)param_2[3];
+        }
+        if ((bVar5 >> 4 & 3) == 1) {
+          eON_AppendShaderCompileMessage
+                    (&local_28,"\tvec4 materialEmissive = eON_AttrColor0.bgra;\n",pcVar6);
+          bVar21 = true;
+        }
+        else {
+          if (!bVar19) {
+            bVar21 = false;
+            uVar18 = *param_2;
+            goto LAB_040bfded;
+          }
+          bVar21 = false;
+        }
+        pcVar6 = &DAT_0433e9db;
+        if ((*param_2 & 0x20000) == 0) {
+          pcVar6 = "attribute";
+        }
+        eON_AppendShaderCompileMessage(local_a4,"%s vec4 eON_AttrColor0;\n",pcVar6);
+        uVar18 = *param_2;
+      }
+LAB_040bfded:
+      if ((uVar18 & 0x400) != 0) {
+        bVar5 = (byte)param_2[3];
+        bVar20 = (bVar5 & 3) == 2;
+        if (bVar20) {
+          eON_AppendShaderCompileMessage
+                    (&local_28,"\tvec4 materialAmbient = eON_AttrColor1.bgra;\n",pcVar6);
+          bVar19 = true;
+          bVar5 = (byte)param_2[3];
+        }
+        if ((bVar5 >> 4 & 3) == 2) {
+          eON_AppendShaderCompileMessage
+                    (&local_28,"\tvec4 materialEmissive = eON_AttrColor1.bgra;\n",pcVar6);
+          bVar21 = true;
+        }
+        else if (!bVar20) goto LAB_040bfe1f;
+        pcVar6 = "in";
+        if ((*param_2 & 0x20000) == 0) {
+          pcVar6 = "attribute";
+        }
+        eON_AppendShaderCompileMessage(local_a4,"%s vec4 eON_AttrColor1;\n",pcVar6);
+      }
+LAB_040bfe1f:
+      if (!bVar19) {
+        eON_AppendShaderCompileMessage(&local_28,"\tvec4 materialAmbient = %s.ambient;\n",pcVar7);
+      }
+      if (!bVar21) {
+        eON_AppendShaderCompileMessage(&local_28,"\tvec4 materialEmissive = %s.emission;\n",pcVar7);
+      }
+      pcVar6 = "LightModelAmbient";
+      if ((*param_2 & 0x20000) == 0) {
+        pcVar6 = "gl_LightModel.ambient";
+      }
+      eON_AppendShaderCompileMessage
+                (&local_28,
+                 "\tvec4 summaryNoLightsColor = clamp( %s*materialAmbient + materialEmissive, 0.0, 1.0 );\n"
+                 ,pcVar6);
+      pcVar6 = "gl_FrontColor";
+      if ((*param_2 & 0x10000) != 0) {
+        pcVar6 = "vec4(0.0)";
+        ppuVar13 = &PTR_s_eON_Varyings_0__042ff180;
+        puVar17 = local_84;
+        for (iVar11 = 0x14; iVar11 != 0; iVar11 = iVar11 + -1) {
+          *puVar17 = (uint)*ppuVar13;
+          ppuVar13 = ppuVar13 + (uint)bVar25 * -2 + 1;
+          puVar17 = puVar17 + (uint)bVar25 * -2 + 1;
+        }
+        if (local_9c != -1) {
+          pcVar6 = (char *)local_84[local_9c * 2];
+        }
+      }
+      eON_AppendShaderCompileMessage(&local_28,"\t%s = summaryNoLightsColor;\n",pcVar6);
+      pcVar6 = "gl_FrontSecondaryColor";
+      if ((*param_2 & 0x10000) != 0) {
+        pcVar6 = "vec4(0.0)";
+        ppuVar13 = &PTR_s_eON_Varyings_0__042ff180;
+        puVar17 = local_84;
+        for (iVar11 = 0x14; iVar11 != 0; iVar11 = iVar11 + -1) {
+          *puVar17 = (uint)*ppuVar13;
+          ppuVar13 = ppuVar13 + (uint)bVar25 * -2 + 1;
+          puVar17 = puVar17 + (uint)bVar25 * -2 + 1;
+        }
+        if (local_a8 != -1) {
+          pcVar6 = (char *)local_84[local_a8 * 2];
+        }
+      }
+      eON_AppendShaderCompileMessage(&local_28,"\t%s = vec4( 0.0 );\n",pcVar6);
+      uVar18 = *param_2;
+      if ((uVar18 & 0x10000) == 0) {
+        eON_AppendShaderCompileMessage(&local_28,"\tgl_BackColor = summaryNoLightsColor;\n",pcVar6);
+        eON_AppendShaderCompileMessage(&local_28,"\tgl_BackSecondaryColor = vec4( 0.0 );\n");
+        goto LAB_040bf806;
+      }
+    }
+    else {
+      if (*(byte *)((int)param_2 + 5) == 0) {
+        eON_AppendShaderCompileMessage(&local_28,"\tvec3 normal = eON_AttrNormal0;\n",pcVar6);
+        ppuVar13 = &PTR_DAT_042e7930;
+        pcVar6 = "normalize";
+        if ((*param_2 & 0x20000) != 0) {
+          ppuVar13 = (undefined **)&DAT_04328763;
+        }
+        if ((*param_2 & 0x40) == 0) {
+          pcVar6 = &DAT_04328763;
+        }
+        eON_AppendShaderCompileMessage
+                  (&local_28,"\tnormal.xyz = %s( %sNormalMatrix * normal.xyz );\n",pcVar6,ppuVar13);
+        bVar3 = true;
+        uVar18 = *param_2;
+        pcVar26 = (char *)ppuVar13;
+      }
+      else if ((uVar18 & 0x40) != 0) {
+        eON_AppendShaderCompileMessage(&local_28,"\tnormal.xyz = normalize( normal.xyz );\n",pcVar6)
+        ;
+        uVar18 = *param_2;
+      }
+      if ((uVar18 & 0x200) == 0) {
+        bVar1 = false;
+        bVar21 = false;
+        bVar19 = false;
+        bVar20 = false;
+      }
+      else {
+        bVar5 = (byte)param_2[3];
+        bVar19 = (bVar5 & 3) == 1;
+        if (bVar19) {
+          eON_AppendShaderCompileMessage
+                    (&local_28,"\tvec4 materialAmbient = eON_AttrColor0.bgra;\n",pcVar6,pcVar26);
+          bVar5 = (byte)param_2[3];
+        }
+        bVar20 = (bVar5 >> 2 & 3) == 1;
+        if (bVar20) {
+          eON_AppendShaderCompileMessage
+                    (&local_28,"\tvec4 materialDiffuse = eON_AttrColor0.bgra;\n",pcVar6,pcVar26);
+          bVar5 = (byte)param_2[3];
+        }
+        bVar21 = (bVar5 >> 4 & 3) == 1;
+        if (bVar21) {
+          eON_AppendShaderCompileMessage
+                    (&local_28,"\tvec4 materialEmissive = eON_AttrColor0.bgra;\n",pcVar6,pcVar26);
+          bVar5 = (byte)param_2[3];
+        }
+        if (bVar5 >> 6 == 1) {
+          eON_AppendShaderCompileMessage
+                    (&local_28,"\tvec4 materialSpecular = eON_AttrColor0.bgra;\n");
+          bVar1 = true;
+        }
+        else {
+          if (!bVar21 && (!bVar20 && !bVar19)) {
+            bVar1 = false;
+            uVar18 = *param_2;
+            goto LAB_040bf1e1;
+          }
+          bVar1 = false;
+        }
+        pcVar6 = &DAT_0433e9db;
+        if ((*param_2 & 0x20000) == 0) {
+          pcVar6 = "attribute";
+        }
+        eON_AppendShaderCompileMessage(local_a4,"%s vec4 eON_AttrColor0;\n",pcVar6);
+        uVar18 = *param_2;
+      }
+LAB_040bf1e1:
+      if ((uVar18 & 0x400) != 0) {
+        bVar5 = (byte)param_2[3];
+        bVar22 = (bVar5 & 3) == 2;
+        if (bVar22) {
+          eON_AppendShaderCompileMessage
+                    (&local_28,"\tvec4 materialAmbient = eON_AttrColor1.bgra;\n",pcVar6,pcVar26);
+          bVar19 = true;
+          bVar5 = (byte)param_2[3];
+        }
+        bVar23 = (bVar5 >> 2 & 3) == 2;
+        if (bVar23) {
+          eON_AppendShaderCompileMessage
+                    (&local_28,"\tvec4 materialDiffuse = eON_AttrColor1.bgra;\n",pcVar6,pcVar26);
+          bVar20 = true;
+          bVar5 = (byte)param_2[3];
+        }
+        bVar24 = (bVar5 >> 4 & 3) == 2;
+        if (bVar24) {
+          eON_AppendShaderCompileMessage
+                    (&local_28,"\tvec4 materialEmissive = eON_AttrColor1.bgra;\n",pcVar6);
+          bVar21 = true;
+          bVar5 = (byte)param_2[3];
+        }
+        if (bVar5 >> 6 == 2) {
+          eON_AppendShaderCompileMessage
+                    (&local_28,"\tvec4 materialSpecular = eON_AttrColor1.bgra;\n");
+          bVar1 = true;
+        }
+        else if (!bVar24 && (!bVar23 && !bVar22)) goto LAB_040bf232;
+        pcVar6 = "in";
+        if ((*param_2 & 0x20000) == 0) {
+          pcVar6 = "attribute";
+        }
+        eON_AppendShaderCompileMessage(local_a4,"%s vec4 eON_AttrColor1;\n",pcVar6);
+      }
+LAB_040bf232:
+      if (!bVar19) {
+        eON_AppendShaderCompileMessage
+                  (&local_28,"\tvec4 materialAmbient = %s.ambient;\n",pcVar7,pcVar26);
+      }
+      if (!bVar20) {
+        eON_AppendShaderCompileMessage(&local_28,"\tvec4 materialDiffuse = %s.diffuse;\n",pcVar7);
+      }
+      if (!bVar21) {
+        eON_AppendShaderCompileMessage(&local_28,"\tvec4 materialEmissive = %s.emission;\n",pcVar7);
+      }
+      if (!bVar1) {
+        eON_AppendShaderCompileMessage(&local_28,"\tvec4 materialSpecular = %s.specular;\n",pcVar7);
+      }
+      pcVar6 = "LightModelAmbient";
+      if ((*param_2 & 0x20000) == 0) {
+        pcVar6 = "gl_LightModel.ambient";
+      }
+      eON_AppendShaderCompileMessage(&local_28,"\tvec4 ambientLighting = %s;\n",pcVar6);
+      eON_AppendShaderCompileMessage(&local_28,"\tvec4 diffuseLighting = vec4( 0.0 );\n");
+      eON_AppendShaderCompileMessage(&local_28,"\tvec4 specularLighting = vec4( 0.0 );\n");
+      if ((*param_2 & 2) == 0) {
+        eON_AppendShaderCompileMessage
+                  (&local_28,"\tvec3 halfwayVectorComponent = vec3( 0.0, 0.0, 1.0 );\n\n",pcVar6);
+      }
+      else {
+        eON_AppendShaderCompileMessage
+                  (&local_28,"\tvec3 halfwayVectorComponent = -normalize(eyeCoordPos3);\n\n",pcVar6)
+        ;
+      }
+      pcVar16 = "LightSources";
+      if ((*param_2 & 0x20000) == 0) {
+        pcVar16 = "gl_LightSource";
+      }
+      bVar5 = *(byte *)((int)param_2 + 0xd);
+      ppuVar13 = (undefined **)0x0;
+      if ((bVar5 & 0xf) != 0) {
+        ppuVar13 = (undefined **)0x0;
+        do {
+          eON_AppendShaderCompileMessage
+                    (&local_28,"\t{\t// Contribution from light %d (spotlight)\n",ppuVar13,pcVar26);
+          eON_AppendShaderCompileMessage
+                    (&local_28,"\t\tvec3 surfaceToLight = %s[%d].position.xyz - eyeCoordPos3;\n",
+                     pcVar16,ppuVar13);
+          eON_AppendShaderCompileMessage
+                    (&local_28,"\t\tfloat lightDistance = length( surfaceToLight );\n");
+          eON_AppendShaderCompileMessage
+                    (&local_28,"\t\tsurfaceToLight = normalize( surfaceToLight );\n");
+          eON_AppendShaderCompileMessage
+                    (&local_28,
+                     "\t\tfloat attenuation = 1.0 / ( %s[%d].constantAttenuation + lightDistance * ( %s[%d].linearAttenuation + lightDistance * %s[%d].quadraticAttenuation ) );\n"
+                     ,pcVar16,ppuVar13,pcVar16,ppuVar13,pcVar16,ppuVar13);
+          eON_AppendShaderCompileMessage
+                    (&local_28,
+                     "\t\tfloat spotDot = dot( -surfaceToLight, normalize( %s[%d].spotDirection ) );\n"
+                     ,pcVar16,ppuVar13);
+          eON_AppendShaderCompileMessage
+                    (&local_28,
+                     "\t\tfloat spotlightFactor; if( spotDot < %s[%d].spotCosCutoff ) spotlightFactor = 0.0; else spotlightFactor = pow( spotDot, %s[%d].spotExponent );\n"
+                     ,pcVar16,ppuVar13,pcVar16,ppuVar13);
+          eON_AppendShaderCompileMessage(&local_28,"\t\tattenuation *= spotlightFactor;\n");
+          eON_AppendShaderCompileMessage
+                    (&local_28,
+                     "\t\tvec3 halfVector = normalize( halfwayVectorComponent + surfaceToLight );\n"
+                    );
+          eON_AppendShaderCompileMessage
+                    (&local_28,
+                     "\t\tfloat normDotLightDir = max( 0.0, dot( normal.xyz, surfaceToLight ) );\n")
+          ;
+          eON_AppendShaderCompileMessage
+                    (&local_28,
+                     "\t\tfloat normDotHalfway = max( 0.0, dot( normal.xyz, halfVector ) );\n");
+          eON_AppendShaderCompileMessage
+                    (&local_28,
+                     "\t\tfloat powerFactor; if( normDotHalfway == 0.0 ) powerFactor = 0.0; else powerFactor = pow( normDotHalfway, %s.shininess );\n"
+                     ,pcVar7);
+          eON_AppendShaderCompileMessage
+                    (&local_28,"\t\tambientLighting += %s[%d].ambient * attenuation;\n",pcVar16,
+                     ppuVar13);
+          eON_AppendShaderCompileMessage
+                    (&local_28,
+                     "\t\tdiffuseLighting += %s[%d].diffuse * normDotLightDir * attenuation;\n",
+                     pcVar16,ppuVar13);
+          pcVar6 = pcVar16;
+          pcVar26 = (char *)ppuVar13;
+          eON_AppendShaderCompileMessage
+                    (&local_28,
+                     "\t\tspecularLighting += %s[%d].specular * powerFactor * attenuation;\n",
+                     pcVar16);
+          eON_AppendShaderCompileMessage(&local_28,&DAT_042fc047);
+          ppuVar13 = (undefined **)((int)ppuVar13 + 1);
+          bVar5 = *(byte *)((int)param_2 + 0xd);
+        } while ((int)ppuVar13 < (int)(bVar5 & 0xf));
+      }
+      if (bVar5 >> 4 != 0) {
+        local_94 = 0;
+        do {
+          eON_AppendShaderCompileMessage
+                    (&local_28,"\t{\t// Contribution from light %d (directional light)\n",ppuVar13,
+                     pcVar26);
+          eON_AppendShaderCompileMessage
+                    (&local_28,"\t\tvec3 surfaceToLight = normalize( -%s[%d].spotDirection );\n",
+                     pcVar16,ppuVar13);
+          eON_AppendShaderCompileMessage
+                    (&local_28,
+                     "\t\tvec3 halfVector = normalize( halfwayVectorComponent + surfaceToLight );\n"
+                    );
+          eON_AppendShaderCompileMessage
+                    (&local_28,
+                     "\t\tfloat normDotLightDir = max( 0.0, dot( normal.xyz, surfaceToLight ) );\n")
+          ;
+          eON_AppendShaderCompileMessage
+                    (&local_28,
+                     "\t\tfloat normDotHalfway = max( 0.0, dot( normal.xyz, halfVector ) );\n");
+          eON_AppendShaderCompileMessage
+                    (&local_28,
+                     "\t\tfloat powerFactor; if( normDotHalfway == 0.0 ) powerFactor = 0.0; else powerFactor = pow( normDotHalfway, %s.shininess );\n"
+                     ,pcVar7);
+          eON_AppendShaderCompileMessage
+                    (&local_28,"\t\tambientLighting += %s[%d].ambient;\n",pcVar16,ppuVar13);
+          eON_AppendShaderCompileMessage
+                    (&local_28,"\t\tdiffuseLighting += %s[%d].diffuse * normDotLightDir;\n",pcVar16,
+                     ppuVar13);
+          pcVar6 = pcVar16;
+          pcVar26 = (char *)ppuVar13;
+          eON_AppendShaderCompileMessage
+                    (&local_28,"\t\tspecularLighting += %s[%d].specular * powerFactor;\n",pcVar16);
+          eON_AppendShaderCompileMessage(&local_28,&DAT_042fc047);
+          local_94 = local_94 + 1;
+          ppuVar13 = (undefined **)((int)ppuVar13 + 1);
+        } while (local_94 < (int)(uint)(*(byte *)((int)param_2 + 0xd) >> 4));
+      }
+      if ((*(byte *)((int)param_2 + 0xe) & 0xf) != 0) {
+        local_94 = 0;
+        do {
+          eON_AppendShaderCompileMessage
+                    (&local_28,"\t{\t// Contribution from light %d (point light)\n",ppuVar13,pcVar26
+                    );
+          eON_AppendShaderCompileMessage
+                    (&local_28,"\t\tvec3 surfaceToLight = %s[%d].position.xyz - eyeCoordPos3;\n",
+                     pcVar16,ppuVar13);
+          eON_AppendShaderCompileMessage
+                    (&local_28,"\t\tfloat lightDistance = length( surfaceToLight );\n");
+          eON_AppendShaderCompileMessage
+                    (&local_28,"\t\tsurfaceToLight = normalize( surfaceToLight );\n");
+          eON_AppendShaderCompileMessage
+                    (&local_28,
+                     "\t\tfloat attenuation = 1.0 / ( %s[%d].constantAttenuation + lightDistance * ( %s[%d].linearAttenuation + lightDistance * %s[%d].quadraticAttenuation ) );\n"
+                     ,pcVar16,ppuVar13,pcVar16,ppuVar13,pcVar16,ppuVar13);
+          eON_AppendShaderCompileMessage
+                    (&local_28,
+                     "\t\tvec3 halfVector = normalize( halfwayVectorComponent + surfaceToLight );\n"
+                    );
+          eON_AppendShaderCompileMessage
+                    (&local_28,
+                     "\t\tfloat normDotLightDir = max( 0.0, dot( normal.xyz, surfaceToLight ) );\n")
+          ;
+          eON_AppendShaderCompileMessage
+                    (&local_28,
+                     "\t\tfloat normDotHalfway = max( 0.0, dot( normal.xyz, halfVector ) );\n");
+          eON_AppendShaderCompileMessage
+                    (&local_28,
+                     "\t\tfloat powerFactor; if( normDotHalfway == 0.0 ) powerFactor = 0.0; else powerFactor = pow( normDotHalfway, %s.shininess );\n"
+                     ,pcVar7);
+          eON_AppendShaderCompileMessage
+                    (&local_28,"\t\tambientLighting += %s[%d].ambient * attenuation;\n",pcVar16,
+                     ppuVar13);
+          eON_AppendShaderCompileMessage
+                    (&local_28,
+                     "\t\tdiffuseLighting += %s[%d].diffuse * normDotLightDir * attenuation;\n",
+                     pcVar16,ppuVar13);
+          pcVar6 = pcVar16;
+          pcVar26 = (char *)ppuVar13;
+          eON_AppendShaderCompileMessage
+                    (&local_28,
+                     "\t\tspecularLighting += %s[%d].specular * powerFactor * attenuation;\n",
+                     pcVar16);
+          eON_AppendShaderCompileMessage(&local_28,&DAT_042fc047);
+          local_94 = local_94 + 1;
+          ppuVar13 = (undefined **)((int)ppuVar13 + 1);
+        } while (local_94 < (int)(*(byte *)((int)param_2 + 0xe) & 0xf));
+      }
+      if (8 < (int)ppuVar13) {
+        pcVar26 = 
+        "char* VertexShaderCompiler::GenerateProgram(const VertexShaderConfig&, ColorRegisterAssignment*)"
+        ;
+        pcVar6 = (char *)0x338;
+        FUN_0400a810("lightIndex <= 8",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/fixedPipelineEmulation.cpp"
+                     ,0x338,
+                     "char* VertexShaderCompiler::GenerateProgram(const VertexShaderConfig&, ColorRegisterAssignment*)"
+                    );
+      }
+      eON_AppendShaderCompileMessage
+                (&local_28,
+                 "\tspecularLighting.rgb = clamp( specularLighting.rgb * materialSpecular.rgb, 0.0, 1.0 );\n"
+                 ,pcVar6,pcVar26);
+      eON_AppendShaderCompileMessage
+                (&local_28,"\tspecularLighting.a = clamp( materialSpecular.a, 0.0, 1.0 );\n");
+      eON_AppendShaderCompileMessage(&local_28,"\tvec4 summaryDiffuseColor;\n");
+      eON_AppendShaderCompileMessage
+                (&local_28,
+                 "\tsummaryDiffuseColor.rgb = clamp( ambientLighting.rgb * materialAmbient.rgb + materialEmissive.rgb + diffuseLighting.rgb *materialDiffuse.rgb, 0.0, 1.0 );\n"
+                );
+      eON_AppendShaderCompileMessage
+                (&local_28,
+                 "\tsummaryDiffuseColor.a = clamp( materialEmissive.a + materialDiffuse.a, 0.0, 1.0 );\n"
+                );
+      pcVar6 = "gl_FrontColor";
+      if ((*param_2 & 0x10000) != 0) {
+        pcVar6 = "vec4(0.0)";
+        ppuVar13 = &PTR_s_eON_Varyings_0__042ff180;
+        puVar17 = local_84;
+        for (iVar11 = 0x14; iVar11 != 0; iVar11 = iVar11 + -1) {
+          *puVar17 = (uint)*ppuVar13;
+          ppuVar13 = ppuVar13 + (uint)bVar25 * -2 + 1;
+          puVar17 = puVar17 + (uint)bVar25 * -2 + 1;
+        }
+        if (local_9c != -1) {
+          pcVar6 = (char *)local_84[local_9c * 2];
+        }
+      }
+      eON_AppendShaderCompileMessage(&local_28,"\t%s = summaryDiffuseColor;\n",pcVar6);
+      pcVar6 = "gl_FrontSecondaryColor";
+      if ((*param_2 & 0x10000) != 0) {
+        pcVar6 = "vec4(0.0)";
+        ppuVar13 = &PTR_s_eON_Varyings_0__042ff180;
+        puVar17 = local_84;
+        for (iVar11 = 0x14; iVar11 != 0; iVar11 = iVar11 + -1) {
+          *puVar17 = (uint)*ppuVar13;
+          ppuVar13 = ppuVar13 + (uint)bVar25 * -2 + 1;
+          puVar17 = puVar17 + (uint)bVar25 * -2 + 1;
+        }
+        if (local_a8 != -1) {
+          pcVar6 = (char *)local_84[local_a8 * 2];
+        }
+      }
+      eON_AppendShaderCompileMessage(&local_28,"\t%s = specularLighting;\n",pcVar6);
+      uVar18 = *param_2;
+      if ((uVar18 & 0x10000) == 0) {
+        eON_AppendShaderCompileMessage(&local_28,"\tgl_BackColor = summaryDiffuseColor;\n",pcVar6);
+        eON_AppendShaderCompileMessage(&local_28,"\tgl_BackSecondaryColor = specularLighting;\n");
+LAB_040bf806:
+        uVar18 = *param_2;
+      }
+    }
+  }
+  pcVar7 = pcVar26;
+  if (bVar2) {
+    pcVar7 = "GlFog";
+    uVar8 = uVar18 & 0x20000;
+    if (uVar8 == 0) {
+      pcVar7 = "gl_Fog.";
+    }
+    uVar14 = (uVar18 & 0x3000) >> 0xc;
+    if (uVar14 == 2) {
+      pcVar6 = "eON_VaryingFog";
+      if ((uVar18 & 0x10000) == 0) {
+        pcVar6 = "gl_FogFragCoord";
+      }
+      eON_AppendShaderCompileMessage
+                (&local_28,
+                 "\t%s = clamp( exp2( - fogCoord * fogCoord * %sdensity * %sdensity ), 0.0, 1.0 )\n"
+                 ,pcVar6,pcVar7,pcVar7);
+      uVar18 = *param_2;
+      uVar8 = uVar18 & 0x20000;
+      pcVar26 = pcVar7;
+      goto LAB_040bf858;
+    }
+    if (uVar14 != 3) {
+      if (uVar14 == 1) {
+        pcVar6 = "eON_VaryingFog";
+        if ((uVar18 & 0x10000) == 0) {
+          pcVar6 = "gl_FogFragCoord";
+        }
+        eON_AppendShaderCompileMessage
+                  (&local_28,"\t%s = clamp( exp2( - fogCoord * %sdensity ), 0.0, 1.0 )\n",pcVar6,
+                   pcVar7);
+        uVar18 = *param_2;
+        uVar8 = uVar18 & 0x20000;
+        pcVar26 = pcVar7;
+      }
+      goto LAB_040bf858;
+    }
+    pcVar6 = "eON_VaryingFog";
+    if ((uVar18 & 0x10000) == 0) {
+      pcVar6 = "gl_FogFragCoord";
+    }
+    eON_AppendShaderCompileMessage
+              (&local_28,"\t%s = clamp( ( %send - fogCoord ) * %sscale, 0.0, 1.0 );\n",pcVar6,pcVar7
+               ,pcVar7);
+    uVar18 = *param_2;
+  }
+  uVar8 = uVar18 & 0x20000;
+  pcVar26 = pcVar7;
+LAB_040bf858:
+  uVar18 = uVar18 >> 2 & 7;
+  ppuVar13 = (undefined **)pcVar26;
+  if (uVar18 != 0) {
+    if (uVar8 == 0) {
+      pcVar6 = (char *)ppuVar12;
+      eON_AppendShaderCompileMessage
+                (&local_28,"\tgl_ClipVertex = gl_ModelViewMatrix * %s;\n",ppuVar12,pcVar26);
+      uVar8 = *param_2 & 0x20000;
+      ppuVar13 = (undefined **)pcVar26;
+    }
+    else {
+      ppuVar15 = (undefined **)0x0;
+      do {
+        pcVar6 = (char *)ppuVar15;
+        ppuVar13 = ppuVar15;
+        eON_AppendShaderCompileMessage
+                  (&local_28,"\tgl_ClipDistance[%d] = dot( ClipPlanes[%d], %s );\n",ppuVar15,
+                   ppuVar15,ppuVar12);
+        ppuVar15 = (undefined **)((int)ppuVar15 + 1);
+      } while ((int)ppuVar15 < (int)uVar18);
+      uVar8 = *param_2 & 0x20000;
+    }
+  }
+  ppuVar15 = &PTR_DAT_042e7930;
+  if (uVar8 != 0) {
+    ppuVar15 = (undefined **)&DAT_04328763;
+  }
+  local_94 = 0;
+  local_98 = 0;
+  local_a8 = 0;
+  do {
+    uVar18 = param_2[2] >> ((byte)(local_98 << 2) & 0x1f);
+    if ((uVar18 & 0xf) != 0xf) {
+      if ((uVar18 & 8) == 0) {
+        ppuVar13 = (undefined **)(uVar18 & 7);
+        if ((local_a8 >> (int)ppuVar13 & 1) == 0) {
+          pcVar6 = "in";
+          if ((*param_2 & 0x20000) == 0) {
+            pcVar6 = "attribute";
+          }
+          eON_AppendShaderCompileMessage(local_a4,"%s vec4 eON_AttrTexCoord%u;\n",pcVar6,ppuVar13);
+          local_9c._0_1_ = (sbyte)ppuVar13;
+          local_a8 = local_a8 | 1 << (sbyte)local_9c;
+        }
+        if (((byte)param_2[1] >> (local_98 & 0x1f) & 1) == 0) {
+          uVar18 = *param_2;
+          ppuVar9 = &PTR_s_eON_Varyings_0__042ff180;
+          puVar17 = local_84;
+          for (iVar11 = 0x14; iVar11 != 0; iVar11 = iVar11 + -1) {
+            *puVar17 = (uint)*ppuVar9;
+            ppuVar9 = ppuVar9 + (uint)bVar25 * -2 + 1;
+            puVar17 = puVar17 + (uint)bVar25 * -2 + 1;
+          }
+          pcVar6 = (char *)local_84[(uint)((uVar18 & 0x10000) == 0) + local_94];
+          eON_AppendShaderCompileMessage(&local_28,"\t%s = eON_AttrTexCoord%u;\n",pcVar6,ppuVar13);
+        }
+        else {
+          uVar18 = *param_2;
+          ppuVar9 = &PTR_s_eON_Varyings_0__042ff180;
+          puVar17 = local_84;
+          for (iVar11 = 0x14; iVar11 != 0; iVar11 = iVar11 + -1) {
+            *puVar17 = (uint)*ppuVar9;
+            ppuVar9 = ppuVar9 + (uint)bVar25 * -2 + 1;
+            puVar17 = puVar17 + (uint)bVar25 * -2 + 1;
+          }
+          pcVar6 = (char *)local_84[(uint)((uVar18 & 0x10000) == 0) + local_94];
+          ppuVar9 = ppuVar15;
+          eON_AppendShaderCompileMessage
+                    (&local_28,
+                     "\t%s = %sTextureMatrix[%u] * vec4( eON_AttrTexCoord%u.xy, 1.0, 1.0 );\n",
+                     pcVar6,ppuVar15,local_98,ppuVar13);
+          ppuVar13 = ppuVar9;
+        }
+      }
+      else {
+        uVar18 = uVar18 & 7;
+        if (uVar18 == 2) {
+          if (!bVar4) {
+            ppuVar9 = (undefined **)&DAT_04328763;
+            if ((*param_2 & 0x20000) == 0) {
+              ppuVar9 = &PTR_DAT_042e7930;
+            }
+            ppuVar13 = ppuVar12;
+            eON_AppendShaderCompileMessage
+                      (&local_28,"\tvec4 eyeCoordPosition = %sModelViewMatrix * %s;\n",ppuVar9,
+                       ppuVar12);
+            eON_AppendShaderCompileMessage
+                      (&local_28,
+                       "\tvec3 eyeCoordPos3 = eyeCoordPosition.xyz / eyeCoordPosition.w;\n");
+            bVar4 = true;
+          }
+          if (((byte)param_2[1] >> (local_98 & 0x1f) & 1) == 0) {
+            uVar18 = *param_2;
+            ppuVar9 = &PTR_s_eON_Varyings_0__042ff180;
+            puVar17 = local_84;
+            for (iVar11 = 0x14; iVar11 != 0; iVar11 = iVar11 + -1) {
+              *puVar17 = (uint)*ppuVar9;
+              ppuVar9 = ppuVar9 + (uint)bVar25 * -2 + 1;
+              puVar17 = puVar17 + (uint)bVar25 * -2 + 1;
+            }
+            pcVar6 = (char *)local_84[(uint)((uVar18 & 0x10000) == 0) + local_94];
+            eON_AppendShaderCompileMessage
+                      (&local_28,"\t%s = vec4( eyeCoordPos3, 1.0f );\n",pcVar6,ppuVar13);
+          }
+          else {
+            uVar18 = *param_2;
+            ppuVar13 = &PTR_s_eON_Varyings_0__042ff180;
+            puVar17 = local_84;
+            for (iVar11 = 0x14; iVar11 != 0; iVar11 = iVar11 + -1) {
+              *puVar17 = (uint)*ppuVar13;
+              ppuVar13 = ppuVar13 + (uint)bVar25 * -2 + 1;
+              puVar17 = puVar17 + (uint)bVar25 * -2 + 1;
+            }
+            pcVar6 = (char *)local_84[(uint)((uVar18 & 0x10000) == 0) + local_94];
+            ppuVar13 = ppuVar15;
+            eON_AppendShaderCompileMessage
+                      (&local_28,"\t%s = %sTextureMatrix[%u] * vec4( eyeCoordPos3, 1.0f );\n",pcVar6
+                       ,ppuVar15,local_98);
+          }
+        }
+        else if (uVar18 == 3) {
+          if (!bVar3) {
+            eON_AppendShaderCompileMessage
+                      (&local_28,"\tvec3 normal = eON_AttrNormal0;\n",pcVar6,ppuVar13);
+            ppuVar13 = &PTR_DAT_042e7930;
+            pcVar6 = "normalize";
+            if ((*param_2 & 0x20000) != 0) {
+              ppuVar13 = (undefined **)&DAT_04328763;
+            }
+            if ((*param_2 & 0x40) == 0) {
+              pcVar6 = "";
+            }
+            eON_AppendShaderCompileMessage
+                      (&local_28,"\tnormal.xyz = %s( %sNormalMatrix * normal.xyz );\n",pcVar6,
+                       ppuVar13);
+          }
+          if (!bVar4) {
+            ppuVar9 = (undefined **)&DAT_04328763;
+            if ((*param_2 & 0x20000) == 0) {
+              ppuVar9 = &PTR_DAT_042e7930;
+            }
+            ppuVar13 = ppuVar12;
+            eON_AppendShaderCompileMessage
+                      (&local_28,"\tvec4 eyeCoordPosition = %sModelViewMatrix * %s;\n",ppuVar9,
+                       ppuVar12);
+            eON_AppendShaderCompileMessage
+                      (&local_28,
+                       "\tvec3 eyeCoordPos3 = eyeCoordPosition.xyz / eyeCoordPosition.w;\n");
+            bVar4 = true;
+          }
+          if (((byte)param_2[1] >> (local_98 & 0x1f) & 1) == 0) {
+            uVar18 = *param_2;
+            ppuVar9 = &PTR_s_eON_Varyings_0__042ff180;
+            puVar17 = local_84;
+            for (iVar11 = 0x14; iVar11 != 0; iVar11 = iVar11 + -1) {
+              *puVar17 = (uint)*ppuVar9;
+              ppuVar9 = ppuVar9 + (uint)bVar25 * -2 + 1;
+              puVar17 = puVar17 + (uint)bVar25 * -2 + 1;
+            }
+            pcVar6 = (char *)local_84[(uint)((uVar18 & 0x10000) == 0) + local_94];
+            eON_AppendShaderCompileMessage
+                      (&local_28,
+                       "\t%s = vec4( reflect( normalize( eyeCoordPos3 ), normal.xyz ), 1.0 );\n",
+                       pcVar6,ppuVar13);
+          }
+          else {
+            uVar18 = *param_2;
+            ppuVar13 = &PTR_s_eON_Varyings_0__042ff180;
+            puVar17 = local_84;
+            for (iVar11 = 0x14; iVar11 != 0; iVar11 = iVar11 + -1) {
+              *puVar17 = (uint)*ppuVar13;
+              ppuVar13 = ppuVar13 + (uint)bVar25 * -2 + 1;
+              puVar17 = puVar17 + (uint)bVar25 * -2 + 1;
+            }
+            pcVar6 = (char *)local_84[(uint)((uVar18 & 0x10000) == 0) + local_94];
+            ppuVar13 = ppuVar15;
+            eON_AppendShaderCompileMessage
+                      (&local_28,
+                       "\t%s = vec4( ( %sTextureMatrix[%u] * vec4( reflect( normalize( eyeCoordPos3 ), normal.xyz ), 1.0 ) ).xyz, 1.0 );\n"
+                       ,pcVar6,ppuVar15,local_98);
+          }
+        }
+        else if (uVar18 == 1) {
+          if (!bVar3) {
+            eON_AppendShaderCompileMessage
+                      (&local_28,"\tvec3 normal = eON_AttrNormal0;\n",pcVar6,ppuVar13);
+            ppuVar13 = &PTR_DAT_042e7930;
+            pcVar6 = "normalize";
+            if ((*param_2 & 0x20000) != 0) {
+              ppuVar13 = (undefined **)&DAT_04328763;
+            }
+            if ((*param_2 & 0x40) == 0) {
+              pcVar6 = "";
+            }
+            eON_AppendShaderCompileMessage
+                      (&local_28,"\tnormal.xyz = %s( %sNormalMatrix * normal.xyz );\n",pcVar6,
+                       ppuVar13);
+            bVar3 = true;
+          }
+          uVar8 = param_2[1];
+          uVar18 = *param_2;
+          ppuVar9 = &PTR_s_eON_Varyings_0__042ff180;
+          puVar17 = local_84;
+          for (iVar11 = 0x14; iVar11 != 0; iVar11 = iVar11 + -1) {
+            *puVar17 = (uint)*ppuVar9;
+            ppuVar9 = ppuVar9 + (uint)bVar25 * -2 + 1;
+            puVar17 = puVar17 + (uint)bVar25 * -2 + 1;
+          }
+          if (((byte)uVar8 >> (local_98 & 0x1f) & 1) == 0) {
+            pcVar6 = (char *)local_84[(uint)((uVar18 & 0x10000) == 0) + local_94];
+            eON_AppendShaderCompileMessage
+                      (&local_28,"\t%s = vec4( normal.xyz, 1.0f );\n",pcVar6,ppuVar13);
+          }
+          else {
+            pcVar6 = (char *)local_84[(uint)((uVar18 & 0x10000) == 0) + local_94];
+            ppuVar13 = ppuVar15;
+            eON_AppendShaderCompileMessage
+                      (&local_28,"\t%s = %sTextureMatrix[%u] * vec4( normal.xyz, 1.0f );\n",pcVar6,
+                       ppuVar15,local_98);
+          }
+        }
+      }
+    }
+    local_98 = local_98 + 1;
+    local_94 = local_94 + 2;
+  } while (local_98 != 8);
+  if (bVar3) {
+    pcVar6 = &DAT_0433e9db;
+    if ((*param_2 & 0x20000) == 0) {
+      pcVar6 = "attribute";
+    }
+    eON_AppendShaderCompileMessage(local_a4,"%s vec3 eON_AttrNormal0;\n",pcVar6,ppuVar13);
+  }
+  eON_AppendShaderCompileMessage(&local_28,&PTR_DAT_042fc048,pcVar6,ppuVar13);
+  iVar11 = local_30 + local_24;
+  __dest = malloc(iVar11 + 1);
+  *(undefined1 *)((int)__dest + iVar11) = 0;
+  __dest_00 = (void *)(local_30 + (int)__dest);
+  memcpy(__dest,local_34,local_30);
+  memcpy(__dest_00,local_28,local_24);
+                    /* try { // try from 040c0013 to 040c0017 has its CatchHandler @ 040c120b */
+  FUN_0402f590(&local_28);
+  FUN_0402f590(local_a4);
+  return __dest;
+}
+

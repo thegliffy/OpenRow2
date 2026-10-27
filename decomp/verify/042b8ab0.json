@@ -1,0 +1,77 @@
+
+void png_handle_sCAL(int param_1,int param_2,uint param_3)
+
+{
+  uint uVar1;
+  char *pcVar2;
+  char *pcVar3;
+  int iVar4;
+  uint local_24;
+  uint local_20 [4];
+  
+  if ((*(uint *)(param_1 + 0xd0) & 1) == 0) {
+                    /* WARNING: Subroutine does not return */
+    png_chunk_error(param_1,"missing IHDR");
+  }
+  if ((*(uint *)(param_1 + 0xd0) & 4) == 0) {
+    if ((param_2 == 0) || ((*(byte *)(param_2 + 9) & 0x40) == 0)) {
+      if (param_3 < 4) {
+        png_crc_finish(param_1,param_3);
+        png_chunk_benign_error(param_1,"invalid");
+      }
+      else {
+        pcVar3 = (char *)png_read_buffer();
+        if (pcVar3 == (char *)0x0) {
+          png_chunk_benign_error(param_1,"out of memory");
+          png_crc_finish(param_1,param_3);
+        }
+        else {
+          png_crc_read(param_1,pcVar3,param_3);
+          pcVar3[param_3] = '\0';
+          iVar4 = png_crc_finish(param_1,0);
+          if (iVar4 == 0) {
+            if ((byte)(*pcVar3 - 1U) < 2) {
+              local_24 = 1;
+              local_20[0] = 0;
+              iVar4 = FUN_042a6c90(pcVar3,param_3,local_20,&local_24);
+              if (((iVar4 != 0) && (local_24 < param_3)) &&
+                 (pcVar2 = pcVar3 + local_24, uVar1 = local_24 + 1, local_24 = uVar1,
+                 *pcVar2 == '\0')) {
+                if ((local_20[0] & 0x188) != 0x108) {
+                  png_chunk_benign_error(param_1,"non-positive width");
+                  return;
+                }
+                local_20[0] = 0;
+                iVar4 = FUN_042a6c90(pcVar3,param_3,local_20,&local_24);
+                if ((iVar4 != 0) && (local_24 == param_3)) {
+                  if ((local_20[0] & 0x188) != 0x108) {
+                    png_chunk_benign_error(param_1,"non-positive height");
+                    return;
+                  }
+                  png_set_sCAL_s(param_1,param_2,*pcVar3,pcVar3 + 1,pcVar3 + uVar1);
+                  return;
+                }
+                png_chunk_benign_error(param_1,"bad height format");
+                return;
+              }
+              png_chunk_benign_error(param_1,"bad width format");
+            }
+            else {
+              png_chunk_benign_error(param_1,"invalid unit");
+            }
+          }
+        }
+      }
+    }
+    else {
+      png_crc_finish(param_1,param_3);
+      png_chunk_benign_error(param_1,"duplicate");
+    }
+  }
+  else {
+    png_crc_finish(param_1,param_3);
+    png_chunk_benign_error(param_1,"out of place");
+  }
+  return;
+}
+

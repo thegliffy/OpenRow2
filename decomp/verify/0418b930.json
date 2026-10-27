@@ -1,0 +1,49 @@
+
+void eON_DumpMemoryHandle(uint *param_1,uint param_2,int param_3)
+
+{
+  uint uVar1;
+  int *piVar2;
+  int *piVar3;
+  int iVar4;
+  int iVar5;
+  int iVar6;
+  int iVar7;
+  int iVar8;
+  uint uVar9;
+  
+  if (((param_2 >> 0x10 == 0xfafa) && (uVar9 = param_2 + 0x5060000, uVar9 < *param_1)) &&
+     (uVar9 != 0xffffffff)) {
+    piVar2 = (int *)param_1[1];
+    iVar6 = (int)(param_1[2] - (int)piVar2) >> 2;
+    if (iVar6 != 0) {
+      piVar3 = (int *)*piVar2;
+      iVar4 = 0;
+      uVar1 = piVar3[4];
+      while (uVar9 != uVar1) {
+        iVar4 = iVar4 + 1;
+        if (iVar4 == iVar6) {
+          return;
+        }
+        piVar3 = (int *)piVar2[iVar4];
+        uVar1 = piVar3[4];
+      }
+      iVar6 = *piVar3;
+      iVar7 = 0;
+      iVar4 = piVar3[3];
+      FUN_0402cd10(5,"DUMPING MEMORY handle: %p address: %p size: %u",param_2,iVar6 + iVar4,param_3)
+      ;
+      if (param_3 != 0) {
+        do {
+          iVar5 = (int)*(char *)(iVar6 + iVar4 + iVar7);
+          iVar8 = iVar7 + 1;
+          FUN_0402cd10(5,"[%3d] value: %3d char: \'%c\'",iVar7,iVar5,iVar5);
+          iVar7 = iVar8;
+        } while (iVar8 != param_3);
+        return;
+      }
+    }
+  }
+  return;
+}
+

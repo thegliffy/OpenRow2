@@ -1,0 +1,17 @@
+
+/* source: cursorLinux */
+
+void eON_CursorLinux__SetStandardCursor(int param_1)
+
+{
+  if (*(int *)(param_1 + 0x38) != 0) {
+    SDL_SetCursor();
+    return;
+  }
+  FUN_0400a810("StandardCursor",
+               "/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/linux/cursorLinux.cpp",0x49
+               ,"virtual void eON_CursorLinux::SetStandardCursor()");
+  SDL_SetCursor();
+  return;
+}
+

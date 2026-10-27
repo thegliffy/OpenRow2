@@ -1,0 +1,28 @@
+
+/* WARNING: Function: __i686.get_pc_thunk.bx replaced with injection: get_pc_thunk_bx */
+
+bool google_breakpad__MinidumpFileWriter__Open(uint *param_1)
+
+{
+  bool bVar1;
+  code *pcVar2;
+  uint uVar3;
+  int *piVar4;
+  
+  if (*param_1 == 0xffffffff) {
+    pcVar2 = (code *)swi(0x80);
+    uVar3 = (*pcVar2)();
+    bVar1 = uVar3 < 0xfffff001;
+    if (!bVar1) {
+      piVar4 = __errno_location();
+      *piVar4 = -uVar3;
+      uVar3 = 0xffffffff;
+    }
+    *param_1 = uVar3;
+    return bVar1;
+  }
+                    /* WARNING: Subroutine does not return */
+  __assert_fail("file_ == -1","src/client/minidump_file_writer.cc",0x40,
+                "bool google_breakpad::MinidumpFileWriter::Open(const char*)");
+}
+

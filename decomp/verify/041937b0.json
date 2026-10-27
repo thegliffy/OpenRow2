@@ -1,0 +1,101 @@
+
+/* source: winsock */
+
+int eON_bind(int param_1,short *param_2,size_t param_3)
+
+{
+  short *psVar1;
+  int __fd;
+  size_t __n;
+  int *piVar2;
+  int iVar3;
+  undefined1 local_64 [8];
+  char local_5c;
+  char local_5b;
+  char local_5a;
+  char local_59;
+  char local_58;
+  char local_57;
+  char local_56;
+  char local_55;
+  int *local_24 [3];
+  undefined4 *local_18;
+  
+  __n = param_3;
+  psVar1 = param_2;
+  __fd = param_1;
+  local_18 = &param_1;
+  iVar3 = -1;
+  if (*param_2 == 2) {
+    if (0x40 < (int)param_3) {
+      FUN_0400a810("namelen <= 64",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/winsock/winsock.cpp"
+                   ,0x527,"INT eON_bind(SOCKET, const eON_sockaddr*, INT)");
+    }
+    memcpy((sockaddr *)local_64,psVar1,__n);
+    local_5c = '\0';
+    local_5b = '\0';
+    local_5a = '\0';
+    local_59 = '\0';
+    local_58 = '\0';
+    local_57 = '\0';
+    local_56 = '\0';
+    local_55 = '\0';
+    iVar3 = getifaddrs(local_24);
+    piVar2 = local_24[0];
+    if (iVar3 == 0) {
+      for (; piVar2 != (int *)0x0; piVar2 = (int *)*piVar2) {
+        while ((((psVar1 = (short *)piVar2[3], psVar1 != (short *)0x0 &&
+                 ((*(byte *)(piVar2 + 2) & 1) != 0)) && (*psVar1 == 2)) &&
+               (*(undefined **)(psVar1 + 2) != &DAT_0100007f))) {
+          piVar2 = (int *)*piVar2;
+          if (*(undefined **)(psVar1 + 2) == (undefined *)local_64._4_4_) {
+            local_64._4_4_ = (undefined *)0x0;
+          }
+          if (piVar2 == (int *)0x0) goto LAB_0419387b;
+        }
+      }
+    }
+LAB_0419387b:
+    freeifaddrs(local_24[0]);
+    iVar3 = bind(__fd,(sockaddr *)local_64,__n);
+    if (iVar3 == -1) {
+      piVar2 = __errno_location();
+      switch(*piVar2) {
+      case 9:
+      case 0x58:
+        eON_SetLastError(0x2736);
+        break;
+      default:
+        FUN_0402cd10(0xf,"SOCKETS: unhandled error %d in bind()",*piVar2);
+        break;
+      case 0xd:
+        eON_SetLastError(0x271d);
+        break;
+      case 0xe:
+        eON_SetLastError(0x271e);
+        break;
+      case 0x16:
+        eON_SetLastError(0x2726);
+        break;
+      case 0x59:
+      case 0x5f:
+      case 0x61:
+        break;
+      case 0x62:
+        eON_SetLastError(0x2740);
+        break;
+      case 99:
+        eON_SetLastError(0x2741);
+        break;
+      case 100:
+        eON_SetLastError(0x2742);
+        break;
+      case 0x69:
+        eON_SetLastError(0x2747);
+      }
+    }
+  }
+  return iVar3;
+}
+

@@ -1,0 +1,58 @@
+
+void eON_ShaderData__FormatAttributeName(int param_1,char *param_2,char *param_3)
+
+{
+  undefined4 uVar1;
+  
+  uVar1 = *(undefined4 *)(param_1 + (int)param_2 * 0xc + 0x164);
+  switch(uVar1) {
+  case 0:
+    param_2 = "ON_AttrPosition%u";
+    break;
+  case 1:
+    param_2 = "ON_AttrBlendWeight%u";
+    break;
+  case 2:
+    param_2 = "ON_AttrBlendIndices%u";
+    break;
+  case 3:
+    param_2 = "ON_AttrNormal%u";
+    break;
+  case 4:
+    param_2 = "ON_AttrPSize%u";
+    break;
+  case 5:
+    param_2 = "ON_AttrTexCoord%u";
+    break;
+  case 6:
+    param_2 = "ON_AttrTangent%u";
+    break;
+  case 7:
+    param_2 = "ON_AttrBinormal%u";
+    break;
+  case 8:
+    param_2 = "ON_AttrTessFactor%u";
+    break;
+  case 9:
+    param_2 = "ON_AttrPositionT%u";
+    break;
+  case 10:
+    param_2 = "ON_AttrColor%u";
+    break;
+  case 0xb:
+    param_2 = "ON_AttrFog%u";
+    break;
+  case 0xc:
+    param_2 = "ON_AttrDepth%u";
+    break;
+  case 0xd:
+    param_2 = "ON_AttrSample%u";
+    break;
+  default:
+    FUN_0402cd10(0xf,"Unhandled attribute register: %u",uVar1);
+    param_2 = "ON_Attr_UNKNOWN_%u";
+  }
+  sprintf(param_3,param_2);
+  return;
+}
+

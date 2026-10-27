@@ -1,0 +1,123 @@
+
+undefined4 GetFrontBufferData(int param_1,int param_2,int *param_3)
+
+{
+  undefined4 *puVar1;
+  undefined4 uVar2;
+  int **ppiVar3;
+  undefined4 uStack_64;
+  int *local_60;
+  int *local_5c;
+  int local_58;
+  undefined4 local_54;
+  undefined4 local_50;
+  int *local_4c;
+  int *local_48;
+  int local_44;
+  int local_40;
+  int *local_34;
+  int local_30;
+  int local_2c;
+  undefined4 local_28;
+  undefined4 local_24;
+  undefined1 local_20 [16];
+  
+  ppiVar3 = &local_4c;
+  if (param_3 == (int *)0x0) {
+    local_48 = (int *)0x42f0b08;
+    local_4c = (int *)0xa;
+    local_50 = 0x4076fe7;
+    FUN_0402cd10();
+    return 0x8876086c;
+  }
+  if (param_2 != 0) {
+    local_48 = (int *)0x42f0b44;
+    local_4c = (int *)0xf;
+    local_50 = 0x4076fc9;
+    FUN_0402cd10();
+    return 0x8876086c;
+  }
+  local_24 = *(undefined4 *)(param_1 + 0xc);
+  local_50 = 0x4076e2b;
+  direct3ddevice9imp_040704e0();
+  if (param_3[0x1c] == 0x15) {
+    local_30 = *(int *)(param_1 + 0x52fc);
+    local_44 = param_3[0x22];
+    local_40 = *(int *)(local_30 + 0x88);
+    if (local_44 == local_40) {
+      local_44 = param_3[0x23];
+      local_40 = *(int *)(local_30 + 0x8c);
+      if (local_44 == local_40) {
+        local_48 = &local_2c;
+        local_40 = 0x2000;
+        local_44 = 0;
+        local_4c = param_3;
+        local_50 = 0x4076eff;
+        (**(code **)(*param_3 + 0x34))();
+        if (local_2c == param_3[0x22] << 2) {
+          local_5c = (int *)(param_1 + 0xec00);
+          local_50 = 0x14;
+          local_54 = 0xc;
+          local_58 = param_1;
+          local_60 = (int *)0x4076f5d;
+          local_34 = local_5c;
+          puVar1 = (undefined4 *)D3D9CommandQueue__GetNextCommandPointer();
+          *puVar1 = param_3;
+          local_5c = param_3;
+          local_60 = (int *)0x4076f69;
+          (**(code **)(*param_3 + 4))();
+          puVar1[1] = *(undefined4 *)(local_30 + 0x88);
+          puVar1[2] = *(undefined4 *)(local_30 + 0x8c);
+          puVar1[3] = local_2c;
+          puVar1[4] = local_28;
+          local_60 = local_34;
+          uStack_64 = 0x4076f98;
+          D3D9CommandQueue__CommandSubmitted();
+          local_60 = param_3;
+          uStack_64 = 0x4076fa0;
+          (**(code **)(*param_3 + 0x38))();
+          ppiVar3 = (int **)&uStack_64;
+          uVar2 = 0;
+          goto LAB_04076e4a;
+        }
+        local_5c = param_3;
+        local_60 = (int *)0x4076f18;
+        (**(code **)(*param_3 + 0x38))();
+        ppiVar3 = &local_60;
+        local_5c = (int *)0x42f0c8c;
+        local_60 = (int *)0xf;
+        uStack_64 = 0x4076f2f;
+        FUN_0402cd10();
+      }
+      else {
+        local_48 = (int *)0x42f0c28;
+        local_4c = (int *)0xa;
+        local_50 = 0x4076ed4;
+        FUN_0402cd10();
+      }
+    }
+    else {
+      local_48 = (int *)0x42f0bc4;
+      local_4c = (int *)0xa;
+                    /* try { // try from 04076e9b to 04076f9f has its CatchHandler @ 04076fec */
+      local_50 = 0x4076ea0;
+      FUN_0402cd10();
+      ppiVar3 = &local_4c;
+    }
+  }
+  else {
+    local_48 = (int *)0x42f0b80;
+    local_4c = (int *)0xa;
+                    /* try { // try from 04076e40 to 04076e44 has its CatchHandler @ 04076fec */
+    local_50 = 0x4076e45;
+    FUN_0402cd10();
+    ppiVar3 = &local_4c;
+  }
+  uVar2 = 0x8876086c;
+LAB_04076e4a:
+  *ppiVar3 = (int *)local_20;
+  ppiVar3[-1] = (int *)0x4076e52;
+  direct3ddevice9imp_040a2df0();
+  return uVar2;
+}
+

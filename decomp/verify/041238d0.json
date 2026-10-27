@@ -1,0 +1,96 @@
+
+size_t eON_GetObjectW(char *param_1,size_t param_2,undefined4 *param_3)
+
+{
+  undefined1 uVar1;
+  undefined2 uVar2;
+  undefined4 uVar3;
+  uint uVar4;
+  uint uVar5;
+  int iVar6;
+  size_t __n;
+  undefined4 *puVar7;
+  bool bVar8;
+  
+  if (*param_1 == '\x06') {
+    __n = 0x5c;
+    if (param_3 != (undefined4 *)0x0) {
+      if ((int)param_2 < 0x5d) {
+        __n = param_2;
+      }
+      if (param_1[1] == '\0') {
+        memcpy(param_3,param_1 + 8,__n);
+      }
+      else {
+        bzero(param_3,__n);
+        *param_3 = 0xfffffff5;
+        param_3[4] = 400;
+        *(undefined1 *)((int)param_3 + 0x17) = 0xee;
+        FUN_0415a150(param_3 + 7,L"Arial");
+      }
+    }
+  }
+  else if (*param_1 == '\a') {
+    __n = 0x18;
+    if ((param_3 != (undefined4 *)0x0) && (__n = 0, 0x17 < (int)param_2)) {
+      puVar7 = *(undefined4 **)(param_1 + 0x20);
+      if (puVar7 == (undefined4 *)0x0) {
+        __n = 0x18;
+        *param_3 = *(undefined4 *)(param_1 + 8);
+        param_3[1] = *(undefined4 *)(param_1 + 0xc);
+        param_3[2] = *(undefined4 *)(param_1 + 0x10);
+        param_3[3] = *(undefined4 *)(param_1 + 0x14);
+        uVar3 = *(undefined4 *)(param_1 + 0x18);
+        param_3[5] = 0;
+        param_3[4] = uVar3;
+      }
+      else if ((int)param_2 < 0x54) {
+        *param_3 = *puVar7;
+        param_3[1] = puVar7[1];
+        param_3[2] = puVar7[2];
+        param_3[3] = puVar7[3];
+        param_3[4] = puVar7[4];
+        __n = 0x18;
+        param_3[5] = puVar7[5];
+      }
+      else {
+        bVar8 = ((uint)param_3 & 1) != 0;
+        uVar4 = 0x54;
+        if (bVar8) {
+          uVar1 = *(undefined1 *)puVar7;
+          puVar7 = (undefined4 *)((int)puVar7 + 1);
+          *(undefined1 *)param_3 = uVar1;
+          param_3 = (undefined4 *)((int)param_3 + 1);
+          uVar4 = 0x53;
+        }
+        if (((uint)param_3 & 2) != 0) {
+          uVar2 = *(undefined2 *)puVar7;
+          uVar4 = uVar4 - 2;
+          puVar7 = (undefined4 *)((int)puVar7 + 2);
+          *(undefined2 *)param_3 = uVar2;
+          param_3 = (undefined4 *)((int)param_3 + 2);
+        }
+        iVar6 = 0;
+        for (uVar5 = uVar4 >> 2; uVar5 != 0; uVar5 = uVar5 - 1) {
+          *param_3 = *puVar7;
+          puVar7 = puVar7 + 1;
+          param_3 = param_3 + 1;
+        }
+        if ((uVar4 & 2) != 0) {
+          *(undefined2 *)param_3 = *(undefined2 *)puVar7;
+          iVar6 = 2;
+        }
+        if (bVar8) {
+          *(undefined1 *)((int)param_3 + iVar6) = *(undefined1 *)((int)puVar7 + iVar6);
+        }
+        __n = 0x54;
+      }
+    }
+  }
+  else {
+    __n = 0;
+    FUN_0402cd10(5,"GetObjectW not written for this GDI object type! Add it.");
+  }
+  return __n;
+}
+

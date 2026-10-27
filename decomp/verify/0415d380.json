@@ -1,0 +1,102 @@
+
+undefined4
+eON_GetThreadTimes(int param_1,undefined4 *param_2,undefined4 *param_3,undefined4 *param_4,
+                  undefined4 *param_5)
+
+{
+  undefined4 *puVar1;
+  int iVar2;
+  undefined4 uVar3;
+  undefined *puVar4;
+  int iVar5;
+  int *piVar6;
+  undefined *puVar7;
+  undefined *puVar8;
+  int in_FS_OFFSET;
+  undefined *local_84;
+  rusage local_78;
+  __time_t local_30;
+  __suseconds_t local_2c;
+  __time_t local_28;
+  __suseconds_t local_24;
+  uint local_20;
+  undefined4 local_1c;
+  uint local_18;
+  int local_14;
+  
+  if (param_1 == -2) {
+    param_1 = *(int *)(*(int *)(*(int *)(in_FS_OFFSET + 0x18) + 0x130) + 0xc);
+  }
+  iVar5 = Synchronisation_GetObjectInfo(param_1,&local_18,&local_14);
+  if ((iVar5 == 0) || (local_14 != 2)) {
+    *(undefined4 *)(*(int *)(in_FS_OFFSET + 0x18) + 0x34) = 6;
+    return 0;
+  }
+  pthread_mutex_lock((pthread_mutex_t *)&DAT_0451bd4c);
+  puVar4 = DAT_0451bd3c;
+  puVar7 = &DAT_0451bd38;
+  if (DAT_0451bd3c != (undefined *)0x0) {
+    do {
+      while (puVar8 = puVar4, *(uint *)(puVar8 + 0x10) < local_18) {
+        puVar1 = (undefined4 *)(puVar8 + 0xc);
+        puVar4 = (undefined *)*puVar1;
+        puVar8 = puVar7;
+        if ((undefined *)*puVar1 == (undefined *)0x0) goto LAB_0415d425;
+      }
+      puVar4 = *(undefined **)(puVar8 + 8);
+      puVar7 = puVar8;
+    } while (*(undefined **)(puVar8 + 8) != (undefined *)0x0);
+LAB_0415d425:
+    if ((puVar8 != &DAT_0451bd38) && (*(uint *)(puVar8 + 0x10) <= local_18)) goto LAB_0415d458;
+  }
+  local_20 = local_18;
+  local_1c = 0;
+  FUN_0415af30();
+  puVar8 = local_84;
+LAB_0415d458:
+  iVar5 = *(int *)(puVar8 + 0x14);
+  iVar2 = *(int *)(iVar5 + 0x4c);
+  uVar3 = *(undefined4 *)(iVar5 + 0x60);
+  *param_2 = *(undefined4 *)(iVar5 + 0x5c);
+  param_2[1] = uVar3;
+  if (iVar2 == 3) {
+    uVar3 = *(undefined4 *)(iVar5 + 0x68);
+    *param_3 = *(undefined4 *)(iVar5 + 100);
+    param_3[1] = uVar3;
+    uVar3 = *(undefined4 *)(iVar5 + 0x78);
+    *param_4 = *(undefined4 *)(iVar5 + 0x74);
+    param_4[1] = uVar3;
+    uVar3 = *(undefined4 *)(iVar5 + 0x6c);
+    param_5[1] = *(undefined4 *)(iVar5 + 0x70);
+    *param_5 = uVar3;
+    pthread_mutex_unlock((pthread_mutex_t *)&DAT_0451bd4c);
+    return 1;
+  }
+  if (iVar5 == *(int *)(*(int *)(in_FS_OFFSET + 0x18) + 0x130)) {
+    iVar5 = getrusage(RUSAGE_THREAD,&local_78);
+    if (iVar5 == 0) {
+      local_28 = local_78.ru_stime.tv_sec;
+      local_24 = local_78.ru_stime.tv_usec;
+      local_30 = local_78.ru_utime.tv_sec;
+      local_2c = local_78.ru_utime.tv_usec;
+      eON_Int_TimevalToFileTime(&local_28,param_4);
+      eON_Int_TimevalToFileTime(&local_30,param_5);
+      pthread_mutex_unlock((pthread_mutex_t *)&DAT_0451bd4c);
+      return 1;
+    }
+    piVar6 = __errno_location();
+    FUN_0402cd10(0xf,"getrusage( RUSAGE_THREAD ) failed! errno = %u ( %#x )",*piVar6,*piVar6);
+    bzero(&local_28,8);
+    bzero(&local_30,8);
+  }
+  else {
+    bzero(&local_28,8);
+    bzero(&local_30,8);
+    FUN_0402cd10(5,
+                 "getUserAndSystemTimes() not implemented on Linux for threads other than calling one!"
+                );
+  }
+  pthread_mutex_unlock((pthread_mutex_t *)&DAT_0451bd4c);
+  return 0;
+}
+

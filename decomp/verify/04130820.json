@@ -1,0 +1,62 @@
+
+uint eON_StatPath(undefined4 param_1)
+
+{
+  int iVar1;
+  int *piVar2;
+  uint uVar3;
+  uint uVar4;
+  char local_1070 [4096];
+  stat64 local_70;
+  undefined4 *local_10;
+  
+  local_10 = &param_1;
+  FUN_0400f520(param_1,local_1070);
+  iVar1 = FUN_0403c400(local_1070);
+  if (iVar1 == 0) {
+    iVar1 = __xstat64(3,local_1070,&local_70);
+    if (iVar1 != 0) {
+      piVar2 = __errno_location();
+      switch(*piVar2) {
+      default:
+        FUN_0402cd10(0x14,"\tstat() errno unknown (%d)",*piVar2);
+        return 0xffffffff;
+      case 2:
+      case 0x14:
+        eON_SetLastError(3);
+        return 0xffffffff;
+      case 5:
+        FUN_0402cd10(0x14,"\tstat() errno: EIO");
+        return 0xffffffff;
+      case 0xd:
+        FUN_0402cd10(0x14,"\tstat() errno: EACCES");
+        return 0xffffffff;
+      case 0xe:
+        FUN_0402cd10(0x14,&DAT_04328791);
+        return 0xffffffff;
+      case 0x24:
+        FUN_0402cd10(0x14,"\tstat() errno: ENAMETOOLONG");
+        return 0xffffffff;
+      case 0x28:
+        FUN_0402cd10(0x14,"\tstat() errno: ELOOP");
+        return 0xffffffff;
+      case 0x4b:
+        FUN_0402cd10(0x14,"\tstat() errno: EOVERFLOW");
+        return 0xffffffff;
+      }
+    }
+  }
+  else {
+    SplitFile_GetStat(local_1070,&local_70);
+  }
+  uVar4 = ~-(uint)((local_70.st_mode & 0x4000) == 0) & 0x10;
+  if ((local_70.st_mode & 0x80) == 0) {
+    return (-(uint)((local_70.st_mode & 0x4000) == 0) & 0xfffffff0) + 0x11;
+  }
+  uVar3 = 0x80;
+  if (uVar4 != 0) {
+    uVar3 = uVar4;
+  }
+  return uVar3;
+}
+

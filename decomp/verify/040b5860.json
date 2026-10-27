@@ -1,0 +1,42 @@
+
+/* source: direct3dvolume9imp */
+
+int Direct3DVolume9Imp__Release(int param_1)
+
+{
+  int *piVar1;
+  int iVar2;
+  int iVar3;
+  int iVar4;
+  
+  LOCK();
+  piVar1 = (int *)(param_1 + 8);
+  iVar2 = *piVar1;
+  *piVar1 = *piVar1 + -1;
+  UNLOCK();
+  LOCK();
+  piVar1 = (int *)(*(int *)(param_1 + 0x58) + 0x28c);
+  iVar3 = *piVar1;
+  *piVar1 = *piVar1 + -1;
+  UNLOCK();
+  iVar4 = iVar2 + -2;
+  if (iVar2 - 1U < 2) {
+    if (iVar2 == 1) {
+      FUN_0400a810(&PTR_DAT_04348b17,
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3dvolume9imp.cpp"
+                   ,0x3a0,"virtual ULONG Direct3DVolume9Imp::Release()");
+    }
+    iVar4 = 0;
+    if (iVar3 == 1) {
+      piVar1 = *(int **)(param_1 + 0x58);
+      if (piVar1[8] != 0) {
+        direct3ddevice9imp_0409a7c0(piVar1[8] + 0x40,3,piVar1);
+        return 0;
+      }
+      (**(code **)(*piVar1 + 0x5c))(piVar1);
+      iVar4 = 0;
+    }
+  }
+  return iVar4;
+}
+

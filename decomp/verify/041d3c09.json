@@ -1,0 +1,320 @@
+
+int ucnv_swap(int param_1,int param_2,uint param_3,int param_4,undefined4 *param_5)
+
+{
+  uint *__src;
+  uint *__dest;
+  char *pcVar1;
+  char *pcVar2;
+  int iVar3;
+  code *pcVar4;
+  uint uVar5;
+  bool bVar6;
+  char cVar7;
+  int iVar8;
+  undefined4 *__src_00;
+  undefined4 *__dest_00;
+  size_t sVar9;
+  int iVar10;
+  int iVar11;
+  int iVar12;
+  int iVar13;
+  int iVar14;
+  uint uVar15;
+  int iVar16;
+  uint uVar17;
+  int iVar18;
+  int in_GS_OFFSET;
+  bool bVar19;
+  int local_94;
+  uint local_90;
+  size_t local_8c;
+  uint local_88;
+  uint local_84;
+  int local_80;
+  char *local_7c;
+  byte bStack_47;
+  uint local_28;
+  
+  iVar3 = *(int *)(in_GS_OFFSET + 0x14);
+  bVar19 = false;
+  iVar8 = udata_swapDataHeader(param_1,param_2,param_3,param_4,param_5);
+  if ((param_5 == (undefined4 *)0x0) || (cVar7 = FUN_041d1fd6(*param_5), cVar7 != '\0')) {
+    bVar6 = true;
+  }
+  else {
+    bVar6 = false;
+  }
+  if (bVar6) {
+    iVar8 = 0;
+  }
+  else if (((((*(char *)(param_2 + 0xc) == 'c') && (*(char *)(param_2 + 0xd) == 'n')) &&
+            (*(char *)(param_2 + 0xe) == 'v')) &&
+           ((*(char *)(param_2 + 0xf) == 't' && (*(char *)(param_2 + 0x10) == '\x06')))) &&
+          (1 < *(byte *)(param_2 + 0x11))) {
+    __src_00 = (undefined4 *)(param_2 + iVar8);
+    __dest_00 = (undefined4 *)(param_4 + iVar8);
+    if ((int)param_3 < 0) {
+      local_90 = (**(code **)(param_1 + 8))(*__src_00);
+    }
+    else {
+      param_3 = param_3 - iVar8;
+      if (((int)param_3 < 100) ||
+         (local_90 = (**(code **)(param_1 + 8))(*__src_00), param_3 < local_90)) {
+        bVar6 = true;
+      }
+      else {
+        bVar6 = false;
+      }
+      if (bVar6) {
+        FUN_041ccfa7(param_1,
+                     "ucnv_swap(): too few bytes (%d after header) for an ICU .cnv conversion table\n"
+                     ,param_3);
+        *param_5 = 8;
+        iVar8 = 0;
+        goto LAB_041d4a68;
+      }
+    }
+    if (-1 < (int)param_3) {
+      if (__src_00 != __dest_00) {
+        memcpy(__dest_00,__src_00,local_90);
+      }
+      (**(code **)(param_1 + 0x1c))(param_1,__src_00,4,__dest_00,param_5);
+      (**(code **)(param_1 + 0x1c))(param_1,__src_00 + 0x10,4,__dest_00 + 0x10,param_5);
+      pcVar4 = *(code **)(param_1 + 0x20);
+      sVar9 = strlen((char *)(__src_00 + 1));
+      (*pcVar4)(param_1,__src_00 + 1,sVar9,__dest_00 + 1,param_5);
+      cVar7 = FUN_041d1fd6(*param_5);
+      if (cVar7 != '\0') {
+        FUN_041ccfa7(param_1,"ucnv_swap(): error swapping converter name\n");
+        iVar8 = 0;
+        goto LAB_041d4a68;
+      }
+    }
+    __src = (uint *)((int)__src_00 + local_90);
+    __dest = (uint *)((int)__dest_00 + local_90);
+    if (-1 < (int)param_3) {
+      param_3 = param_3 - local_90;
+    }
+    if (*(char *)((int)__src_00 + 0x45) == '\x02') {
+      if (((int)param_3 < 0) || (0x27 < (int)param_3)) {
+        if (((char)*__src == '\x04') && (*(char *)((int)__src + 1) != '\0')) {
+          local_88 = 8;
+        }
+        else {
+          if (((char)*__src == '\x05') &&
+             ((2 < *(byte *)((int)__src + 1) &&
+              (local_28 = (**(code **)(param_1 + 8))(__src[8]), (local_28 & 0xff80) == 0)))) {
+            bVar19 = true;
+          }
+          else {
+            bVar19 = false;
+          }
+          if (!bVar19) {
+            FUN_041ccfa7(param_1,"ucnv_swap(): unsupported _MBCSHeader.version %d.%d\n",(char)*__src
+                         ,*(char *)((int)__src + 1));
+            *param_5 = 0x10;
+            iVar8 = 0;
+            goto LAB_041d4a68;
+          }
+          local_88 = local_28 & 0x3f;
+          bVar19 = (local_28 & 0x40) != 0;
+        }
+        uVar5 = *__src;
+        iVar10 = (**(code **)(param_1 + 8))(__src[1]);
+        iVar11 = (**(code **)(param_1 + 8))(__src[2]);
+        iVar12 = (**(code **)(param_1 + 8))(__src[3]);
+        iVar13 = (**(code **)(param_1 + 8))(__src[4]);
+        iVar14 = (**(code **)(param_1 + 8))(__src[5]);
+        uVar15 = (**(code **)(param_1 + 8))(__src[6]);
+        iVar16 = (**(code **)(param_1 + 8))(__src[7]);
+        uVar17 = uVar15 >> 8;
+        cVar7 = (char)uVar15;
+        if ((!bVar19) || (cVar7 != '\0')) {
+          switch(uVar15 & 0xff) {
+          case 0:
+          case 1:
+          case 2:
+          case 3:
+          case 8:
+          case 9:
+          case 0xc:
+          case 0xe:
+            goto code_r0x041d41cd;
+          default:
+            FUN_041ccfa7(param_1,"ucnv_swap(): unsupported MBCS output type 0x%x\n",uVar15 & 0xff);
+            *param_5 = 0x10;
+            iVar8 = 0;
+            goto LAB_041d4a68;
+          }
+        }
+        FUN_041ccfa7(param_1,"ucnv_swap(): unsupported combination of makeconv --small with SBCS\n")
+        ;
+        *param_5 = 0x10;
+        iVar8 = 0;
+      }
+      else {
+        FUN_041ccfa7(param_1,
+                     "ucnv_swap(): too few bytes (%d after headers) for an ICU MBCS .cnv conversion table\n"
+                     ,param_3);
+        *param_5 = 8;
+        iVar8 = 0;
+      }
+    }
+    else {
+      FUN_041ccfa7(param_1,"ucnv_swap(): unknown conversionType=%d!=UCNV_MBCS\n",
+                   (int)*(char *)((int)__src_00 + 0x45));
+      *param_5 = 0x10;
+      iVar8 = 0;
+    }
+  }
+  else {
+    FUN_041ccfa7(param_1,
+                 "ucnv_swap(): data format %02x.%02x.%02x.%02x (format version %02x.%02x) is not recognized as an ICU .cnv conversion table\n"
+                 ,*(undefined1 *)(param_2 + 0xc),*(undefined1 *)(param_2 + 0xd),
+                 *(undefined1 *)(param_2 + 0xe),*(undefined1 *)(param_2 + 0xf),
+                 *(undefined1 *)(param_2 + 0x10),*(undefined1 *)(param_2 + 0x11));
+    *param_5 = 0x10;
+    iVar8 = 0;
+  }
+  goto LAB_041d4a68;
+code_r0x041d41cd:
+  local_84 = 0;
+  local_80 = 0;
+  if ((((cVar7 == '\x0e') || (cVar7 == '\0')) || (bStack_47 = (byte)(uVar5 >> 8), bStack_47 < 3)) ||
+     (local_84 = uVar5 >> 0x10 & 0xff, local_84 == 0)) {
+    bVar6 = false;
+  }
+  else {
+    bVar6 = true;
+  }
+  if (bVar6) {
+    local_80 = (CONCAT31((int3)local_84,0xff) + 1 >> 6) * 2;
+  }
+  if (uVar17 == 0) {
+    local_8c = local_80 + iVar14;
+    if (!bVar19) {
+      local_8c = local_8c + iVar16;
+    }
+    local_7c = (char *)0x0;
+  }
+  else {
+    if ((-1 < (int)param_3) && ((int)param_3 < (int)(uVar17 + 0x80))) {
+      FUN_041ccfa7(param_1,
+                   "ucnv_swap(): too few bytes (%d after headers) for an ICU MBCS .cnv conversion table with extension data\n"
+                   ,param_3);
+      *param_5 = 8;
+      iVar8 = 0;
+      goto LAB_041d4a68;
+    }
+    local_7c = (char *)((int)__src + uVar17);
+    iVar18 = FUN_041ccea7(param_1,*(undefined4 *)(local_7c + 0x7c));
+    local_8c = uVar17 + iVar18;
+  }
+  if (-1 < (int)param_3) {
+    if ((int)param_3 < (int)local_8c) {
+      FUN_041ccfa7(param_1,
+                   "ucnv_swap(): too few bytes (%d after headers) for an ICU MBCS .cnv conversion table\n"
+                   ,param_3);
+      *param_5 = 8;
+      iVar8 = 0;
+      goto LAB_041d4a68;
+    }
+    if (__src != __dest) {
+      memcpy(__dest,__src,local_8c);
+    }
+    (**(code **)(param_1 + 0x1c))(param_1,__src + 1,local_88 * 4 + -4,__dest + 1,param_5);
+    if (cVar7 == '\x0e') {
+      pcVar4 = *(code **)(param_1 + 0x20);
+      sVar9 = strlen((char *)(__src + local_88));
+      (*pcVar4)(param_1,__src + local_88,sVar9,__dest + local_88,param_5);
+    }
+    else {
+      (**(code **)(param_1 + 0x1c))
+                (param_1,__src + local_88,iVar10 * 0x400,__dest + local_88,param_5);
+      (**(code **)(param_1 + 0x1c))
+                (param_1,__src + iVar10 * 0x100 + local_88,iVar11 << 3,
+                 __dest + iVar10 * 0x100 + local_88,param_5);
+      (**(code **)(param_1 + 0x18))
+                (param_1,(char *)(iVar12 + (int)__src),iVar13 - iVar12,
+                 (char *)((int)__dest + iVar12),param_5);
+      if (cVar7 == '\0') {
+        (**(code **)(param_1 + 0x18))
+                  (param_1,(char *)(iVar13 + (int)__src),iVar16 + (iVar14 - iVar13),
+                   (char *)((int)__dest + iVar13),param_5);
+      }
+      else {
+        if ((*(byte *)((int)__src_00 + 0x4f) & 1) == 0) {
+          local_94 = 0x80;
+        }
+        else {
+          local_94 = 0x880;
+        }
+        (**(code **)(param_1 + 0x18))
+                  (param_1,(char *)(iVar13 + (int)__src),local_94,(char *)((int)__dest + iVar13),
+                   param_5);
+        iVar13 = iVar13 + local_94;
+        (**(code **)(param_1 + 0x1c))
+                  (param_1,(char *)(iVar13 + (int)__src),iVar14 - iVar13,
+                   (char *)((int)__dest + iVar13),param_5);
+        if (bVar19) {
+          iVar16 = 0;
+        }
+        uVar15 = uVar15 & 0xff;
+        if (uVar15 == 3) {
+          (**(code **)(param_1 + 0x1c))
+                    (param_1,(char *)(iVar14 + (int)__src),iVar16,(char *)((int)__dest + iVar14),
+                     param_5);
+        }
+        else if (uVar15 < 4) {
+          if (uVar15 == 1) {
+LAB_041d4601:
+            (**(code **)(param_1 + 0x18))
+                      (param_1,(char *)(iVar14 + (int)__src),iVar16,(char *)((int)__dest + iVar14),
+                       param_5);
+          }
+        }
+        else if ((uVar15 == 8) || (uVar15 == 0xc)) goto LAB_041d4601;
+        if (local_80 != 0) {
+          (**(code **)(param_1 + 0x18))
+                    (param_1,(char *)(iVar14 + iVar16 + (int)__src),local_80,
+                     (char *)((int)__dest + iVar14 + iVar16),param_5);
+        }
+      }
+    }
+    if (uVar17 != 0) {
+      pcVar1 = (char *)((int)__src + uVar17);
+      pcVar2 = (char *)((int)__dest + uVar17);
+      iVar13 = FUN_041ccea7(param_1,*(undefined4 *)(local_7c + 4));
+      iVar10 = FUN_041ccea7(param_1,*(undefined4 *)(local_7c + 8));
+      (**(code **)(param_1 + 0x1c))(param_1,pcVar1 + iVar13,iVar10 * 4,pcVar2 + iVar13,param_5);
+      iVar13 = FUN_041ccea7(param_1,*(undefined4 *)(local_7c + 0xc));
+      iVar10 = FUN_041ccea7(param_1,*(undefined4 *)(local_7c + 0x10));
+      (**(code **)(param_1 + 0x18))(param_1,pcVar1 + iVar13,iVar10 * 2,pcVar2 + iVar13,param_5);
+      iVar13 = FUN_041ccea7(param_1,*(undefined4 *)(local_7c + 0x14));
+      iVar10 = FUN_041ccea7(param_1,*(undefined4 *)(local_7c + 0x1c));
+      (**(code **)(param_1 + 0x18))(param_1,pcVar1 + iVar13,iVar10 * 2,pcVar2 + iVar13,param_5);
+      iVar13 = FUN_041ccea7(param_1,*(undefined4 *)(local_7c + 0x18));
+      (**(code **)(param_1 + 0x1c))(param_1,pcVar1 + iVar13,iVar10 * 4,pcVar2 + iVar13,param_5);
+      iVar13 = FUN_041ccea7(param_1,*(undefined4 *)(local_7c + 0x28));
+      iVar10 = FUN_041ccea7(param_1,*(undefined4 *)(local_7c + 0x30));
+      (**(code **)(param_1 + 0x18))(param_1,pcVar1 + iVar13,iVar10 * 2,pcVar2 + iVar13,param_5);
+      iVar13 = FUN_041ccea7(param_1,*(undefined4 *)(local_7c + 0x34));
+      iVar10 = FUN_041ccea7(param_1,*(undefined4 *)(local_7c + 0x38));
+      (**(code **)(param_1 + 0x18))(param_1,pcVar1 + iVar13,iVar10 * 2,pcVar2 + iVar13,param_5);
+      iVar13 = FUN_041ccea7(param_1,*(undefined4 *)(local_7c + 0x3c));
+      iVar10 = FUN_041ccea7(param_1,*(undefined4 *)(local_7c + 0x40));
+      (**(code **)(param_1 + 0x1c))(param_1,pcVar1 + iVar13,iVar10 * 4,pcVar2 + iVar13,param_5);
+      iVar13 = FUN_041ccea7(param_1,*(undefined4 *)local_7c);
+      (**(code **)(param_1 + 0x1c))(param_1,pcVar1,iVar13 << 2,pcVar2,param_5);
+    }
+  }
+  iVar8 = local_8c + local_90 + iVar8;
+LAB_041d4a68:
+  if (iVar3 != *(int *)(in_GS_OFFSET + 0x14)) {
+                    /* WARNING: Subroutine does not return */
+    __stack_chk_fail();
+  }
+  return iVar8;
+}
+

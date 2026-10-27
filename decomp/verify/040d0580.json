@@ -1,0 +1,91 @@
+
+/* source: openGlDebugFunctions */
+
+void __regparm3 OpenGL_LogState_RenderTargets(undefined4 *param_1)
+
+{
+  int iVar1;
+  char *pcVar2;
+  int iVar3;
+  int iVar4;
+  undefined1 local_30 [4];
+  int local_2c;
+  int local_28;
+  undefined1 local_24 [7];
+  char local_1d [13];
+  
+  (**(code **)*param_1)(param_1,"Render Targets\n");
+  glGetBooleanv(0x8db9,local_1d);
+  iVar1 = glGetError();
+  if (iVar1 != 0) {
+    FUN_0400a810("glGetError() == 0",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                 ,0x5ca,"void OpenGL_LogState_RenderTargets(OpenGlDebugWriter*)");
+  }
+  pcVar2 = "TRUE";
+  if (local_1d[0] == '\0') {
+    pcVar2 = "FALSE";
+  }
+  (**(code **)*param_1)(param_1,"\tGL_FRAMEBUFFER_SRGB: %s\n",pcVar2);
+  glGetIntegerv(0x8ca6,local_30);
+  iVar1 = glGetError();
+  if (iVar1 != 0) {
+    FUN_0400a810("glGetError() == 0",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                 ,0x5cf,"void OpenGL_LogState_RenderTargets(OpenGlDebugWriter*)");
+  }
+  local_2c = 0;
+  glGetIntegerv(0x8824,&local_2c);
+  iVar1 = glGetError();
+  if (iVar1 != 0) {
+    FUN_0400a810("glGetError() == 0",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                 ,0x5d3,"void OpenGL_LogState_RenderTargets(OpenGlDebugWriter*)");
+  }
+  (**(code **)*param_1)(param_1,"\tGL_MAX_DRAW_BUFFERS: %d\n",local_2c);
+  if (0 < local_2c) {
+    iVar1 = 0;
+    do {
+      glGetIntegerv(iVar1 + 0x8825,&local_28);
+      iVar4 = glGetError();
+      if (iVar4 != 0) {
+        FUN_0400a810("glGetError() == 0",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                     ,0x5da,"void OpenGL_LogState_RenderTargets(OpenGlDebugWriter*)");
+      }
+      iVar4 = local_28;
+      if (local_28 != 0) {
+        iVar3 = GL_ColorAttachment_ToString();
+        if (iVar3 == 0) {
+          (**(code **)*param_1)(param_1,"\t\tGL_DRAW_BUFFER%d: %#x\n",iVar1,iVar4);
+        }
+        else {
+          (**(code **)*param_1)(param_1,"\t\tGL_DRAW_BUFFER%d: %s\n",iVar1,iVar3);
+        }
+      }
+      iVar1 = iVar1 + 1;
+    } while (iVar1 < local_2c);
+  }
+  glGetIntegerv(0x8caa,local_24);
+  iVar1 = glGetError();
+  if (iVar1 != 0) {
+    FUN_0400a810("glGetError() == 0",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                 ,0x5e7,"void OpenGL_LogState_RenderTargets(OpenGlDebugWriter*)");
+  }
+  glGetIntegerv(0xc02,&local_28);
+  iVar1 = glGetError();
+  if (iVar1 != 0) {
+    FUN_0400a810("glGetError() == 0",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                 ,0x5e9,"void OpenGL_LogState_RenderTargets(OpenGlDebugWriter*)");
+  }
+  iVar1 = GL_ColorAttachment_ToString();
+  if (iVar1 != 0) {
+    (**(code **)*param_1)(param_1,"\tGL_READ_BUFFER: %s\n",iVar1);
+    return;
+  }
+  (**(code **)*param_1)(param_1,"\tGL_READ_BUFFER: %#x\n",local_28);
+  return;
+}
+

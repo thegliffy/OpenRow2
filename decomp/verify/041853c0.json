@@ -1,0 +1,466 @@
+
+/* source: windowFunctions */
+
+int * __regparm3
+CreateWindowEx_Common
+          (undefined4 param_1,char *param_2,undefined4 param_3,uint param_4,int param_5,int param_6,
+          int param_7,int param_8,int param_9,int param_10,int param_11,undefined4 param_12)
+
+{
+  code *pcVar1;
+  undefined4 *puVar2;
+  char cVar3;
+  int iVar4;
+  int *piVar5;
+  undefined4 uVar6;
+  uint uVar7;
+  int iVar8;
+  int *piVar9;
+  undefined4 *puVar10;
+  undefined4 *puVar11;
+  int in_FS_OFFSET;
+  int aiStack_dc [11];
+  char *local_b0;
+  char *local_ac;
+  char *local_a4;
+  undefined4 local_a0;
+  uint local_9c;
+  int local_98;
+  int local_94;
+  int local_90;
+  int local_8c;
+  int local_88;
+  int local_84;
+  int local_80;
+  undefined4 local_7c;
+  int local_6c;
+  int local_68;
+  undefined4 local_64;
+  uint local_60;
+  char local_5b;
+  ushort local_5a;
+  int *local_58;
+  int local_54;
+  uint local_50;
+  char *local_4c;
+  int local_48;
+  int local_44;
+  int local_40;
+  int local_3c;
+  int local_38;
+  int local_34 [4];
+  
+  piVar9 = aiStack_dc + 0xb;
+  local_50 = param_4;
+  local_54 = param_9;
+  local_48 = param_7;
+  local_44 = param_8;
+  local_6c = param_10;
+  local_68 = param_11;
+  local_7c = param_12;
+  local_a4 = "(atom)";
+  if (((uint)param_2 & 0xffff0000) != 0) {
+    local_a4 = param_2;
+  }
+  local_80 = param_11;
+  local_84 = param_10;
+  local_88 = param_9;
+  local_94 = param_6;
+  local_98 = param_5;
+  local_8c = param_8;
+  local_ac = 
+  "CreateWindowEx( dwExStyle = %#x, lpClassName = \'%s\', lpWindowName = \'%s\', dwStyle = %#x, X = %d, Y = %d, nWidth = %d, nHeight = %d, hWndParent = %p, hMenu = %p, hInstance = %p, lpParam = %p )"
+  ;
+  local_90 = param_7;
+  local_b0 = (char *)0x5;
+  local_9c = param_4;
+  aiStack_dc[10] = 0x4185477;
+  local_a0 = param_3;
+  local_64 = param_3;
+  local_4c = param_2;
+  FUN_0402cd10();
+  if (local_4c == (char *)0x0) {
+    return (int *)0x0;
+  }
+  local_5a = (ushort)local_4c;
+  if (((uint)param_2 & 0xffff0000) != 0) {
+    local_b0 = local_4c;
+    aiStack_dc[10] = 0x418586b;
+    local_5a = eON_GlobalFindAtomA();
+    piVar9 = aiStack_dc + 10;
+  }
+  local_58 = (int *)0x0;
+  if ((0xbfff < local_5a) &&
+     ((int)(local_5a - 0xc000) < (int)(DAT_0451c0e0 - DAT_0451c0dc >> 2 & 0xffffU))) {
+    local_58 = *(int **)(DAT_0451c0dc + (local_5a - 0xc000) * 4);
+  }
+  local_5b = (local_50 & 0x40000000) != 0;
+  if (10000 < param_5) {
+    piVar9[2] = param_5;
+    param_5 = -0x80000000;
+    piVar9[1] = (int)"Nonsensical X ( %d ) given to CreateWindowEx; centering X";
+    *piVar9 = 10;
+    piVar9[-1] = 0x4185855;
+    FUN_0402cd10();
+  }
+  if (10000 < param_6) {
+    piVar9[2] = param_6;
+    param_6 = -0x80000000;
+    piVar9[1] = (int)"Nonsensical Y ( %d ) given to CreateWindowEx; centering Y";
+    *piVar9 = 10;
+    piVar9[-1] = 0x418582d;
+    FUN_0402cd10();
+  }
+  if (local_5b == '\0') {
+    piVar9[-1] = 0x41857a5;
+    uVar6 = OpenGLDisplay_GetPrimary();
+    piVar9[4] = (int)local_34;
+    piVar9[3] = (int)&local_40;
+    piVar9[2] = (int)&local_38;
+    piVar9[1] = (int)&local_3c;
+    *piVar9 = uVar6;
+    piVar9[-1] = 0x41857c9;
+    OpenGLDisplayWorkArea();
+    local_34[0] = local_34[0] - local_38;
+    if (param_5 == -0x80000000) {
+      param_5 = ((local_40 - local_3c) - local_48) / 2;
+LAB_0418592e:
+      param_6 = (local_34[0] - local_44) / 2;
+    }
+    else if (param_6 == -0x80000000) goto LAB_0418592e;
+    if (local_48 == -0x80000000) {
+      local_48 = (local_40 - local_3c) - param_5;
+      iVar4 = local_34[0] - param_6;
+    }
+    else {
+      iVar4 = local_34[0] - param_6;
+      if (local_44 != -0x80000000) {
+        iVar4 = local_44;
+      }
+    }
+  }
+  else {
+    if (param_5 == -0x80000000) {
+      param_5 = 0;
+    }
+    if (param_6 == -0x80000000) {
+      param_6 = 0;
+    }
+    if (local_48 == -0x80000000) {
+      local_48 = 0;
+    }
+    iVar4 = 0;
+    if (local_44 != -0x80000000) {
+      iVar4 = local_44;
+    }
+  }
+  local_44 = iVar4;
+  *piVar9 = 0x1c;
+  piVar9[-1] = 0x4185510;
+  iVar4 = eON_GetSystemMetrics();
+  piVar9[-1] = 0x1d;
+  if (iVar4 < local_48) {
+    iVar4 = local_48;
+  }
+  piVar9[-2] = 0x4185529;
+  local_48 = iVar4;
+  iVar4 = eON_GetSystemMetrics();
+  puVar10 = piVar9 + -2;
+  if (iVar4 < local_44) {
+    iVar4 = local_44;
+  }
+  piVar9[-3] = 0x418553b;
+  local_44 = iVar4;
+  piVar5 = (int *)eON_WindowLinux__ctor();
+  if (piVar5 == (int *)0x0) {
+    piVar9[1] = (int)
+                "eON_Window* CreateWindowEx_Common(DWORD, LPCSTR, LPCSTR, DWORD, INT, INT, INT, INT, HWND, HMENU, HINSTANCE, LPVOID)"
+    ;
+    *piVar9 = 0xfb;
+    piVar9[-1] = (int)
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/user32/windowFunctions.cpp"
+    ;
+    piVar9[-2] = (int)"windowObject";
+    piVar9[-3] = 0x41859d4;
+    FUN_0400a810();
+  }
+  piVar5[5] = param_5;
+  piVar5[6] = param_6;
+  piVar5[1] = param_5;
+  piVar5[2] = param_6;
+  piVar5[0xb] = local_60;
+  piVar5[10] = local_50;
+  *(ushort *)(piVar5 + 0xf) = local_5a;
+  piVar5[0x15] = local_68;
+  piVar5[8] = local_44 + param_6;
+  piVar5[4] = local_44 + param_6;
+  piVar5[7] = local_48 + param_5;
+  piVar5[3] = local_48 + param_5;
+  if ((local_50 & 0xc00000) == 0xc00000) {
+    piVar9[-2] = 4;
+    piVar9[-3] = 0x4185954;
+    iVar4 = eON_GetSystemMetrics();
+    puVar10 = piVar9 + -3;
+    piVar5[2] = param_6 + iVar4;
+  }
+  *puVar10 = piVar5;
+  puVar10[1] = local_64;
+  puVar10[-1] = 0x41855a3;
+  FUN_0404eb40();
+  if (local_58 != (int *)0x0) {
+    if (*local_58 == 0x30) {
+      piVar5[9] = local_58[2];
+    }
+    else {
+      piVar5[9] = local_58[1];
+    }
+  }
+  if ((local_5b == '\0') || (local_6c == 0)) {
+    puVar11 = puVar10;
+    puVar2 = puVar10;
+    if (local_58 == (int *)0x0) goto LAB_041856b0;
+LAB_041855d1:
+    puVar11 = puVar2;
+    local_40 = piVar5[7] - piVar5[5];
+    local_3c = piVar5[8] - piVar5[6];
+    iVar4 = *piVar5;
+    puVar11[2] = &local_3c;
+    puVar11[1] = &local_40;
+    *puVar11 = piVar5;
+    pcVar1 = *(code **)(iVar4 + 4);
+    puVar11[-1] = 0x41855f9;
+    (*pcVar1)();
+    iVar4 = piVar5[6];
+    piVar5[2] = iVar4;
+    piVar5[8] = local_3c + iVar4;
+    piVar5[4] = local_3c + iVar4;
+    iVar8 = local_40 + piVar5[5];
+    piVar5[7] = iVar8;
+    piVar5[1] = piVar5[5];
+    piVar5[3] = iVar8;
+    if ((piVar5[10] & 0xc00000U) == 0xc00000) {
+      *puVar11 = 4;
+      puVar11[-1] = 0x4185974;
+      iVar8 = eON_GetSystemMetrics();
+      puVar11 = puVar11 + -1;
+      piVar5[2] = iVar4 + iVar8;
+    }
+  }
+  else {
+    puVar10[1] = 0xfffffff4;
+    *puVar10 = piVar5;
+    puVar10[2] = local_6c;
+    puVar10[-1] = 0x41856a2;
+    eON_SetWindowLong();
+    puVar11 = puVar10 + -3;
+    puVar2 = puVar10 + -3;
+    if (local_58 != (int *)0x0) goto LAB_041855d1;
+LAB_041856b0:
+    if (local_4c != (char *)0x8002) {
+      puVar11[1] = "Button";
+      *puVar11 = local_4c;
+      puVar11[-1] = 0x41856d0;
+      iVar4 = strcasecmp((char *)*puVar11,(char *)puVar11[1]);
+      if (iVar4 == 0) {
+        uVar7 = local_50 & 0xf;
+        switch(uVar7) {
+        case 0:
+        case 1:
+          iVar4 = *piVar5;
+          puVar11[1] = uVar7;
+          *puVar11 = piVar5;
+          pcVar1 = *(code **)(iVar4 + 0x24);
+          puVar11[-1] = 0x4185aa1;
+          (*pcVar1)();
+          break;
+        case 2:
+        case 3:
+          iVar4 = *piVar5;
+          *puVar11 = piVar5;
+          pcVar1 = *(code **)(iVar4 + 0x2c);
+          puVar11[-1] = 0x4185a8d;
+          (*pcVar1)();
+          break;
+        case 4:
+        case 9:
+          iVar4 = *piVar5;
+          *puVar11 = piVar5;
+          pcVar1 = *(code **)(iVar4 + 0x30);
+          puVar11[-1] = 0x4185a7f;
+          (*pcVar1)();
+          break;
+        case 5:
+          puVar11[1] = "Unknown button type: BS_3STATE when creating dialog. Handle it.";
+          *puVar11 = 10;
+          puVar11[-1] = 0x4185a72;
+          FUN_0402cd10();
+          break;
+        case 6:
+          puVar11[1] = "Unknown button type: BS_AUTO3STATE when creating dialog. Handle it.";
+          *puVar11 = 10;
+          puVar11[-1] = 0x4185a59;
+          FUN_0402cd10();
+          break;
+        case 7:
+          iVar4 = *piVar5;
+          *puVar11 = piVar5;
+          pcVar1 = *(code **)(iVar4 + 0x28);
+          puVar11[-1] = 0x4185a3f;
+          (*pcVar1)();
+          break;
+        case 8:
+          puVar11[1] = "Unknown button type: BS_USERBUTTON when creating dialog. Handle it.";
+          *puVar11 = 10;
+          puVar11[-1] = 0x4185a32;
+          FUN_0402cd10();
+          break;
+        default:
+          puVar11[2] = uVar7;
+          puVar11[1] = "Unknown button type when creating dialog (%d)";
+          *puVar11 = 10;
+          puVar11[-1] = 0x4185917;
+          FUN_0402cd10();
+          break;
+        case 0xb:
+          puVar11[1] = "Unknown button type: BS_OWNERDRAW when creating dialog. Handle it.";
+          *puVar11 = 10;
+          puVar11[-1] = 0x4185a19;
+          FUN_0402cd10();
+        }
+      }
+      else {
+        puVar11[1] = "ComboBox";
+        *puVar11 = local_4c;
+        puVar11[-1] = 0x41856eb;
+        iVar4 = strcasecmp((char *)*puVar11,(char *)puVar11[1]);
+        if (iVar4 == 0) {
+          iVar4 = *piVar5;
+          *puVar11 = piVar5;
+          pcVar1 = *(code **)(iVar4 + 0x34);
+          puVar11[-1] = 0x4185ab8;
+          (*pcVar1)();
+        }
+        else {
+          puVar11[1] = "msctls_trackbar32";
+          *puVar11 = local_4c;
+          puVar11[-1] = 0x4185706;
+          iVar4 = strcasecmp((char *)*puVar11,(char *)puVar11[1]);
+          if (iVar4 == 0) {
+            iVar4 = *piVar5;
+            *puVar11 = piVar5;
+            pcVar1 = *(code **)(iVar4 + 0x38);
+            puVar11[-1] = 0x4185ac8;
+            (*pcVar1)();
+          }
+          else {
+            puVar11[1] = "msctls_progress32";
+            *puVar11 = local_4c;
+            puVar11[-1] = 0x4185721;
+            iVar4 = strcasecmp((char *)*puVar11,(char *)puVar11[1]);
+            if (iVar4 == 0) {
+              iVar4 = *piVar5;
+              *puVar11 = piVar5;
+              pcVar1 = *(code **)(iVar4 + 0x3c);
+              puVar11[-1] = 0x4185a00;
+              (*pcVar1)();
+            }
+            else {
+              puVar11[1] = "Static";
+              *puVar11 = local_4c;
+              puVar11[-1] = 0x418573c;
+              iVar4 = strcasecmp((char *)*puVar11,(char *)puVar11[1]);
+              if (iVar4 == 0) {
+                iVar4 = *piVar5;
+                *puVar11 = piVar5;
+                if ((local_50 & 0xe) == 0) {
+                  pcVar1 = *(code **)(iVar4 + 0x44);
+                  puVar11[-1] = 0x4185b03;
+                  (*pcVar1)();
+                }
+                else {
+                  pcVar1 = *(code **)(iVar4 + 0x40);
+                  puVar11[-1] = 0x4185756;
+                  (*pcVar1)();
+                }
+              }
+              else {
+                puVar11[1] = &DAT_0434adab;
+                *puVar11 = local_4c;
+                puVar11[-1] = 0x4185ae3;
+                iVar4 = strcasecmp((char *)*puVar11,(char *)puVar11[1]);
+                if (iVar4 == 0) {
+                  iVar4 = *piVar5;
+                  *puVar11 = piVar5;
+                  pcVar1 = *(code **)(iVar4 + 0x48);
+                  puVar11[-1] = 0x4185aef;
+                  (*pcVar1)();
+                }
+                else {
+                  puVar11[1] = "Unknown control class when creating window: \'%s\'";
+                  *puVar11 = 10;
+                  puVar11[2] = local_4c;
+                  puVar11[-1] = 0x4185b2b;
+                  FUN_0402cd10();
+                }
+              }
+            }
+          }
+        }
+      }
+      goto LAB_04185636;
+    }
+  }
+  iVar4 = *piVar5;
+  *puVar11 = piVar5;
+  pcVar1 = *(code **)(iVar4 + 0x20);
+  puVar11[-1] = 0x4185636;
+  (*pcVar1)();
+LAB_04185636:
+  if ((*(byte *)((int)piVar5 + 0x2b) & 0x40) == 0) {
+    iVar4 = *piVar5;
+    *puVar11 = piVar5;
+    pcVar1 = *(code **)(iVar4 + 0x6c);
+    puVar11[-1] = 0x4185798;
+    (*pcVar1)();
+  }
+  if (local_54 != 0) {
+    *puVar11 = piVar5;
+    puVar11[1] = local_54;
+    puVar11[-1] = 0x4185656;
+    eON_Int_Wnd_Reparent();
+    if (((local_54 != -3) && (local_5b != '\0')) && ((local_60 & 4) == 0)) {
+      if (local_54 == 0x271a) {
+        puVar11[-1] = "Desktop HWND supplied in SendMessageA().";
+        puVar11[-2] = 10;
+        puVar11[-3] = 0x4185b5d;
+        FUN_0402cd10();
+      }
+      else {
+        if (local_54 == 0xffff) {
+          puVar11[-1] = "HWND_BROADCAST not supported in SendMessageA(). Add it.";
+          puVar11[-2] = 0xf;
+          puVar11[-3] = 0x4185b44;
+          FUN_0402cd10();
+        }
+        puVar11[-2] = *(undefined4 *)(*(int *)(in_FS_OFFSET + 0x18) + 0x130);
+        puVar11[-3] = 0x41858be;
+        thread_SuspendPoint();
+        puVar11[-2] = local_54;
+        puVar11[-3] = 0x41858c9;
+        cVar3 = FUN_0404ecd0();
+        if (cVar3 == '\0') {
+          puVar11[-2] = 0x578;
+          puVar11[-3] = 0x41859ec;
+          eON_SetLastError();
+        }
+        else {
+          puVar11[-2] = piVar5;
+          puVar11[-3] = 0x41858e6;
+          eON_SendMessageA();
+        }
+      }
+    }
+  }
+  return piVar5;
+}
+

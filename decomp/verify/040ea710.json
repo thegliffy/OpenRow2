@@ -1,0 +1,39 @@
+
+void eON_LinkedProgramData__SetCachedLocation(int param_1,int param_2,void *param_3,size_t param_4)
+
+{
+  int iVar1;
+  int *piVar2;
+  void *pvVar3;
+  
+  pvVar3 = *(void **)(param_1 + 0x19c);
+  if (*(int *)(param_1 + 0x198) <= param_2) {
+    iVar1 = param_2 + 1;
+    if (pvVar3 == (void *)0x0) {
+      pvVar3 = calloc(1,iVar1 * 8);
+      *(void **)(param_1 + 0x19c) = pvVar3;
+    }
+    else {
+      pvVar3 = realloc(pvVar3,iVar1 * 8);
+      *(void **)(param_1 + 0x19c) = pvVar3;
+      bzero((void *)((int)pvVar3 + *(int *)(param_1 + 0x198) * 8),
+            (iVar1 - *(int *)(param_1 + 0x198)) * 8);
+      pvVar3 = *(void **)(param_1 + 0x19c);
+    }
+    *(int *)(param_1 + 0x198) = iVar1;
+  }
+  piVar2 = (int *)((int)pvVar3 + param_2 * 8);
+  pvVar3 = (void *)*piVar2;
+  if (pvVar3 == (void *)0x0) {
+    pvVar3 = malloc(param_4);
+    piVar2[1] = param_4;
+    *piVar2 = (int)pvVar3;
+  }
+  else if (piVar2[1] != param_4) {
+    FUN_0402cd10();
+    return;
+  }
+  memcpy(pvVar3,param_3,param_4);
+  return;
+}
+

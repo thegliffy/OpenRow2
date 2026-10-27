@@ -1,0 +1,97 @@
+
+void png_read_png(int param_1,int param_2,uint param_3)
+
+{
+  int iVar1;
+  uint uVar2;
+  int iVar3;
+  undefined4 uVar4;
+  int iVar5;
+  uint uVar6;
+  
+  if ((param_2 != 0) && (param_1 != 0)) {
+    png_read_info(param_1,param_2);
+    if (0x3fffffff < *(uint *)(param_2 + 4)) {
+                    /* WARNING: Subroutine does not return */
+      png_error(param_1,"Image is too high to process with png_read_png()");
+    }
+    if ((param_3 & 0x8000) != 0) {
+      FUN_042b0310(param_1);
+    }
+    if ((param_3 & 1) != 0) {
+      FUN_042b0340(param_1);
+    }
+    if ((param_3 & 2) != 0) {
+      FUN_042b0370(param_1);
+    }
+    if ((param_3 & 4) != 0) {
+      FUN_042bcdd0(param_1);
+    }
+    if ((param_3 & 8) != 0) {
+      FUN_042bce00(param_1);
+    }
+    if ((param_3 & 0x10) != 0) {
+      FUN_042b10f0(param_1);
+    }
+    if ((param_3 & 0x20) != 0) {
+      FUN_042bcfc0(param_1);
+    }
+    if (((param_3 & 0x40) != 0) && ((*(byte *)(param_2 + 8) & 2) != 0)) {
+      FUN_042bce20(param_1,param_2 + 0x94);
+    }
+    if ((param_3 & 0x80) != 0) {
+      FUN_042bcd90(param_1);
+    }
+    if ((param_3 & 0x100) != 0) {
+      FUN_042bcf80(param_1);
+    }
+    if ((param_3 & 0x200) != 0) {
+      FUN_042bcdb0(param_1);
+    }
+    if ((param_3 & 0x400) != 0) {
+      FUN_042bcfa0(param_1);
+    }
+    if ((param_3 & 0x2000) != 0) {
+      FUN_042b11e0(param_1);
+    }
+    if ((param_3 & 0x4000) != 0) {
+      FUN_042b11b0(param_1);
+    }
+    FUN_042bce50(param_1);
+    png_read_update_info(param_1,param_2);
+    FUN_042a5780(param_1,param_2,0x40,0);
+    iVar3 = *(int *)(param_2 + 0x108);
+    if (iVar3 == 0) {
+      iVar3 = FUN_042aa2c0(param_1,*(int *)(param_2 + 4) << 2);
+      iVar1 = *(int *)(param_2 + 4);
+      *(int *)(param_2 + 0x108) = iVar3;
+      if (iVar1 == 0) {
+        *(uint *)(param_2 + 0xe8) = *(uint *)(param_2 + 0xe8) | 0x40;
+      }
+      else {
+        iVar5 = 0;
+        do {
+          *(undefined4 *)(iVar3 + iVar5 * 4) = 0;
+          iVar5 = iVar5 + 1;
+          iVar3 = *(int *)(param_2 + 0x108);
+        } while (iVar5 != iVar1);
+        *(uint *)(param_2 + 0xe8) = *(uint *)(param_2 + 0xe8) | 0x40;
+        uVar6 = 0;
+        do {
+          iVar1 = uVar6 * 4;
+          uVar6 = uVar6 + 1;
+          uVar4 = FUN_042aa2c0(param_1,*(undefined4 *)(param_2 + 0xc));
+          uVar2 = *(uint *)(param_2 + 4);
+          *(undefined4 *)(iVar3 + iVar1) = uVar4;
+          iVar3 = *(int *)(param_2 + 0x108);
+        } while (uVar6 < uVar2);
+      }
+    }
+    png_read_image(param_1,iVar3);
+    *(uint *)(param_2 + 8) = *(uint *)(param_2 + 8) | 0x8000;
+    png_read_end();
+    return;
+  }
+  return;
+}
+

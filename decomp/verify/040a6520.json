@@ -1,0 +1,117 @@
+
+undefined4 D3D9_FormatToPixelSize(uint param_1)
+
+{
+  undefined4 uVar1;
+  
+  if (param_1 == 0x4b) {
+    return 4;
+  }
+  if (param_1 < 0x4c) {
+    if (param_1 < 0x23) {
+      if (0x1f < param_1) {
+        return 4;
+      }
+      if (param_1 < 0x17) {
+        if (0x14 < param_1) {
+          return 4;
+        }
+        if (param_1 == 0x14) {
+          return 3;
+        }
+      }
+      else {
+        if (param_1 < 0x1b) {
+          return 2;
+        }
+        if (param_1 == 0x1c) {
+          return 1;
+        }
+      }
+    }
+    else {
+      if (param_1 == 0x3c) {
+        return 2;
+      }
+      if (param_1 < 0x3d) {
+        if (param_1 == 0x32) {
+          return 1;
+        }
+        if (param_1 == 0x33) {
+          return 2;
+        }
+        if (param_1 == 0x24) {
+          return 8;
+        }
+      }
+      else if (0x3e < param_1) {
+        if (param_1 < 0x41) {
+          return 4;
+        }
+        if (param_1 == 0x47) {
+          return 4;
+        }
+      }
+    }
+  }
+  else {
+    if (param_1 == 0x73) {
+      return 8;
+    }
+    if (param_1 < 0x74) {
+      if (param_1 == 0x6f) {
+        return 2;
+      }
+      if (0x6f < param_1) {
+        if (param_1 != 0x71) {
+          return 4;
+        }
+        return 8;
+      }
+      if (param_1 == 0x4d) {
+        return 4;
+      }
+      if ((0x4c < param_1) && (param_1 - 0x50 < 2)) {
+        return 2;
+      }
+    }
+    else {
+      if (param_1 == 0x34324644) {
+        return 4;
+      }
+      if (param_1 < 0x34324645) {
+        if (param_1 == 0x31545844) {
+          return 2;
+        }
+        if (param_1 == 0x33545844) {
+          return 4;
+        }
+        if (param_1 == 0x74) {
+          return 0x10;
+        }
+      }
+      else {
+        if (param_1 == 0x36314644) {
+          return 2;
+        }
+        if (param_1 < 0x36314645) {
+          if (param_1 == 0x35545844) {
+            return 4;
+          }
+        }
+        else {
+          if (param_1 == 0x4c4c554e) {
+            return 0;
+          }
+          if (param_1 == 0x5a544e49) {
+            return 4;
+          }
+        }
+      }
+    }
+  }
+  uVar1 = D3D9_FormatToString(param_1);
+  FUN_0402cd10(0xf,"Unknown D3DFORMAT ( %s ) - can\'t determine pixel size!",uVar1);
+  return 0;
+}
+

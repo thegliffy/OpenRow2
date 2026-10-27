@@ -1,0 +1,67 @@
+
+/* WARNING: Removing unreachable block (ram,0x0415f050) */
+/* WARNING: Removing unreachable block (ram,0x0415f0e1) */
+/* WARNING: Removing unreachable block (ram,0x0415f05a) */
+/* WARNING: Removing unreachable block (ram,0x0415f05c) */
+/* WARNING: Removing unreachable block (ram,0x0415ee91) */
+/* WARNING: Removing unreachable block (ram,0x0415ee9d) */
+/* WARNING: Removing unreachable block (ram,0x0415eea6) */
+/* WARNING: Removing unreachable block (ram,0x0415f080) */
+
+int eON_MultiByteToWideChar
+              (int param_1,uint param_2,char *param_3,int param_4,char *param_5,int param_6)
+
+{
+  int iVar1;
+  size_t sVar2;
+  
+  if ((param_2 & 4) != 0) {
+    FUN_0402cd10();
+  }
+  if ((param_2 & 2) != 0) {
+    FUN_0402cd10();
+  }
+  if ((((param_5 == param_3) || (param_3 == (char *)0x0)) || (param_4 == 0)) ||
+     ((0 < param_6 && (param_5 == (char *)0x0)))) {
+    eON_SetLastError();
+    iVar1 = 0;
+  }
+  else if ((((param_2 & 3) == 3) ||
+           (((((param_1 - 0xc42cU < 3 || (param_1 == 0xc431)) ||
+              ((param_1 == 0xc435 ||
+               (((param_1 == 0xc433 || (param_1 - 0xdeaaU < 10)) || (param_1 == 65000)))))) ||
+             (param_1 == 0x2a)) && (param_2 != 0)))) ||
+          (((param_1 == 0xd698 || (param_1 == 0xfde9)) && ((param_2 != 8 && (param_2 != 0)))))) {
+    eON_SetLastError();
+    iVar1 = 0;
+  }
+  else if ((param_4 == -1) && (sVar2 = strlen(param_3), sVar2 == 0)) {
+    iVar1 = 1;
+    if (param_5 != (char *)0x0) {
+      param_5[0] = '\0';
+      param_5[1] = '\0';
+    }
+  }
+  else {
+    str_icuNameFromCodePage();
+    iVar1 = FUN_041ce094();
+    if (iVar1 == 0) {
+      eON_SetLastError();
+      FUN_041cb935();
+      FUN_0402cd10();
+      iVar1 = 0;
+    }
+    else {
+      FUN_041cef1b();
+      iVar1 = FUN_041d026c();
+      if ((param_5 != (char *)0x0) && (param_4 == -1)) {
+        (param_5 + iVar1 * 2)[0] = '\0';
+        (param_5 + iVar1 * 2)[1] = '\0';
+        iVar1 = iVar1 + 1;
+      }
+      FUN_041ce5fc();
+    }
+  }
+  return iVar1;
+}
+

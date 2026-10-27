@@ -1,0 +1,208 @@
+
+undefined4 eON_VirtualProtect(uint param_1,int param_2,uint param_3,int *param_4)
+
+{
+  int *piVar1;
+  void *pvVar2;
+  uint uVar3;
+  int iVar4;
+  uint uVar5;
+  uint uVar6;
+  uint uVar7;
+  void *pvVar8;
+  uint uVar9;
+  int *piVar10;
+  void *__addr;
+  void *pvVar11;
+  sbyte local_50;
+  uint *local_44;
+  uint *local_3c;
+  uint local_24 [3];
+  undefined4 *local_18;
+  
+  piVar1 = param_4;
+  uVar5 = param_3;
+  iVar4 = param_2;
+  uVar7 = param_1;
+  local_18 = &param_1;
+  if ((param_4 == (int *)0x0) || ((param_3 & 0xfffff800) != 0)) goto LAB_0413eac6;
+  if ((param_3 & 0x100) != 0) {
+    FUN_0402cd10(10,"Warning: VirtualProtect() with PAGE_GUARD protection flag. Handle it.");
+  }
+  if (((uVar5 & 0xfffff8ff) == 0x80) || ((uVar5 & 0xfffff8ff) == 8)) {
+    FUN_0402cd10(10,"Warning: VirtualProtect() with unsupported protection flags. Handle it.");
+  }
+  pthread_mutex_lock((pthread_mutex_t *)&DAT_04515bf4);
+  __addr = (void *)(uVar7 & 0xfffff000);
+  pvVar11 = (void *)(uVar7 + 0xfff + iVar4 & 0xfffff000);
+  pvVar2 = (void *)FUN_0402e610();
+  piVar10 = DAT_04515c0c;
+  if (pvVar2 < __addr) {
+    for (; piVar10 != (int *)0x0; piVar10 = (int *)piVar10[1]) {
+      pvVar2 = (void *)piVar10[2];
+      if (pvVar2 <= __addr) {
+        if (pvVar11 <= (void *)(piVar10[3] + (int)pvVar2)) goto LAB_0413eb55;
+        break;
+      }
+    }
+  }
+  else if (DAT_04515be8 != (int *)0x0) {
+    pvVar2 = (void *)DAT_04515be8[2];
+    pvVar8 = (void *)(DAT_04515be8[3] + (int)pvVar2);
+    piVar10 = DAT_04515be8;
+    while (pvVar8 <= __addr) {
+      piVar10 = (int *)*piVar10;
+      if (piVar10 == (int *)0x0) goto LAB_0413eaba;
+      pvVar2 = (void *)piVar10[2];
+      pvVar8 = (void *)(piVar10[3] + (int)pvVar2);
+    }
+    if (((pvVar2 <= __addr) && (pvVar11 <= pvVar8)) && (piVar10 != (int *)0x0)) {
+      pvVar2 = (void *)piVar10[2];
+LAB_0413eb55:
+      uVar7 = (int)pvVar11 - (int)__addr;
+      iVar4 = piVar10[8];
+      if (iVar4 == -1) {
+        uVar9 = (uint)((int)__addr - (int)pvVar2) >> 0xc & 0x1f;
+        local_44 = (uint *)(((uint)((int)__addr - (int)pvVar2) >> 0x11) * 4 + piVar10[9]);
+        local_50 = (sbyte)uVar9;
+        uVar3 = *local_44 >> local_50;
+        pvVar8 = __addr;
+        uVar6 = uVar7;
+        if ((uVar3 & 1) == 0) {
+          do {
+            while( true ) {
+              uVar6 = uVar6 - 0x1000;
+              if (uVar6 == 0) goto LAB_0413ed4a;
+              uVar9 = uVar9 + 1;
+              uVar3 = uVar3 >> 1;
+              if (uVar9 != 4) break;
+              uVar3 = local_44[1];
+              local_44 = local_44 + 1;
+              uVar9 = 0;
+              if ((uVar3 & 1) != 0) goto LAB_0413ed4a;
+            }
+          } while ((uVar3 & 1) == 0);
+LAB_0413ed4a:
+          pvVar8 = (void *)((int)__addr + (uVar7 - uVar6));
+        }
+LAB_0413ec95:
+        if (__addr < pvVar8) goto LAB_0413ec9d;
+        local_44 = __addr;
+        if (iVar4 == -1) {
+          uVar6 = (uint)((int)__addr - (int)pvVar2) >> 0xc & 0x1f;
+          local_3c = (uint *)(((uint)((int)__addr - (int)pvVar2) >> 0x11) * 4 + piVar10[9]);
+          uVar9 = *local_3c >> (sbyte)uVar6;
+          uVar3 = uVar7;
+          if ((uVar9 & 1) != 0) {
+            do {
+              uVar3 = uVar3 - 0x1000;
+              if (uVar3 == 0) break;
+              uVar6 = uVar6 + 1;
+              uVar9 = uVar9 >> 1;
+              if (uVar6 == 4) {
+                uVar9 = local_3c[1];
+                local_3c = local_3c + 1;
+                uVar6 = 0;
+              }
+            } while ((uVar9 & 1) != 0);
+            local_44 = (void *)((uVar7 - uVar3) + (int)__addr);
+          }
+        }
+        else {
+          pvVar8 = (void *)(iVar4 * 0x1000 + (int)pvVar2);
+          if (__addr < pvVar8) goto LAB_0413eb78;
+        }
+      }
+      else {
+        pvVar8 = (void *)(iVar4 * 0x1000 + (int)pvVar2);
+        if (pvVar8 <= __addr) {
+          pvVar8 = (void *)(piVar10[3] + (int)pvVar2);
+          goto LAB_0413ec95;
+        }
+LAB_0413eb78:
+        local_44 = pvVar8;
+      }
+      if (local_44 < pvVar11) {
+LAB_0413ec9d:
+        pthread_mutex_unlock((pthread_mutex_t *)&DAT_04515bf4);
+        eON_SetLastError(0x1e7);
+        return 0;
+      }
+      if (piVar10[0xc] == 0) {
+        *piVar1 = piVar10[0xb];
+LAB_0413ed66:
+        uVar9 = piVar10[0xb];
+LAB_0413ed6f:
+        if (uVar9 == uVar5) goto LAB_0413ec6a;
+      }
+      else {
+        GetPagesProtection(piVar1);
+        if (piVar10[0xc] == 0) goto LAB_0413ed66;
+        local_24[0] = 0;
+        uVar3 = GetPagesProtection(local_24);
+        uVar9 = local_24[0];
+        if (uVar7 >> 0xc == uVar3) goto LAB_0413ed6f;
+      }
+      uVar9 = uVar5 & 0xff;
+      iVar4 = 2;
+      if (uVar9 != 8) {
+        if (uVar9 < 9) {
+          iVar4 = 1;
+          if ((uVar9 != 2) && ((iVar4 = 3, uVar9 != 4 && (iVar4 = 0, uVar9 != 1))))
+          goto LAB_0413ee1b;
+        }
+        else {
+          iVar4 = 5;
+          if (uVar9 != 0x20) {
+            if (uVar9 < 0x21) {
+              iVar4 = 4;
+              if (uVar9 != 0x10) goto LAB_0413ee1b;
+            }
+            else {
+              iVar4 = 7;
+              if ((uVar9 != 0x40) && (iVar4 = 6, uVar9 != 0x80)) {
+LAB_0413ee1b:
+                FUN_0402cd10(10,"Win32ToPosixProtectFlags: unhandled flags %x !!",uVar5);
+                iVar4 = 7;
+              }
+            }
+          }
+        }
+      }
+      iVar4 = mprotect(__addr,uVar7,iVar4);
+      if (iVar4 != 0) {
+        pthread_mutex_unlock((pthread_mutex_t *)&DAT_04515bf4);
+        eON_SetLastError(5);
+        return 0;
+      }
+      if (piVar10[0xc] == 0) {
+        if (((void *)piVar10[2] == __addr) && (piVar10[3] == uVar7)) {
+          piVar10[0xb] = uVar5;
+        }
+        else {
+          Win32ToInternalProtectFlags(uVar5);
+        }
+      }
+      else {
+        Win32ToInternalProtectFlags(uVar5);
+        uVar7 = piVar10[3];
+        local_24[0] = 0;
+        uVar5 = GetPagesProtection(local_24);
+        if (uVar7 >> 0xc == uVar5) {
+          free((void *)piVar10[0xc]);
+          piVar10[0xc] = 0;
+          piVar10[0xb] = local_24[0];
+        }
+      }
+LAB_0413ec6a:
+      pthread_mutex_unlock((pthread_mutex_t *)&DAT_04515bf4);
+      return 1;
+    }
+  }
+LAB_0413eaba:
+  pthread_mutex_unlock((pthread_mutex_t *)&DAT_04515bf4);
+LAB_0413eac6:
+  eON_SetLastError(0x57);
+  return 0;
+}
+

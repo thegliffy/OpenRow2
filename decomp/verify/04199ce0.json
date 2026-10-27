@@ -1,0 +1,26 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+bool _glewInit_GL_ARB_multi_bind(void)
+
+{
+  int iVar1;
+  bool bVar2;
+  bool bVar3;
+  bool bVar4;
+  bool bVar5;
+  
+  iVar1 = glXGetProcAddressARB("glBindBuffersBase");
+  _DAT_0451e508 = iVar1;
+  _DAT_0451e504 = glXGetProcAddressARB("glBindBuffersRange");
+  bVar2 = _DAT_0451e504 == 0;
+  _DAT_0451e500 = glXGetProcAddressARB("glBindImageTextures");
+  bVar3 = _DAT_0451e500 == 0;
+  _DAT_0451e4fc = glXGetProcAddressARB("glBindSamplers");
+  bVar4 = _DAT_0451e4fc == 0;
+  _DAT_0451e4f8 = glXGetProcAddressARB("glBindTextures");
+  bVar5 = _DAT_0451e4f8 == 0;
+  _DAT_0451e4f4 = glXGetProcAddressARB("glBindVertexBuffers");
+  return _DAT_0451e4f4 == 0 || (bVar5 || (bVar4 || (bVar3 || (bVar2 || iVar1 == 0))));
+}
+

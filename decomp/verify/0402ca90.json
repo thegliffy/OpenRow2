@@ -1,0 +1,62 @@
+
+void eON_FormatLogLinePrefix(int param_1,char *param_2,__gnuc_va_list param_3)
+
+{
+  code *pcVar1;
+  char cVar2;
+  undefined4 uVar3;
+  undefined8 uVar4;
+  char local_60 [64];
+  char local_20 [16];
+  
+  if (DAT_0441166c != '\0') {
+    if ((DAT_04411690 == 1) ||
+       ((DAT_04411690 == 2 && (cVar2 = eON_Int_IsMainThread(), cVar2 != '\0')))) {
+LAB_0402cbd5:
+      pcVar1 = (code *)swi(3);
+      (*pcVar1)();
+      return;
+    }
+    if (DAT_04411690 == 3) {
+      if (DAT_04408c68 <= param_1) goto LAB_0402cbd5;
+    }
+    else if (DAT_04408c68 <= param_1) {
+      switch(param_1) {
+      case 3:
+        local_20[0] = 'T';
+        local_20[1] = 0;
+        break;
+      default:
+        sprintf(local_20,(char *)&PTR_DAT_042e1d1a,param_1);
+        break;
+      case 5:
+        local_20[0] = 'D';
+        local_20[1] = 0;
+        break;
+      case 10:
+        local_20[0] = 'W';
+        local_20[1] = 0;
+        break;
+      case 0xf:
+        local_20[0] = 'E';
+        local_20[1] = 0;
+        break;
+      case 0x14:
+        local_20[0] = 'I';
+        local_20[1] = 0;
+      }
+      uVar4 = eON_GetTickCount();
+      uVar3 = FUN_0415b750();
+      snprintf(local_60,0x40,"[thread %08x][%s][%llu]: ",uVar3,local_20,(int)uVar4,
+               (int)((ulonglong)uVar4 >> 0x20));
+      pthread_mutex_lock((pthread_mutex_t *)&DAT_04411678);
+      fputs(local_60,DAT_04411674);
+      vfprintf(DAT_04411674,param_2,param_3);
+      fputc(10,DAT_04411674);
+      fflush(DAT_04411674);
+      pthread_mutex_unlock((pthread_mutex_t *)&DAT_04411678);
+    }
+  }
+  return;
+}
+

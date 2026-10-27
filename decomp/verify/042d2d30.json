@@ -1,0 +1,107 @@
+
+/* WARNING: Function: __i686.get_pc_thunk.bx replaced with injection: get_pc_thunk_bx */
+
+undefined4
+google_breakpad__MinidumpFileWriter__WriteStringCore
+          (int param_1,char *param_2,uint param_3,undefined4 *param_4)
+
+{
+  char cVar1;
+  int iVar2;
+  uint uVar3;
+  uint uVar4;
+  undefined4 uVar5;
+  int in_GS_OFFSET;
+  undefined2 local_3a;
+  int local_38;
+  int local_34;
+  undefined4 local_30;
+  int local_2c;
+  undefined2 local_28;
+  int local_24;
+  int local_20;
+  undefined4 uStack_14;
+  
+  uStack_14 = 0x42d2d3b;
+  local_20 = *(int *)(in_GS_OFFSET + 0x14);
+  if (param_2 == (char *)0x0) {
+                    /* WARNING: Subroutine does not return */
+    __assert_fail((char *)&PTR_DAT_04340e0f,"src/client/minidump_file_writer.cc",0xa1,
+                  "bool google_breakpad::MinidumpFileWriter::WriteStringCore(const CharType*, unsigned int, MDLocationDescriptor*) [with CharType = char]"
+                 );
+  }
+  if (param_4 == (undefined4 *)0x0) {
+                    /* WARNING: Subroutine does not return */
+    __assert_fail("location","src/client/minidump_file_writer.cc",0xa2,
+                  "bool google_breakpad::MinidumpFileWriter::WriteStringCore(const CharType*, unsigned int, MDLocationDescriptor*) [with CharType = char]"
+                 );
+  }
+  if (param_3 == 0) {
+    param_3 = 0x7fffffff;
+  }
+  uVar3 = 0;
+  if (*param_2 == '\0') {
+    local_34 = *(int *)(param_1 + 8);
+    iVar2 = 6;
+  }
+  else {
+    do {
+      uVar4 = uVar3;
+      uVar3 = uVar4 + 1;
+      if (param_3 <= uVar3) break;
+    } while (param_2[uVar3] != '\0');
+    local_30 = 0;
+    local_2c = 0;
+    local_28 = 0;
+    local_24 = 0;
+    local_38 = param_1;
+    local_34 = *(int *)(param_1 + 8);
+    if (uVar4 + 2 == 0) {
+      minidump_file_writer_inl_04009668();
+      goto LAB_042d2eb6;
+    }
+    iVar2 = uVar4 + 6 + uVar4 + 2;
+  }
+  local_38 = param_1;
+  local_28 = 0;
+  local_2c = 0;
+  local_30 = 0;
+  local_24 = 3;
+                    /* try { // try from 042d2de5 to 042d2e06 has its CatchHandler @ 042d2ead */
+  cVar1 = google_breakpad__UntypedMDRVA__Allocate(&local_38,iVar2);
+  if (cVar1 == '\0') {
+LAB_042d2e0e:
+    uVar5 = 0;
+  }
+  else {
+    iVar2 = uVar3 * 2;
+    local_2c = iVar2;
+    cVar1 = FUN_042d26d0(param_1,param_2,uVar3,&local_38,iVar2);
+    if (cVar1 == '\0') goto LAB_042d2e0e;
+    local_3a = 0;
+    if (local_24 != 3) {
+      uVar5 = minidump_file_writer_inl_0400963c();
+      FUN_042d2b00(&local_38);
+                    /* WARNING: Subroutine does not return */
+      _Unwind_Resume(uVar5);
+                    /* catch() { ... } // from try @ 042d2de5 with catch @ 042d2ead
+                       catch() { ... } // from try @ 042d2e60 with catch @ 042d2ead */
+    }
+                    /* try { // try from 042d2e60 to 042d2e64 has its CatchHandler @ 042d2ead */
+    uVar5 = google_breakpad__MinidumpFileWriter__Copy(local_38,iVar2 + 4 + local_34,&local_3a,2);
+    if ((char)uVar5 != '\0') {
+      *param_4 = local_30;
+      param_4[1] = local_34;
+    }
+  }
+  if (local_24 != 2) {
+    google_breakpad__MinidumpFileWriter__Copy(local_38,local_34,&local_2c,4);
+  }
+  if (local_20 == *(int *)(in_GS_OFFSET + 0x14)) {
+    return uVar5;
+  }
+LAB_042d2eb6:
+                    /* WARNING: Subroutine does not return */
+  FUN_042d5e70();
+}
+

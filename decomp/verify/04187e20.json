@@ -1,0 +1,152 @@
+
+undefined4 eON_DestroyWindow(int *param_1)
+
+{
+  code *pcVar1;
+  int *piVar2;
+  char cVar3;
+  int iVar4;
+  uint uVar5;
+  int **ppiVar6;
+  int *piVar7;
+  int *piVar8;
+  int in_FS_OFFSET;
+  int aiStack_50 [4];
+  int *local_40 [5];
+  int local_2c;
+  int local_28;
+  undefined4 local_24;
+  undefined4 *local_18;
+  
+  piVar2 = param_1;
+  local_18 = &param_1;
+  ppiVar6 = local_40;
+  if (param_1 == (int *)0x271a) {
+    local_40[0] = (int *)0x5;
+    aiStack_50[3] = 0x418803e;
+    eON_SetLastError();
+    return 0;
+  }
+  local_40[0] = param_1;
+  aiStack_50[3] = 0x4187e4a;
+  cVar3 = FUN_0404ecd0();
+  if (cVar3 != '\0') {
+    if (piVar2 == DAT_0451c0d8) {
+      local_40[0] = (int *)0x0;
+      aiStack_50[3] = 0x418805d;
+      eON_SetForegroundWindow();
+      ppiVar6 = (int **)(aiStack_50 + 3);
+    }
+    *ppiVar6 = piVar2;
+    ppiVar6[-1] = (int *)0x4187e66;
+    eON_Int_DestroyWindow_ClearMaps();
+    *ppiVar6 = piVar2;
+    ppiVar6[-1] = (int *)0x4187e6e;
+    cVar3 = FUN_0404ecd0();
+    if (cVar3 == '\0') {
+      *ppiVar6 = (int *)0x578;
+      ppiVar6[-1] = (int *)0x4187fbc;
+      eON_SetLastError();
+      ppiVar6 = ppiVar6 + -1;
+    }
+    else {
+      ppiVar6[1] = (int *)0x0;
+      *ppiVar6 = piVar2;
+      ppiVar6[-1] = (int *)0x4187e86;
+      eON_ShowWindow();
+    }
+    if (piVar2 == (int *)0xffff) {
+      ppiVar6[1] = (int *)"HWND_BROADCAST not supported in SendMessageA(). Add it.";
+      *ppiVar6 = (int *)0xf;
+      ppiVar6[-1] = (int *)0x4188079;
+      FUN_0402cd10();
+    }
+    *ppiVar6 = (int *)*(undefined4 *)(*(int *)(in_FS_OFFSET + 0x18) + 0x130);
+    ppiVar6[-1] = (int *)0x4187ea6;
+    thread_SuspendPoint();
+    *ppiVar6 = piVar2;
+    ppiVar6[-1] = (int *)0x4187eae;
+    cVar3 = FUN_0404ecd0();
+    if (cVar3 == '\0') {
+      *ppiVar6 = (int *)0x578;
+      ppiVar6[-1] = (int *)0x4187fd4;
+      eON_SetLastError();
+    }
+    else {
+      *ppiVar6 = (int *)0x0;
+      ppiVar6[-1] = (int *)0x4187ecb;
+      eON_SendMessageA();
+    }
+    piVar8 = (int *)(ppiVar6 + -1);
+    iVar4 = *piVar2;
+    local_2c = 0;
+    local_28 = 0;
+    local_24 = 0;
+    *ppiVar6 = &local_2c;
+    ppiVar6[-1] = piVar2;
+                    /* try { // try from 04187eef to 04187f12 has its CatchHandler @ 04188097 */
+    pcVar1 = *(code **)(iVar4 + 0x70);
+    ppiVar6[-2] = (int *)0x4187ef2;
+    (*pcVar1)();
+    if (local_28 - local_2c >> 2 != 0) {
+      uVar5 = 0;
+      piVar7 = (int *)ppiVar6;
+      do {
+        *(undefined4 *)((int)piVar7 + -4) = *(undefined4 *)(local_2c + uVar5 * 4);
+        *(undefined4 *)((int)piVar7 + -8) = 0x4187f13;
+        eON_DestroyWindow();
+        uVar5 = uVar5 + 1;
+        piVar8 = (int *)((int)piVar7 + -8);
+        piVar7 = (int *)((int)piVar7 + -4);
+      } while (uVar5 < (uint)(local_28 - local_2c >> 2));
+    }
+    if (local_2c != 0) {
+      *piVar8 = local_2c;
+      piVar8[-1] = 0x4187f33;
+      operator_delete((void *)*piVar8);
+    }
+    if (piVar2 == (int *)0xffff) {
+      piVar8[1] = (int)"HWND_BROADCAST not supported in SendMessageA(). Add it.";
+      *piVar8 = 0xf;
+      piVar8[-1] = 0x4188092;
+      FUN_0402cd10();
+    }
+    *piVar8 = *(undefined4 *)(*(int *)(in_FS_OFFSET + 0x18) + 0x130);
+    piVar8[-1] = 0x4187f53;
+    thread_SuspendPoint();
+    *piVar8 = (int)piVar2;
+    piVar8[-1] = 0x4187f5b;
+    cVar3 = FUN_0404ecd0();
+    if (cVar3 == '\0') {
+      *piVar8 = 0x578;
+      piVar8[-1] = 0x4187fec;
+      eON_SetLastError();
+    }
+    else {
+      *piVar8 = 0;
+      piVar8[-1] = 0x4187f78;
+      eON_SendMessageA();
+    }
+    piVar8[-1] = (int)piVar2;
+    piVar8[-2] = 0x4187f83;
+    eON_Int_DestroyWindow_PurgeQueue();
+    piVar8[-1] = (int)piVar2;
+    piVar8[-2] = 0x4187f8b;
+    iVar4 = FUN_0402d650();
+    if (iVar4 != 0) {
+      piVar2[0x13] = 1;
+      return 1;
+    }
+    iVar4 = *piVar2;
+    piVar8[-1] = (int)piVar2;
+    pcVar1 = *(code **)(iVar4 + 8);
+    piVar8[-2] = 0x418801f;
+    (*pcVar1)();
+    return 1;
+  }
+  local_40[0] = (int *)0x578;
+  aiStack_50[3] = 0x4188004;
+  eON_SetLastError();
+  return 0;
+}
+

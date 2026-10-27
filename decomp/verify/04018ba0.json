@@ -1,0 +1,76 @@
+
+int eON_GetDataChangesPath(char param_1)
+
+{
+  int iVar1;
+  int *piVar2;
+  char *pcVar3;
+  code **ppcVar4;
+  code *local_90;
+  undefined1 local_6c [96];
+  
+  if (DAT_044112f8 == '\0') {
+    local_90 = (code *)0x4018c5c;
+    iVar1 = __cxa_guard_acquire();
+    if (iVar1 != 0) {
+                    /* try { // try from 04018c73 to 04018c77 has its CatchHandler @ 04018d57 */
+      local_90 = (code *)0x4018c78;
+      std::string::string((string *)&DAT_04411300,(string *)&DAT_044112d8);
+                    /* try { // try from 04018c8f to 04018c93 has its CatchHandler @ 04018d35 */
+      local_90 = (code *)0x4018c94;
+      std::string::append((char *)&DAT_04411300,0x42dcad9);
+      local_90 = (code *)0x4018ca0;
+      __cxa_guard_release();
+      local_90 = (code *)0x4018cbc;
+      __cxa_atexit();
+    }
+  }
+  ppcVar4 = (code **)&stack0xffffff74;
+  if (DAT_04411308 == '\0') {
+    local_90 = (code *)0x4018bce;
+    iVar1 = __cxa_guard_acquire();
+    ppcVar4 = (code **)&stack0xffffff74;
+    if (iVar1 != 0) {
+                    /* try { // try from 04018cd7 to 04018cdb has its CatchHandler @ 04018d1f */
+      local_90 = (code *)0x4018cdc;
+      FUN_0400f6e0();
+      ppcVar4 = &local_90;
+      local_90 = (code *)&DAT_04411308;
+      __cxa_guard_release();
+      local_90 = std::string::~string;
+      __cxa_atexit();
+    }
+  }
+  *ppcVar4 = (code *)0x3;
+  ppcVar4[2] = (code *)local_6c;
+  ppcVar4[1] = (code *)DAT_04411300;
+  ppcVar4[-1] = (code *)0x4018bf2;
+  iVar1 = __xstat64((int)*ppcVar4,(char *)ppcVar4[1],(stat64 *)ppcVar4[2]);
+  if (iVar1 != 0) {
+    ppcVar4[-1] = (code *)0x4018bfb;
+    piVar2 = __errno_location();
+    if (*piVar2 == 2) {
+      ppcVar4[-1] = (code *)0x4018d1a;
+      eON_FileSystem__createPath();
+    }
+    else {
+      *ppcVar4 = (code *)*piVar2;
+      ppcVar4[-1] = (code *)0x4018c10;
+      pcVar3 = strerror((int)*ppcVar4);
+      ppcVar4[4] = (code *)pcVar3;
+      iVar1 = *piVar2;
+      ppcVar4[1] = (code *)"eON_FileSystem::checkPathExists() failed for path %s, (%u) %s\n";
+      ppcVar4[3] = (code *)iVar1;
+      ppcVar4[2] = (code *)DAT_04411300;
+      *ppcVar4 = (code *)stderr;
+      ppcVar4[-1] = (code *)0x4018c38;
+      fprintf((FILE *)*ppcVar4,(char *)ppcVar4[1]);
+    }
+  }
+  iVar1 = DAT_04411310;
+  if (param_1 == '\0') {
+    iVar1 = DAT_04411300;
+  }
+  return iVar1;
+}
+

@@ -1,0 +1,72 @@
+
+undefined4
+eON_SystemParametersInfoW(uint param_1,undefined4 param_2,uint *param_3,undefined4 param_4)
+
+{
+  uint *puVar1;
+  undefined4 uVar2;
+  
+  puVar1 = param_3;
+  if (param_1 < 0x36) {
+    if (param_1 < 0x32) {
+      if (param_1 < 0x12) {
+        if ((param_1 < 0xe) && (param_1 != 3)) goto LAB_0417cefc;
+      }
+      else {
+        if (param_1 == 0x29) {
+          if (param_3 == (uint *)0x0) {
+            return 0;
+          }
+          if (*param_3 < 0x1f0) {
+            return 0;
+          }
+          bzero(param_3,0x1f0);
+          puVar1[1] = 1;
+          puVar1[2] = 0x10;
+          puVar1[3] = 0x10;
+          puVar1[4] = 0x12;
+          puVar1[5] = 0x12;
+          puVar1[6] = 0xfffffff5;
+          puVar1[10] = 700;
+          *(undefined1 *)((int)puVar1 + 0x2f) = 1;
+          FUN_0415a150(puVar1 + 0xd,L"Tahoma");
+          puVar1[0x1d] = 0xf;
+          puVar1[0x1e] = 0xf;
+          puVar1[0x1f] = 0xfffffff5;
+          puVar1[0x23] = 700;
+          *(undefined1 *)((int)puVar1 + 0x93) = 1;
+          FUN_0415a150(puVar1 + 0x26,L"Tahoma");
+          *(undefined1 *)((int)puVar1 + 0xf7) = 1;
+          puVar1[0x36] = 0x12;
+          puVar1[0x37] = 0x12;
+          puVar1[0x38] = 0xfffffff5;
+          puVar1[0x3c] = 400;
+          FUN_0415a150(puVar1 + 0x3f,L"Tahoma");
+          *(undefined1 *)((int)puVar1 + 0x153) = 1;
+          puVar1[0x4f] = 0xfffffff5;
+          puVar1[0x53] = 400;
+          FUN_0415a150(puVar1 + 0x56,L"Tahoma");
+          *(undefined1 *)((int)puVar1 + 0x1af) = 1;
+          puVar1[0x66] = 0xfffffff5;
+          puVar1[0x6a] = 400;
+          FUN_0415a150(puVar1 + 0x6d,L"Tahoma");
+          return 1;
+        }
+        if (param_1 != 0x30) {
+LAB_0417cefc:
+          FUN_0402cd10(5,"uiAction %d (%#x)",param_1,param_1,&param_1);
+          return 0;
+        }
+      }
+    }
+  }
+  else if (param_1 != 0x70) {
+    if (param_1 < 0x71) {
+      if ((param_1 < 0x3a) || ((0x3b < param_1 && (param_1 != 0x68)))) goto LAB_0417cefc;
+    }
+    else if ((param_1 != 0x100a) && ((param_1 != 0x2000 && (param_1 != 0x1002)))) goto LAB_0417cefc;
+  }
+  uVar2 = eON_SystemParametersInfoA(param_1,param_2,param_3,param_4);
+  return uVar2;
+}
+

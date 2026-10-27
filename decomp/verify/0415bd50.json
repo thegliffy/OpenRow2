@@ -1,0 +1,118 @@
+
+/* source: winthreads */
+
+void thread_MakeSureThreadHasTEB(void)
+
+{
+  undefined4 *puVar1;
+  pthread_t pVar2;
+  uint uVar3;
+  pthread_t *ppVar4;
+  undefined *puVar5;
+  pthread_t pVar6;
+  int iVar7;
+  undefined4 uVar8;
+  undefined4 *__s;
+  long lVar9;
+  int iVar10;
+  undefined *puVar11;
+  undefined *puVar12;
+  int in_FS_OFFSET;
+  undefined *local_50;
+  char local_44 [32];
+  uint local_24;
+  undefined4 local_20;
+  
+  pVar6 = pthread_self();
+  pthread_mutex_lock((pthread_mutex_t *)&DAT_0451bd4c);
+  iVar10 = (int)DAT_0451bd2c - (int)DAT_0451bd28 >> 2;
+  if (iVar10 != 0) {
+    iVar7 = 0;
+    pVar2 = *DAT_0451bd28;
+    while( true ) {
+      if (pVar6 == pVar2) {
+        *(undefined4 *)(*(int *)(*(int *)(in_FS_OFFSET + 0x18) + 0x130) + 0x4c) = 0;
+        pthread_mutex_unlock((pthread_mutex_t *)&DAT_0451bd4c);
+        return;
+      }
+      iVar7 = iVar7 + 1;
+      if (iVar7 == iVar10) break;
+      pVar2 = DAT_0451bd28[iVar7];
+    }
+  }
+  pthread_mutex_unlock((pthread_mutex_t *)&DAT_0451bd4c);
+  uVar3 = DAT_04410a14;
+  while (DAT_0441163c != '\0') {
+    DAT_04410a14 = uVar3;
+    usleep(1000);
+    uVar3 = DAT_04410a14;
+  }
+  DAT_04410a14 = uVar3 + 1;
+  uVar8 = Synchronisation_AllocObject(2,uVar3);
+  Synchronisation_AddRefHandle(uVar8);
+  pthread_mutex_lock((pthread_mutex_t *)&DAT_0451bd4c);
+  __s = malloc(0x94);
+  if (__s == (undefined4 *)0x0) {
+    FUN_0400a810("threadInfo",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/winthreads.cpp"
+                 ,0x4a1,"void thread_MakeSureThreadHasTEB()");
+  }
+  bzero(__s,0x94);
+  ppVar4 = DAT_0451bd2c;
+  *__s = 0xdeadbab0;
+  __s[2] = uVar3;
+  __s[6] = pVar6;
+  if (ppVar4 == DAT_0451bd30) {
+    eON_Int_ThreadPthreadVec_Insert();
+  }
+  else {
+    if (ppVar4 != (pthread_t *)0x0) {
+      *ppVar4 = pVar6;
+    }
+    DAT_0451bd2c = ppVar4 + 1;
+  }
+  lVar9 = syscall(0xe0,0);
+  __s[4] = 0;
+  __s[0x22] = lVar9;
+  __s[0x16] = 0xdeadbabe;
+  __s[0x13] = 0;
+  __s[0x14] = 0;
+  __s[3] = uVar8;
+  pthread_cond_init((pthread_cond_t *)(__s + 7),(pthread_condattr_t *)0x0);
+  thread_PrepareTEB(__s[2],__s);
+  InitializeImplicitTLSForThread();
+  eON_LocalFileTimeFromTimeval(__s + 0x17);
+  puVar5 = DAT_0451bd3c;
+  puVar11 = &DAT_0451bd38;
+  if (DAT_0451bd3c != (undefined *)0x0) {
+    do {
+      while (puVar12 = puVar5, *(uint *)(puVar12 + 0x10) < uVar3) {
+        puVar1 = (undefined4 *)(puVar12 + 0xc);
+        puVar5 = (undefined *)*puVar1;
+        puVar12 = puVar11;
+        if ((undefined *)*puVar1 == (undefined *)0x0) goto LAB_0415bef5;
+      }
+      puVar5 = *(undefined **)(puVar12 + 8);
+      puVar11 = puVar12;
+    } while (*(undefined **)(puVar12 + 8) != (undefined *)0x0);
+LAB_0415bef5:
+    if ((puVar12 != &DAT_0451bd38) && (*(uint *)(puVar12 + 0x10) <= uVar3)) goto LAB_0415bf1a;
+  }
+  local_20 = 0;
+  local_24 = uVar3;
+  eON_Int_ThreadMap_InsertNode();
+  puVar12 = local_50;
+LAB_0415bf1a:
+  *(undefined4 **)(puVar12 + 0x14) = __s;
+  pthread_mutex_unlock((pthread_mutex_t *)&DAT_0451bd4c);
+  uVar8 = Synchronisation_CreateEvent(0,0,0);
+  __s[5] = uVar8;
+  snprintf(local_44,0x20,"G.%u",__s[2]);
+  eON_SetThreadName(local_44);
+  FUN_04150330(2);
+  FUN_0402cd10(5,
+               "Prepared Windows Thread Environment Block for outside thread that needs to call back on game code"
+              );
+  return;
+}
+

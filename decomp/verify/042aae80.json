@@ -1,0 +1,34 @@
+
+uint __regparm3 decode_gamma(undefined4 *param_1,uint param_2,int param_3)
+
+{
+  uint uVar1;
+  
+  if (param_3 == 3) {
+    param_3 = param_1[8];
+  }
+  if (param_3 == 0) {
+    FUN_042aa5d0();
+    param_3 = param_1[8];
+  }
+  if (param_3 == 2) {
+    return param_2;
+  }
+  if (param_3 < 3) {
+    if (param_3 == 1) {
+      return (uint)(ushort)(&DAT_04399720)[param_2];
+    }
+  }
+  else {
+    if (param_3 == 3) {
+      uVar1 = FUN_042a8d10(param_2 * 0x101,param_1[9]);
+      return uVar1 & 0xffff;
+    }
+    if (param_3 == 4) {
+      return param_2 * 0x101;
+    }
+  }
+                    /* WARNING: Subroutine does not return */
+  png_error(**(undefined4 **)*param_1,"unexpected encoding (internal error)");
+}
+

@@ -1,0 +1,33 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+bool _glewInit_GL_APPLE_fence(void)
+
+{
+  int iVar1;
+  bool bVar2;
+  bool bVar3;
+  bool bVar4;
+  bool bVar5;
+  bool bVar6;
+  bool bVar7;
+  
+  iVar1 = glXGetProcAddressARB("glDeleteFencesAPPLE");
+  DAT_0451e974 = iVar1;
+  _DAT_0451e970 = glXGetProcAddressARB("glFinishFenceAPPLE");
+  bVar2 = _DAT_0451e970 == 0;
+  _DAT_0451e96c = glXGetProcAddressARB("glFinishObjectAPPLE");
+  bVar3 = _DAT_0451e96c == 0;
+  DAT_0451e968 = glXGetProcAddressARB("glGenFencesAPPLE");
+  bVar4 = DAT_0451e968 == 0;
+  _DAT_0451e964 = glXGetProcAddressARB("glIsFenceAPPLE");
+  bVar5 = _DAT_0451e964 == 0;
+  DAT_0451e960 = glXGetProcAddressARB("glSetFenceAPPLE");
+  bVar6 = DAT_0451e960 == 0;
+  DAT_0451e95c = glXGetProcAddressARB("glTestFenceAPPLE");
+  bVar7 = DAT_0451e95c == 0;
+  _DAT_0451e958 = glXGetProcAddressARB("glTestObjectAPPLE");
+  return _DAT_0451e958 == 0 ||
+         (bVar7 || (bVar6 || (bVar5 || (bVar4 || (bVar3 || (bVar2 || iVar1 == 0))))));
+}
+

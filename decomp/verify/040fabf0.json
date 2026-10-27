@@ -1,0 +1,41 @@
+
+/* source: backendOpenALSoft */
+
+undefined4 DSoundBackend_CaptureInit(undefined4 param_1,uint param_2)
+
+{
+  int iVar1;
+  char cVar2;
+  undefined4 uVar3;
+  undefined1 local_24 [7];
+  char local_1d [13];
+  
+  uVar3 = 0;
+  if (DAT_044fa4cc == 0) {
+    cVar2 = backendOpenALSoft_040f8d80(&DAT_044fa4d8,local_24,local_1d);
+    if (local_1d[0] != '\0') {
+      FUN_0400a810("!specialFormat",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/dsound/backendOpenALSoft.cpp"
+                   ,0x3c0,"bool DSoundBackend_CaptureInit(const WAVEFORMATEXTENSIBLE*, DWORD)");
+    }
+    iVar1 = DAT_044fa4d0;
+    uVar3 = 0;
+    if (((cVar2 != '\0') && (DAT_044fa4d0 != 0x1302)) && (DAT_044fa4d0 != 0x1303)) {
+      DAT_044fa4dc = param_2;
+      DAT_044fa4e0 = malloc(param_2);
+      if (DAT_044fa4e0 != (void *)0x0) {
+        DAT_044fa4cc = alcCaptureOpenDevice(0,DAT_044fa4d4,iVar1,param_2 / DAT_044fa4d8);
+        if (DAT_044fa4cc == 0) {
+          free(DAT_044fa4e0);
+          DAT_044fa4e0 = (void *)0x0;
+        }
+        else {
+          DAT_044fa4e4 = 0;
+          uVar3 = 1;
+        }
+      }
+    }
+  }
+  return uVar3;
+}
+

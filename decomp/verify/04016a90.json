@@ -1,0 +1,259 @@
+
+undefined4 * eON_LoadStandardCursor(int param_1)
+
+{
+  undefined4 *puVar1;
+  undefined4 uVar2;
+  char *pcVar3;
+  
+  if (param_1 == 0x7f8a) {
+    pcVar3 = "IDC_APPSTARTING";
+  }
+  else {
+    if (param_1 == 0x7f00) {
+      if (DAT_04411220 != (undefined4 *)0x0) {
+        return DAT_04411220;
+      }
+      puVar1 = operator_new(0x44);
+                    /* try { // try from 04016cb7 to 04016cbb has its CatchHandler @ 0401718d */
+      FUN_0400e290(puVar1);
+      *puVar1 = &PTR_FUN_042dc388;
+      puVar1[0xf] = 0;
+      puVar1[0x10] = 0;
+                    /* try { // try from 04016cd7 to 04016cdb has its CatchHandler @ 0401717a */
+      uVar2 = SDL_CreateSystemCursor(0);
+      goto LAB_04016cdc;
+    }
+    if (param_1 == 0x7f03) {
+      if (DAT_04411224 != (undefined4 *)0x0) {
+        return DAT_04411224;
+      }
+      puVar1 = operator_new(0x44);
+                    /* try { // try from 04016d6f to 04016d73 has its CatchHandler @ 04017136 */
+      FUN_0400e290(puVar1);
+      *puVar1 = &PTR_FUN_042dc388;
+      puVar1[0xf] = 0;
+      puVar1[0x10] = 0;
+                    /* try { // try from 04016d8f to 04016d93 has its CatchHandler @ 04017126 */
+      uVar2 = SDL_CreateSystemCursor(3);
+      puVar1[0xe] = uVar2;
+      *(undefined1 *)(puVar1 + 2) = 1;
+      DAT_04411224 = puVar1;
+      return puVar1;
+    }
+    if (param_1 == 0x7f89) {
+LAB_04016cf0:
+      if (DAT_04411228 != (undefined4 *)0x0) {
+        return DAT_04411228;
+      }
+      puVar1 = operator_new(0x44);
+                    /* try { // try from 04016d0f to 04016d13 has its CatchHandler @ 040170ee */
+      FUN_0400e290(puVar1);
+      *puVar1 = &PTR_FUN_042dc388;
+      puVar1[0xf] = 0;
+      puVar1[0x10] = 0;
+                    /* try { // try from 04016d2f to 04016d33 has its CatchHandler @ 040170ca */
+      uVar2 = SDL_CreateSystemCursor(0xb);
+      puVar1[0xe] = uVar2;
+      *(undefined1 *)(puVar1 + 2) = 1;
+      DAT_04411228 = puVar1;
+      return puVar1;
+    }
+    if (param_1 == 0x7f01) {
+LAB_04016b98:
+      if (DAT_0441122c != (undefined4 *)0x0) {
+        return DAT_0441122c;
+      }
+      puVar1 = operator_new(0x44);
+                    /* try { // try from 04016bb3 to 04016bb7 has its CatchHandler @ 04017148 */
+      FUN_0400e290(puVar1);
+      *puVar1 = &PTR_FUN_042dc388;
+      puVar1[0xf] = 0;
+      puVar1[0x10] = 0;
+                    /* try { // try from 04016bd3 to 04016bd7 has its CatchHandler @ 04017138 */
+      uVar2 = SDL_CreateSystemCursor(1);
+      puVar1[0xe] = uVar2;
+      *(undefined1 *)(puVar1 + 2) = 1;
+      DAT_0441122c = puVar1;
+      return puVar1;
+    }
+    if (param_1 == 0x7f8b) {
+      pcVar3 = "IDC_HELP";
+    }
+    else if (param_1 == 0x7f81) {
+      pcVar3 = "IDC_ICON";
+    }
+    else {
+      if (param_1 == 0x7f88) {
+LAB_04016db0:
+        if (DAT_04411230 != (undefined4 *)0x0) {
+          return DAT_04411230;
+        }
+        puVar1 = operator_new(0x44);
+                    /* try { // try from 04016dcf to 04016dd3 has its CatchHandler @ 04017100 */
+        FUN_0400e290(puVar1);
+        *puVar1 = &PTR_FUN_042dc388;
+        puVar1[0xf] = 0;
+        puVar1[0x10] = 0;
+                    /* try { // try from 04016def to 04016df3 has its CatchHandler @ 040170f0 */
+        uVar2 = SDL_CreateSystemCursor(10);
+        puVar1[0xe] = uVar2;
+        *(undefined1 *)(puVar1 + 2) = 1;
+        DAT_04411230 = puVar1;
+        return puVar1;
+      }
+      if (param_1 == 0x7f80) {
+        pcVar3 = "IDC_SIZE";
+      }
+      else if (param_1 == 0x7f86) {
+        pcVar3 = "IDC_SIZEALL";
+      }
+      else if (param_1 == 0x7f83) {
+        pcVar3 = "IDC_SIZENESW";
+      }
+      else if (param_1 == 0x7f85) {
+        pcVar3 = "IDC_SIZENS";
+      }
+      else if (param_1 == 0x7f82) {
+        pcVar3 = "IDC_SIZENWSE";
+      }
+      else if (param_1 == 0x7f84) {
+        pcVar3 = "IDC_SIZEWE";
+      }
+      else if (param_1 == 0x7f04) {
+        pcVar3 = "IDC_UPARROW";
+      }
+      else {
+        pcVar3 = "IDC_WAIT";
+        if (param_1 != 0x7f02) {
+          pcVar3 = "(unknown standard value)";
+          if (param_1 == 0x7f89) goto LAB_04016cf0;
+          if (param_1 == 0x7f01) goto LAB_04016b98;
+          if (param_1 == 0x7f88) goto LAB_04016db0;
+        }
+      }
+    }
+  }
+  if ((param_1 == 0x7f86) || (param_1 == 0x7f80)) {
+    if (DAT_04411234 != (undefined4 *)0x0) {
+      return DAT_04411234;
+    }
+    puVar1 = operator_new(0x44);
+                    /* try { // try from 04017001 to 04017005 has its CatchHandler @ 04017124 */
+    FUN_0400e290(puVar1);
+    *puVar1 = &PTR_FUN_042dc388;
+    puVar1[0xf] = 0;
+    puVar1[0x10] = 0;
+                    /* try { // try from 04017021 to 04017025 has its CatchHandler @ 04017114 */
+    uVar2 = SDL_CreateSystemCursor(9);
+    puVar1[0xe] = uVar2;
+    *(undefined1 *)(puVar1 + 2) = 1;
+    DAT_04411234 = puVar1;
+    return puVar1;
+  }
+  if (param_1 == 0x7f83) {
+    if (DAT_04411238 != (undefined4 *)0x0) {
+      return DAT_04411238;
+    }
+    puVar1 = operator_new(0x44);
+                    /* try { // try from 04016ecf to 04016ed3 has its CatchHandler @ 0401715d */
+    FUN_0400e290(puVar1);
+    *puVar1 = &PTR_FUN_042dc388;
+    puVar1[0xf] = 0;
+    puVar1[0x10] = 0;
+                    /* try { // try from 04016eef to 04016ef3 has its CatchHandler @ 0401714a */
+    uVar2 = SDL_CreateSystemCursor(6);
+    puVar1[0xe] = uVar2;
+    *(undefined1 *)(puVar1 + 2) = 1;
+    DAT_04411238 = puVar1;
+    return puVar1;
+  }
+  if (param_1 == 0x7f85) {
+    if (DAT_0441123c != (undefined4 *)0x0) {
+      return DAT_0441123c;
+    }
+    puVar1 = operator_new(0x44);
+                    /* try { // try from 04016f3f to 04016f43 has its CatchHandler @ 040171bd */
+    FUN_0400e290(puVar1);
+    *puVar1 = &PTR_FUN_042dc388;
+    puVar1[0xf] = 0;
+    puVar1[0x10] = 0;
+                    /* try { // try from 04016f5f to 04016f63 has its CatchHandler @ 040171aa */
+    uVar2 = SDL_CreateSystemCursor(8);
+    puVar1[0xe] = uVar2;
+    *(undefined1 *)(puVar1 + 2) = 1;
+    DAT_0441123c = puVar1;
+    return puVar1;
+  }
+  if (param_1 == 0x7f82) {
+    if (DAT_04411240 != (undefined4 *)0x0) {
+      return DAT_04411240;
+    }
+    puVar1 = operator_new(0x44);
+                    /* try { // try from 04016faf to 04016fb3 has its CatchHandler @ 04017175 */
+    FUN_0400e290(puVar1);
+    *puVar1 = &PTR_FUN_042dc388;
+    puVar1[0xf] = 0;
+    puVar1[0x10] = 0;
+                    /* try { // try from 04016fcf to 04016fd3 has its CatchHandler @ 04017162 */
+    uVar2 = SDL_CreateSystemCursor(5);
+    puVar1[0xe] = uVar2;
+    *(undefined1 *)(puVar1 + 2) = 1;
+    DAT_04411240 = puVar1;
+    return puVar1;
+  }
+  if (param_1 == 0x7f84) {
+    if (DAT_04411244 != (undefined4 *)0x0) {
+      return DAT_04411244;
+    }
+    puVar1 = operator_new(0x44);
+                    /* try { // try from 0401706f to 04017073 has its CatchHandler @ 040171d5 */
+    FUN_0400e290(puVar1);
+    *puVar1 = &PTR_FUN_042dc388;
+    puVar1[0xf] = 0;
+    puVar1[0x10] = 0;
+                    /* try { // try from 0401708f to 04017093 has its CatchHandler @ 040171c2 */
+    uVar2 = SDL_CreateSystemCursor(7);
+    puVar1[0xe] = uVar2;
+    *(undefined1 *)(puVar1 + 2) = 1;
+    DAT_04411244 = puVar1;
+    return puVar1;
+  }
+  if (param_1 == 0x7f02) {
+    if (DAT_04411248 != (undefined4 *)0x0) {
+      return DAT_04411248;
+    }
+    puVar1 = operator_new(0x44);
+                    /* try { // try from 04016e6f to 04016e73 has its CatchHandler @ 04017112 */
+    FUN_0400e290(puVar1);
+    *puVar1 = &PTR_FUN_042dc388;
+    puVar1[0xf] = 0;
+    puVar1[0x10] = 0;
+                    /* try { // try from 04016e8f to 04016e93 has its CatchHandler @ 04017102 */
+    uVar2 = SDL_CreateSystemCursor(4);
+    puVar1[0xe] = uVar2;
+    *(undefined1 *)(puVar1 + 2) = 1;
+    DAT_04411248 = puVar1;
+    return puVar1;
+  }
+  FUN_0402cd10(5,
+               "No Mac standard cursor for %s, loading arrow cursor instead, make custom cursor for this."
+               ,pcVar3);
+  if (DAT_04411220 != (undefined4 *)0x0) {
+    return DAT_04411220;
+  }
+  puVar1 = operator_new(0x44);
+                    /* try { // try from 04016c5e to 04016c62 has its CatchHandler @ 040171a5 */
+  FUN_0400e290(puVar1);
+  *puVar1 = &PTR_FUN_042dc388;
+  puVar1[0xf] = 0;
+  puVar1[0x10] = 0;
+                    /* try { // try from 04016c7e to 04016c82 has its CatchHandler @ 04017192 */
+  uVar2 = SDL_CreateSystemCursor(0);
+LAB_04016cdc:
+  puVar1[0xe] = uVar2;
+  *(undefined1 *)(puVar1 + 2) = 1;
+  DAT_04411220 = puVar1;
+  return puVar1;
+}
+

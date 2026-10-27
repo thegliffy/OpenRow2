@@ -1,0 +1,47 @@
+
+undefined4 __regparm3 png_cache_unknown_chunk(int param_1,uint param_2)
+
+{
+  uint uVar1;
+  undefined4 uVar2;
+  int iVar3;
+  
+  if (*(int *)(param_1 + 0x304) != 0) {
+    FUN_042aa410(param_1,*(int *)(param_1 + 0x304));
+    *(undefined4 *)(param_1 + 0x304) = 0;
+  }
+  uVar1 = *(uint *)(param_1 + 0x2f8);
+  if (((uVar1 == 0) || (uVar1 == 0xffffffff)) || (param_2 <= uVar1)) {
+    uVar2 = *(undefined4 *)(param_1 + 0x178);
+    *(undefined1 *)(param_1 + 0x300) = 0;
+    *(uint *)(param_1 + 0x308) = param_2;
+    *(char *)(param_1 + 0x2fc) = (char)((uint)uVar2 >> 0x18);
+    *(char *)(param_1 + 0x2fd) = (char)((uint)uVar2 >> 0x10);
+    *(char *)(param_1 + 0x2ff) = (char)uVar2;
+    *(char *)(param_1 + 0x2fe) = (char)((uint)uVar2 >> 8);
+    *(char *)(param_1 + 0x30c) = (char)*(undefined4 *)(param_1 + 0xd0);
+    if (param_2 == 0) {
+      *(undefined4 *)(param_1 + 0x304) = 0;
+      goto LAB_042b68c0;
+    }
+    iVar3 = FUN_042aa3a0(param_1,param_2);
+    *(int *)(param_1 + 0x304) = iVar3;
+  }
+  else {
+    iVar3 = *(int *)(param_1 + 0x304);
+  }
+  if (iVar3 == 0) {
+    if (param_2 != 0) {
+      png_crc_finish(param_1,param_2);
+      png_chunk_benign_error(param_1,"unknown chunk exceeds memory limits");
+      return 0;
+    }
+  }
+  else if (param_2 != 0) {
+    png_crc_read(param_1,iVar3,param_2);
+  }
+LAB_042b68c0:
+  png_crc_finish(param_1,0);
+  return 1;
+}
+

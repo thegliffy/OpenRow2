@@ -1,0 +1,35 @@
+
+undefined4
+MMDeviceEnumeratorImp__GetDefaultAudioEndpoint
+          (undefined4 param_1,int param_2,int param_3,undefined4 *param_4)
+
+{
+  int iVar1;
+  void *pvVar2;
+  undefined4 uVar3;
+  
+  if (param_4 == (undefined4 *)0x0) {
+    uVar3 = 0x80004003;
+  }
+  else if ((param_3 < 3) && (param_2 < 3)) {
+    iVar1 = eON_Int_DefaultAudioDevice_Ensure(param_2 == 1);
+    if (iVar1 == 0) {
+      uVar3 = 0x80070490;
+    }
+    else {
+      if (param_3 != 0) {
+        FUN_0402cd10(10,"The game wants default audio for other role than console.");
+      }
+      pvVar2 = operator_new(0x20);
+                    /* try { // try from 0418ca94 to 0418ca98 has its CatchHandler @ 0418cae5 */
+      MMDeviceImp__MMDeviceImp(pvVar2,iVar1,param_2 == 1);
+      *param_4 = *(undefined4 *)((int)pvVar2 + 0xc);
+      uVar3 = 0;
+    }
+  }
+  else {
+    uVar3 = 0x80070057;
+  }
+  return uVar3;
+}
+

@@ -1,0 +1,26 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+bool _glewInit_GL_SGIX_async(void)
+
+{
+  int iVar1;
+  bool bVar2;
+  bool bVar3;
+  bool bVar4;
+  bool bVar5;
+  
+  iVar1 = glXGetProcAddressARB("glAsyncMarkerSGIX");
+  _DAT_0451cc64 = iVar1;
+  _DAT_0451cc60 = glXGetProcAddressARB("glDeleteAsyncMarkersSGIX");
+  bVar2 = _DAT_0451cc60 == 0;
+  _DAT_0451cc5c = glXGetProcAddressARB("glFinishAsyncSGIX");
+  bVar3 = _DAT_0451cc5c == 0;
+  _DAT_0451cc58 = glXGetProcAddressARB("glGenAsyncMarkersSGIX");
+  bVar4 = _DAT_0451cc58 == 0;
+  _DAT_0451cc54 = glXGetProcAddressARB("glIsAsyncMarkerSGIX");
+  bVar5 = _DAT_0451cc54 == 0;
+  _DAT_0451cc50 = glXGetProcAddressARB("glPollAsyncSGIX");
+  return _DAT_0451cc50 == 0 || (bVar5 || (bVar4 || (bVar3 || (bVar2 || iVar1 == 0))));
+}
+

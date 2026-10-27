@@ -1,0 +1,109 @@
+
+/* source: winthreads */
+
+void thread_EraseThreadInfo(uint param_1)
+
+{
+  _Rb_tree_node_base *p_Var1;
+  void *__ptr;
+  uint uVar2;
+  _Rb_tree_node_base *p_Var3;
+  _Rb_tree_node_base *p_Var4;
+  void *pvVar5;
+  _Rb_tree_node_base *p_Var6;
+  _Rb_tree_node_base *p_Var7;
+  _Rb_tree_node_base *local_30;
+  
+  pthread_mutex_lock((pthread_mutex_t *)&DAT_0451bd4c);
+  p_Var4 = DAT_0451bd3c;
+  p_Var6 = (_Rb_tree_node_base *)&DAT_0451bd38;
+  if (DAT_0451bd3c != (_Rb_tree_node_base *)0x0) {
+    do {
+      while (p_Var7 = p_Var4, param_1 <= *(uint *)(p_Var7 + 0x10)) {
+        p_Var4 = *(_Rb_tree_node_base **)(p_Var7 + 8);
+        p_Var6 = p_Var7;
+        if (*(_Rb_tree_node_base **)(p_Var7 + 8) == (_Rb_tree_node_base *)0x0) goto LAB_0415d865;
+      }
+      p_Var1 = p_Var7 + 0xc;
+      p_Var4 = *(_Rb_tree_node_base **)p_Var1;
+      p_Var7 = p_Var6;
+    } while (*(_Rb_tree_node_base **)p_Var1 != (_Rb_tree_node_base *)0x0);
+LAB_0415d865:
+    if ((p_Var7 != (_Rb_tree_node_base *)&DAT_0451bd38) && (*(uint *)(p_Var7 + 0x10) <= param_1))
+    goto LAB_0415d87a;
+  }
+  eON_Int_ThreadMap_InsertNode();
+  p_Var7 = local_30;
+LAB_0415d87a:
+  __ptr = *(void **)(p_Var7 + 0x14);
+  if (*(int *)((int)__ptr + 0x4c) != 3) {
+    FUN_0400a810("threadInfo->ThreadStatus == eON_ThreadInfo::THREAD_FINISHED",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/winthreads.cpp"
+                 ,0x39a,"void thread_EraseThreadInfo(DWORD, HANDLE)");
+  }
+  p_Var6 = (_Rb_tree_node_base *)&DAT_0451bd38;
+  p_Var4 = DAT_0451bd3c;
+joined_r0x0415d8bb:
+  p_Var7 = p_Var6;
+  if (p_Var4 != (_Rb_tree_node_base *)0x0) {
+    while( true ) {
+      p_Var6 = p_Var4;
+      if (*(uint *)(p_Var6 + 0x10) < param_1) goto LAB_0415d8c0;
+      if (*(uint *)(p_Var6 + 0x10) <= param_1) break;
+      p_Var4 = *(_Rb_tree_node_base **)(p_Var6 + 8);
+      p_Var7 = p_Var6;
+      if (*(_Rb_tree_node_base **)(p_Var6 + 8) == (_Rb_tree_node_base *)0x0) goto LAB_0415d8dd;
+    }
+    p_Var4 = *(_Rb_tree_node_base **)(p_Var6 + 8);
+    p_Var1 = *(_Rb_tree_node_base **)(p_Var6 + 0xc);
+    while (p_Var3 = p_Var1, p_Var3 != (_Rb_tree_node_base *)0x0) {
+      if (param_1 < *(uint *)(p_Var3 + 0x10)) {
+        p_Var1 = *(_Rb_tree_node_base **)(p_Var3 + 8);
+        p_Var7 = p_Var3;
+      }
+      else {
+        p_Var1 = *(_Rb_tree_node_base **)(p_Var3 + 0xc);
+      }
+    }
+    while (p_Var4 != (_Rb_tree_node_base *)0x0) {
+      uVar2 = *(uint *)(p_Var4 + 0x10);
+      p_Var1 = p_Var6;
+      while (p_Var6 = p_Var4, param_1 <= uVar2) {
+        p_Var4 = *(_Rb_tree_node_base **)(p_Var6 + 8);
+        if (p_Var4 == (_Rb_tree_node_base *)0x0) goto LAB_0415d8dd;
+        uVar2 = *(uint *)(p_Var4 + 0x10);
+        p_Var1 = p_Var6;
+      }
+      p_Var4 = *(_Rb_tree_node_base **)(p_Var6 + 0xc);
+      p_Var6 = p_Var1;
+    }
+  }
+LAB_0415d8dd:
+  if ((DAT_0451bd40 == p_Var6) && (p_Var7 == (_Rb_tree_node_base *)&DAT_0451bd38)) {
+    eON_Int_ThreadMap_DestroySubtree(&DAT_0451bd34,DAT_0451bd3c);
+    DAT_0451bd40 = (_Rb_tree_node_base *)&DAT_0451bd38;
+    DAT_0451bd3c = (_Rb_tree_node_base *)0x0;
+    DAT_0451bd44 = &DAT_0451bd38;
+    DAT_0451bd48 = 0;
+  }
+  else {
+    while (p_Var7 != p_Var6) {
+      p_Var4 = (_Rb_tree_node_base *)std::_Rb_tree_increment(p_Var6);
+      pvVar5 = (void *)std::_Rb_tree_rebalance_for_erase(p_Var6,(_Rb_tree_node_base *)&DAT_0451bd38)
+      ;
+      operator_delete(pvVar5);
+      DAT_0451bd48 = DAT_0451bd48 + -1;
+      p_Var6 = p_Var4;
+    }
+  }
+  FUN_04145b80(*(undefined4 *)((int)__ptr + 0x80));
+  eON_Int_ThreadMsgLists_Free(*(undefined4 *)((int)__ptr + 0x84));
+  free(__ptr);
+  pthread_mutex_unlock((pthread_mutex_t *)&DAT_0451bd4c);
+  return;
+LAB_0415d8c0:
+  p_Var4 = *(_Rb_tree_node_base **)(p_Var6 + 0xc);
+  p_Var6 = p_Var7;
+  goto joined_r0x0415d8bb;
+}
+

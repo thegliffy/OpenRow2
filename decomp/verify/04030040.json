@@ -1,0 +1,75 @@
+
+/* source: tracking */
+
+void eON_TrackingManager__Delete(int param_1,int *param_2)
+
+{
+  pthread_t pVar1;
+  int iVar2;
+  int *piVar3;
+  uint uVar4;
+  int iVar5;
+  int *piVar6;
+  
+  iVar5 = 0;
+  pthread_mutex_lock((pthread_mutex_t *)&DAT_044117f0);
+  pVar1 = pthread_self();
+  iVar2 = eON_TrackingManager__GetThread(param_1,pVar1,0);
+  if (iVar2 == 0) {
+    FUN_0402cd10(0xf,"Thread %p trying to exit from function \'%s\' it never entered!",pVar1,
+                 param_2[1]);
+  }
+  else {
+    do {
+      if (*(int *)(iVar2 + 4 + iVar5 * 4) == 0) {
+        if (iVar5 != 0) goto LAB_040300df;
+        FUN_0402cd10(0xf,"Thread %p trying to exit from function \'%s\' it never entered! (2)",pVar1
+                     ,param_2[1]);
+        goto LAB_04030142;
+      }
+      iVar5 = iVar5 + 1;
+    } while (iVar5 != 0xff);
+    FUN_0402cd10(0xf,
+                 "ERROR: Number of recurrent calls in a thread reached TRACKING__MAX_OBJECTS_ON_STACK! Increase this constant!"
+                );
+    FUN_0400a810("false","/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/tracking.cpp",
+                 0xb7,"void eON_TrackingManager::Delete(const eON_LocalTracking*)");
+LAB_040300df:
+    uVar4 = iVar5 - 1;
+    piVar3 = *(int **)(iVar2 + 4 + uVar4 * 4);
+    if (param_2 != piVar3) {
+      piVar6 = (int *)(iVar2 + 4 + uVar4 * 4);
+      do {
+        FUN_0402cd10(0xf,
+                     "Removing object %p ( tracking set %u, thread %p ) from stack - game exited function \'%s\' on the stack below it!"
+                     ,piVar3,*param_2,pVar1,param_2[1]);
+        *piVar6 = 0;
+        if (uVar4 == 0) goto LAB_04030142;
+        piVar6 = piVar6 + -1;
+        uVar4 = uVar4 - 1;
+        piVar3 = (int *)*piVar6;
+      } while (param_2 != piVar3);
+    }
+    *(undefined4 *)(iVar2 + 4 + uVar4 * 4) = 0;
+    if (((&DAT_0001001d)[param_1] != '\0') && (uVar4 <= *(uint *)(&DAT_00010014 + param_1))) {
+      iVar2 = param_2[1];
+      if ((int)uVar4 < 0) {
+        FUN_0400a810("indent >= 0",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/tracking.cpp",0x33,
+                     "const char* eON_TrackingManager::GetIndentString(int)");
+      }
+      else if (0xff < (int)uVar4) {
+        FUN_0400a810("indent <= (int) TRACKING__MAX_OBJECTS_ON_STACK",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/tracking.cpp",0x34,
+                     "const char* eON_TrackingManager::GetIndentString(int)");
+      }
+      FUN_0402cd10(*(undefined4 *)(&DAT_00010018 + param_1),"%s:%s<- %s",
+                   *(undefined4 *)(param_1 + 0x10000 + *param_2 * 4),
+                   (0xff - uVar4) * 4 + *(int *)(&DAT_00010020 + param_1),iVar2);
+    }
+  }
+LAB_04030142:
+  pthread_mutex_unlock((pthread_mutex_t *)&DAT_044117f0);
+  return;
+}
+

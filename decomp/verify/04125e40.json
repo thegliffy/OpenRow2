@@ -1,0 +1,31 @@
+
+undefined4 eON_CreateDCA(char *param_1,int param_2,int param_3,int param_4)
+
+{
+  int iVar1;
+  char *pcVar2;
+  char *pcVar3;
+  bool bVar4;
+  
+  bVar4 = param_1 == (char *)0x0;
+  if (!bVar4) {
+    iVar1 = 8;
+    pcVar2 = param_1;
+    pcVar3 = "DISPLAY";
+    do {
+      if (iVar1 == 0) break;
+      iVar1 = iVar1 + -1;
+      bVar4 = *pcVar2 == *pcVar3;
+      pcVar2 = pcVar2 + 1;
+      pcVar3 = pcVar3 + 1;
+    } while (bVar4);
+    if ((((bVar4) && (param_2 == 0)) && (param_4 == 0)) && (param_3 == 0)) {
+      return 0x97979797;
+    }
+  }
+  FUN_0402cd10(5,
+               "eON_CreateDCA( lpszDriver = \'%s\', lpszDevice = \'%s\', lpszOutput = \'%s\', lpInitData = %p )"
+               ,param_1,param_2,param_3,param_4);
+  return 0;
+}
+

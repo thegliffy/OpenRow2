@@ -1,0 +1,33 @@
+
+/* source: synch_timerqueue */
+
+undefined4 * eON_CreateTimerQueue(void)
+
+{
+  undefined4 *puVar1;
+  int iVar2;
+  undefined4 uVar3;
+  
+  puVar1 = malloc(0x30);
+  if (puVar1 == (undefined4 *)0x0) {
+    FUN_0400a810("timerQueue",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/synch_timerqueue.cpp"
+                 ,0xea,"void* eON_CreateTimerQueue()");
+  }
+  *puVar1 = 0x5dfa73e1;
+  puVar1[9] = 0;
+  eON_InitializeCriticalSection(puVar1 + 1);
+  iVar2 = eON_CreateEventA(0,0,0,0);
+  puVar1[8] = iVar2;
+  if (iVar2 == 0) {
+    FUN_0400a810("timerQueue->ThreadEvent",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/synch_timerqueue.cpp"
+                 ,0xef,"void* eON_CreateTimerQueue()");
+  }
+  uVar3 = eON_CreateThread(0,0,TimerQueueThreadFunction,puVar1,0,0);
+  *(undefined1 *)(puVar1 + 10) = 0;
+  puVar1[7] = uVar3;
+  puVar1[0xb] = 0;
+  return puVar1;
+}
+

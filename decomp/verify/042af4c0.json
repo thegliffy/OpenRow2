@@ -1,0 +1,28 @@
+
+undefined4 png_image_begin_read_from_memory(int *param_1,int param_2,int param_3)
+
+{
+  int *piVar1;
+  undefined4 uVar2;
+  int iVar3;
+  
+  if (param_1 != (int *)0x0) {
+    if (((param_1[1] != 1) || (param_3 == 0)) || (param_2 == 0)) {
+      uVar2 = FUN_042a94d0();
+      return uVar2;
+    }
+    iVar3 = png_image_read_colormapped();
+    if (iVar3 != 0) {
+      piVar1 = (int *)*param_1;
+      piVar1[3] = param_2;
+      piVar1[4] = param_3;
+      iVar3 = *piVar1;
+      *(int **)(iVar3 + 0xbc) = param_1;
+      *(code **)(iVar3 + 0xb8) = png_image_memory_read;
+      uVar2 = FUN_042aa050();
+      return uVar2;
+    }
+  }
+  return 0;
+}
+

@@ -1,0 +1,66 @@
+
+/* source: direct3ddevice9imp */
+
+undefined4 Direct3DDevice9Imp__SetSoftwareVertexProcessing(int param_1)
+
+{
+  int iVar1;
+  int iVar2;
+  undefined4 uVar3;
+  int iVar4;
+  int *piVar5;
+  undefined4 uStack_30;
+  int local_2c [6];
+  int local_14;
+  int *local_10;
+  
+  piVar5 = local_2c;
+  iVar1 = *(int *)(param_1 + 0xc);
+  local_10 = &local_14;
+  local_14 = iVar1;
+  if (iVar1 != 0) {
+    piVar5 = local_2c;
+    if (*(char *)(iVar1 + 0xebbc) != '\0') {
+      local_2c[0] = iVar1 + 0xebc4;
+      uStack_30 = 0x407309e;
+      EnterCriticalSection();
+      piVar5 = &uStack_30;
+    }
+    if (*(int *)(iVar1 + 0xec64) == 0) {
+      if (*(int *)(iVar1 + 0xebc0) != 0) {
+        piVar5[3] = (int)"void Direct3DDevice9Imp::MultithreadedGuard_Enter()";
+        piVar5[2] = 0x3ae;
+        piVar5[1] = (int)
+                    "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+        ;
+        *piVar5 = (int)"!mCurrentD3D9Thread";
+        piVar5[-1] = 0x407304c;
+        FUN_0400a810();
+      }
+      piVar5[-1] = 0x4073001;
+      uVar3 = FUN_0415b750();
+      *(undefined4 *)(iVar1 + 0xebc0) = uVar3;
+    }
+    else {
+      iVar2 = *(int *)(iVar1 + 0xebc0);
+      piVar5[-1] = 0x407305b;
+      iVar4 = FUN_0415b750();
+      if (iVar2 != iVar4) {
+        piVar5[3] = (int)"void Direct3DDevice9Imp::MultithreadedGuard_Enter()";
+        piVar5[2] = 0x3b3;
+        piVar5[1] = (int)
+                    "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+        ;
+        *piVar5 = (int)"mCurrentD3D9Thread == thread_GetCurrentThreadId()";
+        piVar5[-1] = 0x4073083;
+        FUN_0400a810();
+      }
+    }
+    *(int *)(iVar1 + 0xec64) = *(int *)(iVar1 + 0xec64) + 1;
+  }
+  *piVar5 = (int)&local_10;
+  piVar5[-1] = 0x4073019;
+  direct3ddevice9imp_040a2df0();
+  return 0;
+}
+

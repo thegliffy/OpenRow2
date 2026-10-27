@@ -1,0 +1,20 @@
+
+void DumpLoadedPEModules(void)
+
+{
+  _Rb_tree_node_base *p_Var1;
+  
+  fwrite("Loaded PE modules:\n",1,0x13,stderr);
+  p_Var1 = DAT_0451adf8;
+  if (DAT_0451adf8 != (_Rb_tree_node_base *)&DAT_0451adf0) {
+    do {
+      if (*(int *)(p_Var1 + 0x518) == 2) {
+        fprintf(stderr,"%8p-%8p - %s\n",*(int *)(p_Var1 + 0x520),
+                *(int *)(p_Var1 + 0x524) + *(int *)(p_Var1 + 0x520),p_Var1 + 0x14);
+      }
+      p_Var1 = (_Rb_tree_node_base *)std::_Rb_tree_increment(p_Var1);
+    } while (p_Var1 != (_Rb_tree_node_base *)&DAT_0451adf0);
+  }
+  return;
+}
+

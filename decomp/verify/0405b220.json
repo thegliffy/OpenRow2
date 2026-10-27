@@ -1,0 +1,449 @@
+
+/* WARNING: Removing unreachable block (ram,0x0405be29) */
+/* WARNING: Removing unreachable block (ram,0x0405be82) */
+/* WARNING: Removing unreachable block (ram,0x0405be8f) */
+/* WARNING: Removing unreachable block (ram,0x0405be36) */
+/* WARNING: Removing unreachable block (ram,0x0405be3d) */
+/* WARNING: Removing unreachable block (ram,0x0405bf3c) */
+/* source: D3DBytecodeToGLSLText */
+
+void eON_ShaderData__GenerateGLSLDeclarations(int param_1,undefined4 param_2)
+
+{
+  allocator *paVar1;
+  int *piVar2;
+  int *piVar3;
+  int *piVar4;
+  char cVar5;
+  undefined2 *puVar6;
+  int iVar7;
+  char cVar8;
+  char *pcVar9;
+  uint uVar10;
+  uint uVar11;
+  char cVar12;
+  uint uVar13;
+  char **ppcVar14;
+  int *piVar15;
+  byte bVar16;
+  char *local_a8 [4];
+  char *local_98;
+  undefined *local_94;
+  char *local_90;
+  undefined *local_8c;
+  char *local_88;
+  char *local_84;
+  char *local_80;
+  char *local_7c;
+  char *local_78;
+  char *local_74;
+  char *local_70;
+  char *local_6c;
+  char *local_68;
+  char *local_64;
+  char *local_60;
+  char *local_5c;
+  int *local_30;
+  int *local_2c;
+  int *local_28;
+  undefined1 *local_24;
+  allocator local_20 [16];
+  
+  bVar16 = 0;
+  cVar8 = *(char *)(param_1 + 0x10);
+  cVar5 = FUN_04021ee0();
+  cVar8 = (-(cVar8 == '\0') & 6U) + 0x50;
+  if (*(char *)(param_1 + 0x15c) != '\0') {
+    *(undefined1 *)(param_1 + 0x15d) = 1;
+  }
+  if (cVar5 == '\0') {
+    eON_AppendShaderCompileMessage(param_2,"#extension GL_ARB_shader_texture_lod : require\n\n");
+  }
+  else {
+    eON_AppendShaderCompileMessage(param_2,"#version 150\n\n");
+  }
+  uVar11 = *(uint *)(param_1 + 0x48);
+  if (uVar11 != 0) {
+    uVar10 = 0;
+    do {
+      while (*(char *)(param_1 + 0xad + uVar10) == '\0') {
+        uVar10 = uVar10 + 1;
+        if (uVar11 <= uVar10) goto LAB_0405b2c5;
+      }
+      uVar13 = uVar10 + 1;
+      eON_AppendShaderCompileMessage(param_2,"void LabelFunction%u();\n",uVar10);
+      uVar11 = *(uint *)(param_1 + 0x48);
+      uVar10 = uVar13;
+    } while (uVar13 < uVar11);
+  }
+LAB_0405b2c5:
+  if (cVar5 != '\0') {
+    eON_AppendShaderCompileMessage
+              (param_2,
+               "layout(std140) uniform CommonVariables {\n\tvec4 PositionFix;\n\tvec4 GlFogcolor;\n\tfloat GlFogdensity;\n\tfloat GlFogend;\n\tfloat GlFogscale;\n\tfloat AlphaRef;\n\tvec4 ClipPlanes[6];\n};\n\n"
+              );
+    pcVar9 = "Pixel";
+    cVar12 = (-(*(char *)(param_1 + 0x10) == '\0') & 6U) + 0x50;
+    if (*(char *)(param_1 + 0x10) == '\0') {
+      pcVar9 = "Vertex";
+    }
+    if (*(int *)(param_1 + 0x2c) != 0) {
+      eON_AppendShaderCompileMessage
+                (param_2,"layout(std140) uniform Asm%sFloat {\n\tvec4 %cConstFloat[%u];\n};\n\n",
+                 pcVar9,cVar12,*(int *)(param_1 + 0x2c));
+    }
+    if (*(int *)(param_1 + 0x28) != 0) {
+      eON_AppendShaderCompileMessage
+                (param_2,"layout(std140) uniform Asm%sInt {\n\tivec4 %cConstInt[%u];\n};\n\n",pcVar9
+                 ,cVar12,*(int *)(param_1 + 0x28));
+    }
+    if (*(int *)(param_1 + 0x34) != 0) {
+      eON_AppendShaderCompileMessage
+                (param_2,"layout(std140) uniform Asm%sBool {\n\tbool %cConstBool[%u];\n};\n\n",
+                 pcVar9,cVar12,*(int *)(param_1 + 0x34));
+    }
+    if (((*(char *)(param_1 + 0x10) != '\0') &&
+        (eON_AppendShaderCompileMessage
+                   (param_2,
+                    "layout(std140) uniform AsmPixelOnly {\n\tvec4 BumpEnvMatrix;\n\tfloat LuminanceScale;\n\tfloat LuminanceOffset;\n};\n\n"
+                   ), *(char *)(param_1 + 0x10) != '\0')) && (*(char *)(param_1 + 0x15c) != '\0')) {
+      eON_AppendShaderCompileMessage(param_2,"vec4 VPos;\n\n");
+    }
+    goto LAB_0405b375;
+  }
+  if (*(int *)(param_1 + 0x2c) == 0) {
+    iVar7 = *(int *)(param_1 + 0x28);
+    if (iVar7 != 0) goto LAB_0405bc89;
+LAB_0405b2e8:
+    iVar7 = *(int *)(param_1 + 0x34);
+  }
+  else {
+    eON_AppendShaderCompileMessage
+              (param_2,"uniform vec4 %cConstFloat[%u];\n",cVar8,*(int *)(param_1 + 0x2c));
+    iVar7 = *(int *)(param_1 + 0x28);
+    if (iVar7 == 0) goto LAB_0405b2e8;
+LAB_0405bc89:
+    eON_AppendShaderCompileMessage(param_2,"uniform ivec4 %cConstInt[%u];\n",cVar8,iVar7);
+    iVar7 = *(int *)(param_1 + 0x34);
+  }
+  if (iVar7 != 0) {
+    eON_AppendShaderCompileMessage(param_2,"uniform bool %cConstBool[%u];\n",cVar8,iVar7);
+  }
+  if (*(char *)(param_1 + 0x10) == '\0') {
+    eON_AppendShaderCompileMessage(param_2,"uniform vec4 PositionFix;\n");
+  }
+  else {
+    if ((*(char *)(param_1 + 0x154) != -1) &&
+       (eON_AppendShaderCompileMessage(param_2,"uniform mat2 BumpEnvMatrix;\n"),
+       *(char *)(param_1 + 0x155) != -1)) {
+      eON_AppendShaderCompileMessage(param_2,"uniform float LuminanceScale;\n");
+      eON_AppendShaderCompileMessage(param_2,"uniform float LuminanceOffset;\n");
+    }
+    if (*(char *)(param_1 + 0x15c) == '\0') {
+      if (*(char *)(param_1 + 0x15d) != '\0') {
+        eON_AppendShaderCompileMessage(param_2,"uniform vec4 PositionFix;\n\n");
+      }
+    }
+    else {
+      eON_AppendShaderCompileMessage(param_2,"vec4 VPos;\nuniform vec4 PositionFix;\n\n");
+    }
+  }
+  if ((*(char *)(param_1 + 0x10) != '\0') && (*(char *)(param_1 + 0x160) != '\0')) {
+    eON_AppendShaderCompileMessage(param_2,"uniform float AlphaRef;\n");
+  }
+LAB_0405b375:
+  uVar11 = *(uint *)(param_1 + 0x24);
+  uVar10 = 0;
+  if (uVar11 != 0) {
+    do {
+      while (uVar13 = *(uint *)(param_1 + 0xd4 + uVar10 * 4), uVar13 == 0) {
+LAB_0405b3fc:
+        uVar10 = uVar10 + 1;
+        if (uVar11 <= uVar10) goto LAB_0405b49d;
+      }
+      if ((uVar13 & 0x40000000) != 0) {
+        uVar11 = uVar13 & 0x38000000;
+        pcVar9 = "2D";
+        if (((uVar11 != 0x10000000) && (pcVar9 = "Cube", uVar11 != 0x18000000)) &&
+           (pcVar9 = "1D", uVar11 != 0x8000000)) {
+          FUN_0402cd10(0xf,
+                       "Unsupported depth sampler type while processing GLSL declarations! (%x). Fix it."
+                       ,uVar13 & 0x78000000);
+          pcVar9 = "_no_idea";
+        }
+        eON_AppendShaderCompileMessage
+                  (param_2,"uniform sampler%sShadow %cSampler%u;\n",pcVar9,cVar8,uVar10);
+        uVar11 = *(uint *)(param_1 + 0x24);
+        goto LAB_0405b3fc;
+      }
+      uVar11 = uVar13 & 0x38000000;
+      pcVar9 = "Cube";
+      if (((uVar11 != 0x18000000) && (pcVar9 = "3D", uVar11 != 0x20000000)) &&
+         (pcVar9 = "2D", uVar11 != 0x10000000)) {
+        FUN_0402cd10(0xf,
+                     "Unsupported sampler type while processing GLSL declarations! (%x). Fix it.",
+                     uVar13 & 0x78000000);
+        pcVar9 = "_no_idea";
+      }
+      uVar13 = uVar10 + 1;
+      eON_AppendShaderCompileMessage(param_2,"uniform sampler%s %cSampler%u;\n",pcVar9,cVar8,uVar10)
+      ;
+      uVar11 = *(uint *)(param_1 + 0x24);
+      uVar10 = uVar13;
+    } while (uVar13 < uVar11);
+  }
+LAB_0405b49d:
+  if (*(char *)(param_1 + 0x84) != '\0') {
+    eON_AppendShaderCompileMessage(param_2,"\nivec4 Address0;\n");
+  }
+  if (DAT_04468c04 == 0) {
+    if (cVar5 == '\0') {
+      cVar8 = *(char *)(param_1 + 0xbd);
+    }
+    else {
+      FUN_0400a810("!openGl32Core",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/D3DBytecodeToGLSLText.cpp"
+                   ,0xcb7,"void eON_ShaderData::GenerateGLSLDeclarations(TextBuffer*)");
+      cVar8 = *(char *)(param_1 + 0xbd);
+    }
+    if (cVar8 != '\0') {
+      eON_AppendShaderCompileMessage(param_2,"\nvarying vec4 eON_Texcoord8;\n");
+    }
+    if (*(char *)(param_1 + 0xbe) != '\0') {
+      eON_AppendShaderCompileMessage(param_2,"\nvarying vec4 eON_Texcoord9;\n");
+    }
+  }
+  else {
+    pcVar9 = &DAT_0433e9db;
+    if (*(char *)(param_1 + 0x10) == '\0') {
+      pcVar9 = (char *)&PTR_DAT_0435a044;
+    }
+    if (cVar5 == '\0') {
+      pcVar9 = "varying";
+    }
+    eON_AppendShaderCompileMessage(param_2,"%s vec4 eON_Varyings[10];\n",pcVar9);
+    eON_AppendShaderCompileMessage(param_2,"%s float eON_VaryingFog;\n",pcVar9);
+  }
+  if ((*(char *)(param_1 + 0x10) != '\0') && (cVar5 != '\0')) {
+    eON_AppendShaderCompileMessage(param_2,"out vec4 FragData[gl_MaxDrawBuffers];\n");
+  }
+  uVar11 = *(uint *)(param_1 + 0x20);
+  if (uVar11 != 0) {
+    uVar10 = 0;
+    do {
+      while (*(char *)(param_1 + 0x4c + uVar10) == '\0') {
+        uVar10 = uVar10 + 1;
+        if (uVar11 <= uVar10) goto LAB_0405b640;
+      }
+      ppcVar14 = local_a8;
+      for (iVar7 = 0x1e; iVar7 != 0; iVar7 = iVar7 + -1) {
+        *ppcVar14 = (char *)0x0;
+        ppcVar14 = ppcVar14 + (uint)bVar16 * -2 + 1;
+      }
+      local_84 = "gl_TexCoord[4]";
+      local_a8[0] = "eON_Varyings[0]";
+      local_a8[1] = "gl_TexCoord[0]";
+      local_a8[2] = "eON_Varyings[1]";
+      local_a8[3] = "gl_TexCoord[1]";
+      local_98 = "eON_Varyings[2]";
+      local_94 = &DAT_042e76da;
+      uVar13 = uVar10 + 1;
+      local_90 = "eON_Varyings[3]";
+      local_8c = &DAT_042e76f9;
+      local_88 = "eON_Varyings[4]";
+      local_80 = "eON_Varyings[5]";
+      local_7c = "gl_TexCoord[5]";
+      local_78 = "eON_Varyings[6]";
+      local_74 = "gl_TexCoord[6]";
+      local_70 = "eON_Varyings[7]";
+      local_6c = "gl_TexCoord[7]";
+      local_68 = "eON_Varyings[8]";
+      local_64 = "eON_Texcoord8";
+      local_60 = "eON_Varyings[9]";
+      local_5c = "eON_Texcoord9";
+      eON_AppendShaderCompileMessage
+                (param_2,"vec4 Texture%u = %s;\n",uVar10,local_a8[(DAT_04468c04 ^ 1) + uVar10 * 2]);
+      uVar11 = *(uint *)(param_1 + 0x20);
+      uVar10 = uVar13;
+    } while (uVar13 < uVar11);
+  }
+LAB_0405b640:
+  if ((*(char *)(param_1 + 0x10) != '\0') && (2 < *(int *)(param_1 + 8))) {
+    eON_AppendShaderCompileMessage(param_2,"\nvec4 IN[13];\n");
+  }
+  if (*(int *)(param_1 + 0x3c) != 0) {
+    eON_AppendShaderCompileMessage(param_2,"\nvec4 OUT[%u];\n",*(int *)(param_1 + 0x3c));
+  }
+  uVar11 = *(uint *)(param_1 + 0x1c);
+  if (uVar11 != 0) {
+    uVar10 = 0;
+    do {
+      while (*(char *)(param_1 + 100 + uVar10) == '\0') {
+        uVar10 = uVar10 + 1;
+        if (uVar11 <= uVar10) goto LAB_0405b69c;
+      }
+      uVar13 = uVar10 + 1;
+      eON_AppendShaderCompileMessage(param_2,"vec4 Temporary%u;\n",uVar10);
+      uVar11 = *(uint *)(param_1 + 0x1c);
+      uVar10 = uVar13;
+    } while (uVar13 < uVar11);
+  }
+LAB_0405b69c:
+  uVar11 = *(uint *)(param_1 + 0x44);
+  local_30 = (int *)0x0;
+  local_2c = (int *)0x0;
+  local_28 = (int *)0x0;
+  if (uVar11 != 0) {
+    uVar10 = 0;
+    do {
+      while (*(char *)(param_1 + 0x9d + uVar10) != '\0') {
+                    /* try { // try from 0405b6eb to 0405b8e8 has its CatchHandler @ 0405be42 */
+        eON_ShaderData__FormatAttributeName(param_1,uVar10,local_a8);
+        piVar2 = local_2c;
+        piVar15 = local_30;
+        if (local_30 == local_2c) {
+LAB_0405b988:
+          pcVar9 = "in";
+          if (cVar5 == '\0') {
+            pcVar9 = "attribute";
+          }
+                    /* try { // try from 0405b9b8 to 0405b9dd has its CatchHandler @ 0405be42 */
+          eON_AppendShaderCompileMessage(param_2,"%s vec4 e%s;\n",pcVar9,local_a8);
+          eON_AppendShaderCompileMessage(param_2,"vec4 %s = e%s;\n",local_a8,local_a8);
+                    /* try { // try from 0405b9f5 to 0405b9f9 has its CatchHandler @ 0405bf23 */
+          std::string::string((string *)&local_24,(char *)local_a8,local_20);
+          if (local_2c == local_28) {
+                    /* try { // try from 0405bab5 to 0405bab9 has its CatchHandler @ 0405bf28 */
+            FUN_0405cc50(&local_30,local_2c,(string *)&local_24);
+          }
+          else {
+            if (local_2c != (int *)0x0) {
+              *local_2c = (int)local_24;
+              local_24 = &DAT_04410d0c;
+            }
+            local_2c = local_2c + 1;
+          }
+          if ((allocator *)(local_24 + -0xc) !=
+              (allocator *)&std::string::_Rep::_S_empty_rep_storage) {
+            LOCK();
+            piVar2 = (int *)(local_24 + -4);
+            iVar7 = *piVar2;
+            *piVar2 = *piVar2 + -1;
+            UNLOCK();
+            if (iVar7 < 1) {
+              std::string::_Rep::_M_destroy((allocator *)(local_24 + -0xc));
+            }
+          }
+        }
+        else {
+          do {
+            iVar7 = strcmp((char *)local_a8,(char *)*piVar15);
+            if (piVar15 + 1 == piVar2) {
+              if (iVar7 != 0) goto LAB_0405b988;
+              break;
+            }
+            piVar15 = piVar15 + 1;
+          } while (iVar7 != 0);
+        }
+        uVar11 = *(uint *)(param_1 + 0x44);
+        uVar10 = uVar10 + 1;
+        if (uVar11 <= uVar10) goto LAB_0405b73e;
+      }
+      uVar10 = uVar10 + 1;
+    } while (uVar10 < uVar11);
+  }
+LAB_0405b73e:
+  if (*(int *)(param_1 + 0x158) != 0) {
+    uVar11 = 0;
+    do {
+      eON_AppendShaderCompileMessage(param_2,"int Loop%u;\n",uVar11);
+      eON_AppendShaderCompileMessage(param_2,"int LoopTemp%u;\n",uVar11);
+      uVar11 = uVar11 + 1;
+    } while (uVar11 < *(uint *)(param_1 + 0x158));
+  }
+  eON_AppendShaderCompileMessage(param_2,"\nvec4 InstrHelpTemp;\n");
+  if ((*(char *)(param_1 + 0x15f) == '\0') && (uVar11 = 0, *(int *)(param_1 + 0x2b8) != 0)) {
+    iVar7 = 0;
+    do {
+      puVar6 = (undefined2 *)(*(int *)(param_1 + 0x2b4) + iVar7);
+      eON_AppendShaderCompileMessage
+                (param_2,"const vec4 LocalConst%u = vec4(%.9f, %.9f, %.9f, %.9f);\n",*puVar6,
+                 (double)*(float *)(puVar6 + 2),(double)*(float *)(puVar6 + 4),
+                 (double)*(float *)(puVar6 + 6),(double)*(float *)(puVar6 + 8));
+      uVar11 = uVar11 + 1;
+      iVar7 = iVar7 + 0x24;
+    } while (uVar11 < *(uint *)(param_1 + 0x2b8));
+  }
+  iVar7 = 0;
+  uVar11 = 0;
+  if (*(int *)(param_1 + 0x2c0) != 0) {
+    do {
+      puVar6 = (undefined2 *)(*(int *)(param_1 + 700) + iVar7);
+      eON_AppendShaderCompileMessage
+                (param_2,"const ivec4 LocalConstI%u = ivec4(%d, %d, %d, %d);\n",*puVar6,
+                 *(undefined4 *)(puVar6 + 2),*(undefined4 *)(puVar6 + 4),*(undefined4 *)(puVar6 + 6)
+                 ,*(undefined4 *)(puVar6 + 8));
+      uVar11 = uVar11 + 1;
+      iVar7 = iVar7 + 0x24;
+    } while (uVar11 < *(uint *)(param_1 + 0x2c0));
+  }
+  if (*(int *)(param_1 + 0x2c8) != 0) {
+    uVar11 = 0;
+    iVar7 = 0;
+    do {
+      puVar6 = (undefined2 *)(*(int *)(param_1 + 0x2c4) + iVar7);
+      pcVar9 = "true";
+      if (*(int *)(puVar6 + 2) == 0) {
+        pcVar9 = "false";
+      }
+      eON_AppendShaderCompileMessage(param_2,"const bool LocalConstB%u = %s;\n",*puVar6,pcVar9);
+      uVar11 = uVar11 + 1;
+      iVar7 = iVar7 + 0x24;
+    } while (uVar11 < *(uint *)(param_1 + 0x2c8));
+  }
+  eON_AppendShaderCompileMessage(param_2,"\nvoid main()\n{\n");
+  if ((*(char *)(param_1 + 0x10) != '\0') && (*(char *)(param_1 + 0x15c) != '\0')) {
+                    /* try { // try from 0405bd6b to 0405bd6f has its CatchHandler @ 0405be42 */
+    eON_AppendShaderCompileMessage(param_2,"VPos.rg = floor( gl_FragCoord.rg );\n");
+  }
+  piVar2 = local_30;
+  piVar15 = local_2c;
+  if ((DAT_04468c04 != 0) && (*(char *)(param_1 + 0x10) == '\0')) {
+                    /* try { // try from 0405bad0 to 0405bb74 has its CatchHandler @ 0405be42 */
+    eON_AppendShaderCompileMessage(param_2,"eON_Varyings[0] = vec4(0.0);\n");
+    eON_AppendShaderCompileMessage(param_2,"eON_Varyings[1] = vec4(0.0);\n");
+    eON_AppendShaderCompileMessage(param_2,"eON_Varyings[2] = vec4(0.0);\n");
+    eON_AppendShaderCompileMessage(param_2,"eON_Varyings[3] = vec4(0.0);\n");
+    eON_AppendShaderCompileMessage(param_2,"eON_Varyings[4] = vec4(0.0);\n");
+    eON_AppendShaderCompileMessage(param_2,"eON_Varyings[5] = vec4(0.0);\n");
+    eON_AppendShaderCompileMessage(param_2,"eON_Varyings[6] = vec4(0.0);\n");
+    eON_AppendShaderCompileMessage(param_2,"eON_Varyings[7] = vec4(0.0);\n");
+    eON_AppendShaderCompileMessage(param_2,"eON_Varyings[8] = vec4(0.0);\n");
+    eON_AppendShaderCompileMessage(param_2,"eON_Varyings[9] = vec4(0.0);\n");
+    eON_AppendShaderCompileMessage(param_2,"eON_VaryingFog = 0.0;\n");
+    piVar2 = local_30;
+    piVar15 = local_2c;
+  }
+  for (; piVar4 = local_2c, local_2c != piVar2; piVar2 = piVar2 + 1) {
+    paVar1 = (allocator *)(*piVar2 + -0xc);
+    local_2c = piVar15;
+    if (paVar1 != (allocator *)&std::string::_Rep::_S_empty_rep_storage) {
+      LOCK();
+      piVar3 = (int *)(*piVar2 + -4);
+      iVar7 = *piVar3;
+      *piVar3 = *piVar3 + -1;
+      UNLOCK();
+      if (iVar7 < 1) {
+        std::string::_Rep::_M_destroy(paVar1);
+      }
+    }
+    piVar15 = local_2c;
+    local_2c = piVar4;
+  }
+  if (local_30 != (int *)0x0) {
+    local_2c = piVar15;
+    operator_delete(local_30);
+  }
+  return;
+}
+

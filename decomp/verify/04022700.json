@@ -1,0 +1,208 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+/* source: opengl_objects */
+
+void SetUserGammaRamp(int *param_1,float *param_2)
+
+{
+  float fVar1;
+  float fVar2;
+  float fVar3;
+  int iVar4;
+  char cVar5;
+  undefined2 *puVar6;
+  int iVar7;
+  undefined *puVar8;
+  int iVar9;
+  uint uVar10;
+  undefined4 *puVar11;
+  undefined4 *puVar12;
+  undefined4 *puVar13;
+  undefined *puVar14;
+  undefined *puVar15;
+  bool bVar16;
+  byte bVar17;
+  uint local_243c;
+  undefined *local_2438;
+  int local_2430;
+  undefined4 local_241c [768];
+  undefined1 local_181c [512];
+  undefined2 auStack_161c [256];
+  undefined2 auStack_141c [256];
+  undefined1 local_121c [512];
+  undefined1 local_101c [512];
+  undefined1 local_e1c [512];
+  undefined4 local_c1c [771];
+  
+  fVar3 = _DAT_042e09f0;
+  bVar17 = 0;
+  iVar4 = *param_1;
+  if (DAT_044115fc == (undefined *)0x0) {
+    iVar9 = 0;
+  }
+  else {
+    puVar8 = DAT_044115fc;
+    puVar14 = &DAT_044115f8;
+    do {
+      while (puVar15 = puVar8, *(int *)(puVar15 + 0x10) < iVar4) {
+        puVar12 = (undefined4 *)(puVar15 + 0xc);
+        puVar8 = (undefined *)*puVar12;
+        puVar15 = puVar14;
+        if ((undefined *)*puVar12 == (undefined *)0x0) goto LAB_0402274b;
+      }
+      puVar8 = *(undefined **)(puVar15 + 8);
+      puVar14 = puVar15;
+    } while (*(undefined **)(puVar15 + 8) != (undefined *)0x0);
+LAB_0402274b:
+    if ((puVar15 != &DAT_044115f8) && (*(int *)(puVar15 + 0x10) <= iVar4)) {
+      puVar6 = (undefined2 *)(puVar15 + 0x14);
+      iVar9 = 0;
+      do {
+        iVar9 = iVar9 + 1;
+        fVar1 = param_2[0x100];
+        *puVar6 = (short)(int)(*param_2 * fVar3);
+        fVar2 = param_2[0x200];
+        param_2 = param_2 + 1;
+        puVar6[0x100] = (short)(int)(fVar1 * fVar3);
+        puVar6[0x200] = (short)(int)(fVar2 * fVar3);
+        puVar6 = puVar6 + 1;
+      } while (iVar9 != 0x100);
+      goto LAB_040227c6;
+    }
+    iVar9 = 0;
+  }
+  do {
+    puVar12 = (undefined4 *)local_181c;
+    fVar3 = param_2[iVar9 + 0x100];
+    *(short *)((int)puVar12 + iVar9 * 2) = (short)(int)(param_2[iVar9] * _DAT_042e09f0);
+    fVar1 = param_2[iVar9 + 0x200];
+    auStack_161c[iVar9] = (short)(int)(fVar3 * _DAT_042e09f0);
+    auStack_141c[iVar9] = (short)(int)(fVar1 * _DAT_042e09f0);
+    iVar9 = iVar9 + 1;
+    puVar11 = DAT_04468ac0;
+  } while (iVar9 != 0x100);
+  for (; (undefined4 **)puVar11 != &DAT_04468ac0; puVar11 = (undefined4 *)*puVar11) {
+    iVar9 = puVar11[2];
+    if ((*(int *)(iVar9 + 0x7c) != 0) &&
+       (iVar7 = SDL_GetWindowDisplayIndex(*(int *)(iVar9 + 0x7c)), iVar4 == iVar7))
+    goto LAB_04022925;
+  }
+  iVar9 = 0;
+  FUN_0400a810(&DAT_042df39f,
+               "/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/linux/opengl_objects.cpp",
+               0x771,"void GetGammaRamp(int32_t, GammaRampLinux*)");
+LAB_04022925:
+  iVar9 = SDL_GetWindowGammaRamp(*(undefined4 *)(iVar9 + 0x7c),local_121c,local_101c,local_e1c);
+  if (iVar9 != 0) {
+    FUN_0400a810("SDL_GetWindowGammaRamp( wl->SDLWindow, gammaRamp->red, gammaRamp->green, gammaRamp->blue ) == 0"
+                 ,
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/linux/opengl_objects.cpp"
+                 ,0x772,"void GetGammaRamp(int32_t, GammaRampLinux*)");
+  }
+  puVar8 = DAT_044115fc;
+  if (DAT_044115fc == (undefined *)0x0) {
+LAB_040229d1:
+    puVar11 = local_c1c;
+    for (iVar9 = 0x300; iVar9 != 0; iVar9 = iVar9 + -1) {
+      *puVar11 = 0;
+      puVar11 = puVar11 + (uint)bVar17 * -2 + 1;
+    }
+    puVar11 = local_c1c;
+    puVar13 = local_241c;
+    for (iVar9 = 0x300; iVar9 != 0; iVar9 = iVar9 + -1) {
+      *puVar13 = *puVar11;
+      puVar11 = puVar11 + (uint)bVar17 * -2 + 1;
+      puVar13 = puVar13 + (uint)bVar17 * -2 + 1;
+    }
+    FUN_0401fe90();
+    puVar8 = DAT_044115fc;
+    local_2438 = (undefined *)0xc00;
+    puVar11 = (undefined4 *)(local_2430 + 0x14);
+    bVar16 = ((uint)puVar11 & 2) != 0;
+    if (bVar16) {
+      puVar12 = (undefined4 *)(local_181c + 2);
+      *(undefined2 *)(local_2430 + 0x14) = local_181c._0_2_;
+      puVar11 = (undefined4 *)(local_2430 + 0x16);
+      local_2438 = (undefined *)0xbfe;
+    }
+    for (uVar10 = (uint)local_2438 >> 2; uVar10 != 0; uVar10 = uVar10 - 1) {
+      *puVar11 = *puVar12;
+      puVar12 = puVar12 + (uint)bVar17 * -2 + 1;
+      puVar11 = puVar11 + (uint)bVar17 * -2 + 1;
+    }
+    if (bVar16) {
+      *(undefined2 *)puVar11 = *(undefined2 *)puVar12;
+    }
+    if (puVar8 != (undefined *)0x0) goto LAB_04022a58;
+  }
+  else {
+    local_2438 = &DAT_044115f8;
+    puVar14 = DAT_044115fc;
+    do {
+      while (puVar15 = puVar14, *(int *)(puVar15 + 0x10) < iVar4) {
+        puVar14 = *(undefined **)(puVar15 + 0xc);
+        if (*(undefined **)(puVar15 + 0xc) == (undefined *)0x0) goto LAB_040229b0;
+      }
+      puVar14 = *(undefined **)(puVar15 + 8);
+      local_2438 = puVar15;
+    } while (*(undefined **)(puVar15 + 8) != (undefined *)0x0);
+LAB_040229b0:
+    if ((local_2438 == &DAT_044115f8) || (iVar4 < *(int *)(local_2438 + 0x10))) goto LAB_040229d1;
+    local_243c = 0xc00;
+    puVar11 = (undefined4 *)(local_2438 + 0x14);
+    bVar16 = ((uint)puVar11 & 2) != 0;
+    if (bVar16) {
+      puVar12 = (undefined4 *)(local_181c + 2);
+      *(undefined2 *)(local_2438 + 0x14) = local_181c._0_2_;
+      local_243c = 0xbfe;
+      puVar11 = (undefined4 *)(local_2438 + 0x16);
+    }
+    for (local_243c = local_243c >> 2; local_243c != 0; local_243c = local_243c - 1) {
+      *puVar11 = *puVar12;
+      puVar12 = puVar12 + (uint)bVar17 * -2 + 1;
+      puVar11 = puVar11 + (uint)bVar17 * -2 + 1;
+    }
+    if (bVar16) {
+      *(undefined2 *)puVar11 = *(undefined2 *)puVar12;
+    }
+LAB_04022a58:
+    puVar14 = &DAT_044115f8;
+    do {
+      while (puVar15 = puVar8, *(int *)(puVar15 + 0x10) < iVar4) {
+        puVar12 = (undefined4 *)(puVar15 + 0xc);
+        puVar8 = (undefined *)*puVar12;
+        puVar15 = puVar14;
+        if ((undefined *)*puVar12 == (undefined *)0x0) goto LAB_04022a7a;
+      }
+      puVar8 = *(undefined **)(puVar15 + 8);
+      puVar14 = puVar15;
+    } while (*(undefined **)(puVar15 + 8) != (undefined *)0x0);
+LAB_04022a7a:
+    if ((puVar15 != &DAT_044115f8) && (*(int *)(puVar15 + 0x10) <= iVar4)) goto LAB_040227c6;
+  }
+  puVar15 = &DAT_044115f8;
+  FUN_0400a810("it != sGammaRamps.end()",
+               "/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/linux/opengl_objects.cpp",
+               0x781,"void SetUserGammaRamp(OpenGLDisplay*, GammaRamp*)");
+LAB_040227c6:
+  cVar5 = FUN_0402d6a0();
+  puVar12 = DAT_04468ac0;
+  if (cVar5 == '\0') {
+    return;
+  }
+  for (; (undefined4 **)puVar12 != &DAT_04468ac0; puVar12 = (undefined4 *)*puVar12) {
+    iVar9 = puVar12[2];
+    if ((*(int *)(iVar9 + 0x7c) != 0) &&
+       (iVar7 = SDL_GetWindowDisplayIndex(*(int *)(iVar9 + 0x7c)), iVar4 == iVar7))
+    goto LAB_04022838;
+  }
+  iVar9 = 0;
+  FUN_0400a810(&DAT_042df39f,
+               "/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/linux/opengl_objects.cpp",
+               0x764,"void SetGammaRamp(int32_t, GammaRampLinux*, bool)");
+LAB_04022838:
+  SDL_SetWindowGammaRamp
+            (*(undefined4 *)(iVar9 + 0x7c),puVar15 + 0x14,puVar15 + 0x214,puVar15 + 0x414);
+  return;
+}
+

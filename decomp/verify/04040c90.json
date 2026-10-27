@@ -1,0 +1,129 @@
+
+/* source: vpfs */
+
+void __regparm3 VPFS_SetAllFolderContentsAsDeleted(char *param_1,char *param_2)
+
+{
+  size_t sVar1;
+  uint uVar2;
+  uint uVar3;
+  int iVar4;
+  int iVar5;
+  undefined4 uVar6;
+  uint *puVar7;
+  uint *puVar8;
+  int iVar9;
+  undefined4 *puVar10;
+  char *pcVar11;
+  int *piVar12;
+  undefined4 local_580;
+  int local_55c;
+  char acStack_547 [3];
+  uint local_544 [256];
+  int local_144;
+  char local_11c [268];
+  
+  puVar10 = (undefined4 *)&stack0xfffffa84;
+  local_580 = 0x4040cac;
+  sVar1 = strlen(param_2);
+  local_55c = 0;
+  if (1 < sVar1) {
+    local_580 = 0x4040ccf;
+    strcpy((char *)local_544,param_2);
+    puVar8 = local_544;
+    do {
+      puVar7 = puVar8;
+      uVar2 = *puVar7 + 0xfefefeff & ~*puVar7;
+      uVar3 = uVar2 & 0x80808080;
+      puVar8 = puVar7 + 1;
+    } while (uVar3 == 0);
+    if ((uVar2 & 0x8080) == 0) {
+      puVar8 = (uint *)((int)puVar7 + 6);
+      uVar3 = uVar3 >> 0x10;
+    }
+    pcVar11 = (char *)((int)puVar8 + (-3 - (uint)CARRY1((byte)uVar3,(byte)uVar3)));
+    local_55c = sVar1 + 1;
+    pcVar11[0] = '/';
+    pcVar11[1] = '\0';
+  }
+  local_580 = 0x4040d12;
+  iVar4 = VPFS_FindInVirtualFilesystem();
+  if (iVar4 != -1) {
+    piVar12 = (int *)(iVar4 + 0x24 + (uint)*(ushort *)(DAT_04468a94 + 2 + iVar4) + DAT_04468a94);
+    iVar4 = *piVar12;
+    if (iVar4 != 0) {
+      iVar9 = 0;
+      do {
+        local_580 = 0x4040d72;
+        strcpy((char *)((int)local_544 + local_55c),
+               (char *)(DAT_04468a94 + 0x24 + piVar12[iVar9 + 1]));
+        local_580 = 0x4040d88;
+        iVar5 = FUN_0404c040();
+        if (iVar5 == 0) {
+          local_580 = 0x4040e1a;
+          FUN_0400a810();
+        }
+        iVar9 = iVar9 + 1;
+        local_580 = 0x4040d9d;
+        FUN_0404c5f0();
+        local_580 = 0x4040dab;
+        VPFSDB_ReleaseObject();
+      } while (iVar9 != iVar4);
+    }
+  }
+  local_580 = 0x4040dc9;
+  strrchr(param_1,0x2f);
+  local_580 = 0x4040de2;
+  iVar4 = VPFS_MakePathCaseSensitive();
+  if (iVar4 == 0) {
+    return;
+  }
+  local_580 = 0x4040e2d;
+  uVar6 = eON_GetLastError();
+  local_580 = 0x4040e4b;
+  iVar4 = VPFS_EnumerateDiskFolderEntries();
+  if (iVar4 != 0) {
+    local_580 = 0x4040e6d;
+    strcpy((char *)local_544,param_1);
+    puVar8 = local_544;
+    do {
+      puVar7 = puVar8;
+      uVar2 = *puVar7 + 0xfefefeff & ~*puVar7;
+      uVar3 = uVar2 & 0x80808080;
+      puVar8 = puVar7 + 1;
+    } while (uVar3 == 0);
+    if ((uVar2 & 0x8080) == 0) {
+      puVar8 = (uint *)((int)puVar7 + 6);
+      uVar3 = uVar3 >> 0x10;
+    }
+    iVar4 = (-3 - (uint)CARRY1((byte)uVar3,(byte)uVar3)) - (int)local_544;
+    *(char *)((int)puVar8 + (int)(acStack_547 + iVar4 + 3)) = '/';
+    *(char *)((int)puVar8 + (int)(acStack_547 + iVar4 + 4)) = '\0';
+    do {
+      if (local_144 != 3) {
+        local_580 = 0x4040ee1;
+        strcpy((char *)(local_55c + (int)local_544),local_11c);
+        local_580 = 0x4040ef1;
+        iVar4 = FUN_0404c040();
+        if (iVar4 == 0) {
+          local_580 = 0x4040f6f;
+          FUN_0400a810();
+        }
+        local_580 = 0x4040f03;
+        FUN_0404c5f0();
+        local_580 = 0x4040f11;
+        VPFSDB_ReleaseObject();
+      }
+      local_580 = 0x4040f1d;
+      iVar4 = FUN_04040950();
+    } while (iVar4 != 0);
+    local_580 = 0x4040f29;
+    eON_FindClose();
+    puVar10 = &local_580;
+  }
+  *puVar10 = uVar6;
+  puVar10[-1] = 0x4040f3a;
+  eON_SetLastError();
+  return;
+}
+

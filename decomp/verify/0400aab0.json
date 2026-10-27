@@ -1,0 +1,127 @@
+
+void Cot__Create(int param_1,uint param_2)
+
+{
+  pthread_mutex_t *__mutex;
+  _Rb_tree_node_base *p_Var1;
+  _Rb_tree_node_base *p_Var2;
+  _Rb_tree_node_base *p_Var3;
+  _Rb_tree_node_base *p_Var4;
+  _Rb_tree_node_base *p_Var5;
+  _Rb_tree_node_base *p_Var6;
+  _Rb_tree_node_base *local_34;
+  
+  __mutex = (pthread_mutex_t *)(param_1 + 0x1c);
+  pthread_mutex_lock(__mutex);
+  p_Var4 = *(_Rb_tree_node_base **)(param_1 + 8);
+  p_Var1 = (_Rb_tree_node_base *)(param_1 + 4);
+  p_Var6 = p_Var4;
+  p_Var3 = p_Var1;
+  if (p_Var4 == (_Rb_tree_node_base *)0x0) {
+    *(undefined1 *)(param_1 + 0x18) = 1;
+    p_Var6 = p_Var1;
+LAB_0400ac40:
+    if ((*(int *)(param_1 + 0x14) != 0) &&
+       (p_Var1 = *(_Rb_tree_node_base **)(param_1 + 0x10), *(uint *)(p_Var1 + 0x10) < param_2)) {
+      p_Var4 = operator_new(0x18);
+      if (p_Var4 != (_Rb_tree_node_base *)0x0) {
+        *(undefined4 *)p_Var4 = 0;
+        *(undefined4 *)(p_Var4 + 4) = 0;
+        *(undefined4 *)(p_Var4 + 8) = 0;
+        *(undefined4 *)(p_Var4 + 0xc) = 0;
+        *(uint *)(p_Var4 + 0x10) = param_2;
+        *(undefined4 *)(p_Var4 + 0x14) = 0;
+      }
+      std::_Rb_tree_insert_and_rebalance(p_Var6 == p_Var1,p_Var4,p_Var1,p_Var6);
+      *(int *)(param_1 + 0x14) = *(int *)(param_1 + 0x14) + 1;
+      goto LAB_0400ac20;
+    }
+  }
+  else {
+    do {
+      while (p_Var5 = p_Var6, param_2 <= *(uint *)(p_Var5 + 0x10)) {
+        p_Var6 = *(_Rb_tree_node_base **)(p_Var5 + 8);
+        p_Var3 = p_Var5;
+        if (*(_Rb_tree_node_base **)(p_Var5 + 8) == (_Rb_tree_node_base *)0x0) goto LAB_0400aafd;
+      }
+      p_Var2 = p_Var5 + 0xc;
+      p_Var6 = *(_Rb_tree_node_base **)p_Var2;
+      p_Var5 = p_Var3;
+    } while (*(_Rb_tree_node_base **)p_Var2 != (_Rb_tree_node_base *)0x0);
+LAB_0400aafd:
+    if ((p_Var1 != p_Var5) && (*(uint *)(p_Var5 + 0x10) <= param_2)) {
+      FUN_0402cd10(0xf,"COT ERROR: Trying to create already existing COM object %p (\'%s\')\'",
+                   param_2,*(undefined4 *)(param_2 + 4));
+      pthread_mutex_unlock(__mutex);
+      return;
+    }
+    *(undefined1 *)(param_1 + 0x18) = 1;
+    p_Var3 = p_Var1;
+    do {
+      while (p_Var6 = p_Var4, param_2 <= *(uint *)(p_Var6 + 0x10)) {
+        p_Var4 = *(_Rb_tree_node_base **)(p_Var6 + 8);
+        p_Var3 = p_Var6;
+        if (*(_Rb_tree_node_base **)(p_Var6 + 8) == (_Rb_tree_node_base *)0x0) goto LAB_0400ab65;
+      }
+      p_Var5 = p_Var6 + 0xc;
+      p_Var4 = *(_Rb_tree_node_base **)p_Var5;
+      p_Var6 = p_Var3;
+    } while (*(_Rb_tree_node_base **)p_Var5 != (_Rb_tree_node_base *)0x0);
+LAB_0400ab65:
+    if (p_Var1 == p_Var6) goto LAB_0400ac40;
+    p_Var4 = p_Var6;
+    if (*(uint *)(p_Var6 + 0x10) <= param_2) goto LAB_0400ac20;
+    p_Var3 = *(_Rb_tree_node_base **)(param_1 + 0xc);
+    if (p_Var3 == p_Var6) {
+      p_Var4 = operator_new(0x18);
+      if (p_Var4 != (_Rb_tree_node_base *)0x0) {
+        *(undefined4 *)p_Var4 = 0;
+        *(undefined4 *)(p_Var4 + 4) = 0;
+        *(undefined4 *)(p_Var4 + 8) = 0;
+        *(undefined4 *)(p_Var4 + 0xc) = 0;
+        *(uint *)(p_Var4 + 0x10) = param_2;
+        *(undefined4 *)(p_Var4 + 0x14) = 0;
+      }
+      std::_Rb_tree_insert_and_rebalance(true,p_Var4,p_Var3,p_Var1);
+      *(int *)(param_1 + 0x14) = *(int *)(param_1 + 0x14) + 1;
+      goto LAB_0400ac20;
+    }
+    p_Var3 = (_Rb_tree_node_base *)std::_Rb_tree_decrement(p_Var6);
+    if (*(uint *)(p_Var3 + 0x10) < param_2) {
+      if (*(int *)(p_Var3 + 0xc) == 0) {
+        p_Var4 = operator_new(0x18);
+        if (p_Var4 != (_Rb_tree_node_base *)0x0) {
+          *(undefined4 *)p_Var4 = 0;
+          *(undefined4 *)(p_Var4 + 4) = 0;
+          *(undefined4 *)(p_Var4 + 8) = 0;
+          *(undefined4 *)(p_Var4 + 0xc) = 0;
+          *(uint *)(p_Var4 + 0x10) = param_2;
+          *(undefined4 *)(p_Var4 + 0x14) = 0;
+        }
+        std::_Rb_tree_insert_and_rebalance(p_Var1 == p_Var3,p_Var4,p_Var3,p_Var1);
+        *(int *)(param_1 + 0x14) = *(int *)(param_1 + 0x14) + 1;
+      }
+      else {
+        p_Var4 = operator_new(0x18);
+        if (p_Var4 != (_Rb_tree_node_base *)0x0) {
+          *(undefined4 *)p_Var4 = 0;
+          *(undefined4 *)(p_Var4 + 4) = 0;
+          *(undefined4 *)(p_Var4 + 8) = 0;
+          *(undefined4 *)(p_Var4 + 0xc) = 0;
+          *(uint *)(p_Var4 + 0x10) = param_2;
+          *(undefined4 *)(p_Var4 + 0x14) = 0;
+        }
+        std::_Rb_tree_insert_and_rebalance(true,p_Var4,p_Var6,p_Var1);
+        *(int *)(param_1 + 0x14) = *(int *)(param_1 + 0x14) + 1;
+      }
+      goto LAB_0400ac20;
+    }
+  }
+  FUN_0400a850();
+  p_Var4 = local_34;
+LAB_0400ac20:
+  *(undefined4 *)(p_Var4 + 0x14) = 1;
+  pthread_mutex_unlock(__mutex);
+  return;
+}
+

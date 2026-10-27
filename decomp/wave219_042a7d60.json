@@ -1,0 +1,71 @@
+
+void FUN_042a7d60(int param_1,undefined4 param_2,byte *param_3,int param_4)
+
+{
+  int *piVar1;
+  undefined4 uVar2;
+  int iVar3;
+  int iVar4;
+  int local_2c;
+  int local_24;
+  uint local_20;
+  
+  local_2c = param_4;
+  if ((*(byte *)(param_1 + 0x284) >> 4 & 3) != 3) {
+    iVar4 = 0;
+    piVar1 = &DAT_043999ec;
+    local_20 = 0x10000;
+    local_24 = 0;
+    do {
+      if ((((*piVar1 ==
+             (uint)param_3[0x57] + (uint)param_3[0x55] * 0x10000 + (uint)param_3[0x54] * 0x1000000 +
+             (uint)param_3[0x56] * 0x100) &&
+           ((uint)param_3[0x5a] * 0x100 +
+            (uint)param_3[0x5b] + (uint)param_3[0x59] * 0x10000 + (uint)param_3[0x58] * 0x1000000 ==
+            piVar1[1])) &&
+          ((uint)param_3[0x5e] * 0x100 +
+           (uint)param_3[0x5f] + (uint)param_3[0x5d] * 0x10000 + (uint)param_3[0x5c] * 0x1000000 ==
+           piVar1[2])) &&
+         ((uint)param_3[0x62] * 0x100 +
+          (uint)param_3[0x60] * 0x1000000 + (uint)param_3[0x61] * 0x10000 + (uint)param_3[99] ==
+          piVar1[3])) {
+        if (local_24 == 0) {
+          local_24 = (uint)param_3[2] * 0x100 +
+                     (uint)*param_3 * 0x1000000 + (uint)param_3[1] * 0x10000 + (uint)param_3[3];
+          local_20 = (uint)param_3[0x42] * 0x100 +
+                     (uint)param_3[0x40] * 0x1000000 + (uint)param_3[0x41] * 0x10000 +
+                     (uint)param_3[0x43];
+        }
+        iVar3 = piVar1[-1];
+        if ((iVar3 == local_24) && (*(ushort *)((int)piVar1 + 0x12) == local_20)) {
+          if (param_4 == 0) {
+            uVar2 = adler32(0,0,0);
+            local_2c = adler32(uVar2,param_3,local_24);
+          }
+          if ((&DAT_043999e0)[iVar4 * 8] == local_2c) {
+            uVar2 = crc32(0,0,0);
+            iVar3 = crc32(uVar2,param_3,iVar3);
+            if (iVar3 == (&DAT_043999e4)[iVar4 * 8]) {
+              if ((&DAT_043999fd)[iVar4 * 0x20] == '\0') {
+                if ((&DAT_043999fc)[iVar4 * 0x20] == '\0') {
+                  FUN_042a9e50(param_1,"out-of-date sRGB profile with no signature",0);
+                }
+              }
+              else {
+                FUN_042a9e50(param_1,"known incorrect sRGB profile",2);
+              }
+              FUN_042a7b90();
+              return;
+            }
+          }
+          FUN_042a9e50();
+          return;
+        }
+      }
+      iVar4 = iVar4 + 1;
+      piVar1 = piVar1 + 8;
+    } while (iVar4 != 7);
+  }
+  return;
+}
+

@@ -1,0 +1,97 @@
+
+undefined4
+eON_RegCreateKeyExW(int param_1,undefined4 param_2,int param_3,undefined4 param_4,int param_5,
+                   undefined4 param_6,undefined4 param_7,int *param_8,undefined4 *param_9)
+
+{
+  char cVar1;
+  int iVar2;
+  void *pvVar3;
+  void *pvVar4;
+  undefined4 uVar5;
+  int *piVar6;
+  
+  cVar1 = Registry_IsLoaded();
+  if (cVar1 == '\0') {
+    Registry_Load();
+    InitFakeWindowsRegistryKeys();
+    FlushRegistrySave();
+  }
+  uVar5 = 6;
+  if (param_1 != 0) {
+    iVar2 = Registry_OpenPredefinedKey();
+    if (iVar2 != 0) {
+      if (param_3 != 0) {
+        FUN_0402cd10();
+      }
+      if (param_5 != 0) {
+        FUN_0402cd10();
+      }
+      if (param_9 == (undefined4 *)0x0) {
+        iVar2 = FUN_0415a040();
+        pvVar3 = malloc(iVar2 * 2 + 2);
+        FUN_0415a150();
+        piVar6 = (int *)&stack0xffffffa4;
+        do {
+          pvVar4 = (void *)FUN_04115440();
+          if (pvVar4 == (void *)0x0) {
+            iVar2 = Registry_FindOrCreateKeyNode();
+            goto LAB_04117a1b;
+          }
+          iVar2 = Registry_FindOrCreateKeyNode();
+          free(pvVar4);
+        } while (iVar2 != 0);
+        iVar2 = 0;
+LAB_04117a1b:
+        free(pvVar3);
+        FlushRegistrySave();
+      }
+      else {
+        iVar2 = FUN_0415a040();
+        pvVar3 = malloc(iVar2 * 2 + 2);
+        FUN_0415a150();
+        piVar6 = (int *)&stack0xffffffa4;
+        do {
+          pvVar4 = (void *)FUN_04115440();
+          if (pvVar4 == (void *)0x0) {
+            iVar2 = Registry_FindOrCreateKeyNode();
+            free(pvVar3);
+            if (iVar2 == 0) goto LAB_041178cb;
+            *param_9 = 2;
+            goto LAB_04117880;
+          }
+          iVar2 = Registry_FindOrCreateKeyNode();
+          free(pvVar4);
+        } while (iVar2 != 0);
+        free(pvVar3);
+LAB_041178cb:
+        iVar2 = FUN_0415a040();
+        pvVar3 = malloc(iVar2 * 2 + 2);
+        FUN_0415a150();
+        piVar6 = (int *)&stack0xffffff98;
+        do {
+          pvVar4 = (void *)FUN_04115440();
+          if (pvVar4 == (void *)0x0) {
+            iVar2 = Registry_FindOrCreateKeyNode();
+            goto LAB_04117957;
+          }
+          iVar2 = Registry_FindOrCreateKeyNode();
+          free(pvVar4);
+        } while (iVar2 != 0);
+        iVar2 = 0;
+LAB_04117957:
+        free(pvVar3);
+        *param_9 = 1;
+        FlushRegistrySave();
+      }
+LAB_04117880:
+      *piVar6 = iVar2;
+      piVar6[-1] = 0x4117888;
+      Registry_AddRefOpenKey();
+      *param_8 = iVar2;
+      uVar5 = 0;
+    }
+  }
+  return uVar5;
+}
+

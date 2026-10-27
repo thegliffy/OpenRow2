@@ -1,0 +1,66 @@
+
+/* source: MemoryHandleManager */
+
+uint MemoryHandleManager__Free(int *param_1,uint param_2)
+
+{
+  pthread_mutex_t *__mutex;
+  int iVar1;
+  int *piVar2;
+  int iVar3;
+  ushort uVar4;
+  undefined4 *puVar5;
+  byte local_29;
+  
+  if ((param_2 & 0xffff0000) != 0) {
+    eON_GetProcessHeap();
+    iVar1 = eON_HeapFree();
+    if (iVar1 != 0) {
+      param_2 = 0;
+    }
+    return param_2;
+  }
+  if (param_2 != 0) {
+    __mutex = (pthread_mutex_t *)(param_1 + 2);
+    pthread_mutex_lock(__mutex);
+    uVar4 = (ushort)(param_2 - 1);
+    if (uVar4 < *(ushort *)(param_1 + 1)) {
+      iVar1 = (param_2 - 1 & 0xffff) * 8;
+      piVar2 = (int *)(iVar1 + *param_1);
+      local_29 = *(byte *)((int)piVar2 + 5);
+      if ((local_29 & 1) != 0) {
+        puVar5 = (undefined4 *)&stack0xffffffc4;
+        if (*piVar2 != 0) {
+          eON_GetProcessHeap();
+          iVar3 = eON_HeapFree();
+          if (iVar3 == 0) {
+            pthread_mutex_unlock(__mutex);
+            return param_2;
+          }
+          if (*(ushort *)(param_1 + 1) <= uVar4) {
+            FUN_0400a810();
+          }
+          piVar2 = (int *)(iVar1 + *param_1);
+          local_29 = *(byte *)((int)piVar2 + 5);
+          puVar5 = (undefined4 *)&stack0xffffffb8;
+          if ((local_29 & 1) == 0) {
+            FUN_0400a810();
+            piVar2 = (int *)(iVar1 + *param_1);
+            local_29 = *(byte *)((int)piVar2 + 5);
+            puVar5 = (undefined4 *)&stack0xffffffb8;
+          }
+        }
+        *(byte *)((int)piVar2 + 5) = local_29 & 0xfe;
+        *puVar5 = __mutex;
+        puVar5[-1] = 0x413f5dc;
+        pthread_mutex_unlock((pthread_mutex_t *)*puVar5);
+        return 0;
+      }
+    }
+    pthread_mutex_unlock(__mutex);
+    eON_SetLastError();
+    return param_2;
+  }
+  return 0;
+}
+

@@ -1,0 +1,24 @@
+
+/* source: audioRenderCaptureOpenALsoft */
+
+byte AudioUnit_IsFormatSupported(int param_1,char param_2)
+
+{
+  byte bVar1;
+  undefined1 local_10 [12];
+  
+  bVar1 = 0;
+  if ((param_1 != 0) && (param_2 == '\0')) {
+    if (*(int *)(param_1 + 4) != 0) {
+      FUN_0400a810("forAudioCapture == captureDevice",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/winmm/linux/audioRenderCaptureOpenALsoft.cpp"
+                   ,0xb3,
+                   "int32_t AudioUnit_IsFormatSupported(eON_AudioDevice, bool, const WAVEFORMATEXTENSIBLE*)"
+                  );
+    }
+    bVar1 = audioRenderCaptureOpenALsoft_0418ad90(local_10);
+    bVar1 = bVar1 ^ 1;
+  }
+  return bVar1;
+}
+

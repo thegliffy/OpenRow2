@@ -1,0 +1,19 @@
+
+/* source: xaudio2voiceimpl */
+
+void XAudio2VoiceImp__GetEffectState(int param_1,uint param_2,uint *param_3)
+
+{
+  if ((uint)((*(int *)(param_1 + 0x11c) - *(int *)(param_1 + 0x114) >> 2) * 0x20 +
+            (*(int *)(param_1 + 0x120) - *(int *)(param_1 + 0x118))) <= param_2) {
+    FUN_0400a810("EffectIndex < mEnabledEffects.size()",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/xaudio2_full/xaudio2voiceimpl.cpp"
+                 ,0x91,"virtual void XAudio2VoiceImp::GetEffectState(UINT32, WINBOOL*)");
+  }
+  if (param_3 != (uint *)0x0) {
+    *param_3 = (uint)((*(uint *)(*(int *)(param_1 + 0x114) + (param_2 >> 5) * 4) &
+                      1 << ((byte)param_2 & 0x1f)) != 0);
+  }
+  return;
+}
+

@@ -1,0 +1,25 @@
+
+undefined4 DirectSoundBufferImp__SetNotificationPositions(int param_1,int param_2,int *param_3)
+
+{
+  int iVar1;
+  
+  if (param_2 != 0) {
+    iVar1 = 0;
+    do {
+      while (*param_3 == -1) {
+        iVar1 = iVar1 + 1;
+        FUN_0402cd10(5,"DSBPN_OFFSETSTOP notification not supported yet");
+        param_3 = param_3 + 2;
+        if (iVar1 == param_2) {
+          return 0;
+        }
+      }
+      iVar1 = iVar1 + 1;
+      FUN_040feec0(*(int *)(param_1 + 0x10) + 4,param_3);
+      param_3 = param_3 + 2;
+    } while (iVar1 != param_2);
+  }
+  return 0;
+}
+

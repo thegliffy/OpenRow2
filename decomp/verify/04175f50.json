@@ -1,0 +1,38 @@
+
+int eON_ToAsciiEx(undefined4 param_1,undefined4 param_2,undefined4 param_3,undefined4 param_4,
+                 undefined4 param_5,undefined *param_6)
+
+{
+  undefined4 uVar1;
+  undefined4 uVar2;
+  undefined4 uVar3;
+  undefined4 uVar4;
+  undefined4 uVar5;
+  int iVar6;
+  int iVar7;
+  undefined1 local_24 [12];
+  undefined4 *local_18;
+  
+  uVar5 = param_5;
+  uVar4 = param_4;
+  uVar3 = param_3;
+  uVar2 = param_2;
+  uVar1 = param_1;
+  local_18 = &param_1;
+  if ((param_6 != (undefined *)0x0) && (param_6 != &DAT_00010800)) {
+    FUN_0402cd10(0xf,"eON_ToUnicodeEx doesn\'t support hkl parameter at the moment.");
+  }
+  iVar6 = eON_Int_VkToUnicodeChar(uVar1,uVar2,uVar3,local_24,2,uVar5);
+  if (iVar6 < 0) {
+    iVar7 = 1;
+  }
+  else {
+    iVar7 = iVar6;
+    if (iVar6 == 0) {
+      return 0;
+    }
+  }
+  eON_WideCharToMultiByte(0,0,local_24,iVar7,uVar4,2,0,0);
+  return iVar6;
+}
+

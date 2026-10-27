@@ -1,0 +1,70 @@
+
+/* source: direct3dtexture9imp */
+
+undefined4
+Direct3DTexture9Imp__LockRect
+          (int param_1,uint param_2,char *param_3,undefined4 param_4,char *param_5)
+
+{
+  undefined4 uVar1;
+  int iVar2;
+  int **ppiVar3;
+  int iVar4;
+  undefined1 local_4c [12];
+  undefined4 uStack_40;
+  int *local_3c;
+  char *local_38;
+  undefined4 local_34;
+  char *local_30;
+  int *local_20;
+  
+  ppiVar3 = &local_3c;
+  local_20 = (int *)(param_1 + 0x1c);
+  if (*(int *)(param_1 + 0x1c) != 0) {
+    local_3c = (int *)(*(int *)(param_1 + 0x1c) + 0x40);
+    uStack_40 = 0x40b1227;
+    direct3ddevice9imp_040803c0();
+  }
+  iVar2 = *(int *)(param_1 + 0x1bc);
+  if (*(int *)(param_1 + 0x224) == 2) {
+    if (iVar2 != (iVar2 / 6) * 6) {
+      local_30 = 
+      "virtual HRESULT Direct3DTexture9Imp::LockRect(UINT, D3DLOCKED_RECT*, const RECT*, DWORD)";
+      local_34 = 0xa0;
+      local_38 = 
+      "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3dtexture9imp.cpp"
+      ;
+      local_3c = (int *)0x42f9110;
+                    /* try { // try from 040b12c8 to 040b12cc has its CatchHandler @ 040b12fa */
+      uStack_40 = 0x40b12cd;
+      FUN_0400a810();
+      iVar2 = *(int *)(param_1 + 0x1bc);
+      if (*(int *)(param_1 + 0x224) != 2) goto LAB_040b1236;
+    }
+    iVar4 = 6;
+  }
+  else {
+LAB_040b1236:
+    iVar4 = 1;
+  }
+  if (param_2 < (uint)(iVar2 / iVar4)) {
+    local_3c = *(int **)(param_1 + 0x3c + param_2 * 4);
+    local_30 = param_5;
+    local_34 = param_4;
+    local_38 = param_3;
+                    /* try { // try from 040b126a to 040b126c has its CatchHandler @ 040b12fa */
+    uStack_40 = 0x40b126d;
+    uVar1 = (**(code **)(*local_3c + 0x34))();
+    ppiVar3 = (int **)local_4c;
+  }
+  else {
+    uVar1 = 0x8876086c;
+  }
+  if (*local_20 != 0) {
+    *ppiVar3 = (int *)(*local_20 + 0x40);
+    ppiVar3[-1] = (int *)0x40b1286;
+    direct3ddevice9imp_04080490();
+  }
+  return uVar1;
+}
+

@@ -1,0 +1,27 @@
+
+void png_set_gamma(int param_1)
+
+{
+  int iVar1;
+  int iVar2;
+  
+  iVar1 = png_rtran_ok();
+  if (iVar1 == 0) {
+    return;
+  }
+  iVar1 = FUN_042b0050();
+  iVar2 = FUN_042b0050();
+  if (0 < iVar2) {
+    if (0 < iVar1) {
+      *(int *)(param_1 + 0x1e8) = iVar1;
+      *(int *)(param_1 + 0x338) = iVar2;
+      *(ushort *)(param_1 + 0x382) = *(ushort *)(param_1 + 0x382) | 1;
+      return;
+    }
+                    /* WARNING: Subroutine does not return */
+    png_error(param_1,"invalid screen gamma in png_set_gamma");
+  }
+                    /* WARNING: Subroutine does not return */
+  png_error(param_1,"invalid file gamma in png_set_gamma");
+}
+

@@ -1,0 +1,50 @@
+
+void __regparm3 D3DBLEND_ToString(undefined4 param_1,undefined4 param_2,undefined4 param_3)
+
+{
+  switch(param_3) {
+  default:
+    FUN_0402cd10(param_1,"%s: !unhandled!",param_2);
+    return;
+  case 1:
+    FUN_0402cd10(param_1,"%s: D3DBLEND_ZERO",param_2);
+    return;
+  case 2:
+    FUN_0402cd10(param_1,"%s: D3DBLEND_ONE",param_2);
+    return;
+  case 3:
+    FUN_0402cd10(param_1,"%s: D3DBLEND_SRCCOLOR",param_2);
+    return;
+  case 4:
+    FUN_0402cd10(param_1,"%s: D3DBLEND_INVSRCCOLOR",param_2);
+    return;
+  case 5:
+    FUN_0402cd10(param_1,"%s: D3DBLEND_SRCALPHA",param_2);
+    return;
+  case 6:
+    FUN_0402cd10(param_1,"%s: D3DBLEND_INVSRCALPHA",param_2);
+    return;
+  case 9:
+    FUN_0402cd10(param_1,"%s: D3DBLEND_DESTCOLOR",param_2);
+    return;
+  case 10:
+    FUN_0402cd10(param_1,"%s: D3DBLEND_INVDESTCOLOR",param_2);
+    return;
+  case 0xb:
+    FUN_0402cd10(param_1,"%s: D3DBLEND_SRCALPHASAT",param_2);
+    return;
+  case 0xc:
+    FUN_0402cd10(param_1,"%s: D3DBLEND_BOTHSRCALPHA",param_2);
+    return;
+  case 0xd:
+    FUN_0402cd10(param_1,"%s: D3DBLEND_BOTHINVSRCALPHA",param_2);
+    return;
+  case 0xe:
+    FUN_0402cd10(param_1,"%s: D3DBLEND_BLENDFACTOR",param_2);
+    return;
+  case 0xf:
+    FUN_0402cd10(param_1,"%s: D3DBLEND_INVBLENDFACTOR",param_2);
+    return;
+  }
+}
+

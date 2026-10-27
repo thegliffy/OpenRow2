@@ -1,0 +1,88 @@
+
+undefined4 VPFS_SetCurrentDirectory(char *param_1)
+
+{
+  char cVar1;
+  char cVar2;
+  int iVar3;
+  int iVar4;
+  uint uVar5;
+  uint uVar6;
+  __int32_t **pp_Var7;
+  uint uVar8;
+  uint *puVar9;
+  uint *puVar10;
+  char *pcVar11;
+  __int32_t _Var12;
+  __int32_t _Var13;
+  char *local_c30;
+  uint local_c24 [256];
+  uint local_824 [512];
+  undefined1 local_24 [4];
+  int local_20 [4];
+  
+  pthread_mutex_lock((pthread_mutex_t *)&DAT_0441804c);
+  if ((*param_1 == '\0') || (iVar3 = FUN_0403d0f0(), iVar3 == 0)) {
+    FUN_0402cd10(0xf,"VPFS_SetCurrentDirectory() error - couldn\'t get absolute path: %s",param_1);
+    pthread_mutex_unlock((pthread_mutex_t *)&DAT_0441804c);
+    return 0;
+  }
+  iVar3 = FUN_0403c9d0();
+  iVar4 = VPFS_FileOrFolderExists(local_24,local_20);
+  if ((iVar4 == 1) && (local_20[0] != 0)) {
+    puVar10 = local_824;
+    if (iVar3 != 0) {
+      do {
+        puVar9 = puVar10;
+        uVar5 = *puVar9 + 0xfefefeff & ~*puVar9;
+        uVar6 = uVar5 & 0x80808080;
+        puVar10 = puVar9 + 1;
+      } while (uVar6 == 0);
+      if ((uVar5 & 0x8080) == 0) {
+        puVar10 = (uint *)((int)puVar9 + 6);
+        uVar6 = uVar6 >> 0x10;
+      }
+      local_c30 = (char *)((int)puVar10 + (-3 - (uint)CARRY1((byte)uVar6,(byte)uVar6)));
+      puVar10 = local_c24;
+      do {
+        puVar9 = puVar10;
+        uVar6 = *puVar9 + 0xfefefeff & ~*puVar9;
+        uVar5 = uVar6 & 0x80808080;
+        puVar10 = puVar9 + 1;
+      } while (uVar5 == 0);
+      puVar10 = (uint *)((int)puVar9 + 6);
+      uVar8 = uVar5 >> 0x10;
+      if ((uVar6 & 0x8080) != 0) {
+        puVar10 = puVar9 + 1;
+        uVar8 = uVar5;
+      }
+      pcVar11 = (char *)((int)puVar10 + (-3 - (uint)CARRY1((byte)uVar8,(byte)uVar8)));
+      while( true ) {
+        do {
+          local_c30 = local_c30 + -1;
+          pcVar11 = pcVar11 + -1;
+          cVar1 = *pcVar11;
+          cVar2 = *local_c30;
+        } while (cVar2 == cVar1);
+        _Var13 = (__int32_t)cVar2;
+        if (_Var13 + 0x80U < 0x180) {
+          pp_Var7 = __ctype_tolower_loc();
+          _Var13 = (*pp_Var7)[_Var13];
+        }
+        _Var12 = (__int32_t)cVar1;
+        if (_Var12 + 0x80U < 0x180) {
+          pp_Var7 = __ctype_tolower_loc();
+          _Var12 = (*pp_Var7)[_Var12];
+        }
+        if (_Var13 != _Var12) break;
+        *pcVar11 = cVar2;
+      }
+    }
+    strcpy(&DAT_04468280,(char *)local_c24);
+    pthread_mutex_unlock((pthread_mutex_t *)&DAT_0441804c);
+    return 1;
+  }
+  pthread_mutex_unlock((pthread_mutex_t *)&DAT_0441804c);
+  return 0;
+}
+

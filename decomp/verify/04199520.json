@@ -1,0 +1,80 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+bool _glewInit_GL_ARB_framebuffer_object(void)
+
+{
+  int iVar1;
+  bool bVar2;
+  bool bVar3;
+  bool bVar4;
+  bool bVar5;
+  bool bVar6;
+  bool bVar7;
+  bool bVar8;
+  bool bVar9;
+  bool bVar10;
+  bool bVar11;
+  bool bVar12;
+  bool bVar13;
+  bool bVar14;
+  bool bVar15;
+  bool bVar16;
+  bool bVar17;
+  bool bVar18;
+  bool bVar19;
+  
+  iVar1 = glXGetProcAddressARB("glBindFramebuffer");
+  DAT_0451e694 = iVar1;
+  DAT_0451e690 = glXGetProcAddressARB("glBindRenderbuffer");
+  bVar2 = DAT_0451e690 == 0;
+  DAT_0451e68c = glXGetProcAddressARB("glBlitFramebuffer");
+  bVar3 = DAT_0451e68c == 0;
+  DAT_0451e688 = glXGetProcAddressARB("glCheckFramebufferStatus");
+  bVar4 = DAT_0451e688 == 0;
+  DAT_0451e684 = glXGetProcAddressARB("glDeleteFramebuffers");
+  bVar5 = DAT_0451e684 == 0;
+  DAT_0451e680 = glXGetProcAddressARB("glDeleteRenderbuffers");
+  bVar6 = DAT_0451e680 == 0;
+  DAT_0451e67c = glXGetProcAddressARB("glFramebufferRenderbuffer");
+  bVar7 = DAT_0451e67c == 0;
+  _DAT_0451e678 = glXGetProcAddressARB("glFramebufferTexture1D");
+  bVar8 = _DAT_0451e678 == 0;
+  DAT_0451e674 = glXGetProcAddressARB("glFramebufferTexture2D");
+  bVar9 = DAT_0451e674 == 0;
+  _DAT_0451e670 = glXGetProcAddressARB("glFramebufferTexture3D");
+  bVar10 = _DAT_0451e670 == 0;
+  _DAT_0451e66c = glXGetProcAddressARB("glFramebufferTextureLayer");
+  bVar11 = _DAT_0451e66c == 0;
+  DAT_0451e668 = glXGetProcAddressARB("glGenFramebuffers");
+  bVar12 = DAT_0451e668 == 0;
+  DAT_0451e664 = glXGetProcAddressARB("glGenRenderbuffers");
+  bVar13 = DAT_0451e664 == 0;
+  DAT_0451e660 = glXGetProcAddressARB("glGenerateMipmap");
+  bVar14 = DAT_0451e660 == 0;
+  DAT_0451e65c = glXGetProcAddressARB("glGetFramebufferAttachmentParameteriv");
+  bVar15 = DAT_0451e65c == 0;
+  DAT_0451e658 = glXGetProcAddressARB("glGetRenderbufferParameteriv");
+  bVar16 = DAT_0451e658 == 0;
+  DAT_0451e654 = glXGetProcAddressARB("glIsFramebuffer");
+  bVar17 = DAT_0451e654 == 0;
+  DAT_0451e650 = glXGetProcAddressARB("glIsRenderbuffer");
+  bVar18 = DAT_0451e650 == 0;
+  DAT_0451e64c = glXGetProcAddressARB("glRenderbufferStorage");
+  bVar19 = DAT_0451e64c == 0;
+  DAT_0451e648 = glXGetProcAddressARB("glRenderbufferStorageMultisample");
+  return DAT_0451e648 == 0 ||
+         (bVar19 ||
+         (bVar18 ||
+         (bVar17 ||
+         (bVar16 ||
+         (bVar15 ||
+         (bVar14 ||
+         (bVar13 ||
+         (bVar12 ||
+         (bVar11 ||
+         (bVar10 ||
+         (bVar9 || (bVar8 || (bVar7 || (bVar6 || (bVar5 || (bVar4 || (bVar3 || (bVar2 || iVar1 == 0)
+                                                                     )))))))))))))))));
+}
+

@@ -1,0 +1,82 @@
+
+int __regparm3 zstream_decompress(int param_1,int param_2,size_t param_3,uint *param_4)
+
+{
+  undefined4 uVar1;
+  uint uVar2;
+  int iVar3;
+  int iVar4;
+  int iVar5;
+  void *__dest;
+  int local_20 [4];
+  
+  uVar2 = *(uint *)(param_1 + 0x2f8);
+  if ((uVar2 == 0) || (uVar2 == 0xffffffff)) {
+    uVar2 = 0xffffffff;
+  }
+  else if (uVar2 < param_3 + 1) {
+    FUN_042a6270(param_1,0xfffffffc);
+    return -4;
+  }
+  uVar2 = uVar2 - (param_3 + 1);
+  if (uVar2 < *param_4) {
+    *param_4 = uVar2;
+  }
+  iVar3 = zstream_init();
+  if (iVar3 != 0) {
+    if (iVar3 != 1) {
+      return iVar3;
+    }
+    return -7;
+  }
+  local_20[0] = param_2 - param_3;
+  iVar3 = zstream_inflate_buffer(local_20,0,param_4);
+  if (iVar3 == 1) {
+    iVar3 = inflateReset(param_1 + 0xe0);
+    if (iVar3 == 0) {
+      uVar2 = *param_4;
+      iVar4 = uVar2 + param_3;
+      iVar5 = iVar4 + 1;
+      __dest = (void *)FUN_042aa110(param_1,iVar5);
+      if (__dest == (void *)0x0) {
+        FUN_042a6270(param_1,0xfffffffc);
+        iVar3 = -4;
+      }
+      else {
+        iVar3 = zstream_inflate_buffer(local_20,(int)__dest + param_3,param_4);
+        if (iVar3 == 1) {
+          if (uVar2 == *param_4) {
+            *(undefined1 *)((int)__dest + iVar4) = 0;
+            if (param_3 != 0) {
+              memcpy(__dest,*(void **)(param_1 + 0x314),param_3);
+            }
+            uVar1 = *(undefined4 *)(param_1 + 0x314);
+            *(void **)(param_1 + 0x314) = __dest;
+            *(int *)(param_1 + 0x318) = iVar5;
+            FUN_042aa410(param_1,uVar1);
+            if (param_2 - param_3 != local_20[0]) {
+              png_chunk_benign_error(param_1,"extra compressed data");
+            }
+            goto LAB_042b6183;
+          }
+          iVar3 = -7;
+        }
+        else if (iVar3 == 0) {
+          iVar3 = -7;
+        }
+        FUN_042aa410(param_1,__dest);
+      }
+    }
+    else {
+      FUN_042a6270(param_1,1);
+      iVar3 = -7;
+    }
+  }
+  else if (iVar3 == 0) {
+    iVar3 = -7;
+  }
+LAB_042b6183:
+  *(undefined4 *)(param_1 + 0xdc) = 0;
+  return iVar3;
+}
+

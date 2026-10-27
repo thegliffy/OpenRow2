@@ -1,0 +1,13 @@
+
+void Direct3DTexture9Imp__Direct3DTexture9Imp(undefined4 *param_1,undefined4 param_2)
+
+{
+  Direct3DBaseTexture9Imp__Direct3DBaseTexture9Imp(param_1,param_2);
+  *param_1 = &PTR_FUN_042f9188;
+                    /* try { // try from 040b14b8 to 040b14bc has its CatchHandler @ 040b14d1 */
+  FUN_0406d680(param_1 + 0xa3);
+  param_1[1] = "Direct3DTexture9Imp";
+  param_1[8] = 3;
+  return;
+}
+

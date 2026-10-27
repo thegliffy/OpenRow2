@@ -1,0 +1,70 @@
+
+/* source: mem_vm */
+
+undefined4 vmm_Init(void)
+
+{
+  undefined4 uVar1;
+  undefined4 uVar2;
+  undefined4 uVar3;
+  size_t __len;
+  void *pvVar4;
+  void *pvVar5;
+  undefined4 *puVar6;
+  undefined4 *puVar7;
+  undefined4 local_1c;
+  undefined4 local_18;
+  undefined4 local_14;
+  undefined4 local_10;
+  
+  pthread_mutex_init((pthread_mutex_t *)&DAT_04515bf4,(pthread_mutexattr_t *)0x0);
+  local_1c = 0;
+  local_18 = 0;
+  local_14 = 0;
+  local_10 = 0;
+  getProcessVMInfo(&local_1c,&local_14);
+  FUN_0402cd10(5,"vmm: initial memory state, virtual: %llu, resident: %llu",local_1c,local_18,
+               local_14,local_10);
+  uVar1 = FUN_0402e600();
+  uVar2 = FUN_0402e5f0();
+  uVar3 = FUN_0402e5e0();
+  FUN_0402cd10(5,"vmm_init: reserve range %p-%p (size %zx)",uVar3,uVar2,uVar1);
+  __len = FUN_0402e600();
+  pvVar4 = (void *)FUN_0402e5e0();
+  pvVar4 = mmap64(pvVar4,__len,0,0x32,0,0);
+  pvVar5 = (void *)FUN_0402e5e0();
+  if (pvVar4 != pvVar5) {
+    FUN_0400a810("mmap( Win32ReserveStart(), Win32ReserveSize(), 0x0, 0x10|0x02|0x20, 0, 0 ) == Win32ReserveStart()"
+                 ,
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/mem_vm.cpp"
+                 ,0x73c,"bool vmm_Init()");
+  }
+  puVar6 = calloc(1,0x34);
+  *(byte *)(puVar6 + 7) = *(byte *)(puVar6 + 7) | 2;
+  puVar6[2] = 0;
+  puVar6[3] = 0x10000;
+  puVar6[10] = 1;
+  puVar6[0xb] = 1;
+  DAT_04515be8 = puVar6;
+  puVar7 = calloc(1,0x34);
+  *(byte *)(puVar7 + 7) = *(byte *)(puVar7 + 7) | 2;
+  puVar7[1] = puVar6;
+  *puVar6 = puVar7;
+  puVar7[2] = 0x10000;
+  puVar7[3] = 0x100000;
+  puVar7[10] = 0x40;
+  puVar7[0xb] = 0x40;
+  DAT_04515c0c = calloc(1,0x34);
+  *(byte *)((int)DAT_04515c0c + 0x1c) = *(byte *)((int)DAT_04515c0c + 0x1c) | 2;
+  *(undefined4 **)((int)DAT_04515c0c + 4) = puVar7;
+  *puVar7 = DAT_04515c0c;
+  *(undefined **)((int)DAT_04515c0c + 8) = &DAT_00110000;
+  *(undefined **)((int)DAT_04515c0c + 0xc) = &DAT_002f0000;
+  *(undefined4 *)((int)DAT_04515c0c + 0x28) = 1;
+  *(undefined4 *)((int)DAT_04515c0c + 0x2c) = 1;
+  vmm_CommitRegion(7);
+  FUN_0402cd10(5,"vmm: post-init memory state, virtual: %llu, resident: %llu",local_1c,local_18,
+               local_14,local_10);
+  return 1;
+}
+

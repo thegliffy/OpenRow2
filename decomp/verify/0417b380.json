@@ -1,0 +1,730 @@
+
+int * eON_Int_LoadBitmap(size_t param_1,void *param_2,int param_3,uint param_4,uint param_5,
+                        uint param_6)
+
+{
+  undefined4 *puVar1;
+  ushort uVar2;
+  char *pcVar3;
+  code *pcVar4;
+  int iVar5;
+  uint *puVar6;
+  size_t sVar7;
+  void *pvVar8;
+  size_t sVar9;
+  undefined4 uVar10;
+  undefined1 *puVar11;
+  undefined4 *puVar12;
+  int iVar13;
+  uint uVar14;
+  uint uVar15;
+  int *piVar16;
+  uint uVar17;
+  uint uVar18;
+  size_t *psVar19;
+  void **ppvVar20;
+  size_t *psVar21;
+  size_t *psVar22;
+  uint *puVar23;
+  uint uVar24;
+  ushort uVar25;
+  ushort uVar26;
+  bool bVar27;
+  bool bVar28;
+  size_t local_dc [11];
+  undefined4 local_ac;
+  void *local_a8;
+  size_t local_a4;
+  void *local_a0;
+  size_t local_9c [4];
+  char *local_8c;
+  void *local_88 [8];
+  int local_68;
+  size_t local_64;
+  size_t local_60;
+  uint local_5c;
+  uint local_58;
+  uint local_54;
+  size_t local_50;
+  uint local_4c;
+  size_t local_48;
+  uint local_44;
+  uint local_40;
+  uint local_3c;
+  void *local_38;
+  void *local_34;
+  size_t local_2c;
+  undefined4 local_28;
+  undefined4 *local_18;
+  
+  sVar7 = param_1;
+  local_18 = &param_1;
+  psVar19 = local_9c + 3;
+  psVar21 = local_9c + 3;
+  local_48 = param_1;
+  local_38 = (void *)param_4;
+  local_34 = param_2;
+  local_40 = param_5;
+  uVar15 = param_6;
+  if ((param_6 & 0x10) != 0) {
+    uVar15 = param_6 & 0xffff7fff;
+  }
+  if (param_3 == 1) {
+    if ((uVar15 & 0x40) != 0) {
+      psVar19 = local_9c + 3;
+      if (param_4 == 0) {
+        local_9c[3] = 0xb;
+        local_9c[2] = 0x417be5c;
+        local_38 = (void *)eON_GetSystemMetrics();
+        psVar19 = local_9c + 2;
+      }
+      if (local_40 == 0) {
+        *psVar19 = 0xc;
+        psVar19[-1] = 0x417b536;
+        local_40 = eON_GetSystemMetrics();
+        psVar19 = psVar19 + -1;
+      }
+    }
+    if ((uVar15 & 0x10) != 0) {
+      psVar19[1] = (size_t)"Loading icons doesn\'t support loading from file yet";
+      *psVar19 = 5;
+      psVar19[-1] = 0x417b954;
+      FUN_0402cd10();
+    }
+    if (local_48 == 0) {
+      psVar19[1] = (size_t)"Loading icons doesn\'t support loading default system icons yet";
+      *psVar19 = 5;
+      psVar19[-1] = 0x417be9b;
+      FUN_0402cd10();
+    }
+    psVar19[3] = 0;
+    psVar19[1] = 0xe;
+    psVar19[2] = (size_t)local_34;
+    *psVar19 = local_48;
+    psVar19[-1] = 0x417b577;
+    sVar7 = FindResourceExW();
+    if (sVar7 == 0) {
+      return (int *)0x0;
+    }
+    psVar19[-3] = sVar7;
+    psVar19[-4] = local_48;
+    psVar19[-5] = 0x417b58d;
+    local_54 = LoadResource();
+    if (local_54 == 0) {
+      return (int *)0x0;
+    }
+    psVar19[-6] = local_54;
+    psVar19[-7] = 0x417b5a3;
+    local_44 = eON_LockResource();
+    if (local_44 == 0) {
+      psVar19[-7] = local_54;
+      psVar19[-8] = 0x417c0e0;
+      eON_FreeResource();
+      return (int *)0x0;
+    }
+    if (*(ushort *)(local_44 + 4) == 0) {
+      return (int *)0x0;
+    }
+    local_50 = 0xffffffff;
+    local_4c = *(ushort *)(local_44 + 4) + 1;
+    local_34 = (void *)0xffffffff;
+    iVar5 = 1;
+    local_3c = 0xffffffff;
+    do {
+      while( true ) {
+        sVar7 = iVar5 - 1;
+        iVar13 = sVar7 * 0xe + local_44;
+        uVar24 = local_40 - *(byte *)(iVar13 + 7);
+        uVar18 = (int)uVar24 >> 0x1f;
+        uVar17 = (int)local_38 - (uint)*(byte *)(iVar13 + 6);
+        uVar14 = (int)uVar17 >> 0x1f;
+        uVar18 = ((uVar24 ^ uVar18) - uVar18) + ((uVar17 ^ uVar14) - uVar14);
+        if (local_3c <= uVar18) break;
+        uVar14 = 0x100 - (1 << ((byte)*(undefined2 *)(iVar13 + 0xc) & 0x1f));
+        uVar17 = (int)uVar14 >> 0x1f;
+        local_34 = (void *)((uVar14 ^ uVar17) - uVar17);
+        local_50 = sVar7;
+        local_3c = uVar18;
+LAB_0417b616:
+        iVar5 = iVar5 + 1;
+        if (iVar5 == local_4c) goto LAB_0417b690;
+      }
+      if ((uVar18 != local_3c) ||
+         (uVar17 = 0x100 - (1 << ((byte)*(undefined2 *)(iVar13 + 0xc) & 0x1f)),
+         uVar18 = (int)uVar17 >> 0x1f, uVar18 = (uVar17 ^ uVar18) - uVar18, local_34 <= uVar18))
+      goto LAB_0417b616;
+      iVar5 = iVar5 + 1;
+      local_50 = sVar7;
+      local_34 = (void *)uVar18;
+    } while (iVar5 != local_4c);
+LAB_0417b690:
+    if (local_50 == 0xffffffff) {
+      return (int *)0x0;
+    }
+    iVar5 = local_44 + 6 + local_50 * 0xe;
+    uVar26 = *(ushort *)(iVar5 + 0xc);
+    local_34 = *(void **)(iVar5 + 8);
+    psVar19[-7] = local_54;
+    psVar19[-8] = 0x417b6bd;
+    local_58 = uVar15;
+    eON_FreeResource();
+    psVar19[-6] = 3;
+    psVar19[-7] = (uint)uVar26;
+    psVar19[-8] = local_48;
+    psVar19[-9] = 0x417b6d7;
+    sVar7 = FindResourceW();
+    if (sVar7 == 0) {
+      return (int *)0x0;
+    }
+    if ((uVar15 & 0x8000) != 0) {
+      psVar19[-10] = (size_t)
+                     "Loading icons doesn\'t support shared icons yet. New icon will be created every time it\'s needed."
+      ;
+      psVar19[-0xb] = 5;
+      psVar19[-0xc] = 0x417bacf;
+      local_64 = sVar7;
+      FUN_0402cd10();
+      sVar7 = local_64;
+    }
+    psVar19[-10] = sVar7;
+    psVar19[-0xb] = local_48;
+    psVar19[-0xc] = 0x417b6ff;
+    iVar5 = LoadResource();
+    if (iVar5 == 0) {
+      return (int *)0x0;
+    }
+    psVar19[-0xd] = iVar5;
+    psVar19[-0xe] = 0x417b714;
+    uVar10 = eON_LockResource();
+    psVar19[-8] = uVar15;
+    psVar19[-0xb] = 0x30000;
+    psVar19[-10] = (size_t)local_38;
+    psVar19[-0xc] = 1;
+    psVar19[-9] = local_40;
+    psVar19[-0xd] = (size_t)local_34;
+    psVar19[-0xe] = uVar10;
+    psVar19[-0xf] = 0x417b748;
+    piVar16 = (int *)eON_CreateIconBitmaps();
+    ppvVar20 = (void **)(psVar19 + -0x15);
+LAB_0417b74d:
+    *ppvVar20 = (void *)iVar5;
+    ppvVar20[-1] = (void *)0x417b755;
+    eON_FreeResource();
+    return piVar16;
+  }
+  if (param_3 == 0) {
+    if ((uVar15 & 0x1021) != 0) {
+      local_8c = 
+      "Color conversion while loading bitmap resource not implemented yet. Add it if you need it.";
+      local_9c[3] = 5;
+      local_9c[2] = 0x417beea;
+      FUN_0402cd10();
+      return (int *)0x0;
+    }
+    if ((uVar15 & 0x2000) != 0) {
+      local_8c = 
+      "Creating DIB section while loading bitmap resource not implemented yet. Add it if you need it."
+      ;
+      local_9c[3] = 5;
+      local_9c[2] = 0x417bf05;
+      FUN_0402cd10();
+      return (int *)0x0;
+    }
+    if ((uVar15 & 0x10) == 0) {
+      if (param_1 == 0) {
+        local_8c = 
+        "Loading bitmap resource from NULL instance not implemented yet. Add it if you need it.";
+        local_9c[3] = 5;
+        local_9c[2] = 0x417c02b;
+        FUN_0402cd10();
+        return (int *)0x0;
+      }
+      local_88[0] = (void *)0x2;
+      local_8c = param_2;
+      piVar16 = (int *)0x0;
+      local_9c[3] = param_1;
+      local_9c[2] = 0x417b416;
+      local_9c[1] = FindResourceW();
+      if (local_9c[1] == 0) {
+        return (int *)0x0;
+      }
+      local_9c[0] = sVar7;
+      local_a0 = (void *)0x417b42d;
+      iVar5 = LoadResource();
+      if (iVar5 == 0) {
+        return (int *)0x0;
+      }
+      local_a8 = (void *)0x417b442;
+      local_a4 = iVar5;
+      puVar6 = (uint *)eON_LockResource();
+      ppvVar20 = &local_a8;
+      if (puVar6 == (uint *)0x0) goto LAB_0417b74d;
+      local_34 = (void *)0x0;
+      ppvVar20 = &local_a8;
+    }
+    else {
+      local_88[5] = (void *)0x0;
+      local_88[4] = (void *)0x0;
+      local_88[3] = (void *)0x0;
+      local_88[2] = (void *)0x0;
+      local_88[0] = param_2;
+      local_88[1] = (void *)0xffffffff;
+      local_8c = (void *)0x0;
+      local_9c[3] = 0;
+      local_9c[2] = 0x417b9a3;
+      sVar7 = eON_WideCharToMultiByte();
+      pvVar8 = malloc(sVar7);
+      local_9c[2] = 0;
+      local_9c[1] = 0;
+      local_a4 = -1;
+      local_a8 = local_34;
+      local_ac = 0;
+      local_a0 = pvVar8;
+      local_9c[0] = sVar7;
+      eON_WideCharToMultiByte();
+      iVar5 = eON_CreateFileA();
+      if (iVar5 == -1) {
+        FUN_0402cd10();
+        free(pvVar8);
+        return (int *)0x0;
+      }
+      local_2c = 0;
+      local_28 = 0;
+      FUN_041322c0();
+      local_34 = malloc(local_2c);
+      iVar5 = eON_ReadFile();
+      if (iVar5 < 1) {
+        puVar6 = (uint *)0x0;
+        FUN_0402cd10();
+        free(local_34);
+        local_34 = (void *)0x0;
+      }
+      else {
+        puVar6 = (uint *)((int)local_34 + 0xe);
+      }
+      eON_CloseHandle();
+      ppvVar20 = (void **)&stack0xfffffef4;
+      iVar5 = 0;
+      free(pvVar8);
+    }
+    if (*puVar6 == 0xc) {
+      uVar26 = *(ushort *)((int)puVar6 + 10);
+      local_68 = 0xc;
+      if (uVar26 < 9) {
+        local_68 = (1 << ((byte)uVar26 & 0x1f)) * 3 + 0xc;
+      }
+      local_3c = (uint)(ushort)puVar6[1];
+      uVar15 = (uint)*(ushort *)((int)puVar6 + 6);
+    }
+    else {
+      uVar15 = puVar6[8];
+      local_68 = 0x428;
+      if (uVar15 < 0x101) {
+        if (uVar15 == 0) {
+          local_68 = 0x28;
+          if (*(ushort *)((int)puVar6 + 0xe) < 9) {
+            local_68 = (4 << ((byte)*(ushort *)((int)puVar6 + 0xe) & 0x1f)) + 0x28;
+          }
+        }
+        else {
+          local_68 = uVar15 * 4 + 0x28;
+        }
+      }
+      if (*puVar6 < 0x28) {
+        if (iVar5 == 0) {
+          return (int *)0x0;
+        }
+        *ppvVar20 = (void *)iVar5;
+        ppvVar20[-1] = (void *)0x417bbb2;
+        eON_FreeResource();
+        return (int *)0x0;
+      }
+      local_3c = puVar6[1];
+      uVar15 = puVar6[2];
+      uVar26 = *(ushort *)((int)puVar6 + 0xe);
+    }
+    if (((local_38 != (void *)0x0) && (local_38 != (void *)local_3c)) ||
+       ((local_40 != 0 && (local_40 != uVar15)))) {
+      ppvVar20[1] = 
+      "Resizing of bitmap resource during load not implemented yet. Add it if you need it.";
+      piVar16 = (int *)0x0;
+      *ppvVar20 = (void *)0x5;
+      ppvVar20[-1] = (void *)0x417b4cf;
+      FUN_0402cd10();
+      if (iVar5 == 0) {
+        return (int *)0x0;
+      }
+      goto LAB_0417b74d;
+    }
+    ppvVar20[-1] = (void *)0x417bafb;
+    local_64 = uVar15;
+    local_38 = (void *)FUN_0411ca30();
+    if (*(short *)((int)puVar6 + 0xe) == 1) {
+      ppvVar20[-1] = (void *)0x417bf11;
+      iVar13 = FUN_0417a240();
+      if (iVar13 != 0) {
+        ppvVar20[1] = (void *)local_64;
+        ppvVar20[4] = (void *)0x0;
+        ppvVar20[3] = (void *)0x1;
+        ppvVar20[2] = (void *)0x1;
+        *ppvVar20 = (void *)local_3c;
+        ppvVar20[-1] = (void *)0x417bf46;
+        piVar16 = (int *)eON_CreateBitmap();
+        goto LAB_0417bb46;
+      }
+    }
+    ppvVar20[1] = (void *)local_64;
+    ppvVar20[3] = (void *)(uint)uVar26;
+    ppvVar20[4] = (void *)0x0;
+    *ppvVar20 = (void *)local_3c;
+    ppvVar20[2] = (void *)0x1;
+    ppvVar20[-1] = (void *)0x417bb3b;
+    piVar16 = (int *)eON_CreateBitmap();
+LAB_0417bb46:
+    ppvVar20[1] = (void *)0x0;
+    *ppvVar20 = puVar6;
+    ppvVar20[-1] = (void *)(local_68 + (int)puVar6);
+    ppvVar20[-2] = (void *)local_64;
+    ppvVar20[-3] = (void *)0x0;
+    ppvVar20[-4] = piVar16;
+    ppvVar20[-5] = local_38;
+    ppvVar20[-6] = (void *)0x417bb73;
+    eON_SetDIBits();
+    psVar22 = (size_t *)(ppvVar20 + -0xc);
+    if (iVar5 != 0) {
+      ppvVar20[-0xc] = (void *)iVar5;
+      ppvVar20[-0xd] = (void *)0x417bb82;
+      eON_FreeResource();
+      psVar22 = (size_t *)(ppvVar20 + -0xd);
+    }
+    if (local_34 != (void *)0x0) {
+      *psVar22 = (size_t)local_34;
+      psVar22[-1] = 0x417bb9b;
+      free((void *)*psVar22);
+    }
+    return piVar16;
+  }
+  if (param_3 != 2) {
+    local_8c = "Unknown image type requested in LoadImageW!!";
+    local_9c[3] = 5;
+    local_9c[2] = 0x417b4fd;
+    FUN_0402cd10();
+    return (int *)0x0;
+  }
+  if ((uVar15 & 0x40) != 0) {
+    psVar21 = local_9c + 3;
+    if (param_4 == 0) {
+      local_9c[3] = 0xd;
+      local_9c[2] = 0x417be7c;
+      local_38 = (void *)eON_GetSystemMetrics();
+      psVar21 = local_9c + 2;
+    }
+    if (local_40 == 0) {
+      *psVar21 = 0xe;
+      psVar21[-1] = 0x417b796;
+      local_40 = eON_GetSystemMetrics();
+      psVar21 = psVar21 + -1;
+    }
+  }
+  if ((uVar15 & 0x10) != 0) {
+    psVar21[7] = 0;
+    psVar21[6] = 0;
+    psVar21[5] = 0;
+    psVar21[4] = 0;
+    psVar21[2] = (size_t)local_34;
+    psVar21[3] = 0xffffffff;
+    psVar21[1] = 0;
+    *psVar21 = 0;
+    psVar21[-1] = 0x417b8ab;
+    uVar10 = eON_WideCharToMultiByte();
+    psVar21[-8] = uVar10;
+    psVar21[-9] = 0x417b8b8;
+    pvVar8 = malloc(psVar21[-8]);
+    psVar21[-3] = uVar10;
+    psVar21[-1] = 0;
+    psVar21[-2] = 0;
+    psVar21[-4] = (size_t)pvVar8;
+    psVar21[-6] = (size_t)local_34;
+    psVar21[-5] = 0xffffffff;
+    psVar21[-7] = 0;
+    psVar21[-8] = 0;
+    psVar21[-9] = 0x417b8f5;
+    eON_WideCharToMultiByte();
+    psVar21[-0x11] = 0x417b8fd;
+    piVar16 = (int *)FUN_04016a30();
+    psVar21[-0xf] = (size_t)pvVar8;
+    psVar21[-0x10] = (size_t)piVar16;
+    psVar21[-0xd] = local_40;
+    psVar21[-0xe] = (size_t)local_38;
+    psVar21[-0x11] = 0x417b919;
+    iVar5 = eON_CursorLinux__LoadCursorImageFromFile();
+    psVar21[-0x10] = (size_t)pvVar8;
+    psVar21[-0x11] = 0x417b923;
+    free((void *)psVar21[-0x10]);
+    if (iVar5 != 1) {
+      iVar5 = *piVar16;
+      psVar21[-0x10] = (size_t)piVar16;
+      pcVar4 = *(code **)(iVar5 + 8);
+      psVar21[-0x11] = 0x417b936;
+      (*pcVar4)();
+      return (int *)0x0;
+    }
+    return piVar16;
+  }
+  local_44 = 0;
+  local_3c = (uint)local_34 & 0xffff0000;
+  if ((int)DAT_0451c0d0 - (int)DAT_0451c0cc >> 2 != 0) {
+    uVar18 = 0;
+    puVar12 = DAT_0451c0d0;
+    uVar17 = (uint)DAT_0451c0cc;
+    local_50 = uVar15;
+    do {
+      pcVar3 = *(char **)(uVar17 + uVar18 * 4);
+      if ((((*pcVar3 == '\0') && (local_38 == (void *)*(uint *)(pcVar3 + 0xc))) &&
+          (local_40 == *(uint *)(pcVar3 + 0x10))) && (local_48 == *(size_t *)(pcVar3 + 8))) {
+        pvVar8 = *(void **)(pcVar3 + 4);
+        bVar27 = ((uint)pvVar8 & 0xffff0000) != 0;
+        local_44 = CONCAT31(local_44._1_3_,bVar27);
+        if (bVar27 == (local_3c != 0)) {
+          bVar28 = local_34 == pvVar8;
+          if (bVar27) {
+            *psVar21 = (size_t)pvVar8;
+            psVar21[1] = (size_t)local_34;
+            psVar21[-1] = 0x417c002;
+            iVar5 = FUN_0415a2a0();
+            psVar21 = psVar21 + -2;
+            bVar28 = iVar5 == 0;
+            uVar17 = (uint)DAT_0451c0cc;
+          }
+          puVar12 = DAT_0451c0d0;
+          if (bVar28) {
+            piVar16 = *(int **)(*(int *)(uVar17 + uVar18 * 4) + 0x14);
+            uVar15 = local_50;
+            if (piVar16 != (int *)0x0) {
+              return piVar16;
+            }
+            break;
+          }
+        }
+      }
+      uVar18 = uVar18 + 1;
+      uVar15 = local_50;
+    } while (uVar18 < (uint)((int)((int)puVar12 - uVar17) >> 2));
+  }
+  if (local_48 == 0) {
+    psVar21[1] = (size_t)"Loading cursors doesn\'t support loading default system icons yet";
+    *psVar21 = 5;
+    psVar21[-1] = 0x417be45;
+    FUN_0402cd10();
+  }
+  pvVar8 = local_34;
+  psVar21[3] = 0;
+  sVar7 = local_48;
+  psVar21[1] = 0xc;
+  psVar21[2] = (size_t)pvVar8;
+  *psVar21 = sVar7;
+  psVar21[-1] = 0x417bbf0;
+  sVar9 = FindResourceExW();
+  sVar7 = local_48;
+  if (sVar9 == 0) {
+    return (int *)0x0;
+  }
+  psVar21[-3] = sVar9;
+  psVar21[-4] = sVar7;
+  psVar21[-5] = 0x417bc0a;
+  local_58 = LoadResource();
+  if (local_58 == 0) {
+    return (int *)0x0;
+  }
+  psVar21[-6] = local_58;
+  psVar21[-7] = 0x417bc20;
+  local_3c = eON_LockResource();
+  if (local_3c == 0) {
+    psVar21[-7] = local_58;
+    psVar21[-8] = 0x417c11a;
+    eON_FreeResource();
+    psVar21[-8] = sVar7;
+    return (int *)0x0;
+  }
+  local_4c = local_40 * 2;
+  local_44 = (uint)*(ushort *)(local_3c + 4);
+  if (local_44 == 0) {
+    return (int *)0x0;
+  }
+  local_50 = -1;
+  iVar5 = 1;
+  local_5c = 0;
+  local_54 = 0;
+  do {
+    iVar13 = (iVar5 + -1) * 0xe + local_3c;
+    uVar14 = (uint)*(ushort *)(iVar13 + 6);
+    uVar18 = local_5c;
+    uVar17 = local_54;
+    sVar7 = local_50;
+    if ((((int)uVar14 <= (int)local_38) &&
+        (uVar24 = (uint)*(ushort *)(iVar13 + 8), (int)uVar24 <= (int)local_4c)) &&
+       ((local_54 < uVar14 &&
+        ((local_5c < uVar24 &&
+         (uVar18 = uVar24, uVar17 = uVar14, sVar7 = iVar5 + -1, *(short *)(iVar13 + 0xc) != 1))))))
+    {
+      uVar18 = local_5c;
+      uVar17 = local_54;
+      sVar7 = local_50;
+    }
+    local_50 = sVar7;
+    local_54 = uVar17;
+    local_5c = uVar18;
+    iVar5 = iVar5 + 1;
+  } while (iVar5 != local_44 + 1);
+  if (local_50 == -1) {
+    local_4c = 0xff;
+    iVar5 = 0;
+    sVar7 = local_50;
+    uVar26 = 0xff;
+    do {
+      iVar13 = iVar5 * 0xe + local_3c;
+      uVar2 = *(ushort *)(iVar13 + 6);
+      if ((((uVar26 <= uVar2) || (local_4c <= *(ushort *)(iVar13 + 8))) ||
+          (local_50 = iVar5, uVar18 = (uint)*(ushort *)(iVar13 + 8), uVar25 = uVar2,
+          *(short *)(iVar13 + 0xc) != 1)) &&
+         (local_50 = sVar7, uVar18 = local_4c, uVar25 = uVar26, sVar7 == -1)) {
+        local_50 = iVar5;
+        uVar18 = (uint)*(ushort *)(iVar13 + 8);
+        uVar25 = uVar2;
+      }
+      local_4c = uVar18;
+      iVar5 = iVar5 + 1;
+      sVar7 = local_50;
+      local_54 = uVar15;
+      uVar26 = uVar25;
+    } while (iVar5 < (int)local_44);
+  }
+  if ((int)local_50 < 0) {
+    return (int *)0x0;
+  }
+  iVar5 = local_3c + 6 + local_50 * 0xe;
+  uVar26 = *(ushort *)(iVar5 + 0xc);
+  local_3c = *(undefined4 *)(iVar5 + 8);
+  local_60 = uVar15;
+  psVar21[-7] = local_58;
+  psVar21[-8] = 0x417bcf7;
+  eON_FreeResource();
+  sVar7 = local_48;
+  psVar21[-6] = 1;
+  psVar21[-7] = (uint)uVar26;
+  psVar21[-8] = sVar7;
+  psVar21[-9] = 0x417bd11;
+  sVar9 = FindResourceW();
+  sVar7 = local_48;
+  if (sVar9 == 0) {
+    return (int *)0x0;
+  }
+  psVar21[-10] = sVar9;
+  psVar21[-0xb] = sVar7;
+  psVar21[-0xc] = 0x417bd2b;
+  iVar5 = LoadResource();
+  if (iVar5 == 0) {
+    return (int *)0x0;
+  }
+  psVar21[-0xd] = iVar5;
+  psVar21[-0xe] = 0x417bd40;
+  uVar10 = eON_LockResource();
+  pvVar8 = local_38;
+  uVar18 = local_3c;
+  psVar21[-8] = uVar15;
+  uVar15 = local_40;
+  psVar21[-0xb] = 0x30000;
+  psVar21[-10] = (size_t)pvVar8;
+  psVar21[-0xd] = uVar18;
+  psVar21[-9] = uVar15;
+  psVar21[-0xc] = 0;
+  psVar21[-0xe] = uVar10;
+  psVar21[-0xf] = 0x417bd74;
+  piVar16 = (int *)eON_CreateIconBitmaps();
+  psVar21[-0x15] = iVar5;
+  psVar21[-0x16] = 0x417bd81;
+  eON_FreeResource();
+  puVar23 = psVar21 + -0x16;
+  psVar21[-0x16] = 0x18;
+  psVar21[-0x17] = 0x417bd90;
+  puVar11 = operator_new(psVar21[-0x16]);
+  *puVar11 = 0;
+  *(int **)(puVar11 + 0x14) = piVar16;
+  *(size_t *)(puVar11 + 8) = local_48;
+  *(void **)(puVar11 + 0xc) = local_38;
+  *(uint *)(puVar11 + 0x10) = local_40;
+  if (((uint)local_34 & 0xffff0000) == 0) {
+    *(void **)(puVar11 + 4) = local_34;
+  }
+  else {
+    psVar21[-0x16] = (size_t)local_34;
+                    /* try { // try from 0417bea6 to 0417becb has its CatchHandler @ 0417c122 */
+    psVar21[-0x17] = 0x417beab;
+    iVar5 = FUN_0415a040();
+    psVar21[-0x17] = iVar5 * 2 + 2;
+    psVar21[-0x18] = 0x417beba;
+    pvVar8 = malloc(psVar21[-0x17]);
+    *(void **)(puVar11 + 4) = pvVar8;
+    psVar21[-0x17] = (size_t)pvVar8;
+    psVar21[-0x16] = (size_t)local_34;
+    psVar21[-0x18] = 0x417becc;
+    FUN_0415a150();
+    puVar23 = psVar21 + -0x19;
+  }
+  puVar12 = DAT_0451c0d0;
+  if (DAT_0451c0d0 != DAT_0451c0d4) {
+    puVar12 = (undefined4 *)0x0;
+    if (DAT_0451c0d0 != (undefined4 *)0x0) {
+      *DAT_0451c0d0 = puVar11;
+      puVar12 = DAT_0451c0d0;
+    }
+    DAT_0451c0d0 = puVar12 + 1;
+    return piVar16;
+  }
+  uVar15 = 1;
+  local_64 = (int)DAT_0451c0d0 - (int)DAT_0451c0cc >> 2;
+  if (local_64 != 0) {
+    uVar15 = local_64 * 2;
+    local_40 = 0x3fffffff;
+    if ((uVar15 < local_64) || (0x3fffffff < uVar15)) goto LAB_0417c058;
+  }
+  local_40 = uVar15;
+LAB_0417c058:
+  local_40 = local_40 << 2;
+  *puVar23 = local_40;
+  puVar23[-1] = 0x417c069;
+  local_38 = operator_new(*puVar23);
+  puVar1 = (undefined4 *)((int)local_38 + local_64 * 4);
+  if (puVar1 != (undefined4 *)0x0) {
+    *puVar1 = puVar11;
+  }
+  iVar5 = (int)puVar12 - (int)DAT_0451c0cc >> 2;
+  if (iVar5 != 0) {
+    puVar23[1] = (uint)DAT_0451c0cc;
+    puVar23[2] = iVar5 * 4;
+    *puVar23 = (uint)local_38;
+    puVar23[-1] = 0x417c170;
+    memmove((void *)*puVar23,(void *)puVar23[1],puVar23[2]);
+  }
+  uVar15 = (int)local_38 + iVar5 * 4 + 4;
+  iVar5 = (int)DAT_0451c0d0 - (int)puVar12 >> 2;
+  if (iVar5 != 0) {
+    *puVar23 = uVar15;
+    local_64 = uVar15;
+    puVar23[2] = iVar5 * 4;
+    puVar23[1] = (uint)puVar12;
+    puVar23[-1] = 0x417c14e;
+    memmove((void *)*puVar23,(void *)puVar23[1],puVar23[2]);
+    uVar15 = local_64;
+  }
+  if (DAT_0451c0cc != (void *)0x0) {
+    *puVar23 = (uint)DAT_0451c0cc;
+    puVar23[-1] = 0x417c0ba;
+    operator_delete((void *)*puVar23);
+  }
+  DAT_0451c0cc = local_38;
+  DAT_0451c0d0 = (undefined4 *)(uVar15 + iVar5 * 4);
+  DAT_0451c0d4 = (undefined4 *)((int)local_38 + local_40);
+  return piVar16;
+}
+

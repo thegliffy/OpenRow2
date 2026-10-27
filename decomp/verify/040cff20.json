@@ -1,0 +1,212 @@
+
+/* source: openGlDebugFunctions */
+
+void __regparm3 OpenGL_LogState_Buffer(undefined4 *param_1,undefined4 param_2,undefined4 param_3)
+
+{
+  uint uVar1;
+  int iVar2;
+  char *pcVar3;
+  size_t sVar4;
+  bool bVar5;
+  char local_d2 [4];
+  undefined4 auStack_ce [3];
+  undefined4 auStack_c2 [2];
+  undefined4 uStack_ba;
+  undefined1 auStack_b6 [122];
+  undefined4 local_3c;
+  undefined4 local_38;
+  undefined4 local_34;
+  undefined4 local_30;
+  undefined4 local_2c;
+  undefined4 local_28;
+  uint local_24;
+  undefined4 local_20 [4];
+  
+  (**(code **)*param_1)(param_1,"Buffer ID: %d\n",param_3);
+  local_3c = 0;
+  local_38 = 0;
+  (*DAT_0451ea70)(param_2,0x8764,&local_3c);
+  iVar2 = glGetError();
+  if (iVar2 != 0) {
+    FUN_0400a810("glGetError() == 0",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                 ,0xd29,"void OpenGL_LogState_Buffer(OpenGlDebugWriter*, GLenum, GLint)");
+  }
+  (**(code **)*param_1)(param_1,"\tGL_BUFFER_SIZE: %lld\n",local_3c,local_38);
+  (*DAT_0451ed14)(param_2,0x8765,&local_24);
+  iVar2 = glGetError();
+  if (iVar2 != 0) {
+    FUN_0400a810("glGetError() == 0",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                 ,0xd2c,"void OpenGL_LogState_Buffer(OpenGlDebugWriter*, GLenum, GLint)");
+  }
+  pcVar3 = "!!!unknown!!!";
+  if (local_24 - 0x88e0 < 0xb) {
+    pcVar3 = (&PTR_s_GL_STREAM_DRAW_043089c0)[local_24 - 0x88e0];
+  }
+  (**(code **)*param_1)(param_1,"\tGL_BUFFER_USAGE: %s\n",pcVar3);
+  (*DAT_0451ed14)(param_2,0x88bb,&local_24);
+  iVar2 = glGetError();
+  if (iVar2 != 0) {
+    FUN_0400a810("glGetError() == 0",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                 ,0xd2f,"void OpenGL_LogState_Buffer(OpenGlDebugWriter*, GLenum, GLint)");
+  }
+  pcVar3 = "!!!unknown!!!";
+  if (local_24 - 35000 < 3) {
+    pcVar3 = (&PTR_s_GL_READ_ONLY_043089ec)[local_24 - 35000];
+  }
+  (**(code **)*param_1)(param_1,"\tGL_BUFFER_ACCESS: %s\n",pcVar3);
+  (*DAT_0451ed14)(param_2,0x911f,&local_24);
+  iVar2 = glGetError();
+  if (iVar2 != 0) {
+    FUN_0400a810("glGetError() == 0",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                 ,0xd32,"void OpenGL_LogState_Buffer(OpenGlDebugWriter*, GLenum, GLint)");
+  }
+  uVar1 = local_24;
+  local_d2[0] = '\0';
+  bVar5 = (local_24 & 1) != 0;
+  if (bVar5) {
+    sVar4 = strlen(local_d2);
+    builtin_strncpy(local_d2 + sVar4,"GL_M",4);
+    *(undefined4 *)((int)auStack_ce + sVar4) = 0x525f5041;
+    *(undefined4 *)((int)auStack_ce + sVar4 + 4) = 0x5f444145;
+    *(undefined **)((int)auStack_ce + sVar4 + 8) = &DAT_00544942;
+  }
+  bVar5 = !bVar5;
+  if ((uVar1 & 2) != 0) {
+    if (!bVar5) {
+      sVar4 = strlen(local_d2);
+      pcVar3 = local_d2 + sVar4;
+      pcVar3[0] = '|';
+      pcVar3[1] = '\0';
+    }
+    sVar4 = strlen(local_d2);
+    builtin_strncpy(local_d2 + sVar4,"GL_M",4);
+    *(undefined4 *)((int)auStack_ce + sVar4) = 0x575f5041;
+    *(undefined4 *)((int)auStack_ce + sVar4 + 4) = 0x45544952;
+    *(undefined4 *)((int)auStack_ce + sVar4 + 8) = 0x5449425f;
+    *(undefined1 *)((int)auStack_c2 + sVar4) = 0;
+    bVar5 = false;
+  }
+  if ((uVar1 & 4) != 0) {
+    if (!bVar5) {
+      sVar4 = strlen(local_d2);
+      pcVar3 = local_d2 + sVar4;
+      pcVar3[0] = '|';
+      pcVar3[1] = '\0';
+    }
+    sVar4 = strlen(local_d2);
+    builtin_strncpy(local_d2 + sVar4,"GL_M",4);
+    *(undefined4 *)((int)auStack_ce + sVar4) = 0x495f5041;
+    *(undefined4 *)((int)auStack_ce + sVar4 + 4) = 0x4c41564e;
+    *(undefined4 *)((int)auStack_ce + sVar4 + 8) = 0x54414449;
+    *(undefined4 *)((int)auStack_c2 + sVar4) = 0x41525f45;
+    *(undefined4 *)((int)auStack_c2 + sVar4 + 4) = 0x5f45474e;
+    *(undefined **)((int)&uStack_ba + sVar4) = &DAT_00544942;
+    bVar5 = false;
+  }
+  if ((uVar1 & 8) != 0) {
+    if (!bVar5) {
+      sVar4 = strlen(local_d2);
+      pcVar3 = local_d2 + sVar4;
+      pcVar3[0] = '|';
+      pcVar3[1] = '\0';
+    }
+    sVar4 = strlen(local_d2);
+    builtin_strncpy(local_d2 + sVar4,"GL_M",4);
+    *(undefined4 *)((int)auStack_ce + sVar4) = 0x495f5041;
+    *(undefined4 *)((int)auStack_ce + sVar4 + 4) = 0x4c41564e;
+    *(undefined4 *)((int)auStack_ce + sVar4 + 8) = 0x54414449;
+    *(undefined4 *)((int)auStack_c2 + sVar4) = 0x55425f45;
+    *(undefined4 *)((int)auStack_c2 + sVar4 + 4) = 0x52454646;
+    *(undefined4 *)((int)&uStack_ba + sVar4) = 0x5449425f;
+    auStack_b6[sVar4] = 0;
+    bVar5 = false;
+  }
+  if ((uVar1 & 0x10) != 0) {
+    if (!bVar5) {
+      sVar4 = strlen(local_d2);
+      pcVar3 = local_d2 + sVar4;
+      pcVar3[0] = '|';
+      pcVar3[1] = '\0';
+    }
+    sVar4 = strlen(local_d2);
+    builtin_strncpy(local_d2 + sVar4,"GL_M",4);
+    *(undefined4 *)((int)auStack_ce + sVar4) = 0x465f5041;
+    *(undefined4 *)((int)auStack_ce + sVar4 + 4) = 0x4853554c;
+    *(undefined4 *)((int)auStack_ce + sVar4 + 8) = 0x5058455f;
+    *(undefined4 *)((int)auStack_c2 + sVar4) = 0x4943494c;
+    *(undefined4 *)((int)auStack_c2 + sVar4 + 4) = 0x49425f54;
+    *(undefined2 *)((int)&uStack_ba + sVar4) = 0x54;
+    bVar5 = false;
+  }
+  if ((uVar1 & 0x20) == 0) {
+    if (bVar5) {
+      sVar4 = strlen(local_d2);
+      pcVar3 = local_d2 + sVar4;
+      pcVar3[0] = '0';
+      pcVar3[1] = '\0';
+    }
+  }
+  else {
+    if (!bVar5) {
+      sVar4 = strlen(local_d2);
+      pcVar3 = local_d2 + sVar4;
+      pcVar3[0] = '|';
+      pcVar3[1] = '\0';
+    }
+    sVar4 = strlen(local_d2);
+    builtin_strncpy(local_d2 + sVar4,"GL_M",4);
+    *(undefined4 *)((int)auStack_ce + sVar4) = 0x555f5041;
+    *(undefined4 *)((int)auStack_ce + sVar4 + 4) = 0x4e59534e;
+    *(undefined4 *)((int)auStack_ce + sVar4 + 8) = 0x4f524843;
+    *(undefined4 *)((int)auStack_c2 + sVar4) = 0x455a494e;
+    *(undefined4 *)((int)auStack_c2 + sVar4 + 4) = 0x49425f44;
+    *(undefined2 *)((int)&uStack_ba + sVar4) = 0x54;
+  }
+  (**(code **)*param_1)(param_1,"\tGL_BUFFER_ACCESS_FLAGS: %s\n",local_d2);
+  (*DAT_0451ed14)(param_2,0x88bc,&local_24);
+  iVar2 = glGetError();
+  if (iVar2 != 0) {
+    FUN_0400a810("glGetError() == 0",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                 ,0xd37,"void OpenGL_LogState_Buffer(OpenGlDebugWriter*, GLenum, GLint)");
+  }
+  if (local_24 != 0) {
+    (*DAT_0451ed10)(param_2,0x88bd,local_20);
+    iVar2 = glGetError();
+    if (iVar2 != 0) {
+      FUN_0400a810("glGetError() == 0",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                   ,0xd3c,"void OpenGL_LogState_Buffer(OpenGlDebugWriter*, GLenum, GLint)");
+    }
+    local_34 = 0;
+    local_30 = 0;
+    (*DAT_0451ea70)(param_2,0x9121,&local_34);
+    iVar2 = glGetError();
+    if (iVar2 != 0) {
+      FUN_0400a810("glGetError() == 0",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                   ,0xd3f,"void OpenGL_LogState_Buffer(OpenGlDebugWriter*, GLenum, GLint)");
+    }
+    local_2c = 0;
+    local_28 = 0;
+    (*DAT_0451ea70)(param_2,0x9120,&local_2c);
+    iVar2 = glGetError();
+    if (iVar2 != 0) {
+      FUN_0400a810("glGetError() == 0",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                   ,0xd42,"void OpenGL_LogState_Buffer(OpenGlDebugWriter*, GLenum, GLint)");
+    }
+    (**(code **)*param_1)
+              (param_1,"\tBuffer range at offset %lld, length %lld is mapped at %p\n",local_34,
+               local_30,local_2c,local_28,local_20[0]);
+    return;
+  }
+  (**(code **)*param_1)(param_1,"\tBuffer is not mapped\n");
+  return;
+}
+

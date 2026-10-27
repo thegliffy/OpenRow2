@@ -1,0 +1,61 @@
+
+undefined4
+eON_RegQueryValueExW
+          (int param_1,undefined *param_2,int param_3,undefined4 *param_4,int param_5,uint *param_6)
+
+{
+  uint uVar1;
+  char cVar2;
+  int iVar3;
+  uint uVar4;
+  undefined4 uVar5;
+  
+  if (param_2 == (undefined *)0x0) {
+    param_2 = &DAT_04345db0;
+  }
+  cVar2 = Registry_IsLoaded();
+  if (cVar2 == '\0') {
+    Registry_Load();
+    InitFakeWindowsRegistryKeys();
+    FlushRegistrySave();
+  }
+  uVar5 = 6;
+  if ((param_1 != 0) && (iVar3 = Registry_OpenPredefinedKey(param_1), iVar3 != 0)) {
+    if (param_3 != 0) {
+      FUN_0402cd10(5,"Warning! Non-zero lpReserved given to RegQueryValueExW. Some problem?");
+    }
+    uVar5 = 2;
+    iVar3 = RegistryXml_FindAttributeByName(iVar3,param_2);
+    if (iVar3 != 0) {
+      uVar5 = RegistryXml_ParseHexByte(iVar3);
+      if (param_4 != (undefined4 *)0x0) {
+        *param_4 = uVar5;
+      }
+      uVar4 = RegistryXml_WideValueCharCount(iVar3);
+      if (param_5 == 0) {
+        uVar5 = 0;
+        if (param_6 != (uint *)0x0) {
+          *param_6 = uVar4;
+        }
+      }
+      else {
+        if (param_6 == (uint *)0x0) {
+          FUN_0402cd10(0xf,
+                       "Error! RegQueryValueExW() given lpData, but not lpcbData! See what PC does in this case and do the same."
+                      );
+        }
+        else {
+          uVar1 = *param_6;
+          *param_6 = uVar4;
+          if (uVar1 < uVar4) {
+            return 0xea;
+          }
+        }
+        uVar5 = 0;
+        RegistryXml_DecodeHexToBuffer(iVar3,param_5);
+      }
+    }
+  }
+  return uVar5;
+}
+

@@ -1,0 +1,46 @@
+
+int png_set_longjmp_fn(int param_1,undefined4 param_2,uint param_3)
+
+{
+  int iVar1;
+  uint uVar2;
+  
+  if (param_1 == 0) {
+    iVar1 = 0;
+  }
+  else {
+    iVar1 = *(int *)(param_1 + 0xa0);
+    if (iVar1 == 0) {
+      *(undefined4 *)(param_1 + 0xa4) = 0;
+      if (param_3 < 0x9d) {
+        *(int *)(param_1 + 0xa0) = param_1;
+        iVar1 = param_1;
+      }
+      else {
+        iVar1 = FUN_042aa3a0(param_1,param_3);
+        *(int *)(param_1 + 0xa0) = iVar1;
+        if (iVar1 == 0) {
+          return 0;
+        }
+        *(uint *)(param_1 + 0xa4) = param_3;
+      }
+    }
+    else {
+      uVar2 = *(uint *)(param_1 + 0xa4);
+      if (uVar2 == 0) {
+        if (iVar1 != param_1) {
+                    /* WARNING: Subroutine does not return */
+          png_error(param_1,"Libpng jmp_buf still allocated");
+        }
+        uVar2 = 0x9c;
+      }
+      if (uVar2 != param_3) {
+        png_warning(param_1,"Application jmp_buf size changed");
+        return 0;
+      }
+    }
+    *(undefined4 *)(param_1 + 0x9c) = param_2;
+  }
+  return iVar1;
+}
+

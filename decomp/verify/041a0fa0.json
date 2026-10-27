@@ -1,0 +1,48 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+bool _glewInit_GL_NV_vertex_buffer_unified_memory(void)
+
+{
+  int iVar1;
+  bool bVar2;
+  bool bVar3;
+  bool bVar4;
+  bool bVar5;
+  bool bVar6;
+  bool bVar7;
+  bool bVar8;
+  bool bVar9;
+  bool bVar10;
+  bool bVar11;
+  
+  iVar1 = glXGetProcAddressARB("glBufferAddressRangeNV");
+  _DAT_0451ced0 = iVar1;
+  _DAT_0451cecc = glXGetProcAddressARB("glColorFormatNV");
+  bVar2 = _DAT_0451cecc == 0;
+  _DAT_0451cec8 = glXGetProcAddressARB("glEdgeFlagFormatNV");
+  bVar3 = _DAT_0451cec8 == 0;
+  _DAT_0451cec4 = glXGetProcAddressARB("glFogCoordFormatNV");
+  bVar4 = _DAT_0451cec4 == 0;
+  _DAT_0451cec0 = glXGetProcAddressARB("glGetIntegerui64i_vNV");
+  bVar5 = _DAT_0451cec0 == 0;
+  _DAT_0451cebc = glXGetProcAddressARB("glIndexFormatNV");
+  bVar6 = _DAT_0451cebc == 0;
+  _DAT_0451ceb8 = glXGetProcAddressARB("glNormalFormatNV");
+  bVar7 = _DAT_0451ceb8 == 0;
+  _DAT_0451ceb4 = glXGetProcAddressARB("glSecondaryColorFormatNV");
+  bVar8 = _DAT_0451ceb4 == 0;
+  _DAT_0451ceb0 = glXGetProcAddressARB("glTexCoordFormatNV");
+  bVar9 = _DAT_0451ceb0 == 0;
+  _DAT_0451ceac = glXGetProcAddressARB("glVertexAttribFormatNV");
+  bVar10 = _DAT_0451ceac == 0;
+  _DAT_0451cea8 = glXGetProcAddressARB("glVertexAttribIFormatNV");
+  bVar11 = _DAT_0451cea8 == 0;
+  _DAT_0451cea4 = glXGetProcAddressARB("glVertexFormatNV");
+  return _DAT_0451cea4 == 0 ||
+         (bVar11 ||
+         (bVar10 ||
+         (bVar9 || (bVar8 || (bVar7 || (bVar6 || (bVar5 || (bVar4 || (bVar3 || (bVar2 || iVar1 == 0)
+                                                                     )))))))));
+}
+

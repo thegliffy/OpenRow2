@@ -1,0 +1,87 @@
+
+/* source: gdi32 */
+
+undefined4 eON_GetDeviceCaps(undefined4 param_1,char *param_2)
+
+{
+  char *pcVar1;
+  char cVar2;
+  char *pcVar3;
+  undefined4 uVar4;
+  char *pcVar5;
+  undefined1 local_28 [20];
+  undefined4 local_14;
+  
+  pcVar1 = param_2 + -4;
+  switch(pcVar1) {
+  case (char *)0x0:
+    pcVar3 = "HORZSIZE";
+    break;
+  default:
+    pcVar3 = "?";
+    break;
+  case (char *)0x2:
+    pcVar3 = "VERTSIZE";
+    break;
+  case (char *)0x4:
+    pcVar3 = "HORZRES";
+    break;
+  case (char *)0x6:
+    pcVar3 = "VERTRES";
+    break;
+  case (char *)0x8:
+    pcVar3 = "BITSPIXEL";
+    break;
+  case (char *)0xa:
+    pcVar3 = "PLANES";
+    break;
+  case (char *)0x14:
+    pcVar3 = "NUMCOLORS";
+    break;
+  case (char *)0x22:
+    pcVar3 = "RASTERCAPS";
+    break;
+  case (char *)0x54:
+    pcVar3 = "LOGPIXELSX";
+    break;
+  case (char *)0x56:
+    pcVar3 = "LOGPIXELSY";
+    break;
+  case (char *)0x64:
+    pcVar3 = "SIZEPALETTE";
+    break;
+  case (char *)0x70:
+    pcVar3 = "VREFRESH";
+  }
+  pcVar5 = param_2;
+  FUN_0402cd10(0x14,"GetDeviceCaps( hdc = %p, nIndex = %d (%s) )",param_1,param_2,pcVar3);
+  uVar4 = OpenGLDisplay_GetPrimary();
+  cVar2 = OpenGLDisplay_RefreshCurrentMode(uVar4,local_28);
+  if (cVar2 != '\0') {
+    switch(local_14) {
+    default:
+      pcVar5 = "INT eON_GetDeviceCaps(HDC, INT)";
+      FUN_0400a810("false",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/gdi32/gdi32.cpp",
+                   0xd7a,"INT eON_GetDeviceCaps(HDC, INT)");
+      break;
+    case 1:
+    case 4:
+    case 5:
+      break;
+    case 2:
+      break;
+    case 3:
+    }
+  }
+  if (pcVar1 < (char *)0x71) {
+                    /* WARNING: Could not recover jumptable at 0x0411fd08. Too many branches */
+                    /* WARNING: Treating indirect jump as call */
+    uVar4 = (**(code **)(&DAT_04318200 + (int)pcVar1 * 4))();
+    return uVar4;
+  }
+  FUN_0402cd10(10,"Asked for %d (2)",param_2,pcVar5,pcVar3);
+  FUN_0402cd10(0x14,"GetDeviceCaps() returning %d",0);
+  return 0;
+}
+

@@ -1,0 +1,40 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+bool LoadGL_KHR_debug(void)
+
+{
+  int iVar1;
+  bool bVar2;
+  bool bVar3;
+  bool bVar4;
+  bool bVar5;
+  bool bVar6;
+  bool bVar7;
+  bool bVar8;
+  bool bVar9;
+  
+  iVar1 = glXGetProcAddressARB("glDebugMessageCallback");
+  _DAT_0451d438 = iVar1;
+  _DAT_0451d434 = glXGetProcAddressARB("glDebugMessageControl");
+  bVar2 = _DAT_0451d434 == 0;
+  _DAT_0451d430 = glXGetProcAddressARB("glDebugMessageInsert");
+  bVar3 = _DAT_0451d430 == 0;
+  _DAT_0451d42c = glXGetProcAddressARB("glGetDebugMessageLog");
+  bVar4 = _DAT_0451d42c == 0;
+  _DAT_0451d428 = glXGetProcAddressARB("glGetObjectLabel");
+  bVar5 = _DAT_0451d428 == 0;
+  _DAT_0451d424 = glXGetProcAddressARB("glGetObjectPtrLabel");
+  bVar6 = _DAT_0451d424 == 0;
+  _DAT_0451d420 = glXGetProcAddressARB("glObjectLabel");
+  bVar7 = _DAT_0451d420 == 0;
+  _DAT_0451d41c = glXGetProcAddressARB("glObjectPtrLabel");
+  bVar8 = _DAT_0451d41c == 0;
+  _DAT_0451d418 = glXGetProcAddressARB("glPopDebugGroup");
+  bVar9 = _DAT_0451d418 == 0;
+  _DAT_0451d414 = glXGetProcAddressARB("glPushDebugGroup");
+  return _DAT_0451d414 == 0 ||
+         (bVar9 || (bVar8 || (bVar7 || (bVar6 || (bVar5 || (bVar4 || (bVar3 || (bVar2 || iVar1 == 0)
+                                                                     )))))));
+}
+

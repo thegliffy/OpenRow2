@@ -1,0 +1,128 @@
+
+int eON_getsockopt(int param_1,int param_2,int param_3,undefined4 *param_4,socklen_t *param_5)
+
+{
+  int __fd;
+  int iVar1;
+  int iVar2;
+  undefined4 *__optval;
+  socklen_t *__optlen;
+  int iVar3;
+  int *piVar4;
+  undefined4 *puVar5;
+  undefined4 uStackY_64;
+  int local_28 [4];
+  undefined4 *local_18;
+  
+  __optlen = param_5;
+  __optval = param_4;
+  iVar2 = param_3;
+  iVar1 = param_2;
+  __fd = param_1;
+  local_18 = &param_1;
+  puVar5 = (undefined4 *)&stack0xffffffa0;
+  if (param_3 == 0x2003) {
+    if (param_2 != 0xffff) {
+      uStackY_64 = 0x419520c;
+      eON_SetLastError();
+      puVar5 = &uStackY_64;
+      goto LAB_041950ff;
+    }
+    if (((param_5 != (socklen_t *)0x0) && (param_4 != (undefined4 *)0x0)) && (3 < (int)*param_5)) {
+      *param_4 = 0xffe3;
+      *param_5 = 4;
+      return 0;
+    }
+  }
+  else {
+    if (param_3 != 0x2004) {
+      uStackY_64 = 0x4194f4c;
+      iVar3 = eON_MapSocketOptname_WinToPosix();
+      uStackY_64 = 0x4194f73;
+      iVar3 = getsockopt(__fd,(uint)(iVar1 == 0xffff),iVar3,__optval,__optlen);
+      if (iVar3 != -1) {
+        return iVar3;
+      }
+      goto LAB_041950ff;
+    }
+    if (*param_5 == 0x174) {
+      local_28[0] = 0;
+      local_28[1] = 4;
+      uStackY_64 = 0x4194ff6;
+      iVar3 = eON_MapSocketOptname_WinToPosix();
+      uStackY_64 = 0x419501b;
+      getsockopt(__fd,1,iVar3,local_28,(socklen_t *)(local_28 + 1));
+      if (local_28[0] == 2) {
+        *__optval = &DAT_00020609;
+        __optval[1] = 0;
+        __optval[2] = 0;
+        __optval[3] = 0;
+        __optval[4] = 8;
+        __optval[9] = 0;
+        __optval[10] = 0;
+        __optval[0x12] = 2;
+        __optval[0x13] = 2;
+        __optval[0x14] = 10;
+        __optval[0x15] = 10;
+        __optval[0x16] = 2;
+        __optval[0x17] = 0xb;
+        __optval[0x18] = 0;
+        __optval[0x19] = 0;
+        __optval[0x1a] = 0;
+        __optval[0x1b] = 0xfff7;
+        __optval[0x1c] = 0;
+        __optval[0x1d] = 0x4641534d;
+        __optval[0x1e] = 0x43542044;
+        __optval[0x1f] = 0x50492f50;
+        __optval[0x20] = 0x44555b20;
+        __optval[0x21] = 0x50492f50;
+        *(undefined2 *)(__optval + 0x22) = 0x5d;
+        return 0;
+      }
+      if (local_28[0] == 1) {
+        *__optval = &DAT_00020066;
+        __optval[1] = 0;
+        __optval[2] = 0;
+        __optval[3] = 0;
+        __optval[4] = 8;
+        __optval[9] = 0;
+        __optval[10] = 0;
+        __optval[0x12] = 2;
+        __optval[0x13] = 2;
+        __optval[0x14] = 10;
+        __optval[0x15] = 10;
+        __optval[0x16] = 1;
+        __optval[0x17] = 6;
+        __optval[0x18] = 0;
+        __optval[0x19] = 0;
+        __optval[0x1a] = 0;
+        __optval[0x1b] = 0;
+        __optval[0x1c] = 0;
+        __optval[0x1d] = 0x4641534d;
+        __optval[0x1e] = 0x43542044;
+        __optval[0x1f] = 0x50492f50;
+        __optval[0x20] = 0x43545b20;
+        __optval[0x21] = 0x50492f50;
+        *(undefined2 *)(__optval + 0x22) = 0x5d;
+        return 0;
+      }
+    }
+  }
+  uStackY_64 = 0x41950fc;
+  eON_SetLastError();
+  puVar5 = &uStackY_64;
+LAB_041950ff:
+  puVar5[-1] = 0x4195104;
+  piVar4 = __errno_location();
+  iVar3 = *piVar4;
+  puVar5[4] = iVar2;
+  puVar5[1] = "getsockopt( s = %d, level = %d, optname = %d ) returns -1, errno is %d";
+  *puVar5 = 10;
+  puVar5[5] = iVar3;
+  puVar5[3] = iVar1;
+  puVar5[2] = __fd;
+  puVar5[-1] = 0x4195130;
+  FUN_0402cd10();
+  return -1;
+}
+

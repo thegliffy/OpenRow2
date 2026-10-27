@@ -1,0 +1,45 @@
+
+/* WARNING: Removing unreachable block (ram,0x04106700) */
+/* source: xaudio2impl */
+
+void XAudio2Imp__DestroySubmixVoice(int param_1,int *param_2)
+
+{
+  int *__src;
+  int iVar1;
+  int *__dest;
+  int *piVar2;
+  
+  iVar1 = pthread_mutex_lock((pthread_mutex_t *)(param_1 + 0x60));
+  if (iVar1 != 0) {
+                    /* WARNING: Subroutine does not return */
+    std::__throw_system_error(iVar1);
+  }
+  if (param_2 != (int *)0x0) {
+                    /* try { // try from 041066a7 to 0410672b has its CatchHandler @ 04106743 */
+    (**(code **)(*param_2 + 0x50))(param_2);
+  }
+  __dest = *(int **)(param_1 + 0x50);
+  piVar2 = *(int **)(param_1 + 0x54);
+  do {
+    if (__dest == piVar2) {
+      FUN_0400a810("!\"Voice not found\"",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/xaudio2_full/xaudio2impl.cpp"
+                   ,0x231,"void XAudio2Imp::DestroySubmixVoice(IXAudio2Voice*)");
+LAB_04106733:
+      pthread_mutex_unlock((pthread_mutex_t *)(param_1 + 0x60));
+      return;
+    }
+    if (param_2 == (int *)*__dest) {
+      __src = __dest + 1;
+      if ((__src != piVar2) && (iVar1 = (int)piVar2 - (int)__src >> 2, iVar1 != 0)) {
+        memmove(__dest,__src,iVar1 << 2);
+        piVar2 = *(int **)(param_1 + 0x54);
+      }
+      *(int **)(param_1 + 0x54) = piVar2 + -1;
+      goto LAB_04106733;
+    }
+    __dest = __dest + 1;
+  } while( true );
+}
+

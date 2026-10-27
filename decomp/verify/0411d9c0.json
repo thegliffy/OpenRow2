@@ -1,0 +1,51 @@
+
+/* source: gdi32 */
+
+undefined4 HDC_FreeDC(int param_1)
+
+{
+  uint uVar1;
+  void *__ptr;
+  undefined4 uVar2;
+  int iVar3;
+  
+  if (param_1 == 0) {
+    FUN_0402cd10(10,"HDC_FreeDC called with NULL hdc");
+    uVar2 = 0;
+  }
+  else {
+    uVar1 = param_1 + 0x68686869;
+    if (0x80 < uVar1) {
+      FUN_0402cd10(10,"HDC_FreeDC called with hdc: %p and number: %u > EON_MAX_DC",param_1,uVar1);
+      return 0;
+    }
+    if (uVar1 == 0x80) {
+      FUN_0400a810("number < 128",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/gdi32/gdi32.cpp",
+                   0x1ee,"INT HDC_FreeDC(HDC)");
+    }
+    uVar2 = 0;
+    iVar3 = uVar1 * 0x60;
+    if (*(int *)(&DAT_04512ab0 + iVar3) == 0) {
+      __ptr = *(void **)(&DAT_04512afc + iVar3);
+      (&DAT_04512aa8)[uVar1 * 0x18] = 0;
+      while (__ptr != (void *)0x0) {
+        *(undefined4 *)(&DAT_04512afc + iVar3) = *(undefined4 *)((int)__ptr + 0x3c);
+        *(undefined4 *)((int)__ptr + 0x3c) = 0;
+        eON_Gdi_ReleaseObjectList((int)__ptr + 4);
+        free(__ptr);
+        __ptr = *(void **)(&DAT_04512afc + iVar3);
+      }
+      eON_Gdi_ReleaseObjectList(&DAT_04512ac4 + iVar3);
+      uVar2 = 1;
+      if (*(int *)(&DAT_04512abc + iVar3) != 0) {
+        *(undefined4 *)(&DAT_04512abc + iVar3) = 0;
+        free(*(void **)(&DAT_04512ac0 + iVar3));
+        *(undefined4 *)(&DAT_04512ac0 + iVar3) = 0;
+        return 1;
+      }
+    }
+  }
+  return uVar2;
+}
+

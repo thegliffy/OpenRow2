@@ -1,0 +1,18 @@
+
+void eON_LogLinuxVersions(void)
+
+{
+  int iVar1;
+  utsname local_192;
+  
+  iVar1 = uname(&local_192);
+  if (iVar1 == 0) {
+    FUN_0402cd10(0x14,"Linux kernel version: %s",local_192.release);
+  }
+  iVar1 = gnu_get_libc_version();
+  if (iVar1 != 0) {
+    FUN_0402cd10(0x14,"Linux glibc version: %s",iVar1);
+  }
+  return;
+}
+

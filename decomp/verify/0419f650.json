@@ -1,0 +1,52 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+bool _glewInit_GL_NV_bindless_texture(void)
+
+{
+  int iVar1;
+  bool bVar2;
+  bool bVar3;
+  bool bVar4;
+  bool bVar5;
+  bool bVar6;
+  bool bVar7;
+  bool bVar8;
+  bool bVar9;
+  bool bVar10;
+  bool bVar11;
+  bool bVar12;
+  
+  iVar1 = glXGetProcAddressARB("glGetImageHandleNV");
+  _DAT_0451d370 = iVar1;
+  _DAT_0451d36c = glXGetProcAddressARB("glGetTextureHandleNV");
+  bVar2 = _DAT_0451d36c == 0;
+  _DAT_0451d368 = glXGetProcAddressARB("glGetTextureSamplerHandleNV");
+  bVar3 = _DAT_0451d368 == 0;
+  _DAT_0451d364 = glXGetProcAddressARB("glIsImageHandleResidentNV");
+  bVar4 = _DAT_0451d364 == 0;
+  _DAT_0451d360 = glXGetProcAddressARB("glIsTextureHandleResidentNV");
+  bVar5 = _DAT_0451d360 == 0;
+  _DAT_0451d35c = glXGetProcAddressARB("glMakeImageHandleNonResidentNV");
+  bVar6 = _DAT_0451d35c == 0;
+  _DAT_0451d358 = glXGetProcAddressARB("glMakeImageHandleResidentNV");
+  bVar7 = _DAT_0451d358 == 0;
+  _DAT_0451d354 = glXGetProcAddressARB("glMakeTextureHandleNonResidentNV");
+  bVar8 = _DAT_0451d354 == 0;
+  _DAT_0451d350 = glXGetProcAddressARB("glMakeTextureHandleResidentNV");
+  bVar9 = _DAT_0451d350 == 0;
+  _DAT_0451d34c = glXGetProcAddressARB("glProgramUniformHandleui64NV");
+  bVar10 = _DAT_0451d34c == 0;
+  _DAT_0451d348 = glXGetProcAddressARB("glProgramUniformHandleui64vNV");
+  bVar11 = _DAT_0451d348 == 0;
+  _DAT_0451d344 = glXGetProcAddressARB("glUniformHandleui64NV");
+  bVar12 = _DAT_0451d344 == 0;
+  _DAT_0451d340 = glXGetProcAddressARB("glUniformHandleui64vNV");
+  return _DAT_0451d340 == 0 ||
+         (bVar12 ||
+         (bVar11 ||
+         (bVar10 ||
+         (bVar9 || (bVar8 || (bVar7 || (bVar6 || (bVar5 || (bVar4 || (bVar3 || (bVar2 || iVar1 == 0)
+                                                                     ))))))))));
+}
+

@@ -1,0 +1,118 @@
+
+void png_handle_pCAL(int param_1,int param_2,int param_3)
+
+{
+  char *pcVar1;
+  char cVar2;
+  byte bVar3;
+  byte bVar4;
+  byte bVar5;
+  byte bVar6;
+  byte bVar7;
+  byte bVar8;
+  byte bVar9;
+  byte bVar10;
+  byte bVar11;
+  byte bVar12;
+  uint uVar13;
+  char *pcVar14;
+  int iVar15;
+  char *pcVar16;
+  int iVar17;
+  char *pcVar18;
+  char *pcVar19;
+  
+  if ((*(uint *)(param_1 + 0xd0) & 1) == 0) {
+                    /* WARNING: Subroutine does not return */
+    png_chunk_error(param_1,"missing IHDR");
+  }
+  if ((*(uint *)(param_1 + 0xd0) & 4) == 0) {
+    if ((param_2 == 0) || ((*(byte *)(param_2 + 9) & 4) == 0)) {
+      pcVar14 = (char *)png_read_buffer();
+      if (pcVar14 == (char *)0x0) {
+        png_crc_finish(param_1,param_3);
+      }
+      else {
+        png_crc_read(param_1,pcVar14,param_3);
+        iVar15 = png_crc_finish(param_1,0);
+        if (iVar15 != 0) {
+          return;
+        }
+        pcVar19 = pcVar14 + param_3;
+        *pcVar19 = '\0';
+        cVar2 = *pcVar14;
+        pcVar16 = pcVar14;
+        while (cVar2 != '\0') {
+          pcVar16 = pcVar16 + 1;
+          cVar2 = *pcVar16;
+        }
+        if (pcVar16 + 0xc < pcVar19) {
+          bVar3 = pcVar16[1];
+          bVar4 = pcVar16[2];
+          bVar5 = pcVar16[4];
+          bVar6 = pcVar16[3];
+          bVar7 = pcVar16[5];
+          bVar8 = pcVar16[6];
+          bVar9 = pcVar16[8];
+          bVar10 = pcVar16[7];
+          bVar11 = pcVar16[9];
+          bVar12 = pcVar16[10];
+          if ((((bVar12 == 2) || (bVar11 != 0)) && ((bVar11 != 2 && bVar11 != 1 || (bVar12 == 3))))
+             && ((bVar12 == 4 || (bVar11 != 3)))) {
+            if (3 < bVar11) {
+              png_chunk_benign_error(param_1,"unrecognized equation type");
+            }
+            cVar2 = pcVar16[0xb];
+            pcVar18 = pcVar16 + 0xb;
+            while (cVar2 != '\0') {
+              pcVar18 = pcVar18 + 1;
+              cVar2 = *pcVar18;
+            }
+            uVar13 = (uint)bVar12;
+            iVar15 = FUN_042aa3a0(param_1,uVar13 << 2);
+            if (iVar15 != 0) {
+              iVar17 = 0;
+              if (bVar12 != 0) {
+                do {
+                  pcVar1 = pcVar18 + 1;
+                  *(char **)(iVar15 + iVar17 * 4) = pcVar1;
+                  if (pcVar19 < pcVar1) {
+LAB_042b8910:
+                    FUN_042aa410(param_1,iVar15);
+                    goto LAB_042b8947;
+                  }
+                  cVar2 = pcVar18[1];
+                  pcVar18 = pcVar1;
+                  while (cVar2 != '\0') {
+                    pcVar18 = pcVar18 + 1;
+                    if (pcVar19 < pcVar18) goto LAB_042b8910;
+                    cVar2 = *pcVar18;
+                  }
+                  iVar17 = iVar17 + 1;
+                } while (iVar17 < (int)uVar13);
+              }
+              FUN_042bb3c0(param_1,param_2,pcVar14,
+                           (uint)bVar6 * 0x100 +
+                           (uint)bVar4 * 0x10000 + (uint)bVar3 * 0x1000000 + (uint)bVar5,
+                           (uint)bVar10 * 0x100 +
+                           (uint)bVar9 + (uint)bVar8 * 0x10000 + (uint)bVar7 * 0x1000000,bVar11,
+                           uVar13,pcVar16 + 0xb,iVar15);
+              FUN_042aa410();
+              return;
+            }
+          }
+        }
+      }
+    }
+    else {
+      png_crc_finish(param_1,param_3);
+    }
+  }
+  else {
+    png_crc_finish(param_1,param_3);
+  }
+LAB_042b8947:
+  png_chunk_benign_error();
+  return;
+}
+

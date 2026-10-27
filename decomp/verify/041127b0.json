@@ -1,0 +1,71 @@
+
+undefined4 TomCrypt_Init(void)
+
+{
+  undefined4 uVar1;
+  int iVar2;
+  undefined **ppuVar3;
+  undefined4 *puVar4;
+  byte bVar5;
+  
+  bVar5 = 0;
+  FUN_0402cd10(0x14,"TomCrypt initializing...");
+  FUN_04242140(&PTR_PTR_04376960);
+  FUN_04242140(&PTR_s_blowfish_04379820);
+  FUN_04242140(&PTR_DAT_0438daa0);
+  FUN_04242140(&PTR_PTR_0438baa0);
+  FUN_04242140(&PTR_PTR_0438bcc0);
+  FUN_04242140(&PTR_s_safer__0438c260);
+  FUN_04242140(&PTR_s_twofish_0438da00);
+  FUN_04242140(&PTR_s_safer_k64_0438bec0);
+  FUN_04242140(&PTR_s_safer_sk64_0438be60);
+  FUN_04242140(&PTR_s_safer_k128_0438be00);
+  FUN_04242140(&PTR_s_safer_sk128_0438bda0);
+  FUN_04242140(&PTR_PTR_0438b8e0);
+  FUN_04242140(&PTR_PTR_043856e0);
+  FUN_04242140(&PTR_DAT_04385680);
+  FUN_04242140(&PTR_s_cast5_0437ca80);
+  FUN_04242140(&PTR_DAT_0438b700);
+  FUN_04242140(&PTR_s_skipjack_0438c680);
+  FUN_04242140(&PTR_s_khazad_0438a360);
+  FUN_04242140(&PTR_s_anubis_043786e0);
+  FUN_04242140(&PTR_DAT_0438b4e0);
+  FUN_04242140(&PTR_s_kasumi_04386200);
+  FUN_04242140(&PTR_s_multi2_0438b5e0);
+  FUN_04242140(&PTR_s_camellia_0437a980);
+  FUN_042422f0(&PTR_s_tiger_04390f40);
+  FUN_042422f0(&PTR_PTR_0438de80);
+  FUN_042422f0(&PTR_PTR_0438dfa0);
+  FUN_042422f0(&PTR_PTR_0438e0c0);
+  FUN_042422f0(&PTR_DAT_0438e6e0);
+  FUN_042422f0(&PTR_s_sha224_0438e800);
+  FUN_042422f0(&PTR_s_sha256_0438e880);
+  FUN_042422f0(&PTR_s_sha384_0438eaa0);
+  FUN_042422f0(&PTR_s_sha512_0438eda0);
+  FUN_042422f0(&PTR_s_rmd128_0438e1c0);
+  FUN_042422f0(&PTR_s_rmd160_0438e320);
+  FUN_042422f0(&PTR_s_rmd256_0438e480);
+  FUN_042422f0(&PTR_s_rmd320_0438e620);
+  FUN_042422f0(&PTR_s_whirlpool_043954c0);
+  FUN_042422f0(&PTR_s_chc_hash_0438dbc0);
+  uVar1 = FUN_04242140(&PTR_PTR_04376960);
+  iVar2 = FUN_0422ffc0(uVar1);
+  uVar1 = 0;
+  if (iVar2 == 0) {
+    FUN_04242500(&PTR_s_yarrow_04395f80);
+    FUN_04242500(&PTR_s_fortuna_04395640);
+    FUN_04242500(&PTR_PTR_043956a0);
+    FUN_04242500(&PTR_s_sober128_04395720);
+    ppuVar3 = &PTR_s_TomsFastMath_04395540;
+    puVar4 = &DAT_04525400;
+    for (iVar2 = 0x34; iVar2 != 0; iVar2 = iVar2 + -1) {
+      *puVar4 = *ppuVar3;
+      ppuVar3 = ppuVar3 + (uint)bVar5 * -2 + 1;
+      puVar4 = puVar4 + (uint)bVar5 * -2 + 1;
+    }
+    FUN_0402cd10(0x14,"TomCrypt initialized");
+    uVar1 = 1;
+  }
+  return uVar1;
+}
+

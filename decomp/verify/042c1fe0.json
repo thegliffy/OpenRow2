@@ -1,0 +1,77 @@
+
+void png_compress_IDAT(int param_1,undefined4 param_2,int param_3,int param_4)
+
+{
+  int iVar1;
+  undefined4 uVar2;
+  int iVar3;
+  uint uVar4;
+  undefined4 *puVar5;
+  
+  if (*(int *)(param_1 + 0xdc) != 0x49444154) {
+    if (*(int *)(param_1 + 0x118) == 0) {
+      puVar5 = (undefined4 *)FUN_042aa2c0(param_1,*(int *)(param_1 + 0x11c) + 4);
+      *(undefined4 **)(param_1 + 0x118) = puVar5;
+      *puVar5 = 0;
+    }
+    else {
+      FUN_042c1b30(param_1,*(int *)(param_1 + 0x118));
+    }
+    FUN_042c0eb0();
+    iVar3 = FUN_042c12c0();
+    if (iVar3 != 0) {
+LAB_042c2218:
+                    /* WARNING: Subroutine does not return */
+      png_error(param_1,*(undefined4 *)(param_1 + 0xf8));
+    }
+    *(int *)(param_1 + 0xec) = *(int *)(param_1 + 0x118) + 4;
+    *(undefined4 *)(param_1 + 0xf0) = *(undefined4 *)(param_1 + 0x11c);
+  }
+  *(undefined4 *)(param_1 + 0xe0) = param_2;
+LAB_042c2068:
+  do {
+    *(int *)(param_1 + 0xe4) = param_3;
+    iVar3 = deflate(param_1 + 0xe0,param_4);
+    param_3 = *(int *)(param_1 + 0xe4);
+    *(undefined4 *)(param_1 + 0xe4) = 0;
+    if (*(int *)(param_1 + 0xf0) == 0) {
+      iVar1 = *(int *)(param_1 + 0x118);
+      uVar2 = *(undefined4 *)(param_1 + 0x11c);
+      if ((((*(byte *)(param_1 + 0xd0) & 4) == 0) && (*(char *)(param_1 + 0x2e8) == '\0')) &&
+         (uVar4 = FUN_042c0eb0(), uVar4 < 0x4001)) {
+        FUN_042c15f0();
+      }
+      png_write_complete_chunk(uVar2);
+      *(uint *)(param_1 + 0xd0) = *(uint *)(param_1 + 0xd0) | 4;
+      *(undefined4 *)(param_1 + 0xf0) = uVar2;
+      *(int *)(param_1 + 0xec) = iVar1 + 4;
+      if ((iVar3 == 0) && (param_4 != 0)) goto LAB_042c2068;
+    }
+    if (iVar3 != 0) {
+      if ((iVar3 == 1) && (param_4 == 4)) {
+        iVar3 = *(int *)(param_1 + 0x11c);
+        iVar1 = *(int *)(param_1 + 0xf0);
+        if ((((*(byte *)(param_1 + 0xd0) & 4) == 0) && (*(char *)(param_1 + 0x2e8) == '\0')) &&
+           (uVar4 = FUN_042c0eb0(), uVar4 < 0x4001)) {
+          FUN_042c15f0();
+        }
+        png_write_complete_chunk(iVar3 - iVar1);
+        *(uint *)(param_1 + 0xd0) = *(uint *)(param_1 + 0xd0) | 0xc;
+        *(undefined4 *)(param_1 + 0xf0) = 0;
+        *(undefined4 *)(param_1 + 0xec) = 0;
+        *(undefined4 *)(param_1 + 0xdc) = 0;
+        return;
+      }
+      FUN_042a6270(param_1,iVar3);
+      goto LAB_042c2218;
+    }
+    if (param_3 == 0) {
+      if (param_4 != 4) {
+        return;
+      }
+                    /* WARNING: Subroutine does not return */
+      png_error(param_1,"Z_OK on Z_FINISH with output space");
+    }
+  } while( true );
+}
+

@@ -1,0 +1,65 @@
+
+undefined4 fs_unlink(undefined4 param_1)
+
+{
+  int iVar1;
+  int *piVar2;
+  undefined4 uVar3;
+  char local_1010 [4096];
+  undefined4 *local_10;
+  
+  local_10 = &param_1;
+  FUN_0400f520(param_1,local_1010);
+  iVar1 = unlink(local_1010);
+  uVar3 = 1;
+  if (iVar1 != 0) {
+    piVar2 = __errno_location();
+    switch(*piVar2) {
+    default:
+      FUN_0402cd10(0xf,"   unlink( \'%s\' ) errno unknown (%d).",*piVar2);
+      uVar3 = 0;
+      break;
+    case 1:
+      eON_SetLastError(5);
+      uVar3 = 0;
+      break;
+    case 2:
+      eON_SetLastError(2);
+      uVar3 = 0;
+      break;
+    case 5:
+      FUN_0402cd10(0xf,"   unlink( \'%s\' ) errno: EIO.",local_1010);
+      uVar3 = 0;
+      break;
+    case 0xd:
+      FUN_0402cd10(0xf,"   unlink( \'%s\' ) errno: EACCES.",local_1010);
+      uVar3 = 0;
+      break;
+    case 0xe:
+      FUN_0402cd10(0xf,"   unlink( \'%s\' ) errno: EFAULT.",local_1010);
+      uVar3 = 0;
+      break;
+    case 0x10:
+      FUN_0402cd10(0xf,"   unlink( \'%s\' ) errno: EBUSY.",local_1010);
+      uVar3 = 0;
+      break;
+    case 0x14:
+      FUN_0402cd10(0xf,"   unlink( \'%s\' ) errno: ENOTDIR.",local_1010);
+      uVar3 = 0;
+      break;
+    case 0x1e:
+      FUN_0402cd10(0xf,"   unlink( \'%s\' ) errno: EROFS.",local_1010);
+      uVar3 = 0;
+      break;
+    case 0x24:
+      FUN_0402cd10(0xf,"   unlink( \'%s\' ) errno: ENAMETOOLONG.",local_1010);
+      uVar3 = 0;
+      break;
+    case 0x28:
+      FUN_0402cd10(0xf,"   unlink( \'%s\' ) errno: ELOOP.",local_1010);
+      uVar3 = 0;
+    }
+  }
+  return uVar3;
+}
+

@@ -1,0 +1,197 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+bool _glewInit_GL_NV_path_rendering(void)
+
+{
+  int iVar1;
+  bool bVar2;
+  bool bVar3;
+  bool bVar4;
+  bool bVar5;
+  bool bVar6;
+  bool bVar7;
+  bool bVar8;
+  bool bVar9;
+  bool bVar10;
+  bool bVar11;
+  bool bVar12;
+  bool bVar13;
+  bool bVar14;
+  bool bVar15;
+  bool bVar16;
+  bool bVar17;
+  bool bVar18;
+  bool bVar19;
+  bool bVar20;
+  bool bVar21;
+  bool bVar22;
+  bool bVar23;
+  bool bVar24;
+  bool bVar25;
+  bool bVar26;
+  bool bVar27;
+  bool bVar28;
+  bool bVar29;
+  bool bVar30;
+  bool bVar31;
+  bool bVar32;
+  bool bVar33;
+  bool bVar34;
+  bool bVar35;
+  bool bVar36;
+  bool bVar37;
+  bool bVar38;
+  bool bVar39;
+  bool bVar40;
+  bool bVar41;
+  bool bVar42;
+  bool bVar43;
+  bool bVar44;
+  bool bVar45;
+  bool bVar46;
+  bool bVar47;
+  bool bVar48;
+  
+  iVar1 = glXGetProcAddressARB("glCopyPathNV");
+  _DAT_0451d114 = iVar1;
+  _DAT_0451d110 = glXGetProcAddressARB("glCoverFillPathInstancedNV");
+  bVar2 = _DAT_0451d110 == 0;
+  _DAT_0451d10c = glXGetProcAddressARB("glCoverFillPathNV");
+  bVar3 = _DAT_0451d10c == 0;
+  _DAT_0451d108 = glXGetProcAddressARB("glCoverStrokePathInstancedNV");
+  bVar4 = _DAT_0451d108 == 0;
+  _DAT_0451d104 = glXGetProcAddressARB("glCoverStrokePathNV");
+  bVar5 = _DAT_0451d104 == 0;
+  _DAT_0451d100 = glXGetProcAddressARB("glDeletePathsNV");
+  bVar6 = _DAT_0451d100 == 0;
+  _DAT_0451d0fc = glXGetProcAddressARB("glGenPathsNV");
+  bVar7 = _DAT_0451d0fc == 0;
+  _DAT_0451d0f8 = glXGetProcAddressARB("glGetPathColorGenfvNV");
+  bVar8 = _DAT_0451d0f8 == 0;
+  _DAT_0451d0f4 = glXGetProcAddressARB("glGetPathColorGenivNV");
+  bVar9 = _DAT_0451d0f4 == 0;
+  _DAT_0451d0f0 = glXGetProcAddressARB("glGetPathCommandsNV");
+  bVar10 = _DAT_0451d0f0 == 0;
+  _DAT_0451d0ec = glXGetProcAddressARB("glGetPathCoordsNV");
+  bVar11 = _DAT_0451d0ec == 0;
+  _DAT_0451d0e8 = glXGetProcAddressARB("glGetPathDashArrayNV");
+  bVar12 = _DAT_0451d0e8 == 0;
+  _DAT_0451d0e4 = glXGetProcAddressARB("glGetPathLengthNV");
+  bVar13 = _DAT_0451d0e4 == 0;
+  _DAT_0451d0e0 = glXGetProcAddressARB("glGetPathMetricRangeNV");
+  bVar14 = _DAT_0451d0e0 == 0;
+  _DAT_0451d0dc = glXGetProcAddressARB("glGetPathMetricsNV");
+  bVar15 = _DAT_0451d0dc == 0;
+  _DAT_0451d0d8 = glXGetProcAddressARB("glGetPathParameterfvNV");
+  bVar16 = _DAT_0451d0d8 == 0;
+  _DAT_0451d0d4 = glXGetProcAddressARB("glGetPathParameterivNV");
+  bVar17 = _DAT_0451d0d4 == 0;
+  _DAT_0451d0d0 = glXGetProcAddressARB("glGetPathSpacingNV");
+  bVar18 = _DAT_0451d0d0 == 0;
+  _DAT_0451d0cc = glXGetProcAddressARB("glGetPathTexGenfvNV");
+  bVar19 = _DAT_0451d0cc == 0;
+  _DAT_0451d0c8 = glXGetProcAddressARB("glGetPathTexGenivNV");
+  bVar20 = _DAT_0451d0c8 == 0;
+  _DAT_0451d0c4 = glXGetProcAddressARB("glInterpolatePathsNV");
+  bVar21 = _DAT_0451d0c4 == 0;
+  _DAT_0451d0c0 = glXGetProcAddressARB("glIsPathNV");
+  bVar22 = _DAT_0451d0c0 == 0;
+  _DAT_0451d0bc = glXGetProcAddressARB("glIsPointInFillPathNV");
+  bVar23 = _DAT_0451d0bc == 0;
+  _DAT_0451d0b8 = glXGetProcAddressARB("glIsPointInStrokePathNV");
+  bVar24 = _DAT_0451d0b8 == 0;
+  _DAT_0451d0b4 = glXGetProcAddressARB("glPathColorGenNV");
+  bVar25 = _DAT_0451d0b4 == 0;
+  _DAT_0451d0b0 = glXGetProcAddressARB("glPathCommandsNV");
+  bVar26 = _DAT_0451d0b0 == 0;
+  _DAT_0451d0ac = glXGetProcAddressARB("glPathCoordsNV");
+  bVar27 = _DAT_0451d0ac == 0;
+  _DAT_0451d0a8 = glXGetProcAddressARB("glPathCoverDepthFuncNV");
+  bVar28 = _DAT_0451d0a8 == 0;
+  _DAT_0451d0a4 = glXGetProcAddressARB("glPathDashArrayNV");
+  bVar29 = _DAT_0451d0a4 == 0;
+  _DAT_0451d0a0 = glXGetProcAddressARB("glPathFogGenNV");
+  bVar30 = _DAT_0451d0a0 == 0;
+  _DAT_0451d09c = glXGetProcAddressARB("glPathGlyphRangeNV");
+  bVar31 = _DAT_0451d09c == 0;
+  _DAT_0451d098 = glXGetProcAddressARB("glPathGlyphsNV");
+  bVar32 = _DAT_0451d098 == 0;
+  _DAT_0451d094 = glXGetProcAddressARB("glPathParameterfNV");
+  bVar33 = _DAT_0451d094 == 0;
+  _DAT_0451d090 = glXGetProcAddressARB("glPathParameterfvNV");
+  bVar34 = _DAT_0451d090 == 0;
+  _DAT_0451d08c = glXGetProcAddressARB("glPathParameteriNV");
+  bVar35 = _DAT_0451d08c == 0;
+  _DAT_0451d088 = glXGetProcAddressARB("glPathParameterivNV");
+  bVar36 = _DAT_0451d088 == 0;
+  _DAT_0451d084 = glXGetProcAddressARB("glPathStencilDepthOffsetNV");
+  bVar37 = _DAT_0451d084 == 0;
+  _DAT_0451d080 = glXGetProcAddressARB("glPathStencilFuncNV");
+  bVar38 = _DAT_0451d080 == 0;
+  _DAT_0451d07c = glXGetProcAddressARB("glPathStringNV");
+  bVar39 = _DAT_0451d07c == 0;
+  _DAT_0451d078 = glXGetProcAddressARB("glPathSubCommandsNV");
+  bVar40 = _DAT_0451d078 == 0;
+  _DAT_0451d074 = glXGetProcAddressARB("glPathSubCoordsNV");
+  bVar41 = _DAT_0451d074 == 0;
+  _DAT_0451d070 = glXGetProcAddressARB("glPathTexGenNV");
+  bVar42 = _DAT_0451d070 == 0;
+  _DAT_0451d06c = glXGetProcAddressARB("glPointAlongPathNV");
+  bVar43 = _DAT_0451d06c == 0;
+  _DAT_0451d068 = glXGetProcAddressARB("glStencilFillPathInstancedNV");
+  bVar44 = _DAT_0451d068 == 0;
+  _DAT_0451d064 = glXGetProcAddressARB("glStencilFillPathNV");
+  bVar45 = _DAT_0451d064 == 0;
+  _DAT_0451d060 = glXGetProcAddressARB("glStencilStrokePathInstancedNV");
+  bVar46 = _DAT_0451d060 == 0;
+  _DAT_0451d05c = glXGetProcAddressARB("glStencilStrokePathNV");
+  bVar47 = _DAT_0451d05c == 0;
+  _DAT_0451d058 = glXGetProcAddressARB("glTransformPathNV");
+  bVar48 = _DAT_0451d058 == 0;
+  _DAT_0451d054 = glXGetProcAddressARB("glWeightPathsNV");
+  return _DAT_0451d054 == 0 ||
+         (bVar48 ||
+         (bVar47 ||
+         (bVar46 ||
+         (bVar45 ||
+         (bVar44 ||
+         (bVar43 ||
+         (bVar42 ||
+         (bVar41 ||
+         (bVar40 ||
+         (bVar39 ||
+         (bVar38 ||
+         (bVar37 ||
+         (bVar36 ||
+         (bVar35 ||
+         (bVar34 ||
+         (bVar33 ||
+         (bVar32 ||
+         (bVar31 ||
+         (bVar30 ||
+         (bVar29 ||
+         (bVar28 ||
+         (bVar27 ||
+         (bVar26 ||
+         (bVar25 ||
+         (bVar24 ||
+         (bVar23 ||
+         (bVar22 ||
+         (bVar21 ||
+         (bVar20 ||
+         (bVar19 ||
+         (bVar18 ||
+         (bVar17 ||
+         (bVar16 ||
+         (bVar15 ||
+         (bVar14 ||
+         (bVar13 ||
+         (bVar12 ||
+         (bVar11 ||
+         (bVar10 ||
+         (bVar9 || (bVar8 || (bVar7 || (bVar6 || (bVar5 || (bVar4 || (bVar3 || (bVar2 || iVar1 == 0)
+                                                                     )))))))))))))))))))))))))))))))
+         )))))))))))))));
+}
+

@@ -1,0 +1,210 @@
+
+/* source: direct3dbasetexture9imp, direct3ddevice9imp */
+
+void Direct3DDevice9Imp__MakeSureTexturesForDrawAreCurrent(int param_1,int param_2)
+
+{
+  int iVar1;
+  int iVar2;
+  undefined4 uVar3;
+  int iVar4;
+  int iVar5;
+  int iVar6;
+  int local_24;
+  int local_20;
+  
+  iVar6 = 0;
+  do {
+    iVar4 = *(int *)(param_1 + 0x8278 + iVar6 * 4);
+    if ((iVar4 == 0) || (*(int *)(*(int *)(param_1 + 0xe9ec) + 0x3c + iVar6 * 4) == -1)) {
+      *(undefined4 *)(param_2 + iVar6 * 4) = 0;
+    }
+    else {
+      iVar1 = 0;
+      if (*(char *)(param_1 + 0xeb4c) == '\0') {
+        iVar5 = 0;
+        if (iVar6 != 0) {
+          do {
+            if ((*(int *)(param_1 + 0x8278 + iVar5 * 4) == iVar4) &&
+               (iVar1 = memcmp((void *)(param_1 + 0x7c60 + iVar6 * 0x38),
+                               (void *)(param_1 + 0x7c60 + iVar5 * 0x38),0x38), iVar1 == 0)) {
+              iVar1 = FUN_0408d740(param_1,iVar4,iVar5,0);
+              if (iVar6 != iVar5) goto LAB_0408dae9;
+              break;
+            }
+            iVar5 = iVar5 + 1;
+          } while (iVar5 != iVar6);
+        }
+        iVar1 = FUN_0408d740(param_1,iVar4,iVar5,0);
+      }
+LAB_0408dae9:
+      direct3dbasetexture9imp_0406d9b0(iVar4 + 4,iVar1,1);
+      if (*(int *)(iVar4 + 0x284) <= iVar1) {
+        FUN_0400a810("(INT) mOpenGLTexturesCount > index",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3dbasetexture9imp.h"
+                     ,0x8c,"OpenGLTexture* Direct3DBaseTexture9Imp::GetOpenGLTexture(INT)");
+      }
+      iVar4 = *(int *)(iVar4 + 0x244 + iVar1 * 4);
+      if (iVar4 == 0) {
+        FUN_0400a810(&PTR_DAT_042e85bd,
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+                     ,0x24f0,
+                     "void Direct3DDevice9Imp::MakeSureTexturesForDrawAreCurrent(OpenGLTexture**)");
+      }
+      *(int *)(param_2 + iVar6 * 4) = iVar4;
+    }
+    iVar6 = iVar6 + 1;
+  } while (iVar6 != 0x10);
+  if ((*(int *)(param_1 + 0x82c8) != 0) && (*(char *)(*(int *)(param_1 + 0xe9ec) + 0x80) != '\0')) {
+    local_20 = 4;
+    local_24 = param_1;
+    do {
+      iVar4 = 4 - local_20;
+      iVar6 = *(int *)(local_24 + 0x82b8);
+      if ((iVar6 != 0) && (*(int *)(*(int *)(param_1 + 0xe9ec) + 0x2c + iVar4 * 4) != -1)) {
+        if (*(int *)(param_2 + 0x2c + local_20 * 4) != 0) {
+          FUN_0402cd10(0xf,"Conflict! Vertex texture using same texture stage as normal texture!");
+        }
+        iVar1 = 0;
+        if (*(char *)(param_1 + 0xeb4c) == '\0') {
+          iVar1 = 0x14 - local_20;
+          if (*(int *)(param_1 + 0x8278) == iVar6) {
+            iVar5 = memcmp((void *)(param_1 + 0x7c60 + iVar1 * 0x38),(void *)(param_1 + 0x7c60),0x38
+                          );
+            uVar3 = 0;
+            if (iVar5 != 0) goto LAB_0408dc13;
+LAB_0408de8d:
+            iVar1 = FUN_0408d740(param_1,iVar6,uVar3,0);
+          }
+          else {
+LAB_0408dc13:
+            if (*(int *)(param_1 + 0x827c) == iVar6) {
+              iVar5 = memcmp((void *)(param_1 + 0x7c60 + iVar1 * 0x38),(void *)(param_1 + 0x7c98),
+                             0x38);
+              uVar3 = 1;
+              if (iVar5 == 0) goto LAB_0408de8d;
+            }
+            if (*(int *)(param_1 + 0x8280) == iVar6) {
+              iVar5 = memcmp((void *)(param_1 + 0x7c60 + iVar1 * 0x38),(void *)(param_1 + 0x7cd0),
+                             0x38);
+              uVar3 = 2;
+              if (iVar5 == 0) goto LAB_0408de8d;
+            }
+            if (*(int *)(param_1 + 0x8284) == iVar6) {
+              iVar5 = memcmp((void *)(param_1 + 0x7c60 + iVar1 * 0x38),(void *)(param_1 + 0x7d08),
+                             0x38);
+              uVar3 = 3;
+              if (iVar5 == 0) goto LAB_0408de8d;
+            }
+            if (*(int *)(param_1 + 0x8288) == iVar6) {
+              iVar5 = memcmp((void *)(param_1 + 0x7c60 + iVar1 * 0x38),(void *)(param_1 + 0x7d40),
+                             0x38);
+              uVar3 = 4;
+              if (iVar5 == 0) goto LAB_0408de8d;
+            }
+            if (*(int *)(param_1 + 0x828c) == iVar6) {
+              iVar5 = memcmp((void *)(param_1 + 0x7c60 + iVar1 * 0x38),(void *)(param_1 + 0x7d78),
+                             0x38);
+              uVar3 = 5;
+              if (iVar5 == 0) goto LAB_0408de8d;
+            }
+            if (*(int *)(param_1 + 0x8290) == iVar6) {
+              iVar5 = memcmp((void *)(param_1 + 0x7c60 + iVar1 * 0x38),(void *)(param_1 + 0x7db0),
+                             0x38);
+              uVar3 = 6;
+              if (iVar5 == 0) goto LAB_0408de8d;
+            }
+            if (*(int *)(param_1 + 0x8294) == iVar6) {
+              iVar5 = memcmp((void *)(param_1 + 0x7c60 + iVar1 * 0x38),(void *)(param_1 + 0x7de8),
+                             0x38);
+              uVar3 = 7;
+              if (iVar5 == 0) goto LAB_0408de8d;
+            }
+            if (*(int *)(param_1 + 0x8298) == iVar6) {
+              iVar5 = memcmp((void *)(param_1 + 0x7c60 + iVar1 * 0x38),(void *)(param_1 + 0x7e20),
+                             0x38);
+              uVar3 = 8;
+              if (iVar5 == 0) goto LAB_0408de8d;
+            }
+            if (*(int *)(param_1 + 0x829c) == iVar6) {
+              iVar5 = memcmp((void *)(param_1 + 0x7c60 + iVar1 * 0x38),(void *)(param_1 + 0x7e58),
+                             0x38);
+              uVar3 = 9;
+              if (iVar5 == 0) goto LAB_0408de8d;
+            }
+            if (*(int *)(param_1 + 0x82a0) == iVar6) {
+              iVar5 = memcmp((void *)(param_1 + 0x7c60 + iVar1 * 0x38),(void *)(param_1 + 0x7e90),
+                             0x38);
+              uVar3 = 10;
+              if (iVar5 == 0) goto LAB_0408de8d;
+            }
+            if (*(int *)(param_1 + 0x82a4) == iVar6) {
+              iVar5 = memcmp((void *)(param_1 + 0x7c60 + iVar1 * 0x38),(void *)(param_1 + 0x7ec8),
+                             0x38);
+              uVar3 = 0xb;
+              if (iVar5 == 0) goto LAB_0408de8d;
+            }
+            if (*(int *)(param_1 + 0x82a8) == iVar6) {
+              iVar5 = memcmp((void *)(param_1 + 0x7c60 + iVar1 * 0x38),(void *)(param_1 + 0x7f00),
+                             0x38);
+              uVar3 = 0xc;
+              if (iVar5 == 0) goto LAB_0408de8d;
+            }
+            if (*(int *)(param_1 + 0x82ac) == iVar6) {
+              iVar5 = memcmp((void *)(param_1 + 0x7c60 + iVar1 * 0x38),(void *)(param_1 + 0x7f38),
+                             0x38);
+              uVar3 = 0xd;
+              if (iVar5 == 0) goto LAB_0408de8d;
+            }
+            if (*(int *)(param_1 + 0x82b0) == iVar6) {
+              iVar5 = memcmp((void *)(param_1 + 0x7c60 + iVar1 * 0x38),(void *)(param_1 + 0x7f70),
+                             0x38);
+              uVar3 = 0xe;
+              if (iVar5 == 0) goto LAB_0408de8d;
+            }
+            if (*(int *)(param_1 + 0x82b4) == iVar6) {
+              iVar5 = memcmp((void *)(param_1 + 0x7c60 + iVar1 * 0x38),(void *)(param_1 + 0x7fa8),
+                             0x38);
+              uVar3 = 0xf;
+              if (iVar5 == 0) goto LAB_0408de8d;
+            }
+            iVar5 = 0;
+            if (0 < iVar4) {
+              do {
+                if ((*(int *)(param_1 + 0x82b8 + iVar5 * 4) == iVar6) &&
+                   (iVar2 = memcmp((void *)(param_1 + 0x7c60 + iVar1 * 0x38),
+                                   (void *)(param_1 + 0x7c60 + (iVar5 + 0x10) * 0x38),0x38),
+                   iVar2 == 0)) {
+                  iVar1 = FUN_0408d740(param_1,iVar6,iVar5,1);
+                  goto LAB_0408dd40;
+                }
+                iVar5 = iVar5 + 1;
+              } while (iVar5 != iVar4);
+            }
+            iVar1 = FUN_0408d740(param_1,iVar6,iVar4,1);
+          }
+        }
+LAB_0408dd40:
+        direct3dbasetexture9imp_0406d9b0(iVar6 + 4,iVar1,1);
+        if (*(int *)(iVar6 + 0x284) <= iVar1) {
+          FUN_0400a810("(INT) mOpenGLTexturesCount > index",
+                       "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3dbasetexture9imp.h"
+                       ,0x8c,"OpenGLTexture* Direct3DBaseTexture9Imp::GetOpenGLTexture(INT)");
+        }
+        iVar6 = *(int *)(iVar6 + 0x244 + iVar1 * 4);
+        if (iVar6 == 0) {
+          FUN_0400a810(&PTR_DAT_042e85bd,
+                       "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+                       ,0x2536,
+                       "void Direct3DDevice9Imp::MakeSureTexturesForDrawAreCurrent(OpenGLTexture**)"
+                      );
+        }
+        *(int *)(param_2 + 0x2c + local_20 * 4) = iVar6;
+      }
+      local_24 = local_24 + 4;
+      local_20 = local_20 + -1;
+    } while (local_20 != 0);
+  }
+  return;
+}
+

@@ -1,0 +1,23 @@
+
+/* source: vpfsdb */
+
+void VPFSDB_AddAttributes(int param_1,int param_2)
+
+{
+  uint uVar1;
+  
+  uVar1 = *(uint *)(param_1 + 0x10);
+  if ((uVar1 & 1) != 0) {
+    FUN_0400a810("!( entry->Data.Flags & 1 )",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/vpfs/vpfsdb.cpp",0x311,
+                 "void VPFSDB_AddAttributes(VPFSDBObject, uint32_t)");
+    uVar1 = *(uint *)(param_1 + 0x10);
+  }
+  if (((uVar1 & 2) == 0) || (*(int *)(param_1 + 0x14) != param_2)) {
+    DAT_04468ab8 = 1;
+    *(uint *)(param_1 + 0x10) = uVar1 | 2;
+    *(int *)(param_1 + 0x14) = param_2;
+  }
+  return;
+}
+

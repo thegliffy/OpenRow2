@@ -1,0 +1,75 @@
+
+void DumpVirtualMemoryRegions(void)
+
+{
+  int iVar1;
+  int iVar2;
+  int *piVar3;
+  uint uVar4;
+  bool bVar5;
+  uint local_3c;
+  int local_38;
+  uint local_34;
+  int local_30;
+  uint local_2c;
+  int local_28;
+  uint local_24;
+  int local_20;
+  
+  fwrite("==== REGION DUMP START ========\n",1,0x20,stderr);
+  if (DAT_04515be8 != (int *)0x0) {
+    local_34 = 0;
+    local_30 = 0;
+    local_24 = 0;
+    local_20 = 0;
+    local_3c = 0;
+    local_38 = 0;
+    local_2c = 0;
+    local_28 = 0;
+    piVar3 = DAT_04515be8;
+    do {
+      while (iVar1 = piVar3[1], iVar1 == 0) {
+LAB_0413da30:
+        DumpVirtualMemoryRegion();
+        piVar3 = (int *)*piVar3;
+        if (piVar3 == (int *)0x0) goto LAB_0413daa0;
+      }
+      iVar2 = *(int *)(iVar1 + 8) + *(int *)(iVar1 + 0xc);
+      iVar1 = piVar3[2];
+      if (-1 < iVar2 - iVar1) goto LAB_0413da30;
+      uVar4 = iVar1 - iVar2;
+      fprintf(stderr,"(%p-%p)(%zu bytes),FREE\n",iVar2,iVar1,uVar4);
+      if (uVar4 < 0x10000) {
+        bVar5 = 0xfffffffe < local_2c;
+        local_2c = local_2c + 1;
+        local_28 = local_28 + (uint)bVar5;
+        bVar5 = CARRY4(local_3c,uVar4);
+        local_3c = local_3c + uVar4;
+        local_38 = local_38 + (uint)bVar5;
+        goto LAB_0413da30;
+      }
+      bVar5 = 0xfffffffe < local_24;
+      local_24 = local_24 + 1;
+      local_20 = local_20 + (uint)bVar5;
+      bVar5 = CARRY4(local_34,uVar4);
+      local_34 = local_34 + uVar4;
+      local_30 = local_30 + (uint)bVar5;
+      DumpVirtualMemoryRegion();
+      piVar3 = (int *)*piVar3;
+    } while (piVar3 != (int *)0x0);
+LAB_0413daa0:
+    if (local_28 != 0 || local_2c != 0) {
+      fprintf(stderr,
+              "Free areas of less than allocation granularity size each: %llu (summary size: %llu bytes)\n"
+              ,local_2c,local_28,local_3c,local_38);
+    }
+    if (local_20 != 0 || local_24 != 0) {
+      fprintf(stderr,
+              "Free areas of more than allocation granularity size each: %llu (summary size: %llu bytes)\n"
+              ,local_24,local_20,local_34,local_30);
+    }
+  }
+  fwrite("==== REGION DUMP END ========\n",1,0x1e,stderr);
+  return;
+}
+

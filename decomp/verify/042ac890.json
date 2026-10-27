@@ -1,0 +1,16 @@
+
+void png_read_update_info(int param_1)
+
+{
+  if (param_1 == 0) {
+    return;
+  }
+  if ((*(byte *)(param_1 + 0xd4) & 0x40) != 0) {
+    FUN_042a9df0();
+    return;
+  }
+  png_read_start_row(param_1);
+  png_read_transform_info();
+  return;
+}
+

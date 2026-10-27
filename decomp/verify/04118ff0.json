@@ -1,0 +1,74 @@
+
+undefined4
+eON_RegEnumValueW(int param_1,undefined4 param_2,undefined4 param_3,uint *param_4,int param_5,
+                 undefined4 *param_6,int param_7,uint *param_8)
+
+{
+  char cVar1;
+  int iVar2;
+  uint uVar3;
+  undefined4 uVar4;
+  
+  if (param_5 != 0) {
+    FUN_0402cd10(5,"Warning! Non-zero lpReserved given to RegEnumValueA. Some problem?");
+  }
+  if ((param_8 != (uint *)0x0) || (uVar4 = 0x57, param_7 == 0)) {
+    cVar1 = Registry_IsLoaded();
+    if (cVar1 == '\0') {
+      Registry_Load();
+      InitFakeWindowsRegistryKeys();
+      FlushRegistrySave();
+    }
+    uVar4 = 6;
+    if ((param_1 != 0) && (iVar2 = Registry_OpenPredefinedKey(param_1), iVar2 != 0)) {
+      uVar4 = 0x103;
+      iVar2 = RegistryXml_GetNthAttribute(iVar2,param_2);
+      if (iVar2 != 0) {
+        uVar3 = RegistryXml_BinaryAttrByteCount(iVar2);
+        if (*param_4 < uVar3 + 1) {
+          *param_4 = uVar3 + 1;
+          uVar4 = 0xea;
+        }
+        else {
+          *param_4 = uVar3;
+          RegistryXml_DecodeHexAttribute(iVar2,param_3);
+          uVar4 = RegistryXml_ParseHexByte(iVar2);
+          if (param_6 != (undefined4 *)0x0) {
+            *param_6 = uVar4;
+          }
+          uVar3 = RegistryXml_WideValueCharCount(iVar2);
+          if (param_7 == 0) {
+            if (param_8 == (uint *)0x0) {
+              uVar4 = 0;
+              FUN_0402cd10(0xf,
+                           "Error! RegEnumValueW() given neither lpData nor lpcbData! See what PC does in this case and do the same."
+                          );
+            }
+            else {
+              *param_8 = uVar3;
+              uVar4 = 0;
+            }
+          }
+          else {
+            if (param_8 == (uint *)0x0) {
+              FUN_0402cd10(0xf,
+                           "Error! RegEnumValueW() given lpData, but not lpcbData! See what PC does in this case and do the same."
+                          );
+            }
+            else if (*param_8 < uVar3) {
+              *param_8 = uVar3;
+              return 0xea;
+            }
+            if (param_8 != (uint *)0x0) {
+              *param_8 = uVar3;
+            }
+            uVar4 = 0;
+            RegistryXml_DecodeHexToBuffer(iVar2,param_7);
+          }
+        }
+      }
+    }
+  }
+  return uVar4;
+}
+

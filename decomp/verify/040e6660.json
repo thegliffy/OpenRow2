@@ -1,0 +1,371 @@
+
+/* WARNING: Type propagation algorithm not settling */
+/* source: shadercache */
+
+void ShaderCache__LinkedProgram_SecondLink(undefined4 param_1,int param_2,int *param_3)
+
+{
+  int iVar1;
+  byte bVar2;
+  bool bVar3;
+  char cVar4;
+  byte bVar5;
+  void *pvVar6;
+  long lVar7;
+  byte *pbVar8;
+  uint uVar9;
+  int iVar10;
+  byte *pbVar11;
+  byte *pbVar12;
+  undefined1 uVar13;
+  bool bVar14;
+  bool bVar15;
+  undefined1 uVar16;
+  bool bVar17;
+  byte bVar18;
+  uint local_48;
+  byte *local_40;
+  size_t local_34;
+  uint local_30;
+  size_t local_2c;
+  int local_28 [6];
+  
+  bVar18 = 0;
+  if (param_3[1] != 0) {
+    FUN_0400a810("data->LinkStage == 0",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/shadercache.cpp"
+                 ,0x317,
+                 "void ShaderCache::LinkedProgram_SecondLink(OpenGLContextCache*, eON_LinkedProgramData*)"
+                );
+  }
+  (*DAT_0451eca8)(*param_3,0x8b82,&local_34);
+  if (local_34 != 1) {
+    FUN_0402cd10(0xf,"Program %u failed to link!",*param_3);
+    local_30 = 0;
+    (*DAT_0451eca8)(*param_3,0x8b85,&local_30);
+    pvVar6 = malloc(local_30 << 2);
+    local_2c = 0;
+    (*DAT_0451ecb4)(*param_3,local_30,&local_2c,pvVar6);
+    if (0 < (int)local_2c) {
+      iVar10 = 0;
+      do {
+        iVar1 = iVar10 * 4;
+        iVar10 = iVar10 + 1;
+        FUN_0402cd10(0xf,"    attached shader: %u",*(undefined4 *)((int)pvVar6 + iVar1));
+      } while (iVar10 < (int)local_2c);
+    }
+    free(pvVar6);
+    (*DAT_0451eca8)(*param_3,0x8b84,&local_34);
+    if (local_34 == 0) {
+      FUN_0402cd10(0xf,"No program info log.");
+      return;
+    }
+    pvVar6 = malloc(local_34);
+    (*DAT_0451ecac)(*param_3,local_34,0,pvVar6);
+    FUN_0402cd10(0xf,"Program info log:\n%s",pvVar6);
+    free(pvVar6);
+    return;
+  }
+  iVar10 = *param_3;
+  if (iVar10 != *(int *)(param_2 + 0x338)) {
+    (*DAT_0451ec14)(iVar10);
+    *(int *)(param_2 + 0x338) = iVar10;
+    iVar10 = *param_3;
+  }
+  local_2c = 0;
+  (*DAT_0451eca8)(iVar10,0x8b8a,&local_2c);
+  local_40 = (byte *)0x0;
+  if (local_2c != 0) {
+    local_40 = malloc(local_2c);
+  }
+  local_30 = 0;
+  (*DAT_0451eca8)(*param_3,0x8b89,&local_30);
+  if (0xf < (int)local_30) {
+    FUN_0400a810("numAttributes < 16",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/shadercache.cpp"
+                 ,0x349,
+                 "void ShaderCache::LinkedProgram_SecondLink(OpenGLContextCache*, eON_LinkedProgramData*)"
+                );
+  }
+  if (local_30 != 0) {
+    local_48 = 1;
+    bVar3 = false;
+    do {
+      local_28[0] = 0;
+      local_28[1] = 0;
+      local_28[2] = 0;
+      (*DAT_0451ecbc)(*param_3,local_48 - 1,local_2c,local_28,local_28 + 1,local_28 + 2,local_40);
+      pbVar8 = local_40 + local_28[0] + -1;
+      bVar2 = *pbVar8;
+      while ((byte)(bVar2 - 0x30) < 10) {
+        pbVar8 = pbVar8 + -1;
+        bVar2 = *pbVar8;
+      }
+      uVar13 = local_40 < pbVar8;
+      uVar16 = local_40 == pbVar8;
+      if (pbVar8 < local_40) {
+        FUN_0400a810("ptr >= attributeNameBuffer",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/shadercache.cpp"
+                     ,0x358,
+                     "void ShaderCache::LinkedProgram_SecondLink(OpenGLContextCache*, eON_LinkedProgramData*)"
+                    );
+      }
+      lVar7 = strtol((char *)(pbVar8 + 1),(char **)0x0,10);
+      iVar10 = 0x11;
+      cVar4 = (char)lVar7;
+      bVar2 = pbVar8[1];
+      pbVar8[1] = 0;
+      pbVar11 = local_40;
+      pbVar12 = (byte *)"eON_AttrPosition";
+      do {
+        if (iVar10 == 0) break;
+        iVar10 = iVar10 + -1;
+        uVar13 = *pbVar11 < *pbVar12;
+        uVar16 = *pbVar11 == *pbVar12;
+        pbVar11 = pbVar11 + (uint)bVar18 * -2 + 1;
+        pbVar12 = pbVar12 + (uint)bVar18 * -2 + 1;
+      } while ((bool)uVar16);
+      bVar5 = 0;
+      bVar14 = (!(bool)uVar13 && !(bool)uVar16) < (byte)uVar13;
+      bVar17 = (!(bool)uVar13 && !(bool)uVar16) == (bool)uVar13;
+      if (!bVar17) {
+        iVar10 = 0x11;
+        bVar5 = 5;
+        pbVar11 = local_40;
+        pbVar12 = (byte *)"eON_AttrTexCoord";
+        do {
+          if (iVar10 == 0) break;
+          iVar10 = iVar10 + -1;
+          bVar14 = *pbVar11 < *pbVar12;
+          bVar17 = *pbVar11 == *pbVar12;
+          pbVar11 = pbVar11 + (uint)bVar18 * -2 + 1;
+          pbVar12 = pbVar12 + (uint)bVar18 * -2 + 1;
+        } while (bVar17);
+        bVar15 = (!bVar14 && !bVar17) < bVar14;
+        bVar14 = (!bVar14 && !bVar17) == bVar14;
+        if (!bVar14) {
+          iVar10 = 0x12;
+          bVar5 = 9;
+          pbVar11 = local_40;
+          pbVar12 = (byte *)"eON_AttrPositionT";
+          do {
+            if (iVar10 == 0) break;
+            iVar10 = iVar10 + -1;
+            bVar15 = *pbVar11 < *pbVar12;
+            bVar14 = *pbVar11 == *pbVar12;
+            pbVar11 = pbVar11 + (uint)bVar18 * -2 + 1;
+            pbVar12 = pbVar12 + (uint)bVar18 * -2 + 1;
+          } while (bVar14);
+          bVar17 = (!bVar15 && !bVar14) < bVar15;
+          bVar14 = (!bVar15 && !bVar14) == bVar15;
+          if (!bVar14) {
+            iVar10 = 0xe;
+            bVar5 = 10;
+            pbVar11 = local_40;
+            pbVar12 = (byte *)"eON_AttrColor";
+            do {
+              if (iVar10 == 0) break;
+              iVar10 = iVar10 + -1;
+              bVar17 = *pbVar11 < *pbVar12;
+              bVar14 = *pbVar11 == *pbVar12;
+              pbVar11 = pbVar11 + (uint)bVar18 * -2 + 1;
+              pbVar12 = pbVar12 + (uint)bVar18 * -2 + 1;
+            } while (bVar14);
+            bVar15 = (!bVar17 && !bVar14) < bVar17;
+            bVar14 = (!bVar17 && !bVar14) == bVar17;
+            if (!bVar14) {
+              iVar10 = 0xf;
+              bVar5 = 3;
+              pbVar11 = local_40;
+              pbVar12 = (byte *)"eON_AttrNormal";
+              do {
+                if (iVar10 == 0) break;
+                iVar10 = iVar10 + -1;
+                bVar15 = *pbVar11 < *pbVar12;
+                bVar14 = *pbVar11 == *pbVar12;
+                pbVar11 = pbVar11 + (uint)bVar18 * -2 + 1;
+                pbVar12 = pbVar12 + (uint)bVar18 * -2 + 1;
+              } while (bVar14);
+              bVar17 = (!bVar15 && !bVar14) < bVar15;
+              bVar14 = (!bVar15 && !bVar14) == bVar15;
+              if (!bVar14) {
+                iVar10 = 0x10;
+                bVar5 = 6;
+                pbVar11 = local_40;
+                pbVar12 = (byte *)"eON_AttrTangent";
+                do {
+                  if (iVar10 == 0) break;
+                  iVar10 = iVar10 + -1;
+                  bVar17 = *pbVar11 < *pbVar12;
+                  bVar14 = *pbVar11 == *pbVar12;
+                  pbVar11 = pbVar11 + (uint)bVar18 * -2 + 1;
+                  pbVar12 = pbVar12 + (uint)bVar18 * -2 + 1;
+                } while (bVar14);
+                bVar15 = (!bVar17 && !bVar14) < bVar17;
+                bVar14 = (!bVar17 && !bVar14) == bVar17;
+                if (!bVar14) {
+                  iVar10 = 0x11;
+                  bVar5 = 7;
+                  pbVar11 = local_40;
+                  pbVar12 = (byte *)"eON_AttrBinormal";
+                  do {
+                    if (iVar10 == 0) break;
+                    iVar10 = iVar10 + -1;
+                    bVar15 = *pbVar11 < *pbVar12;
+                    bVar14 = *pbVar11 == *pbVar12;
+                    pbVar11 = pbVar11 + (uint)bVar18 * -2 + 1;
+                    pbVar12 = pbVar12 + (uint)bVar18 * -2 + 1;
+                  } while (bVar14);
+                  bVar17 = (!bVar15 && !bVar14) < bVar15;
+                  bVar14 = (!bVar15 && !bVar14) == bVar15;
+                  if (!bVar14) {
+                    iVar10 = 0x14;
+                    bVar5 = 1;
+                    pbVar11 = local_40;
+                    pbVar12 = (byte *)"eON_AttrBlendWeight";
+                    do {
+                      if (iVar10 == 0) break;
+                      iVar10 = iVar10 + -1;
+                      bVar17 = *pbVar11 < *pbVar12;
+                      bVar14 = *pbVar11 == *pbVar12;
+                      pbVar11 = pbVar11 + (uint)bVar18 * -2 + 1;
+                      pbVar12 = pbVar12 + (uint)bVar18 * -2 + 1;
+                    } while (bVar14);
+                    bVar15 = (!bVar17 && !bVar14) < bVar17;
+                    bVar14 = (!bVar17 && !bVar14) == bVar17;
+                    if (!bVar14) {
+                      iVar10 = 0xe;
+                      bVar5 = 4;
+                      pbVar11 = local_40;
+                      pbVar12 = (byte *)"eON_AttrPSize";
+                      do {
+                        if (iVar10 == 0) break;
+                        iVar10 = iVar10 + -1;
+                        bVar15 = *pbVar11 < *pbVar12;
+                        bVar14 = *pbVar11 == *pbVar12;
+                        pbVar11 = pbVar11 + (uint)bVar18 * -2 + 1;
+                        pbVar12 = pbVar12 + (uint)bVar18 * -2 + 1;
+                      } while (bVar14);
+                      bVar17 = (!bVar15 && !bVar14) < bVar15;
+                      bVar14 = (!bVar15 && !bVar14) == bVar15;
+                      if (!bVar14) {
+                        iVar10 = 0x15;
+                        bVar5 = 2;
+                        pbVar11 = local_40;
+                        pbVar12 = (byte *)"eON_AttrBlendIndices";
+                        do {
+                          if (iVar10 == 0) break;
+                          iVar10 = iVar10 + -1;
+                          bVar17 = *pbVar11 < *pbVar12;
+                          bVar14 = *pbVar11 == *pbVar12;
+                          pbVar11 = pbVar11 + (uint)bVar18 * -2 + 1;
+                          pbVar12 = pbVar12 + (uint)bVar18 * -2 + 1;
+                        } while (bVar14);
+                        bVar15 = (!bVar17 && !bVar14) < bVar17;
+                        bVar14 = (!bVar17 && !bVar14) == bVar17;
+                        if (!bVar14) {
+                          iVar10 = 0x13;
+                          bVar5 = 8;
+                          pbVar11 = local_40;
+                          pbVar12 = (byte *)"eON_AttrTessFactor";
+                          do {
+                            if (iVar10 == 0) break;
+                            iVar10 = iVar10 + -1;
+                            bVar15 = *pbVar11 < *pbVar12;
+                            bVar14 = *pbVar11 == *pbVar12;
+                            pbVar11 = pbVar11 + (uint)bVar18 * -2 + 1;
+                            pbVar12 = pbVar12 + (uint)bVar18 * -2 + 1;
+                          } while (bVar14);
+                          bVar17 = (!bVar15 && !bVar14) < bVar15;
+                          bVar14 = (!bVar15 && !bVar14) == bVar15;
+                          if (!bVar14) {
+                            iVar10 = 0xc;
+                            bVar5 = 0xb;
+                            pbVar11 = local_40;
+                            pbVar12 = (byte *)"eON_AttrFog";
+                            do {
+                              if (iVar10 == 0) break;
+                              iVar10 = iVar10 + -1;
+                              bVar17 = *pbVar11 < *pbVar12;
+                              bVar14 = *pbVar11 == *pbVar12;
+                              pbVar11 = pbVar11 + (uint)bVar18 * -2 + 1;
+                              pbVar12 = pbVar12 + (uint)bVar18 * -2 + 1;
+                            } while (bVar14);
+                            bVar15 = (!bVar17 && !bVar14) < bVar17;
+                            bVar14 = (!bVar17 && !bVar14) == bVar17;
+                            if (!bVar14) {
+                              iVar10 = 0xe;
+                              bVar5 = 0xc;
+                              pbVar11 = local_40;
+                              pbVar12 = (byte *)"eON_AttrDepth";
+                              do {
+                                if (iVar10 == 0) break;
+                                iVar10 = iVar10 + -1;
+                                bVar15 = *pbVar11 < *pbVar12;
+                                bVar14 = *pbVar11 == *pbVar12;
+                                pbVar11 = pbVar11 + (uint)bVar18 * -2 + 1;
+                                pbVar12 = pbVar12 + (uint)bVar18 * -2 + 1;
+                              } while (bVar14);
+                              bVar17 = (!bVar15 && !bVar14) < bVar15;
+                              bVar14 = (!bVar15 && !bVar14) == bVar15;
+                              if (!bVar14) {
+                                iVar10 = 0xf;
+                                pbVar11 = local_40;
+                                pbVar12 = (byte *)"eON_AttrSample";
+                                do {
+                                  if (iVar10 == 0) break;
+                                  iVar10 = iVar10 + -1;
+                                  bVar17 = *pbVar11 < *pbVar12;
+                                  bVar14 = *pbVar11 == *pbVar12;
+                                  pbVar11 = pbVar11 + (uint)bVar18 * -2 + 1;
+                                  pbVar12 = pbVar12 + (uint)bVar18 * -2 + 1;
+                                } while (bVar14);
+                                bVar5 = -((!bVar17 && !bVar14) == bVar17) & 0xd;
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      pbVar8[1] = bVar2;
+      if (cVar4 == '\0' && bVar5 == 0) {
+        uVar9 = 0;
+        bVar3 = true;
+      }
+      else if (bVar5 == 9) {
+        uVar9 = 0;
+        bVar3 = true;
+        if (cVar4 != '\0') {
+          FUN_0400a810("usageIndex == 0",
+                       "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/shadercache.cpp"
+                       ,0x38b,
+                       "void ShaderCache::LinkedProgram_SecondLink(OpenGLContextCache*, eON_LinkedProgramData*)"
+                      );
+        }
+      }
+      else {
+        uVar9 = local_48;
+        if (bVar3) {
+          uVar9 = local_48 - 1;
+        }
+      }
+      *(byte *)((int)param_3 + uVar9 * 2 + 9) = bVar5;
+      *(char *)((int)param_3 + uVar9 * 2 + 10) = cVar4;
+      (*DAT_0451ece8)(*param_3,uVar9,local_40);
+      bVar14 = local_48 < local_30;
+      local_48 = local_48 + 1;
+    } while (bVar14);
+  }
+  free(local_40);
+  param_3[1] = 1;
+  (*DAT_0451ec74)(*param_3);
+  return;
+}
+

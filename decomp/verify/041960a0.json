@@ -1,0 +1,240 @@
+
+/* source: winsock */
+
+undefined4
+AddEthernetInterface
+          (undefined4 param_1,int param_2,int *param_3,uint param_4,undefined2 *param_5,uint param_6
+          ,uint *param_7)
+
+{
+  undefined2 uVar1;
+  undefined2 *__dest;
+  uint uVar2;
+  uint *puVar3;
+  int iVar4;
+  int *__ptr;
+  int iVar5;
+  int *piVar6;
+  uint uVar7;
+  undefined4 *puVar8;
+  undefined4 *puVar9;
+  uint uVar10;
+  undefined4 *puVar11;
+  int iVar12;
+  undefined4 *puVar13;
+  bool bVar14;
+  byte bVar15;
+  undefined4 local_dc;
+  size_t *local_d8;
+  undefined4 local_d4;
+  undefined1 local_ac [4];
+  undefined2 local_a8;
+  undefined2 local_a6;
+  undefined4 local_a4;
+  undefined2 local_90;
+  undefined2 local_8e;
+  undefined4 local_8c;
+  undefined2 local_78;
+  undefined2 local_76;
+  undefined4 local_74;
+  int local_50;
+  size_t local_28;
+  undefined4 *local_24;
+  undefined1 *local_18;
+  
+  puVar3 = param_7;
+  uVar2 = param_6;
+  __dest = param_5;
+  bVar15 = 0;
+  local_18 = (undefined1 *)&param_1;
+  if (param_2 != -0x7ffb8b81) {
+    if (param_2 == -0x37ffffec) {
+      puVar9 = (undefined4 *)&stack0xffffff30;
+      if ((((0xf < param_4) && (puVar9 = (undefined4 *)&stack0xffffff30, param_3 != (int *)0x0)) &&
+          (puVar9 = (undefined4 *)&stack0xffffff30, 0xf < param_6)) &&
+         ((puVar9 = (undefined4 *)&stack0xffffff30, param_5 != (undefined2 *)0x0 &&
+          (puVar9 = (undefined4 *)&stack0xffffff30, param_7 != (uint *)0x0)))) {
+        if ((short)*param_3 != 2) {
+          local_d4 = 0x419650c;
+          eON_SetLastError();
+          return 0xffffffff;
+        }
+        local_d4 = 0x41961b8;
+        iVar4 = eON_Int_LookupRoute();
+        puVar9 = &local_dc;
+        if (iVar4 == 0) {
+          local_d8 = &local_28;
+          local_28 = 0;
+          local_d4 = 0;
+          local_dc = 0;
+          iVar4 = eON_GetIpAddrTable();
+          puVar9 = (undefined4 *)&stack0xffffff18;
+          if (iVar4 == 0x7a) {
+            __ptr = malloc(local_28);
+            iVar4 = eON_GetIpAddrTable();
+            if ((iVar4 == 0) && (iVar4 = *__ptr, iVar4 != 0)) {
+              iVar5 = 0;
+              piVar6 = __ptr;
+              iVar12 = iVar4;
+              do {
+                if (piVar6[2] == local_50) {
+                  iVar12 = iVar5;
+                }
+                iVar5 = iVar5 + 1;
+                piVar6 = piVar6 + 6;
+              } while (iVar5 != iVar4);
+              if (iVar5 != iVar12) {
+                bzero(__dest,0x10);
+                *__dest = 2;
+                *(int *)(__dest + 2) = __ptr[iVar12 * 6 + 1];
+                free(__ptr);
+                *puVar3 = 0x10;
+                return 0;
+              }
+            }
+            free(__ptr);
+            eON_SetLastError(0x271e);
+            return 0xffffffff;
+          }
+        }
+      }
+    }
+    else {
+      if (param_2 != -0x67fffff4) {
+        return 0x2726;
+      }
+      puVar9 = (undefined4 *)&stack0xffffff30;
+      if ((3 < param_4) && (puVar9 = (undefined4 *)&stack0xffffff30, param_3 != (int *)0x0)) {
+        if (*param_3 == 0) {
+          return 0;
+        }
+        local_d4 = 0x4196297;
+        FUN_0402cd10();
+        return 0;
+      }
+    }
+    *puVar9 = 0x271e;
+    puVar9[-1] = 0x419633c;
+    eON_SetLastError();
+    return 0xffffffff;
+  }
+  if (DAT_0451c444 == (void *)0x0) {
+    local_24 = (undefined4 *)0x0;
+    local_d4 = 0x4196368;
+    iVar4 = getifaddrs();
+    puVar9 = local_24;
+    if (iVar4 == -1) {
+      local_d4 = 0x41965e4;
+      __errno_location();
+      local_d4 = 0x41965fe;
+      FUN_0402cd10();
+    }
+    else {
+      for (; puVar9 != (undefined4 *)0x0; puVar9 = (undefined4 *)*puVar9) {
+        if (((short *)puVar9[3] != (short *)0x0) && (*(short *)puVar9[3] == 2)) {
+          local_d4 = 0x41963c5;
+          bzero(local_ac,0x4c);
+          uVar10 = puVar9[2];
+          if ((uVar10 & 1) != 0) {
+            local_ac = (undefined1  [4])((uint)local_ac | 1);
+          }
+          if ((uVar10 & 2) != 0) {
+            local_ac = (undefined1  [4])((uint)local_ac | 2);
+          }
+          if ((uVar10 & 8) != 0) {
+            local_ac = (undefined1  [4])((uint)local_ac | 4);
+          }
+          if ((uVar10 & 0x10) != 0) {
+            local_ac = (undefined1  [4])((uint)local_ac | 8);
+          }
+          if ((uVar10 & 0x1000) != 0) {
+            local_ac = (undefined1  [4])((uint)local_ac | 0x10);
+          }
+          local_a8 = 2;
+          local_a6 = 0;
+          local_a4 = *(undefined4 *)(puVar9[3] + 4);
+          local_78 = 2;
+          local_76 = 0;
+          if (puVar9[4] == 0) {
+            local_74 = 0xffffffff;
+          }
+          else {
+            local_74 = *(undefined4 *)(puVar9[4] + 4);
+          }
+          local_90 = 2;
+          local_8e = 0;
+          if ((puVar9[5] == 0) || ((*(byte *)(puVar9 + 2) & 0x12) == 0)) {
+            local_8c = 0xffffffff;
+          }
+          else {
+            local_8c = *(undefined4 *)(puVar9[5] + 4);
+          }
+          if (DAT_0451c444 == (void *)0x0) {
+            local_d4 = 0x4196615;
+            DAT_0451c444 = malloc(0x4c);
+          }
+          else {
+            if (DAT_0451c440 == 0) {
+              local_d4 = 0x4196593;
+              FUN_0400a810();
+            }
+            local_d4 = 0x4196498;
+            DAT_0451c444 = realloc(DAT_0451c444,(DAT_0451c440 + 1) * 0x4c);
+          }
+          puVar11 = (undefined4 *)local_ac;
+          puVar8 = (undefined4 *)(DAT_0451c440 * 0x4c + (int)DAT_0451c444);
+          uVar10 = 0x4c;
+          bVar14 = ((uint)puVar8 & 1) != 0;
+          puVar13 = puVar8;
+          if (bVar14) {
+            puVar11 = (undefined4 *)(local_ac + 1);
+            puVar13 = (undefined4 *)((int)puVar8 + 1);
+            *(undefined1 *)puVar8 = local_ac[0];
+            uVar10 = 0x4b;
+          }
+          if (((uint)puVar13 & 2) != 0) {
+            uVar1 = *(undefined2 *)puVar11;
+            uVar10 = uVar10 - 2;
+            puVar11 = (undefined4 *)((int)puVar11 + 2);
+            *(undefined2 *)puVar13 = uVar1;
+            puVar13 = (undefined4 *)((int)puVar13 + 2);
+          }
+          iVar4 = 0;
+          for (uVar7 = uVar10 >> 2; uVar7 != 0; uVar7 = uVar7 - 1) {
+            *puVar13 = *puVar11;
+            puVar11 = puVar11 + (uint)bVar15 * -2 + 1;
+            puVar13 = puVar13 + (uint)bVar15 * -2 + 1;
+          }
+          if ((uVar10 & 2) != 0) {
+            *(undefined2 *)puVar13 = *(undefined2 *)puVar11;
+            iVar4 = 2;
+          }
+          if (bVar14) {
+            *(undefined1 *)((int)puVar13 + iVar4) = *(undefined1 *)((int)puVar11 + iVar4);
+          }
+          DAT_0451c440 = DAT_0451c440 + 1;
+        }
+      }
+      local_d4 = 0x419653d;
+      freeifaddrs();
+    }
+    if (DAT_0451c444 == (void *)0x0) {
+      return 0x2726;
+    }
+  }
+  if (__dest == (undefined2 *)0x0) {
+    return 0x2726;
+  }
+  if (puVar3 == (uint *)0x0) {
+    return 0x2726;
+  }
+  uVar10 = DAT_0451c440 * 0x4c;
+  if (uVar2 <= uVar10 && uVar10 - uVar2 != 0) {
+    return 0x271e;
+  }
+  local_d4 = 0x4196152;
+  memcpy(__dest,DAT_0451c444,uVar10);
+  *puVar3 = uVar10;
+  return 0;
+}
+

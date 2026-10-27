@@ -1,0 +1,225 @@
+
+void __regparm3 DumpVirtualMemoryRegion(int param_1)
+
+{
+  uint uVar1;
+  uint uVar2;
+  uint *puVar3;
+  uint *puVar4;
+  undefined4 *puVar5;
+  uint uVar6;
+  int iVar7;
+  uint uVar8;
+  int iVar9;
+  int iVar10;
+  int iVar11;
+  int iVar12;
+  int local_528;
+  uint local_524;
+  uint *local_520;
+  uint local_51c [256];
+  undefined4 local_11c;
+  undefined4 local_118;
+  undefined1 local_114;
+  
+  iVar7 = *(int *)(param_1 + 0xc);
+  iVar12 = *(int *)(param_1 + 8) + -1 + iVar7;
+  sprintf((char *)local_51c,"(%p-%p)(%zu bytes)",*(int *)(param_1 + 8),iVar12,iVar7);
+  if ((*(byte *)(param_1 + 0x1c) & 1) == 0) {
+    if ((*(byte *)(param_1 + 0x1c) & 2) == 0) {
+      if (*(int *)(param_1 + 0x10) == 0) {
+        local_11c = 0x4d454d2c;
+        local_118 = &DAT_0059524f;
+      }
+      else {
+        iVar12 = *(int *)(param_1 + 0x14);
+        iVar7 = *(int *)(param_1 + 0x18);
+        sprintf((char *)&local_11c,",MAPPED (handle %p, offset %llu)",*(int *)(param_1 + 0x10),
+                iVar12,iVar7);
+      }
+    }
+    else {
+      local_11c = 0x4550532c;
+      local_118 = (undefined *)0x4c414943;
+      local_114 = 0;
+    }
+  }
+  else {
+    uVar2 = (uint)local_118 >> 0x10;
+    local_11c = 0x414d492c;
+    local_118 = (undefined *)CONCAT22((ushort)uVar2 & 0xff00,0x4547);
+  }
+  strcat((char *)local_51c,(char *)&local_11c);
+  FUN_0413b0b0();
+  puVar4 = local_51c;
+  do {
+    puVar3 = puVar4;
+    uVar1 = *puVar3 + 0xfefefeff & ~*puVar3;
+    uVar2 = uVar1 & 0x80808080;
+    puVar4 = puVar3 + 1;
+  } while (uVar2 == 0);
+  if ((uVar1 & 0x8080) == 0) {
+    puVar4 = (uint *)((int)puVar3 + 6);
+    uVar2 = uVar2 >> 0x10;
+  }
+  puVar5 = (undefined4 *)((int)puVar4 + (-3 - (uint)CARRY1((byte)uVar2,(byte)uVar2)));
+  *puVar5 = 0x6e69202c;
+  puVar5[1] = 0x70207469;
+  puVar5[2] = 0x3a746f72;
+  *(undefined2 *)(puVar5 + 3) = 0x20;
+  strcat((char *)local_51c,(char *)&local_11c);
+  if (*(int *)(param_1 + 0x30) == 0) {
+    FUN_0413b0b0();
+    puVar4 = local_51c;
+    do {
+      puVar3 = puVar4;
+      uVar1 = *puVar3 + 0xfefefeff & ~*puVar3;
+      uVar2 = uVar1 & 0x80808080;
+      puVar4 = puVar3 + 1;
+    } while (uVar2 == 0);
+    if ((uVar1 & 0x8080) == 0) {
+      puVar4 = (uint *)((int)puVar3 + 6);
+      uVar2 = uVar2 >> 0x10;
+    }
+    puVar5 = (undefined4 *)((int)puVar4 + (-3 - (uint)CARRY1((byte)uVar2,(byte)uVar2)));
+    *puVar5 = 0x7563202c;
+    puVar5[1] = 0x70207272;
+    puVar5[2] = 0x3a746f72;
+    *(undefined2 *)(puVar5 + 3) = 0x20;
+    strcat((char *)local_51c,(char *)&local_11c);
+  }
+  else {
+    fprintf(stderr,(char *)&PTR_DAT_04302331,local_51c);
+    uVar2 = *(uint *)(param_1 + 0xc) >> 0xc;
+    local_520 = *(uint **)(param_1 + 0x30);
+    if (uVar2 != 0) {
+      uVar1 = *local_520;
+      iVar11 = 0;
+      local_524 = 0xffffffff;
+      local_528 = 0;
+      uVar8 = uVar1 & 1;
+      iVar9 = 1;
+LAB_0413c470:
+      if ((1 << ((byte)iVar9 & 0x1f) & uVar1) != 0) {
+        uVar8 = uVar8 | 2;
+      }
+      if (iVar9 + 1 == 0x20) {
+        iVar10 = 1;
+        uVar1 = local_520[1];
+        local_520 = local_520 + 1;
+        uVar6 = 1;
+      }
+      else {
+        iVar10 = iVar9 + 2;
+        uVar6 = 1 << ((byte)(iVar9 + 1) & 0x1f);
+      }
+      if ((uVar1 & uVar6) != 0) {
+        uVar8 = uVar8 | 4;
+      }
+      if (iVar10 == 0x20) {
+        local_520 = local_520 + 1;
+        iVar10 = 0;
+      }
+      if (local_524 == uVar8) {
+        iVar9 = local_528;
+        uVar1 = local_524;
+        if (uVar2 - 1 == iVar11) goto LAB_0413c530;
+      }
+      else {
+        iVar9 = iVar11;
+        uVar1 = uVar8;
+        if (local_524 != 0xffffffff) {
+LAB_0413c530:
+          iVar9 = local_528 * 0x1000 + *(int *)(param_1 + 8);
+          iVar12 = *(int *)(param_1 + 8) + -1 + iVar11 * 0x1000;
+          switch(local_524 & 7) {
+          case 0:
+            break;
+          case 1:
+            break;
+          case 2:
+            break;
+          case 3:
+            break;
+          case 4:
+            break;
+          case 5:
+            break;
+          case 6:
+            break;
+          case 7:
+          }
+          FUN_0413b0b0();
+          iVar7 = iVar12 - iVar9;
+          fprintf(stderr,"\tpage range: %p - %p (%zu bytes) has protection %s\n",iVar9,iVar12,iVar7,
+                  &local_11c);
+          iVar9 = iVar11;
+          uVar1 = uVar8;
+        }
+      }
+      local_524 = uVar1;
+      local_528 = iVar9;
+      if (iVar11 + 1U != uVar2) {
+        iVar11 = iVar11 + 1;
+        uVar1 = *local_520;
+        uVar8 = (uint)((1 << ((byte)iVar10 & 0x1f) & uVar1) != 0);
+        iVar9 = iVar10 + 1;
+        if (iVar9 == 0x20) {
+          iVar9 = 0;
+          uVar1 = local_520[1];
+          local_520 = local_520 + 1;
+        }
+        goto LAB_0413c470;
+      }
+    }
+  }
+  uVar2 = *(uint *)(param_1 + 0x20);
+  if (uVar2 == 0) {
+    fprintf(stderr,"%s, only reserved\n",local_51c,iVar12,iVar7);
+    return;
+  }
+  uVar1 = *(uint *)(param_1 + 0xc) >> 0xc;
+  if (uVar2 == uVar1) {
+    fprintf(stderr,"%s, all committed\n",local_51c,iVar12,iVar7);
+  }
+  else if (uVar2 == 0xffffffff) {
+    fprintf(stderr,(char *)&PTR_DAT_04302331,local_51c,iVar12,iVar7);
+    puVar4 = *(uint **)(param_1 + 0x24);
+    uVar2 = *(uint *)(param_1 + 0xc) >> 0xc;
+    if (uVar2 != 0) {
+      uVar8 = 0;
+      uVar1 = 0;
+      do {
+        while ((*puVar4 & 1 << ((byte)uVar1 & 0x1f)) != 0) {
+          uVar1 = uVar1 + 1;
+          if ((uVar1 & 0x1f) == 0) {
+            puVar4 = puVar4 + 1;
+          }
+          if (uVar2 <= uVar1) goto LAB_0413c7fa;
+        }
+        if (uVar8 < uVar1) {
+          iVar7 = uVar8 * 0x1000 + *(int *)(param_1 + 8);
+          iVar12 = iVar7 + -1 + (uVar1 - uVar8) * 0x1000;
+          fprintf(stderr,"\tcommitted page range: %p - %p (%zu bytes)\n",iVar7,iVar12,iVar12 - iVar7
+                 );
+        }
+        uVar8 = uVar1 + 1;
+        if ((uVar8 & 0x1f) == 0) {
+          puVar4 = puVar4 + 1;
+        }
+        uVar1 = uVar8;
+      } while (uVar8 < uVar2);
+LAB_0413c7fa:
+      if (uVar8 < uVar2) {
+        iVar7 = uVar8 * 0x1000 + *(int *)(param_1 + 8);
+        iVar12 = iVar7 + -1 + (uVar2 - uVar8) * 0x1000;
+        fprintf(stderr,"\tcommitted page range: %p - %p (%zu bytes)\n",iVar7,iVar12,iVar12 - iVar7);
+      }
+    }
+  }
+  else {
+    fprintf(stderr,"%s, first %zu of %zu pgs cmted (%zu bytes)",local_51c,uVar2,uVar1,uVar2 << 0xc);
+  }
+  return;
+}
+

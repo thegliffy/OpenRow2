@@ -1,0 +1,35 @@
+
+undefined4 eON_timeEndPeriod(int param_1)
+
+{
+  int iVar1;
+  
+  if (&DAT_000f423f < (undefined *)(param_1 + -1)) {
+    FUN_0402cd10(5,"eON_timeEndPeriod returns TIMERR_NOCANDO for timer resolution %u",param_1);
+    return 0x61;
+  }
+  if (DAT_0451c124 == DAT_0451c120) {
+    FUN_0402cd10(10,"More eON_timeEndPeriod calls than timeBeginPeriod ones!");
+  }
+  else {
+    iVar1 = *(int *)(DAT_0451c120 + -4 + (DAT_0451c124 - DAT_0451c120 >> 2) * 4);
+    if (iVar1 != param_1) {
+      FUN_0402cd10(5,
+                   "eON_timeEndPeriod: WARNING! Timer resolution in timeEndPeriod() doesn\'t match the one in previous timeBeginPeriod()!!"
+                  );
+    }
+    DAT_0451c124 = DAT_0451c124 + -4;
+    if (DAT_0451c120 == DAT_0451c124) {
+      FUN_0402cd10(5,
+                   "eON_timeEndPeriod: Application  no longer wants timer resolution %u. Reverting to default."
+                   ,iVar1);
+      return 0;
+    }
+    FUN_0402cd10(5,
+                 "eON_timeEndPeriod: Application  no longer wants timer resolution %u. Reverting to previous: %u"
+                 ,iVar1,*(undefined4 *)(DAT_0451c120 + -4 + (DAT_0451c124 - DAT_0451c120 >> 2) * 4))
+    ;
+  }
+  return 0;
+}
+

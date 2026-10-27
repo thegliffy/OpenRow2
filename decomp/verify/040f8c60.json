@@ -1,0 +1,29 @@
+
+/* source: backendOpenALSoft */
+
+void UpdateBuffer(void)
+
+{
+  uint uVar1;
+  int local_10 [2];
+  
+  alcGetIntegerv(DAT_044fa4cc,0x312,1,local_10);
+  uVar1 = (DAT_044fa4dc - DAT_044fa4e4) / DAT_044fa4d8;
+  if ((int)uVar1 < local_10[0]) {
+    alcCaptureSamples(DAT_044fa4cc,DAT_044fa4e4 + DAT_044fa4e0,uVar1);
+    local_10[0] = local_10[0] - uVar1;
+    if (DAT_044fa4dc <= DAT_044fa4d8 * local_10[0] && DAT_044fa4d8 * local_10[0] - DAT_044fa4dc != 0
+       ) {
+      FUN_0400a810("capturedSamples * sAudioCaptureSampleSize <= sAudioCaptureBufferSize",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/dsound/backendOpenALSoft.cpp"
+                   ,0x416,"void UpdateBuffer()");
+    }
+    alcCaptureSamples(DAT_044fa4cc,DAT_044fa4e0,local_10[0]);
+    DAT_044fa4e4 = local_10[0] * DAT_044fa4d8;
+    return;
+  }
+  alcCaptureSamples(DAT_044fa4cc,DAT_044fa4e4 + DAT_044fa4e0,local_10[0]);
+  DAT_044fa4e4 = DAT_044fa4e4 + local_10[0] * DAT_044fa4d8;
+  return;
+}
+

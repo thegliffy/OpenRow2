@@ -1,0 +1,87 @@
+
+undefined4 fs_GetFileAttributesExA(undefined4 param_1,int param_2,undefined4 *param_3)
+
+{
+  undefined4 *puVar1;
+  char cVar2;
+  int iVar3;
+  int *piVar4;
+  undefined4 uVar5;
+  bool bVar6;
+  char local_1080 [4096];
+  stat64 local_80;
+  undefined4 *local_18;
+  
+  puVar1 = param_3;
+  uVar5 = param_1;
+  local_18 = &param_1;
+  if (param_2 != 0) {
+    FUN_0402cd10(10,"fs_GetFileAttributesExA called with invalid fInfoLevelId param");
+  }
+  cVar2 = FUN_04132d70(uVar5);
+  if (cVar2 == '\0') {
+    FUN_0400f520(uVar5,local_1080);
+    iVar3 = FUN_0403c400(local_1080);
+    if (iVar3 == 0) {
+      iVar3 = __xstat64(3,local_1080,&local_80);
+      if (iVar3 != 0) {
+        piVar4 = __errno_location();
+        switch(*piVar4) {
+        default:
+          FUN_0402cd10(0x14,"   stat() errno unknown (%d)",*piVar4);
+          return 0;
+        case 2:
+        case 0x14:
+          eON_SetLastError(3);
+          return 0;
+        case 5:
+          FUN_0402cd10(0x14,"   stat() errno: EIO");
+          return 0;
+        case 0xd:
+          FUN_0402cd10(0x14,"   stat() errno: EACCES");
+          return 0;
+        case 0xe:
+          FUN_0402cd10(0x14,"   stat() errno: EFAULT");
+          return 0;
+        case 0x24:
+          FUN_0402cd10(0x14,"   stat() errno: ENAMETOOLONG");
+          return 0;
+        case 0x28:
+          FUN_0402cd10(0x14,"   stat() errno: ELOOP");
+          return 0;
+        case 0x4b:
+          FUN_0402cd10(0x14,"   stat() errno: EOVERFLOW");
+          return 0;
+        }
+      }
+    }
+    else {
+      SplitFile_GetStat(local_1080,&local_80);
+    }
+    *puVar1 = 0;
+    uVar5 = 1;
+    bVar6 = (local_80.st_mode & 0x4000) != 0;
+    if (bVar6) {
+      *puVar1 = 0x10;
+      uVar5 = 0x11;
+    }
+    if ((local_80.st_mode & 0x80) == 0) {
+      *puVar1 = uVar5;
+    }
+    else if (!bVar6) {
+      *puVar1 = 0x80;
+    }
+    eON_Int_TimespecToFileTime(&local_80.st_ctim,puVar1 + 1);
+    eON_Int_TimespecToFileTime(&local_80.st_atim,puVar1 + 3);
+    eON_Int_TimespecToFileTime(&local_80.st_mtim,puVar1 + 5);
+    puVar1[8] = (undefined4)local_80.st_size;
+    puVar1[7] = local_80.st_size._4_4_;
+    uVar5 = 1;
+  }
+  else {
+    eON_SetLastError(0x7b);
+    uVar5 = 0;
+  }
+  return uVar5;
+}
+

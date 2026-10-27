@@ -1,0 +1,58 @@
+
+undefined4
+Direct3D9Imp__GetAdapterIdentifier(undefined4 param_1,uint param_2,int param_3,undefined4 *param_4)
+
+{
+  uint uVar1;
+  int iVar2;
+  undefined4 uVar3;
+  
+  if (param_3 != 0) {
+    FUN_0402cd10(10,"Warning: GetAdapterIdentifier enables download of WHQL drivers");
+  }
+  if (param_4 == (undefined4 *)0x0) {
+    uVar3 = 0x8876086c;
+  }
+  else {
+    uVar1 = OpenGLDisplay_GetCount();
+    if (param_2 < uVar1) {
+      iVar2 = OpenGLDisplay_GetByIndex(param_2);
+      if (iVar2 == 0) {
+        uVar3 = 0x8876086a;
+      }
+      else {
+        *param_4 = 0x204e4f65;
+        param_4[1] = 0x76697244;
+        *(undefined2 *)(param_4 + 2) = 0x7265;
+        *(undefined1 *)((int)param_4 + 10) = 0;
+        OpenGLDisplayName(iVar2,param_4 + 0x80,0x200,0);
+        uVar3 = DAT_042daa78;
+        param_4[0x100] = 0x6c697542;
+        param_4[0x101] = 0x206e6974;
+        param_4[0x102] = 0x70616461;
+        param_4[0x103] = &DAT_00726574;
+        param_4[0x10e] = uVar3;
+        uVar3 = DAT_042daa7c;
+        param_4[0x108] = 1;
+        param_4[0x109] = 0;
+        param_4[0x10a] = 1;
+        param_4[0x10f] = uVar3;
+        uVar3 = DAT_042daa80;
+        param_4[0x10b] = 1;
+        param_4[0x10c] = 1;
+        param_4[0x10d] = 1;
+        param_4[0x110] = uVar3;
+        uVar3 = DAT_042daa84;
+        param_4[0x112] = 1;
+        param_4[0x111] = uVar3;
+        uVar3 = 0;
+      }
+    }
+    else {
+      bzero(param_4,0x44c);
+      uVar3 = 0x8876086c;
+    }
+  }
+  return uVar3;
+}
+

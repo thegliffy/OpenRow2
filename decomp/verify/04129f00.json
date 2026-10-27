@@ -1,0 +1,114 @@
+
+undefined4 eON_SetConsoleCtrlHandler(int param_1,int param_2)
+
+{
+  int *piVar1;
+  void *__dest;
+  char *pcVar2;
+  uint uVar3;
+  int *piVar4;
+  uint uVar5;
+  void *__dest_00;
+  int iVar6;
+  size_t sVar7;
+  uint uVar8;
+  uint local_18;
+  
+  pcVar2 = "TRUE";
+  if (param_2 == 0) {
+    pcVar2 = "FALSE";
+  }
+  FUN_0402cd10(5,"SetConsoleCtrlHandler( HandlerRoutine = %p, Add = %s )",param_1,pcVar2);
+  piVar4 = DAT_04515b40;
+  if (param_1 == 0) {
+    DAT_04515b38 = param_2 != 0;
+    return 1;
+  }
+  if (param_2 == 0) {
+    uVar8 = (int)DAT_04515b40 - (int)DAT_04515b3c >> 2;
+    if (uVar8 == 0) {
+      return 1;
+    }
+    uVar3 = 0;
+    if (*DAT_04515b3c == param_1) {
+      uVar5 = 1;
+    }
+    else {
+      do {
+        uVar5 = uVar3;
+        uVar3 = uVar5 + 1;
+        if (uVar3 == uVar8) {
+          return 1;
+        }
+      } while (DAT_04515b3c[uVar3] != param_1);
+      uVar5 = uVar5 + 2;
+    }
+    if (uVar5 < uVar8) {
+      iVar6 = uVar5 * 4;
+      do {
+        uVar5 = uVar5 + 1;
+        *(undefined4 *)((int)DAT_04515b3c + iVar6 + -4) = *(undefined4 *)((int)DAT_04515b3c + iVar6)
+        ;
+        iVar6 = iVar6 + 4;
+      } while (uVar5 < (uint)((int)DAT_04515b40 - (int)DAT_04515b3c >> 2));
+    }
+    DAT_04515b40 = DAT_04515b40 + -1;
+    return 1;
+  }
+  uVar8 = (int)DAT_04515b40 - (int)DAT_04515b3c >> 2;
+  if (uVar8 != 0) {
+    uVar3 = 0;
+    iVar6 = *DAT_04515b3c;
+    while( true ) {
+      if (iVar6 == param_1) {
+        return 1;
+      }
+      uVar3 = uVar3 + 1;
+      if (uVar3 == uVar8) break;
+      iVar6 = DAT_04515b3c[uVar3];
+    }
+  }
+  if (DAT_04515b40 != DAT_04515b44) {
+    piVar4 = (int *)0x0;
+    if (DAT_04515b40 != (int *)0x0) {
+      *DAT_04515b40 = param_1;
+      piVar4 = DAT_04515b40;
+    }
+    DAT_04515b40 = piVar4 + 1;
+    return 1;
+  }
+  uVar3 = 1;
+  if (uVar8 != 0) {
+    uVar3 = uVar8 * 2;
+    local_18 = 0xfffffffc;
+    if ((uVar3 < uVar8) || (0x3fffffff < uVar3)) goto LAB_0412a05f;
+  }
+  local_18 = uVar3 << 2;
+LAB_0412a05f:
+  __dest_00 = operator_new(local_18);
+  piVar1 = (int *)((int)__dest_00 + uVar8 * 4);
+  if (piVar1 != (int *)0x0) {
+    *piVar1 = param_1;
+  }
+  sVar7 = 0;
+  iVar6 = (int)piVar4 - (int)DAT_04515b3c >> 2;
+  if (iVar6 != 0) {
+    sVar7 = iVar6 * 4;
+    memmove(__dest_00,DAT_04515b3c,sVar7);
+  }
+  __dest = (void *)((int)__dest_00 + sVar7 + 4);
+  sVar7 = 0;
+  iVar6 = (int)DAT_04515b40 - (int)piVar4 >> 2;
+  if (iVar6 != 0) {
+    sVar7 = iVar6 * 4;
+    memmove(__dest,piVar4,sVar7);
+  }
+  if (DAT_04515b3c != (int *)0x0) {
+    operator_delete(DAT_04515b3c);
+  }
+  DAT_04515b44 = (int *)((int)__dest_00 + local_18);
+  DAT_04515b40 = (int *)(sVar7 + (int)__dest);
+  DAT_04515b3c = __dest_00;
+  return 1;
+}
+

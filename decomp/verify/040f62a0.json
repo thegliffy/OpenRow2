@@ -1,0 +1,15 @@
+
+void KeyboardEventReceiver__ProcessKeyUp(undefined4 param_1,undefined4 param_2,undefined2 param_3)
+
+{
+  int iVar1;
+  
+  iVar1 = KeycodeToDirectInputCode(param_3);
+  if (iVar1 != 0) {
+    KeyboardEventReceiver__Internal_ProcessKeyUp();
+    return;
+  }
+  FUN_0402cd10();
+  return;
+}
+

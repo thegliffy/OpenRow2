@@ -1,0 +1,72 @@
+
+/* source: eventSelectSystem */
+
+void EventSelect_AddEvent(uint param_1,undefined4 param_2,undefined4 param_3)
+
+{
+  uint uVar1;
+  int iVar2;
+  int iVar3;
+  int iVar4;
+  bool bVar5;
+  
+  if (DAT_0451c300 == '\0') {
+    pthread_mutex_init((pthread_mutex_t *)&DAT_0451c304,(pthread_mutexattr_t *)0x0);
+    DAT_0451c300 = '\x01';
+  }
+  pthread_mutex_lock((pthread_mutex_t *)&DAT_0451c304);
+  iVar2 = DAT_0451c31c;
+  iVar4 = DAT_0451c31c;
+  if (DAT_0451c31c < 1) {
+LAB_041910f7:
+    DAT_0451c31c = iVar2 + 1;
+    bVar5 = DAT_0451c31c == 0;
+    (&DAT_0451c320)[iVar4 * 4] = param_1;
+    (&DAT_0451c328)[iVar4 * 4] = 0;
+    (&DAT_0451c324)[iVar4 * 4] = param_2;
+    (&DAT_0451c32c)[iVar4 * 4] = param_3;
+    if (bVar5) goto LAB_04191129;
+  }
+  else {
+    iVar3 = 0;
+    uVar1 = DAT_0451c320;
+    while (uVar1 < param_1) {
+      iVar3 = iVar3 + 1;
+      if (iVar3 == DAT_0451c31c) goto LAB_041910e6;
+      uVar1 = (&DAT_0451c320)[iVar3 * 4];
+    }
+    iVar4 = iVar3;
+    if (param_1 != uVar1) {
+LAB_041910e6:
+      if (0xf < DAT_0451c31c) {
+        FUN_0400a810("mNumObservedSockets < MAX_OBSERVED_SOCKETS",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/winsock/eventSelectSystem.cpp"
+                     ,0xc2,"void EventSelect_AddEvent(SOCKET, LONG, HANDLE)");
+        iVar2 = DAT_0451c31c;
+      }
+      if (iVar4 < iVar2) {
+        DAT_0451c31c = iVar2;
+        memmove(&DAT_0451c330 + iVar4 * 4,&DAT_0451c320 + iVar4 * 4,(iVar2 - iVar4) * 0x10);
+      }
+      goto LAB_041910f7;
+    }
+    (&DAT_0451c320)[iVar3 * 4] = param_1;
+    (&DAT_0451c328)[iVar3 * 4] = 0;
+    (&DAT_0451c324)[iVar3 * 4] = param_2;
+    (&DAT_0451c32c)[iVar3 * 4] = param_3;
+  }
+  if (DAT_0451c420 == '\0') {
+    iVar2 = eON_CreateThread(0,0x10000,EventSelect_ThreadRoutine,0,0,0);
+    if (iVar2 == 0) {
+      FUN_0400a810("eON_CreateThread( __null, 65536, EventSelect_ThreadRoutine, __null, 0, 0 ) != __null"
+                   ,
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/winsock/eventSelectSystem.cpp"
+                   ,0xd3,"void EventSelect_AddEvent(SOCKET, LONG, HANDLE)");
+    }
+    DAT_0451c420 = '\x01';
+  }
+LAB_04191129:
+  pthread_mutex_unlock((pthread_mutex_t *)&DAT_0451c304);
+  return;
+}
+

@@ -1,0 +1,29 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+bool _glewInit_GL_ARB_texture_compression(void)
+
+{
+  int iVar1;
+  bool bVar2;
+  bool bVar3;
+  bool bVar4;
+  bool bVar5;
+  bool bVar6;
+  
+  iVar1 = glXGetProcAddressARB("glCompressedTexImage1DARB");
+  _DAT_0451e178 = iVar1;
+  _DAT_0451e174 = glXGetProcAddressARB("glCompressedTexImage2DARB");
+  bVar2 = _DAT_0451e174 == 0;
+  _DAT_0451e170 = glXGetProcAddressARB("glCompressedTexImage3DARB");
+  bVar3 = _DAT_0451e170 == 0;
+  _DAT_0451e16c = glXGetProcAddressARB("glCompressedTexSubImage1DARB");
+  bVar4 = _DAT_0451e16c == 0;
+  _DAT_0451e168 = glXGetProcAddressARB("glCompressedTexSubImage2DARB");
+  bVar5 = _DAT_0451e168 == 0;
+  _DAT_0451e164 = glXGetProcAddressARB("glCompressedTexSubImage3DARB");
+  bVar6 = _DAT_0451e164 == 0;
+  _DAT_0451e160 = glXGetProcAddressARB("glGetCompressedTexImageARB");
+  return _DAT_0451e160 == 0 || (bVar6 || (bVar5 || (bVar4 || (bVar3 || (bVar2 || iVar1 == 0)))));
+}
+

@@ -1,0 +1,193 @@
+
+/* WARNING: Removing unreachable block (ram,0x0414c8cc) */
+/* source: synchronisationPrimitives */
+
+undefined4 Synchronisation_CloseHandle(int param_1,char param_2)
+
+{
+  allocator *paVar1;
+  undefined4 *puVar2;
+  int *piVar3;
+  int *piVar4;
+  int iVar5;
+  _Rb_tree_node_base *p_Var6;
+  undefined4 uVar7;
+  void *pvVar8;
+  int iVar9;
+  int iVar10;
+  int *local_24 [5];
+  
+  pthread_mutex_lock((pthread_mutex_t *)&DAT_04516c7c);
+  if ((((DAT_04516c6c == '\0') || (param_1 < 0)) || (DAT_04516c74 - DAT_04516c70 >> 2 <= param_1))
+     || (piVar3 = *(int **)(DAT_04516c70 + param_1 * 4), piVar3 == (int *)0x0)) {
+    pthread_mutex_unlock((pthread_mutex_t *)&DAT_04516c7c);
+    uVar7 = 0;
+  }
+  else {
+    iVar10 = piVar3[1];
+    if (1 < iVar10) {
+      piVar3[1] = iVar10 + -1;
+      pthread_mutex_unlock((pthread_mutex_t *)&DAT_04516c7c);
+      return 1;
+    }
+    iVar9 = *piVar3;
+    if (((iVar9 == 1) && (*(int *)(piVar3[3] + 8) != 0)) && (param_2 == '\0')) {
+      pthread_mutex_unlock((pthread_mutex_t *)&DAT_04516c7c);
+      FUN_04149570(param_1,0);
+      uVar7 = Synchronisation_CloseHandle(param_1,1);
+    }
+    else {
+      piVar3[1] = iVar10 + -1;
+      piVar4 = (int *)piVar3[2];
+      if (piVar4 != (int *)0x0) {
+        do {
+          iVar10 = *piVar4;
+          if (*(int *)(iVar10 + 0x1c) == -2) {
+            *(int *)(iVar10 + 0x1c) = piVar4[2] + 0x80;
+          }
+          FUN_04147f30();
+          iVar9 = *(int *)(iVar10 + 4);
+          if (iVar9 != 0) {
+            iVar5 = 0;
+            do {
+              while (*(int **)(iVar10 + 0x20 + iVar5 * 4) != piVar3) {
+                iVar5 = iVar5 + 1;
+                if (iVar5 == iVar9) goto LAB_0414c560;
+              }
+              *(undefined4 *)(iVar10 + 0x20 + iVar5 * 4) = 0;
+              iVar5 = iVar5 + 1;
+            } while (iVar5 != iVar9);
+          }
+LAB_0414c560:
+          if ((*(int *)(iVar10 + 0x10) != 0) &&
+             (iVar9 = DAT_04518d58 - (int)DAT_04518d54 >> 2, iVar9 != 0)) {
+            iVar5 = 0;
+            if (iVar10 == *DAT_04518d54) {
+              *DAT_04518d54 = DAT_04518d54[iVar9 + -1];
+              DAT_04518d58 = DAT_04518d58 + -4;
+            }
+            else {
+              do {
+                iVar5 = iVar5 + 1;
+                if (iVar9 == iVar5) goto LAB_0414c56b;
+              } while (iVar10 != DAT_04518d54[iVar5]);
+              DAT_04518d54[iVar5] = DAT_04518d54[iVar9 + -1];
+              DAT_04518d58 = DAT_04518d58 + -4;
+            }
+          }
+LAB_0414c56b:
+          if ((*(int *)(iVar10 + 0x18) != 0) &&
+             (iVar9 = DAT_04518d64 - (int)DAT_04518d60 >> 2, iVar9 != 0)) {
+            iVar5 = 0;
+            if (iVar10 == *DAT_04518d60) {
+              *DAT_04518d60 = DAT_04518d60[iVar9 + -1];
+              DAT_04518d64 = DAT_04518d64 + -4;
+            }
+            else {
+              do {
+                iVar5 = iVar5 + 1;
+                if (iVar9 == iVar5) goto LAB_0414c576;
+              } while (iVar10 != DAT_04518d60[iVar5]);
+              DAT_04518d60[iVar5] = DAT_04518d60[iVar9 + -1];
+              DAT_04518d64 = DAT_04518d64 + -4;
+            }
+          }
+LAB_0414c576:
+          pthread_cond_signal(*(pthread_cond_t **)(iVar10 + 0x120));
+          piVar4 = (int *)piVar3[2];
+        } while (piVar4 != (int *)0x0);
+        iVar9 = *piVar3;
+      }
+      switch(iVar9) {
+      default:
+        iVar10 = 0;
+        FUN_0400a810("false",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/synchronisationPrimitives.cpp"
+                     ,0x6b9,"WINBOOL Synchronisation_CloseHandle(HANDLE, bool)");
+        break;
+      case 1:
+        iVar10 = 0;
+        fs_DeleteFileHandle(piVar3[3]);
+        break;
+      case 2:
+        iVar10 = 0;
+        thread_EraseThreadInfo(piVar3[3],param_1);
+        break;
+      case 3:
+      case 4:
+      case 5:
+      case 7:
+      case 8:
+switchD_0414c721_caseD_3:
+        iVar10 = 0;
+        break;
+      case 6:
+        iVar10 = piVar3[3];
+        break;
+      case 9:
+        iVar10 = 0;
+        iVar9 = DAT_04516c64 - (int)DAT_04516c60 >> 2;
+        if (iVar9 != 0) {
+          iVar10 = 0;
+          piVar4 = (int *)*DAT_04516c60;
+          puVar2 = DAT_04516c60;
+          while (piVar3 != piVar4) {
+            iVar10 = iVar10 + 1;
+            if (iVar10 == iVar9) goto switchD_0414c721_caseD_3;
+            puVar2 = DAT_04516c60 + iVar10;
+            piVar4 = (int *)*puVar2;
+          }
+          *puVar2 = DAT_04516c60[iVar9 + -1];
+          iVar10 = 0;
+          DAT_04516c64 = DAT_04516c64 + -4;
+        }
+      }
+      if (DAT_04518d84 != (_Rb_tree_node_base *)&DAT_04518d7c) {
+        iVar9 = *(int *)(DAT_04518d84 + 0x14);
+        p_Var6 = DAT_04518d84;
+        while (param_1 != iVar9) {
+          p_Var6 = (_Rb_tree_node_base *)std::_Rb_tree_increment(p_Var6);
+          if (p_Var6 == (_Rb_tree_node_base *)&DAT_04518d7c) goto LAB_0414c5fc;
+          iVar9 = *(int *)(p_Var6 + 0x14);
+        }
+        pvVar8 = (void *)std::_Rb_tree_rebalance_for_erase
+                                   (p_Var6,(_Rb_tree_node_base *)&DAT_04518d7c);
+        paVar1 = (allocator *)(*(int *)((int)pvVar8 + 0x10) + -0xc);
+        if (paVar1 != (allocator *)&std::string::_Rep::_S_empty_rep_storage) {
+          LOCK();
+          piVar4 = (int *)(*(int *)((int)pvVar8 + 0x10) + -4);
+          iVar9 = *piVar4;
+          *piVar4 = *piVar4 + -1;
+          UNLOCK();
+          if (iVar9 < 1) {
+            std::string::_Rep::_M_destroy(paVar1);
+          }
+        }
+        operator_delete(pvVar8);
+        DAT_04518d8c = DAT_04518d8c + -1;
+      }
+LAB_0414c5fc:
+      local_24[0] = piVar3;
+      if (DAT_04518d94 == DAT_04518d98) {
+        FUN_0414d300(&DAT_04518d90,DAT_04518d94,local_24);
+      }
+      else {
+        piVar4 = (int *)0x0;
+        if (DAT_04518d94 != (int *)0x0) {
+          *DAT_04518d94 = (int)piVar3;
+          piVar4 = DAT_04518d94;
+        }
+        DAT_04518d94 = piVar4 + 1;
+      }
+      *(undefined4 *)(DAT_04516c70 + param_1 * 4) = 0;
+      pthread_mutex_unlock((pthread_mutex_t *)&DAT_04516c7c);
+      uVar7 = 1;
+      if (iVar10 != 0) {
+        FUN_0412d570(iVar10);
+        uVar7 = 1;
+      }
+    }
+  }
+  return uVar7;
+}
+

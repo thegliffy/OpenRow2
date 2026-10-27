@@ -1,0 +1,13 @@
+
+char * D3DMULTISAMPLETYPE_ToString(uint param_1)
+
+{
+  char *pcVar1;
+  
+  pcVar1 = "!!!unknown!!!";
+  if (param_1 < 0x11) {
+    pcVar1 = (&PTR_s_D3DMULTISAMPLE_NONE_042eeb80)[param_1];
+  }
+  return pcVar1;
+}
+

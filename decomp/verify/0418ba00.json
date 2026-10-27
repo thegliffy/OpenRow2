@@ -1,0 +1,43 @@
+
+undefined4
+eONMemoryReader__Read(uint *param_1,uint param_2,void *param_3,size_t param_4,size_t *param_5)
+
+{
+  uint uVar1;
+  int *piVar2;
+  int *piVar3;
+  int iVar4;
+  int iVar5;
+  
+  if (((param_4 == 0) || (param_3 == (void *)0x0)) || (param_5 == (size_t *)0x0)) {
+    FUN_0402cd10(10,"Invalid parameters to eONMemoryReader::Read. Check it!");
+    return 0;
+  }
+  if (((param_2 >> 0x10 == 0xfafa) && (param_2 = param_2 + 0x5060000, param_2 < *param_1)) &&
+     (param_2 != 0xffffffff)) {
+    piVar2 = (int *)param_1[1];
+    iVar5 = (int)(param_1[2] - (int)piVar2) >> 2;
+    if (iVar5 != 0) {
+      piVar3 = (int *)*piVar2;
+      iVar4 = 0;
+      uVar1 = piVar3[4];
+      while (param_2 != uVar1) {
+        iVar4 = iVar4 + 1;
+        if (iVar4 == iVar5) goto LAB_0418ba31;
+        piVar3 = (int *)piVar2[iVar4];
+        uVar1 = piVar3[4];
+      }
+      if (param_4 + piVar3[3] < (uint)piVar3[2]) {
+        memcpy(param_3,(void *)(piVar3[3] + *piVar3),param_4);
+        piVar3[3] = piVar3[3] + param_4;
+        *param_5 = param_4;
+        return 1;
+      }
+      FUN_0402cd10(10,"eONMemoryReader::Read() trying to read from memory beyond allowed size");
+    }
+  }
+LAB_0418ba31:
+  *param_5 = 0;
+  return 0;
+}
+

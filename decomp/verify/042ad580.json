@@ -1,0 +1,261 @@
+
+undefined4 png_image_read_background(int *param_1)
+
+{
+  char cVar1;
+  ushort uVar2;
+  int *piVar3;
+  int iVar4;
+  int iVar5;
+  uint uVar6;
+  int iVar7;
+  int iVar8;
+  char cVar9;
+  byte *pbVar10;
+  int iVar11;
+  byte bVar12;
+  uint uVar13;
+  ushort *puVar14;
+  ushort *puVar15;
+  byte bVar16;
+  byte bVar17;
+  ushort uVar18;
+  uint uVar19;
+  int iVar20;
+  uint uVar21;
+  ushort *puVar22;
+  uint uVar23;
+  uint uVar24;
+  byte *pbVar25;
+  byte *pbVar26;
+  uint local_68;
+  ushort *local_60;
+  uint local_5c;
+  ushort *local_58;
+  int local_4c;
+  uint local_48;
+  int local_44;
+  int local_40;
+  uint local_3c;
+  int local_38;
+  int local_30;
+  
+  piVar3 = (int *)*param_1;
+  iVar4 = *(int *)*piVar3;
+  iVar5 = ((int *)*piVar3)[1];
+  uVar6 = piVar3[3];
+  iVar7 = piVar3[2];
+  if ((*(uint *)(iVar4 + 0xd8) & 0x600000) == 0) {
+                    /* WARNING: Subroutine does not return */
+    png_error(iVar4,"lost rgb to gray");
+  }
+  if ((*(uint *)(iVar4 + 0xd8) & 0x80) != 0) {
+                    /* WARNING: Subroutine does not return */
+    png_error(iVar4,"unexpected compose");
+  }
+  cVar9 = FUN_042c5210(iVar4,iVar5);
+  if (cVar9 != '\x02') {
+                    /* WARNING: Subroutine does not return */
+    png_error(iVar4,"lost/gained channels");
+  }
+  if ((piVar3[4] & 5U) == 1) {
+                    /* WARNING: Subroutine does not return */
+    png_error(iVar4,"unexpected 8-bit transformation");
+  }
+  local_38 = 1;
+  cVar9 = *(char *)(iVar4 + 0x1b0);
+  if (cVar9 != '\0') {
+    if (cVar9 != '\x01') {
+                    /* WARNING: Subroutine does not return */
+      png_error(iVar4,"unknown interlace type");
+    }
+    local_38 = 7;
+  }
+  cVar1 = *(char *)(iVar5 + 0x18);
+  if (cVar1 == '\b') {
+    local_4c = 1;
+    local_48 = 0;
+    iVar5 = param_1[6];
+    iVar8 = param_1[7];
+    if (cVar9 == '\x01') goto LAB_042ad7d6;
+LAB_042ad67f:
+    iVar11 = 1;
+    uVar13 = 0;
+    local_68 = 0;
+    local_5c = 1;
+LAB_042ad69e:
+    iVar20 = param_1[4];
+    local_44 = local_4c;
+    if (iVar20 == 0) goto LAB_042ad88b;
+    do {
+      bVar12 = *(byte *)(iVar20 + 1);
+      uVar2 = (&DAT_04399720)[bVar12];
+      if (local_68 < uVar6) {
+        pbVar26 = (byte *)(iVar5 + local_68 * iVar8 + iVar7);
+        do {
+          pbVar25 = (byte *)param_1[5];
+          png_read_row(iVar4,pbVar25,0);
+          pbVar10 = pbVar26 + (uVar13 - iVar7);
+          if (CARRY4(uVar13 - iVar7,(uint)pbVar26)) {
+            do {
+              bVar17 = pbVar25[1];
+              bVar16 = bVar12;
+              if (bVar17 != 0) {
+                bVar16 = *pbVar25;
+                if (bVar17 != 0xff) {
+                  uVar24 = (0xff - (uint)bVar17) * (uint)uVar2 +
+                           (uint)(ushort)(&DAT_04399720)[bVar16] * (uint)bVar17;
+                  uVar19 = uVar24 >> 0xf;
+                  bVar16 = (byte)(((uint)(byte)(&DAT_04399120)[uVar19] * (uVar24 & 0x7fff) >> 0xc) +
+                                  (uint)*(ushort *)(&DAT_04399320 + uVar19 * 2) >> 8);
+                }
+              }
+              *pbVar10 = bVar16;
+              pbVar10 = pbVar10 + iVar11;
+              pbVar25 = pbVar25 + 2;
+            } while (pbVar10 < pbVar26);
+          }
+          local_68 = local_68 + local_5c;
+          pbVar26 = pbVar26 + local_5c * iVar8;
+        } while (local_68 < uVar6);
+      }
+      while( true ) {
+        do {
+          local_48 = local_48 + 1;
+          local_4c = local_44 + 1;
+          if (local_38 <= local_44) {
+            return 1;
+          }
+          if (*(char *)(iVar4 + 0x1b0) != '\x01') goto LAB_042ad67f;
+LAB_042ad7d6:
+          cVar9 = (char)(local_4c >> 1);
+          if ((int)local_48 < 2) {
+            uVar13 = (local_48 & 1) << (3U - cVar9 & 0x1f);
+            bVar12 = 3;
+            uVar19 = ~uVar13 & 7;
+          }
+          else {
+            uVar13 = (local_48 & 1) << (3U - cVar9 & 0x1f);
+            bVar12 = (byte)((int)(7 - local_48) >> 1);
+            uVar19 = ((1 << (bVar12 & 0x1f)) + -1) - (uVar13 & 7);
+          }
+          local_44 = local_4c;
+        } while (uVar19 + iVar7 >> (bVar12 & 0x1f) == 0);
+        uVar13 = uVar13 & 7;
+        local_5c = 8;
+        iVar11 = 1 << ((byte)((int)(7 - local_48) >> 1) & 0x1f);
+        local_68 = (local_48 & 1 ^ 1) << (3U - (char)((int)local_48 >> 1) & 0x1f) & 7;
+        if ((int)local_48 < 3) goto LAB_042ad69e;
+        iVar20 = param_1[4];
+        local_5c = 8 >> ((byte)((int)(local_48 - 1) >> 1) & 0x1f);
+        if (iVar20 != 0) break;
+LAB_042ad88b:
+        if (local_68 < uVar6) {
+          pbVar26 = (byte *)(iVar5 + local_68 * iVar8 + iVar7);
+          do {
+            pbVar25 = (byte *)param_1[5];
+            png_read_row(iVar4,pbVar25,0);
+            pbVar10 = pbVar26 + (uVar13 - iVar7);
+            if (CARRY4(uVar13 - iVar7,(uint)pbVar26)) {
+              do {
+                bVar12 = pbVar25[1];
+                if (bVar12 != 0) {
+                  bVar17 = *pbVar25;
+                  if (bVar12 != 0xff) {
+                    uVar19 = (uint)(ushort)(&DAT_04399720)[*pbVar10] * (0xff - (uint)bVar12) +
+                             (uint)(ushort)(&DAT_04399720)[bVar17] * (uint)bVar12;
+                    uVar24 = uVar19 >> 0xf;
+                    bVar17 = (byte)(((uint)(byte)(&DAT_04399120)[uVar24] * (uVar19 & 0x7fff) >> 0xc)
+                                    + (uint)*(ushort *)(&DAT_04399320 + uVar24 * 2) >> 8);
+                  }
+                  *pbVar10 = bVar17;
+                }
+                pbVar10 = pbVar10 + iVar11;
+                pbVar25 = pbVar25 + 2;
+              } while (pbVar10 < pbVar26);
+            }
+            local_68 = local_68 + local_5c;
+            pbVar26 = pbVar26 + local_5c * iVar8;
+          } while (local_68 < uVar6);
+        }
+      }
+    } while( true );
+  }
+  if (cVar1 != '\x10') {
+                    /* WARNING: Subroutine does not return */
+    png_error(iVar4,"unexpected bit depth");
+  }
+  local_40 = 1;
+  iVar8 = param_1[6];
+  local_3c = 0;
+  uVar24 = piVar3[4] & 1;
+  iVar5 = uVar24 + 1;
+  uVar19 = (uint)((piVar3[4] & 0x21U) == 0x21);
+  uVar13 = param_1[7] - (param_1[7] >> 0x1f) & 0xfffffffe;
+  if (cVar9 == '\x01') goto LAB_042adb59;
+LAB_042ada03:
+  iVar20 = 0;
+  local_5c = 0;
+  local_4c = 1;
+  local_30 = local_40;
+  iVar11 = iVar5;
+  do {
+    if (local_5c < uVar6) {
+      local_58 = (ushort *)param_1[5];
+      local_60 = (ushort *)(local_5c * uVar13 + iVar20 * 2 + iVar8);
+      do {
+        puVar14 = (ushort *)(iVar7 * 2 * iVar5 + iVar20 * -2 + (int)local_60);
+        png_read_row(iVar4,local_58,0);
+        local_58 = (ushort *)param_1[5];
+        if (local_60 < puVar14) {
+          puVar15 = local_60 + uVar19;
+          puVar22 = local_58;
+          do {
+            uVar2 = puVar22[1];
+            uVar18 = 0;
+            if ((uVar2 != 0) && (uVar18 = *puVar22, uVar2 != 0xffff)) {
+              uVar18 = (ushort)(((uint)uVar2 * (uint)*puVar22 + 0x7fff) / 0xffff);
+            }
+            *puVar15 = uVar18;
+            if (uVar24 != 0) {
+              puVar15[(uVar19 ^ 1) - uVar19] = uVar2;
+            }
+            puVar15 = puVar15 + iVar11;
+            puVar22 = puVar22 + 2;
+          } while (puVar15 + -uVar19 < puVar14);
+        }
+        local_5c = local_5c + local_4c;
+        local_60 = (ushort *)((int)local_60 + local_4c * uVar13);
+      } while (local_5c < uVar6);
+    }
+    do {
+      local_3c = local_3c + 1;
+      local_40 = local_30 + 1;
+      if (local_38 <= local_30) {
+        return 1;
+      }
+      if (*(char *)(iVar4 + 0x1b0) != '\x01') goto LAB_042ada03;
+LAB_042adb59:
+      cVar9 = (char)(local_40 >> 1);
+      if ((int)local_3c < 2) {
+        bVar12 = 3;
+        uVar23 = (local_3c & 1) << (3U - cVar9 & 0x1f);
+        uVar21 = ~uVar23 & 7;
+      }
+      else {
+        uVar23 = (local_3c & 1) << (3U - cVar9 & 0x1f);
+        bVar12 = (byte)((int)(7 - local_3c) >> 1);
+        uVar21 = ((1 << (bVar12 & 0x1f)) + -1) - (uVar23 & 7);
+      }
+      local_30 = local_40;
+    } while (uVar21 + iVar7 >> (bVar12 & 0x1f) == 0);
+    iVar11 = iVar5 << ((byte)((int)(7 - local_3c) >> 1) & 0x1f);
+    iVar20 = (uVar23 & 7) * iVar5;
+    local_4c = 8;
+    local_5c = (local_3c & 1 ^ 1) << (3U - (char)((int)local_3c >> 1) & 0x1f) & 7;
+    if (2 < (int)local_3c) {
+      local_4c = 8 >> ((byte)((int)(local_3c - 1) >> 1) & 0x1f);
+    }
+  } while( true );
+}
+

@@ -1,0 +1,43 @@
+
+/* source: mouseDeltas */
+
+int MouseDeltas_RegisterForMouseDelta(void)
+
+{
+  int iVar1;
+  
+  if (DAT_044116e0 == 0) {
+    pthread_mutex_init((pthread_mutex_t *)&DAT_044116e4,(pthread_mutexattr_t *)0x0);
+    bzero(&DAT_04411700,0x30);
+    DAT_04411730 = 0;
+    DAT_04411734 = 0;
+    DAT_044116e0 = 1;
+  }
+  pthread_mutex_lock((pthread_mutex_t *)&DAT_044116e4);
+  if (DAT_04411700 == 0) {
+    iVar1 = 0;
+  }
+  else if (DAT_0441170c == 0) {
+    iVar1 = 1;
+  }
+  else if (DAT_04411718 == 0) {
+    iVar1 = 2;
+  }
+  else {
+    iVar1 = 3;
+    if (DAT_04411724 != 0) {
+      iVar1 = -1;
+      FUN_0400a810("regNum != -1",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/mouseDeltas.cpp",0x3b,
+                   "int32_t MouseDeltas_RegisterForMouseDelta()");
+      goto LAB_0402e6b5;
+    }
+  }
+  (&DAT_04411700)[iVar1 * 3] = 1;
+  (&DAT_04411704)[iVar1 * 3] = DAT_04411730;
+  (&DAT_04411708)[iVar1 * 3] = DAT_04411734;
+LAB_0402e6b5:
+  pthread_mutex_unlock((pthread_mutex_t *)&DAT_044116e4);
+  return iVar1;
+}
+

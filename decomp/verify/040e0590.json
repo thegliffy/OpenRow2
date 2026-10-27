@@ -1,0 +1,125 @@
+
+/* source: openGlDebugFunctions */
+
+void OpenGLDebugEvent(uint param_1,int param_2)
+
+{
+  code *pcVar1;
+  undefined1 *puVar2;
+  int iVar3;
+  char local_c20 [1024];
+  char local_820 [1024];
+  char local_420 [1024];
+  int local_20 [4];
+  
+  if (DAT_044dac80 == 0) {
+    FUN_040d9ba0();
+  }
+  iVar3 = DAT_044db0a8;
+  if (DAT_044db0a0 == 7) {
+    if (param_1 != 3) {
+      return;
+    }
+    puVar2 = &DAT_044daca0;
+    if (DAT_044daca0 == '\0') {
+      puVar2 = &DAT_04328763;
+    }
+    sprintf(local_c20,"%sbackbufferDump",puVar2);
+    strcpy(local_820,&DAT_044daca0);
+    OGLC_SetRootSavePath(local_c20);
+    iVar3 = DAT_044db0a4;
+    DAT_044db0a4 = DAT_044db0a4 + 1;
+    sprintf(local_420,"/bb%d.tiff",iVar3);
+    strcat(local_c20,local_420);
+    openGlDebugFunctions_040d2a80(0,1);
+    OGLC_SetRootSavePath(local_820);
+    return;
+  }
+  if (DAT_044db0a0 == 5) {
+    if (param_1 != 3) {
+      return;
+    }
+    DAT_044db0a0 = 6;
+    DAT_044db0a8 = 0;
+    DAT_04408c90 = 0;
+    FUN_0402cd10(0x14,"Frame dump started");
+    puts("Frame dump started... please wait, this might take a minute for complicated frames.");
+    return;
+  }
+  if (DAT_044db0a0 == 6) {
+    DAT_044db0a8 = DAT_044db0a8 + 1;
+    puVar2 = &DAT_044daca0;
+    if (DAT_044daca0 == '\0') {
+      puVar2 = &DAT_04328763;
+    }
+    sprintf(local_420,"%sframeDump/%08d/",puVar2,iVar3);
+    FUN_0402cd10(0x14,"Frame dump - dumping event %u",DAT_044db0a8 + -1);
+    OGLC_DumpDraw(local_420,param_1,param_2);
+    if (param_1 != 3) {
+      return;
+    }
+    FUN_0402cd10(0x14,"Frame dump finished");
+    puts("Frame dump finished");
+    DAT_04408c90 = 1;
+    DAT_044db0a0 = 0;
+    return;
+  }
+  iVar3 = DAT_044db0ac;
+  if (DAT_044db0a0 == 4) {
+    if (param_1 == 3) goto LAB_040e07df;
+    if (1 < param_1) {
+      return;
+    }
+    glGetIntegerv(0x8b8d,local_20);
+    iVar3 = glGetError();
+    if (iVar3 != 0) {
+      FUN_0400a810("glGetError() == 0",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                   ,0x1519,"void OpenGLDebugEvent(uint32_t, const char*)");
+    }
+    iVar3 = local_20[0];
+    if (DAT_044db0ac == local_20[0]) {
+      return;
+    }
+  }
+  DAT_044db0ac = iVar3;
+  switch(DAT_044db0a0) {
+  default:
+    goto switchD_040e07b0_caseD_0;
+  case 1:
+    if ((param_1 != 3) && (1 < param_1)) {
+      return;
+    }
+switchD_040e07b0_caseD_4:
+    if (param_1 != 3) {
+LAB_040e07d2:
+      if (DAT_044db0b0 != 0) {
+        DAT_044db0b0 = DAT_044db0b0 + -1;
+switchD_040e07b0_caseD_0:
+        return;
+      }
+    }
+LAB_040e07df:
+    if (param_2 != 0) {
+      printf("Event: %s\n",param_2);
+    }
+    pcVar1 = (code *)swi(3);
+    (*pcVar1)();
+    return;
+  case 2:
+    if ((param_1 == 3) || (param_1 < 2)) goto switchD_040e07b0_caseD_4;
+    if (param_1 != 2) {
+      return;
+    }
+    goto LAB_040e07d2;
+  case 3:
+    if (param_1 != 3) {
+      return;
+    }
+    goto LAB_040e07df;
+  case 4:
+  case 7:
+    goto switchD_040e07b0_caseD_4;
+  }
+}
+

@@ -1,0 +1,148 @@
+
+void FUN_042ba6f0(int param_1)
+
+{
+  char cVar1;
+  uint uVar2;
+  int iVar3;
+  undefined4 uVar4;
+  uint uVar5;
+  uint uVar6;
+  
+  FUN_042b1400(param_1);
+  if (*(char *)(param_1 + 0x1b0) == '\0') {
+    iVar3 = *(int *)(param_1 + 0x15c);
+    uVar2 = *(uint *)(param_1 + 0xd8);
+    *(undefined4 *)(param_1 + 0x164) = *(undefined4 *)(param_1 + 0x160);
+    *(int *)(param_1 + 0x170) = iVar3;
+  }
+  else {
+    uVar2 = *(uint *)(param_1 + 0xd8);
+    if ((uVar2 & 2) == 0) {
+      *(uint *)(param_1 + 0x164) = *(int *)(param_1 + 0x160) + 7U >> 3;
+    }
+    else {
+      *(int *)(param_1 + 0x164) = *(int *)(param_1 + 0x160);
+    }
+    iVar3 = *(int *)(param_1 + 0x15c);
+    *(uint *)(param_1 + 0x170) =
+         ((iVar3 + -1 + (uint)(byte)(&DAT_0439aee8)[*(byte *)(param_1 + 0x1b1)]) -
+         (uint)*(byte *)((int)&PTR_DAT_0439aeef + (uint)*(byte *)(param_1 + 0x1b1))) /
+         (uint)(byte)(&DAT_0439aee8)[*(byte *)(param_1 + 0x1b1)];
+  }
+  uVar5 = (uint)*(byte *)(param_1 + 0x1b6);
+  if (((uVar2 & 4) != 0) && (*(byte *)(param_1 + 0x1b4) < 8)) {
+    uVar5 = 8;
+  }
+  if ((uVar2 & 0x1000) != 0) {
+    cVar1 = *(char *)(param_1 + 0x1b3);
+    if (cVar1 == '\x03') {
+      uVar5 = (-(uint)(*(short *)(param_1 + 0x1ac) == 0) & 0xfffffff8) + 0x20;
+    }
+    else if (cVar1 == '\0') {
+      if (uVar5 < 8) {
+        uVar5 = 8;
+      }
+      if (*(short *)(param_1 + 0x1ac) != 0) {
+        uVar5 = uVar5 * 2;
+      }
+    }
+    else if ((cVar1 == '\x02') && (*(short *)(param_1 + 0x1ac) != 0)) {
+      uVar5 = (uVar5 * 4) / 3;
+    }
+  }
+  if ((uVar2 & 0x200) != 0) {
+    if ((uVar2 & 0x1000) == 0) {
+      uVar2 = uVar2 & 0xfffffdff;
+      *(uint *)(param_1 + 0xd8) = uVar2;
+    }
+    else if (*(byte *)(param_1 + 0x1b4) < 0x10) {
+      uVar5 = uVar5 * 2;
+    }
+  }
+  uVar6 = uVar5;
+  if ((uVar2 & 0x8000) != 0) {
+    if (*(char *)(param_1 + 0x1b3) == '\0') {
+      uVar6 = 0x10;
+      if (8 < (int)uVar5) {
+        uVar6 = 0x20;
+      }
+    }
+    else if (((byte)(*(char *)(param_1 + 0x1b3) - 2U) < 2) && (uVar6 = 0x20, 0x20 < (int)uVar5)) {
+      uVar6 = 0x40;
+    }
+  }
+  uVar5 = uVar6;
+  if ((uVar2 & 0x4000) != 0) {
+    if ((((*(short *)(param_1 + 0x1ac) == 0) || ((uVar2 & 0x1000) == 0)) && ((uVar2 & 0x8000) == 0))
+       && (cVar1 = *(char *)(param_1 + 0x1b3), cVar1 != '\x04')) {
+      if ((int)uVar6 < 9) {
+        uVar5 = (uint)(cVar1 == '\x06') * 8 + 0x18;
+      }
+      else {
+        uVar5 = 0x40;
+        if (cVar1 != '\x06') {
+          uVar5 = 0x30;
+        }
+      }
+    }
+    else {
+      uVar5 = 0x40;
+      if ((int)uVar6 < 0x11) {
+        uVar5 = 0x20;
+      }
+    }
+  }
+  if (((uVar2 & 0x100000) != 0) &&
+     (uVar2 = (uint)*(byte *)(param_1 + 0xcc) * (uint)*(byte *)(param_1 + 0xcd),
+     (int)uVar5 < (int)uVar2)) {
+    uVar5 = uVar2;
+  }
+  uVar2 = iVar3 + 7U & 0xfffffff8;
+  *(char *)(param_1 + 0x1ba) = (char)uVar5;
+  *(undefined1 *)(param_1 + 0x1bb) = 0;
+  if ((int)uVar5 < 8) {
+    uVar2 = uVar2 * uVar5 >> 3;
+  }
+  else {
+    uVar2 = (uVar5 >> 3) * uVar2;
+  }
+  uVar2 = uVar2 + 0x31 + ((int)(uVar5 + 7) >> 3);
+  if (*(uint *)(param_1 + 0x310) < uVar2) {
+    FUN_042aa410(param_1,*(undefined4 *)(param_1 + 0x2d8));
+    FUN_042aa410(param_1,*(undefined4 *)(param_1 + 0x324));
+    if (*(char *)(param_1 + 0x1b0) == '\0') {
+      uVar4 = FUN_042aa2c0();
+      *(undefined4 *)(param_1 + 0x2d8) = uVar4;
+    }
+    else {
+      uVar4 = FUN_042aa300(param_1,uVar2);
+      *(undefined4 *)(param_1 + 0x2d8) = uVar4;
+    }
+    iVar3 = FUN_042aa2c0(param_1,uVar2);
+    *(uint *)(param_1 + 0x310) = uVar2;
+    uVar2 = *(int *)(param_1 + 0x2d8) + 0x20;
+    *(int *)(param_1 + 0x324) = iVar3;
+    *(uint *)(param_1 + 0x180) = ~(uVar2 & 0xf) + uVar2;
+    *(uint *)(param_1 + 0x17c) = ~(iVar3 + 0x20U & 0xf) + iVar3 + 0x20U;
+  }
+  if (*(int *)(param_1 + 0x16c) == -1) {
+                    /* WARNING: Subroutine does not return */
+    png_error(param_1,"Row has too many bytes to allocate in memory");
+  }
+  memset(*(void **)(param_1 + 0x17c),0,*(int *)(param_1 + 0x16c) + 1);
+  iVar3 = *(int *)(param_1 + 0x314);
+  if (iVar3 != 0) {
+    *(undefined4 *)(param_1 + 0x318) = 0;
+    *(undefined4 *)(param_1 + 0x314) = 0;
+    FUN_042aa410(param_1,iVar3);
+  }
+  iVar3 = zstream_init();
+  if (iVar3 != 0) {
+                    /* WARNING: Subroutine does not return */
+    png_error(param_1,*(undefined4 *)(param_1 + 0xf8));
+  }
+  *(uint *)(param_1 + 0xd4) = *(uint *)(param_1 + 0xd4) | 0x40;
+  return;
+}
+

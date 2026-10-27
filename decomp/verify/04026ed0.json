@@ -1,0 +1,74 @@
+
+/* WARNING: Removing unreachable block (ram,0x040270b3) */
+
+void eON_WindowLinux__CreateWindow(int param_1)
+
+{
+  int *piVar1;
+  uint uVar2;
+  int iVar3;
+  char *pcVar4;
+  undefined1 *puVar5;
+  bool bVar6;
+  undefined4 uVar7;
+  int local_24;
+  allocator local_1e [14];
+  
+  bVar6 = false;
+  if (*(int *)(param_1 + 0x7c) != 0) {
+    uVar2 = SDL_GetWindowFlags(*(int *)(param_1 + 0x7c));
+    bVar6 = (uVar2 & 4) != 0;
+    if (*(int *)(param_1 + 0x7c) != 0) {
+      SDL_DestroyWindow(*(int *)(param_1 + 0x7c));
+      *(undefined4 *)(param_1 + 0x7c) = 0;
+    }
+  }
+  if ((*(byte *)(param_1 + 0x2b) & 0x40) != 0) {
+    FUN_0400a810("( mStyle & 0x40000000 ) == 0",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/linux/windowLinux.cpp",
+                 0x1b3,"void eON_WindowLinux::CreateWindow()");
+  }
+  puVar5 = *(undefined1 **)(param_1 + 0x50);
+  if (puVar5 == (undefined1 *)0x0) {
+    puVar5 = &DAT_04328763;
+  }
+  iVar3 = SDL_CreateWindow(puVar5,*(undefined4 *)(param_1 + 4),*(undefined4 *)(param_1 + 8),
+                           *(int *)(param_1 + 0xc) - *(int *)(param_1 + 4),
+                           *(int *)(param_1 + 0x10) - *(int *)(param_1 + 8),(-!bVar6 & 8U) + 2);
+  *(int *)(param_1 + 0x7c) = iVar3;
+  if (iVar3 == 0) {
+    FUN_0400a810("SDLWindow",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/linux/windowLinux.cpp",
+                 0x1ba,"void eON_WindowLinux::CreateWindow()");
+    iVar3 = *(int *)(param_1 + 0x7c);
+  }
+  SDL_SetWindowData(iVar3,"eON_Window",param_1);
+  pcVar4 = (char *)FUN_04018ad0();
+  std::string::string((string *)&local_24,pcVar4,local_1e);
+  uVar7 = 8;
+  pcVar4 = "icon.png";
+                    /* try { // try from 04026fa9 to 04026fda has its CatchHandler @ 040270a1 */
+  std::string::append((char *)&local_24,0x42e0e72);
+  iVar3 = eON_Int_LoadPngIconSurface(local_24,pcVar4,uVar7);
+  if (iVar3 == 0) {
+                    /* try { // try from 0402703e to 04027042 has its CatchHandler @ 040270a1 */
+    FUN_0402cd10(10,"Couldn\'t load icon from \'%s\'!",local_24);
+  }
+  else {
+    SDL_SetWindowIcon(*(undefined4 *)(param_1 + 0x7c),iVar3);
+    SDL_FreeSurface(iVar3);
+  }
+  eON_Core__pumpRunLoopUntilEmpty();
+  if ((allocator *)(local_24 + -0xc) != (allocator *)&std::string::_Rep::_S_empty_rep_storage) {
+    LOCK();
+    piVar1 = (int *)(local_24 + -4);
+    iVar3 = *piVar1;
+    *piVar1 = *piVar1 + -1;
+    UNLOCK();
+    if (iVar3 < 1) {
+      std::string::_Rep::_M_destroy((allocator *)(local_24 + -0xc));
+    }
+  }
+  return;
+}
+

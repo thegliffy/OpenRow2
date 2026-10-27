@@ -1,0 +1,193 @@
+
+/* source: openGlDebugFunctions */
+
+void OGLC_DumpBoundTexturesInStage(int param_1)
+
+{
+  int iVar1;
+  undefined1 *puVar2;
+  int iVar3;
+  char local_430 [1024];
+  int local_30;
+  undefined4 local_2c;
+  int local_28;
+  int local_24;
+  int local_20 [4];
+  
+  iVar1 = eON_Int_GL_NoteCurrentContext();
+  if (iVar1 == 0) {
+    puts("No valid OpenGL context in calling thread!.");
+  }
+  else {
+    if (DAT_044dac80 == (undefined4 *)0x0) {
+      FUN_040d9ba0();
+    }
+    glGetIntegerv(0x8872,&local_30);
+    iVar1 = glGetError();
+    if (iVar1 != 0) {
+      FUN_0400a810("glGetError() == 0",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                   ,0x1400,"void OGLC_DumpBoundTexturesInStage(int32_t)");
+    }
+    if (local_30 <= param_1) {
+      puts("Invalid stage number!.");
+      return;
+    }
+    glGetIntegerv(0x84e0,&local_2c);
+    iVar1 = glGetError();
+    if (iVar1 != 0) {
+      FUN_0400a810("glGetError() == 0",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                   ,0x1409,"void OGLC_DumpBoundTexturesInStage(int32_t)");
+    }
+    (*DAT_0451eeac)(param_1 + 0x84c0);
+    iVar1 = glGetError();
+    if (iVar1 != 0) {
+      FUN_0400a810("glGetError() == 0",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                   ,0x140c,"void OGLC_DumpBoundTexturesInStage(int32_t)");
+    }
+    glGetIntegerv(0x8068,&local_28);
+    iVar1 = glGetError();
+    if (iVar1 != 0) {
+      FUN_0400a810("glGetError() == 0",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                   ,0x1410,"void OGLC_DumpBoundTexturesInStage(int32_t)");
+    }
+    if (local_28 != 0) {
+      (**(code **)*DAT_044dac80)
+                (DAT_044dac80,"Stage %d, texture binding 1D = %d, texture dump unhandled!",param_1,
+                 local_28);
+    }
+    glGetIntegerv(0x8069,&local_28);
+    iVar1 = glGetError();
+    if (iVar1 != 0) {
+      FUN_0400a810("glGetError() == 0",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                   ,0x1415,"void OGLC_DumpBoundTexturesInStage(int32_t)");
+    }
+    if (local_28 != 0) {
+      glGetTexParameteriv(0xde1,0x813c,&local_24);
+      iVar1 = glGetError();
+      if (iVar1 != 0) {
+        FUN_0400a810("glGetError() == 0",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                     ,0x141a,"void OGLC_DumpBoundTexturesInStage(int32_t)");
+      }
+      glGetTexParameteriv(0xde1,0x813d,local_20);
+      iVar1 = glGetError();
+      if (iVar1 != 0) {
+        FUN_0400a810("glGetError() == 0",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                     ,0x141c,"void OGLC_DumpBoundTexturesInStage(int32_t)");
+      }
+      if (local_24 <= local_20[0]) {
+        iVar1 = local_24;
+        do {
+          puVar2 = &DAT_044daca0;
+          if (DAT_044daca0 == '\0') {
+            puVar2 = &DAT_04328763;
+          }
+          sprintf(local_430,"%stex%d_2D_id%d_lvl%d.tiff",puVar2,param_1,local_28,iVar1);
+          FUN_0401a1d0(local_430);
+          iVar3 = iVar1 + 1;
+          SaveDDS(iVar1);
+          iVar1 = iVar3;
+        } while (iVar3 <= local_20[0]);
+      }
+    }
+    glGetIntegerv(0x806a,&local_28);
+    iVar1 = glGetError();
+    if (iVar1 != 0) {
+      FUN_0400a810("glGetError() == 0",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                   ,0x1427,"void OGLC_DumpBoundTexturesInStage(int32_t)");
+    }
+    if (local_28 != 0) {
+      (**(code **)*DAT_044dac80)
+                (DAT_044dac80,"Stage %d, texture binding 3D = %d, texture dump unhandled!",param_1,
+                 local_28);
+    }
+    glGetIntegerv(0x8514,&local_28);
+    iVar1 = glGetError();
+    if (iVar1 != 0) {
+      FUN_0400a810("glGetError() == 0",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                   ,0x142c,"void OGLC_DumpBoundTexturesInStage(int32_t)");
+    }
+    if (local_28 != 0) {
+      glGetTexParameteriv(0x8513,0x813c,local_20);
+      iVar1 = glGetError();
+      if (iVar1 != 0) {
+        FUN_0400a810("glGetError() == 0",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                     ,0x1431,"void OGLC_DumpBoundTexturesInStage(int32_t)");
+      }
+      glGetTexParameteriv(0x8513,0x813d,&local_24);
+      iVar1 = glGetError();
+      if (iVar1 != 0) {
+        FUN_0400a810("glGetError() == 0",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                     ,0x1433,"void OGLC_DumpBoundTexturesInStage(int32_t)");
+      }
+      if (local_20[0] <= local_24) {
+        iVar1 = local_20[0];
+        do {
+          puVar2 = &DAT_044daca0;
+          if (DAT_044daca0 == '\0') {
+            puVar2 = &DAT_04328763;
+          }
+          sprintf(local_430,"%stex%d_2D_id%d_lvl%d_face%d.tiff",puVar2,param_1,local_28,iVar1,0);
+          FUN_0401a1d0(local_430);
+          SaveDDS(iVar1);
+          puVar2 = &DAT_044daca0;
+          if (DAT_044daca0 == '\0') {
+            puVar2 = &DAT_04328763;
+          }
+          sprintf(local_430,"%stex%d_2D_id%d_lvl%d_face%d.tiff",puVar2,param_1,local_28,iVar1,1);
+          FUN_0401a1d0(local_430);
+          SaveDDS(iVar1);
+          puVar2 = &DAT_044daca0;
+          if (DAT_044daca0 == '\0') {
+            puVar2 = &DAT_04328763;
+          }
+          sprintf(local_430,"%stex%d_2D_id%d_lvl%d_face%d.tiff",puVar2,param_1,local_28,iVar1,2);
+          FUN_0401a1d0(local_430);
+          SaveDDS(iVar1);
+          puVar2 = &DAT_044daca0;
+          if (DAT_044daca0 == '\0') {
+            puVar2 = &DAT_04328763;
+          }
+          sprintf(local_430,"%stex%d_2D_id%d_lvl%d_face%d.tiff",puVar2,param_1,local_28,iVar1,3);
+          FUN_0401a1d0(local_430);
+          SaveDDS(iVar1);
+          puVar2 = &DAT_044daca0;
+          if (DAT_044daca0 == '\0') {
+            puVar2 = &DAT_04328763;
+          }
+          sprintf(local_430,"%stex%d_2D_id%d_lvl%d_face%d.tiff",puVar2,param_1,local_28,iVar1,4);
+          FUN_0401a1d0(local_430);
+          SaveDDS(iVar1);
+          puVar2 = &DAT_044daca0;
+          if (DAT_044daca0 == '\0') {
+            puVar2 = &DAT_04328763;
+          }
+          sprintf(local_430,"%stex%d_2D_id%d_lvl%d_face%d.tiff",puVar2,param_1,local_28,iVar1,5);
+          FUN_0401a1d0(local_430);
+          iVar3 = iVar1 + 1;
+          SaveDDS(iVar1);
+          iVar1 = iVar3;
+        } while (iVar3 <= local_24);
+      }
+    }
+    (*DAT_0451eeac)(local_2c);
+    iVar1 = glGetError();
+    if (iVar1 != 0) {
+      FUN_0400a810("glGetError() == 0",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                   ,0x1441,"void OGLC_DumpBoundTexturesInStage(int32_t)");
+    }
+  }
+  return;
+}
+

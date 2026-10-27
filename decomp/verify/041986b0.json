@@ -1,0 +1,44 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+bool _glewInit_GL_AMD_performance_monitor(void)
+
+{
+  int iVar1;
+  bool bVar2;
+  bool bVar3;
+  bool bVar4;
+  bool bVar5;
+  bool bVar6;
+  bool bVar7;
+  bool bVar8;
+  bool bVar9;
+  bool bVar10;
+  
+  iVar1 = glXGetProcAddressARB("glBeginPerfMonitorAMD");
+  _DAT_0451ea10 = iVar1;
+  _DAT_0451ea0c = glXGetProcAddressARB("glDeletePerfMonitorsAMD");
+  bVar2 = _DAT_0451ea0c == 0;
+  _DAT_0451ea08 = glXGetProcAddressARB("glEndPerfMonitorAMD");
+  bVar3 = _DAT_0451ea08 == 0;
+  _DAT_0451ea04 = glXGetProcAddressARB("glGenPerfMonitorsAMD");
+  bVar4 = _DAT_0451ea04 == 0;
+  _DAT_0451ea00 = glXGetProcAddressARB("glGetPerfMonitorCounterDataAMD");
+  bVar5 = _DAT_0451ea00 == 0;
+  _DAT_0451e9fc = glXGetProcAddressARB("glGetPerfMonitorCounterInfoAMD");
+  bVar6 = _DAT_0451e9fc == 0;
+  _DAT_0451e9f8 = glXGetProcAddressARB("glGetPerfMonitorCounterStringAMD");
+  bVar7 = _DAT_0451e9f8 == 0;
+  _DAT_0451e9f4 = glXGetProcAddressARB("glGetPerfMonitorCountersAMD");
+  bVar8 = _DAT_0451e9f4 == 0;
+  _DAT_0451e9f0 = glXGetProcAddressARB("glGetPerfMonitorGroupStringAMD");
+  bVar9 = _DAT_0451e9f0 == 0;
+  _DAT_0451e9ec = glXGetProcAddressARB("glGetPerfMonitorGroupsAMD");
+  bVar10 = _DAT_0451e9ec == 0;
+  _DAT_0451e9e8 = glXGetProcAddressARB("glSelectPerfMonitorCountersAMD");
+  return _DAT_0451e9e8 == 0 ||
+         (bVar10 ||
+         (bVar9 || (bVar8 || (bVar7 || (bVar6 || (bVar5 || (bVar4 || (bVar3 || (bVar2 || iVar1 == 0)
+                                                                     ))))))));
+}
+

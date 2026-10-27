@@ -1,0 +1,235 @@
+
+/* source: shadercache */
+
+undefined4 ShaderCache__PrecompileNextShaderOrProgramInTable(int param_1,undefined4 param_2)
+
+{
+  int *piVar1;
+  char cVar2;
+  bool bVar3;
+  int iVar4;
+  int *piVar5;
+  void *pvVar6;
+  int iVar7;
+  uint uVar8;
+  int iVar9;
+  uint uVar10;
+  int iVar11;
+  int local_34;
+  
+  if (*(int *)(param_1 + 0xc4) != 0) {
+    if (*(int *)(param_1 + 0xbc) != 0) {
+      iVar4 = 0;
+      iVar11 = *(int *)(param_1 + 0xb8);
+      if (*(int *)(*(int *)(param_1 + 0xb8) + 4) == 0) {
+        iVar4 = 0;
+      }
+      else {
+        do {
+          iVar4 = iVar4 + 1;
+          if (iVar4 == *(int *)(param_1 + 0xbc)) goto LAB_040ed3dd;
+          piVar5 = (int *)(iVar11 + 0x10);
+          iVar11 = iVar11 + 0xc;
+        } while (*piVar5 != 0);
+      }
+      ShaderCache__CompileShaderForIndex(param_1,iVar4);
+      return 1;
+    }
+LAB_040ed3dd:
+    FUN_0400a810("false",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/shadercache.cpp"
+                 ,0xa51,
+                 "bool ShaderCache::PrecompileNextShaderOrProgramInTable(OpenGLContextCache*)");
+  }
+  if (*(int *)(param_1 + 200) == 0) {
+LAB_040ed467:
+    cVar2 = *(char *)(param_1 + 0x108);
+  }
+  else {
+    uVar8 = *(uint *)(param_1 + 0xbc);
+    if (uVar8 != 0) {
+      iVar11 = 0;
+      uVar10 = 0;
+      bVar3 = false;
+      do {
+        piVar5 = (int *)(*(int *)(param_1 + 0xb8) + iVar11);
+        if ((piVar5[1] != 0) && (*piVar5 != 0)) {
+          ShaderCache__VetCompiledShaderForIndex(param_1,uVar10);
+          if (*(int *)(param_1 + 200) == 0) goto LAB_040ed467;
+          uVar8 = *(uint *)(param_1 + 0xbc);
+          bVar3 = true;
+        }
+        uVar10 = uVar10 + 1;
+        iVar11 = iVar11 + 0xc;
+      } while (uVar10 < uVar8);
+      if (bVar3) goto LAB_040ed467;
+    }
+    FUN_0400a810("foundUnvettedShader",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/shadercache.cpp"
+                 ,0xa66,
+                 "bool ShaderCache::PrecompileNextShaderOrProgramInTable(OpenGLContextCache*)");
+    cVar2 = *(char *)(param_1 + 0x108);
+  }
+  if (cVar2 != '\0') {
+    return 0;
+  }
+  iVar11 = *(int *)(param_1 + 0xcc);
+  if (*(int *)(param_1 + 0xd0) == iVar11) {
+    piVar5 = *(int **)(param_1 + 0xe0);
+    do {
+      if (*(int **)(param_1 + 0xf0) == piVar5) goto LAB_040ed6c7;
+      iVar11 = *piVar5;
+      if (piVar5 == (int *)(*(int *)(param_1 + 0xe8) + -4)) {
+        operator_delete(*(void **)(param_1 + 0xe4));
+        iVar4 = *(int *)(param_1 + 0xec);
+        *(int *)(param_1 + 0xec) = iVar4 + 4;
+        piVar5 = *(int **)(iVar4 + 4);
+        *(int **)(param_1 + 0xe4) = piVar5;
+        *(int **)(param_1 + 0xe8) = piVar5 + 0x80;
+        *(int **)(param_1 + 0xe0) = piVar5;
+      }
+      else {
+        piVar5 = piVar5 + 1;
+        *(int **)(param_1 + 0xe0) = piVar5;
+      }
+      iVar4 = *(int *)(iVar11 + 4);
+    } while (iVar4 == 3);
+    if (iVar4 == 0) {
+      ShaderCache__LinkedProgram_SecondLink(param_1,param_2,iVar11);
+      if (*(int *)(iVar11 + 4) == 1) {
+        piVar5 = *(int **)(param_1 + 0xf0);
+        if (piVar5 == (int *)(*(int *)(param_1 + 0xf8) + -4)) {
+          iVar4 = *(int *)(param_1 + 0xfc);
+          if ((uint)(*(int *)(param_1 + 0xdc) - (iVar4 - *(int *)(param_1 + 0xd8) >> 2)) < 2) {
+            FUN_040eea20(param_1 + 0xd8,1,0);
+            iVar4 = *(int *)(param_1 + 0xfc);
+          }
+          pvVar6 = operator_new(0x200);
+          *(void **)(iVar4 + 4) = pvVar6;
+          if (*(int **)(param_1 + 0xf0) != (int *)0x0) {
+            **(int **)(param_1 + 0xf0) = iVar11;
+          }
+          iVar11 = *(int *)(param_1 + 0xfc);
+          *(int *)(param_1 + 0xfc) = iVar11 + 4;
+          iVar4 = *(int *)(iVar11 + 4);
+          *(int *)(param_1 + 0xf4) = iVar4;
+          *(int *)(param_1 + 0xf8) = iVar4 + 0x200;
+          iVar11 = *(int *)(param_1 + 0xd0);
+          *(int *)(param_1 + 0xf0) = iVar4;
+        }
+        else {
+          iVar4 = 0;
+          if (piVar5 != (int *)0x0) {
+            *piVar5 = iVar11;
+            iVar4 = *(int *)(param_1 + 0xf0);
+          }
+          *(int *)(param_1 + 0xf0) = iVar4 + 4;
+          iVar11 = *(int *)(param_1 + 0xd0);
+        }
+        goto LAB_040ed5ae;
+      }
+    }
+    else {
+      if (iVar4 != 1) {
+        FUN_0400a810("data->LinkStage == 1",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/shadercache.cpp"
+                     ,0xaa6,
+                     "bool ShaderCache::PrecompileNextShaderOrProgramInTable(OpenGLContextCache*)");
+      }
+      ShaderCache__LinkedProgram_FinalizeLink(param_1,param_2,iVar11);
+      *(undefined4 *)(iVar11 + 4) = 3;
+    }
+LAB_040ed6c7:
+    iVar11 = *(int *)(param_1 + 0xd0);
+  }
+  else {
+    piVar1 = (int *)(iVar11 + -0x10 + (*(int *)(param_1 + 0xd0) - iVar11 & 0xfffffff0U));
+    iVar4 = *(int *)(param_1 + 0xb8);
+    iVar11 = *piVar1;
+    iVar7 = iVar11 * 0xc;
+    piVar5 = (int *)(iVar4 + iVar7);
+    if (piVar5[1] == 0) {
+      ShaderCache__CompileShaderForIndex(param_1,iVar11);
+      iVar4 = *(int *)(param_1 + 0xb8);
+      piVar5 = (int *)(iVar4 + iVar7);
+    }
+    if (*piVar5 != 0) {
+      ShaderCache__VetCompiledShaderForIndex(param_1,iVar11);
+      iVar4 = *(int *)(param_1 + 0xb8);
+      piVar5 = (int *)(iVar4 + iVar7);
+    }
+    iVar11 = piVar5[1];
+    iVar7 = piVar1[1];
+    iVar9 = iVar7 * 0xc;
+    piVar5 = (int *)(iVar4 + iVar9);
+    if (piVar5[1] == 0) {
+      ShaderCache__CompileShaderForIndex(param_1,iVar7);
+      piVar5 = (int *)(*(int *)(param_1 + 0xb8) + iVar9);
+    }
+    if (*piVar5 != 0) {
+      ShaderCache__VetCompiledShaderForIndex(param_1,iVar7);
+      piVar5 = (int *)(*(int *)(param_1 + 0xb8) + iVar9);
+    }
+    if ((piVar5[1] == 0) || (iVar11 == 0)) {
+      free((void *)piVar1[3]);
+    }
+    else {
+      FUN_040e5240();
+      if (local_34 == *(int *)(*(int *)(param_1 + 0x9c) + *(int *)(param_1 + 0xa0) * 4)) {
+        iVar11 = FUN_040ecb20();
+      }
+      else {
+        iVar11 = *(int *)(local_34 + 8);
+      }
+      if (*(int *)(iVar11 + 4) != 3) {
+        if (*(int *)(iVar11 + 4) != 0) {
+          FUN_0400a810("data->LinkStage == 0",
+                       "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/shadercache.cpp"
+                       ,0xa79,
+                       "bool ShaderCache::PrecompileNextShaderOrProgramInTable(OpenGLContextCache*)"
+                      );
+        }
+        iVar4 = piVar1[2];
+        *(undefined1 *)(iVar11 + 8) = 1;
+        iVar7 = *(int *)(param_1 + 0xf8);
+        *(int *)(iVar11 + 0x168) = iVar4;
+        *(int *)(iVar11 + 0x164) = piVar1[3];
+        piVar5 = *(int **)(param_1 + 0xf0);
+        if (piVar5 == (int *)(iVar7 + -4)) {
+          iVar4 = *(int *)(param_1 + 0xfc);
+          if ((uint)(*(int *)(param_1 + 0xdc) - (iVar4 - *(int *)(param_1 + 0xd8) >> 2)) < 2) {
+            FUN_040eea20(param_1 + 0xd8,1,0);
+            iVar4 = *(int *)(param_1 + 0xfc);
+          }
+          pvVar6 = operator_new(0x200);
+          *(void **)(iVar4 + 4) = pvVar6;
+          if (*(int **)(param_1 + 0xf0) != (int *)0x0) {
+            **(int **)(param_1 + 0xf0) = iVar11;
+          }
+          iVar11 = *(int *)(param_1 + 0xfc);
+          *(int *)(param_1 + 0xfc) = iVar11 + 4;
+          iVar11 = *(int *)(iVar11 + 4);
+          *(int *)(param_1 + 0xf4) = iVar11;
+          *(int *)(param_1 + 0xf8) = iVar11 + 0x200;
+          *(int *)(param_1 + 0xf0) = iVar11;
+        }
+        else {
+          if (piVar5 != (int *)0x0) {
+            *piVar5 = iVar11;
+          }
+          *(int *)(param_1 + 0xf0) = *(int *)(param_1 + 0xf0) + 4;
+        }
+      }
+    }
+    iVar11 = *(int *)(param_1 + 0xd0) + -0x10;
+    *(int *)(param_1 + 0xd0) = iVar11;
+  }
+LAB_040ed5ae:
+  if ((*(int *)(param_1 + 0xcc) == iVar11) && (*(int *)(param_1 + 0xf0) == *(int *)(param_1 + 0xe0))
+     ) {
+    FUN_0402cd10(0x14,"Shader precompilation finished");
+    *(undefined1 *)(param_1 + 0x108) = 1;
+  }
+  return 1;
+}
+

@@ -1,0 +1,199 @@
+
+void eON_ShaderData_FormatSourceRegister
+               (int param_1,undefined4 param_2,uint param_3,int param_4,char param_5)
+
+{
+  uint uVar1;
+  char *pcVar2;
+  uint uVar3;
+  undefined *puVar4;
+  uint uVar5;
+  
+  uVar5 = (param_3 & 0x1800) >> 8 | (param_3 & 0x70000000) >> 0x1c;
+  uVar3 = param_3 & 0xf000000;
+  uVar1 = param_3 & 0x7ff;
+  pcVar2 = &DAT_04408c88;
+  if (*(char *)(param_1 + 0x10) != '\0') {
+    pcVar2 = &DAT_04408c84;
+  }
+  if (param_5 != '\0') {
+    if (uVar3 == 0x6000000) {
+      eON_AppendShaderCompileMessage(param_2,&DAT_042e7ed8);
+    }
+    else {
+      if (uVar3 < 0x6000001) {
+        if (((uVar3 == 0x3000000) || (uVar3 == 0x5000000)) || (uVar3 == 0x1000000))
+        goto LAB_04057b98;
+      }
+      else {
+        if (uVar3 != 0xc000000) {
+          if (uVar3 == 0xd000000) {
+            eON_AppendShaderCompileMessage(param_2,"!");
+            goto switchD_04057a98_switchD;
+          }
+          if (uVar3 != 0x8000000) goto joined_r0x04057bb5;
+        }
+LAB_04057b98:
+        eON_AppendShaderCompileMessage(param_2,&DAT_04361bee);
+      }
+joined_r0x04057bb5:
+      if ((uVar3 == 0xc000000) || (uVar3 == 0xb000000)) {
+        eON_AppendShaderCompileMessage(param_2,&DAT_042e7edb);
+      }
+    }
+  }
+switchD_04057a98_switchD:
+  switch(uVar5) {
+  case 0:
+    eON_AppendShaderCompileMessage(param_2,&PTR_DAT_042e79f1,uVar1);
+    break;
+  case 1:
+    eON_AppendShaderCompileMessage(param_2,"v");
+    goto LAB_04057cae;
+  case 2:
+  case 0xb:
+  case 0xc:
+  case 0xd:
+    eON_AppendShaderCompileMessage(param_2,&DAT_042e7f51);
+    goto LAB_04057cae;
+  case 3:
+    eON_AppendShaderCompileMessage
+              (param_2,&DAT_042e7ef4,
+               (-(uint)(*(char *)(param_1 + 0x10) == '\0') & 0xffffffed) + 0x74,uVar1);
+    break;
+  case 4:
+    eON_AppendShaderCompileMessage(param_2,"%s",(&PTR_DAT_042ea5c8)[uVar1]);
+    break;
+  case 5:
+    eON_AppendShaderCompileMessage(param_2,&DAT_042e7ee5,uVar1);
+    break;
+  case 6:
+    if (2 < *(int *)(param_1 + 8)) {
+      eON_AppendShaderCompileMessage(param_2,"o");
+      goto LAB_04057cae;
+    }
+    eON_AppendShaderCompileMessage(param_2,&DAT_042e7ef9,uVar1);
+    break;
+  case 7:
+    eON_AppendShaderCompileMessage(param_2,"i");
+    goto LAB_04057cae;
+  case 8:
+    eON_AppendShaderCompileMessage(param_2,&DAT_042e7ee0,uVar1);
+    break;
+  case 9:
+    eON_AppendShaderCompileMessage(param_2,"oDepth");
+    break;
+  case 10:
+    eON_AppendShaderCompileMessage(param_2,&PTR_DAT_042e79d2,uVar1);
+    break;
+  case 0xe:
+    eON_AppendShaderCompileMessage(param_2,"b");
+LAB_04057cae:
+    if ((param_3 & 0x2000) == 0) {
+      eON_AppendShaderCompileMessage(param_2,"%u",uVar1);
+    }
+    else {
+      eON_AppendShaderCompileMessage(param_2,&DAT_04361c12);
+      if (param_4 == 0) {
+        eON_AppendShaderCompileMessage(param_2,&DAT_042e7f1a);
+      }
+      else {
+        eON_ShaderData_FormatSourceRegister(param_1,param_2,param_4,0,param_5);
+      }
+      eON_AppendShaderCompileMessage(param_2," + %u]",uVar1);
+    }
+    break;
+  case 0xf:
+    eON_AppendShaderCompileMessage(param_2,&DAT_042e7ef1);
+    break;
+  default:
+    FUN_0402cd10(0xf,"Unhandled register type: %u",uVar5);
+    break;
+  case 0x11:
+    if (uVar1 < 2) {
+      eON_AppendShaderCompileMessage(param_2,"%s",(&PTR_DAT_042ea5d4)[uVar1]);
+    }
+    else {
+      FUN_0402cd10(0xf,"Unhandled MISCTYPE register: %u",uVar1);
+    }
+    break;
+  case 0x12:
+    eON_AppendShaderCompileMessage(param_2,&PTR_DAT_042e7871,uVar1);
+    break;
+  case 0x13:
+    eON_AppendShaderCompileMessage(param_2,&PTR_DAT_042e79e5,uVar1);
+  }
+  if (param_5 == '\0') {
+    if ((param_3 & 0xf0000) == 0xf0000) {
+      return;
+    }
+    eON_AppendShaderCompileMessage(param_2,".");
+    if ((param_3 & 0x10000) != 0) {
+      eON_AppendShaderCompileMessage(param_2,&DAT_042e7f50,(int)*pcVar2);
+    }
+    if ((param_3 & 0x20000) != 0) {
+      eON_AppendShaderCompileMessage(param_2,&DAT_042e7f50,(int)pcVar2[1]);
+    }
+    if ((param_3 & 0x40000) != 0) {
+      eON_AppendShaderCompileMessage(param_2,&DAT_042e7f50,(int)pcVar2[2]);
+    }
+    if ((param_3 & 0x80000) == 0) {
+      return;
+    }
+    eON_AppendShaderCompileMessage();
+    return;
+  }
+  if (uVar3 == 0x6000000) goto LAB_04057b00;
+  if (0x6000000 < uVar3) {
+    if (uVar3 == 0xa000000) {
+      eON_AppendShaderCompileMessage(param_2,&PTR_DAT_042e7f28);
+      goto LAB_04057b00;
+    }
+    if (0xa000000 < uVar3) {
+      if (uVar3 != 0xc000000) {
+        if (uVar3 == 0xd000000) goto LAB_04057b00;
+        if (uVar3 != 0xb000000) goto LAB_04057fe3;
+      }
+      eON_AppendShaderCompileMessage(param_2,")");
+      goto LAB_04057b00;
+    }
+    if (uVar3 != 0x8000000) {
+      if (uVar3 == 0x9000000) {
+        eON_AppendShaderCompileMessage(param_2,&PTR_DAT_042e7f24);
+        goto LAB_04057b00;
+      }
+      if (uVar3 != 0x7000000) goto LAB_04057fe3;
+    }
+    eON_AppendShaderCompileMessage(param_2,&PTR_DAT_042e7607);
+    goto LAB_04057b00;
+  }
+  if (uVar3 == 0x2000000) {
+LAB_04058038:
+    eON_AppendShaderCompileMessage(param_2,"_bias");
+  }
+  else {
+    if (uVar3 < 0x2000001) {
+      if ((uVar3 == 0) || (uVar3 == 0x1000000)) goto LAB_04057b00;
+    }
+    else {
+      if ((uVar3 == 0x4000000) || (uVar3 == 0x5000000)) {
+        eON_AppendShaderCompileMessage(param_2,&DAT_042e7f1f);
+        goto LAB_04057b00;
+      }
+      if (uVar3 == 0x3000000) goto LAB_04058038;
+    }
+LAB_04057fe3:
+    eON_AppendShaderCompileMessage(param_2,"_unknown_source_modifier(%x)",uVar3 >> 0x18);
+  }
+LAB_04057b00:
+  puVar4 = (undefined *)(param_3 & 0xff0000);
+  if (puVar4 == &DAT_00e40000) {
+    return;
+  }
+  eON_AppendShaderCompileMessage
+            (param_2,&DAT_042e7f49,(int)pcVar2[(uint)puVar4 >> 0x10 & 3],
+             (int)pcVar2[(uint)puVar4 >> 0x12 & 3],(int)pcVar2[(uint)puVar4 >> 0x14 & 3],
+             (int)pcVar2[(uint)puVar4 >> 0x16]);
+  return;
+}
+

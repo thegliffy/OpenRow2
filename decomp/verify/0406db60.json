@@ -1,0 +1,27 @@
+
+/* source: direct3dbasetexture9imp */
+
+void direct3dbasetexture9imp_0406db60(int param_1,int param_2)
+
+{
+  void *pvVar1;
+  int iVar2;
+  
+  if (0xf < param_2) {
+    FUN_0400a810("openGLObjectIndex < 16",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3dbasetexture9imp.cpp"
+                 ,0x3a3,"void Direct3DBaseTexture9Imp::MakeSureOpenGLTextureExists(INT)");
+  }
+  iVar2 = *(int *)(param_1 + 0x280);
+  while (iVar2 <= param_2) {
+    pvVar1 = operator_new(0x50);
+                    /* try { // try from 0406db9c to 0406dba0 has its CatchHandler @ 0406dbee */
+    OpenGLTexture__OpenGLTexture(pvVar1,*(undefined4 *)(param_1 + 0x1c),param_1);
+    iVar2 = *(int *)(param_1 + 0x280);
+    *(void **)(param_1 + 0x240 + iVar2 * 4) = pvVar1;
+    iVar2 = iVar2 + 1;
+    *(int *)(param_1 + 0x280) = iVar2;
+  }
+  return;
+}
+

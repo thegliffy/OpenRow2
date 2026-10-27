@@ -1,0 +1,13 @@
+
+void XAudio2MasteringVoiceImp__GetOutputMatrix(void)
+
+{
+  undefined4 uStack00000004;
+  char *pcStack00000008;
+  
+  pcStack00000008 = "Trying to get output matrix for a mastering voice. It doesn\'t make sense.";
+  uStack00000004 = 10;
+  FUN_0402cd10();
+  return;
+}
+

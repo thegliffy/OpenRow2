@@ -1,0 +1,13 @@
+
+char * Direct3D9Imp__Int_D3DRTYPE_ToString(int param_1)
+
+{
+  char *pcVar1;
+  
+  pcVar1 = "!unknown!";
+  if (param_1 - 1U < 7) {
+    pcVar1 = (&PTR_s_D3DRTYPE_SURFACE_042eebc4)[param_1 - 1U];
+  }
+  return pcVar1;
+}
+

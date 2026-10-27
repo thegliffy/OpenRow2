@@ -1,0 +1,41 @@
+
+/* source: audioconverter */
+
+undefined4 * AudioConverter__Convert(undefined4 *param_1,int param_2,int param_3,int param_4)
+
+{
+  int iVar1;
+  int iStack_2ee70;
+  undefined1 auStack_2ee68 [192000];
+  undefined1 local_68 [20];
+  int local_54;
+  int local_50;
+  undefined *local_20 [4];
+  
+  av_init_packet(local_68);
+  *param_1 = 0;
+  local_50 = param_4;
+  local_54 = param_3;
+  param_1[1] = 0;
+  param_1[2] = 0;
+  if (0 < param_4) {
+    iStack_2ee70 = 0;
+    do {
+      local_20[0] = &DAT_0002ee00;
+      iVar1 = avcodec_decode_audio3(*(undefined4 *)(param_2 + 4),auStack_2ee68,local_20,local_68);
+      if (iVar1 < 0) {
+        FUN_0400a810("!\"Decoding error\"",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/xaudio2_full/audioconverter.cpp"
+                     ,0x8f,"AudioBufferS16 AudioConverter::Convert(const void*, int)");
+        return param_1;
+      }
+      local_54 = local_54 + iVar1;
+      local_50 = local_50 - iVar1;
+                    /* try { // try from 04101bba to 04101c20 has its CatchHandler @ 04101c30 */
+      FUN_04101c50(param_1,param_1[1],auStack_2ee68,auStack_2ee68 + (int)local_20[0],0);
+      iStack_2ee70 = iStack_2ee70 + iVar1;
+    } while (iStack_2ee70 < param_4);
+  }
+  return param_1;
+}
+

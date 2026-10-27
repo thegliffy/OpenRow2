@@ -1,0 +1,25 @@
+
+/* source: direct3dsurface9imp */
+
+undefined4 direct3dsurface9imp_040adca0(int param_1)
+
+{
+  uint uVar1;
+  
+  uVar1 = *(uint *)(param_1 + 0xac);
+  if (uVar1 == 0x84f9) {
+    FUN_0400a810("false",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3dsurface9imp.cpp"
+                 ,0x1ae,"bool Direct3DSurface9Imp::IsDepth() const");
+  }
+  else if (uVar1 < 0x84fa) {
+    if (2 < uVar1 - 0x81a5) {
+      return 0;
+    }
+  }
+  else if (uVar1 != 0x88f0) {
+    return 0;
+  }
+  return 1;
+}
+

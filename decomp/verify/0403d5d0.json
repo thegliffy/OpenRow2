@@ -1,0 +1,191 @@
+
+/* source: vpfs */
+
+void VPFS_Config_Prepare(void)
+
+{
+  ushort uVar1;
+  char *pcVar2;
+  uint uVar3;
+  uint uVar4;
+  uint *puVar5;
+  __int32_t **pp_Var6;
+  size_t sVar7;
+  void *pvVar8;
+  size_t sVar9;
+  uint uVar10;
+  uint *puVar11;
+  uint uVar12;
+  uint *puVar13;
+  undefined4 *puVar14;
+  undefined4 *puVar15;
+  char cVar16;
+  int *piVar17;
+  size_t sVar18;
+  size_t local_424;
+  char local_41c [1036];
+  
+  uVar12 = DAT_04417804;
+  if (DAT_04417804 != 0) {
+    puVar5 = &DAT_04417820;
+    do {
+      puVar13 = puVar5;
+      uVar3 = *puVar13 + 0xfefefeff & ~*puVar13;
+      uVar4 = uVar3 & 0x80808080;
+      puVar5 = puVar13 + 1;
+    } while (uVar4 == 0);
+    puVar5 = (uint *)((int)puVar13 + 6);
+    uVar10 = uVar4 >> 0x10;
+    if ((uVar3 & 0x8080) != 0) {
+      puVar5 = puVar13 + 1;
+      uVar10 = uVar4;
+    }
+    uVar4 = (uint)(DAT_04417820._1_1_ == ':');
+    uVar10 = (int)puVar5 + (-0x4417822 - (uint)CARRY1((byte)uVar10,(byte)uVar10));
+    uVar3 = uVar4 * 2;
+    puVar5 = malloc(uVar10 + uVar4 * -2);
+    if (uVar3 < uVar10) {
+      do {
+        cVar16 = *(char *)((int)&DAT_04417820 + uVar3);
+        if ((int)cVar16 + 0x80U < 0x180) {
+          pp_Var6 = __ctype_tolower_loc();
+          cVar16 = (char)(*pp_Var6)[cVar16];
+        }
+        *(char *)((int)puVar5 + uVar3 + uVar4 * -2) = cVar16;
+        uVar3 = uVar3 + 1;
+      } while (uVar3 < uVar10);
+    }
+    FUN_0403cbe0();
+    puVar15 = DAT_0441780c;
+    puVar13 = puVar5;
+    do {
+      puVar11 = puVar13;
+      uVar3 = *puVar11 + 0xfefefeff & ~*puVar11;
+      uVar4 = uVar3 & 0x80808080;
+      puVar13 = puVar11 + 1;
+    } while (uVar4 == 0);
+    uVar10 = uVar4 >> 0x10;
+    puVar13 = (uint *)((int)puVar11 + 6);
+    if ((uVar3 & 0x8080) != 0) {
+      puVar13 = puVar11 + 1;
+      uVar10 = uVar4;
+    }
+    sVar18 = 0;
+    sVar9 = (int)puVar13 + ((-3 - (uint)CARRY1((byte)uVar10,(byte)uVar10)) - (int)puVar5);
+    puVar14 = DAT_0441780c;
+    do {
+      if (*(char *)*puVar14 != '/') {
+        sVar7 = strlen((char *)*puVar14);
+        pvVar8 = malloc(sVar9 + sVar7 + 2);
+        memcpy(pvVar8,puVar5,sVar9);
+        *(undefined1 *)((int)pvVar8 + sVar9) = 0x2f;
+        memcpy((void *)(sVar9 + 1 + (int)pvVar8),(void *)*puVar14,sVar7);
+        *(undefined1 *)((int)pvVar8 + sVar9 + sVar7 + 1) = 0;
+        FUN_0403cbe0();
+        free((void *)*puVar14);
+        *puVar14 = pvVar8;
+      }
+      sVar18 = sVar18 + 1;
+      puVar14 = puVar14 + 4;
+    } while (sVar18 != uVar12);
+    free(puVar5);
+    qsort(puVar15,sVar18,0x10,FUN_0403c710);
+    puVar15 = DAT_0441780c;
+    pcVar2 = (char *)*DAT_0441780c;
+    sVar9 = strlen(pcVar2);
+    local_424 = sVar9 + 1;
+    memcpy(local_41c,pcVar2,local_424);
+    if (1 < DAT_04417804) {
+      uVar12 = 1;
+      sVar18 = sVar9;
+      do {
+        sVar9 = sVar18;
+        if (sVar18 != 0) {
+          if (local_41c[0] == *(char *)puVar15[uVar12 * 4]) {
+            sVar7 = 0;
+            do {
+              sVar7 = sVar7 + 1;
+              sVar9 = sVar18;
+              if (sVar7 == sVar18) break;
+              sVar9 = sVar7;
+            } while (local_41c[sVar7] == ((char *)puVar15[uVar12 * 4])[sVar7]);
+          }
+          else {
+            sVar9 = 0;
+          }
+        }
+        uVar12 = uVar12 + 1;
+        sVar18 = sVar9;
+      } while (uVar12 != DAT_04417804);
+      local_424 = sVar9 + 1;
+    }
+    if (sVar9 == 0) {
+      FUN_0402cd10(0xf,"Critical error: leading VPFS substring length is 0!");
+      if (DAT_04417804 != 0) {
+        uVar12 = 0;
+        do {
+          uVar3 = uVar12 + 1;
+          FUN_0402cd10(0xf,"Source path %d = \'%s\'",uVar12,DAT_0441780c[uVar12 * 4]);
+          uVar12 = uVar3;
+        } while (uVar3 < DAT_04417804);
+      }
+      FUN_0400a810("false","/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/vpfs/vpfs.cpp",
+                   0x339,"void VPFS_Config_Prepare(const char*)");
+    }
+    uVar12 = DAT_04417804;
+    pvVar8 = malloc(local_424);
+    DAT_04468a98 = pvVar8;
+    memcpy(pvVar8,local_41c,sVar9);
+    DAT_04468a9c = sVar9;
+    *(undefined1 *)((int)pvVar8 + sVar9) = 0;
+    if (uVar12 != 0) {
+      uVar3 = 0;
+      puVar15 = DAT_0441780c;
+      do {
+        pcVar2 = (char *)*puVar15;
+        uVar3 = uVar3 + 1;
+        puVar15 = puVar15 + 4;
+        sVar18 = strlen(pcVar2);
+        memmove(pcVar2,pcVar2 + sVar9,sVar18 + (1 - sVar9));
+      } while (uVar3 != uVar12);
+    }
+    DAT_0441780c = realloc(DAT_0441780c,uVar12 << 4);
+    DAT_04417808 = uVar12;
+    FUN_0402cd10(5,"Leading substring: \'%s\'",pvVar8);
+    if (DAT_04417804 != 0) {
+      uVar12 = 0;
+      do {
+        puVar15 = DAT_0441780c + uVar12 * 4;
+        pcVar2 = (char *)*puVar15;
+        sVar9 = strlen(pcVar2);
+        *(short *)(puVar15 + 3) = (short)sVar9;
+        pvVar8 = realloc(pcVar2,(sVar9 & 0xffff) + 1);
+        *puVar15 = pvVar8;
+        FUN_0402cd10(5,"Source path %d: \'%s\'",uVar12,pvVar8);
+        piVar17 = DAT_0441780c + uVar12 * 4;
+        if ((*(ushort *)(piVar17 + 3) != 0) &&
+           (*(char *)(*piVar17 + -1 + (uint)*(ushort *)(piVar17 + 3)) == '/')) {
+          FUN_0400a810("!VPFS_Config_PathVector[i].SourcePathLength || ( VPFS_Config_PathVector[i].SourcePath[VPFS_Config_PathVector[i].SourcePathLength-1] != \'/\' )"
+                       ,"/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/vpfs/vpfs.cpp",
+                       0x352,"void VPFS_Config_Prepare(const char*)");
+          piVar17 = DAT_0441780c + uVar12 * 4;
+        }
+        pcVar2 = (char *)piVar17[1];
+        sVar9 = strlen(pcVar2);
+        *(short *)((int)piVar17 + 0xe) = (short)sVar9;
+        pvVar8 = realloc(pcVar2,(sVar9 & 0xffff) + 1);
+        piVar17[1] = (int)pvVar8;
+        FUN_0402cd10(5,"Target path %d: \'%s\'",uVar12,pvVar8);
+        uVar1 = *(ushort *)((int)DAT_0441780c + uVar12 * 0x10 + 0xe);
+        if ((uVar1 != 0) && (*(char *)(DAT_0441780c[uVar12 * 4 + 1] + -1 + (uint)uVar1) == '/')) {
+          FUN_0400a810("!VPFS_Config_PathVector[i].TargetPathLength || ( VPFS_Config_PathVector[i].TargetPath[VPFS_Config_PathVector[i].TargetPathLength-1] != \'/\' )"
+                       ,"/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/vpfs/vpfs.cpp",
+                       0x357,"void VPFS_Config_Prepare(const char*)");
+        }
+        uVar12 = uVar12 + 1;
+      } while (uVar12 < DAT_04417804);
+    }
+  }
+  return;
+}
+

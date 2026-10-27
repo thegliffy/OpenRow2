@@ -1,0 +1,26 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+bool _glewInit_GL_ARB_texture_storage(void)
+
+{
+  int iVar1;
+  bool bVar2;
+  bool bVar3;
+  bool bVar4;
+  bool bVar5;
+  
+  iVar1 = glXGetProcAddressARB("glTexStorage1D");
+  _DAT_0451e14c = iVar1;
+  DAT_0451e148 = glXGetProcAddressARB("glTexStorage2D");
+  bVar2 = DAT_0451e148 == 0;
+  DAT_0451e144 = glXGetProcAddressARB("glTexStorage3D");
+  bVar3 = DAT_0451e144 == 0;
+  _DAT_0451e140 = glXGetProcAddressARB("glTextureStorage1DEXT");
+  bVar4 = _DAT_0451e140 == 0;
+  _DAT_0451e13c = glXGetProcAddressARB("glTextureStorage2DEXT");
+  bVar5 = _DAT_0451e13c == 0;
+  _DAT_0451e138 = glXGetProcAddressARB("glTextureStorage3DEXT");
+  return _DAT_0451e138 == 0 || (bVar5 || (bVar4 || (bVar3 || (bVar2 || iVar1 == 0))));
+}
+

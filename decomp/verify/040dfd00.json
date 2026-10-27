@@ -1,0 +1,37 @@
+
+/* source: openGlDebugFunctions */
+
+void openGlDebugFunctions_040dfd00(void)
+
+{
+  int iVar1;
+  int iVar2;
+  int local_10 [2];
+  
+  iVar1 = eON_Int_GL_NoteCurrentContext();
+  if (iVar1 == 0) {
+    puts("No valid OpenGL context in calling thread!.");
+  }
+  else {
+    if (DAT_044dac80 == 0) {
+      FUN_040d9ba0();
+    }
+    glGetIntegerv(0x8872,local_10);
+    iVar1 = glGetError();
+    if (iVar1 != 0) {
+      FUN_0400a810("glGetError() == 0",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                   ,0x144a,"void OGLC_DumpBoundTextures()");
+    }
+    if (0 < local_10[0]) {
+      iVar1 = 0;
+      do {
+        iVar2 = iVar1 + 1;
+        OGLC_DumpBoundTexturesInStage(iVar1);
+        iVar1 = iVar2;
+      } while (iVar2 < local_10[0]);
+    }
+  }
+  return;
+}
+

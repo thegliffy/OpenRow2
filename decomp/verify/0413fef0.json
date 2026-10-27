@@ -1,0 +1,27 @@
+
+/* source: MemoryHandleManager */
+
+void MemoryHandleManager__FreeSlot(int *param_1,ushort param_2)
+
+{
+  int iVar1;
+  byte bVar2;
+  
+  if (*(ushort *)(param_1 + 1) <= param_2) {
+    FUN_0400a810("i < mBufferSize",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/MemoryHandleManager.cpp"
+                 ,0x18d,"void MemoryHandleManager::FreeSlot(WORD)");
+  }
+  iVar1 = *param_1 + (uint)param_2 * 8;
+  bVar2 = *(byte *)(iVar1 + 5);
+  if ((bVar2 & 1) == 0) {
+    FUN_0400a810("mBuffer[i].Used",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/MemoryHandleManager.cpp"
+                 ,0x18e,"void MemoryHandleManager::FreeSlot(WORD)");
+    iVar1 = *param_1 + (uint)param_2 * 8;
+    bVar2 = *(byte *)(iVar1 + 5);
+  }
+  *(byte *)(iVar1 + 5) = bVar2 & 0xfe;
+  return;
+}
+

@@ -1,0 +1,33 @@
+
+undefined4 heaps_Init(void)
+
+{
+  void *pvVar1;
+  undefined4 uVar2;
+  
+  pvVar1 = operator_new(0x20);
+                    /* try { // try from 04139d18 to 04139d1c has its CatchHandler @ 04139dca */
+  MemoryHandleManager_Init(pvVar1);
+  DAT_04515b68 = pvVar1;
+  if (pvVar1 != (void *)0x0) {
+    pvVar1 = operator_new(0x20);
+                    /* try { // try from 04139d38 to 04139d3c has its CatchHandler @ 04139db4 */
+    MemoryHandleManager_Init(pvVar1);
+    uVar2 = 1;
+    DAT_04515b6c = pvVar1;
+    if (pvVar1 == (void *)0x0) {
+      FUN_0402cd10(0xf,"heaps_Init() - failed allocating localAllocs");
+      pvVar1 = DAT_04515b68;
+      if (DAT_04515b68 != (void *)0x0) {
+        MemoryHandleManager_Destroy(DAT_04515b68);
+        operator_delete(pvVar1);
+      }
+      DAT_04515b68 = (void *)0x0;
+      uVar2 = 0;
+    }
+    return uVar2;
+  }
+  FUN_0402cd10(0xf,"heaps_Init() - failed allocating globalAllocs");
+  return 0;
+}
+

@@ -1,0 +1,37 @@
+
+void Direct3DDevice9Imp__RemoveResourceFromPool(int param_1,int param_2,int param_3)
+
+{
+  pthread_mutex_t *__mutex;
+  
+  if (param_3 == 1) {
+    __mutex = (pthread_mutex_t *)(param_1 + 0xea90);
+  }
+  else {
+    __mutex = (pthread_mutex_t *)(param_1 + 0xea6c);
+    if (param_3 != 0) {
+      if (param_3 == 2) {
+        __mutex = (pthread_mutex_t *)(param_1 + 0xeab4);
+      }
+      else {
+        if (param_3 != 3) {
+          FUN_0402cd10();
+          return;
+        }
+        __mutex = (pthread_mutex_t *)(param_1 + 0xead8);
+      }
+    }
+  }
+  pthread_mutex_lock(__mutex);
+  if (*(int *)(param_2 + 0x1c) != 0) {
+    *(undefined4 *)(*(int *)(param_2 + 0x1c) + 4) = *(undefined4 *)(param_2 + 0x18);
+  }
+  if (*(int *)(param_2 + 0x18) != 0) {
+    *(undefined4 *)(*(int *)(param_2 + 0x18) + 8) = *(undefined4 *)(param_2 + 0x1c);
+  }
+  *(undefined4 *)(param_2 + 0x18) = 0;
+  *(undefined4 *)(param_2 + 0x1c) = 0;
+  pthread_mutex_unlock(__mutex);
+  return;
+}
+

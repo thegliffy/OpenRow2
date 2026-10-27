@@ -1,0 +1,508 @@
+
+/* source: direct3ddevice9imp */
+
+int Direct3DDevice9Imp__ColorFill(int *param_1,int *param_2,int *param_3,int param_4)
+
+{
+  code *pcVar1;
+  bool bVar2;
+  char cVar3;
+  undefined4 uVar4;
+  int iVar5;
+  int *piVar6;
+  int *piVar7;
+  int iVar8;
+  int aiStack_b8 [18];
+  int local_70;
+  undefined1 local_60 [24];
+  int *local_48;
+  int local_44;
+  int local_40;
+  int local_3c;
+  undefined1 local_38 [16];
+  int local_28;
+  int *local_24;
+  int *local_20 [4];
+  
+  piVar7 = aiStack_b8 + 7;
+  if (param_2 == (int *)0x0) {
+    return -0x7789f794;
+  }
+  iVar8 = param_1[3];
+  local_24 = &local_28;
+  local_28 = iVar8;
+  if (iVar8 != 0) {
+    piVar7 = aiStack_b8 + 7;
+    if (*(char *)(iVar8 + 0xebbc) != '\0') {
+      aiStack_b8[7] = iVar8 + 0xebc4;
+      aiStack_b8[6] = 0x4075dde;
+      EnterCriticalSection();
+      piVar7 = aiStack_b8 + 6;
+    }
+    if (*(int *)(iVar8 + 0xec64) == 0) {
+      if (*(int *)(iVar8 + 0xebc0) != 0) {
+        piVar7[3] = (int)"void Direct3DDevice9Imp::MultithreadedGuard_Enter()";
+        piVar7[2] = 0x3ae;
+        piVar7[1] = (int)
+                    "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+        ;
+        *piVar7 = (int)"!mCurrentD3D9Thread";
+        piVar7[-1] = 0x4075d7c;
+        FUN_0400a810();
+      }
+      piVar7[-1] = 0x4075cf4;
+      uVar4 = FUN_0415b750();
+      *(undefined4 *)(iVar8 + 0xebc0) = uVar4;
+    }
+    else {
+      local_70 = *(int *)(iVar8 + 0xebc0);
+      piVar7[-1] = 0x4075d96;
+      iVar5 = FUN_0415b750();
+      if (local_70 != iVar5) {
+        piVar7[3] = (int)"void Direct3DDevice9Imp::MultithreadedGuard_Enter()";
+        piVar7[2] = 0x3b3;
+        piVar7[1] = (int)
+                    "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+        ;
+        *piVar7 = (int)"mCurrentD3D9Thread == thread_GetCurrentThreadId()";
+        piVar7[-1] = 0x4075dc3;
+        FUN_0400a810();
+      }
+    }
+    *(int *)(iVar8 + 0xec64) = *(int *)(iVar8 + 0xec64) + 1;
+  }
+  iVar8 = -0x7789f794;
+  if (param_2[0x1f] == 0) {
+    *piVar7 = (int)(param_2 + 1);
+                    /* try { // try from 04075d13 to 04075d33 has its CatchHandler @ 0407649a */
+    piVar7[-1] = 0x4075d18;
+    cVar3 = direct3dsurface9imp_040adca0();
+    if (cVar3 == '\0') {
+      *piVar7 = (int)(param_2 + 1);
+                    /* try { // try from 04075df3 to 04076483 has its CatchHandler @ 0407649a */
+      piVar7[-1] = 0x4075df8;
+      cVar3 = direct3dsurface9imp_040add10();
+      if (cVar3 == '\0') {
+        iVar8 = *param_1;
+        local_48 = (int *)0x0;
+        local_44 = 0;
+        local_40 = 0;
+        local_3c = 0;
+        local_20[0] = (int *)0x0;
+        piVar7[2] = (int)&local_48;
+        piVar7[1] = 0;
+        *piVar7 = (int)param_1;
+        pcVar1 = *(code **)(iVar8 + 0xa0);
+        piVar7[-1] = 0x4075e3d;
+        iVar8 = (*pcVar1)();
+        if (iVar8 < 0) {
+          piVar7[3] = (int)
+                      "virtual HRESULT Direct3DDevice9Imp::ColorFill(IDirect3DSurface9*, const RECT*, D3DCOLOR)"
+          ;
+          piVar7[2] = 0x14ac;
+          piVar7[1] = (int)
+                      "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+          ;
+          *piVar7 = (int)"((HRESULT)(hr) >= 0)";
+          piVar7[-1] = 0x40761e4;
+          FUN_0400a810();
+        }
+        iVar8 = *param_1;
+        piVar7[1] = 1;
+        piVar7[2] = (int)&local_44;
+        *piVar7 = (int)param_1;
+        pcVar1 = *(code **)(iVar8 + 0xa0);
+        piVar7[-1] = 0x4075e5f;
+        iVar8 = (*pcVar1)();
+        if (iVar8 < 0) {
+          piVar7[3] = (int)
+                      "virtual HRESULT Direct3DDevice9Imp::ColorFill(IDirect3DSurface9*, const RECT*, D3DCOLOR)"
+          ;
+          piVar7[2] = 0x14ad;
+          piVar7[1] = (int)
+                      "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+          ;
+          *piVar7 = (int)"((HRESULT)(hr) >= 0)";
+          piVar7[-1] = 0x40761b4;
+          FUN_0400a810();
+        }
+        iVar8 = *param_1;
+        piVar7[1] = 2;
+        piVar7[2] = (int)&local_40;
+        *piVar7 = (int)param_1;
+        pcVar1 = *(code **)(iVar8 + 0xa0);
+        piVar7[-1] = 0x4075e81;
+        iVar8 = (*pcVar1)();
+        if (iVar8 < 0) {
+          piVar7[3] = (int)
+                      "virtual HRESULT Direct3DDevice9Imp::ColorFill(IDirect3DSurface9*, const RECT*, D3DCOLOR)"
+          ;
+          piVar7[2] = 0x14ae;
+          piVar7[1] = (int)
+                      "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+          ;
+          *piVar7 = (int)"((HRESULT)(hr) >= 0)";
+          piVar7[-1] = 0x4076244;
+          FUN_0400a810();
+        }
+        iVar8 = *param_1;
+        piVar7[1] = 3;
+        piVar7[2] = (int)&local_3c;
+        *piVar7 = (int)param_1;
+        pcVar1 = *(code **)(iVar8 + 0xa0);
+        piVar7[-1] = 0x4075ea3;
+        iVar8 = (*pcVar1)();
+        if (iVar8 < 0) {
+          piVar7[3] = (int)
+                      "virtual HRESULT Direct3DDevice9Imp::ColorFill(IDirect3DSurface9*, const RECT*, D3DCOLOR)"
+          ;
+          piVar7[2] = 0x14af;
+          piVar7[1] = (int)
+                      "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+          ;
+          *piVar7 = (int)"((HRESULT)(hr) >= 0)";
+          piVar7[-1] = 0x4076214;
+          FUN_0400a810();
+        }
+        iVar8 = *param_1;
+        *piVar7 = (int)param_1;
+        piVar7[1] = (int)local_20;
+        pcVar1 = *(code **)(iVar8 + 0xa8);
+        piVar7[-1] = 0x4075ebd;
+        iVar8 = (*pcVar1)();
+        if (iVar8 < 0) {
+          piVar7[3] = (int)
+                      "virtual HRESULT Direct3DDevice9Imp::ColorFill(IDirect3DSurface9*, const RECT*, D3DCOLOR)"
+          ;
+          piVar7[2] = 0x14b0;
+          piVar7[1] = (int)
+                      "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+          ;
+          *piVar7 = (int)"((HRESULT)(hr) >= 0)";
+          piVar7[-1] = 0x4076274;
+          FUN_0400a810();
+        }
+        iVar8 = *param_1;
+        *piVar7 = (int)param_1;
+        piVar7[1] = (int)local_60;
+        pcVar1 = *(code **)(iVar8 + 200);
+        piVar7[-1] = 0x4075ed7;
+        (*pcVar1)();
+        iVar8 = *param_1;
+        *piVar7 = (int)param_1;
+        piVar7[1] = (int)local_38;
+        pcVar1 = *(code **)(iVar8 + 0x138);
+        piVar7[-1] = 0x4075ee9;
+        (*pcVar1)();
+        if (local_48 != param_2) {
+          iVar8 = *param_1;
+          piVar7[2] = (int)param_2;
+          piVar7[1] = 0;
+          *piVar7 = (int)param_1;
+          pcVar1 = *(code **)(iVar8 + 0x9c);
+          piVar7[-1] = 0x4075f05;
+          iVar8 = (*pcVar1)();
+          if (iVar8 < 0) {
+            piVar7[3] = (int)
+                        "virtual HRESULT Direct3DDevice9Imp::ColorFill(IDirect3DSurface9*, const RECT*, D3DCOLOR)"
+            ;
+            piVar7[2] = 0x14b9;
+            piVar7[1] = (int)
+                        "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+            ;
+            *piVar7 = (int)"((HRESULT)(hr) >= 0)";
+            piVar7[-1] = 0x4076484;
+            FUN_0400a810();
+          }
+        }
+        if (local_44 != 0) {
+          iVar8 = *param_1;
+          piVar7[2] = 0;
+          piVar7[1] = 1;
+          *piVar7 = (int)param_1;
+          pcVar1 = *(code **)(iVar8 + 0x9c);
+          piVar7[-1] = 0x4075f2f;
+          iVar8 = (*pcVar1)();
+          if (iVar8 < 0) {
+            piVar7[3] = (int)
+                        "virtual HRESULT Direct3DDevice9Imp::ColorFill(IDirect3DSurface9*, const RECT*, D3DCOLOR)"
+            ;
+            piVar7[2] = 0x14ba;
+            piVar7[1] = (int)
+                        "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+            ;
+            *piVar7 = (int)"((HRESULT)(hr) >= 0)";
+            piVar7[-1] = 0x4076454;
+            FUN_0400a810();
+          }
+        }
+        if (local_40 != 0) {
+          iVar8 = *param_1;
+          piVar7[2] = 0;
+          piVar7[1] = 2;
+          *piVar7 = (int)param_1;
+          pcVar1 = *(code **)(iVar8 + 0x9c);
+          piVar7[-1] = 0x4075f59;
+          iVar8 = (*pcVar1)();
+          if (iVar8 < 0) {
+            piVar7[3] = (int)
+                        "virtual HRESULT Direct3DDevice9Imp::ColorFill(IDirect3DSurface9*, const RECT*, D3DCOLOR)"
+            ;
+            piVar7[2] = 0x14bb;
+            piVar7[1] = (int)
+                        "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+            ;
+            *piVar7 = (int)"((HRESULT)(hr) >= 0)";
+            piVar7[-1] = 0x4076424;
+            FUN_0400a810();
+          }
+        }
+        if (local_3c != 0) {
+          iVar8 = *param_1;
+          piVar7[2] = 0;
+          piVar7[1] = 3;
+          *piVar7 = (int)param_1;
+          pcVar1 = *(code **)(iVar8 + 0x9c);
+          piVar7[-1] = 0x4075f83;
+          iVar8 = (*pcVar1)();
+          if (iVar8 < 0) {
+            piVar7[3] = (int)
+                        "virtual HRESULT Direct3DDevice9Imp::ColorFill(IDirect3DSurface9*, const RECT*, D3DCOLOR)"
+            ;
+            piVar7[2] = 0x14bc;
+            piVar7[1] = (int)
+                        "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+            ;
+            *piVar7 = (int)"((HRESULT)(hr) >= 0)";
+            piVar7[-1] = 0x40763f4;
+            FUN_0400a810();
+          }
+        }
+        if (local_20[0] != (int *)0x0) {
+          iVar8 = *param_1;
+          piVar7[1] = 0;
+          *piVar7 = (int)param_1;
+          pcVar1 = *(code **)(iVar8 + 0xa4);
+          piVar7[-1] = 0x4075fa5;
+          iVar8 = (*pcVar1)();
+          if (iVar8 < 0) {
+            piVar7[3] = (int)
+                        "virtual HRESULT Direct3DDevice9Imp::ColorFill(IDirect3DSurface9*, const RECT*, D3DCOLOR)"
+            ;
+            piVar7[2] = 0x14bd;
+            piVar7[1] = (int)
+                        "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+            ;
+            *piVar7 = (int)"((HRESULT)(hr) >= 0)";
+            piVar7[-1] = 0x40763c4;
+            FUN_0400a810();
+          }
+        }
+        bVar2 = true;
+        if ((((param_3 != (int *)0x0) && (bVar2 = false, *param_3 < 1)) && (param_3[1] < 1)) &&
+           (param_3[2] == param_2[0x22])) {
+          bVar2 = param_2[0x23] <= param_3[3];
+        }
+        iVar8 = *param_1;
+        *piVar7 = (int)param_1;
+        piVar7[1] = (int)local_60;
+        pcVar1 = *(code **)(iVar8 + 0xc4);
+        piVar7[-1] = 0x4075fda;
+        (*pcVar1)();
+        iVar8 = *param_1;
+        *piVar7 = (int)param_1;
+        piVar7[1] = (int)local_38;
+        pcVar1 = *(code **)(iVar8 + 0x134);
+        piVar7[-1] = 0x4075fec;
+        (*pcVar1)();
+        pcVar1 = *(code **)(*param_1 + 0xb4);
+        piVar7[6] = 0;
+        *piVar7 = (int)param_1;
+        piVar6 = (int *)0x0;
+        if (!bVar2) {
+          piVar6 = param_3;
+        }
+        piVar7[5] = 0;
+        piVar7[3] = 1;
+        piVar7[1] = 1;
+        piVar7[4] = param_4;
+        piVar7[2] = (int)piVar6;
+        piVar7[-1] = 0x4076037;
+        iVar8 = (*pcVar1)();
+        if (local_20[0] != (int *)0x0) {
+          iVar8 = *param_1;
+          piVar7[1] = (int)local_20[0];
+          *piVar7 = (int)param_1;
+          pcVar1 = *(code **)(iVar8 + 0xa4);
+          piVar7[-1] = 0x407604f;
+          iVar8 = (*pcVar1)();
+          if (iVar8 < 0) {
+            piVar7[3] = (int)
+                        "virtual HRESULT Direct3DDevice9Imp::ColorFill(IDirect3DSurface9*, const RECT*, D3DCOLOR)"
+            ;
+            piVar7[2] = 0x14d3;
+            piVar7[1] = (int)
+                        "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+            ;
+            *piVar7 = (int)"((HRESULT)(hr) >= 0)";
+            piVar7[-1] = 0x4076394;
+            FUN_0400a810();
+          }
+        }
+        if (local_3c != 0) {
+          iVar8 = *param_1;
+          piVar7[2] = local_3c;
+          piVar7[1] = 3;
+          *piVar7 = (int)param_1;
+          pcVar1 = *(code **)(iVar8 + 0x9c);
+          piVar7[-1] = 0x4076077;
+          iVar8 = (*pcVar1)();
+          if (iVar8 < 0) {
+            piVar7[3] = (int)
+                        "virtual HRESULT Direct3DDevice9Imp::ColorFill(IDirect3DSurface9*, const RECT*, D3DCOLOR)"
+            ;
+            piVar7[2] = 0x14d4;
+            piVar7[1] = (int)
+                        "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+            ;
+            *piVar7 = (int)"((HRESULT)(hr) >= 0)";
+            piVar7[-1] = 0x4076364;
+            FUN_0400a810();
+          }
+        }
+        if (local_40 != 0) {
+          iVar8 = *param_1;
+          piVar7[2] = local_40;
+          piVar7[1] = 2;
+          *piVar7 = (int)param_1;
+          pcVar1 = *(code **)(iVar8 + 0x9c);
+          piVar7[-1] = 0x407609f;
+          iVar8 = (*pcVar1)();
+          if (iVar8 < 0) {
+            piVar7[3] = (int)
+                        "virtual HRESULT Direct3DDevice9Imp::ColorFill(IDirect3DSurface9*, const RECT*, D3DCOLOR)"
+            ;
+            piVar7[2] = 0x14d5;
+            piVar7[1] = (int)
+                        "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+            ;
+            *piVar7 = (int)"((HRESULT)(hr) >= 0)";
+            piVar7[-1] = 0x4076334;
+            FUN_0400a810();
+          }
+        }
+        if (local_44 != 0) {
+          iVar8 = *param_1;
+          piVar7[2] = local_44;
+          piVar7[1] = 1;
+          *piVar7 = (int)param_1;
+          pcVar1 = *(code **)(iVar8 + 0x9c);
+          piVar7[-1] = 0x40760c7;
+          iVar8 = (*pcVar1)();
+          if (iVar8 < 0) {
+            piVar7[3] = (int)
+                        "virtual HRESULT Direct3DDevice9Imp::ColorFill(IDirect3DSurface9*, const RECT*, D3DCOLOR)"
+            ;
+            piVar7[2] = 0x14d6;
+            piVar7[1] = (int)
+                        "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+            ;
+            *piVar7 = (int)"((HRESULT)(hr) >= 0)";
+            piVar7[-1] = 0x4076304;
+            FUN_0400a810();
+          }
+        }
+        if (local_48 != param_2) {
+          iVar8 = *param_1;
+          piVar7[2] = (int)local_48;
+          piVar7[1] = 0;
+          *piVar7 = (int)param_1;
+          pcVar1 = *(code **)(iVar8 + 0x9c);
+          piVar7[-1] = 0x40760ef;
+          iVar8 = (*pcVar1)();
+          if (iVar8 < 0) {
+            piVar7[3] = (int)
+                        "virtual HRESULT Direct3DDevice9Imp::ColorFill(IDirect3DSurface9*, const RECT*, D3DCOLOR)"
+            ;
+            piVar7[2] = 0x14d7;
+            piVar7[1] = (int)
+                        "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+            ;
+            *piVar7 = (int)"((HRESULT)(hr) >= 0)";
+            piVar7[-1] = 0x40762d4;
+            FUN_0400a810();
+          }
+        }
+        if (local_20[0] != (int *)0x0) {
+          iVar5 = *local_20[0];
+          *piVar7 = (int)local_20[0];
+          pcVar1 = *(code **)(iVar5 + 8);
+          piVar7[-1] = 0x4076108;
+          (*pcVar1)();
+          piVar7 = piVar7 + -1;
+        }
+        if (local_3c != 0) {
+          iVar5 = *local_48;
+          *piVar7 = (int)local_48;
+          pcVar1 = *(code **)(iVar5 + 8);
+          piVar7[-1] = 0x407611d;
+          (*pcVar1)();
+          piVar7 = piVar7 + -1;
+        }
+        if (local_40 != 0) {
+          iVar5 = *local_48;
+          *piVar7 = (int)local_48;
+          pcVar1 = *(code **)(iVar5 + 8);
+          piVar7[-1] = 0x4076132;
+          (*pcVar1)();
+          piVar7 = piVar7 + -1;
+        }
+        if (local_44 != 0) {
+          iVar5 = *local_48;
+          *piVar7 = (int)local_48;
+          pcVar1 = *(code **)(iVar5 + 8);
+          piVar7[-1] = 0x4076147;
+          (*pcVar1)();
+          piVar7 = piVar7 + -1;
+        }
+        if (local_48 != (int *)0x0) {
+          iVar5 = *local_48;
+          *piVar7 = (int)local_48;
+          pcVar1 = *(code **)(iVar5 + 8);
+          piVar7[-1] = 0x4076159;
+          (*pcVar1)();
+          piVar7 = piVar7 + -1;
+        }
+        iVar5 = *param_1;
+        *piVar7 = (int)param_1;
+        piVar7[1] = (int)local_60;
+        pcVar1 = *(code **)(iVar5 + 0xc4);
+        piVar7[-1] = 0x407616e;
+        (*pcVar1)();
+        iVar5 = *param_1;
+        *piVar7 = (int)param_1;
+        piVar7[1] = (int)local_38;
+        pcVar1 = *(code **)(iVar5 + 0x134);
+        piVar7[-1] = 0x4076180;
+        (*pcVar1)();
+        if (-1 < iVar8) {
+          iVar8 = 0;
+        }
+        goto LAB_04075d40;
+      }
+    }
+    piVar7[1] = (int)
+                "ColorFill() doesn\'t support depth stencil formats. Check if it supports them on PC, and add code here if it does."
+    ;
+    *piVar7 = 0xf;
+    piVar7[-1] = 0x4075d34;
+    FUN_0402cd10();
+    iVar8 = -0x7789f794;
+  }
+LAB_04075d40:
+  *piVar7 = (int)&local_24;
+  piVar7[-1] = 0x4075d4b;
+  direct3ddevice9imp_040a2df0();
+  return iVar8;
+}
+

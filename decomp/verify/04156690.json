@@ -1,0 +1,9 @@
+
+void eON_LogCommandLine(void)
+
+{
+  FUN_0402cd10(0x14,"Command line: \'%s\'",&DAT_0451b100);
+  eON_MultiByteToWideChar(0,0,&DAT_0451b100,0xffffffff,&DAT_0451b500,0x400);
+  return;
+}
+

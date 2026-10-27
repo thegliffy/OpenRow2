@@ -1,0 +1,44 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+bool _glewInit_GL_ARB_vertex_buffer_object(void)
+
+{
+  int iVar1;
+  bool bVar2;
+  bool bVar3;
+  bool bVar4;
+  bool bVar5;
+  bool bVar6;
+  bool bVar7;
+  bool bVar8;
+  bool bVar9;
+  bool bVar10;
+  
+  iVar1 = glXGetProcAddressARB("glBindBufferARB");
+  _DAT_0451e018 = iVar1;
+  _DAT_0451e014 = glXGetProcAddressARB("glBufferDataARB");
+  bVar2 = _DAT_0451e014 == 0;
+  _DAT_0451e010 = glXGetProcAddressARB("glBufferSubDataARB");
+  bVar3 = _DAT_0451e010 == 0;
+  _DAT_0451e00c = glXGetProcAddressARB("glDeleteBuffersARB");
+  bVar4 = _DAT_0451e00c == 0;
+  _DAT_0451e008 = glXGetProcAddressARB("glGenBuffersARB");
+  bVar5 = _DAT_0451e008 == 0;
+  _DAT_0451e004 = glXGetProcAddressARB("glGetBufferParameterivARB");
+  bVar6 = _DAT_0451e004 == 0;
+  _DAT_0451e000 = glXGetProcAddressARB("glGetBufferPointervARB");
+  bVar7 = _DAT_0451e000 == 0;
+  _DAT_0451dffc = glXGetProcAddressARB("glGetBufferSubDataARB");
+  bVar8 = _DAT_0451dffc == 0;
+  _DAT_0451dff8 = glXGetProcAddressARB("glIsBufferARB");
+  bVar9 = _DAT_0451dff8 == 0;
+  _DAT_0451dff4 = glXGetProcAddressARB("glMapBufferARB");
+  bVar10 = _DAT_0451dff4 == 0;
+  _DAT_0451dff0 = glXGetProcAddressARB("glUnmapBufferARB");
+  return _DAT_0451dff0 == 0 ||
+         (bVar10 ||
+         (bVar9 || (bVar8 || (bVar7 || (bVar6 || (bVar5 || (bVar4 || (bVar3 || (bVar2 || iVar1 == 0)
+                                                                     ))))))));
+}
+

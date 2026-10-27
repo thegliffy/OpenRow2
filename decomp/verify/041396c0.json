@@ -1,0 +1,23 @@
+
+void kernel32_ProcessDetach(void)
+
+{
+  char cVar1;
+  int iVar2;
+  int iVar3;
+  
+  FUN_0402cd10(5,"kernel32_ProcessDetach");
+  Synchronisation_CommitHandleTable();
+  FUN_04149260();
+  iVar2 = eON_timeGetTime();
+  eON_Int_ThreadMap_BoostSiblingPriorities();
+  while( true ) {
+    cVar1 = eON_Int_ThreadMap_AllSiblingsIdle();
+    if (cVar1 != '\0') break;
+    usleep(1000);
+  }
+  iVar3 = eON_timeGetTime();
+  FUN_0402cd10(5,"kernel32_ProcessDetach - took %d ms to suspend all game threads",iVar3 - iVar2);
+  return;
+}
+

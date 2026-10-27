@@ -1,0 +1,23 @@
+
+/* source: rtlbitmap */
+
+undefined4 eON_RtlFindClearBits(uint *param_1,uint param_2,undefined4 param_3)
+
+{
+  undefined4 uVar1;
+  
+  if (param_1 == (uint *)0x0) {
+    FUN_0400a810("BitMapHeader",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/ntdll/rtlbitmap.cpp"
+                 ,0x7b,"ULONG eON_RtlFindClearBits(PCRTL_BITMAP, ULONG, ULONG)");
+    uVar1 = 0xffffffff;
+  }
+  else {
+    uVar1 = 0xffffffff;
+    if ((param_2 != 0) && (param_2 <= *param_1)) {
+      uVar1 = eON_MapOfBits__FindClearRange(param_1,param_2,param_3);
+    }
+  }
+  return uVar1;
+}
+

@@ -1,0 +1,8 @@
+
+undefined4 kernel32_ThreadAttach(void)
+
+{
+  FUN_0402cd10(5,"kernel32_ThreadAttach");
+  return 1;
+}
+

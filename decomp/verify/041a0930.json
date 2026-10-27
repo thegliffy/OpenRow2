@@ -1,0 +1,52 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+bool _glewInit_GL_NV_shader_buffer_load(void)
+
+{
+  int iVar1;
+  bool bVar2;
+  bool bVar3;
+  bool bVar4;
+  bool bVar5;
+  bool bVar6;
+  bool bVar7;
+  bool bVar8;
+  bool bVar9;
+  bool bVar10;
+  bool bVar11;
+  bool bVar12;
+  
+  iVar1 = glXGetProcAddressARB("glGetBufferParameterui64vNV");
+  _DAT_0451cfe4 = iVar1;
+  _DAT_0451cfe0 = glXGetProcAddressARB("glGetIntegerui64vNV");
+  bVar2 = _DAT_0451cfe0 == 0;
+  _DAT_0451cfdc = glXGetProcAddressARB("glGetNamedBufferParameterui64vNV");
+  bVar3 = _DAT_0451cfdc == 0;
+  _DAT_0451cfd8 = glXGetProcAddressARB("glIsBufferResidentNV");
+  bVar4 = _DAT_0451cfd8 == 0;
+  _DAT_0451cfd4 = glXGetProcAddressARB("glIsNamedBufferResidentNV");
+  bVar5 = _DAT_0451cfd4 == 0;
+  _DAT_0451cfd0 = glXGetProcAddressARB("glMakeBufferNonResidentNV");
+  bVar6 = _DAT_0451cfd0 == 0;
+  _DAT_0451cfcc = glXGetProcAddressARB("glMakeBufferResidentNV");
+  bVar7 = _DAT_0451cfcc == 0;
+  _DAT_0451cfc8 = glXGetProcAddressARB("glMakeNamedBufferNonResidentNV");
+  bVar8 = _DAT_0451cfc8 == 0;
+  _DAT_0451cfc4 = glXGetProcAddressARB("glMakeNamedBufferResidentNV");
+  bVar9 = _DAT_0451cfc4 == 0;
+  _DAT_0451cfc0 = glXGetProcAddressARB("glProgramUniformui64NV");
+  bVar10 = _DAT_0451cfc0 == 0;
+  _DAT_0451cfbc = glXGetProcAddressARB("glProgramUniformui64vNV");
+  bVar11 = _DAT_0451cfbc == 0;
+  _DAT_0451cfb8 = glXGetProcAddressARB("glUniformui64NV");
+  bVar12 = _DAT_0451cfb8 == 0;
+  _DAT_0451cfb4 = glXGetProcAddressARB("glUniformui64vNV");
+  return _DAT_0451cfb4 == 0 ||
+         (bVar12 ||
+         (bVar11 ||
+         (bVar10 ||
+         (bVar9 || (bVar8 || (bVar7 || (bVar6 || (bVar5 || (bVar4 || (bVar3 || (bVar2 || iVar1 == 0)
+                                                                     ))))))))));
+}
+

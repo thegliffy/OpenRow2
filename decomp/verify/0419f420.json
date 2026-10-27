@@ -1,0 +1,96 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+bool _glewInit_GL_MESA_window_pos(void)
+
+{
+  int iVar1;
+  bool bVar2;
+  bool bVar3;
+  bool bVar4;
+  bool bVar5;
+  bool bVar6;
+  bool bVar7;
+  bool bVar8;
+  bool bVar9;
+  bool bVar10;
+  bool bVar11;
+  bool bVar12;
+  bool bVar13;
+  bool bVar14;
+  bool bVar15;
+  bool bVar16;
+  bool bVar17;
+  bool bVar18;
+  bool bVar19;
+  bool bVar20;
+  bool bVar21;
+  bool bVar22;
+  bool bVar23;
+  
+  iVar1 = glXGetProcAddressARB("glWindowPos2dMESA");
+  _DAT_0451d3e8 = iVar1;
+  _DAT_0451d3e4 = glXGetProcAddressARB("glWindowPos2dvMESA");
+  bVar2 = _DAT_0451d3e4 == 0;
+  _DAT_0451d3e0 = glXGetProcAddressARB("glWindowPos2fMESA");
+  bVar3 = _DAT_0451d3e0 == 0;
+  _DAT_0451d3dc = glXGetProcAddressARB("glWindowPos2fvMESA");
+  bVar4 = _DAT_0451d3dc == 0;
+  _DAT_0451d3d8 = glXGetProcAddressARB("glWindowPos2iMESA");
+  bVar5 = _DAT_0451d3d8 == 0;
+  _DAT_0451d3d4 = glXGetProcAddressARB("glWindowPos2ivMESA");
+  bVar6 = _DAT_0451d3d4 == 0;
+  _DAT_0451d3d0 = glXGetProcAddressARB("glWindowPos2sMESA");
+  bVar7 = _DAT_0451d3d0 == 0;
+  _DAT_0451d3cc = glXGetProcAddressARB("glWindowPos2svMESA");
+  bVar8 = _DAT_0451d3cc == 0;
+  _DAT_0451d3c8 = glXGetProcAddressARB("glWindowPos3dMESA");
+  bVar9 = _DAT_0451d3c8 == 0;
+  _DAT_0451d3c4 = glXGetProcAddressARB("glWindowPos3dvMESA");
+  bVar10 = _DAT_0451d3c4 == 0;
+  _DAT_0451d3c0 = glXGetProcAddressARB("glWindowPos3fMESA");
+  bVar11 = _DAT_0451d3c0 == 0;
+  _DAT_0451d3bc = glXGetProcAddressARB("glWindowPos3fvMESA");
+  bVar12 = _DAT_0451d3bc == 0;
+  _DAT_0451d3b8 = glXGetProcAddressARB("glWindowPos3iMESA");
+  bVar13 = _DAT_0451d3b8 == 0;
+  _DAT_0451d3b4 = glXGetProcAddressARB("glWindowPos3ivMESA");
+  bVar14 = _DAT_0451d3b4 == 0;
+  _DAT_0451d3b0 = glXGetProcAddressARB("glWindowPos3sMESA");
+  bVar15 = _DAT_0451d3b0 == 0;
+  _DAT_0451d3ac = glXGetProcAddressARB("glWindowPos3svMESA");
+  bVar16 = _DAT_0451d3ac == 0;
+  _DAT_0451d3a8 = glXGetProcAddressARB("glWindowPos4dMESA");
+  bVar17 = _DAT_0451d3a8 == 0;
+  _DAT_0451d3a4 = glXGetProcAddressARB("glWindowPos4dvMESA");
+  bVar18 = _DAT_0451d3a4 == 0;
+  _DAT_0451d3a0 = glXGetProcAddressARB("glWindowPos4fMESA");
+  bVar19 = _DAT_0451d3a0 == 0;
+  _DAT_0451d39c = glXGetProcAddressARB("glWindowPos4fvMESA");
+  bVar20 = _DAT_0451d39c == 0;
+  _DAT_0451d398 = glXGetProcAddressARB("glWindowPos4iMESA");
+  bVar21 = _DAT_0451d398 == 0;
+  _DAT_0451d394 = glXGetProcAddressARB("glWindowPos4ivMESA");
+  bVar22 = _DAT_0451d394 == 0;
+  _DAT_0451d390 = glXGetProcAddressARB("glWindowPos4sMESA");
+  bVar23 = _DAT_0451d390 == 0;
+  _DAT_0451d38c = glXGetProcAddressARB("glWindowPos4svMESA");
+  return _DAT_0451d38c == 0 ||
+         (bVar23 ||
+         (bVar22 ||
+         (bVar21 ||
+         (bVar20 ||
+         (bVar19 ||
+         (bVar18 ||
+         (bVar17 ||
+         (bVar16 ||
+         (bVar15 ||
+         (bVar14 ||
+         (bVar13 ||
+         (bVar12 ||
+         (bVar11 ||
+         (bVar10 ||
+         (bVar9 || (bVar8 || (bVar7 || (bVar6 || (bVar5 || (bVar4 || (bVar3 || (bVar2 || iVar1 == 0)
+                                                                     )))))))))))))))))))));
+}
+

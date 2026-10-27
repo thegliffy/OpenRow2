@@ -1,0 +1,157 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+bool _glewInit_GL_ARB_shader_objects(void)
+
+{
+  int iVar1;
+  bool bVar2;
+  bool bVar3;
+  bool bVar4;
+  bool bVar5;
+  bool bVar6;
+  bool bVar7;
+  bool bVar8;
+  bool bVar9;
+  bool bVar10;
+  bool bVar11;
+  bool bVar12;
+  bool bVar13;
+  bool bVar14;
+  bool bVar15;
+  bool bVar16;
+  bool bVar17;
+  bool bVar18;
+  bool bVar19;
+  bool bVar20;
+  bool bVar21;
+  bool bVar22;
+  bool bVar23;
+  bool bVar24;
+  bool bVar25;
+  bool bVar26;
+  bool bVar27;
+  bool bVar28;
+  bool bVar29;
+  bool bVar30;
+  bool bVar31;
+  bool bVar32;
+  bool bVar33;
+  bool bVar34;
+  bool bVar35;
+  bool bVar36;
+  bool bVar37;
+  bool bVar38;
+  
+  iVar1 = glXGetProcAddressARB("glAttachObjectARB");
+  _DAT_0451e290 = iVar1;
+  _DAT_0451e28c = glXGetProcAddressARB("glCompileShaderARB");
+  bVar2 = _DAT_0451e28c == 0;
+  _DAT_0451e288 = glXGetProcAddressARB("glCreateProgramObjectARB");
+  bVar3 = _DAT_0451e288 == 0;
+  _DAT_0451e284 = glXGetProcAddressARB("glCreateShaderObjectARB");
+  bVar4 = _DAT_0451e284 == 0;
+  _DAT_0451e280 = glXGetProcAddressARB("glDeleteObjectARB");
+  bVar5 = _DAT_0451e280 == 0;
+  _DAT_0451e27c = glXGetProcAddressARB("glDetachObjectARB");
+  bVar6 = _DAT_0451e27c == 0;
+  _DAT_0451e278 = glXGetProcAddressARB("glGetActiveUniformARB");
+  bVar7 = _DAT_0451e278 == 0;
+  _DAT_0451e274 = glXGetProcAddressARB("glGetAttachedObjectsARB");
+  bVar8 = _DAT_0451e274 == 0;
+  _DAT_0451e270 = glXGetProcAddressARB("glGetHandleARB");
+  bVar9 = _DAT_0451e270 == 0;
+  _DAT_0451e26c = glXGetProcAddressARB("glGetInfoLogARB");
+  bVar10 = _DAT_0451e26c == 0;
+  _DAT_0451e268 = glXGetProcAddressARB("glGetObjectParameterfvARB");
+  bVar11 = _DAT_0451e268 == 0;
+  _DAT_0451e264 = glXGetProcAddressARB("glGetObjectParameterivARB");
+  bVar12 = _DAT_0451e264 == 0;
+  _DAT_0451e260 = glXGetProcAddressARB("glGetShaderSourceARB");
+  bVar13 = _DAT_0451e260 == 0;
+  _DAT_0451e25c = glXGetProcAddressARB("glGetUniformLocationARB");
+  bVar14 = _DAT_0451e25c == 0;
+  _DAT_0451e258 = glXGetProcAddressARB("glGetUniformfvARB");
+  bVar15 = _DAT_0451e258 == 0;
+  _DAT_0451e254 = glXGetProcAddressARB("glGetUniformivARB");
+  bVar16 = _DAT_0451e254 == 0;
+  _DAT_0451e250 = glXGetProcAddressARB("glLinkProgramARB");
+  bVar17 = _DAT_0451e250 == 0;
+  _DAT_0451e24c = glXGetProcAddressARB("glShaderSourceARB");
+  bVar18 = _DAT_0451e24c == 0;
+  _DAT_0451e248 = glXGetProcAddressARB("glUniform1fARB");
+  bVar19 = _DAT_0451e248 == 0;
+  _DAT_0451e244 = glXGetProcAddressARB("glUniform1fvARB");
+  bVar20 = _DAT_0451e244 == 0;
+  _DAT_0451e240 = glXGetProcAddressARB("glUniform1iARB");
+  bVar21 = _DAT_0451e240 == 0;
+  _DAT_0451e23c = glXGetProcAddressARB("glUniform1ivARB");
+  bVar22 = _DAT_0451e23c == 0;
+  _DAT_0451e238 = glXGetProcAddressARB("glUniform2fARB");
+  bVar23 = _DAT_0451e238 == 0;
+  _DAT_0451e234 = glXGetProcAddressARB("glUniform2fvARB");
+  bVar24 = _DAT_0451e234 == 0;
+  _DAT_0451e230 = glXGetProcAddressARB("glUniform2iARB");
+  bVar25 = _DAT_0451e230 == 0;
+  _DAT_0451e22c = glXGetProcAddressARB("glUniform2ivARB");
+  bVar26 = _DAT_0451e22c == 0;
+  _DAT_0451e228 = glXGetProcAddressARB("glUniform3fARB");
+  bVar27 = _DAT_0451e228 == 0;
+  _DAT_0451e224 = glXGetProcAddressARB("glUniform3fvARB");
+  bVar28 = _DAT_0451e224 == 0;
+  _DAT_0451e220 = glXGetProcAddressARB("glUniform3iARB");
+  bVar29 = _DAT_0451e220 == 0;
+  _DAT_0451e21c = glXGetProcAddressARB("glUniform3ivARB");
+  bVar30 = _DAT_0451e21c == 0;
+  _DAT_0451e218 = glXGetProcAddressARB("glUniform4fARB");
+  bVar31 = _DAT_0451e218 == 0;
+  _DAT_0451e214 = glXGetProcAddressARB("glUniform4fvARB");
+  bVar32 = _DAT_0451e214 == 0;
+  _DAT_0451e210 = glXGetProcAddressARB("glUniform4iARB");
+  bVar33 = _DAT_0451e210 == 0;
+  _DAT_0451e20c = glXGetProcAddressARB("glUniform4ivARB");
+  bVar34 = _DAT_0451e20c == 0;
+  _DAT_0451e208 = glXGetProcAddressARB("glUniformMatrix2fvARB");
+  bVar35 = _DAT_0451e208 == 0;
+  _DAT_0451e204 = glXGetProcAddressARB("glUniformMatrix3fvARB");
+  bVar36 = _DAT_0451e204 == 0;
+  _DAT_0451e200 = glXGetProcAddressARB("glUniformMatrix4fvARB");
+  bVar37 = _DAT_0451e200 == 0;
+  _DAT_0451e1fc = glXGetProcAddressARB("glUseProgramObjectARB");
+  bVar38 = _DAT_0451e1fc == 0;
+  _DAT_0451e1f8 = glXGetProcAddressARB("glValidateProgramARB");
+  return _DAT_0451e1f8 == 0 ||
+         (bVar38 ||
+         (bVar37 ||
+         (bVar36 ||
+         (bVar35 ||
+         (bVar34 ||
+         (bVar33 ||
+         (bVar32 ||
+         (bVar31 ||
+         (bVar30 ||
+         (bVar29 ||
+         (bVar28 ||
+         (bVar27 ||
+         (bVar26 ||
+         (bVar25 ||
+         (bVar24 ||
+         (bVar23 ||
+         (bVar22 ||
+         (bVar21 ||
+         (bVar20 ||
+         (bVar19 ||
+         (bVar18 ||
+         (bVar17 ||
+         (bVar16 ||
+         (bVar15 ||
+         (bVar14 ||
+         (bVar13 ||
+         (bVar12 ||
+         (bVar11 ||
+         (bVar10 ||
+         (bVar9 || (bVar8 || (bVar7 || (bVar6 || (bVar5 || (bVar4 || (bVar3 || (bVar2 || iVar1 == 0)
+                                                                     )))))))))))))))))))))))))))))))
+         )))));
+}
+

@@ -1,0 +1,47 @@
+
+undefined4 eON_listen(int param_1,int param_2)
+
+{
+  int iVar1;
+  int *piVar2;
+  
+  iVar1 = listen(param_1,param_2);
+  if (iVar1 != -1) {
+    return 0;
+  }
+  piVar2 = __errno_location();
+  iVar1 = *piVar2;
+  if (iVar1 == 0x16) {
+    eON_SetLastError(0x2748);
+    return 0xffffffff;
+  }
+  if (iVar1 < 0x17) {
+    if (iVar1 != 9) {
+      if (iVar1 == 0xd) {
+        FUN_0402cd10(0xf,
+                     "SOCKETS: listen() returns EACCES, and there\'s no Windows error code for that!"
+                    );
+        return 0xffffffff;
+      }
+      goto LAB_04194842;
+    }
+  }
+  else {
+    if (iVar1 == 0x59) {
+      eON_SetLastError(0x2726);
+      return 0xffffffff;
+    }
+    if (iVar1 == 0x5f) {
+      eON_SetLastError(0x273d);
+      return 0xffffffff;
+    }
+    if (iVar1 != 0x58) {
+LAB_04194842:
+      FUN_0402cd10(0xf,"SOCKETS: unknown listen() error: %d",iVar1);
+      return 0xffffffff;
+    }
+  }
+  eON_SetLastError(0x2736);
+  return 0xffffffff;
+}
+

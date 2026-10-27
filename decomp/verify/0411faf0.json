@@ -1,0 +1,34 @@
+
+char * eON_DeviceCaps_IndexToString(undefined4 param_1)
+
+{
+  switch(param_1) {
+  case 4:
+    return "HORZSIZE";
+  default:
+    return "?";
+  case 6:
+    return "VERTSIZE";
+  case 8:
+    return "HORZRES";
+  case 10:
+    return "VERTRES";
+  case 0xc:
+    return "BITSPIXEL";
+  case 0xe:
+    return "PLANES";
+  case 0x18:
+    return "NUMCOLORS";
+  case 0x26:
+    return "RASTERCAPS";
+  case 0x58:
+    return "LOGPIXELSX";
+  case 0x5a:
+    return "LOGPIXELSY";
+  case 0x68:
+    return "SIZEPALETTE";
+  case 0x74:
+    return "VREFRESH";
+  }
+}
+

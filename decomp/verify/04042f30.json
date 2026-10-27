@@ -1,0 +1,22 @@
+
+undefined4 eON_VPFS_Close(int param_1)
+
+{
+  undefined4 uVar1;
+  
+  uVar1 = 1;
+  if (param_1 != 0) {
+    if (param_1 + 0x54545455U < 0x2801) {
+      pthread_mutex_lock((pthread_mutex_t *)&DAT_0441804c);
+      if (param_1 != -0x54545455) {
+        uVar1 = VPFS_CloseHandle();
+      }
+      pthread_mutex_unlock((pthread_mutex_t *)&DAT_0441804c);
+      return uVar1;
+    }
+    uVar1 = 0;
+    FUN_0402cd10(0xf,"Invalid handle given to VPFS_Close()!!");
+  }
+  return uVar1;
+}
+

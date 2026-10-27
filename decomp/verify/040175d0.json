@@ -1,0 +1,41 @@
+
+void MainThreadSide_PerformWaitingDeferredCalls(void)
+
+{
+  undefined4 *puVar1;
+  undefined4 *puVar2;
+  int iVar3;
+  
+  if (DAT_04411260 == '\0') {
+    FUN_0400a810("SynchroRegionInitialized",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/linux/executionOnMainThread.cpp"
+                 ,0x71,"void MainThreadSide_PerformWaitingDeferredCalls()");
+  }
+  if (DAT_044112c8 != (undefined4 *)0x0) {
+    iVar3 = 0;
+    pthread_mutex_lock((pthread_mutex_t *)&DAT_04411264);
+    while (puVar2 = DAT_044112c8, DAT_044112c8 != (undefined4 *)0x0) {
+      while( true ) {
+        DAT_044112c8 = (undefined4 *)puVar2[0xe];
+        iVar3 = iVar3 + 1;
+        pthread_mutex_unlock((pthread_mutex_t *)&DAT_04411264);
+        (*(code *)*puVar2)(puVar2[1]);
+        pthread_mutex_lock((pthread_mutex_t *)&DAT_04411264);
+        puVar1 = puVar2;
+        puVar2[0xe] = DAT_044112cc;
+        DAT_044112cc = puVar1;
+        pthread_cond_signal((pthread_cond_t *)(puVar2 + 2));
+        if (iVar3 < 0x40) break;
+        FUN_0400a810("callsDone < 64",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/linux/executionOnMainThread.cpp"
+                     ,0x95,"void MainThreadSide_PerformWaitingDeferredCalls()");
+        puVar2 = DAT_044112c8;
+        if (DAT_044112c8 == (undefined4 *)0x0) goto LAB_04017681;
+      }
+    }
+LAB_04017681:
+    pthread_mutex_unlock((pthread_mutex_t *)&DAT_04411264);
+  }
+  return;
+}
+

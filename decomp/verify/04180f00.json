@@ -1,0 +1,112 @@
+
+undefined4 __regparm3 eON_SendMessageW(int *param_1,int param_2,int param_3,int param_4)
+
+{
+  code *pcVar1;
+  int *piVar2;
+  char cVar3;
+  int iVar4;
+  undefined4 uVar5;
+  int **ppiVar6;
+  int *piVar7;
+  int iVar8;
+  undefined4 local_74;
+  int *local_70 [9];
+  int local_4c;
+  int local_48;
+  int local_44;
+  undefined4 local_34 [4];
+  
+  iVar8 = -1;
+  local_4c = param_4;
+  ppiVar6 = local_70;
+  local_48 = param_3;
+  local_44 = param_2;
+  if (param_1 != (int *)0x271a) {
+    local_74 = 0x4180f35;
+    local_70[0] = param_1;
+    cVar3 = FUN_0404ecd0();
+    if (cVar3 == '\0') {
+      local_70[0] = (int *)0x578;
+      iVar8 = 0;
+      local_74 = 0x418106e;
+      eON_SetLastError();
+      ppiVar6 = (int **)&local_74;
+    }
+    else {
+      iVar8 = param_1[0xe];
+      ppiVar6 = local_70;
+    }
+  }
+  ppiVar6[-1] = (int *)0x4180f45;
+  iVar4 = eON_GetCurrentThreadId();
+  if (iVar4 == iVar8) {
+    pcVar1 = (code *)param_1[9];
+    if (pcVar1 != (code *)0x0) {
+      *ppiVar6 = param_1;
+      ppiVar6[3] = (int *)local_4c;
+      ppiVar6[2] = (int *)local_48;
+      ppiVar6[1] = (int *)local_44;
+      ppiVar6[-1] = (int *)0x4181021;
+      uVar5 = (*pcVar1)();
+      return uVar5;
+    }
+    iVar8 = *param_1;
+    ppiVar6[4] = (int *)0x1;
+    *ppiVar6 = param_1;
+    ppiVar6[3] = (int *)local_4c;
+    ppiVar6[2] = (int *)local_48;
+    ppiVar6[1] = (int *)local_44;
+    pcVar1 = *(code **)(iVar8 + 0xa0);
+    ppiVar6[-1] = (int *)0x41810a8;
+    local_34[0] = (*pcVar1)();
+  }
+  else {
+    ppiVar6[-1] = (int *)0x4180f52;
+    iVar4 = eON_GetCurrentThreadId();
+    ppiVar6[1] = (int *)"Thread %u entering SendMessageW wait loop";
+    ppiVar6[2] = (int *)iVar4;
+    *ppiVar6 = (int *)0x14;
+    ppiVar6[-1] = (int *)0x4180f6a;
+    FUN_0402cd10();
+    ppiVar6[-1] = (int *)0x4180f6f;
+    iVar4 = FUN_0415b4f0();
+    ppiVar6[7] = (int *)0x1;
+    ppiVar6[1] = param_1;
+    ppiVar6[5] = (int *)iVar4;
+    ppiVar6[6] = local_34;
+    ppiVar6[4] = (int *)local_4c;
+    *ppiVar6 = (int *)iVar8;
+    ppiVar6[3] = (int *)local_48;
+    ppiVar6[2] = (int *)local_44;
+    ppiVar6[-1] = (int *)0x4180fa5;
+    eON_Int_SendMessage_Enqueue();
+    piVar2 = (int *)ppiVar6;
+    do {
+      piVar7 = piVar2;
+      piVar7[-1] = 0x4180fad;
+      eON_Int_MsgQueue_PumpSend();
+      piVar7[1] = 1;
+      *piVar7 = iVar4;
+      piVar7[-1] = 0x4180fbd;
+      iVar8 = eON_WaitForSingleObject();
+      piVar2 = piVar7 + -2;
+    } while (iVar8 == 0x102);
+    piVar7[-3] = 0x4180fce;
+    uVar5 = eON_GetCurrentThreadId();
+    piVar7[-1] = (int)"Thread %u leaving SendMessageW wait loop";
+    *piVar7 = uVar5;
+    piVar7[-2] = 0x14;
+    piVar7[-3] = 0x4180fe6;
+    FUN_0402cd10();
+    if (iVar8 != 0) {
+      piVar7[-1] = (int)"Wait for another thread to process sent message failed! (2)";
+      piVar7[-2] = 10;
+      piVar7[-3] = 0x418104c;
+      FUN_0402cd10();
+      return 0;
+    }
+  }
+  return local_34[0];
+}
+

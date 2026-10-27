@@ -1,0 +1,41 @@
+
+void png_read_image(int param_1,int param_2)
+
+{
+  int iVar1;
+  int iVar2;
+  int iVar3;
+  int local_24;
+  int local_20;
+  
+  if (param_1 != 0) {
+    if ((*(byte *)(param_1 + 0xd4) & 0x40) == 0) {
+      local_20 = FUN_042bce50(param_1);
+      png_start_read_image(param_1);
+    }
+    else {
+      if ((*(char *)(param_1 + 0x1b0) != '\0') && ((*(byte *)(param_1 + 0xd8) & 2) == 0)) {
+        png_warning(param_1,"Interlace handling should be turned on when using png_read_image");
+        *(undefined4 *)(param_1 + 0x164) = *(undefined4 *)(param_1 + 0x160);
+      }
+      local_20 = FUN_042bce50(param_1);
+    }
+    iVar2 = *(int *)(param_1 + 0x160);
+    local_24 = 0;
+    if (0 < local_20) {
+      do {
+        iVar3 = 0;
+        if (iVar2 != 0) {
+          do {
+            iVar1 = iVar3 * 4;
+            iVar3 = iVar3 + 1;
+            png_read_row(param_1,*(undefined4 *)(param_2 + iVar1),0);
+          } while (iVar3 != iVar2);
+        }
+        local_24 = local_24 + 1;
+      } while (local_24 != local_20);
+    }
+  }
+  return;
+}
+

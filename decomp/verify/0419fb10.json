@@ -1,0 +1,137 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+bool _glewInit_GL_AMD_gpu_shader_int64(void)
+
+{
+  int iVar1;
+  bool bVar2;
+  bool bVar3;
+  bool bVar4;
+  bool bVar5;
+  bool bVar6;
+  bool bVar7;
+  bool bVar8;
+  bool bVar9;
+  bool bVar10;
+  bool bVar11;
+  bool bVar12;
+  bool bVar13;
+  bool bVar14;
+  bool bVar15;
+  bool bVar16;
+  bool bVar17;
+  bool bVar18;
+  bool bVar19;
+  bool bVar20;
+  bool bVar21;
+  bool bVar22;
+  bool bVar23;
+  bool bVar24;
+  bool bVar25;
+  bool bVar26;
+  bool bVar27;
+  bool bVar28;
+  bool bVar29;
+  bool bVar30;
+  bool bVar31;
+  bool bVar32;
+  bool bVar33;
+  
+  iVar1 = glXGetProcAddressARB("glGetUniformi64vNV");
+  _DAT_0451d27c = iVar1;
+  _DAT_0451d278 = glXGetProcAddressARB("glGetUniformui64vNV");
+  bVar2 = _DAT_0451d278 == 0;
+  _DAT_0451d274 = glXGetProcAddressARB("glProgramUniform1i64NV");
+  bVar3 = _DAT_0451d274 == 0;
+  _DAT_0451d270 = glXGetProcAddressARB("glProgramUniform1i64vNV");
+  bVar4 = _DAT_0451d270 == 0;
+  _DAT_0451d26c = glXGetProcAddressARB("glProgramUniform1ui64NV");
+  bVar5 = _DAT_0451d26c == 0;
+  _DAT_0451d268 = glXGetProcAddressARB("glProgramUniform1ui64vNV");
+  bVar6 = _DAT_0451d268 == 0;
+  _DAT_0451d264 = glXGetProcAddressARB("glProgramUniform2i64NV");
+  bVar7 = _DAT_0451d264 == 0;
+  _DAT_0451d260 = glXGetProcAddressARB("glProgramUniform2i64vNV");
+  bVar8 = _DAT_0451d260 == 0;
+  _DAT_0451d25c = glXGetProcAddressARB("glProgramUniform2ui64NV");
+  bVar9 = _DAT_0451d25c == 0;
+  _DAT_0451d258 = glXGetProcAddressARB("glProgramUniform2ui64vNV");
+  bVar10 = _DAT_0451d258 == 0;
+  _DAT_0451d254 = glXGetProcAddressARB("glProgramUniform3i64NV");
+  bVar11 = _DAT_0451d254 == 0;
+  _DAT_0451d250 = glXGetProcAddressARB("glProgramUniform3i64vNV");
+  bVar12 = _DAT_0451d250 == 0;
+  _DAT_0451d24c = glXGetProcAddressARB("glProgramUniform3ui64NV");
+  bVar13 = _DAT_0451d24c == 0;
+  _DAT_0451d248 = glXGetProcAddressARB("glProgramUniform3ui64vNV");
+  bVar14 = _DAT_0451d248 == 0;
+  _DAT_0451d244 = glXGetProcAddressARB("glProgramUniform4i64NV");
+  bVar15 = _DAT_0451d244 == 0;
+  _DAT_0451d240 = glXGetProcAddressARB("glProgramUniform4i64vNV");
+  bVar16 = _DAT_0451d240 == 0;
+  _DAT_0451d23c = glXGetProcAddressARB("glProgramUniform4ui64NV");
+  bVar17 = _DAT_0451d23c == 0;
+  _DAT_0451d238 = glXGetProcAddressARB("glProgramUniform4ui64vNV");
+  bVar18 = _DAT_0451d238 == 0;
+  _DAT_0451d234 = glXGetProcAddressARB("glUniform1i64NV");
+  bVar19 = _DAT_0451d234 == 0;
+  _DAT_0451d230 = glXGetProcAddressARB("glUniform1i64vNV");
+  bVar20 = _DAT_0451d230 == 0;
+  _DAT_0451d22c = glXGetProcAddressARB("glUniform1ui64NV");
+  bVar21 = _DAT_0451d22c == 0;
+  _DAT_0451d228 = glXGetProcAddressARB("glUniform1ui64vNV");
+  bVar22 = _DAT_0451d228 == 0;
+  _DAT_0451d224 = glXGetProcAddressARB("glUniform2i64NV");
+  bVar23 = _DAT_0451d224 == 0;
+  _DAT_0451d220 = glXGetProcAddressARB("glUniform2i64vNV");
+  bVar24 = _DAT_0451d220 == 0;
+  _DAT_0451d21c = glXGetProcAddressARB("glUniform2ui64NV");
+  bVar25 = _DAT_0451d21c == 0;
+  _DAT_0451d218 = glXGetProcAddressARB("glUniform2ui64vNV");
+  bVar26 = _DAT_0451d218 == 0;
+  _DAT_0451d214 = glXGetProcAddressARB("glUniform3i64NV");
+  bVar27 = _DAT_0451d214 == 0;
+  _DAT_0451d210 = glXGetProcAddressARB("glUniform3i64vNV");
+  bVar28 = _DAT_0451d210 == 0;
+  _DAT_0451d20c = glXGetProcAddressARB("glUniform3ui64NV");
+  bVar29 = _DAT_0451d20c == 0;
+  _DAT_0451d208 = glXGetProcAddressARB("glUniform3ui64vNV");
+  bVar30 = _DAT_0451d208 == 0;
+  _DAT_0451d204 = glXGetProcAddressARB("glUniform4i64NV");
+  bVar31 = _DAT_0451d204 == 0;
+  _DAT_0451d200 = glXGetProcAddressARB("glUniform4i64vNV");
+  bVar32 = _DAT_0451d200 == 0;
+  _DAT_0451d1fc = glXGetProcAddressARB("glUniform4ui64NV");
+  bVar33 = _DAT_0451d1fc == 0;
+  _DAT_0451d1f8 = glXGetProcAddressARB("glUniform4ui64vNV");
+  return _DAT_0451d1f8 == 0 ||
+         (bVar33 ||
+         (bVar32 ||
+         (bVar31 ||
+         (bVar30 ||
+         (bVar29 ||
+         (bVar28 ||
+         (bVar27 ||
+         (bVar26 ||
+         (bVar25 ||
+         (bVar24 ||
+         (bVar23 ||
+         (bVar22 ||
+         (bVar21 ||
+         (bVar20 ||
+         (bVar19 ||
+         (bVar18 ||
+         (bVar17 ||
+         (bVar16 ||
+         (bVar15 ||
+         (bVar14 ||
+         (bVar13 ||
+         (bVar12 ||
+         (bVar11 ||
+         (bVar10 ||
+         (bVar9 || (bVar8 || (bVar7 || (bVar6 || (bVar5 || (bVar4 || (bVar3 || (bVar2 || iVar1 == 0)
+                                                                     )))))))))))))))))))))))))))))))
+  ;
+}
+

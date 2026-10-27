@@ -1,0 +1,92 @@
+
+undefined4 __regparm3 png_image_read_colormapped(int *param_1)
+
+{
+  undefined4 uVar1;
+  uint uVar2;
+  undefined2 *puVar3;
+  int *piVar4;
+  uint uVar5;
+  int *piVar6;
+  bool bVar7;
+  byte bVar8;
+  int local_14;
+  int local_10;
+  
+  bVar8 = 0;
+  if (*param_1 == 0) {
+    uVar5 = 0x60;
+    local_14 = FUN_042ac2d0(&DAT_04398bf1,param_1,png_set_strip_error_numbers,FUN_042aa000);
+    bVar7 = ((uint)param_1 & 1) != 0;
+    piVar6 = param_1;
+    if (bVar7) {
+      *(undefined1 *)param_1 = 0;
+      piVar6 = (int *)((int)param_1 + 1);
+      uVar5 = 0x5f;
+    }
+    if (((uint)piVar6 & 2) != 0) {
+      *(undefined2 *)piVar6 = 0;
+      uVar5 = uVar5 - 2;
+      piVar6 = (int *)((int)piVar6 + 2);
+    }
+    for (uVar2 = uVar5 >> 2; uVar2 != 0; uVar2 = uVar2 - 1) {
+      *piVar6 = 0;
+      piVar6 = piVar6 + (uint)bVar8 * -2 + 1;
+    }
+    if ((uVar5 & 2) != 0) {
+      *(undefined2 *)piVar6 = 0;
+      piVar6 = (int *)((int)piVar6 + 2);
+    }
+    if (bVar7) {
+      *(undefined1 *)piVar6 = 0;
+    }
+    param_1[1] = 1;
+    if (local_14 != 0) {
+      local_10 = FUN_042a55e0(local_14);
+      if (local_10 != 0) {
+        piVar6 = (int *)FUN_042aa3a0(local_14,0x18);
+        if (piVar6 != (int *)0x0) {
+          bVar7 = ((uint)piVar6 & 1) != 0;
+          uVar5 = 0x18;
+          piVar4 = piVar6;
+          if (bVar7) {
+            *(undefined1 *)piVar6 = 0;
+            piVar4 = (int *)((int)piVar6 + 1);
+            uVar5 = 0x17;
+          }
+          if (((uint)piVar4 & 2) != 0) {
+            *(undefined2 *)piVar4 = 0;
+            uVar5 = uVar5 - 2;
+            piVar4 = (int *)((int)piVar4 + 2);
+          }
+          uVar2 = 0;
+          do {
+            *(undefined4 *)((int)piVar4 + uVar2) = 0;
+            uVar2 = uVar2 + 4;
+          } while (uVar2 < (uVar5 & 0xfffffffc));
+          puVar3 = (undefined2 *)((int)piVar4 + uVar2);
+          if ((uVar5 & 2) != 0) {
+            *puVar3 = 0;
+            puVar3 = puVar3 + 1;
+          }
+          if (bVar7) {
+            *(undefined1 *)puVar3 = 0;
+          }
+          *piVar6 = local_14;
+          *(byte *)(piVar6 + 5) = *(byte *)(piVar6 + 5) & 0xfe;
+          piVar6[1] = local_10;
+          *param_1 = (int)piVar6;
+          return 1;
+        }
+        FUN_042a5ce0(local_14,&local_10);
+      }
+      zstream_shutdown(&local_14,0,0);
+    }
+    uVar1 = FUN_042a94d0(param_1,"png_image_read: out of memory");
+  }
+  else {
+    uVar1 = FUN_042a94d0(param_1,"png_image_read: opaque pointer not NULL");
+  }
+  return uVar1;
+}
+

@@ -1,0 +1,68 @@
+
+/* source: tinyxmlparser */
+
+char * TiXmlComment__Parse(int param_1,undefined4 param_2,undefined4 *param_3,undefined4 param_4)
+
+{
+  int iVar1;
+  undefined4 uVar2;
+  char cVar3;
+  int iVar4;
+  char *pcVar5;
+  char *pcVar6;
+  
+  iVar4 = TiXmlNode__GetDocument(param_1);
+  iVar1 = param_1 + 0x20;
+  TiXmlString__assign(iVar1,&DAT_04328763,0);
+  pcVar5 = (char *)TiXmlBase__SkipWhiteSpace(param_2,param_4);
+  if (param_3 != (undefined4 *)0x0) {
+    TiXmlParsingData__Stamp(param_3,pcVar5,param_4);
+    uVar2 = param_3[1];
+    *(undefined4 *)(param_1 + 4) = *param_3;
+    *(undefined4 *)(param_1 + 8) = uVar2;
+  }
+  if (pcVar5 == (char *)0x0) {
+    FUN_0400a810(&DAT_04361ca0,
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxmlparser.cpp"
+                 ,0x21b,
+                 "static bool TiXmlBase::StringEqual(const char*, const char*, bool, TiXmlEncoding)"
+                );
+  }
+  else if (*pcVar5 != '\0') {
+    cVar3 = TiXmlBase__StringEqual(param_4);
+    if (cVar3 != '\0') {
+      pcVar6 = pcVar5 + 4;
+      TiXmlString__assign(iVar1,&DAT_04328763,0);
+      if (pcVar6 == (char *)0x0) {
+        return (char *)0x0;
+      }
+      if (pcVar5[4] == '\0') {
+        return pcVar6;
+      }
+      while( true ) {
+        cVar3 = TiXmlBase__StringEqual(param_4);
+        if (cVar3 != '\0') {
+          return pcVar6 + 3;
+        }
+        TiXmlString__append(iVar1,pcVar6,1);
+        pcVar6 = pcVar6 + 1;
+        if (pcVar6 == (char *)0x0) break;
+        if (*pcVar6 == '\0') {
+          return pcVar6;
+        }
+      }
+      return (char *)0x0;
+    }
+    goto joined_r0x041c906b;
+  }
+  FUN_0400a810("0",
+               "/home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxmlparser.cpp"
+               ,0x21f,
+               "static bool TiXmlBase::StringEqual(const char*, const char*, bool, TiXmlEncoding)");
+joined_r0x041c906b:
+  if (iVar4 != 0) {
+    TiXmlDocument__SetError(iVar4,10,pcVar5,param_3,param_4);
+  }
+  return (char *)0x0;
+}
+

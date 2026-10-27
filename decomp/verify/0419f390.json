@@ -1,0 +1,23 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+bool _glewInit_GL_KTX_buffer_region(void)
+
+{
+  int iVar1;
+  bool bVar2;
+  bool bVar3;
+  bool bVar4;
+  
+  iVar1 = glXGetProcAddressARB("glBufferRegionEnabled");
+  _DAT_0451d400 = iVar1;
+  _DAT_0451d3fc = glXGetProcAddressARB("glDeleteBufferRegion");
+  bVar2 = _DAT_0451d3fc == 0;
+  _DAT_0451d3f8 = glXGetProcAddressARB("glDrawBufferRegion");
+  bVar3 = _DAT_0451d3f8 == 0;
+  _DAT_0451d3f4 = glXGetProcAddressARB("glNewBufferRegion");
+  bVar4 = _DAT_0451d3f4 == 0;
+  _DAT_0451d3f0 = glXGetProcAddressARB("glReadBufferRegion");
+  return _DAT_0451d3f0 == 0 || (bVar4 || (bVar3 || (bVar2 || iVar1 == 0)));
+}
+

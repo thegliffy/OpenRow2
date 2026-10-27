@@ -1,0 +1,30 @@
+
+void eON_Int_Wnd_EnsureTitleSynced(int param_1)
+
+{
+  char cVar1;
+  uint uVar2;
+  char *__s1;
+  int iVar3;
+  char *__s2;
+  
+  uVar2 = SDL_GetWindowFlags(*(undefined4 *)(param_1 + 0x7c));
+  if ((uVar2 & 0x1001) == 0) {
+    cVar1 = eON_Int_IsMainThread();
+    if (cVar1 == '\0') {
+      ThreadBlocked(eON_Int_Wnd_SyncTitleToSDL,param_1);
+      return;
+    }
+    __s1 = (char *)SDL_GetWindowTitle(*(undefined4 *)(param_1 + 0x7c));
+    __s2 = *(char **)(param_1 + 0x50);
+    if (__s2 == (char *)0x0) {
+      __s2 = "Saints Row 2";
+    }
+    iVar3 = strcmp(__s1,__s2);
+    if (iVar3 != 0) {
+      SDL_SetWindowTitle(*(undefined4 *)(param_1 + 0x7c),__s2);
+    }
+  }
+  return;
+}
+

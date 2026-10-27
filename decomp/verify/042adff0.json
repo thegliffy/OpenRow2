@@ -1,0 +1,90 @@
+
+undefined4 png_image_read_colormapped(int *param_1)
+
+{
+  int *piVar1;
+  int iVar2;
+  int iVar3;
+  int iVar4;
+  int iVar5;
+  undefined4 uVar6;
+  int iVar7;
+  int iVar8;
+  
+  piVar1 = (int *)*param_1;
+  iVar2 = *(int *)*piVar1;
+  iVar8 = ((int *)*piVar1)[1];
+  FUN_042aa580();
+  iVar5 = 0;
+  if (param_1[10] == 0) {
+    iVar5 = FUN_042bce50(iVar2);
+  }
+  png_read_update_info(iVar2,iVar8);
+  switch(param_1[10]) {
+  case 0:
+    if (((*(char *)(iVar8 + 0x19) != '\0') && (*(char *)(iVar8 + 0x19) != '\x03')) ||
+       (*(char *)(iVar8 + 0x18) != '\b')) goto switchD_042ae04b_default;
+    break;
+  case 1:
+  case 2:
+    if (((*(short *)(iVar8 + 0x18) != 0x408) || (*(undefined **)(iVar2 + 0x1e8) != &DAT_00035b60))
+       || (piVar1[6] != 0x100)) goto switchD_042ae04b_default;
+    iVar7 = param_1[1];
+    iVar3 = param_1[2];
+    goto joined_r0x042ae12d;
+  case 3:
+    if (((*(short *)(iVar8 + 0x18) != 0x208) || (*(undefined **)(iVar2 + 0x1e8) != &DAT_00035b60))
+       || (piVar1[6] != 0xd8)) goto switchD_042ae04b_default;
+    break;
+  case 4:
+    if (((*(short *)(iVar8 + 0x18) != 0x608) || (*(undefined **)(iVar2 + 0x1e8) != &DAT_00035b60))
+       || (piVar1[6] != 0xf4)) goto switchD_042ae04b_default;
+    break;
+  default:
+switchD_042ae04b_default:
+                    /* WARNING: Subroutine does not return */
+    png_error(iVar2,"bad color-map processing (internal error)");
+  }
+  iVar7 = param_1[1];
+  iVar3 = param_1[2];
+joined_r0x042ae12d:
+  if (iVar3 < 0) {
+    iVar4 = piVar1[3];
+    param_1[7] = iVar3;
+    param_1[6] = iVar7 + (1 - iVar4) * iVar3;
+  }
+  else {
+    param_1[7] = iVar3;
+    param_1[6] = iVar7;
+  }
+  if (iVar5 == 0) {
+    uVar6 = FUN_042c4b60(iVar2,iVar8);
+    iVar8 = FUN_042aa2c0(iVar2,uVar6);
+    param_1[5] = iVar8;
+    uVar6 = FUN_042aa050(piVar1,png_image_read_and_map,param_1);
+    param_1[5] = 0;
+    FUN_042aa410(iVar2,iVar8);
+    return uVar6;
+  }
+  do {
+    iVar5 = iVar5 + -1;
+    if (iVar5 < 0) {
+      return 1;
+    }
+    while( true ) {
+      iVar8 = piVar1[3];
+      iVar7 = param_1[6];
+      if (iVar8 == 0) break;
+      do {
+        png_read_row(iVar2,iVar7,0);
+        iVar7 = iVar7 + iVar3;
+        iVar8 = iVar8 + -1;
+      } while (iVar8 != 0);
+      iVar5 = iVar5 + -1;
+      if (iVar5 < 0) {
+        return 1;
+      }
+    }
+  } while( true );
+}
+

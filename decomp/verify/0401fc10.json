@@ -1,0 +1,56 @@
+
+void __regparm3 eON_FilterDesktopDisplayMode(uint *param_1,uint *param_2)
+
+{
+  uint uVar1;
+  uint uVar2;
+  uint uVar3;
+  uint uVar4;
+  
+  uVar4 = param_1[1];
+  uVar1 = param_1[2];
+  uVar2 = param_1[3];
+  uVar3 = *param_1;
+  *param_2 = uVar4;
+  param_2[1] = uVar1;
+  param_2[4] = uVar2;
+  param_2[2] = uVar4;
+  param_2[3] = uVar1;
+  if (uVar3 != 0x16161804) {
+    if (uVar3 < 0x16161805) {
+      if (uVar3 != 0x15441002) {
+        if (uVar3 < 0x15441003) {
+          if ((uVar3 == 0x15151002) || (uVar3 == 0x15331002)) goto LAB_0401fc90;
+        }
+        else if ((uVar3 == 0x15731002) || ((uVar3 == 0x15841002 || (uVar3 == 0x15551002))))
+        goto LAB_0401fc90;
+LAB_0401fc62:
+        param_2[5] = 0;
+        return;
+      }
+LAB_0401fc90:
+      FUN_0402cd10(0x14,
+                   "Linux has returned %u as the desktop mode - perhaps we could use it? Hiding it at the moment"
+                   ,uVar3);
+      param_2[5] = 0;
+      return;
+    }
+    if (uVar3 == 0x16462004) goto LAB_0401fc90;
+    if (uVar3 < 0x16462005) {
+      if (uVar3 == 0x16362004) goto LAB_0401fc90;
+      uVar4 = 4;
+      if (uVar3 != 0x16372004) {
+        if (uVar3 != 0x16261804) goto LAB_0401fc62;
+        goto LAB_0401fc90;
+      }
+      goto LAB_0401fcc5;
+    }
+    if ((uVar3 == 0x16762004) || (uVar3 == 0x16862004)) goto LAB_0401fc90;
+    if (uVar3 != 0x16661804) goto LAB_0401fc62;
+  }
+  uVar4 = 1;
+LAB_0401fcc5:
+  param_2[5] = uVar4;
+  return;
+}
+

@@ -1,0 +1,65 @@
+
+/* source: direct3dtexture9imp */
+
+undefined4 Direct3DTexture9Imp__GetSurfaceLevel(int param_1,uint param_2,undefined4 *param_3)
+
+{
+  int iVar1;
+  undefined4 uVar2;
+  int **ppiVar3;
+  int iVar4;
+  undefined4 local_40;
+  int *local_3c;
+  char *local_38;
+  undefined4 local_34;
+  char *local_30;
+  int *local_20;
+  
+  ppiVar3 = &local_3c;
+  local_20 = (int *)(param_1 + 0x1c);
+  if (*(int *)(param_1 + 0x1c) != 0) {
+    local_3c = (int *)(*(int *)(param_1 + 0x1c) + 0x40);
+    local_40 = 0x40b1117;
+    direct3ddevice9imp_040803c0();
+  }
+  iVar1 = *(int *)(param_1 + 0x1bc);
+  if (*(int *)(param_1 + 0x224) == 2) {
+    if (iVar1 != (iVar1 / 6) * 6) {
+      local_30 = "virtual HRESULT Direct3DTexture9Imp::GetSurfaceLevel(UINT, IDirect3DSurface9**)";
+      local_34 = 0x86;
+      local_38 = 
+      "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3dtexture9imp.cpp"
+      ;
+      local_3c = (int *)0x42f9110;
+                    /* try { // try from 040b11b8 to 040b11bc has its CatchHandler @ 040b11ea */
+      local_40 = 0x40b11bd;
+      FUN_0400a810();
+      iVar1 = *(int *)(param_1 + 0x1bc);
+      if (*(int *)(param_1 + 0x224) != 2) goto LAB_040b1126;
+    }
+    iVar4 = 6;
+  }
+  else {
+LAB_040b1126:
+    iVar4 = 1;
+  }
+  if (param_2 < (uint)(iVar1 / iVar4)) {
+    *param_3 = *(undefined4 *)(param_1 + 0xc + (param_2 + 0xc) * 4);
+    local_3c = *(int **)(param_1 + 0xc + (param_2 + 0xc) * 4);
+                    /* try { // try from 040b1151 to 040b1153 has its CatchHandler @ 040b11ea */
+    local_40 = 0x40b1154;
+    (**(code **)(*local_3c + 4))();
+    ppiVar3 = (int **)&local_40;
+    uVar2 = 0;
+  }
+  else {
+    uVar2 = 0x8876086c;
+  }
+  if (*local_20 != 0) {
+    *ppiVar3 = (int *)(*local_20 + 0x40);
+    ppiVar3[-1] = (int *)0x40b116d;
+    direct3ddevice9imp_04080490();
+  }
+  return uVar2;
+}
+

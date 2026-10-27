@@ -1,0 +1,53 @@
+
+void XAudio2Imp__XAudio2Imp(undefined4 *param_1,undefined4 param_2)
+
+{
+  uint uVar1;
+  void *pvVar2;
+  undefined4 uVar3;
+  
+  IUnknownImp__IUnknownImp(param_1,param_2);
+  *param_1 = &PTR_FUN_043102e8;
+  param_1[4] = 0;
+  uVar1 = 0;
+  param_1[5] = 0;
+  param_1[6] = 0;
+  do {
+    *(undefined4 *)((int)param_1 + uVar1 + 0x1c) = 0;
+    uVar1 = uVar1 + 4;
+  } while (uVar1 < 0x18);
+                    /* try { // try from 04106940 to 04106944 has its CatchHandler @ 04106a58 */
+  pvVar2 = operator_new(0x10);
+                    /* try { // try from 0410694a to 0410694e has its CatchHandler @ 04106ab7 */
+  AlsaOutput__AlsaOutput(pvVar2);
+  param_1[0x10] = pvVar2;
+  uVar1 = 0;
+  param_1[0x11] = 0;
+  param_1[0x12] = 0;
+  param_1[0x13] = 0;
+  param_1[0x14] = 0;
+  param_1[0x15] = 0;
+  param_1[0x16] = 0;
+  param_1[0x17] = 0;
+  do {
+    *(undefined4 *)((int)param_1 + uVar1 + 0x60) = 0;
+    uVar1 = uVar1 + 4;
+  } while (uVar1 < 0x18);
+  param_1[0x1f] = 0;
+  param_1[0x21] = param_1 + 0x1f;
+  param_1[0x22] = param_1 + 0x1f;
+  param_1[0x20] = 0;
+  param_1[0x23] = 0;
+  *(undefined1 *)(param_1 + 0x2a) = 0;
+  *(undefined1 *)((int)param_1 + 0xa9) = 0;
+  param_1[1] = "XAudio2Imp";
+                    /* try { // try from 041069df to 04106a4a has its CatchHandler @ 04106a6a */
+  eON_InitializeCriticalSection(param_1 + 0x24);
+  uVar3 = eON_CreateEventA(0,0,0,0);
+  param_1[0xe] = uVar3;
+  param_1[0xf] = 0;
+  uVar3 = eON_CreateThread(0,0x10000,XAudio2Imp_GraphUpdateThread,param_1[3],0,0);
+  param_1[0xd] = uVar3;
+  return;
+}
+

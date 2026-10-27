@@ -1,0 +1,20 @@
+
+undefined4 thread_init(void)
+
+{
+  int iVar1;
+  pthread_mutexattr_t local_10 [2];
+  
+  DAT_0451bd64 = pthread_self();
+  pthread_mutexattr_init(local_10);
+  pthread_mutexattr_settype(local_10,1);
+  iVar1 = pthread_mutex_init((pthread_mutex_t *)&DAT_0451bd4c,local_10);
+  if (iVar1 == 0) {
+    pthread_mutexattr_destroy(local_10);
+    return 1;
+  }
+  pthread_mutexattr_destroy(local_10);
+  FUN_0402cd10(0xf,"thread_init() - creating mThreadSyncGuard mutex failed");
+  return 0;
+}
+

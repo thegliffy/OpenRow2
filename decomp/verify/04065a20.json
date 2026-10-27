@@ -1,0 +1,10 @@
+
+void Direct3D9ExImp__Direct3D9ExImp(undefined4 *param_1,undefined4 param_2)
+
+{
+  Direct3D9Imp__Direct3D9Imp(param_1,param_2);
+  *param_1 = &PTR_FUN_042ee288;
+  param_1[1] = "Direct3D9ExImp";
+  return;
+}
+

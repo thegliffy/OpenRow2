@@ -1,0 +1,140 @@
+
+undefined4 png_image_write(int *param_1)
+
+{
+  byte bVar1;
+  int *piVar2;
+  int iVar3;
+  int iVar4;
+  uint uVar5;
+  bool bVar6;
+  bool bVar7;
+  int iVar8;
+  uint uVar9;
+  undefined4 uVar10;
+  int iVar11;
+  int iVar12;
+  uint uVar13;
+  bool bVar14;
+  uint local_30;
+  
+  piVar2 = (int *)*param_1;
+  uVar13 = piVar2[4];
+  iVar3 = *(int *)*piVar2;
+  iVar4 = ((int *)*piVar2)[1];
+  uVar9 = uVar13 & 8;
+  if (uVar9 == 0) {
+    bVar14 = (uVar13 & 4) != 0;
+    bVar6 = true;
+    local_30 = uVar13 & 1;
+    if ((bVar14) && (bVar7 = true, param_1[4] == 0)) goto LAB_042bf65d;
+  }
+  else {
+    bVar6 = false;
+    bVar14 = false;
+    local_30 = 0;
+  }
+  bVar7 = false;
+LAB_042bf65d:
+  FUN_042bcd40(iVar3,0);
+  if (param_1[2] == 0) {
+    iVar12 = 1;
+    if ((piVar2[4] & 8U) == 0) {
+      iVar12 = (piVar2[4] & 3U) + 1;
+    }
+    param_1[2] = piVar2[2] * iVar12;
+  }
+  if ((uVar13 & 8) == 0) {
+    FUN_042bb260(iVar3,iVar4,piVar2[2],piVar2[3],(-(uint)!bVar7 & 0xfffffff8) + 0x10,
+                 (uVar13 & 2) + (-(uVar13 & 1) & 4),0,0,0);
+  }
+  else {
+    if ((param_1[3] == 0) || (uVar5 = piVar2[6], uVar5 == 0)) {
+                    /* WARNING: Subroutine does not return */
+      png_error(*(undefined4 *)*piVar2,"no color-map for color-mapped image");
+    }
+    iVar12 = 8;
+    if ((uVar5 < 0x11) && (iVar12 = 4, uVar5 < 5)) {
+      iVar12 = 2 - (uint)(uVar5 < 3);
+    }
+    FUN_042bb260(iVar3,iVar4,piVar2[2],piVar2[3],iVar12,3,0,0,0);
+    FUN_042bd800();
+  }
+  if (bVar7) {
+    FUN_042bb0d0(iVar3,iVar4,&DAT_000186a0);
+    if ((*(byte *)(piVar2 + 5) & 1) == 0) {
+      FUN_042bab80(iVar3,iVar4,0x7a26,0x8084,64000,33000,30000,60000,15000,6000);
+    }
+    png_write_info(iVar3,iVar4);
+    FUN_042bcdb0(iVar3);
+  }
+  else {
+    if ((*(byte *)(piVar2 + 5) & 1) == 0) {
+      FUN_042bbc30(iVar3,iVar4,0);
+    }
+    else {
+      FUN_042bb0d0(iVar3,iVar4,0xb18f);
+    }
+    png_write_info(iVar3,iVar4);
+  }
+  if ((uVar13 & 0x10) != 0) {
+    if ((bVar6) && ((uVar13 & 2) != 0)) {
+      FUN_042bcd90(iVar3);
+    }
+    uVar13 = uVar13 & 0xffffffef;
+  }
+  if ((uVar13 & 0x20) != 0) {
+    if ((bVar6) && ((uVar13 & 1) != 0)) {
+      FUN_042bcf80(iVar3);
+    }
+    uVar13 = uVar13 & 0xffffffdf;
+  }
+  if ((uVar9 != 0) && ((uint)piVar2[6] < 0x11)) {
+    FUN_042bcdd0(iVar3);
+  }
+  if ((uVar13 & 0xfffffff0) != 0) {
+                    /* WARNING: Subroutine does not return */
+    png_error(iVar3,"png_write_image: unsupported transformation");
+  }
+  iVar12 = param_1[1];
+  iVar11 = param_1[2];
+  if (bVar14) {
+    iVar11 = param_1[2] * 2;
+  }
+  if (iVar11 < 0) {
+    iVar12 = iVar12 + (1 - piVar2[3]) * iVar11;
+  }
+  bVar1 = *(byte *)(piVar2 + 5);
+  param_1[5] = iVar12;
+  param_1[6] = iVar11;
+  if (((bVar1 & 2) != 0) && (FUN_042bf380(iVar3,0,0), iVar3 != 0)) {
+    *(undefined4 *)(iVar3 + 0x120) = 3;
+  }
+  if (((local_30 != 0) && (bVar14)) || ((bVar6 && (param_1[4] != 0)))) {
+    uVar10 = FUN_042c4b60(iVar3,iVar4);
+    iVar12 = FUN_042aa2c0(iVar3,uVar10);
+    param_1[7] = iVar12;
+    if (bVar7) {
+      iVar11 = FUN_042aa050(piVar2,png_image_write_to_memory,param_1);
+    }
+    else {
+      iVar11 = FUN_042aa050(piVar2,FUN_042bec90,param_1);
+    }
+    param_1[7] = 0;
+    FUN_042aa410(iVar3,iVar12);
+    if (iVar11 == 0) {
+      return 0;
+    }
+  }
+  else {
+    iVar12 = param_1[6];
+    iVar8 = param_1[5];
+    for (iVar11 = piVar2[3]; iVar11 != 0; iVar11 = iVar11 + -1) {
+      png_write_row(iVar3,iVar8);
+      iVar8 = iVar8 + iVar12;
+    }
+  }
+  png_write_end(iVar3,iVar4);
+  return 1;
+}
+

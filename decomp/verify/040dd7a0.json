@@ -1,0 +1,35 @@
+
+/* source: openGlDebugFunctions */
+
+void openGlDebugFunctions_040dd7a0(int param_1)
+
+{
+  undefined4 *puVar1;
+  int iVar2;
+  int local_10;
+  
+  iVar2 = eON_Int_GL_NoteCurrentContext();
+  if (iVar2 == 0) {
+    puts("No valid OpenGL context in calling thread!.");
+  }
+  else {
+    if (DAT_044dac80 == (undefined4 *)0x0) {
+      FUN_040d9ba0();
+    }
+    puVar1 = DAT_044dac80;
+    glGetIntegerv(0x8872,&local_10);
+    iVar2 = glGetError();
+    if (iVar2 != 0) {
+      FUN_0400a810("glGetError() == 0",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                   ,0xb22,"void OpenGL_LogState_Texture(OpenGlDebugWriter*, int32_t)");
+    }
+    if (local_10 <= param_1) {
+      (**(code **)*puVar1)(puVar1,"Texture stage %d is not a valid texture stage index!\n",param_1);
+      return;
+    }
+    OpenGL_LogState_BoundSampler();
+  }
+  return;
+}
+

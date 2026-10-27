@@ -1,0 +1,238 @@
+
+/* source: winsock */
+
+undefined4
+eON_WSASendTo(int param_1,size_t *param_2,uint param_3,ssize_t *param_4,uint param_5,void *param_6,
+             size_t param_7,int param_8,int param_9)
+
+{
+  int iVar1;
+  uint uVar2;
+  ssize_t *psVar3;
+  uint uVar4;
+  size_t __n;
+  int iVar5;
+  int iVar6;
+  uint uVar7;
+  void *pvVar8;
+  ssize_t sVar9;
+  int *piVar10;
+  size_t __size;
+  size_t *psVar11;
+  undefined4 uVar12;
+  undefined4 *puVar13;
+  void *__dest;
+  undefined4 uStackY_b8;
+  sockaddr local_60 [4];
+  undefined4 *local_18;
+  
+  iVar6 = param_9;
+  iVar5 = param_8;
+  __n = param_7;
+  pvVar8 = param_6;
+  uVar4 = param_5;
+  psVar3 = param_4;
+  uVar2 = param_3;
+  psVar11 = param_2;
+  iVar1 = param_1;
+  local_18 = &param_1;
+  eON_SetLastError();
+  puVar13 = (undefined4 *)&stack0xffffff4c;
+  uStackY_b8 = 0x4193335;
+  EventSelect_ClearFlags();
+  if (iVar1 == -1) {
+    uVar12 = 0xffffffff;
+    uStackY_b8 = 0x419371d;
+    eON_SetLastError();
+  }
+  else if (iVar6 == 0) {
+    if ((uVar4 & 0x8000) == 0) {
+      if (__n != 0x10) {
+        uStackY_b8 = 0x4193375;
+        FUN_0402cd10();
+        if (0x40 < (int)__n) {
+          uStackY_b8 = 0x419339f;
+          FUN_0400a810();
+        }
+      }
+      uStackY_b8 = 0x41933b5;
+      memcpy(local_60,pvVar8,__n);
+      if (uVar2 == 0) {
+        uStackY_b8 = 0x4193504;
+        FUN_0400a810();
+        __size = *psVar11;
+        pvVar8 = (void *)psVar11[1];
+      }
+      else {
+        __size = *psVar11;
+        pvVar8 = (void *)psVar11[1];
+        if (1 < uVar2) {
+          uVar7 = 0;
+          __size = 0;
+          do {
+            __size = __size + psVar11[uVar7 * 2];
+            uVar7 = uVar7 + 1;
+          } while (uVar7 != uVar2);
+          uStackY_b8 = 0x41933ef;
+          pvVar8 = malloc(__size);
+          uVar7 = 0;
+          __dest = pvVar8;
+          do {
+            uVar7 = uVar7 + 1;
+            uStackY_b8 = 0x4193418;
+            memcpy(__dest,(void *)psVar11[1],*psVar11);
+            __dest = (void *)((int)__dest + *psVar11);
+            psVar11 = psVar11 + 2;
+          } while (uVar7 != uVar2);
+        }
+      }
+      uVar7 = ~-(uint)((uVar4 & 4) == 0) & 4;
+      if ((uVar4 & 1) != 0) {
+        uVar7 = (-(uint)((uVar4 & 4) == 0) & 0xfffffffc) + 5;
+      }
+      uStackY_b8 = 0x419346f;
+      sVar9 = sendto(iVar1,pvVar8,__size,uVar7,local_60,__n);
+      if (sVar9 == -1) {
+        uStackY_b8 = 0x4193515;
+        piVar10 = __errno_location();
+        iVar1 = *piVar10;
+        switch(iVar1) {
+        default:
+          uStackY_b8 = 0x4193534;
+          FUN_0402cd10();
+          puVar13 = (undefined4 *)&stack0xffffff4c;
+          break;
+        case 2:
+        case 0xc:
+        case 0x14:
+        case 0x20:
+        case 0x5f:
+        case 0x6a:
+          break;
+        case 4:
+          uStackY_b8 = 0x41936e6;
+          eON_SetLastError();
+          puVar13 = &uStackY_b8;
+          break;
+        case 9:
+          uStackY_b8 = 0x41936d2;
+          eON_SetLastError();
+          puVar13 = &uStackY_b8;
+          break;
+        case 0xb:
+          uStackY_b8 = 0x41936be;
+          eON_SetLastError();
+          puVar13 = &uStackY_b8;
+          break;
+        case 0xd:
+          uStackY_b8 = 0x41936aa;
+          eON_SetLastError();
+          puVar13 = &uStackY_b8;
+          break;
+        case 0xe:
+          uStackY_b8 = 0x4193696;
+          eON_SetLastError();
+          puVar13 = &uStackY_b8;
+          break;
+        case 0x58:
+          uStackY_b8 = 0x4193682;
+          eON_SetLastError();
+          puVar13 = &uStackY_b8;
+          break;
+        case 0x59:
+          uStackY_b8 = 0x419366e;
+          eON_SetLastError();
+          puVar13 = &uStackY_b8;
+          break;
+        case 0x5a:
+          uStackY_b8 = 0x419365a;
+          eON_SetLastError();
+          puVar13 = &uStackY_b8;
+          break;
+        case 0x61:
+          uStackY_b8 = 0x4193646;
+          eON_SetLastError();
+          puVar13 = &uStackY_b8;
+          break;
+        case 100:
+          uStackY_b8 = 0x4193632;
+          eON_SetLastError();
+          puVar13 = &uStackY_b8;
+          break;
+        case 0x65:
+          uStackY_b8 = 0x419361e;
+          eON_SetLastError();
+          puVar13 = &uStackY_b8;
+          break;
+        case 0x68:
+          uStackY_b8 = 0x419360a;
+          eON_SetLastError();
+          puVar13 = &uStackY_b8;
+          break;
+        case 0x69:
+          uStackY_b8 = 0x41935f6;
+          eON_SetLastError();
+          puVar13 = &uStackY_b8;
+          break;
+        case 0x6b:
+          uStackY_b8 = 0x41935ce;
+          eON_SetLastError();
+          puVar13 = &uStackY_b8;
+          break;
+        case 0x70:
+          uStackY_b8 = 0x41935ba;
+          eON_SetLastError();
+          puVar13 = &uStackY_b8;
+          break;
+        case 0x71:
+          uStackY_b8 = 0x41935e2;
+          eON_SetLastError();
+          puVar13 = &uStackY_b8;
+        }
+        if (iVar5 != 0) {
+          *(int *)(iVar5 + 0xc) = iVar1;
+          *(undefined4 *)(iVar5 + 8) = 0;
+          *(undefined4 *)(iVar5 + 4) = 2;
+        }
+        uVar12 = 0xffffffff;
+        if (1 < uVar2) {
+          *puVar13 = pvVar8;
+          puVar13[-1] = 0x419356a;
+          free((void *)*puVar13);
+          return 0xffffffff;
+        }
+      }
+      else {
+        if (1 < uVar2) {
+          uStackY_b8 = 0x4193489;
+          free(pvVar8);
+        }
+        if (psVar3 != (ssize_t *)0x0) {
+          *psVar3 = sVar9;
+        }
+        uVar12 = 0;
+        if (iVar5 != 0) {
+          *(ssize_t *)(iVar5 + 8) = sVar9;
+          *(undefined4 *)(iVar5 + 0xc) = 0;
+          *(undefined4 *)(iVar5 + 4) = 2;
+          if (*(int *)(iVar5 + 0x10) != 0) {
+            uStackY_b8 = 0x41934c4;
+            eON_SetEvent();
+          }
+        }
+      }
+    }
+    else {
+      uVar12 = 0xffffffff;
+      uStackY_b8 = 0x4193707;
+      FUN_0402cd10();
+    }
+  }
+  else {
+    uVar12 = 0xffffffff;
+    uStackY_b8 = 0x41935a9;
+    FUN_0402cd10();
+  }
+  return uVar12;
+}
+

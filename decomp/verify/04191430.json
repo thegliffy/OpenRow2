@@ -1,0 +1,122 @@
+
+undefined4 eON_WSARecvFrom_WorkerThread(int param_1)
+
+{
+  undefined4 *puVar1;
+  undefined4 *puVar2;
+  int iVar3;
+  uint uVar4;
+  uint uVar5;
+  int *piVar6;
+  ssize_t sVar7;
+  char **ppcVar8;
+  size_t *psVar9;
+  size_t sVar10;
+  char *local_6c [11];
+  int *local_40;
+  undefined4 local_30;
+  undefined4 local_2c;
+  undefined4 local_28;
+  undefined4 local_24;
+  undefined4 local_20 [4];
+  
+  local_6c[0] = "E.WS.RecvFrom";
+  eON_SetThreadName();
+  ppcVar8 = local_6c;
+  do {
+    ppcVar8[1] = (char *)0xffffffff;
+    *ppcVar8 = (char *)*(undefined4 *)(param_1 + 4);
+    ppcVar8[-1] = (char *)0x419145e;
+    iVar3 = eON_WaitForSingleObject();
+    if (iVar3 == 0x80) {
+      return 0;
+    }
+    ppcVar8[-2] = (char *)&DAT_0451c678;
+    ppcVar8[-3] = (char *)0x4191476;
+    pthread_mutex_lock((pthread_mutex_t *)ppcVar8[-2]);
+    piVar6 = *(int **)(param_1 + 0xc);
+    ppcVar8[-2] = (char *)&DAT_0451c678;
+    ppcVar8[-3] = (char *)0x419148b;
+    local_40 = piVar6;
+    pthread_mutex_unlock((pthread_mutex_t *)ppcVar8[-2]);
+    psVar9 = (size_t *)(ppcVar8 + -2);
+    if (piVar6 != (int *)0x0) {
+      puVar1 = (undefined4 *)*piVar6;
+      local_20[0] = 0x10;
+      uVar4 = puVar1[3] & 2;
+      uVar5 = ~-(uint)(uVar4 == 0) & 2;
+      sVar10 = (-(uint)(uVar4 == 0) & 0xfffffffe) + 0x102;
+      if ((puVar1[3] & 1) != 0) {
+        uVar5 = (-(uint)(uVar4 == 0) & 0xfffffffe) + 3;
+        sVar10 = (-(uint)(uVar4 == 0) & 0xfffffffe) + 0x103;
+      }
+      if ((puVar1[3] & 0x8000) != 0) {
+        sVar10 = uVar5;
+      }
+      while( true ) {
+        puVar2 = (undefined4 *)puVar1[2];
+        ppcVar8[1] = (char *)sVar10;
+        ppcVar8[3] = (char *)local_20;
+        ppcVar8[2] = (char *)&local_30;
+        *ppcVar8 = (char *)*puVar2;
+        ppcVar8[-1] = (char *)puVar2[1];
+        ppcVar8[-2] = (char *)*puVar1;
+        ppcVar8[-3] = (char *)0x4191536;
+        sVar7 = recvfrom((int)ppcVar8[-2],ppcVar8[-1],(size_t)*ppcVar8,(int)ppcVar8[1],
+                         (sockaddr *)ppcVar8[2],(socklen_t *)ppcVar8[3]);
+        if (sVar7 != -1) break;
+        ppcVar8[-3] = (char *)0x41914f5;
+        piVar6 = __errno_location();
+        if (*piVar6 != 0xb) {
+          ppcVar8[-2] = (char *)&DAT_0451c678;
+          ppcVar8[-3] = (char *)0x41915ee;
+          pthread_mutex_lock((pthread_mutex_t *)ppcVar8[-2]);
+          sVar7 = 0;
+          local_40[3] = *piVar6;
+          goto LAB_0419157d;
+        }
+        ppcVar8[-2] = (char *)0x3e8;
+        ppcVar8[-3] = (char *)0x419150a;
+        usleep((__useconds_t)ppcVar8[-2]);
+      }
+      ppcVar8[-2] = (char *)&DAT_0451c678;
+      ppcVar8[-3] = (char *)0x4191549;
+      pthread_mutex_lock((pthread_mutex_t *)ppcVar8[-2]);
+      puVar2 = (undefined4 *)puVar1[4];
+      if (puVar2 != (undefined4 *)0x0) {
+        *puVar2 = local_30;
+        puVar2[1] = local_2c;
+        puVar2[2] = local_28;
+        puVar2[3] = local_24;
+        if ((undefined4 *)puVar1[5] != (undefined4 *)0x0) {
+          *(undefined4 *)puVar1[5] = local_20[0];
+        }
+      }
+      local_40[3] = 0;
+LAB_0419157d:
+      local_40[2] = sVar7;
+      *local_40 = 0;
+      local_40[1] = 1;
+      ppcVar8[-2] = (char *)puVar1;
+      ppcVar8[-3] = (char *)0x4191595;
+      free(ppcVar8[-2]);
+      iVar3 = local_40[4];
+      *(undefined4 *)(param_1 + 0xc) = 0;
+      ppcVar8[-2] = (char *)&DAT_0451c678;
+      ppcVar8[-3] = (char *)0x41915b1;
+      pthread_mutex_unlock((pthread_mutex_t *)ppcVar8[-2]);
+      psVar9 = (size_t *)(ppcVar8 + -2);
+      if (iVar3 != 0) {
+        ppcVar8[-2] = (char *)iVar3;
+        ppcVar8[-3] = (char *)0x41915bd;
+        eON_SetEvent();
+        psVar9 = (size_t *)(ppcVar8 + -3);
+      }
+    }
+    ppcVar8 = (char **)psVar9;
+    if (*(int *)(param_1 + 8) != 0) {
+      return 0;
+    }
+  } while( true );
+}
+

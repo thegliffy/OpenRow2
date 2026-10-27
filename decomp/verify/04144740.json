@@ -1,0 +1,44 @@
+
+undefined4 Exception_DispatchHandlers(undefined4 *param_1,undefined4 param_2)
+
+{
+  undefined4 *puVar1;
+  char cVar2;
+  int iVar3;
+  int in_FS_OFFSET;
+  undefined4 uVar4;
+  int iVar5;
+  undefined1 local_20 [16];
+  
+  puVar1 = (undefined4 *)**(undefined4 **)(in_FS_OFFSET + 0x18);
+  do {
+    if (puVar1 == (undefined4 *)0xffffffff) {
+      return 0xc0000144;
+    }
+    cVar2 = FUN_04145170(puVar1);
+    if (cVar2 == '\0') {
+      param_1[1] = param_1[1] | 8;
+      return 0xc0000144;
+    }
+    FUN_0402cd10(5,"\tCalling handler at %p code=%x flags=%x",puVar1[1],*param_1,param_1[1]);
+    iVar3 = FUN_0414458c(param_1,puVar1,param_2,local_20,puVar1[1],FUN_04144690);
+    uVar4 = puVar1[1];
+    iVar5 = iVar3;
+    FUN_0402cd10(5,"\tHandler at %p returned %x",uVar4,iVar3);
+    if (iVar3 != 1) {
+      if (iVar3 == 0) {
+        if ((*(byte *)(param_1 + 1) & 1) != 0) {
+          return 0xc0000025;
+        }
+        FUN_0402cd10(5,"\tException handled by one of the stack handlers.",uVar4,iVar5);
+        return 0;
+      }
+      if (iVar3 != 2) {
+        return 0xc0000026;
+      }
+      param_1[1] = param_1[1] | 0x10;
+    }
+    puVar1 = (undefined4 *)*puVar1;
+  } while( true );
+}
+

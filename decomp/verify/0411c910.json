@@ -1,0 +1,29 @@
+
+/* source: gdi32 */
+
+void HDC_Release(int param_1)
+
+{
+  int iVar1;
+  uint uVar2;
+  
+  if (param_1 == 0) {
+    uVar2 = 0xffffffff;
+  }
+  else {
+    uVar2 = param_1 + 0x68686869;
+    if (uVar2 < 0x80) goto LAB_0411c92a;
+  }
+  FUN_0400a810("number < 128",
+               "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/gdi32/gdi32.cpp",
+               0x23b,"INT HDC_Release(HDC)");
+LAB_0411c92a:
+  iVar1 = *(int *)(&DAT_04512aa4 + uVar2 * 0x60);
+  if (iVar1 == 0) {
+    FUN_0402cd10(10,"RefCount on a drawing context == 0 before Release !");
+    iVar1 = *(int *)(&DAT_04512aa4 + uVar2 * 0x60);
+  }
+  *(int *)(&DAT_04512aa4 + uVar2 * 0x60) = iVar1 + -1;
+  return;
+}
+

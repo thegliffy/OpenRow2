@@ -1,0 +1,114 @@
+
+void png_handle_sPLT(int param_1,undefined4 param_2,int param_3)
+
+{
+  ushort *puVar1;
+  uint uVar2;
+  char cVar3;
+  char *pcVar4;
+  int iVar5;
+  int iVar6;
+  char *pcVar7;
+  byte *pbVar8;
+  byte *pbVar9;
+  char *local_2c;
+  char local_28;
+  int local_24;
+  uint local_20;
+  
+  iVar5 = *(int *)(param_1 + 0x2f4);
+  if (iVar5 == 0) {
+LAB_042b7b34:
+    if ((*(uint *)(param_1 + 0xd0) & 1) == 0) {
+                    /* WARNING: Subroutine does not return */
+      png_chunk_error(param_1,"missing IHDR");
+    }
+    if ((*(uint *)(param_1 + 0xd0) & 4) != 0) {
+      png_crc_finish(param_1,param_3);
+      png_chunk_benign_error(param_1,"out of place");
+      return;
+    }
+    pcVar4 = (char *)png_read_buffer();
+    if (pcVar4 == (char *)0x0) {
+      png_crc_finish(param_1,param_3);
+      png_chunk_benign_error(param_1,"out of memory");
+    }
+    else {
+      png_crc_read(param_1,pcVar4,param_3);
+      iVar5 = png_crc_finish(param_1,0);
+      if (iVar5 == 0) {
+        pcVar4[param_3] = '\0';
+        cVar3 = *pcVar4;
+        pcVar7 = pcVar4;
+        while (cVar3 != '\0') {
+          pcVar7 = pcVar7 + 1;
+          cVar3 = *pcVar7;
+        }
+        if (pcVar4 + param_3 + -2 < pcVar7 + 1) {
+          png_warning(param_1,"malformed sPLT chunk");
+        }
+        else {
+          local_28 = pcVar7[1];
+          pbVar8 = (byte *)(pcVar7 + 2);
+          uVar2 = (uint)(local_28 != '\b') * 4 + 6;
+          local_20 = (uint)(pcVar4 + (param_3 - (int)pbVar8)) / uVar2;
+          if ((uint)(pcVar4 + (param_3 - (int)pbVar8)) % uVar2 == 0) {
+            if (local_20 < 0x1999999a) {
+              local_24 = FUN_042aa3a0(param_1,local_20 * 10);
+              if (local_24 == 0) {
+                png_warning(param_1,"sPLT chunk requires too much memory");
+              }
+              else {
+                iVar5 = 0;
+                if (0 < (int)local_20) {
+                  iVar6 = 0;
+                  while( true ) {
+                    puVar1 = (ushort *)(local_24 + iVar5);
+                    if (local_28 == '\b') {
+                      *puVar1 = (ushort)*pbVar8;
+                      puVar1[1] = (ushort)pbVar8[1];
+                      puVar1[2] = (ushort)pbVar8[2];
+                      pbVar9 = pbVar8 + 4;
+                      puVar1[3] = (ushort)pbVar8[3];
+                    }
+                    else {
+                      *puVar1 = CONCAT11(*pbVar8,pbVar8[1]);
+                      puVar1[1] = CONCAT11(pbVar8[2],pbVar8[3]);
+                      puVar1[2] = CONCAT11(pbVar8[4],pbVar8[5]);
+                      pbVar9 = pbVar8 + 8;
+                      puVar1[3] = CONCAT11(pbVar8[6],pbVar8[7]);
+                    }
+                    iVar6 = iVar6 + 1;
+                    iVar5 = iVar5 + 10;
+                    puVar1[4] = CONCAT11(*pbVar9,pbVar9[1]);
+                    if ((int)local_20 <= iVar6) break;
+                    pbVar8 = pbVar9 + 2;
+                  }
+                }
+                local_2c = pcVar4;
+                png_set_sPLT(param_1,param_2,&local_2c,1);
+                FUN_042aa410(param_1,local_24);
+              }
+            }
+            else {
+              png_warning(param_1,"sPLT chunk too long");
+            }
+          }
+          else {
+            png_warning(param_1,"sPLT chunk has bad length");
+          }
+        }
+      }
+    }
+  }
+  else {
+    if (iVar5 != 1) {
+      *(int *)(param_1 + 0x2f4) = iVar5 + -1;
+      if (iVar5 + -1 != 1) goto LAB_042b7b34;
+      png_warning(param_1,"No space in chunk cache for sPLT");
+    }
+    png_crc_finish(param_1,param_3);
+  }
+  return;
+}
+

@@ -1,0 +1,209 @@
+
+uint eON_SetWindowLong(uint *param_1,undefined4 param_2,uint param_3)
+
+{
+  uint *puVar1;
+  undefined4 uVar2;
+  char cVar3;
+  undefined1 uVar4;
+  undefined1 uVar7;
+  int iVar5;
+  uint uVar6;
+  undefined2 uVar8;
+  uint uVar9;
+  uint **ppuVar10;
+  uint uVar11;
+  int in_FS_OFFSET;
+  undefined4 uStack_48;
+  uint *local_44;
+  uint *local_40;
+  char *local_3c;
+  uint *local_38;
+  uint local_28;
+  uint local_24;
+  undefined4 *local_18;
+  
+  uVar6 = param_3;
+  uVar2 = param_2;
+  puVar1 = param_1;
+  local_18 = &param_1;
+  if (param_1 == (uint *)0x271a) {
+    local_40 = (uint *)0x5;
+    local_44 = (uint *)0x418167e;
+    eON_SetLastError();
+    return 0;
+  }
+  local_40 = param_1;
+  local_44 = (uint *)0x4181418;
+  cVar3 = FUN_0404ecd0();
+  if (cVar3 == '\0') {
+    local_40 = (uint *)0x578;
+    local_44 = (uint *)0x418165e;
+    eON_SetLastError();
+    return 0;
+  }
+  switch(uVar2) {
+  case 0:
+    uVar11 = puVar1[0xd];
+    puVar1[0xd] = uVar6;
+    break;
+  case 0xffffffeb:
+    uVar11 = puVar1[0xc];
+    puVar1[0xc] = uVar6;
+    break;
+  case 0xffffffec:
+    uVar11 = puVar1[0xb];
+    local_24 = uVar6;
+    local_28 = uVar11;
+    if (puVar1 == (uint *)0xffff) {
+      local_3c = "HWND_BROADCAST not supported in SendMessageW(). Add it.";
+      local_40 = (uint *)0xf;
+      local_44 = (uint *)0x418177d;
+      FUN_0402cd10();
+    }
+    local_40 = *(uint **)(*(int *)(in_FS_OFFSET + 0x18) + 0x130);
+    local_44 = (uint *)0x418159c;
+    thread_SuspendPoint();
+    local_40 = puVar1;
+    local_44 = (uint *)0x41815a4;
+    cVar3 = FUN_0404ecd0();
+    if (cVar3 == '\0') {
+      local_40 = (uint *)0x578;
+      local_44 = (uint *)0x41816cc;
+      eON_SetLastError();
+    }
+    else {
+      local_44 = (uint *)0x41815c0;
+      local_40 = &local_28;
+      eON_SendMessageW();
+    }
+    ppuVar10 = &local_44;
+    uVar9 = local_24 & 0xfffffff7;
+    uVar6 = local_28 & 8 | uVar9;
+    uVar4 = (undefined1)uVar6;
+    uVar7 = (undefined1)(uVar9 >> 8);
+    uVar8 = (undefined2)(uVar9 >> 0x10);
+    if (((local_24 & 1) == 0) && ((local_28 & 0x40000) == 0)) {
+      local_24 = uVar6;
+      if ((local_28 & 0xc0000000) != 0) {
+        local_24 = CONCAT22(uVar8,CONCAT11(uVar7,uVar4)) & 0xfffffeff;
+      }
+    }
+    else {
+      local_24 = CONCAT22(uVar8,CONCAT11(uVar7,uVar4)) | 0x100;
+    }
+    puVar1[0xb] = local_24;
+    if (puVar1 == (uint *)0xffff) {
+      local_40 = (uint *)0x434b004;
+      local_44 = (uint *)0xf;
+      uStack_48 = 0x4181764;
+      FUN_0402cd10();
+    }
+    local_44 = *(uint **)(*(int *)(in_FS_OFFSET + 0x18) + 0x130);
+    uStack_48 = 0x418160f;
+    thread_SuspendPoint();
+    local_44 = puVar1;
+    uStack_48 = 0x4181617;
+    cVar3 = FUN_0404ecd0();
+    if (cVar3 != '\0') {
+      uStack_48 = 0x418162f;
+      local_44 = &local_28;
+      eON_SendMessageW();
+      return uVar11;
+    }
+    goto LAB_04181690;
+  default:
+    local_38 = (uint *)uVar2;
+    local_3c = "SetWindowLong: unhandled nIndex! (%d)";
+    local_40 = (uint *)0xa;
+    local_44 = (uint *)0x4181442;
+    FUN_0402cd10();
+    uVar11 = 0;
+    break;
+  case 0xfffffff0:
+    uVar11 = puVar1[10];
+    local_24 = uVar6;
+    local_28 = uVar11;
+    if (puVar1 == (uint *)0xffff) {
+      local_3c = "HWND_BROADCAST not supported in SendMessageW(). Add it.";
+      local_40 = (uint *)0xf;
+      local_44 = (uint *)0x418174b;
+      FUN_0402cd10();
+    }
+    local_40 = *(uint **)(*(int *)(in_FS_OFFSET + 0x18) + 0x130);
+    local_44 = (uint *)0x41814cc;
+    thread_SuspendPoint();
+    local_40 = puVar1;
+    local_44 = (uint *)0x41814d4;
+    cVar3 = FUN_0404ecd0();
+    if (cVar3 == '\0') {
+      local_40 = (uint *)0x578;
+      local_44 = (uint *)0x41816e4;
+      eON_SetLastError();
+    }
+    else {
+      local_44 = (uint *)0x41814f0;
+      local_40 = &local_28;
+      eON_SendMessageW();
+    }
+    ppuVar10 = &local_44;
+    local_44 = puVar1;
+    uStack_48 = 0x41814fb;
+    cVar3 = FUN_0404ecd0();
+    if (cVar3 == '\0') {
+      local_44 = (uint *)0x578;
+      uStack_48 = 0x418172c;
+      eON_SetLastError();
+      ppuVar10 = (uint **)&uStack_48;
+    }
+    else {
+      local_44 = puVar1;
+      uStack_48 = 0x418150b;
+      iVar5 = (**(code **)(*puVar1 + 100))();
+      if ((iVar5 == 0) || (iVar5 == 0x271a)) {
+        local_24 = local_24 | 0x4000000;
+        ppuVar10 = &local_44;
+      }
+    }
+    puVar1[10] = local_24;
+    if (puVar1 == (uint *)0xffff) {
+      ppuVar10[1] = (uint *)"HWND_BROADCAST not supported in SendMessageW(). Add it.";
+      *ppuVar10 = (uint *)0xf;
+      ppuVar10[-1] = (uint *)0x4181796;
+      FUN_0402cd10();
+    }
+    *ppuVar10 = (uint *)*(undefined4 *)(*(int *)(in_FS_OFFSET + 0x18) + 0x130);
+    ppuVar10[-1] = (uint *)0x4181544;
+    thread_SuspendPoint();
+    *ppuVar10 = puVar1;
+    ppuVar10[-1] = (uint *)0x418154c;
+    cVar3 = FUN_0404ecd0();
+    if (cVar3 != '\0') {
+      *ppuVar10 = &local_28;
+      ppuVar10[-1] = (uint *)0x4181568;
+      eON_SendMessageW();
+      return uVar11;
+    }
+LAB_04181690:
+    *ppuVar10 = (uint *)0x578;
+    ppuVar10[-1] = (uint *)0x418169c;
+    eON_SetLastError();
+    break;
+  case 0xfffffff4:
+    uVar11 = puVar1[0x10];
+    puVar1[0x10] = uVar6;
+    break;
+  case 0xfffffffc:
+    uVar11 = puVar1[9];
+    if (uVar6 == 0) {
+      local_38 = puVar1;
+      local_3c = "Window proc set to 0 for window %p.";
+      local_40 = (uint *)0xa;
+      local_44 = (uint *)0x4181708;
+      FUN_0402cd10();
+    }
+    puVar1[9] = uVar6;
+  }
+  return uVar11;
+}
+

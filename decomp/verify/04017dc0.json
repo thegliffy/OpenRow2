@@ -1,0 +1,91 @@
+
+/* WARNING: Removing unreachable block (ram,0x04017fb6) */
+
+char * eON_ParseResourceList(void)
+
+{
+  int *piVar1;
+  char cVar2;
+  int iVar3;
+  int iVar4;
+  char *pcVar5;
+  char *pcVar6;
+  bool bVar7;
+  byte bVar8;
+  undefined4 uVar9;
+  undefined **local_6c [13];
+  undefined4 *local_38;
+  int local_24 [5];
+  
+  bVar8 = 0;
+  std::string::string((string *)local_24,(string *)&DAT_044112d4);
+  uVar9 = 0x11;
+                    /* try { // try from 04017df2 to 04017df6 has its CatchHandler @ 04017fb4 */
+  std::string::append((char *)local_24,0x42dca4b);
+                    /* try { // try from 04017e04 to 04017e08 has its CatchHandler @ 04017fb0 */
+  TiXmlDocument__TiXmlDocument_Filename(local_6c,local_24[0],uVar9);
+                    /* try { // try from 04017e17 to 04017eef has its CatchHandler @ 04017f4a */
+  cVar2 = TiXmlDocument__SaveFile_ToValuePath(local_6c,0);
+  if (cVar2 != '\0') {
+    iVar3 = TiXmlNode__FirstChildElement(local_6c);
+    iVar4 = 0xd;
+    pcVar5 = (char *)(*(int *)(iVar3 + 0x20) + 8);
+    bVar7 = pcVar5 == (char *)0x0;
+    pcVar6 = "ResourceList";
+    do {
+      if (iVar4 == 0) break;
+      iVar4 = iVar4 + -1;
+      bVar7 = *pcVar5 == *pcVar6;
+      pcVar5 = pcVar5 + (uint)bVar8 * -2 + 1;
+      pcVar6 = pcVar6 + (uint)bVar8 * -2 + 1;
+    } while (bVar7);
+    if ((bVar7) && (iVar3 = TiXmlNode__FirstChildElement(iVar3), iVar3 != 0)) {
+      do {
+        iVar4 = 9;
+        pcVar5 = (char *)(*(int *)(iVar3 + 0x20) + 8);
+        bVar7 = pcVar5 == (char *)0x0;
+        pcVar6 = "Resource";
+        do {
+          if (iVar4 == 0) break;
+          iVar4 = iVar4 + -1;
+          bVar7 = *pcVar5 == *pcVar6;
+          pcVar5 = pcVar5 + (uint)bVar8 * -2 + 1;
+          pcVar6 = pcVar6 + (uint)bVar8 * -2 + 1;
+        } while (bVar7);
+        if (((((bVar7) &&
+              (pcVar5 = (char *)TiXmlElement__Attribute(iVar3,"OrgID"), pcVar5 != (char *)0x0)) &&
+             (iVar4 = strcmp(pcVar5,DAT_044112e4), iVar4 == 0)) &&
+            ((pcVar5 = (char *)TiXmlElement__Attribute(iVar3,"AppID"), pcVar5 != (char *)0x0 &&
+             (iVar4 = strcmp(pcVar5,DAT_044112e0), iVar4 == 0)))) &&
+           ((pcVar5 = (char *)TiXmlElement__Attribute(iVar3,"VPFSPath"), pcVar5 != (char *)0x0 &&
+            (*pcVar5 != '\0')))) {
+          pcVar5 = strdup(pcVar5);
+          break;
+        }
+        iVar3 = TiXmlNode__NextSiblingElement(iVar3);
+        pcVar5 = (char *)0x0;
+      } while (iVar3 != 0);
+      goto LAB_04017efa;
+    }
+  }
+  pcVar5 = (char *)0x0;
+LAB_04017efa:
+  local_6c[0] = &PTR_FUN_043629a8;
+  if ((local_38 != &DAT_0451eee4) && (local_38 != (undefined4 *)0x0)) {
+    operator_delete__(local_38);
+  }
+                    /* try { // try from 04017f1d to 04017f21 has its CatchHandler @ 04017fb0 */
+  TiXmlNode___TiXmlNode(local_6c);
+  if ((allocator *)(local_24[0] + -0xc) != (allocator *)&std::string::_Rep::_S_empty_rep_storage) {
+    LOCK();
+    piVar1 = (int *)(local_24[0] + -4);
+    iVar3 = *piVar1;
+    *piVar1 = *piVar1 + -1;
+    UNLOCK();
+    if (iVar3 < 1) {
+      std::string::_Rep::_M_destroy((allocator *)(local_24[0] + -0xc));
+    }
+  }
+  return pcVar5;
+}
+

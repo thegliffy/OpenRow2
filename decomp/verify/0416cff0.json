@@ -1,0 +1,28 @@
+
+/* source: accelerators */
+
+undefined4 eON_LoadAcceleratorsA(undefined4 param_1,uint param_2)
+
+{
+  int iVar1;
+  void *__ptr;
+  undefined4 uVar2;
+  
+  if ((param_2 & 0xffff0000) == 0) {
+    uVar2 = AddTableToValidTablesListAndGetHandle(param_1,param_2);
+  }
+  else {
+    iVar1 = eON_MultiByteToWideChar(0,0,param_2,0xffffffff,0,0);
+    __ptr = malloc(iVar1 * 2);
+    if (__ptr == (void *)0x0) {
+      FUN_0400a810("wideName",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/user32/accelerators.cpp"
+                   ,0x6f,"void* eON_LoadAcceleratorsA(HINSTANCE, LPCSTR)");
+    }
+    eON_MultiByteToWideChar(0,0,param_2,0xffffffff,__ptr,iVar1);
+    uVar2 = AddTableToValidTablesListAndGetHandle(param_1,__ptr);
+    free(__ptr);
+  }
+  return uVar2;
+}
+

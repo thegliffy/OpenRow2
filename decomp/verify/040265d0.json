@@ -1,0 +1,51 @@
+
+void eON_WindowLinux__Platform_GetSizeOfDisplayTheWindowIsOn
+               (int param_1,undefined4 *param_2,undefined4 *param_3)
+
+{
+  char cVar1;
+  int iVar2;
+  undefined1 local_40 [4];
+  undefined4 local_3c;
+  undefined4 local_38;
+  undefined1 local_2c [8];
+  undefined4 local_24;
+  undefined4 local_20;
+  
+  iVar2 = FUN_0402d650(param_1);
+  if (iVar2 != 0) {
+    cVar1 = FUN_0402d6a0();
+    if (cVar1 != '\0') {
+      iVar2 = SDL_GetWindowDisplayMode(*(undefined4 *)(param_1 + 0x7c),local_40);
+      if (iVar2 != 0) {
+        FUN_0400a810("SDL_GetWindowDisplayMode( SDLWindow, &mode ) == 0",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/linux/windowLinux.cpp"
+                     ,0x2ce,
+                     "virtual void eON_WindowLinux::Platform_GetSizeOfDisplayTheWindowIsOn(int*, int*)"
+                    );
+      }
+      *param_2 = local_3c;
+      *param_3 = local_38;
+      return;
+    }
+  }
+  iVar2 = SDL_GetWindowDisplayIndex(*(undefined4 *)(param_1 + 0x7c));
+  if (iVar2 < 0) {
+    FUN_0402cd10(10,
+                 "Being asked for size of display the window is on, when the window isn\'t on any display, or doesn\'t exist!"
+                );
+    iVar2 = 0;
+  }
+  iVar2 = SDL_GetDisplayBounds(iVar2,local_2c);
+  if (iVar2 != 0) {
+    FUN_0400a810("SDL_GetDisplayBounds( displayIndex, &rect ) == 0",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/linux/windowLinux.cpp",
+                 0x2df,
+                 "virtual void eON_WindowLinux::Platform_GetSizeOfDisplayTheWindowIsOn(int*, int*)")
+    ;
+  }
+  *param_2 = local_24;
+  *param_3 = local_20;
+  return;
+}
+

@@ -1,0 +1,156 @@
+
+void shader_pch_load(int param_1)
+
+{
+  undefined4 uVar1;
+  undefined4 uVar2;
+  undefined4 uVar3;
+  undefined4 uVar4;
+  undefined1 uVar5;
+  char cVar6;
+  char *__filename;
+  FILE *pFVar7;
+  size_t sVar8;
+  void *pvVar9;
+  int iVar10;
+  uint uVar11;
+  undefined4 *puVar12;
+  uint uVar13;
+  int iVar14;
+  undefined4 *puVar15;
+  uint uVar16;
+  int iVar17;
+  undefined4 local_2c;
+  int local_28;
+  undefined1 local_24 [4];
+  void *local_20 [4];
+  
+  uVar5 = FUN_04021ee0();
+  __filename = (char *)eON_GetPrecompiledShadersPath(0,uVar5);
+  *(char **)(param_1 + 0x10c) = __filename;
+  pFVar7 = fopen64(__filename,"rb");
+  if (pFVar7 == (FILE *)0x0) {
+    pFVar7 = fopen64(*(char **)(param_1 + 0x10c),"wb");
+  }
+  else {
+    sVar8 = fread(&local_28,1,4,pFVar7);
+    if ((sVar8 == 4) && (local_28 == 0x45de56a7)) {
+LAB_040ec680:
+      do {
+        sVar8 = fread(&local_2c,1,4,pFVar7);
+        if (sVar8 != 4) {
+          fclose(pFVar7);
+          if (sVar8 == 0) {
+            iVar10 = *(int *)(param_1 + 0xcc);
+            uVar16 = *(int *)(param_1 + 0xd0) - iVar10 >> 4;
+            uVar11 = uVar16 >> 1;
+            if (uVar11 == 0) {
+              return;
+            }
+            iVar14 = (uVar16 + 0xfffffff) * 0x10;
+            uVar16 = 0;
+            do {
+              uVar13 = uVar16 + 1;
+              puVar15 = (undefined4 *)(uVar16 * 0x10 + iVar10);
+              uVar1 = puVar15[2];
+              uVar2 = puVar15[1];
+              uVar3 = *puVar15;
+              uVar4 = puVar15[3];
+              puVar12 = (undefined4 *)(iVar10 + iVar14);
+              iVar14 = iVar14 + -0x10;
+              *puVar15 = *puVar12;
+              puVar15[1] = puVar12[1];
+              puVar15[2] = puVar12[2];
+              puVar15[3] = puVar12[3];
+              *puVar12 = uVar3;
+              puVar12[1] = uVar2;
+              puVar12[2] = uVar1;
+              puVar12[3] = uVar4;
+              uVar16 = uVar13;
+            } while (uVar13 != uVar11);
+            return;
+          }
+          goto switchD_040ec780_default;
+        }
+        switch(local_2c) {
+        case 0x45de56a1:
+          sVar8 = fread(&local_28,1,4,pFVar7);
+          if ((sVar8 == 4) &&
+             (cVar6 = FUN_040e94b0(param_1,pFVar7,local_24,local_20), cVar6 != '\0')) {
+            iVar10 = FUN_040ebe10(local_20[0]);
+            goto LAB_040ec82d;
+          }
+          goto switchD_040ec780_default;
+        case 0x45de56a2:
+          sVar8 = fread(local_24,1,4,pFVar7);
+          if ((sVar8 != 4) ||
+             (cVar6 = FUN_040e94b0(param_1,pFVar7,&local_28,local_20), cVar6 == '\0'))
+          goto switchD_040ec780_default;
+          iVar10 = FUN_040ebf80(local_20[0]);
+LAB_040ec82d:
+          free(local_20[0]);
+          if (iVar10 == -1) goto switchD_040ec780_default;
+          goto LAB_040ec680;
+        case 0x45de56a3:
+          cVar6 = ShaderCache__LoadEmulatedVertexProgram(param_1,pFVar7);
+          break;
+        case 0x45de56a4:
+          cVar6 = FUN_040ec430(param_1,pFVar7);
+          break;
+        case 0x45de56a5:
+          cVar6 = FUN_040eb470(param_1,pFVar7);
+          break;
+        default:
+          goto switchD_040ec780_default;
+        }
+        if (cVar6 == '\0') {
+switchD_040ec780_default:
+          ShaderCache__ClearCaches(param_1);
+          iVar10 = *(int *)(param_1 + 0xcc);
+          iVar14 = *(int *)(param_1 + 0xd0) - iVar10 >> 4;
+          if (iVar14 != 0) {
+            iVar17 = 0;
+            while( true ) {
+              free(*(void **)(iVar10 + 0xc + iVar17 * 0x10));
+              if (iVar17 + 1 == iVar14) break;
+              iVar10 = *(int *)(param_1 + 0xcc);
+              iVar17 = iVar17 + 1;
+            }
+            iVar10 = *(int *)(param_1 + 0xcc);
+          }
+          *(int *)(param_1 + 0xd0) = iVar10;
+          *(undefined4 *)(param_1 + 0xc4) = 0;
+          *(undefined4 *)(param_1 + 0xbc) = 0;
+          *(undefined4 *)(param_1 + 0xc0) = 1000;
+          pvVar9 = malloc(12000);
+          *(void **)(param_1 + 0xb8) = pvVar9;
+          FUN_0402cd10(10,
+                       "Precompiled shaders file has incorrect content. Deleting file, and disabling precompiled shaders!"
+                      );
+          fclose(pFVar7);
+          FUN_0401a1d0(*(undefined4 *)(param_1 + 0x10c));
+          *(undefined4 *)(param_1 + 0x10c) = 0;
+          return;
+        }
+      } while( true );
+    }
+    FUN_0402cd10(10,
+                 "Precompiled shaders file has incorrect header. Replacing with a new empty file.");
+    fclose(pFVar7);
+    FUN_0401a1d0(*(undefined4 *)(param_1 + 0x10c));
+    pFVar7 = fopen64(*(char **)(param_1 + 0x10c),"wb");
+  }
+  if (pFVar7 != (FILE *)0x0) {
+    local_28 = 0x45de56a7;
+    sVar8 = fwrite(&local_28,1,4,pFVar7);
+    fclose(pFVar7);
+    if (sVar8 != 4) {
+      FUN_0402cd10(0xf,
+                   "Creation of precompiled header file failed! Deleting file, and disabling precompiled shaders!"
+                  );
+      FUN_0401a1d0(*(undefined4 *)(param_1 + 0x10c));
+    }
+  }
+  return;
+}
+

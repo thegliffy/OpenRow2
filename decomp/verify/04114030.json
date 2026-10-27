@@ -1,0 +1,177 @@
+
+/* source: crypt */
+
+undefined4 eON_CryptDeriveKey(int param_1,uint param_2,int param_3,uint param_4,undefined4 *param_5)
+
+{
+  byte bVar1;
+  undefined4 *puVar2;
+  undefined4 *puVar3;
+  uint *__ptr;
+  uint uVar4;
+  int iVar5;
+  uint uVar6;
+  uint uVar7;
+  int *piVar8;
+  int iVar9;
+  undefined1 local_148 [4];
+  undefined4 local_144;
+  uint local_120;
+  byte local_10c [104];
+  byte local_a4 [64];
+  byte local_64 [64];
+  uint local_24;
+  undefined4 *local_18;
+  
+  puVar2 = param_5;
+  uVar6 = param_4;
+  iVar9 = param_3;
+  uVar7 = param_2;
+  local_18 = &param_1;
+  if ((param_3 == 0) || (param_1 == 0)) {
+    local_144 = 0x41143a4;
+    eON_SetLastError();
+    return 0;
+  }
+  if (param_5 == (undefined4 *)0x0) {
+    local_144 = 0x411442e;
+    eON_SetLastError();
+    return 0;
+  }
+  local_144 = 0x4114099;
+  __ptr = calloc(1,0x43bc);
+  if (__ptr == (uint *)0x0) {
+    local_144 = 0x4114451;
+    eON_SetLastError();
+    return 0;
+  }
+  if ((uVar7 & 0xe000) != 0x6000) {
+    local_144 = 0x41140bd;
+    free(__ptr);
+    *puVar2 = 0;
+    return 0;
+  }
+  if ((((uVar7 != 0x6611) && (uVar7 != 0x6801)) && (uVar7 != 0x660f)) &&
+     ((uVar7 != 0x660e && (uVar7 != 0x6610)))) {
+    local_144 = 0x4114140;
+    FUN_0400a810();
+  }
+  uVar4 = uVar6 >> 0x10;
+  __ptr[4] = uVar4;
+  if (uVar4 == 0) {
+    __ptr[4] = 5;
+    uVar4 = CONCAT31((uint3)(byte)(uVar6 >> 0x18),5);
+  }
+  __ptr[2] = 0;
+  __ptr[3] = 0x3b;
+  *__ptr = uVar7;
+  if ((uVar6 & 1) != 0) {
+    __ptr[3] = 0x3f;
+  }
+  __ptr[5] = 0;
+  if (((uVar6 & 4) == 0) && ((uVar4 != 5 || ((uVar6 & 0x10) != 0)))) {
+    __ptr[6] = 0;
+  }
+  else {
+    __ptr[6] = 0x10 - uVar4;
+  }
+  local_144 = 0x41141ad;
+  bzero(__ptr + 0x10d3,0x30);
+  local_144 = 0x41141c3;
+  bzero(__ptr + 0x10df,0x18);
+  __ptr[0x10ec] = 0;
+  __ptr[0x10eb] = 0;
+  __ptr[0x10ee] = 0;
+  __ptr[0x10ed] = 0;
+  if (0x660d < uVar7) {
+    if (uVar7 < 0x6612) {
+      __ptr[7] = 0x10;
+      __ptr[1] = 2;
+    }
+    else if (uVar7 == 0x6801) {
+      __ptr[7] = 0;
+      __ptr[1] = 0;
+    }
+  }
+  local_24 = 0x68;
+  if (iVar9 == 0) {
+    local_144 = 0x41143e3;
+    eON_SetLastError();
+    puVar3 = &local_144;
+  }
+  else {
+    local_144 = 0x411425c;
+    iVar5 = FUN_04112100();
+    piVar8 = (int *)local_148;
+    puVar3 = (undefined4 *)local_148;
+    if (iVar5 == 1) goto LAB_04114268;
+  }
+  piVar8 = puVar3;
+  piVar8[3] = (int)"WINBOOL eON_CryptDeriveKey(HCRYPTPROV, ALG_ID, HCRYPTHASH, DWORD, HCRYPTKEY*)";
+  piVar8[2] = 0x54b;
+  piVar8[1] = (int)
+              "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/advapi32/crypt.cpp";
+  *piVar8 = (int)"eON_CryptGetHashParam( (HCRYPTHASH)hash, 2, hashValue, &hashLen, 0 ) == 1";
+  piVar8[-1] = 0x411440a;
+  FUN_0400a810();
+LAB_04114268:
+  local_120 = __ptr[4];
+  if (local_24 < local_120) {
+    uVar6 = 0;
+    do {
+      while (local_24 <= uVar6) {
+        local_a4[uVar6] = 0x36;
+        local_64[uVar6] = 0x5c;
+        uVar6 = uVar6 + 1;
+        if (uVar6 == 0x40) goto LAB_041142c4;
+      }
+      bVar1 = local_10c[uVar6];
+      local_64[uVar6] = bVar1 ^ 0x5c;
+      local_a4[uVar6] = bVar1 ^ 0x36;
+      uVar6 = uVar6 + 1;
+    } while (uVar6 != 0x40);
+LAB_041142c4:
+    if (uVar7 == 0x8003) {
+      iVar9 = iVar9 + 0xc;
+      *piVar8 = iVar9;
+      piVar8[-1] = 0x41142e3;
+      FUN_042324c0();
+      *piVar8 = iVar9;
+      piVar8[2] = 0x40;
+      piVar8[1] = (int)local_a4;
+      piVar8[-1] = 0x41142fd;
+      FUN_04233140();
+      piVar8[1] = (int)local_10c;
+      *piVar8 = iVar9;
+      piVar8[-1] = 0x4114309;
+      FUN_04232bd0();
+      *piVar8 = iVar9;
+      piVar8[-1] = 0x4114311;
+      FUN_042324c0();
+      piVar8[2] = 0x40;
+      piVar8[1] = (int)local_64;
+      *piVar8 = iVar9;
+      piVar8[-1] = 0x4114328;
+      FUN_04233140();
+      *piVar8 = iVar9;
+      piVar8[1] = (int)(local_10c + 0x10);
+      piVar8[-1] = 0x411433a;
+      FUN_04232bd0();
+      local_120 = __ptr[4];
+    }
+  }
+  piVar8[1] = (int)local_10c;
+  uVar7 = 0x30;
+  if (local_120 < 0x31) {
+    uVar7 = local_120;
+  }
+  *piVar8 = (int)(__ptr + 0x10d3);
+  piVar8[2] = uVar7;
+  piVar8[-1] = 0x4114371;
+  memcpy((void *)*piVar8,(void *)piVar8[1],piVar8[2]);
+  piVar8[-1] = 0x4114378;
+  FUN_04111fa0();
+  *puVar2 = __ptr;
+  return 1;
+}
+

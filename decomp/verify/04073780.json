@@ -1,0 +1,214 @@
+
+/* source: direct3ddevice9imp, direct3dstateblock9imp */
+
+undefined4
+Direct3DStateBlock9Imp__SetSamplerState(int param_1,uint param_2,uint param_3,uint param_4)
+
+{
+  uint uVar1;
+  ushort *puVar2;
+  int iVar3;
+  int *piVar4;
+  undefined4 uVar5;
+  int iVar6;
+  uint *puVar7;
+  int *piVar8;
+  undefined4 uStack_50;
+  int local_4c [7];
+  int local_30;
+  int local_24;
+  int *local_20 [4];
+  
+  local_20[0] = &local_24;
+  piVar8 = local_4c;
+  iVar3 = *(int *)(param_1 + 0xc);
+  local_24 = iVar3;
+  if (iVar3 != 0) {
+    if (*(char *)(iVar3 + 0xebbc) == '\0') {
+      piVar8 = local_4c;
+      piVar4 = local_4c;
+      if (*(int *)(iVar3 + 0xec64) == 0) goto LAB_040737ba;
+LAB_0407391f:
+      local_30 = *(int *)(iVar3 + 0xebc0);
+      piVar8[-1] = 0x407392d;
+      iVar6 = FUN_0415b750();
+      if (local_30 != iVar6) {
+        piVar8[3] = (int)"void Direct3DDevice9Imp::MultithreadedGuard_Enter()";
+        piVar8[2] = 0x3b3;
+        piVar8[1] = (int)
+                    "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+        ;
+        *piVar8 = (int)"mCurrentD3D9Thread == thread_GetCurrentThreadId()";
+        piVar8[-1] = 0x407395a;
+        FUN_0400a810();
+      }
+    }
+    else {
+      local_4c[0] = iVar3 + 0xebc4;
+      uStack_50 = 0x407390e;
+      EnterCriticalSection();
+      piVar8 = &uStack_50;
+      piVar4 = &uStack_50;
+      if (*(int *)(iVar3 + 0xec64) != 0) goto LAB_0407391f;
+LAB_040737ba:
+      piVar8 = piVar4;
+      if (*(int *)(iVar3 + 0xebc0) != 0) {
+        piVar8[3] = (int)"void Direct3DDevice9Imp::MultithreadedGuard_Enter()";
+        piVar8[2] = 0x3ae;
+        piVar8[1] = (int)
+                    "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+        ;
+        *piVar8 = (int)"!mCurrentD3D9Thread";
+        piVar8[-1] = 0x40738f4;
+        FUN_0400a810();
+      }
+      piVar8[-1] = 0x40737cd;
+      uVar5 = FUN_0415b750();
+      *(undefined4 *)(iVar3 + 0xebc0) = uVar5;
+    }
+    *(int *)(iVar3 + 0xec64) = *(int *)(iVar3 + 0xec64) + 1;
+  }
+  if (param_2 < 0x10) {
+    iVar6 = *(int *)(param_1 + 0x75ec);
+    iVar3 = param_1 + 0x8ac + param_2 * 0x34;
+joined_r0x0407386b:
+    if (iVar6 != 0) {
+      if (0xc < param_3 - 1) {
+        piVar8[3] = (int)
+                    "void Direct3DStateBlock9Imp::SetSamplerState(DWORD, D3DSAMPLERSTATETYPE, DWORD)"
+        ;
+        piVar8[2] = 0x13b;
+        piVar8[1] = (int)
+                    "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3dstateblock9imp.h"
+        ;
+        *piVar8 = (int)"Type-1 < 13";
+        piVar8[-1] = 0x40738c4;
+        FUN_0400a810();
+      }
+      *(undefined4 *)(iVar6 + 0x118) = 1;
+      puVar2 = (ushort *)(iVar6 + 0x11c + param_2 * 2);
+      *puVar2 = *puVar2 | (ushort)(1 << ((byte)(param_3 - 1) & 0x1f));
+      *(uint *)(iVar6 + 4 + (param_3 + 0x4f + param_2 * 0xd) * 4) = param_4;
+      uVar5 = 0;
+      goto LAB_04073830;
+    }
+    switch(param_3) {
+    default:
+      piVar8[1] = (int)"Unrecognized sampler state value: %u!";
+      *piVar8 = 0xf;
+      piVar8[2] = param_3;
+                    /* try { // try from 0407388d to 040738c3 has its CatchHandler @ 04073ae4 */
+      piVar8[-1] = 0x4073892;
+      FUN_0402cd10();
+      goto LAB_04073892;
+    case 1:
+    case 2:
+    case 3:
+      if (*(uint *)(iVar3 + (param_3 - 1) * 4) != param_4) {
+        *(uint *)(iVar3 + (param_3 - 1) * 4) = param_4;
+LAB_040739b0:
+        piVar8[3] = 0xc;
+        piVar8[2] = 0x1f;
+        piVar8[1] = param_1;
+        *piVar8 = param_1 + 0xec00;
+        piVar8[-1] = 0x40739d2;
+        puVar7 = (uint *)D3D9CommandQueue__GetNextCommandPointer();
+        *puVar7 = param_2;
+        puVar7[1] = param_3;
+        puVar7[2] = param_4;
+        *piVar8 = param_1 + 0xec00;
+        piVar8[-1] = 0x40739e8;
+        D3D9CommandQueue__CommandSubmitted();
+        uVar5 = 0;
+        goto LAB_04073830;
+      }
+      break;
+    case 4:
+      if (*(uint *)(iVar3 + 0xc) != param_4) {
+        *(uint *)(iVar3 + 0xc) = param_4;
+        goto LAB_040739b0;
+      }
+      break;
+    case 5:
+      if (*(uint *)(iVar3 + 0x10) != param_4) {
+        *(uint *)(iVar3 + 0x10) = param_4;
+        goto LAB_040739b0;
+      }
+      break;
+    case 6:
+      if (*(uint *)(iVar3 + 0x14) != param_4) {
+        *(uint *)(iVar3 + 0x14) = param_4;
+        goto LAB_040739b0;
+      }
+      break;
+    case 7:
+      if (*(uint *)(iVar3 + 0x18) != param_4) {
+        *(uint *)(iVar3 + 0x18) = param_4;
+        goto LAB_040739b0;
+      }
+      break;
+    case 8:
+      if (*(uint *)(iVar3 + 0x1c) != param_4) {
+        *(uint *)(iVar3 + 0x1c) = param_4;
+        goto LAB_040739b0;
+      }
+      break;
+    case 9:
+      if (*(uint *)(iVar3 + 0x20) != param_4) {
+        *(uint *)(iVar3 + 0x20) = param_4;
+        goto LAB_040739b0;
+      }
+      break;
+    case 10:
+      if (*(uint *)(iVar3 + 0x24) != param_4) {
+        *(uint *)(iVar3 + 0x24) = param_4;
+        goto LAB_040739b0;
+      }
+      break;
+    case 0xb:
+      if (*(uint *)(iVar3 + 0x28) != param_4) {
+        *(uint *)(iVar3 + 0x28) = param_4;
+        goto LAB_040739b0;
+      }
+      break;
+    case 0xc:
+      if (*(uint *)(iVar3 + 0x2c) != param_4) {
+        *(uint *)(iVar3 + 0x2c) = param_4;
+        piVar8[1] = (int)"Unsupported sampler state: D3DSAMP_ELEMENTINDEX!";
+        *piVar8 = 0xf;
+                    /* try { // try from 0407398a to 04073a46 has its CatchHandler @ 04073ae4 */
+        piVar8[-1] = 0x407398f;
+        FUN_0402cd10();
+      }
+      break;
+    case 0xd:
+      if (((*(uint *)(iVar3 + 0x30) != param_4) &&
+          (*(uint *)(iVar3 + 0x30) = param_4, param_4 != 0x100)) && (param_4 != 0)) {
+        piVar8[1] = (int)"Unsupported sampler state: D3DSAMP_DMAPOFFSET!";
+        *piVar8 = 0xf;
+        piVar8[-1] = 0x4073a47;
+        FUN_0402cd10();
+        uVar5 = 0;
+        goto LAB_04073830;
+      }
+    }
+    uVar5 = 0;
+  }
+  else {
+    uVar1 = param_2 - 0x101;
+    if (uVar1 < 4) {
+      iVar6 = *(int *)(param_1 + 0x75ec);
+      param_2 = param_2 - 0xf1;
+      iVar3 = param_1 + 0xbec + uVar1 * 0x34;
+      goto joined_r0x0407386b;
+    }
+LAB_04073892:
+    uVar5 = 0x8876086c;
+  }
+LAB_04073830:
+  *piVar8 = (int)local_20;
+  piVar8[-1] = 0x407383b;
+  direct3ddevice9imp_040a2df0();
+  return uVar5;
+}
+

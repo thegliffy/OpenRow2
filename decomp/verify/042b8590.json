@@ -1,0 +1,61 @@
+
+void png_handle_oFFs(int param_1,int param_2,int param_3)
+
+{
+  int iVar1;
+  int iVar2;
+  byte local_15;
+  byte local_14;
+  byte local_13;
+  byte local_12;
+  byte local_11;
+  byte local_10;
+  byte local_f;
+  byte local_e;
+  undefined1 local_d;
+  
+  if ((*(uint *)(param_1 + 0xd0) & 1) == 0) {
+                    /* WARNING: Subroutine does not return */
+    png_chunk_error(param_1,"missing IHDR");
+  }
+  if ((*(uint *)(param_1 + 0xd0) & 4) == 0) {
+    if ((param_2 != 0) && ((*(byte *)(param_2 + 9) & 1) != 0)) {
+      png_crc_finish(param_1,param_3);
+      png_chunk_benign_error(param_1,"duplicate");
+      return;
+    }
+    if (param_3 == 9) {
+      png_crc_read(param_1,&local_15,9);
+      iVar1 = png_crc_finish(param_1,0);
+      if (iVar1 == 0) {
+        if ((char)local_15 < '\0') {
+          iVar1 = (uint)local_12 + (uint)local_14 * 0x10000 + (uint)local_15 * 0x1000000 +
+                  (uint)local_13 * 0x100;
+        }
+        else {
+          iVar1 = (uint)local_12 + (uint)local_14 * 0x10000 + (uint)local_15 * 0x1000000 +
+                  (uint)local_13 * 0x100;
+        }
+        if ((char)local_11 < '\0') {
+          iVar2 = (uint)local_10 * 0x10000 + (uint)local_11 * 0x1000000 + (uint)local_e +
+                  (uint)local_f * 0x100;
+        }
+        else {
+          iVar2 = (uint)local_f * 0x100 +
+                  (uint)local_e + (uint)local_10 * 0x10000 + (uint)local_11 * 0x1000000;
+        }
+        png_set_oFFs(param_1,param_2,iVar1,iVar2,local_d);
+        return;
+      }
+    }
+    else {
+      png_crc_finish(param_1,param_3);
+      png_chunk_benign_error(param_1,"invalid");
+    }
+    return;
+  }
+  png_crc_finish(param_1,param_3);
+  png_chunk_benign_error(param_1,"out of place");
+  return;
+}
+

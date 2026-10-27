@@ -1,0 +1,32 @@
+
+undefined4 eON_GetVersionExA(int *param_1)
+
+{
+  int iVar1;
+  
+  iVar1 = *param_1;
+  if ((iVar1 != 0x9c) && (iVar1 != 0x94)) {
+    FUN_0402cd10(10,"wrong OSVERSIONINFO size from app (got: %u)\n",iVar1);
+    eON_SetLastError(0x7a);
+    return 0;
+  }
+  param_1[1] = 5;
+  param_1[2] = 1;
+  param_1[3] = 0xa28;
+  param_1[4] = 2;
+  param_1[5] = 0x76726553;
+  param_1[6] = 0x20656369;
+  param_1[7] = 0x6b636150;
+  *(undefined2 *)(param_1 + 8) = 0x3320;
+  *(undefined1 *)((int)param_1 + 0x22) = 0;
+  if (*param_1 != 0x9c) {
+    return 1;
+  }
+  *(undefined1 *)((int)param_1 + 0x9a) = 1;
+  *(undefined1 *)((int)param_1 + 0x9b) = 0x1e;
+  *(undefined2 *)(param_1 + 0x25) = 3;
+  *(undefined2 *)((int)param_1 + 0x96) = 0;
+  *(undefined2 *)(param_1 + 0x26) = 0x300;
+  return 1;
+}
+

@@ -1,0 +1,55 @@
+
+/* source: file_split_handler */
+
+void SplitFile_GetStat(undefined4 param_1,undefined4 *param_2)
+
+{
+  undefined2 uVar1;
+  bool bVar2;
+  uint uVar3;
+  uint uVar4;
+  int iVar5;
+  undefined4 *puVar6;
+  byte bVar7;
+  
+  bVar7 = 0;
+  puVar6 = (undefined4 *)&DAT_04415cf8;
+  FUN_0400a810("( splitFile > 0 ) && ( splitFile <= 4 )",
+               "/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/vpfs/file_split_handler.cpp"
+               ,0x162,"void SplitFile_GetStat(const char*, stat*)");
+  uVar3 = 0x60;
+  bVar2 = false;
+  if (((uint)param_2 & 1) == 0) {
+    if (((uint)param_2 & 2) == 0) goto LAB_0403c559;
+  }
+  else {
+    puVar6 = &DAT_04415cf9;
+    *(undefined1 *)param_2 = DAT_04415cf8;
+    param_2 = (undefined4 *)((int)param_2 + 1);
+    uVar3 = 0x5f;
+    bVar2 = true;
+    if (((uint)param_2 & 2) == 0) goto LAB_0403c559;
+    puVar6 = &DAT_04415cf9;
+  }
+  uVar1 = *(undefined2 *)puVar6;
+  uVar3 = uVar3 - 2;
+  puVar6 = (undefined4 *)((int)puVar6 + 2);
+  *(undefined2 *)param_2 = uVar1;
+  param_2 = (undefined4 *)((int)param_2 + 2);
+LAB_0403c559:
+  iVar5 = 0;
+  for (uVar4 = uVar3 >> 2; uVar4 != 0; uVar4 = uVar4 - 1) {
+    *param_2 = *puVar6;
+    puVar6 = puVar6 + (uint)bVar7 * -2 + 1;
+    param_2 = param_2 + (uint)bVar7 * -2 + 1;
+  }
+  if ((uVar3 & 2) != 0) {
+    *(undefined2 *)param_2 = *(undefined2 *)puVar6;
+    iVar5 = 2;
+  }
+  if (bVar2) {
+    *(undefined1 *)((int)param_2 + iVar5) = *(undefined1 *)((int)puVar6 + iVar5);
+  }
+  return;
+}
+

@@ -1,0 +1,42 @@
+
+void eON_WindowLinux__SetWindowPosition(int param_1,int *param_2)
+
+{
+  char cVar1;
+  int iVar2;
+  int iVar3;
+  int local_34;
+  int local_30;
+  int local_2c;
+  int local_28;
+  int local_24;
+  int local_20 [4];
+  
+  if ((*param_2 == 0x2fff0000) && (param_2[1] == 0x2fff0000)) {
+    FUN_0402cd10(0x14,"SetWindowPosition 2 (center)");
+    SDL_SetWindowPosition(*(undefined4 *)(param_1 + 0x7c),0x2fff0000,0x2fff0000);
+  }
+  else {
+    iVar3 = param_2[2] - *param_2;
+    iVar2 = param_2[3] - param_2[1];
+    SDL_GetWindowPosition(*(undefined4 *)(param_1 + 0x7c),&local_34,&local_30);
+    cVar1 = eON_Int_Wnd_GetWMInfo();
+    if (cVar1 != '\0') {
+      local_34 = local_34 + local_2c;
+      local_30 = local_30 + local_28;
+    }
+    SDL_GetWindowSize(*(undefined4 *)(param_1 + 0x7c),&local_24,local_20);
+    if ((iVar3 != local_24) || (iVar2 != local_20[0])) {
+      FUN_0402cd10(0x14,"SetWindowSize to %d, %d",iVar3,iVar2);
+      SDL_SetWindowSize(*(undefined4 *)(param_1 + 0x7c),iVar3,iVar2);
+    }
+    if ((*param_2 != local_34) || (param_2[1] != local_30)) {
+      FUN_0402cd10(0x14,"SetWindowPosition to %d, %d",*param_2 - local_2c,param_2[1] - local_28);
+      SDL_SetWindowPosition
+                (*(undefined4 *)(param_1 + 0x7c),*param_2 - local_2c,param_2[1] - local_28);
+    }
+  }
+  eON_Core__pumpRunLoopUntilEmpty();
+  return;
+}
+

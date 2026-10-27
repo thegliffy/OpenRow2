@@ -1,0 +1,48 @@
+
+undefined4 GetRenderTarget(int param_1,uint param_2,undefined4 *param_3)
+
+{
+  int *piVar1;
+  undefined4 uVar2;
+  int **ppiVar3;
+  undefined4 local_40;
+  int *local_3c;
+  char *local_38;
+  uint local_34;
+  undefined4 local_24;
+  undefined1 local_20 [16];
+  
+  ppiVar3 = &local_3c;
+  if (param_2 < 4) {
+    local_24 = *(undefined4 *)(param_1 + 0xc);
+    local_40 = 0x4075a33;
+    direct3ddevice9imp_040704e0();
+    piVar1 = *(int **)(param_1 + 4 + (param_2 + 0x14c0) * 4);
+    if (piVar1 == (int *)0x0) {
+      uVar2 = 0;
+    }
+    else {
+                    /* try { // try from 04075a40 to 04075a42 has its CatchHandler @ 04075a97 */
+      local_40 = 0x4075a43;
+      local_3c = piVar1;
+      (**(code **)(*piVar1 + 4))();
+      uVar2 = *(undefined4 *)(param_1 + 4 + (param_2 + 0x14c0) * 4);
+      ppiVar3 = (int **)&local_40;
+    }
+    *param_3 = uVar2;
+    *ppiVar3 = (int *)local_20;
+    ppiVar3[-1] = (int *)0x4075a57;
+    direct3ddevice9imp_040a2df0();
+    uVar2 = 0;
+  }
+  else {
+    local_34 = param_2;
+    local_38 = "GetRenderTarget() called with RenderTargetIndex %u > 3. Handle it!!";
+    local_3c = (int *)0xf;
+    local_40 = 0x4075a90;
+    FUN_0402cd10();
+    uVar2 = 0x8876086c;
+  }
+  return uVar2;
+}
+

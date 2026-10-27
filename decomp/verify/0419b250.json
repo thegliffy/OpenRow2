@@ -1,0 +1,40 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+bool _glewInit_GL_ARB_uniform_buffer_object(void)
+
+{
+  int iVar1;
+  bool bVar2;
+  bool bVar3;
+  bool bVar4;
+  bool bVar5;
+  bool bVar6;
+  bool bVar7;
+  bool bVar8;
+  bool bVar9;
+  
+  iVar1 = glXGetProcAddressARB("glBindBufferBase");
+  DAT_0451e0d0 = iVar1;
+  DAT_0451e0cc = glXGetProcAddressARB("glBindBufferRange");
+  bVar2 = DAT_0451e0cc == 0;
+  DAT_0451e0c8 = glXGetProcAddressARB("glGetActiveUniformBlockName");
+  bVar3 = DAT_0451e0c8 == 0;
+  DAT_0451e0c4 = glXGetProcAddressARB("glGetActiveUniformBlockiv");
+  bVar4 = DAT_0451e0c4 == 0;
+  DAT_0451e0c0 = glXGetProcAddressARB("glGetActiveUniformName");
+  bVar5 = DAT_0451e0c0 == 0;
+  DAT_0451e0bc = glXGetProcAddressARB("glGetActiveUniformsiv");
+  bVar6 = DAT_0451e0bc == 0;
+  DAT_0451e0b8 = glXGetProcAddressARB("glGetIntegeri_v");
+  bVar7 = DAT_0451e0b8 == 0;
+  DAT_0451e0b4 = glXGetProcAddressARB("glGetUniformBlockIndex");
+  bVar8 = DAT_0451e0b4 == 0;
+  _DAT_0451e0b0 = glXGetProcAddressARB("glGetUniformIndices");
+  bVar9 = _DAT_0451e0b0 == 0;
+  DAT_0451e0ac = glXGetProcAddressARB("glUniformBlockBinding");
+  return DAT_0451e0ac == 0 ||
+         (bVar9 || (bVar8 || (bVar7 || (bVar6 || (bVar5 || (bVar4 || (bVar3 || (bVar2 || iVar1 == 0)
+                                                                     )))))));
+}
+

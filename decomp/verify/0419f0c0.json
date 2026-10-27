@@ -1,0 +1,33 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+bool _glewInit_GL_IBM_vertex_array_lists(void)
+
+{
+  int iVar1;
+  bool bVar2;
+  bool bVar3;
+  bool bVar4;
+  bool bVar5;
+  bool bVar6;
+  bool bVar7;
+  
+  iVar1 = glXGetProcAddressARB("glColorPointerListIBM");
+  _DAT_0451d4a8 = iVar1;
+  _DAT_0451d4a4 = glXGetProcAddressARB("glEdgeFlagPointerListIBM");
+  bVar2 = _DAT_0451d4a4 == 0;
+  _DAT_0451d4a0 = glXGetProcAddressARB("glFogCoordPointerListIBM");
+  bVar3 = _DAT_0451d4a0 == 0;
+  _DAT_0451d49c = glXGetProcAddressARB("glIndexPointerListIBM");
+  bVar4 = _DAT_0451d49c == 0;
+  _DAT_0451d498 = glXGetProcAddressARB("glNormalPointerListIBM");
+  bVar5 = _DAT_0451d498 == 0;
+  _DAT_0451d494 = glXGetProcAddressARB("glSecondaryColorPointerListIBM");
+  bVar6 = _DAT_0451d494 == 0;
+  _DAT_0451d490 = glXGetProcAddressARB("glTexCoordPointerListIBM");
+  bVar7 = _DAT_0451d490 == 0;
+  _DAT_0451d48c = glXGetProcAddressARB("glVertexPointerListIBM");
+  return _DAT_0451d48c == 0 ||
+         (bVar7 || (bVar6 || (bVar5 || (bVar4 || (bVar3 || (bVar2 || iVar1 == 0))))));
+}
+

@@ -1,0 +1,57 @@
+
+undefined4 AudioClientImp__GetService(int param_1,void *param_2,undefined4 *param_3)
+
+{
+  int iVar1;
+  int *piVar2;
+  undefined4 uVar3;
+  undefined1 local_44 [52];
+  
+  if (param_3 == (undefined4 *)0x0) {
+    uVar3 = 0x80004003;
+  }
+  else if (*(char *)(param_1 + 0x21) == '\0') {
+    uVar3 = 0x88890001;
+  }
+  else {
+    iVar1 = memcmp(param_2,&DAT_042db048,0x10);
+    if (iVar1 == 0) {
+      if (*(char *)(param_1 + 0x20) == '\0') {
+        piVar2 = *(int **)(param_1 + 0x60);
+        if (piVar2 == (int *)0x0) {
+          piVar2 = operator_new(0x24);
+                    /* try { // try from 04189585 to 04189589 has its CatchHandler @ 04189623 */
+          AudioRenderClientImp__AudioRenderClientImp(piVar2,param_1);
+          *(int **)(param_1 + 0x60) = piVar2;
+        }
+        (**(code **)(*piVar2 + 0xc))(piVar2);
+        *param_3 = *(undefined4 *)(*(int *)(param_1 + 0x60) + 0xc);
+        return 0;
+      }
+    }
+    else {
+      iVar1 = memcmp(param_2,&DAT_042db058,0x10);
+      if (iVar1 != 0) {
+        GUID_FormatLower(param_2,local_44);
+        FUN_0402cd10(0xf,"AudioClientImp::GetService( riid = %s, ppv = %p ) for unhandled riid!",
+                     local_44,param_3);
+        return 0x80004002;
+      }
+      if (*(char *)(param_1 + 0x20) != '\0') {
+        piVar2 = *(int **)(param_1 + 100);
+        if (piVar2 == (int *)0x0) {
+          piVar2 = operator_new(0x1c);
+                    /* try { // try from 041895a5 to 041895a9 has its CatchHandler @ 04189611 */
+          AudioCaptureClientImp__AudioCaptureClientImp(piVar2,param_1);
+          *(int **)(param_1 + 100) = piVar2;
+        }
+        (**(code **)(*piVar2 + 0xc))(piVar2);
+        *param_3 = *(undefined4 *)(*(int *)(param_1 + 100) + 0xc);
+        return 0;
+      }
+    }
+    uVar3 = 0x80004002;
+  }
+  return uVar3;
+}
+

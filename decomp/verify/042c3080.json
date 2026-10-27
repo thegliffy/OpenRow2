@@ -1,0 +1,18 @@
+
+void png_write_oFFs(undefined4 param_1,undefined4 param_2,undefined4 param_3,int param_4)
+
+{
+  undefined1 local_15 [4];
+  undefined1 local_11 [4];
+  undefined1 local_d;
+  
+  if (1 < param_4) {
+    png_warning(param_1,"Unrecognized unit type for oFFs chunk");
+  }
+  FUN_042a5e00(local_15,param_2);
+  FUN_042a5e00(local_11,param_3);
+  local_d = (undefined1)param_4;
+  png_write_complete_chunk(9);
+  return;
+}
+

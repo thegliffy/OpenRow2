@@ -1,0 +1,54 @@
+
+/* source: gdi32 */
+
+undefined4
+eON_GetTextExtentExPointA
+          (undefined4 param_1,int param_2,int param_3,undefined4 param_4,undefined4 param_5,
+          undefined4 param_6,undefined4 param_7)
+
+{
+  int iVar1;
+  undefined4 uVar2;
+  char **ppcVar3;
+  void *pvVar4;
+  char *local_78;
+  char *local_74;
+  undefined4 local_70;
+  char *local_6c;
+  undefined4 local_64;
+  
+  if ((param_3 == 0) || (uVar2 = 0, param_2 != 0)) {
+    pvVar4 = (void *)0x0;
+    ppcVar3 = (char **)&stack0xffffffa0;
+    if (param_2 != 0) {
+      local_64 = 0x4120bd8;
+      pvVar4 = malloc(param_3 * 2);
+      local_64 = 0x4120bfe;
+      iVar1 = eON_MultiByteToWideChar();
+      ppcVar3 = &local_78;
+      if (param_3 != iVar1) {
+        local_6c = "WINBOOL eON_GetTextExtentExPointA(HDC, LPCSTR, INT, INT, LPINT, LPINT, LPSIZE)";
+        local_70 = 0xa33;
+        local_74 = "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/gdi32/gdi32.cpp";
+        local_78 = 
+        "eON_MultiByteToWideChar( 0, 0, lpszStr, cchString, wideStr, cchString ) == cchString";
+        FUN_0400a810();
+        ppcVar3 = &local_78;
+      }
+    }
+    ppcVar3[6] = (char *)param_7;
+    ppcVar3[2] = (char *)param_3;
+    ppcVar3[1] = pvVar4;
+    ppcVar3[5] = (char *)param_6;
+    ppcVar3[4] = (char *)param_5;
+    ppcVar3[3] = (char *)param_4;
+    *ppcVar3 = (char *)param_1;
+    ppcVar3[-1] = (char *)0x4120c5b;
+    uVar2 = eON_GetTextExtentExPointW();
+    ppcVar3[-7] = pvVar4;
+    ppcVar3[-8] = (char *)0x4120c69;
+    free(ppcVar3[-7]);
+  }
+  return uVar2;
+}
+

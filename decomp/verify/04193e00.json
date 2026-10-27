@@ -1,0 +1,106 @@
+
+/* source: winsock */
+
+ssize_t eON_sendto(int param_1,void *param_2,size_t param_3,int param_4,void *param_5,size_t param_6
+                  )
+
+{
+  int __fd;
+  void *__buf;
+  size_t __n;
+  int iVar1;
+  void *__src;
+  size_t __n_00;
+  ssize_t sVar2;
+  int *piVar3;
+  sockaddr local_60 [4];
+  undefined4 *local_18;
+  
+  __n_00 = param_6;
+  __src = param_5;
+  iVar1 = param_4;
+  __n = param_3;
+  __buf = param_2;
+  __fd = param_1;
+  local_18 = &param_1;
+  eON_SetLastError(0);
+  EventSelect_ClearFlags(__fd,2);
+  if ((__n_00 != 0x10) &&
+     (FUN_0402cd10(10,"SOCKETS: nonstandard address length given to sendto ( %d ).",__n_00),
+     0x3f < (int)__n_00)) {
+    FUN_0400a810("tolen < 64",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/winsock/winsock.cpp"
+                 ,0x6c8,"INT eON_sendto(SOCKET, const CHAR*, INT, INT, const eON_sockaddr*, INT)");
+  }
+  memcpy(local_60,__src,__n_00);
+  if (__fd == -1) {
+    sVar2 = -1;
+    eON_SetLastError(0x2736);
+  }
+  else if (iVar1 == 0) {
+    sVar2 = sendto(__fd,__buf,__n,0,local_60,__n_00);
+    if (sVar2 == -1) {
+      piVar3 = __errno_location();
+      switch(*piVar3) {
+      default:
+        FUN_0402cd10(0xf,"SOCKETS: sendto() - unknown error - %d",*piVar3);
+        break;
+      case 2:
+      case 0xc:
+      case 0x14:
+      case 0x20:
+      case 0x5f:
+      case 0x6a:
+        break;
+      case 4:
+        eON_SetLastError(0x2714);
+        break;
+      case 9:
+      case 0x58:
+        eON_SetLastError(0x2736);
+        break;
+      case 0xb:
+        eON_SetLastError(0x2733);
+        break;
+      case 0xd:
+        eON_SetLastError(0x271d);
+        break;
+      case 0xe:
+        eON_SetLastError(0x271e);
+        break;
+      case 0x59:
+        eON_SetLastError(0x2737);
+        break;
+      case 0x5a:
+        eON_SetLastError(0x2738);
+        break;
+      case 0x61:
+        eON_SetLastError(0x273f);
+        break;
+      case 100:
+        eON_SetLastError(0x2742);
+        break;
+      case 0x65:
+        eON_SetLastError(0x2743);
+        break;
+      case 0x68:
+        eON_SetLastError(0x2746);
+        break;
+      case 0x69:
+        eON_SetLastError(0x2747);
+        break;
+      case 0x6b:
+        eON_SetLastError(0x2749);
+        break;
+      case 0x71:
+        eON_SetLastError(0x2751);
+      }
+    }
+  }
+  else {
+    sVar2 = -1;
+    FUN_0402cd10(0xf,"SOCKETS: sendto doesn\'t support flags in eON yet. Please handle it.");
+  }
+  return sVar2;
+}
+

@@ -1,0 +1,146 @@
+
+/* source: opengl_objects */
+
+undefined4 OpenGLDisplay__OpenGLDisplay(void)
+
+{
+  undefined4 *puVar1;
+  int *piVar2;
+  uint uVar3;
+  uint *puVar4;
+  int iVar5;
+  char *__s;
+  size_t sVar6;
+  char *__dest;
+  undefined4 *__ptr;
+  int iVar7;
+  void *pvVar8;
+  void *pvVar9;
+  undefined4 *puVar10;
+  int *piVar11;
+  int iVar12;
+  uint uVar13;
+  uint local_48;
+  undefined1 local_30 [16];
+  undefined4 local_20;
+  
+  if (DAT_044115a0 != '\0') {
+    return 1;
+  }
+  uVar3 = SDL_GetNumVideoDisplays();
+  if (uVar3 != 0) {
+    DAT_044115a4 = uVar3;
+    DAT_044115a8 = malloc(uVar3 << 2);
+    local_48 = 0;
+    do {
+      puVar4 = operator_new(0x30);
+      puVar4[1] = 0;
+      puVar4[2] = 0;
+      puVar4[3] = 0;
+      *puVar4 = local_48;
+      puVar4[8] = 0;
+      puVar4[9] = 0;
+      puVar4[10] = 0;
+      puVar4[0xb] = 0;
+                    /* try { // try from 04020a0e to 04020c8b has its CatchHandler @ 04020caf */
+      iVar5 = SDL_GetDisplayBounds(local_48,puVar4 + 4);
+      if (iVar5 != 0) {
+        FUN_0400a810("SDL_GetDisplayBounds( DisplayIndex, &Bounds ) == 0",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/linux/opengl_objects.cpp"
+                     ,0x1d0,"OpenGLDisplay::OpenGLDisplay(int)");
+      }
+      __s = (char *)SDL_GetDisplayName(*puVar4);
+      if (__s != (char *)0x0) {
+        sVar6 = strlen(__s);
+        __dest = malloc(sVar6 + 1);
+        puVar4[3] = (uint)__dest;
+        strcpy(__dest,__s);
+      }
+      iVar5 = SDL_GetNumDisplayModes(*puVar4);
+      if (iVar5 < 0) {
+        FUN_0400a810("numDisplayModes >= 0",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/linux/opengl_objects.cpp"
+                     ,0x1dd,"OpenGLDisplay::OpenGLDisplay(int)");
+      }
+      else if (iVar5 != 0) {
+        iVar12 = 0;
+        __ptr = malloc(iVar5 * 0x18);
+        do {
+          local_20 = 0;
+          iVar7 = SDL_GetDisplayMode(*puVar4,iVar12,local_30);
+          if (iVar7 != 0) {
+            FUN_0400a810("SDL_GetDisplayMode( DisplayIndex, i, &mode ) == 0",
+                         "/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/linux/opengl_objects.cpp"
+                         ,0x1e6,"OpenGLDisplay::OpenGLDisplay(int)");
+          }
+          eON_FilterDesktopDisplayMode();
+          iVar12 = iVar12 + 1;
+        } while (iVar12 != iVar5);
+        iVar12 = 0;
+        iVar7 = 0;
+        puVar10 = __ptr;
+        do {
+          iVar7 = (iVar7 + 1) - (uint)(puVar10[5] == 0);
+          iVar12 = iVar12 + 1;
+          puVar10 = puVar10 + 6;
+        } while (iVar12 != iVar5);
+        if (iVar7 != 0) {
+          pvVar8 = malloc(iVar7 * 4);
+          puVar4[8] = (uint)pvVar8;
+          pvVar9 = malloc(iVar7 * 0x18);
+          puVar4[9] = (uint)pvVar9;
+          iVar12 = 0;
+          puVar10 = __ptr;
+          do {
+            if (puVar10[5] != 0) {
+              *(int *)((int)pvVar8 + puVar4[10] * 4) = iVar12;
+              uVar3 = puVar4[10];
+              puVar1 = (undefined4 *)((int)pvVar9 + uVar3 * 0x18);
+              *puVar1 = *puVar10;
+              puVar1[1] = puVar10[1];
+              puVar1[2] = puVar10[2];
+              puVar1[3] = puVar10[3];
+              puVar1[4] = puVar10[4];
+              puVar1[5] = puVar10[5];
+              puVar4[10] = uVar3 + 1;
+            }
+            iVar12 = iVar12 + 1;
+            puVar10 = puVar10 + 6;
+          } while (iVar12 != iVar5);
+        }
+        free(__ptr);
+      }
+      piVar2 = DAT_044115a8;
+      uVar3 = DAT_044115a4;
+      DAT_044115a8[local_48] = (int)puVar4;
+      local_48 = local_48 + 1;
+    } while (local_48 < uVar3);
+    if (uVar3 != 0) {
+      uVar13 = 0;
+      piVar11 = piVar2;
+      do {
+        iVar5 = *piVar11;
+        if ((((*(int *)(iVar5 + 0x10) < 1) && (*(int *)(iVar5 + 0x14) < 1)) &&
+            (0 < *(int *)(iVar5 + 0x10) + *(int *)(iVar5 + 0x18))) &&
+           (0 < *(int *)(iVar5 + 0x14) + *(int *)(iVar5 + 0x1c))) {
+          if (uVar13 == 0) {
+            DAT_044115a0 = 1;
+            return 1;
+          }
+          iVar12 = *piVar2;
+          *piVar2 = iVar5;
+          *piVar11 = iVar12;
+          DAT_044115a0 = 1;
+          return 1;
+        }
+        uVar13 = uVar13 + 1;
+        piVar11 = piVar11 + 1;
+      } while (uVar13 != uVar3);
+    }
+    DAT_044115a0 = 1;
+    return 1;
+  }
+  FUN_0402cd10(0xf,"PrepareDisplayModesInformation() - SDL_GetNumVideoDisplays() == 0 !!");
+  return 0;
+}
+

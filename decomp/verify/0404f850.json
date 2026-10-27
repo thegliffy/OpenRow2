@@ -1,0 +1,32 @@
+
+/* source: commandQueue */
+
+void D3D9CommandQueue__D3D9CommandQueue(int param_1)
+
+{
+  int iVar1;
+  undefined4 uVar2;
+  
+  *(undefined4 *)(param_1 + 0x18) = 0;
+  *(undefined1 *)(param_1 + 0x20) = 0;
+  *(undefined4 *)(param_1 + 0x24) = 0;
+  *(undefined4 *)(param_1 + 0x40) = 0;
+  *(undefined4 *)(param_1 + 0x44) = 0;
+  *(undefined4 *)(param_1 + 0x80) = 0;
+  *(undefined4 *)(param_1 + 0x84) = 0;
+  eON_InitializeCriticalSection(param_1);
+  iVar1 = eON_CreateEventA(0,1,0,0);
+  *(int *)(param_1 + 0x1c) = iVar1;
+  if (iVar1 == 0) {
+    FUN_0400a810("mOpenGLThreadWaitEvent",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/commandQueue.cpp"
+                 ,0x7e,"D3D9CommandQueue::D3D9CommandQueue()");
+  }
+  uVar2 = eON_VirtualAlloc(0,0x2000,0x1000,4);
+  *(undefined4 *)(param_1 + 0x8c) = uVar2;
+  *(undefined4 *)(param_1 + 0x48) = uVar2;
+  *(undefined4 *)(param_1 + 0x88) = uVar2;
+  *(undefined4 *)(param_1 + 0x4c) = uVar2;
+  return;
+}
+

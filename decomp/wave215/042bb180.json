@@ -1,0 +1,33 @@
+
+void FUN_042bb180(int param_1,int param_2,int param_3)
+
+{
+  ushort uVar1;
+  int iVar2;
+  int iVar3;
+  
+  if ((param_2 != 0) && (param_1 != 0)) {
+    if ((ushort)(*(short *)(param_2 + 0x14) - 1U) < 0x100) {
+      FUN_042a5780(param_1,param_2,8,0);
+      iVar2 = FUN_042aa3a0(param_1,0x200);
+      *(int *)(param_2 + 0xcc) = iVar2;
+      if (iVar2 != 0) {
+        *(uint *)(param_2 + 0xe8) = *(uint *)(param_2 + 0xe8) | 8;
+        if (*(short *)(param_2 + 0x14) != 0) {
+          uVar1 = *(ushort *)(param_2 + 0x14);
+          iVar3 = 0;
+          do {
+            *(undefined2 *)(iVar2 + iVar3 * 2) = *(undefined2 *)(param_3 + iVar3 * 2);
+            iVar3 = iVar3 + 1;
+          } while (iVar3 < (int)(uint)uVar1);
+        }
+        *(uint *)(param_2 + 8) = *(uint *)(param_2 + 8) | 0x40;
+        return;
+      }
+    }
+    png_warning();
+    return;
+  }
+  return;
+}
+

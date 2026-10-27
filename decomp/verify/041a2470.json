@@ -1,0 +1,26 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+bool _glewInit_GLX_NV_swap_group(void)
+
+{
+  int iVar1;
+  bool bVar2;
+  bool bVar3;
+  bool bVar4;
+  bool bVar5;
+  
+  iVar1 = glXGetProcAddressARB("glXBindSwapBarrierNV");
+  _DAT_0451c7d8 = iVar1;
+  _DAT_0451c7d4 = glXGetProcAddressARB("glXJoinSwapGroupNV");
+  bVar2 = _DAT_0451c7d4 == 0;
+  _DAT_0451c7d0 = glXGetProcAddressARB("glXQueryFrameCountNV");
+  bVar3 = _DAT_0451c7d0 == 0;
+  _DAT_0451c7cc = glXGetProcAddressARB("glXQueryMaxSwapGroupsNV");
+  bVar4 = _DAT_0451c7cc == 0;
+  _DAT_0451c7c8 = glXGetProcAddressARB("glXQuerySwapGroupNV");
+  bVar5 = _DAT_0451c7c8 == 0;
+  _DAT_0451c7c4 = glXGetProcAddressARB("glXResetFrameCountNV");
+  return _DAT_0451c7c4 == 0 || (bVar5 || (bVar4 || (bVar3 || (bVar2 || iVar1 == 0))));
+}
+

@@ -1,0 +1,90 @@
+
+void eON_ShaderData_convert_alu_table_op(int param_1)
+
+{
+  undefined4 uVar1;
+  int iVar2;
+  uint uVar3;
+  uint uVar4;
+  uint uVar5;
+  uint uVar6;
+  undefined1 *puVar7;
+  undefined1 *puVar8;
+  uint local_2b4;
+  uint local_2b0;
+  undefined1 local_2ac [128];
+  undefined1 local_22c [128];
+  undefined1 local_1ac [128];
+  undefined1 local_12c [128];
+  undefined1 local_ac [128];
+  undefined1 local_2c [28];
+  
+  local_ac[0] = 0;
+  local_2c[0] = 0;
+  uVar1 = *(undefined4 *)(param_1 + 0x38);
+  eON_ShaderData__InputRegisterIsColor(local_ac);
+  iVar2 = ShaderData_AppendDestMask();
+  if (iVar2 != 0) {
+    eON_AppendShaderCompileMessage
+              (uVar1,"%s%s = %s(",local_ac,local_2c,
+               (&PTR_DAT_042eb360)[*(byte *)(param_1 + 0xf) & 0xf]);
+  }
+  uVar3 = *(uint *)(param_1 + 0xc);
+  uVar6 = uVar3 & 0x10000;
+  uVar5 = ((((uint)(uVar6 != 0) - (uint)((uVar3 & 0x20000) == 0)) - (uint)((uVar3 & 0x40000) == 0))
+          + 3) - (uint)((uVar3 & 0x80000) == 0);
+  uVar4 = (uVar3 & 0x1800) >> 8 | (uVar3 & 0x70000000) >> 0x1c;
+  if ((uVar4 < 0x14) &&
+     ((uVar4 = 1 << (sbyte)uVar4, (uVar4 & 0x8c200) != 0 ||
+      (((uVar4 & 0x10) != 0 && ((uVar3 & 0x7ff) != 0)))))) {
+    eON_AppendShaderCompileMessage(*(undefined4 *)(param_1 + 0x38),"1.0 );\n");
+    return;
+  }
+  if (1 < uVar5) {
+    eON_AppendShaderCompileMessage(*(undefined4 *)(param_1 + 0x38),"vec%d( ",uVar5);
+    uVar3 = *(uint *)(param_1 + 0xc);
+    uVar6 = uVar3 & 0x10000;
+  }
+  local_2b4 = 2;
+  local_2b0 = 1;
+  if (uVar6 != 0) {
+    eON_AppendShaderCompileMessage(*(undefined4 *)(param_1 + 0x38),&PTR_DAT_0435f013);
+    if (1 < uVar5) {
+      eON_AppendShaderCompileMessage(*(undefined4 *)(param_1 + 0x38),&DAT_042e7ad2);
+    }
+    local_2b4 = 3;
+    uVar3 = *(uint *)(param_1 + 0xc);
+    local_2b0 = 2;
+  }
+  if ((uVar3 & 0x20000) != 0) {
+    eON_ShaderData_ApplySourceModifier(0x20000,local_2ac);
+    eON_ShaderData_ApplySourceModifier(0x20000,local_1ac);
+    puVar8 = local_12c;
+    puVar7 = local_22c;
+    eON_AppendShaderCompileMessage(*(undefined4 *)(param_1 + 0x38),"%s * %s",puVar7,puVar8);
+    if (local_2b0 < uVar5) {
+      eON_AppendShaderCompileMessage(*(undefined4 *)(param_1 + 0x38),&DAT_042e7ad2,puVar7,puVar8);
+    }
+    local_2b0 = local_2b4;
+    uVar3 = *(uint *)(param_1 + 0xc);
+  }
+  if ((uVar3 & 0x40000) != 0) {
+    eON_ShaderData_ApplySourceModifier(0x40000,local_1ac);
+    eON_AppendShaderCompileMessage(*(undefined4 *)(param_1 + 0x38),local_12c);
+    if (local_2b0 < uVar5) {
+      eON_AppendShaderCompileMessage(*(undefined4 *)(param_1 + 0x38),&DAT_042e7ad2);
+    }
+    uVar3 = *(uint *)(param_1 + 0xc);
+  }
+  if ((uVar3 & 0x80000) != 0) {
+    eON_ShaderData_ApplySourceModifier(0x80000,local_1ac);
+    eON_AppendShaderCompileMessage(*(undefined4 *)(param_1 + 0x38),local_12c);
+  }
+  if (1 < uVar5) {
+    eON_AppendShaderCompileMessage(*(undefined4 *)(param_1 + 0x38),") );\n");
+    return;
+  }
+  eON_AppendShaderCompileMessage(*(undefined4 *)(param_1 + 0x38),");\n");
+  return;
+}
+

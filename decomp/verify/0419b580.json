@@ -1,0 +1,40 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+bool _glewInit_GL_ARB_vertex_blend(void)
+
+{
+  int iVar1;
+  bool bVar2;
+  bool bVar3;
+  bool bVar4;
+  bool bVar5;
+  bool bVar6;
+  bool bVar7;
+  bool bVar8;
+  bool bVar9;
+  
+  iVar1 = glXGetProcAddressARB("glVertexBlendARB");
+  _DAT_0451e040 = iVar1;
+  _DAT_0451e03c = glXGetProcAddressARB("glWeightPointerARB");
+  bVar2 = _DAT_0451e03c == 0;
+  _DAT_0451e038 = glXGetProcAddressARB("glWeightbvARB");
+  bVar3 = _DAT_0451e038 == 0;
+  _DAT_0451e034 = glXGetProcAddressARB("glWeightdvARB");
+  bVar4 = _DAT_0451e034 == 0;
+  _DAT_0451e030 = glXGetProcAddressARB("glWeightfvARB");
+  bVar5 = _DAT_0451e030 == 0;
+  _DAT_0451e02c = glXGetProcAddressARB("glWeightivARB");
+  bVar6 = _DAT_0451e02c == 0;
+  _DAT_0451e028 = glXGetProcAddressARB("glWeightsvARB");
+  bVar7 = _DAT_0451e028 == 0;
+  _DAT_0451e024 = glXGetProcAddressARB("glWeightubvARB");
+  bVar8 = _DAT_0451e024 == 0;
+  _DAT_0451e020 = glXGetProcAddressARB("glWeightuivARB");
+  bVar9 = _DAT_0451e020 == 0;
+  _DAT_0451e01c = glXGetProcAddressARB("glWeightusvARB");
+  return _DAT_0451e01c == 0 ||
+         (bVar9 || (bVar8 || (bVar7 || (bVar6 || (bVar5 || (bVar4 || (bVar3 || (bVar2 || iVar1 == 0)
+                                                                     )))))));
+}
+

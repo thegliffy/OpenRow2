@@ -1,0 +1,125 @@
+
+void png_handle_iTXt(int param_1,undefined4 param_2,uint param_3)
+
+{
+  char cVar1;
+  uint uVar2;
+  char *pcVar3;
+  int iVar4;
+  uint uVar5;
+  char *pcVar6;
+  uint uVar7;
+  uint uVar8;
+  bool bVar9;
+  int local_3c;
+  char *local_38;
+  char *local_34;
+  undefined4 local_30;
+  int local_2c;
+  char *local_28;
+  char *local_24;
+  int local_20 [4];
+  
+  iVar4 = *(int *)(param_1 + 0x2f4);
+  if (iVar4 != 0) {
+    if (iVar4 == 1) {
+      png_crc_finish(param_1,param_3);
+      return;
+    }
+    *(int *)(param_1 + 0x2f4) = iVar4 + -1;
+    if (iVar4 + -1 == 1) {
+      png_crc_finish(param_1,param_3);
+      png_chunk_benign_error(param_1,"no space in chunk cache");
+      return;
+    }
+  }
+  uVar2 = *(uint *)(param_1 + 0xd0);
+  if ((uVar2 & 1) == 0) {
+                    /* WARNING: Subroutine does not return */
+    png_chunk_error(param_1,"missing IHDR");
+  }
+  if ((uVar2 & 4) != 0) {
+    *(uint *)(param_1 + 0xd0) = uVar2 | 8;
+  }
+  pcVar3 = (char *)png_read_buffer();
+  if (pcVar3 == (char *)0x0) {
+    png_crc_finish(param_1,param_3);
+    png_chunk_benign_error(param_1,"out of memory");
+    return;
+  }
+  png_crc_read(param_1,pcVar3,param_3);
+  iVar4 = png_crc_finish(param_1,0);
+  if (iVar4 != 0) {
+    return;
+  }
+  if ((param_3 != 0) && (uVar2 = 0, *pcVar3 != '\0')) {
+    do {
+      uVar5 = uVar2;
+      if (uVar5 + 1 == param_3) break;
+      uVar2 = uVar5 + 1;
+    } while (pcVar3[uVar5 + 1] != '\0');
+    if (uVar5 < 0x4f) {
+      pcVar6 = "truncated";
+      if ((uVar5 + 6 <= param_3) &&
+         ((cVar1 = pcVar3[uVar5 + 2], cVar1 == '\0' ||
+          ((pcVar6 = "bad compression info", cVar1 == '\x01' && (pcVar3[uVar5 + 3] == '\0')))))) {
+        bVar9 = cVar1 == '\0';
+        uVar2 = uVar5 + 4;
+        local_20[0] = 0;
+        uVar7 = uVar2;
+        if (uVar2 < param_3) {
+          cVar1 = pcVar3[uVar5 + 4];
+          while ((cVar1 != '\0' && (uVar7 = uVar7 + 1, uVar7 < param_3))) {
+            cVar1 = pcVar3[uVar7];
+          }
+        }
+        uVar5 = uVar7 + 1;
+        uVar8 = uVar5;
+        if (uVar5 < param_3) {
+          cVar1 = pcVar3[uVar7 + 1];
+          while ((cVar1 != '\0' && (uVar8 = uVar8 + 1, uVar8 < param_3))) {
+            cVar1 = pcVar3[uVar8];
+          }
+        }
+        uVar8 = uVar8 + 1;
+        if ((param_3 < uVar8) || (!bVar9)) {
+          if ((param_3 <= uVar8) || (bVar9)) {
+            pcVar6 = "truncated";
+            goto LAB_042b92cf;
+          }
+          local_20[0] = -1;
+          iVar4 = zstream_decompress(local_20);
+          if (iVar4 == 1) {
+            pcVar3 = *(char **)(param_1 + 0x314);
+          }
+          else {
+            pcVar6 = *(char **)(param_1 + 0xf8);
+            if (pcVar6 != (char *)0x0) goto LAB_042b92cf;
+          }
+        }
+        else {
+          local_20[0] = param_3 - uVar8;
+        }
+        local_28 = pcVar3 + uVar2;
+        local_34 = pcVar3 + uVar8;
+        local_34[local_20[0]] = '\0';
+        local_3c = ((int)((uint)bVar9 << 0x1f) >> 0x1f) + 2;
+        local_24 = pcVar3 + uVar5;
+        local_2c = local_20[0];
+        local_30 = 0;
+        local_38 = pcVar3;
+        iVar4 = png_set_text_2(param_1,param_2,&local_3c,1);
+        if (iVar4 == 0) {
+          return;
+        }
+        pcVar6 = "insufficient memory";
+      }
+LAB_042b92cf:
+      png_chunk_benign_error(param_1,pcVar6);
+      return;
+    }
+  }
+  png_chunk_benign_error(param_1,"bad keyword");
+  return;
+}
+

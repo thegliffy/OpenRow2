@@ -1,0 +1,82 @@
+
+void FUN_042a7430(undefined4 param_1,char *param_2,uint param_3,uint param_4)
+
+{
+  int iVar1;
+  uint uVar2;
+  uint uVar3;
+  uint uVar4;
+  uint uVar5;
+  uint uVar6;
+  char *pcVar7;
+  char acStack_27 [23];
+  
+  if (param_3 < 0xd) {
+LAB_042a7539:
+                    /* WARNING: Subroutine does not return */
+    png_error(param_1,"ASCII conversion buffer too small");
+  }
+  uVar4 = param_4;
+  if ((int)param_4 < 0) {
+    uVar4 = -param_4;
+    *param_2 = '-';
+    if (0x7fffffff < uVar4 && param_4 != 0x80000000) goto LAB_042a7539;
+    param_2 = param_2 + 1;
+  }
+  if (uVar4 != 0) {
+    uVar6 = 0x10;
+    uVar3 = 0;
+    do {
+      uVar2 = uVar3;
+      uVar5 = uVar4 / 10;
+      acStack_27[uVar2 + 1] = (char)(uVar4 % 10) + '0';
+      uVar3 = uVar2 + 1;
+      if ((uVar4 % 10 != 0) && (uVar6 == 0x10)) {
+        uVar6 = uVar3;
+      }
+      uVar4 = uVar5;
+    } while (uVar5 != 0);
+    if (uVar3 != 0) {
+      pcVar7 = param_2;
+      if (5 < uVar3) {
+        do {
+          uVar4 = uVar3 - 1;
+          *pcVar7 = acStack_27[uVar3];
+          pcVar7 = pcVar7 + 1;
+          uVar3 = uVar4;
+        } while (uVar4 != 5);
+        param_2 = param_2 + (uVar2 - 4);
+        uVar3 = 5;
+      }
+      if (uVar6 < 6) {
+        *param_2 = '.';
+        pcVar7 = param_2 + 1;
+        if (uVar3 != 5) {
+          iVar1 = 0;
+          do {
+            param_2[iVar1 + 1] = '0';
+            iVar1 = iVar1 + 1;
+          } while (iVar1 != 5 - uVar3);
+          param_2 = param_2 + 1 + iVar1;
+          pcVar7 = param_2;
+          if (uVar3 < uVar6) goto LAB_042a750e;
+        }
+        do {
+          uVar4 = uVar3 - 1;
+          *pcVar7 = acStack_27[uVar3];
+          pcVar7 = pcVar7 + 1;
+          uVar3 = uVar4;
+        } while (uVar6 <= uVar4);
+        *pcVar7 = '\0';
+        return;
+      }
+      goto LAB_042a750e;
+    }
+  }
+  *param_2 = '0';
+  param_2 = param_2 + 1;
+LAB_042a750e:
+  *param_2 = '\0';
+  return;
+}
+

@@ -1,0 +1,43 @@
+
+/* source: core */
+
+void eON_PatternFill(void *param_1,uint param_2,uint param_3)
+
+{
+  uint uVar1;
+  void *__dest;
+  void *__dest_00;
+  
+  if (param_1 == (void *)0x0) {
+    FUN_0400a810("buffer","/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/core.cpp",0x2b3,
+                 "void eON_PatternFill(LPVOID, ULONG, ULONG)");
+  }
+  if (param_2 == 0) {
+    FUN_0400a810("patternSize","/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/core.cpp",
+                 0x2b4,"void eON_PatternFill(LPVOID, ULONG, ULONG)");
+  }
+  else if (param_3 < param_2) {
+    FUN_0400a810("targetSize >= patternSize",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/core.cpp",0x2b5,
+                 "void eON_PatternFill(LPVOID, ULONG, ULONG)");
+  }
+  param_3 = param_3 - param_2;
+  __dest = (void *)((int)param_1 + param_2);
+  __dest_00 = __dest;
+  if (param_2 < param_3) {
+    do {
+      param_3 = param_3 - param_2;
+      __dest = (void *)((int)__dest_00 + param_2);
+      uVar1 = param_2 * 2;
+      memcpy(__dest_00,param_1,param_2);
+      param_2 = uVar1;
+      __dest_00 = __dest;
+    } while (uVar1 < param_3);
+  }
+  if (param_3 != 0) {
+    memcpy(__dest,param_1,param_3);
+    return;
+  }
+  return;
+}
+

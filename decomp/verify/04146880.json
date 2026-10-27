@@ -1,0 +1,16 @@
+
+int eON_CreateMutexA(int param_1,undefined4 param_2,undefined4 param_3)
+
+{
+  int iVar1;
+  
+  if (param_1 != 0) {
+    FUN_0402cd10(5,"CreateMutexA() - specified lpMutexAttributes, not handled!");
+  }
+  iVar1 = Synchronisation_CreateMutex(param_2,param_3);
+  if (iVar1 != 0) {
+    eON_SetLastError(0);
+  }
+  return iVar1;
+}
+

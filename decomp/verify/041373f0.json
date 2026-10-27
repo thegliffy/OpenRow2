@@ -1,0 +1,77 @@
+
+/* source: heapImplementation */
+
+void __regparm3 SetupNewlyAllocatedArea(uint *param_1,int param_2,uint param_3,int param_4)
+
+{
+  byte *pbVar1;
+  uint *puVar2;
+  uint uVar3;
+  undefined4 *puVar4;
+  undefined4 *puVar5;
+  
+  if (((((*param_1 & 7) != 0) || ((param_1[1] & 0xfc) != 0xfc)) ||
+      (*(byte *)((int)param_1 + 5) != 0x78)) ||
+     ((*(byte *)((int)param_1 + 6) != 0xe5 || (*(byte *)((int)param_1 + 7) != 0x77)))) {
+    FUN_0400a810("((AreaData_Free*)area)->Header.IsFreeAreaValid()",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/heapImplementation.cpp"
+                 ,0x48e,"void SetupNewlyAllocatedArea(AreaData_Free*, eON_Subheap*, SIZE_T, SIZE_T)"
+                );
+  }
+  puVar2 = (uint *)param_1[3];
+  if (puVar2 == (uint *)0x0) {
+    puVar5 = (undefined4 *)param_1[2];
+    if (puVar5[-2] == 0) {
+      puVar4 = (undefined4 *)*puVar5;
+      puVar5[2] = 0;
+      for (; (puVar4 != (undefined4 *)0x0 && (puVar4[-2] == 0)); puVar4 = (undefined4 *)*puVar4) {
+        puVar4[2] = 0;
+      }
+    }
+  }
+  else {
+    if (puVar2[-2] == 0) {
+      puVar5 = (undefined4 *)param_1[2];
+      if (puVar5[-2] == 0) {
+        puVar4 = (undefined4 *)*puVar5;
+        uVar3 = puVar2[2];
+        puVar5[2] = uVar3;
+        for (; (puVar4 != (undefined4 *)0x0 && (puVar4[-2] == 0)); puVar4 = (undefined4 *)*puVar4) {
+          puVar4[2] = uVar3;
+        }
+      }
+    }
+    else {
+      puVar5 = (undefined4 *)param_1[2];
+    }
+    *puVar2 = (uint)puVar5;
+    puVar5 = (undefined4 *)param_1[2];
+  }
+  puVar5[1] = puVar2;
+  uVar3 = *param_1;
+  *(byte *)(param_1 + 1) = (byte)param_1[1] & 2 | 0xfc;
+  if (uVar3 < param_3 + 0x18) {
+    pbVar1 = (byte *)((int)param_1 + uVar3);
+    param_3 = uVar3;
+    if (pbVar1 < (byte *)(param_2 + *(int *)(param_2 + 8))) {
+      pbVar1[4] = pbVar1[4] & 1 | 0xfc;
+      param_3 = *param_1;
+    }
+  }
+  else {
+    Subheap_SetupMemoryAsFreeArea();
+    *param_1 = param_3;
+  }
+  *(byte *)((int)param_1 + 5) = 0xe5;
+  *(byte *)((int)param_1 + 6) = 0;
+  if (0xff < param_3 - param_4) {
+    FUN_0400a810("usedArea->Header.AreaSize - newAreaDataSize <= (BYTE) -1",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/heapImplementation.cpp"
+                 ,0x497,"void SetupNewlyAllocatedArea(AreaData_Free*, eON_Subheap*, SIZE_T, SIZE_T)"
+                );
+    param_3 = *param_1;
+  }
+  *(char *)((int)param_1 + 7) = (char)param_3 - (char)param_4;
+  return;
+}
+

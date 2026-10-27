@@ -1,0 +1,13 @@
+
+void kernel32_Shutdown(void)
+
+{
+  FUN_0402cd10(5,"kernel32_Shutdown");
+  eON_Int_ThreadMap_MutexDestroy();
+  FUN_04156520();
+  FUN_041490e0();
+  FUN_04139dd0();
+  FUN_0413def0();
+  return;
+}
+

@@ -1,0 +1,272 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+undefined4 VPFS_UnpackArchivedFile(int param_1,undefined4 param_2)
+
+{
+  ushort uVar1;
+  uint uVar2;
+  uint uVar3;
+  undefined4 uVar4;
+  int iVar5;
+  void *pvVar6;
+  uint uVar7;
+  int iVar8;
+  int iVar9;
+  uint *puVar10;
+  int iVar11;
+  uint uVar12;
+  uint *puVar13;
+  uint uVar14;
+  bool bVar15;
+  undefined8 uVar16;
+  uint local_64;
+  uint local_5c;
+  uint local_58;
+  uint local_44;
+  uint local_34;
+  int local_30;
+  uint local_24;
+  uint local_20 [4];
+  
+  puVar13 = (uint *)&stack0xffffff64;
+  pvVar6 = malloc(0x100000);
+  uVar16 = VPFS_GetSize();
+  local_30 = (int)((ulonglong)uVar16 >> 0x20);
+  uVar14 = (uint)uVar16;
+  vpfs_04045870();
+  puVar10 = (uint *)&stack0xffffff64;
+  if (param_1 != 0) {
+    if ((local_30 != 0) || (uVar7 = uVar14, 0x100000 < uVar14)) {
+      uVar7 = 0x100000;
+    }
+    local_34 = uVar14 - uVar7;
+    local_30 = local_30 - (uint)(uVar14 < uVar7);
+    if (param_1 + 0x54545455U < 0x2801) {
+      iVar8 = param_1 + 0x54545454;
+      iVar9 = iVar8 * 0x20;
+      do {
+        *puVar13 = (uint)&DAT_0441804c;
+        puVar13[-1] = 0x4049f43;
+        pthread_mutex_lock((pthread_mutex_t *)*puVar13);
+        iVar5 = DAT_04468a94;
+        iVar11 = (&DAT_04418280)[iVar8 * 8];
+        if ((iVar11 == 7) || (iVar11 == 5)) {
+          uVar4 = (&DAT_04418288)[iVar8 * 8];
+          *puVar13 = (uint)&DAT_0441804c;
+          puVar13[-1] = 0x404a065;
+          pthread_mutex_unlock((pthread_mutex_t *)*puVar13);
+          local_20[0] = 0;
+          puVar13[4] = 0;
+          puVar13[3] = (uint)local_20;
+          puVar13[2] = uVar7;
+          *puVar13 = uVar4;
+          puVar13[1] = (uint)pvVar6;
+          puVar13[-1] = 0x404a08e;
+          local_44 = fs_ReadFile();
+          puVar13[-5] = (uint)&DAT_0441804c;
+          puVar13[-6] = 0x404a0a0;
+          pthread_mutex_lock((pthread_mutex_t *)puVar13[-5]);
+          puVar10 = &DAT_0441828c + iVar8 * 8;
+          uVar14 = *puVar10;
+          *puVar10 = *puVar10 + local_20[0];
+          local_24 = local_20[0];
+          (&DAT_04418290)[iVar8 * 8] = (&DAT_04418290)[iVar8 * 8] + (uint)CARRY4(uVar14,local_20[0])
+          ;
+          puVar13[-5] = (uint)&DAT_0441804c;
+          puVar13[-6] = 0x404a0ba;
+          pthread_mutex_unlock((pthread_mutex_t *)puVar13[-5]);
+LAB_0404a0ba:
+          puVar10 = puVar13 + -5;
+          puVar13 = puVar13 + -5;
+          if (local_44 == 0) goto LAB_04049e99;
+        }
+        else if (iVar11 == 3) {
+          iVar11 = (&DAT_04418288)[iVar8 * 8];
+          uVar1 = *(ushort *)(DAT_04468a94 + 2 + iVar11);
+          *(uint *)(&DAT_0441829c + iVar9) = uVar7;
+          puVar10 = (uint *)(iVar11 + 0x24 + (uint)uVar1 + iVar5);
+          uVar12 = ((int)uVar7 >> 0x1f) + _DAT_0000000c + (uint)CARRY4(uVar7,_DAT_00000008);
+          uVar14 = uVar7;
+          if ((puVar10[1] <= uVar12) &&
+             ((puVar10[1] < uVar12 || (*puVar10 < uVar7 + _DAT_00000008)))) {
+            uVar14 = *puVar10 - _DAT_00000008;
+          }
+          if ((uVar14 != 0) || (uVar7 == 0)) {
+            uVar12 = puVar10[4];
+            uVar2 = puVar10[5];
+            *(undefined4 *)(&DAT_04418298 + iVar9) = 1;
+            bVar15 = CARRY4(_DAT_00000008,uVar12);
+            _DAT_00000008 = _DAT_00000008 + uVar12;
+            _DAT_0000000c = _DAT_0000000c + uVar2 + (uint)bVar15;
+            puVar13[2] = uVar14;
+            puVar13[4] = 0;
+            puVar13[3] = (uint)local_20;
+            puVar13[1] = (uint)pvVar6;
+            *puVar13 = *(undefined4 *)(&DAT_04418294 + iVar9);
+            puVar13[-1] = 0x404a1b3;
+            local_44 = fs_ReadFile();
+            local_24 = local_20[0];
+            if (local_44 != 0) {
+              uVar14 = _DAT_00000008 - puVar10[4];
+              uVar12 = (_DAT_0000000c - puVar10[5]) - (uint)(_DAT_00000008 < puVar10[4]);
+              if (local_20[0] != 0) {
+                uVar2 = *puVar10;
+                uVar3 = puVar10[1];
+                if (DAT_04468a90 != 0) {
+                  puVar13[1] = 0;
+                  *puVar13 = local_20[0];
+                  puVar13[-1] = (uint)pvVar6;
+                  puVar13[-3] = uVar14;
+                  puVar13[-2] = uVar12;
+                  puVar13[-5] = uVar2;
+                  puVar13[-4] = uVar3;
+                  puVar13[-6] = 0x404a447;
+                  VPFS_ArchiveRead();
+                }
+              }
+              _DAT_00000008 = uVar14;
+              _DAT_0000000c = uVar12;
+              *(undefined4 *)(&DAT_04418298 + iVar9) = 0;
+            }
+            puVar13[-5] = (uint)&DAT_0441804c;
+            puVar13[-6] = 0x404a248;
+            pthread_mutex_unlock((pthread_mutex_t *)puVar13[-5]);
+            goto LAB_0404a0ba;
+          }
+          local_24 = 0;
+        }
+        else {
+          if (iVar11 != 2) {
+            *puVar13 = (uint)&DAT_0441804c;
+            puVar13[-1] = 0x404a0dc;
+            pthread_mutex_unlock((pthread_mutex_t *)*puVar13);
+            puVar10 = puVar13;
+            goto LAB_04049e99;
+          }
+          uVar14 = (&DAT_04418290)[iVar8 * 8];
+          puVar10 = (uint *)((&DAT_04418288)[iVar8 * 8] + 0x24 +
+                             (uint)*(ushort *)(DAT_04468a94 + 2 + (&DAT_04418288)[iVar8 * 8]) +
+                            DAT_04468a94);
+          uVar12 = (&DAT_0441828c)[iVar8 * 8];
+          uVar2 = puVar10[1];
+          uVar3 = *puVar10;
+          if ((uVar14 < uVar2) || ((uVar14 == uVar2 && (uVar12 < uVar3)))) {
+            local_64 = uVar7;
+            if ((uVar2 - uVar14 == (uint)(uVar3 < uVar12)) && (uVar3 - uVar12 < uVar7)) {
+              local_64 = uVar3 - uVar12;
+            }
+            uVar2 = puVar10[4];
+            uVar4 = (&DAT_04418080)[puVar10[2]];
+            local_20[0] = uVar14 + puVar10[5] + (uint)CARRY4(uVar12,puVar10[4]);
+            puVar13[3] = 0;
+            puVar13[2] = (uint)local_20;
+            puVar13[1] = uVar12 + uVar2;
+            *puVar13 = uVar4;
+            puVar13[-1] = 0x404a2aa;
+            iVar11 = fs_SetFilePointer();
+            if (iVar11 == -1) {
+              puVar13[-4] = (uint)&DAT_0441804c;
+              puVar13[-5] = 0x404a38c;
+              pthread_mutex_unlock((pthread_mutex_t *)puVar13[-4]);
+              puVar13[-3] = (uint)"VPFS_ArchiveSeek() error in file read!";
+              puVar13[-4] = 0xf;
+              puVar13[-5] = 0x404a3a0;
+              FUN_0402cd10();
+              puVar10 = puVar13 + -4;
+              goto LAB_04049e99;
+            }
+            *puVar13 = 0;
+            puVar13[-1] = (uint)local_20;
+            puVar13[-3] = (uint)pvVar6;
+            puVar13[-2] = local_64;
+            puVar13[-4] = (&DAT_04418080)[puVar10[2]];
+            puVar13[-5] = 0x404a2e8;
+            iVar11 = fs_ReadFile();
+            if (iVar11 == 0) {
+              local_44 = 0;
+              local_5c = (&DAT_0441828c)[iVar8 * 8];
+              local_58 = (&DAT_04418290)[iVar8 * 8];
+              iVar11 = 0;
+            }
+            else {
+              local_44 = local_20[0];
+              iVar11 = (int)local_20[0] >> 0x1f;
+              if ((int)local_20[0] < 1) {
+                local_5c = (&DAT_0441828c)[iVar8 * 8];
+                local_58 = (&DAT_04418290)[iVar8 * 8];
+              }
+              else {
+                uVar14 = *puVar10;
+                uVar12 = puVar10[1];
+                local_5c = (&DAT_0441828c)[iVar8 * 8];
+                local_58 = (&DAT_04418290)[iVar8 * 8];
+                if (DAT_04468a90 != 0) {
+                  puVar13[-3] = 0;
+                  puVar13[-4] = local_20[0];
+                  puVar13[-5] = (uint)pvVar6;
+                  puVar13[-7] = local_5c;
+                  puVar13[-6] = local_58;
+                  puVar13[-9] = uVar14;
+                  puVar13[-8] = uVar12;
+                  puVar13[-10] = 0x404a3fa;
+                  VPFS_ArchiveRead();
+                  local_5c = (&DAT_0441828c)[iVar8 * 8];
+                  local_58 = (&DAT_04418290)[iVar8 * 8];
+                }
+              }
+            }
+            (&DAT_0441828c)[iVar8 * 8] = local_5c + local_44;
+            (&DAT_04418290)[iVar8 * 8] = local_58 + iVar11 + (uint)CARRY4(local_5c,local_44);
+            local_24 = local_44;
+            puVar13[-9] = (uint)&DAT_0441804c;
+            puVar13[-10] = 0x404a369;
+            pthread_mutex_unlock((pthread_mutex_t *)puVar13[-9]);
+            puVar13 = puVar13 + -9;
+          }
+          else {
+            local_24 = 0;
+            (&DAT_0441828c)[iVar8 * 8] = uVar3;
+            (&DAT_04418290)[iVar8 * 8] = uVar2;
+            *puVar13 = (uint)&DAT_0441804c;
+            puVar13[-1] = 0x4049fdd;
+            pthread_mutex_unlock((pthread_mutex_t *)*puVar13);
+          }
+        }
+        puVar10 = puVar13;
+        if (local_24 < uVar7) goto LAB_04049e99;
+        *puVar13 = (uint)&local_24;
+        puVar13[-1] = 0x4049ffc;
+        iVar11 = vpfs_040455c0();
+        if ((iVar11 == 0) || (local_24 < uVar7)) goto LAB_04049e99;
+        if (local_30 == 0 && local_34 == 0) {
+          *puVar13 = (uint)pvVar6;
+          puVar13[-1] = 0x404a027;
+          free((void *)*puVar13);
+          *puVar13 = param_1;
+          puVar13[-1] = 0x404a032;
+          iVar8 = VPFS_GetFileAttributes();
+          puVar13[1] = iVar8;
+          *puVar13 = param_2;
+          puVar13[-1] = 0x404a041;
+          VPFS_SetFileAttributes();
+          return 1;
+        }
+        if ((local_30 != 0) || (uVar7 = local_34, 0x100000 < local_34)) {
+          uVar7 = 0x100000;
+        }
+        bVar15 = local_34 < uVar7;
+        local_34 = local_34 - uVar7;
+        local_30 = local_30 - (uint)bVar15;
+      } while( true );
+    }
+    FUN_0402cd10();
+    puVar10 = (uint *)&stack0xffffff64;
+  }
+LAB_04049e99:
+  *puVar10 = (uint)pvVar6;
+  puVar10[-1] = 0x4049ea4;
+  free((void *)*puVar10);
+  return 0;
+}
+

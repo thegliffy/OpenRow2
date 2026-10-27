@@ -1,0 +1,90 @@
+
+/* WARNING: Removing unreachable block (ram,0x040109d4) */
+/* WARNING: Removing unreachable block (ram,0x04010a29) */
+/* WARNING: Removing unreachable block (ram,0x040109c9) */
+
+void AppendGameMappingsFromSDLGamepadConfigFile(void)
+
+{
+  int iVar1;
+  char *pcVar2;
+  int *piVar3;
+  FILE *__stream;
+  ushort **ppuVar4;
+  int local_430;
+  char local_42c [1024];
+  char *local_2c;
+  int local_28;
+  int local_24;
+  allocator local_20 [16];
+  
+  local_2c = &DAT_04410d0c;
+                    /* try { // try from 040107f8 to 040107fc has its CatchHandler @ 04010a41 */
+  std::string::string((string *)&local_28,"SDLGamepad.config",local_20);
+                    /* try { // try from 040107fd to 04010823 has its CatchHandler @ 04010a34 */
+  pcVar2 = (char *)FUN_04018ad0();
+  strlen(pcVar2);
+  piVar3 = (int *)std::string::insert((uint)&local_28,(char *)0x0,(uint)pcVar2);
+  local_24 = *piVar3;
+  *piVar3 = (int)&DAT_04410d0c;
+                    /* try { // try from 04010842 to 04010846 has its CatchHandler @ 04010a0e */
+  std::string::swap((string *)&local_2c);
+  if ((allocator *)(local_24 + -0xc) != (allocator *)&std::string::_Rep::_S_empty_rep_storage) {
+    LOCK();
+    piVar3 = (int *)(local_24 + -4);
+    iVar1 = *piVar3;
+    *piVar3 = *piVar3 + -1;
+    UNLOCK();
+    if (iVar1 < 1) {
+      std::string::_Rep::_M_destroy((allocator *)(local_24 + -0xc));
+    }
+  }
+  if ((allocator *)(local_28 + -0xc) != (allocator *)&std::string::_Rep::_S_empty_rep_storage) {
+    LOCK();
+    piVar3 = (int *)(local_28 + -4);
+    iVar1 = *piVar3;
+    *piVar3 = *piVar3 + -1;
+    UNLOCK();
+    if (iVar1 < 1) {
+      std::string::_Rep::_M_destroy((allocator *)(local_28 + -0xc));
+    }
+  }
+                    /* try { // try from 04010879 to 04010957 has its CatchHandler @ 04010982 */
+  __stream = fopen64(local_2c,"r");
+  local_430 = 0;
+  if (__stream == (FILE *)0x0) {
+    FUN_0402cd10(10,
+                 "AppendGameMappingsFromSDLGamepadConfigFile() - Could not open SDLGamepad.config !!"
+                );
+  }
+  else {
+    while (pcVar2 = fgets(local_42c,0x400,__stream), pcVar2 != (char *)0x0) {
+      pcVar2 = strchr(local_42c,0x2c);
+      if (pcVar2 != (char *)0x0) {
+        ppuVar4 = __ctype_b_loc();
+        pcVar2 = local_42c;
+        while ((*(byte *)((int)*ppuVar4 + *pcVar2 * 2 + 1) & 0x20) != 0) {
+          pcVar2 = pcVar2 + 1;
+        }
+        if (*pcVar2 != '#') {
+          GamepadMapping__RegisterMappingString();
+          local_430 = local_430 + 1;
+        }
+      }
+    }
+    fclose(__stream);
+    FUN_0402cd10(5,"AppendGameMappingsFromSDLGamepadConfigFile() - Parsed %u mappings",local_430);
+  }
+  if ((allocator *)(local_2c + -0xc) != (allocator *)&std::string::_Rep::_S_empty_rep_storage) {
+    LOCK();
+    piVar3 = (int *)(local_2c + -4);
+    iVar1 = *piVar3;
+    *piVar3 = *piVar3 + -1;
+    UNLOCK();
+    if (iVar1 < 1) {
+      std::string::_Rep::_M_destroy((allocator *)(local_2c + -0xc));
+    }
+  }
+  return;
+}
+

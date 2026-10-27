@@ -1,0 +1,52 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+bool LoadGL_OES_single_precision(void)
+
+{
+  int iVar1;
+  bool bVar2;
+  bool bVar3;
+  bool bVar4;
+  bool bVar5;
+  bool bVar6;
+  bool bVar7;
+  bool bVar8;
+  bool bVar9;
+  bool bVar10;
+  bool bVar11;
+  bool bVar12;
+  
+  iVar1 = glXGetProcAddressARB("glClipPlanef");
+  _DAT_0451ccdc = iVar1;
+  _DAT_0451ccd8 = glXGetProcAddressARB("glClipPlanex");
+  bVar2 = _DAT_0451ccd8 == 0;
+  _DAT_0451ccd4 = glXGetProcAddressARB("glGetClipPlanef");
+  bVar3 = _DAT_0451ccd4 == 0;
+  _DAT_0451ccd0 = glXGetProcAddressARB("glGetClipPlanex");
+  bVar4 = _DAT_0451ccd0 == 0;
+  _DAT_0451cccc = glXGetProcAddressARB("glGetFixedv");
+  bVar5 = _DAT_0451cccc == 0;
+  _DAT_0451ccc8 = glXGetProcAddressARB("glGetLightxv");
+  bVar6 = _DAT_0451ccc8 == 0;
+  _DAT_0451ccc4 = glXGetProcAddressARB("glGetMaterialxv");
+  bVar7 = _DAT_0451ccc4 == 0;
+  _DAT_0451ccc0 = glXGetProcAddressARB("glGetTexEnvxv");
+  bVar8 = _DAT_0451ccc0 == 0;
+  _DAT_0451ccbc = glXGetProcAddressARB("glGetTexParameterxv");
+  bVar9 = _DAT_0451ccbc == 0;
+  _DAT_0451ccb8 = glXGetProcAddressARB("glPointParameterx");
+  bVar10 = _DAT_0451ccb8 == 0;
+  _DAT_0451ccb4 = glXGetProcAddressARB("glPointParameterxv");
+  bVar11 = _DAT_0451ccb4 == 0;
+  _DAT_0451ccb0 = glXGetProcAddressARB("glPointSizePointerOES");
+  bVar12 = _DAT_0451ccb0 == 0;
+  _DAT_0451ccac = glXGetProcAddressARB("glTexParameterxv");
+  return _DAT_0451ccac == 0 ||
+         (bVar12 ||
+         (bVar11 ||
+         (bVar10 ||
+         (bVar9 || (bVar8 || (bVar7 || (bVar6 || (bVar5 || (bVar4 || (bVar3 || (bVar2 || iVar1 == 0)
+                                                                     ))))))))));
+}
+

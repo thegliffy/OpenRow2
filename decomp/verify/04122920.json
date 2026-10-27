@@ -1,0 +1,203 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+/* source: gdi32 */
+
+undefined4 eON_GetStockObject(int param_1)
+
+{
+  int iVar1;
+  undefined1 *puVar2;
+  undefined4 *puVar3;
+  int iVar4;
+  undefined4 *puVar5;
+  undefined4 *puVar6;
+  byte bVar7;
+  
+  bVar7 = 0;
+  puVar5 = (undefined4 *)&stack0xffffffa0;
+  if (DAT_04515aa4 == '\0') {
+    DAT_04515ac0 = malloc(0x18);
+    if (DAT_04515ac0 != (undefined1 *)0x0) {
+      *DAT_04515ac0 = 2;
+      DAT_04515ac0[1] = 0;
+      DAT_04515ac0[2] = 0;
+      DAT_04515ac0[3] = 0;
+      *(undefined4 *)(DAT_04515ac0 + 4) = 0;
+      *(undefined4 *)(DAT_04515ac0 + 8) = 0;
+      *(undefined4 *)(DAT_04515ac0 + 0xc) = 0xffffff;
+      *(undefined4 *)(DAT_04515ac0 + 0x10) = 0;
+      DAT_04515ac0[0x14] = 0;
+    }
+    DAT_04515ac4 = malloc(0x18);
+    if (DAT_04515ac4 != (undefined1 *)0x0) {
+      *DAT_04515ac4 = 2;
+      DAT_04515ac4[1] = 0;
+      DAT_04515ac4[2] = 0;
+      DAT_04515ac4[3] = 0;
+      *(undefined4 *)(DAT_04515ac4 + 4) = 0;
+      *(undefined4 *)(DAT_04515ac4 + 8) = 0;
+      *(undefined **)(DAT_04515ac4 + 0xc) = &DAT_00c0c0c0;
+      *(undefined4 *)(DAT_04515ac4 + 0x10) = 0;
+      DAT_04515ac4[0x14] = 0;
+    }
+    _DAT_04515ac8 = malloc(0x18);
+    if (_DAT_04515ac8 != (undefined1 *)0x0) {
+      *_DAT_04515ac8 = 2;
+      _DAT_04515ac8[1] = 0;
+      _DAT_04515ac8[2] = 0;
+      _DAT_04515ac8[3] = 0;
+      *(undefined4 *)(_DAT_04515ac8 + 4) = 0;
+      *(undefined4 *)(_DAT_04515ac8 + 8) = 0;
+      *(undefined **)(_DAT_04515ac8 + 0xc) = &DAT_00808080;
+      *(undefined4 *)(_DAT_04515ac8 + 0x10) = 0;
+      _DAT_04515ac8[0x14] = 0;
+    }
+    _DAT_04515acc = malloc(0x18);
+    if (_DAT_04515acc != (undefined1 *)0x0) {
+      *_DAT_04515acc = 2;
+      _DAT_04515acc[1] = 0;
+      _DAT_04515acc[2] = 0;
+      _DAT_04515acc[3] = 0;
+      *(undefined4 *)(_DAT_04515acc + 4) = 0;
+      *(undefined4 *)(_DAT_04515acc + 8) = 0;
+      *(undefined **)(_DAT_04515acc + 0xc) = &DAT_00404040;
+      *(undefined4 *)(_DAT_04515acc + 0x10) = 0;
+      _DAT_04515acc[0x14] = 0;
+    }
+    _DAT_04515ad0 = malloc(0x18);
+    if (_DAT_04515ad0 != (undefined1 *)0x0) {
+      *_DAT_04515ad0 = 2;
+      _DAT_04515ad0[1] = 0;
+      _DAT_04515ad0[2] = 0;
+      _DAT_04515ad0[3] = 0;
+      *(undefined4 *)(_DAT_04515ad0 + 4) = 0;
+      *(undefined4 *)(_DAT_04515ad0 + 8) = 0;
+      *(undefined4 *)(_DAT_04515ad0 + 0xc) = 0;
+      *(undefined4 *)(_DAT_04515ad0 + 0x10) = 0;
+      _DAT_04515ad0[0x14] = 0;
+    }
+    _DAT_04515ad4 = malloc(0x18);
+    if (_DAT_04515ad4 != (undefined1 *)0x0) {
+      *_DAT_04515ad4 = 2;
+      _DAT_04515ad4[1] = 0;
+      _DAT_04515ad4[2] = 0;
+      _DAT_04515ad4[3] = 0;
+      *(undefined4 *)(_DAT_04515ad4 + 4) = 0;
+      *(undefined4 *)(_DAT_04515ad4 + 8) = 1;
+      *(undefined4 *)(_DAT_04515ad4 + 0xc) = 0;
+      *(undefined4 *)(_DAT_04515ad4 + 0x10) = 0;
+      _DAT_04515ad4[0x14] = 0;
+    }
+    _DAT_04515b08 = malloc(0x18);
+    if (_DAT_04515b08 != (undefined1 *)0x0) {
+      *_DAT_04515b08 = 2;
+      _DAT_04515b08[1] = 0;
+      _DAT_04515b08[2] = 0;
+      _DAT_04515b08[3] = 0;
+      *(undefined4 *)(_DAT_04515b08 + 4) = 0;
+      *(undefined4 *)(_DAT_04515b08 + 8) = 0;
+      *(undefined4 *)(_DAT_04515b08 + 0xc) = 0xffffff;
+      *(undefined4 *)(_DAT_04515b08 + 0x10) = 0;
+      _DAT_04515b08[0x14] = 0;
+    }
+    _DAT_04515ad8 = malloc(0x14);
+    if (_DAT_04515ad8 != (undefined1 *)0x0) {
+      *_DAT_04515ad8 = 1;
+      _DAT_04515ad8[1] = 0;
+      _DAT_04515ad8[2] = 0;
+      _DAT_04515ad8[3] = 0;
+      *(undefined4 *)(_DAT_04515ad8 + 4) = 0;
+      *(undefined4 *)(_DAT_04515ad8 + 8) = 0;
+      *(undefined4 *)(_DAT_04515ad8 + 0xc) = 0;
+      *(undefined4 *)(_DAT_04515ad8 + 0x10) = 0xffffff;
+    }
+    _DAT_04515adc = malloc(0x14);
+    if (_DAT_04515adc != (undefined1 *)0x0) {
+      *_DAT_04515adc = 1;
+      _DAT_04515adc[1] = 0;
+      _DAT_04515adc[2] = 0;
+      _DAT_04515adc[3] = 0;
+      *(undefined4 *)(_DAT_04515adc + 4) = 0;
+      *(undefined4 *)(_DAT_04515adc + 8) = 0;
+      *(undefined4 *)(_DAT_04515adc + 0xc) = 0;
+      *(undefined4 *)(_DAT_04515adc + 0x10) = 0;
+    }
+    _DAT_04515ae0 = malloc(0x14);
+    if (_DAT_04515ae0 != (undefined1 *)0x0) {
+      *_DAT_04515ae0 = 1;
+      _DAT_04515ae0[1] = 0;
+      _DAT_04515ae0[2] = 0;
+      _DAT_04515ae0[3] = 0;
+      *(undefined4 *)(_DAT_04515ae0 + 4) = 0;
+      *(undefined4 *)(_DAT_04515ae0 + 8) = 5;
+      *(undefined4 *)(_DAT_04515ae0 + 0xc) = 0;
+      *(undefined4 *)(_DAT_04515ae0 + 0x10) = 0;
+    }
+    _DAT_04515b0c = malloc(0x14);
+    if (_DAT_04515b0c != (undefined1 *)0x0) {
+      *_DAT_04515b0c = 1;
+      _DAT_04515b0c[1] = 0;
+      _DAT_04515b0c[2] = 0;
+      _DAT_04515b0c[3] = 0;
+      *(undefined4 *)(_DAT_04515b0c + 4) = 0;
+      *(undefined4 *)(_DAT_04515b0c + 8) = 0;
+      *(undefined4 *)(_DAT_04515b0c + 0xc) = 0;
+      *(undefined4 *)(_DAT_04515b0c + 0x10) = 0;
+    }
+    puVar2 = malloc(0x10);
+    if (puVar2 != (undefined1 *)0x0) {
+      *puVar2 = 5;
+      puVar2[1] = 0;
+      puVar2[2] = 0;
+      puVar2[3] = 0;
+      *(undefined4 *)(puVar2 + 4) = 0;
+      *(undefined2 *)(puVar2 + 8) = 0x300;
+      *(undefined2 *)(puVar2 + 10) = 0x14;
+      puVar3 = malloc(0x50);
+      *(undefined4 **)(puVar2 + 0xc) = puVar3;
+      puVar6 = &DAT_04318464;
+      for (iVar4 = 0x14; iVar4 != 0; iVar4 = iVar4 + -1) {
+        *puVar3 = *puVar6;
+        puVar6 = puVar6 + (uint)bVar7 * -2 + 1;
+        puVar3 = puVar3 + (uint)bVar7 * -2 + 1;
+      }
+    }
+    _DAT_04515afc = puVar2;
+    _DAT_04515ae4 = eON_CreateBitmapIndirect();
+    puVar5 = (undefined4 *)&stack0xffffff9c;
+    _DAT_04515ae8 = malloc(8);
+    *_DAT_04515ae8 = 6;
+    _DAT_04515aec = malloc(8);
+    *_DAT_04515aec = 6;
+    _DAT_04515af0 = malloc(8);
+    *_DAT_04515af0 = 6;
+    _DAT_04515af4 = malloc(8);
+    *_DAT_04515af4 = 6;
+    _DAT_04515af8 = malloc(8);
+    *_DAT_04515af8 = 6;
+    _DAT_04515b00 = malloc(8);
+    *_DAT_04515b00 = 6;
+    _DAT_04515b04 = malloc(8);
+    *_DAT_04515b04 = 6;
+    iVar4 = 1;
+    do {
+      iVar1 = *(int *)(iVar4 * 4 + 0x4515abc);
+      *(char *)(iVar1 + 3) = (char)iVar4;
+      iVar4 = iVar4 + 1;
+      *(undefined1 *)(iVar1 + 1) = 1;
+      *(undefined1 *)(iVar1 + 2) = 0;
+      *(undefined4 *)(iVar1 + 4) = 0;
+    } while (iVar4 != 0x15);
+    DAT_04515aa4 = '\x01';
+  }
+  if (0x13 < param_1) {
+    puVar5[3] = "void* eON_GetStockObject(INT)";
+    puVar5[2] = 0x38f;
+    puVar5[1] = "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/gdi32/gdi32.cpp";
+    *puVar5 = "fnObject < 20";
+    puVar5[-1] = 0x412296c;
+    FUN_0400a810();
+  }
+  return (&DAT_04515ac0)[param_1];
+}
+

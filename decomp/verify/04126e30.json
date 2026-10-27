@@ -1,0 +1,15 @@
+
+undefined4 eON_ImmNotifyIME(undefined4 param_1,int param_2,undefined4 param_3,undefined4 param_4)
+
+{
+  char *pcVar1;
+  
+  pcVar1 = "unknown";
+  if (param_2 - 0x10U < 9) {
+    pcVar1 = (&PTR_s_NI_OPENCANDIDATE_0431a8a0)[param_2 - 0x10U];
+  }
+  FUN_0402cd10(5,"ImmNotifyIME( hIMC = %p, dwAction = %u (%s), dwIndex = %u, dwValue = %u )",param_1
+               ,param_2,pcVar1,param_3,param_4);
+  return 0;
+}
+

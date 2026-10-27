@@ -1,0 +1,318 @@
+
+/* source: winsock */
+
+int eON_WSARecvFrom(uint param_1,size_t *param_2,uint param_3,ssize_t *param_4,uint *param_5,
+                   undefined4 *param_6,uint *param_7,undefined4 *param_8,int param_9)
+
+{
+  undefined4 *puVar1;
+  uint uVar2;
+  uint uVar3;
+  uint __fd;
+  size_t *psVar4;
+  ssize_t *psVar5;
+  uint *puVar6;
+  undefined4 *puVar7;
+  uint *puVar8;
+  undefined4 *puVar9;
+  undefined *puVar10;
+  int iVar11;
+  int *piVar12;
+  int iVar13;
+  uint *puVar14;
+  void *pvVar15;
+  ssize_t sVar16;
+  undefined *puVar17;
+  undefined *puVar18;
+  size_t *psVar19;
+  undefined4 local_fc;
+  char *local_f8;
+  undefined4 uStackY_e8;
+  undefined4 local_e4;
+  undefined4 local_e0;
+  code *local_dc;
+  int *local_d8;
+  undefined *local_84;
+  sockaddr local_78 [4];
+  uint local_38;
+  undefined4 local_34;
+  uint local_30;
+  undefined4 local_2c;
+  undefined1 local_28 [4];
+  socklen_t local_24 [3];
+  undefined4 *local_18;
+  
+  iVar13 = param_9;
+  puVar9 = param_8;
+  puVar8 = param_7;
+  puVar7 = param_6;
+  puVar6 = param_5;
+  psVar5 = param_4;
+  uVar2 = param_3;
+  psVar4 = param_2;
+  __fd = param_1;
+  local_18 = &param_1;
+  eON_SetLastError();
+  psVar19 = (size_t *)&stack0xffffff2c;
+  local_d8 = (int *)0x4192c2a;
+  EventSelect_ClearFlags();
+  local_24[0] = 4;
+  local_d8 = (int *)0x4192c3d;
+  iVar11 = eON_MapSocketOptname_WinToPosix();
+  local_d8 = (int *)0x4192c5c;
+  iVar11 = getsockopt(__fd,1,iVar11,local_28,local_24);
+  if (iVar11 == -1) {
+    local_d8 = (int *)0x4192f45;
+    piVar12 = __errno_location();
+    if (*piVar12 == 9) goto LAB_04192f4e;
+  }
+  if (__fd == 0xffffffff) {
+LAB_04192f4e:
+    local_d8 = (int *)0x4192f5a;
+    eON_SetLastError();
+    return -1;
+  }
+  if (iVar13 != 0) {
+    local_d8 = (int *)0x41930fc;
+    FUN_0402cd10();
+    return -1;
+  }
+  if (*puVar6 != 0) {
+    local_d8 = (int *)0x419322b;
+    FUN_0402cd10();
+    return -1;
+  }
+  if (1 < uVar2) {
+    local_d8 = (int *)0x41931b6;
+    FUN_0402cd10();
+    return -1;
+  }
+  if (puVar9 == (undefined4 *)0x0) {
+    if (uVar2 != 1) {
+      local_d8 = (int *)0x4192fda;
+      FUN_0400a810();
+    }
+    local_24[0] = 0x40;
+    local_d8 = (int *)0x419300f;
+    sVar16 = recvfrom(__fd,(void *)psVar4[1],*psVar4,0,local_78,local_24);
+    if (sVar16 != -1) {
+      if (psVar5 == (ssize_t *)0x0) {
+        local_d8 = (int *)0x419325f;
+        FUN_0400a810();
+      }
+      *psVar5 = sVar16;
+      if ((puVar8 != (uint *)0x0) && (*puVar8 < local_24[0])) {
+        local_d8 = (int *)0x419319d;
+        FUN_0400a810();
+      }
+      if (puVar7 == (undefined4 *)0x0) {
+        return 0;
+      }
+      *puVar7 = local_78[0]._0_4_;
+      puVar7[1] = local_78[0].sa_data._2_4_;
+      puVar7[2] = local_78[0].sa_data._6_4_;
+      puVar7[3] = local_78[0].sa_data._10_4_;
+      if (puVar8 == (uint *)0x0) {
+        return 0;
+      }
+      *puVar8 = local_24[0];
+      return 0;
+    }
+    local_d8 = (int *)0x41930a5;
+    piVar12 = __errno_location();
+    iVar13 = *piVar12;
+    if (iVar13 == 0xe) {
+      local_d8 = (int *)0x419328f;
+      eON_SetLastError();
+      return -1;
+    }
+    if (iVar13 < 0xf) {
+      if (iVar13 == 4) {
+        local_d8 = (int *)0x41932c1;
+        eON_SetLastError();
+        return -1;
+      }
+      if (iVar13 == 0xb) {
+        local_d8 = (int *)0x41932a8;
+        eON_SetLastError();
+        return -1;
+      }
+    }
+    else {
+      if (iVar13 == 0x68) {
+        local_d8 = (int *)0x4193276;
+        eON_SetLastError();
+        return -1;
+      }
+      if (iVar13 == 0x6b) {
+        local_d8 = (int *)0x41930d4;
+        eON_SetLastError();
+        return -1;
+      }
+    }
+    return -1;
+  }
+  local_d8 = (int *)0x4192caa;
+  pthread_mutex_lock((pthread_mutex_t *)&DAT_0451c678);
+  if (DAT_0451c668 != (undefined *)0x0) {
+    puVar10 = DAT_0451c668;
+    puVar17 = &DAT_0451c664;
+    do {
+      while (puVar18 = puVar10, *(uint *)(puVar18 + 0x10) < __fd) {
+        puVar1 = (undefined4 *)(puVar18 + 0xc);
+        puVar10 = (undefined *)*puVar1;
+        puVar18 = puVar17;
+        if ((undefined *)*puVar1 == (undefined *)0x0) goto LAB_04192cd5;
+      }
+      puVar10 = *(undefined **)(puVar18 + 8);
+      puVar17 = puVar18;
+    } while (*(undefined **)(puVar18 + 8) != (undefined *)0x0);
+LAB_04192cd5:
+    if ((puVar18 != &DAT_0451c664) && (*(uint *)(puVar18 + 0x10) <= __fd)) {
+      puVar10 = DAT_0451c668;
+      puVar17 = &DAT_0451c664;
+      do {
+        while (puVar18 = puVar10, *(uint *)(puVar18 + 0x10) < __fd) {
+          puVar1 = (undefined4 *)(puVar18 + 0xc);
+          puVar10 = (undefined *)*puVar1;
+          puVar18 = puVar17;
+          if ((undefined *)*puVar1 == (undefined *)0x0) goto LAB_04192de5;
+        }
+        puVar10 = *(undefined **)(puVar18 + 8);
+        puVar17 = puVar18;
+      } while (*(undefined **)(puVar18 + 8) != (undefined *)0x0);
+LAB_04192de5:
+      if ((puVar18 == &DAT_0451c664) || (__fd < *(uint *)(puVar18 + 0x10))) {
+        local_30 = __fd;
+        local_2c = 0;
+        local_d8 = (int *)0x4193155;
+        FUN_041917a0();
+        puVar18 = local_84;
+      }
+      piVar12 = *(int **)(puVar18 + 0x14);
+      if (piVar12[3] != 0) {
+        local_d8 = (int *)0x41931cc;
+        pthread_mutex_unlock((pthread_mutex_t *)&DAT_0451c678);
+        local_d8 = (int *)0x41931d8;
+        eON_SetLastError();
+        return -1;
+      }
+      goto LAB_04192e08;
+    }
+  }
+  local_d8 = (int *)0x4192cf2;
+  piVar12 = malloc(0x10);
+  local_d8 = (int *)0x4192d18;
+  iVar13 = eON_CreateEventA();
+  piVar12[2] = 0;
+  piVar12[1] = iVar13;
+  piVar12[3] = 0;
+  local_dc = eON_WSARecvFrom_WorkerThread;
+  local_e0 = 0x10000;
+  local_e4 = 0;
+  uStackY_e8 = 0x4192d5c;
+  local_d8 = piVar12;
+  iVar13 = eON_CreateThread();
+  psVar19 = &local_fc;
+  *piVar12 = iVar13;
+  if (iVar13 == 0) {
+    local_f8 = "SOCKETS: Creation of asynchronous eON thread in WSARecvFrom failed!.";
+    local_fc = 0xf;
+    FUN_0402cd10();
+  }
+  puVar10 = DAT_0451c668;
+  puVar17 = &DAT_0451c664;
+  if (DAT_0451c668 == (undefined *)0x0) {
+LAB_04192da2:
+    local_38 = __fd;
+    local_34 = 0;
+    FUN_041917a0();
+    puVar18 = local_84;
+  }
+  else {
+    do {
+      while (puVar18 = puVar10, *(uint *)(puVar18 + 0x10) < __fd) {
+        puVar1 = (undefined4 *)(puVar18 + 0xc);
+        puVar10 = (undefined *)*puVar1;
+        puVar18 = puVar17;
+        if ((undefined *)*puVar1 == (undefined *)0x0) goto LAB_04192d95;
+      }
+      puVar10 = *(undefined **)(puVar18 + 8);
+      puVar17 = puVar18;
+    } while (*(undefined **)(puVar18 + 8) != (undefined *)0x0);
+LAB_04192d95:
+    if ((puVar18 == &DAT_0451c664) || (__fd < *(uint *)(puVar18 + 0x10))) goto LAB_04192da2;
+  }
+  *(int **)(puVar18 + 0x14) = piVar12;
+LAB_04192e08:
+  *psVar19 = 0x1c;
+  psVar19[-1] = 0x4192e14;
+  puVar14 = malloc(*psVar19);
+  puVar9[1] = 0;
+  *puVar9 = puVar14;
+  piVar12[3] = (int)puVar9;
+  if ((puVar8 != (uint *)0x0) && (puVar7 != (undefined4 *)0x0)) {
+    uVar3 = *puVar8;
+    if ((int)uVar3 < 0x10) {
+      psVar19[2] = uVar3;
+      psVar19[1] = (size_t)"SOCKETS: too small address length given to WSARecvFrom: %d.";
+      *psVar19 = 0xf;
+      psVar19[-1] = 0x419312e;
+      FUN_0402cd10();
+    }
+    else if (uVar3 != 0x10) {
+      psVar19[2] = uVar3;
+      psVar19[1] = (size_t)"SOCKETS: nonstandard address length given to WSARecvFrom: %d.";
+      *psVar19 = 10;
+      psVar19[-1] = 0x4192fa0;
+      FUN_0402cd10();
+    }
+  }
+  *puVar14 = __fd;
+  puVar14[1] = uVar2;
+  *psVar19 = uVar2 << 3;
+  psVar19[-1] = 0x4192e61;
+  pvVar15 = malloc(*psVar19);
+  puVar14[2] = (uint)pvVar15;
+  psVar19[2] = uVar2 << 3;
+  *psVar19 = (size_t)pvVar15;
+  psVar19[1] = (size_t)psVar4;
+  psVar19[-1] = 0x4192e86;
+  memcpy((void *)*psVar19,(void *)psVar19[1],psVar19[2]);
+  uVar2 = *puVar6;
+  puVar14[6] = 0;
+  puVar14[3] = uVar2;
+  puVar14[5] = (uint)puVar8;
+  puVar14[4] = (uint)puVar7;
+  *psVar19 = (size_t)&DAT_0451c678;
+  psVar19[-1] = 0x4192ebc;
+  pthread_mutex_unlock((pthread_mutex_t *)*psVar19);
+  *psVar19 = piVar12[1];
+  psVar19[-1] = 0x4192ec7;
+  eON_SetEvent();
+  psVar19[-1] = 100;
+  psVar19[-2] = 0x4192ed6;
+  usleep(psVar19[-1]);
+  psVar19[-1] = (size_t)&DAT_0451c678;
+  psVar19[-2] = 0x4192ee2;
+  pthread_mutex_lock((pthread_mutex_t *)psVar19[-1]);
+  iVar13 = puVar9[1];
+  psVar19[-1] = (size_t)&DAT_0451c678;
+  psVar19[-2] = 0x4192ef1;
+  pthread_mutex_unlock((pthread_mutex_t *)psVar19[-1]);
+  if (iVar13 != 0) {
+    psVar19[2] = 0;
+    *psVar19 = (size_t)puVar9;
+    psVar19[-1] = __fd;
+    psVar19[3] = (size_t)puVar6;
+    psVar19[1] = (size_t)psVar5;
+    psVar19[-2] = 0x4192f21;
+    iVar13 = eON_WSAGetOverlappedResult();
+    return -(uint)(iVar13 == 0);
+  }
+  psVar19[-1] = 0x3e5;
+  psVar19[-2] = 0x41931f1;
+  eON_SetLastError();
+  return -1;
+}
+

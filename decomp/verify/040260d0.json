@@ -1,0 +1,10 @@
+
+void eON_WindowLinux__Platform_InitializeAsStaticText(void)
+
+{
+  FUN_0400a810("false",
+               "/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/linux/windowLinux.cpp",
+               0x20d,"virtual void eON_WindowLinux::Platform_InitializeAsStaticText()");
+  return;
+}
+

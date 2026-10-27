@@ -1,0 +1,23 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+bool _glewInit_GLX_NV_video_capture(void)
+
+{
+  int iVar1;
+  bool bVar2;
+  bool bVar3;
+  bool bVar4;
+  
+  iVar1 = glXGetProcAddressARB("glXBindVideoCaptureDeviceNV");
+  _DAT_0451c7b8 = iVar1;
+  _DAT_0451c7b4 = glXGetProcAddressARB("glXEnumerateVideoCaptureDevicesNV");
+  bVar2 = _DAT_0451c7b4 == 0;
+  _DAT_0451c7b0 = glXGetProcAddressARB("glXLockVideoCaptureDeviceNV");
+  bVar3 = _DAT_0451c7b0 == 0;
+  _DAT_0451c7ac = glXGetProcAddressARB("glXQueryVideoCaptureDeviceNV");
+  bVar4 = _DAT_0451c7ac == 0;
+  _DAT_0451c7a8 = glXGetProcAddressARB("glXReleaseVideoCaptureDeviceNV");
+  return _DAT_0451c7a8 == 0 || (bVar4 || (bVar3 || (bVar2 || iVar1 == 0)));
+}
+

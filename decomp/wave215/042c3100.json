@@ -1,0 +1,65 @@
+
+void FUN_042c3100(undefined4 param_1,undefined4 param_2,undefined4 param_3,undefined4 param_4,
+                 int param_5,int param_6,char *param_7,int param_8)
+
+{
+  int iVar1;
+  size_t sVar2;
+  int iVar3;
+  int iVar4;
+  int iVar5;
+  undefined1 local_76 [80];
+  undefined1 local_26 [4];
+  undefined1 local_22 [4];
+  undefined1 local_1e;
+  undefined1 local_1d;
+  
+  if (3 < param_5) {
+                    /* WARNING: Subroutine does not return */
+    png_error(param_1,"Unrecognized equation type for pCAL chunk");
+  }
+  iVar1 = FUN_042c1130();
+  if (iVar1 != 0) {
+    sVar2 = strlen(param_7);
+    iVar4 = (param_6 != 0) + sVar2;
+    iVar3 = FUN_042aa2c0(param_1,param_6 * 4);
+    local_1d = (char)param_6;
+    if (param_6 < 1) {
+      FUN_042c1080();
+      FUN_042c1940(param_1,local_76,iVar1 + 1);
+      FUN_042a5e00(local_26,param_3);
+      FUN_042a5e00(local_22,param_4);
+      local_1e = (undefined1)param_5;
+      FUN_042c1940(param_1,local_26,10);
+      FUN_042c1940(param_1,param_7,iVar4);
+    }
+    else {
+      iVar5 = 0;
+      do {
+        sVar2 = strlen(*(char **)(param_8 + iVar5 * 4));
+        *(size_t *)(iVar3 + iVar5 * 4) = sVar2 + (iVar5 != param_6 + -1);
+        iVar5 = iVar5 + 1;
+      } while (iVar5 != param_6);
+      FUN_042c1080();
+      FUN_042c1940(param_1,local_76,iVar1 + 1);
+      FUN_042a5e00(local_26,param_3);
+      FUN_042a5e00(local_22,param_4);
+      iVar1 = 0;
+      local_1e = (undefined1)param_5;
+      FUN_042c1940(param_1,local_26,10);
+      FUN_042c1940(param_1,param_7,iVar4);
+      do {
+        iVar4 = iVar1 * 4;
+        iVar5 = iVar1 * 4;
+        iVar1 = iVar1 + 1;
+        FUN_042c1940(param_1,*(undefined4 *)(param_8 + iVar5),*(undefined4 *)(iVar3 + iVar4));
+      } while (iVar1 != param_6);
+    }
+    FUN_042aa410(param_1,iVar3);
+    FUN_042c1a20(param_1);
+    return;
+  }
+                    /* WARNING: Subroutine does not return */
+  png_error(param_1,"pCAL: invalid keyword");
+}
+

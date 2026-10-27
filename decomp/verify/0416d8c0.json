@@ -1,0 +1,37 @@
+
+undefined4 eON_SetClipboardViewer(int param_1)
+
+{
+  undefined4 *puVar1;
+  undefined4 uVar2;
+  undefined1 local_40 [12];
+  undefined4 uStackY_34;
+  
+  puVar1 = (undefined4 *)&stack0xffffffd0;
+  if (param_1 == 0) {
+    uStackY_34 = 0x416d96c;
+    FUN_0402cd10();
+    uStackY_34 = 0x416d978;
+    pthread_mutex_lock((pthread_mutex_t *)&DAT_0451bdc8);
+    uVar2 = DAT_0451bde8;
+    DAT_0451bde8 = 0;
+    uStackY_34 = 0x416d994;
+    pthread_mutex_unlock((pthread_mutex_t *)&DAT_0451bdc8);
+  }
+  else {
+    uStackY_34 = 0x416d8ee;
+    pthread_mutex_lock((pthread_mutex_t *)&DAT_0451bdc8);
+    uVar2 = DAT_0451bde8;
+    DAT_0451bde8 = param_1;
+    uStackY_34 = 0x416d90c;
+    pthread_mutex_unlock((pthread_mutex_t *)&DAT_0451bdc8);
+    uStackY_34 = 0x416d928;
+    FUN_04183140();
+    puVar1 = (undefined4 *)local_40;
+  }
+  *puVar1 = 0;
+  puVar1[-1] = 0x416d937;
+  eON_SetLastError();
+  return uVar2;
+}
+

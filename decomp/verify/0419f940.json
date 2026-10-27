@@ -1,0 +1,26 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+bool _glewInit_GL_NV_fragment_program(void)
+
+{
+  int iVar1;
+  bool bVar2;
+  bool bVar3;
+  bool bVar4;
+  bool bVar5;
+  
+  iVar1 = glXGetProcAddressARB("glGetProgramNamedParameterdvNV");
+  _DAT_0451d2cc = iVar1;
+  _DAT_0451d2c8 = glXGetProcAddressARB("glGetProgramNamedParameterfvNV");
+  bVar2 = _DAT_0451d2c8 == 0;
+  _DAT_0451d2c4 = glXGetProcAddressARB("glProgramNamedParameter4dNV");
+  bVar3 = _DAT_0451d2c4 == 0;
+  _DAT_0451d2c0 = glXGetProcAddressARB("glProgramNamedParameter4dvNV");
+  bVar4 = _DAT_0451d2c0 == 0;
+  _DAT_0451d2bc = glXGetProcAddressARB("glProgramNamedParameter4fNV");
+  bVar5 = _DAT_0451d2bc == 0;
+  _DAT_0451d2b8 = glXGetProcAddressARB("glProgramNamedParameter4fvNV");
+  return _DAT_0451d2b8 == 0 || (bVar5 || (bVar4 || (bVar3 || (bVar2 || iVar1 == 0))));
+}
+

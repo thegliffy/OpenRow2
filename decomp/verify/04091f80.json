@@ -1,0 +1,256 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+/* source: openGlContextCache */
+
+undefined4
+OpenGLContextCache__MaterialShininess
+          (int param_1,undefined4 param_2,undefined4 param_3,undefined1 *param_4)
+
+{
+  float fVar1;
+  byte bVar2;
+  undefined4 uVar3;
+  uint uVar4;
+  bool bVar5;
+  float fVar6;
+  char cVar7;
+  int iVar8;
+  int iVar9;
+  int *piVar10;
+  int iVar11;
+  int iVar12;
+  bool bVar13;
+  undefined4 local_34;
+  int local_30;
+  float local_2c;
+  float local_28;
+  float local_24;
+  float local_20;
+  
+  iVar8 = FUN_040e5e80(*(undefined4 *)(param_1 + 0xeb54),param_2);
+  iVar9 = FUN_040e5e80(*(undefined4 *)(param_1 + 0xeb54),param_3);
+  bVar5 = false;
+  if (((*(char *)(*(int *)(param_1 + 0xe9d4) + 0x70) == '\0') &&
+      (bVar5 = true, *(int *)(param_1 + 0x7c5c) == 0)) &&
+     (bVar5 = false, *(int *)(param_1 + 0x79cc) != 0)) {
+    iVar11 = *(int *)(param_1 + 0x79c4);
+    if (iVar11 != *(int *)(param_1 + 0x79c8)) {
+      FUN_040910a0(param_1);
+      iVar11 = *(int *)(param_1 + 0x79c4);
+      *(int *)(param_1 + 0x79c8) = iVar11;
+    }
+    if (*(char *)(param_1 + 0xeb4c) == '\0') {
+      iVar12 = *(int *)(param_1 + 0xeb48);
+      if (iVar11 != *(int *)(iVar12 + 0x19c)) {
+        OpenGLContextCache__LightDirection(param_1);
+        iVar12 = *(int *)(param_1 + 0xeb48);
+        *(undefined4 *)(iVar12 + 0x19c) = *(undefined4 *)(param_1 + 0x79c4);
+      }
+      if (*(int *)(param_1 + 0x7c54) != *(int *)(iVar12 + 0x1a0)) {
+        iVar11 = memcmp((undefined4 *)(iVar12 + 0x828),(void *)(param_1 + 0x7c10),0x10);
+        if (iVar11 != 0) {
+          if (*(char *)(iVar12 + 0x218) != '\0') {
+            FUN_0400a810("!mUsingOpenGLCore",
+                         "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlContextCache.h"
+                         ,0x38a,"void OpenGLContextCache::MaterialDiffuse(const GLfloat*)");
+          }
+          glMaterialfv(0x404,0x1201,(void *)(param_1 + 0x7c10));
+          *(undefined4 *)(iVar12 + 0x828) = *(undefined4 *)(param_1 + 0x7c10);
+          *(undefined4 *)(iVar12 + 0x82c) = *(undefined4 *)(param_1 + 0x7c14);
+          *(undefined4 *)(iVar12 + 0x830) = *(undefined4 *)(param_1 + 0x7c18);
+          *(undefined4 *)(iVar12 + 0x834) = *(undefined4 *)(param_1 + 0x7c1c);
+          iVar12 = *(int *)(param_1 + 0xeb48);
+        }
+        iVar11 = memcmp((undefined4 *)(iVar12 + 0x838),(void *)(param_1 + 0x7c20),0x10);
+        if (iVar11 != 0) {
+          if (*(char *)(iVar12 + 0x218) != '\0') {
+            FUN_0400a810("!mUsingOpenGLCore",
+                         "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlContextCache.h"
+                         ,0x394,"void OpenGLContextCache::MaterialAmbient(const GLfloat*)");
+          }
+          glMaterialfv(0x404,0x1200,(void *)(param_1 + 0x7c20));
+          *(undefined4 *)(iVar12 + 0x838) = *(undefined4 *)(param_1 + 0x7c20);
+          *(undefined4 *)(iVar12 + 0x83c) = *(undefined4 *)(param_1 + 0x7c24);
+          *(undefined4 *)(iVar12 + 0x840) = *(undefined4 *)(param_1 + 0x7c28);
+          *(undefined4 *)(iVar12 + 0x844) = *(undefined4 *)(param_1 + 0x7c2c);
+          iVar12 = *(int *)(param_1 + 0xeb48);
+        }
+        iVar11 = memcmp((undefined4 *)(iVar12 + 0x848),(void *)(param_1 + 0x7c30),0x10);
+        if (iVar11 != 0) {
+          if (*(char *)(iVar12 + 0x218) != '\0') {
+            FUN_0400a810("!mUsingOpenGLCore",
+                         "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlContextCache.h"
+                         ,0x39e,"void OpenGLContextCache::MaterialSpecular(const GLfloat*)");
+          }
+          glMaterialfv(0x404,0x1202,(void *)(param_1 + 0x7c30));
+          *(undefined4 *)(iVar12 + 0x848) = *(undefined4 *)(param_1 + 0x7c30);
+          *(undefined4 *)(iVar12 + 0x84c) = *(undefined4 *)(param_1 + 0x7c34);
+          *(undefined4 *)(iVar12 + 0x850) = *(undefined4 *)(param_1 + 0x7c38);
+          *(undefined4 *)(iVar12 + 0x854) = *(undefined4 *)(param_1 + 0x7c3c);
+          iVar12 = *(int *)(param_1 + 0xeb48);
+        }
+        iVar11 = memcmp((undefined4 *)(iVar12 + 0x858),(void *)(param_1 + 0x7c40),0x10);
+        if (iVar11 != 0) {
+          if (*(char *)(iVar12 + 0x218) != '\0') {
+            FUN_0400a810("!mUsingOpenGLCore",
+                         "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlContextCache.h"
+                         ,0x3a8,"void OpenGLContextCache::MaterialEmission(const GLfloat*)");
+          }
+          glMaterialfv(0x404,0x1600,(void *)(param_1 + 0x7c40));
+          *(undefined4 *)(iVar12 + 0x858) = *(undefined4 *)(param_1 + 0x7c40);
+          *(undefined4 *)(iVar12 + 0x85c) = *(undefined4 *)(param_1 + 0x7c44);
+          *(undefined4 *)(iVar12 + 0x860) = *(undefined4 *)(param_1 + 0x7c48);
+          *(undefined4 *)(iVar12 + 0x864) = *(undefined4 *)(param_1 + 0x7c4c);
+          iVar12 = *(int *)(param_1 + 0xeb48);
+        }
+        fVar1 = *(float *)(param_1 + 0x7c50);
+        if (fVar1 != *(float *)(iVar12 + 0x868)) {
+          if (*(char *)(iVar12 + 0x218) != '\0') {
+            FUN_0400a810("!mUsingOpenGLCore",
+                         "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlContextCache.h"
+                         ,0x3b2,"void OpenGLContextCache::MaterialShininess(GLfloat)");
+          }
+          glMaterialf(0x404,0x1601,fVar1);
+          *(float *)(iVar12 + 0x868) = fVar1;
+          iVar12 = *(int *)(param_1 + 0xeb48);
+        }
+        *(undefined4 *)(iVar12 + 0x1a0) = *(undefined4 *)(param_1 + 0x7c54);
+      }
+      local_30 = *(int *)(param_1 + 0x7a1c);
+      bVar5 = false;
+      if (local_30 != *(int *)(iVar12 + 0x1a4)) {
+        uVar4 = *(uint *)(param_1 + 0x7a18);
+        local_2c = (DAT_042dbf34 * 0.0 + (float)(uVar4 >> 0x10 & 0xff)) / _DAT_042dc5a0;
+        local_28 = (DAT_042dbf34 * 0.0 + (float)(uVar4 >> 8 & 0xff)) / _DAT_042dc5a0;
+        local_24 = (DAT_042dbf34 * 0.0 + (float)(uVar4 & 0xff)) / _DAT_042dc5a0;
+        local_20 = ((float)(uVar4 >> 0x18) + 0.0) / _DAT_042dc5a0;
+        iVar11 = memcmp((void *)(iVar12 + 0x478),&local_2c,0x10);
+        if (iVar11 != 0) {
+          glLightModelfv(0xb53,&local_2c);
+          *(float *)(iVar12 + 0x478) = local_2c;
+          *(float *)(iVar12 + 0x47c) = local_28;
+          *(float *)(iVar12 + 0x480) = local_24;
+          *(float *)(iVar12 + 0x484) = local_20;
+          local_30 = *(int *)(param_1 + 0x7a1c);
+          iVar12 = *(int *)(param_1 + 0xeb48);
+        }
+        *(int *)(iVar12 + 0x1a4) = local_30;
+        bVar5 = false;
+      }
+    }
+    else {
+      iVar12 = *(int *)(param_1 + 0xeb78);
+      if (*(int *)(iVar12 + 0x18) != iVar11) {
+        FUN_04091ce0(param_1);
+        iVar12 = *(int *)(param_1 + 0xeb78);
+        *(undefined4 *)(iVar12 + 0x18) = *(undefined4 *)(param_1 + 0x79c4);
+      }
+      if (*(int *)(param_1 + 0x7c54) != *(int *)(iVar12 + 0x1c)) {
+        *(undefined4 *)(iVar12 + 0xf3c) = *(undefined4 *)(param_1 + 0x7c40);
+        *(undefined4 *)(iVar12 + 0xf40) = *(undefined4 *)(param_1 + 0x7c44);
+        *(undefined4 *)(iVar12 + 0xf44) = *(undefined4 *)(param_1 + 0x7c48);
+        *(undefined4 *)(iVar12 + 0xf48) = *(undefined4 *)(param_1 + 0x7c4c);
+        *(undefined4 *)(iVar12 + 0xf4c) = *(undefined4 *)(param_1 + 0x7c20);
+        *(undefined4 *)(iVar12 + 0xf50) = *(undefined4 *)(param_1 + 0x7c24);
+        *(undefined4 *)(iVar12 + 0xf54) = *(undefined4 *)(param_1 + 0x7c28);
+        *(undefined4 *)(iVar12 + 0xf58) = *(undefined4 *)(param_1 + 0x7c2c);
+        *(undefined4 *)(iVar12 + 0xf5c) = *(undefined4 *)(param_1 + 0x7c10);
+        *(undefined4 *)(iVar12 + 0xf60) = *(undefined4 *)(param_1 + 0x7c14);
+        *(undefined4 *)(iVar12 + 0xf64) = *(undefined4 *)(param_1 + 0x7c18);
+        *(undefined4 *)(iVar12 + 0xf68) = *(undefined4 *)(param_1 + 0x7c1c);
+        *(undefined4 *)(iVar12 + 0xf6c) = *(undefined4 *)(param_1 + 0x7c30);
+        *(undefined4 *)(iVar12 + 0xf70) = *(undefined4 *)(param_1 + 0x7c34);
+        *(undefined4 *)(iVar12 + 0xf74) = *(undefined4 *)(param_1 + 0x7c38);
+        *(undefined4 *)(iVar12 + 0xf78) = *(undefined4 *)(param_1 + 0x7c3c);
+        *(undefined4 *)(iVar12 + 0xf7c) = *(undefined4 *)(param_1 + 0x7c50);
+        iVar12 = *(int *)(param_1 + 0xeb78);
+        uVar3 = *(undefined4 *)(param_1 + 0x7c54);
+        *(int *)(iVar12 + 0x24) = *(int *)(iVar12 + 0x24) + 1;
+        *(undefined4 *)(iVar12 + 0x1c) = uVar3;
+      }
+      fVar6 = _DAT_042dc5a0;
+      fVar1 = DAT_042dbf34;
+      iVar11 = *(int *)(param_1 + 0x7a1c);
+      bVar5 = false;
+      if (iVar11 != *(int *)(iVar12 + 0x20)) {
+        uVar4 = *(uint *)(param_1 + 0x7a18);
+        *(float *)(iVar12 + 0xf2c) =
+             (DAT_042dbf34 * 0.0 + (float)(*(uint *)(param_1 + 0x7a18) >> 0x10 & 0xff)) /
+             _DAT_042dc5a0;
+        bVar2 = *(byte *)(param_1 + 0x7a18);
+        *(float *)(iVar12 + 0xf30) = (fVar1 * 0.0 + (float)(uVar4 >> 8 & 0xff)) / fVar6;
+        uVar4 = *(uint *)(param_1 + 0x7a18);
+        *(int *)(iVar12 + 0x24) = *(int *)(iVar12 + 0x24) + 1;
+        *(float *)(iVar12 + 0xf34) = (fVar1 * 0.0 + (float)bVar2) / fVar6;
+        *(int *)(iVar12 + 0x20) = iVar11;
+        *(float *)(iVar12 + 0xf38) = ((float)(uVar4 >> 0x18) + 0.0) / fVar6;
+      }
+    }
+  }
+  if ((iVar8 == *(int *)(param_1 + 0xea40)) && (iVar9 == *(int *)(param_1 + 0xea44))) {
+    piVar10 = *(int **)(param_1 + 0xe9ec);
+  }
+  else {
+    FUN_040ea600(*(undefined4 *)(param_1 + 0xeb54),param_2,param_3);
+    piVar10 = (int *)FUN_040ed2d0(*(undefined4 *)(param_1 + 0xeb54),
+                                  *(undefined4 *)(param_1 + 0xeb48),iVar8,iVar9);
+    if (piVar10[1] < 2) {
+      FUN_0402cd10(0xf,
+                   "Wasn\'t able to link program properly from vertex shader %u and fragment shader %u in SetupRenderPipeline()!!!!"
+                   ,iVar8,iVar9);
+      return 0;
+    }
+    if (piVar10[1] == 2) {
+      local_34 = 0;
+      if (bVar5) {
+        local_34 = *(undefined4 *)(param_1 + 0x7c5c);
+      }
+      ShaderCache__FillInProgramConstants
+                (*(undefined4 *)(param_1 + 0xeb54),piVar10,param_2,param_3,local_34,
+                 *(undefined4 *)(param_1 + 0x7c58));
+    }
+    *(int *)(param_1 + 0xea40) = iVar8;
+    *(int *)(param_1 + 0xea44) = iVar9;
+    *(int **)(param_1 + 0xe9ec) = piVar10;
+  }
+  if (*(char *)(param_1 + 0xeb4c) == '\0') {
+    bVar13 = true;
+    if (!bVar5) {
+      bVar13 = *(int *)(param_1 + 0x7c58) != 0;
+    }
+    iVar8 = *(int *)(param_1 + 0xeb48);
+    *param_4 = bVar13;
+    iVar9 = *piVar10;
+    if (iVar9 != *(int *)(iVar8 + 0x338)) {
+      (*DAT_0451ec14)(iVar9);
+      *(int *)(iVar8 + 0x338) = iVar9;
+    }
+    bVar13 = false;
+    if (bVar5) {
+      cVar7 = Direct3DVertexShader9Imp__ShaderSetsPointSize(*(int *)(param_1 + 0x7c5c) + 4);
+      bVar13 = cVar7 != '\0';
+    }
+    iVar8 = *(int *)(param_1 + 0xeb48);
+    if (bVar13 != (bool)*(char *)(iVar8 + 0xa93)) {
+      if (bVar13 == false) {
+        glDisable();
+      }
+      else {
+        glEnable(0x8642);
+      }
+      *(bool *)(iVar8 + 0xa93) = bVar13;
+      return 1;
+    }
+  }
+  else {
+    iVar8 = *(int *)(param_1 + 0xeb48);
+    *param_4 = 0;
+    iVar9 = *piVar10;
+    if (iVar9 != *(int *)(iVar8 + 0x338)) {
+      (*DAT_0451ec14)(iVar9);
+      *(int *)(iVar8 + 0x338) = iVar9;
+    }
+  }
+  return 1;
+}
+

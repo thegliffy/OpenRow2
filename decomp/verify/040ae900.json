@@ -1,0 +1,143 @@
+
+/* source: direct3dsurface9imp */
+
+void direct3dsurface9imp_040ae900(int param_1,char param_2,char param_3)
+
+{
+  void *__ptr;
+  size_t __n;
+  int iVar1;
+  char cVar2;
+  void *__dest;
+  int *piVar3;
+  int iVar4;
+  int *piVar5;
+  
+  piVar5 = (int *)&stack0xffffffb4;
+  if ((*(int *)(param_1 + 0x6c) != 0x31545844) && (*(int *)(param_1 + 0x6c) == 0x4c4c554e)) {
+    FUN_0400a810();
+  }
+  if (param_2 == '\0') {
+    iVar4 = *(int *)(param_1 + 200);
+    if (iVar4 == 0) {
+      *(undefined4 *)(param_1 + 0x60) = 0;
+      *(undefined4 *)(param_1 + 100) = 0;
+    }
+    if (*(int *)(param_1 + 0x8c) == 1) {
+      if (*(char *)(param_1 + 0x68) == '\0') goto LAB_040aea3b;
+    }
+    else if ((*(uint *)(param_1 + 0x5c) <= *(uint *)(param_1 + 100)) &&
+            ((*(uint *)(param_1 + 0x5c) < *(uint *)(param_1 + 100) ||
+             (*(uint *)(param_1 + 0x58) <= *(uint *)(param_1 + 0x60))))) {
+LAB_040aea3b:
+      if (iVar4 != 0) {
+        cVar2 = FUN_040acd10();
+        if (cVar2 == '\0') {
+          return;
+        }
+        __ptr = *(void **)(param_1 + 200);
+        piVar3 = malloc(0xc);
+        piVar3[2] = 1;
+        eON_GetProcessHeap();
+        iVar4 = HeapAlloc();
+        *piVar3 = iVar4;
+        if (iVar4 == 0) {
+          FUN_0400a810();
+          iVar4 = *piVar3;
+        }
+        __n = *(size_t *)(param_1 + 0xbc);
+        __dest = (void *)(iVar4 + 0xfU & 0xfffffff0);
+        piVar3[1] = (int)__dest;
+        *(int **)(param_1 + 200) = piVar3;
+        memcpy(__dest,*(void **)((int)__ptr + 4),__n);
+        LOCK();
+        piVar3 = (int *)((int)__ptr + 8);
+        iVar4 = *piVar3;
+        *piVar3 = *piVar3 + -1;
+        UNLOCK();
+        if (iVar4 == 1) {
+          eON_GetProcessHeap();
+          eON_HeapFree();
+          free(__ptr);
+        }
+        iVar4 = *(int *)(param_1 + 0x54);
+        while (iVar1 = iVar4, iVar1 != 0) {
+          *(undefined4 *)(param_1 + 0x54) = *(undefined4 *)(iVar1 + 0x18);
+          *(int *)(iVar1 + 0x18) = DAT_044a3840;
+          DAT_044a3840 = iVar1;
+          iVar4 = *(int *)(param_1 + 0x54);
+        }
+        return;
+      }
+      goto LAB_040aec00;
+    }
+    if (iVar4 == 0) {
+      piVar3 = malloc(0xc);
+      piVar3[2] = 1;
+      eON_GetProcessHeap();
+      iVar4 = HeapAlloc();
+      piVar5 = (int *)&stack0xffffffa8;
+      *piVar3 = iVar4;
+      if (iVar4 == 0) {
+        FUN_0400a810();
+        iVar4 = *piVar3;
+      }
+      piVar3[1] = iVar4 + 0xfU & 0xfffffff0;
+      *(int **)(param_1 + 200) = piVar3;
+    }
+    if (param_3 == '\0') {
+      piVar5[1] = param_1;
+      piVar5[3] = 0;
+      piVar5[2] = 0x3d;
+      *piVar5 = *(int *)(param_1 + 0x1c) + 0xec40;
+      piVar5[-1] = 0x40ae9ea;
+      D3D9CommandQueue__GetNextCommandPointer();
+      D3D9CommandQueue__CommandSubmitted();
+      return;
+    }
+    *piVar5 = *(undefined4 *)(*(int *)(param_1 + 0x1c) + 0xed00);
+    piVar5[-1] = 0x40aeba1;
+    eON_ResetEvent();
+    piVar5[2] = 0;
+    piVar5[1] = 0x3d;
+    *piVar5 = param_1;
+    piVar5[-1] = *(int *)(param_1 + 0x1c) + 0xec40;
+    piVar5[-2] = 0x40aebc8;
+    D3D9CommandQueue__GetNextCommandPointer();
+    piVar5[-1] = *(int *)(param_1 + 0x1c) + 0xec40;
+    piVar5[-2] = 0x40aebd8;
+    D3D9CommandQueue__CommandSubmitted();
+    *piVar5 = 0xffffffff;
+    piVar5[-1] = *(undefined4 *)(*(int *)(param_1 + 0x1c) + 0xed00);
+    piVar5[-2] = 0x40aebf1;
+    eON_WaitForSingleObject();
+  }
+  else {
+    *(undefined4 *)(param_1 + 0x58) = 0;
+    *(undefined4 *)(param_1 + 0x5c) = 0;
+    if (*(int *)(param_1 + 200) != 0) {
+      iVar4 = *(int *)(param_1 + 0x54);
+      while (iVar1 = iVar4, iVar1 != 0) {
+        *(undefined4 *)(param_1 + 0x54) = *(undefined4 *)(iVar1 + 0x18);
+        *(int *)(iVar1 + 0x18) = DAT_044a3840;
+        DAT_044a3840 = iVar1;
+        iVar4 = *(int *)(param_1 + 0x54);
+      }
+      return;
+    }
+LAB_040aec00:
+    piVar3 = malloc(0xc);
+    piVar3[2] = 1;
+    eON_GetProcessHeap();
+    iVar4 = HeapAlloc();
+    *piVar3 = iVar4;
+    if (iVar4 == 0) {
+      FUN_0400a810();
+      iVar4 = *piVar3;
+    }
+    piVar3[1] = iVar4 + 0xfU & 0xfffffff0;
+    *(int **)(param_1 + 200) = piVar3;
+  }
+  return;
+}
+

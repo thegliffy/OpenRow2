@@ -1,0 +1,200 @@
+
+/* WARNING: Type propagation algorithm not settling */
+
+undefined4 shader_pch_save_linked_program_info(int param_1,int param_2,int param_3,int param_4)
+
+{
+  pthread_mutex_t *__mutex;
+  int *piVar1;
+  undefined4 uVar2;
+  undefined4 uVar3;
+  FILE *__s;
+  size_t sVar4;
+  undefined4 *puVar5;
+  undefined4 *puVar6;
+  int *piVar7;
+  int iVar8;
+  undefined4 *puVar9;
+  size_t __n;
+  byte bVar10;
+  undefined4 local_a8 [27];
+  undefined4 local_3c;
+  undefined4 local_38;
+  undefined4 local_34;
+  undefined4 local_30;
+  int local_2c [3];
+  undefined4 local_20 [4];
+  
+  bVar10 = 0;
+  __mutex = (pthread_mutex_t *)(param_1 + 0x110);
+  pthread_mutex_lock(__mutex);
+  if (*(char **)(param_1 + 0x10c) == (char *)0x0) goto LAB_040e9d47;
+  __s = fopen64(*(char **)(param_1 + 0x10c),"ab");
+  if (__s == (FILE *)0x0) {
+    FUN_0402cd10(0xf,
+                 "Opening of precompiled shader file to save linked program info failed! Disabling precompiled shader usage."
+                );
+    *(undefined4 *)(param_1 + 0x10c) = 0;
+    pthread_mutex_unlock(__mutex);
+    return 0;
+  }
+  local_2c[1] = 0x45de56a5;
+  sVar4 = fwrite(local_2c + 1,1,4,__s);
+  if (sVar4 == 4) {
+    piVar1 = (int *)(*(int *)(param_1 + 0xc) + *(int *)(param_1 + 0x14) * 4);
+    puVar6 = (undefined4 *)*piVar1;
+    puVar5 = *(undefined4 **)(*(int *)(param_1 + 0xc) + *(int *)(param_1 + 0x10) * 4);
+LAB_040e9d80:
+    piVar7 = piVar1;
+    if (puVar6 != puVar5) {
+      while( true ) {
+        if (puVar6[2] == param_2) {
+          uVar2 = *puVar6;
+          local_2c[1] = 0x45de56a1;
+          uVar3 = puVar6[1];
+          sVar4 = fwrite(local_2c + 1,1,4,__s);
+          if (((sVar4 != 4) ||
+              (local_2c[2] = uVar3, sVar4 = fwrite(local_2c + 2,1,4,__s), sVar4 != 4)) ||
+             (local_20[0] = uVar2, sVar4 = fwrite(local_20,1,4,__s), sVar4 != 4)) goto LAB_040e9d0d;
+          goto LAB_040e9eac;
+        }
+        puVar6 = (undefined4 *)puVar6[3];
+        piVar1 = piVar7;
+        if (puVar6 != (undefined4 *)0x0) break;
+        puVar6 = (undefined4 *)piVar7[1];
+        piVar1 = piVar7 + 1;
+        if (puVar6 != (undefined4 *)0x0) break;
+        piVar1 = piVar7 + 2;
+        do {
+          piVar7 = piVar1;
+          puVar6 = (undefined4 *)*piVar7;
+          piVar1 = piVar7 + 1;
+        } while (puVar6 == (undefined4 *)0x0);
+        if (puVar6 == puVar5) goto LAB_040e9dc0;
+      }
+      goto LAB_040e9d80;
+    }
+LAB_040e9dc0:
+    puVar6 = (undefined4 *)(*(int *)(param_1 + 0x54) + *(int *)(param_1 + 0x5c) * 4);
+    puVar5 = (undefined4 *)*puVar6;
+    while (*(undefined4 **)(*(int *)(param_1 + 0x54) + *(int *)(param_1 + 0x58) * 4) != puVar5) {
+      if (param_2 == puVar5[4]) {
+        local_3c = *puVar5;
+        local_2c[1] = 0x45de56a3;
+        local_38 = puVar5[1];
+        local_34 = puVar5[2];
+        local_30 = puVar5[3];
+        sVar4 = fwrite(local_2c + 1,1,4,__s);
+        if ((sVar4 == 4) && (sVar4 = fwrite(&local_3c,1,0x10,__s), sVar4 == 0x10))
+        goto LAB_040e9eac;
+        break;
+      }
+      puVar5 = (undefined4 *)puVar5[10];
+      if (puVar5 == (undefined4 *)0x0) {
+        puVar5 = puVar6 + 1;
+        puVar6 = puVar6 + 1;
+        puVar5 = (undefined4 *)*puVar5;
+        while (puVar5 == (undefined4 *)0x0) {
+          puVar6 = puVar6 + 1;
+          puVar5 = (undefined4 *)*puVar6;
+        }
+      }
+    }
+    FUN_0402cd10(0xf,"When saving linked program, didn\'t find its vertex shader!");
+  }
+  goto LAB_040e9d0d;
+code_r0x040ea004:
+  puVar6 = (undefined4 *)puVar6[0x1c];
+  puVar5 = puVar9;
+  if (puVar6 == (undefined4 *)0x0) {
+    puVar6 = (undefined4 *)puVar9[1];
+    puVar5 = puVar9 + 1;
+    if (puVar6 == (undefined4 *)0x0) {
+      puVar9 = puVar9 + 2;
+      do {
+        puVar6 = (undefined4 *)*puVar9;
+        puVar5 = puVar9;
+        puVar9 = puVar9 + 1;
+      } while (puVar6 == (undefined4 *)0x0);
+    }
+  }
+  goto LAB_040e9ff0;
+LAB_040e9eac:
+  piVar1 = (int *)(*(int *)(param_1 + 0x30) + *(int *)(param_1 + 0x38) * 4);
+  puVar5 = (undefined4 *)*piVar1;
+  while (piVar7 = piVar1,
+        *(undefined4 **)(*(int *)(param_1 + 0x30) + *(int *)(param_1 + 0x34) * 4) != puVar5) {
+    if (puVar5[2] == param_3) {
+      uVar2 = *puVar5;
+      local_2c[1] = 0x45de56a2;
+      uVar3 = puVar5[1];
+      sVar4 = fwrite(local_2c + 1,1,4,__s);
+      if (((sVar4 != 4) || (local_20[0] = uVar3, sVar4 = fwrite(local_20,1,4,__s), sVar4 != 4)) ||
+         (local_2c[2] = uVar2, sVar4 = fwrite(local_2c + 2,1,4,__s), sVar4 != 4)) goto LAB_040e9d0d;
+      goto LAB_040ea0ca;
+    }
+    puVar5 = (undefined4 *)puVar5[3];
+    piVar1 = piVar7;
+    if (puVar5 == (undefined4 *)0x0) {
+      puVar5 = (undefined4 *)piVar7[1];
+      piVar1 = piVar7 + 1;
+      if (puVar5 == (undefined4 *)0x0) {
+        piVar7 = piVar7 + 2;
+        do {
+          puVar5 = (undefined4 *)*piVar7;
+          piVar1 = piVar7;
+          piVar7 = piVar7 + 1;
+        } while (puVar5 == (undefined4 *)0x0);
+      }
+    }
+  }
+  puVar5 = (undefined4 *)(*(int *)(param_1 + 0x78) + *(int *)(param_1 + 0x80) * 4);
+  puVar6 = (undefined4 *)*puVar5;
+LAB_040e9ff0:
+  puVar9 = puVar5;
+  if (puVar6 != *(undefined4 **)(*(int *)(param_1 + 0x78) + *(int *)(param_1 + 0x7c) * 4)) {
+    if (param_3 != puVar6[0x1b]) goto code_r0x040ea004;
+    puVar5 = local_a8;
+    for (iVar8 = 0x1b; iVar8 != 0; iVar8 = iVar8 + -1) {
+      *puVar5 = *puVar6;
+      puVar6 = puVar6 + (uint)bVar10 * -2 + 1;
+      puVar5 = puVar5 + (uint)bVar10 * -2 + 1;
+    }
+    local_2c[1] = 0x45de56a4;
+    sVar4 = fwrite(local_2c + 1,1,4,__s);
+    if ((sVar4 == 4) && (sVar4 = fwrite(local_a8,1,0x6c,__s), sVar4 == 0x6c)) {
+LAB_040ea0ca:
+      local_2c[1] = 0x45de56a5;
+      sVar4 = fwrite(local_2c + 1,1,4,__s);
+      if (sVar4 == 4) {
+        local_2c[0] = *(int *)(param_4 + 0x168);
+        sVar4 = fwrite(local_2c,1,4,__s);
+        if ((sVar4 == 4) &&
+           ((local_2c[0] == 0 ||
+            (__n = local_2c[0] * 0x24, sVar4 = fwrite(*(void **)(param_4 + 0x164),1,__n,__s),
+            __n - sVar4 == 0)))) {
+          local_2c[1] = 0x45de56a5;
+          sVar4 = fwrite(local_2c + 1,1,4,__s);
+          if (sVar4 == 4) {
+            fclose(__s);
+            pthread_mutex_unlock(__mutex);
+            return 1;
+          }
+        }
+      }
+      goto LAB_040e9d0d;
+    }
+  }
+  FUN_0402cd10(0xf,"When saving linked program, didn\'t find its fragment shader!");
+LAB_040e9d0d:
+  fclose(__s);
+  FUN_0402cd10(0xf,
+               "Saving of linked program info failed! Deleting precompiled shader file and disabling precompiled shader usage."
+              );
+  FUN_0401a1d0(*(undefined4 *)(param_1 + 0x10c));
+  *(undefined4 *)(param_1 + 0x10c) = 0;
+LAB_040e9d47:
+  pthread_mutex_unlock(__mutex);
+  return 0;
+}
+

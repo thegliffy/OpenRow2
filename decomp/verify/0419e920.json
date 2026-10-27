@@ -1,0 +1,26 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+bool _glewInit_GL_EXT_texture_object(void)
+
+{
+  int iVar1;
+  bool bVar2;
+  bool bVar3;
+  bool bVar4;
+  bool bVar5;
+  
+  iVar1 = glXGetProcAddressARB("glAreTexturesResidentEXT");
+  _DAT_0451d614 = iVar1;
+  _DAT_0451d610 = glXGetProcAddressARB("glBindTextureEXT");
+  bVar2 = _DAT_0451d610 == 0;
+  _DAT_0451d60c = glXGetProcAddressARB("glDeleteTexturesEXT");
+  bVar3 = _DAT_0451d60c == 0;
+  _DAT_0451d608 = glXGetProcAddressARB("glGenTexturesEXT");
+  bVar4 = _DAT_0451d608 == 0;
+  _DAT_0451d604 = glXGetProcAddressARB("glIsTextureEXT");
+  bVar5 = _DAT_0451d604 == 0;
+  _DAT_0451d600 = glXGetProcAddressARB("glPrioritizeTexturesEXT");
+  return _DAT_0451d600 == 0 || (bVar5 || (bVar4 || (bVar3 || (bVar2 || iVar1 == 0))));
+}
+

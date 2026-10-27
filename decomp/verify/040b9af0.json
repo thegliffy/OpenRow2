@@ -1,0 +1,19 @@
+
+/* source: display */
+
+undefined4 Direct3DDevice9Imp__GetContextCache(int param_1)
+
+{
+  char cVar1;
+  
+  cVar1 = (**(code **)(**(int **)(param_1 + 0xeb44) + 0x1c))
+                    (*(int **)(param_1 + 0xeb44),*(undefined4 *)(*(int *)(param_1 + 0xeb48) + 0x224)
+                    );
+  if (cVar1 == '\0') {
+    FUN_0400a810("mOpenGLWrapper->ContextIsCurrent( mOpenGLContextCache->Context() )",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/display.cpp"
+                 ,0xf9,"OpenGLContextCache* Direct3DDevice9Imp::GetContextCache()");
+  }
+  return *(undefined4 *)(param_1 + 0xeb48);
+}
+

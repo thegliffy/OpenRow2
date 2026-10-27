@@ -1,0 +1,155 @@
+
+/* source: direct3ddevice9imp */
+
+void Direct3DDevice9Imp__Direct3DDevice9Imp(undefined4 *param_1,undefined4 param_2)
+
+{
+  undefined1 uVar1;
+  undefined4 uVar2;
+  int iVar3;
+  undefined4 *__s;
+  
+  __s = param_1 + 0x1f18;
+  IUnknownImp__IUnknownImp(param_1,param_2);
+  *param_1 = &PTR_direct3ddevice9imp_0409bd10_042f6888;
+  param_1[0x1d70] = 0;
+  param_1[0x1d71] = 0;
+  param_1[0x1d74] = 0;
+  param_1[0x1d72] = param_1 + 0x1d70;
+  param_1[0x1d73] = param_1 + 0x1d70;
+  do {
+    bzero(__s,0x38);
+    __s[2] = 0x2901;
+    __s[1] = 0x2901;
+    *__s = 0x2901;
+    __s[4] = 0x2600;
+    __s[3] = 0x2600;
+    __s[6] = 1;
+    __s[7] = 0xc47a0000;
+    __s = __s + 0xe;
+  } while (__s != param_1 + 0x2030);
+  param_1[0x319d] = 0;
+  param_1[0x319f] = param_1 + 0x319d;
+  param_1[0x31a0] = param_1 + 0x319d;
+  param_1[0x3a95] = param_1 + 0x3a93;
+  param_1[0x3a96] = param_1 + 0x3a93;
+  param_1[0x319e] = 0;
+  param_1[0x31a1] = 0;
+  param_1[0x3a90] = 0;
+  param_1[0x3a91] = 0;
+  param_1[0x3a93] = 0;
+  param_1[0x3a94] = 0;
+  param_1[14999] = 0;
+  param_1[15000] = 0;
+  param_1[0x3a99] = 0;
+  param_1[0x3a9a] = 0;
+  param_1[0x3aa1] = 0;
+  param_1[0x3aa2] = 0;
+  param_1[0x3aa3] = 0;
+  param_1[0x3aaa] = 0;
+  param_1[0x3aab] = 0;
+  param_1[0x3aac] = 0;
+  param_1[0x3ab3] = 0;
+  param_1[0x3ab4] = 0;
+  param_1[0x3ab5] = 0;
+  param_1[0x3abc] = 0;
+  param_1[0x3abd] = 0;
+  param_1[0x3abe] = 0;
+  param_1[0x3ac5] = 0;
+  param_1[0x3ac6] = 0;
+  param_1[0x3ac7] = 0;
+  param_1[0x3ace] = 0;
+  param_1[0x3acf] = 0;
+  param_1[0x3ad0] = 0;
+  param_1[0x3ad1] = 0;
+  param_1[0x3ad2] = 0;
+  *(undefined1 *)((int)param_1 + 0xeb4d) = 0;
+  *(undefined1 *)((int)param_1 + 0xeb4e) = 0;
+  *(undefined1 *)((int)param_1 + 0xeb4f) = 0;
+  *(undefined1 *)(param_1 + 0x3ad4) = 0;
+  *(undefined1 *)((int)param_1 + 0xeb51) = 0;
+  *(undefined1 *)((int)param_1 + 0xeb52) = 0;
+  param_1[0x3ad5] = 0;
+  param_1[0x3ad6] = 0;
+  param_1[0x3ad7] = 0;
+  param_1[0x3ad8] = 0;
+  param_1[0x3ad9] = 0;
+  param_1[0x3ada] = 0;
+  param_1[0x3adb] = 0;
+  param_1[0x3adc] = 0;
+  param_1[0x3add] = 0;
+  param_1[0x3ade] = 0;
+  *(undefined1 *)(param_1 + 0x3adf) = 0;
+  param_1[0x3ae0] = 0;
+                    /* try { // try from 0409cd3c to 0409cd40 has its CatchHandler @ 0409d02b */
+  FUN_040e48c0(param_1 + 0x3ae7);
+  param_1[0x3af1] = 0;
+  param_1[0x3af2] = 0;
+  param_1[0x3af3] = 0;
+  param_1[0x3af4] = 0;
+  param_1[0x3af5] = 0;
+  param_1[0x3af6] = 0;
+  param_1[0x3af7] = 0;
+  param_1[0x3af8] = 0;
+  param_1[0x3af9] = 0;
+  param_1[0x3afa] = 0;
+  param_1[0x3afb] = 0;
+  *(undefined1 *)(param_1 + 0x3afd) = 0;
+  param_1[0x3afe] = 0;
+                    /* try { // try from 0409cdc9 to 0409cdcd has its CatchHandler @ 0409d0b7 */
+  D3D9CommandQueue__D3D9CommandQueue(param_1 + 0x3b00);
+  param_1[1] = "Direct3DDevice9Imp";
+  param_1[0x3a9a] = param_1 + 15000;
+  param_1[0x3a99] = param_1 + 15000;
+  param_1[0x3aa3] = param_1 + 0x3aa1;
+  param_1[0x3aa2] = param_1 + 0x3aa1;
+  param_1[0x3aac] = param_1 + 0x3aaa;
+  param_1[0x3aab] = param_1 + 0x3aaa;
+  param_1[0x3ab5] = param_1 + 0x3ab3;
+  param_1[0x3ab4] = param_1 + 0x3ab3;
+  param_1[0x3abe] = param_1 + 0x3abc;
+  param_1[0x3abd] = param_1 + 0x3abc;
+  param_1[15000] = 0;
+  param_1[0x3aa1] = 0;
+  param_1[0x3aaa] = 0;
+  param_1[0x3ab3] = 0;
+  param_1[0x3abc] = 0;
+  param_1[0x3ac5] = 0;
+  param_1[0x3ac7] = param_1 + 0x3ac5;
+  param_1[0x3ac6] = param_1 + 0x3ac5;
+                    /* try { // try from 0409ce83 to 0409d028 has its CatchHandler @ 0409d07b */
+  uVar1 = FUN_04021ee0();
+  *(undefined1 *)(param_1 + 0x3ad3) = uVar1;
+  pthread_mutex_init((pthread_mutex_t *)(param_1 + 0x3a9b),(pthread_mutexattr_t *)0x0);
+  pthread_mutex_init((pthread_mutex_t *)(param_1 + 0x3aa4),(pthread_mutexattr_t *)0x0);
+  pthread_mutex_init((pthread_mutex_t *)(param_1 + 0x3aad),(pthread_mutexattr_t *)0x0);
+  pthread_mutex_init((pthread_mutex_t *)(param_1 + 0x3ab6),(pthread_mutexattr_t *)0x0);
+  pthread_mutex_init((pthread_mutex_t *)(param_1 + 0x3abf),(pthread_mutexattr_t *)0x0);
+  pthread_mutex_init((pthread_mutex_t *)(param_1 + 0x3ac8),(pthread_mutexattr_t *)0x0);
+  param_1[10] = 0;
+  bzero(param_1 + 0xb,0x10);
+  FUN_040630f0(param_1 + 0x20);
+  FUN_04061fc0(param_1 + 0x1d90);
+  uVar2 = eON_GetCurrentThreadId();
+  param_1[0x1d79] = uVar2;
+  uVar1 = FUN_0400cbc0(&PTR_DAT_042f63d0);
+  *(undefined1 *)(param_1 + 0x3a7e) = uVar1;
+  iVar3 = eON_CreateEventA(0,1,0,0);
+  param_1[0x3b30] = iVar3;
+  if (iVar3 == 0) {
+    FUN_0400a810("mCommandSyncEvent",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+                 ,0x11e,"Direct3DDevice9Imp::Direct3DDevice9Imp(LPVOID)");
+  }
+  iVar3 = eON_CreateEventA(0,1,0,0);
+  param_1[0x3afc] = iVar3;
+  if (iVar3 == 0) {
+    FUN_0400a810("OobSyncEvent",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+                 ,0x121,"Direct3DDevice9Imp::Direct3DDevice9Imp(LPVOID)");
+  }
+  DAT_04468c34 = param_1[3];
+  eON_InitializeCriticalSection(param_1 + 4);
+  return;
+}
+

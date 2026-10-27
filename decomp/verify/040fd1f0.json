@@ -1,0 +1,26 @@
+
+void DirectSound8Imp__DirectSound8Imp(undefined4 *param_1,undefined4 param_2)
+
+{
+  undefined4 uVar1;
+  undefined4 *puVar2;
+  
+  IUnknownImp__IUnknownImp(param_1,param_2);
+  *param_1 = &PTR_FUN_0430df08;
+  *(undefined1 *)(param_1 + 4) = 0;
+  param_1[6] = 0;
+  param_1[7] = 0;
+  param_1[8] = 0;
+  param_1[1] = "DirectSound8Imp";
+                    /* try { // try from 040fd23e to 040fd254 has its CatchHandler @ 040fd280 */
+  uVar1 = FUN_040f96a0(0x80);
+  param_1[5] = uVar1;
+  uVar1 = param_1[3];
+  puVar2 = operator_new(0x5c);
+  *puVar2 = &PTR_FUN_0430dfa8;
+                    /* try { // try from 040fd26b to 040fd26f has its CatchHandler @ 040fd292 */
+  DirectSound3DListener8Imp__DirectSound3DListener8Imp(puVar2 + 1,puVar2,uVar1);
+  param_1[6] = puVar2;
+  return;
+}
+

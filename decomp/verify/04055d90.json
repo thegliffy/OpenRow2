@@ -1,0 +1,44 @@
+
+void eON_ShaderData_convert_dp(int param_1)
+
+{
+  uint uVar1;
+  int iVar2;
+  undefined4 uVar3;
+  undefined1 local_2ac [128];
+  undefined1 local_22c [128];
+  undefined1 local_1ac [128];
+  undefined1 local_12c [128];
+  undefined1 local_ac [128];
+  undefined1 local_2c [28];
+  
+  local_ac[0] = 0;
+  local_2c[0] = 0;
+  uVar3 = *(undefined4 *)(param_1 + 0x38);
+  eON_ShaderData__InputRegisterIsColor(local_ac);
+  iVar2 = 0;
+  uVar1 = ShaderData_AppendDestMask();
+  if (uVar1 != 0) {
+    eON_AppendShaderCompileMessage
+              (uVar3,"%s%s = %s(",local_ac,local_2c,
+               (&PTR_DAT_042eb360)[*(byte *)(param_1 + 0xf) & 0xf]);
+    iVar2 = (((uint)((uVar1 & 0x10000) != 0) - (uint)((uVar1 & 0x20000) == 0)) + 2) -
+            (uint)((uVar1 & 0x40000) == 0);
+  }
+  uVar3 = 0xf0000;
+  uVar1 = (iVar2 + 1) - (uint)((uVar1 & 0x80000) == 0);
+  if (**(int **)(param_1 + 4) != 9) {
+    uVar3 = 0x70000;
+  }
+  eON_ShaderData_ApplySourceModifier(uVar3,local_2ac);
+  eON_ShaderData_ApplySourceModifier(uVar3,local_1ac);
+  if (1 < uVar1) {
+    eON_AppendShaderCompileMessage
+              (*(undefined4 *)(param_1 + 0x38),"vec%d(dot(%s,%s)));\n",uVar1,local_22c,local_12c);
+    return;
+  }
+  eON_AppendShaderCompileMessage
+            (*(undefined4 *)(param_1 + 0x38),"dot(%s,%s));\n",local_22c,local_12c);
+  return;
+}
+

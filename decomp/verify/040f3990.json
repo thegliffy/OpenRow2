@@ -1,0 +1,195 @@
+
+/* source: directinputgamepaddevice8imp */
+
+undefined4 DirectInputGamepadDeviceImp__SetDataFormat(int param_1,undefined4 *param_2)
+
+{
+  undefined4 *puVar1;
+  int iVar2;
+  void *pvVar3;
+  undefined4 uVar4;
+  int *piVar5;
+  int iVar6;
+  int iVar7;
+  uint uVar8;
+  uint uVar9;
+  char *pcVar10;
+  int iVar11;
+  int iVar12;
+  int iVar13;
+  int iVar14;
+  int local_50;
+  int local_44;
+  
+  GamepadControl__SetInitialMinMaxValues();
+  iVar2 = FUN_04010e80(param_1 + 0x20);
+  if (iVar2 == 0) {
+    uVar4 = 0x8007001e;
+  }
+  else {
+    if (*(void **)(param_1 + 0x50) != (void *)0x0) {
+      free(*(void **)(param_1 + 0x50));
+    }
+    *(undefined4 *)(param_1 + 0x3c) = *param_2;
+    *(undefined4 *)(param_1 + 0x40) = param_2[1];
+    *(undefined4 *)(param_1 + 0x44) = param_2[2];
+    *(undefined4 *)(param_1 + 0x48) = param_2[3];
+    *(undefined4 *)(param_1 + 0x4c) = param_2[4];
+    iVar2 = param_2[4];
+    iVar12 = param_2[1];
+    *(undefined4 *)(param_1 + 0x50) = param_2[5];
+    pvVar3 = calloc(1,iVar2 * iVar12);
+    *(void **)(param_1 + 0x50) = pvVar3;
+    memcpy(pvVar3,(void *)param_2[5],iVar2 * iVar12);
+    FUN_0402cd10(0x14,"data format: num objs %u",*(undefined4 *)(param_1 + 0x4c));
+    uVar4 = 0;
+    if (*(int *)(param_1 + 0x4c) != 0) {
+      uVar8 = 0;
+      local_44 = 0;
+      local_50 = 0;
+      do {
+        while( true ) {
+          piVar5 = (int *)(uVar8 * 0x10 + *(int *)(param_1 + 0x50));
+          iVar2 = piVar5[2];
+          iVar12 = piVar5[3];
+          iVar14 = piVar5[1];
+          pcVar10 = (char *)*piVar5;
+          iVar11 = iVar2;
+          iVar13 = iVar12;
+          FUN_0402cd10(0x14,"obj %u: GUID %p, type %u (%#x), flags %u (%#x), offset %u",uVar8,
+                       pcVar10,iVar2,iVar2,iVar12,iVar12,iVar14);
+          uVar9 = piVar5[2];
+          if ((uVar9 & 0xc) == 0) break;
+          if (local_50 == 0xf) {
+            FUN_0402cd10(10,
+                         "couldn\'t map button at data struture offset %u, no such button on gamepad"
+                         ,piVar5[1],pcVar10,iVar2,iVar11,iVar12,iVar13,iVar14);
+          }
+          else {
+            puVar1 = *(undefined4 **)(param_1 + 0x58);
+            iVar2 = piVar5[1];
+            if (puVar1 == *(undefined4 **)(param_1 + 0x5c)) {
+              FUN_040f3780();
+            }
+            else {
+              if (puVar1 != (undefined4 *)0x0) {
+                *puVar1 = 1;
+                puVar1[1] = local_50;
+                puVar1[2] = local_50;
+                puVar1[3] = iVar2;
+                puVar1[4] = 1;
+                puVar1[5] = 0;
+                puVar1[6] = 0xffff;
+                puVar1[7] = 0;
+              }
+              *(undefined4 **)(param_1 + 0x58) = puVar1 + 8;
+            }
+            FUN_0402cd10(0x14,"added button, elem usage %u, offset %d, size %d",local_50,iVar2,1,
+                         iVar11,iVar12,iVar13,iVar14);
+            local_50 = local_50 + 1;
+          }
+LAB_040f3b22:
+          uVar8 = uVar8 + 1;
+          if (*(uint *)(param_1 + 0x4c) <= uVar8) goto LAB_040f3cbe;
+        }
+        if ((uVar9 & 3) == 0) {
+          if ((uVar9 & 0x10) != 0) {
+            FUN_0402cd10(10,
+                         "couldn\'t map hatswitch at data struture offset %u, no hatswitches on gamepad"
+                         ,piVar5[1],pcVar10,iVar2,iVar11,iVar12,iVar13,iVar14);
+          }
+          goto LAB_040f3b22;
+        }
+        uVar9 = piVar5[1];
+        if ((uVar9 & 3) == 0) {
+          pvVar3 = (void *)*piVar5;
+          if (pvVar3 == (void *)0x0) goto LAB_040f3d57;
+LAB_040f3ba5:
+          iVar6 = memcmp(pvVar3,&DAT_042dbbc8,0x10);
+          iVar7 = 0;
+          if (iVar6 != 0) {
+            iVar6 = memcmp(pvVar3,&DAT_042dbbb8,0x10);
+            iVar7 = 1;
+            if (iVar6 != 0) {
+              iVar6 = memcmp(pvVar3,&DAT_042dbba8,0x10);
+              iVar7 = 4;
+              if (iVar6 != 0) {
+                iVar6 = memcmp(pvVar3,&DAT_042dbb98,0x10);
+                iVar7 = 2;
+                if (iVar6 != 0) {
+                  iVar6 = memcmp(pvVar3,&DAT_042dbb88,0x10);
+                  iVar7 = 3;
+                  if (iVar6 != 0) {
+                    iVar6 = memcmp(pvVar3,&DAT_042dbb78,0x10);
+                    iVar7 = (-(uint)(iVar6 == 0) & 6) - 1;
+                  }
+                }
+              }
+            }
+          }
+        }
+        else {
+          pcVar10 = "virtual HRESULT DirectInputGamepadDeviceImp::SetDataFormat(LPCDIDATAFORMAT)";
+          FUN_0400a810("fmt->dwOfs % 4 == 0",
+                       "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/dinput8/directinputgamepaddevice8imp.cpp"
+                       ,0x319,
+                       "virtual HRESULT DirectInputGamepadDeviceImp::SetDataFormat(LPCDIDATAFORMAT)"
+                      );
+          pvVar3 = (void *)*piVar5;
+          uVar9 = piVar5[1];
+          if (pvVar3 != (void *)0x0) goto LAB_040f3ba5;
+LAB_040f3d57:
+          switch(local_44) {
+          case 0:
+            iVar7 = 1;
+            break;
+          case 1:
+            iVar7 = 0;
+            break;
+          case 2:
+            iVar7 = 3;
+            break;
+          case 3:
+            iVar7 = 2;
+            break;
+          case 4:
+            iVar7 = 4;
+            break;
+          case 5:
+            iVar7 = 5;
+            break;
+          default:
+            FUN_0402cd10(10,"couldn\'t map axis at data struture offset %u, no such axis on gamepad"
+                         ,uVar9,pcVar10,iVar2,iVar11,iVar12,iVar13,iVar14);
+            goto LAB_040f3b22;
+          }
+        }
+        puVar1 = *(undefined4 **)(param_1 + 0x58);
+        if (puVar1 == *(undefined4 **)(param_1 + 0x5c)) {
+          FUN_040f3780();
+        }
+        else {
+          if (puVar1 != (undefined4 *)0x0) {
+            *puVar1 = 0;
+            puVar1[1] = iVar7;
+            puVar1[2] = iVar7;
+            puVar1[3] = uVar9;
+            puVar1[4] = 4;
+            puVar1[5] = 0;
+            puVar1[6] = 0xffff;
+            puVar1[7] = 0;
+          }
+          *(undefined4 **)(param_1 + 0x58) = puVar1 + 8;
+        }
+        local_44 = local_44 + 1;
+        uVar8 = uVar8 + 1;
+        FUN_0402cd10(0x14,"added axis, elem usage %u, offset %d",iVar7,uVar9,iVar2,iVar11,iVar12,
+                     iVar13,iVar14);
+      } while (uVar8 < *(uint *)(param_1 + 0x4c));
+LAB_040f3cbe:
+      uVar4 = 0;
+    }
+  }
+  return uVar4;
+}
+

@@ -1,0 +1,46 @@
+
+/* source: direct3ddevice9imp */
+
+undefined4 direct3ddevice9imp_0408f6f0(int param_1)
+
+{
+  char cVar1;
+  int iVar2;
+  int *piVar3;
+  uint uVar4;
+  uint uVar5;
+  
+  iVar2 = *(int *)(param_1 + 0x52f8);
+  piVar3 = *(int **)(iVar2 + 0x30);
+  uVar5 = *(int *)(iVar2 + 0x34) - (int)piVar3 >> 2;
+  if (uVar5 < 0x11) {
+    if (uVar5 == 0) {
+      return 1;
+    }
+  }
+  else {
+    FUN_0400a810("numUsedStreams <= 16",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+                 ,0x26e8,
+                 "bool Direct3DDevice9Imp::ValidateStreamSourcesForDraw(INT, ULONG, ULONG, INT)");
+    piVar3 = *(int **)(iVar2 + 0x30);
+  }
+  iVar2 = *(int *)(param_1 + 0xc + (*piVar3 + 0xcc) * 0x10);
+  if (iVar2 != 0) {
+    uVar4 = 0;
+    cVar1 = *(char *)(iVar2 + 0x5c);
+    while (cVar1 == '\0') {
+      uVar4 = uVar4 + 1;
+      if (uVar4 == uVar5) {
+        return 1;
+      }
+      iVar2 = *(int *)(param_1 + 0xc + (piVar3[uVar4] + 0xcc) * 0x10);
+      if (iVar2 == 0) break;
+      cVar1 = *(char *)(iVar2 + 0x5c);
+    }
+  }
+  FUN_0402cd10(10,"Game trying to render with invalid vertex buffer ( %p ), returning INVALIDCALL.",
+               iVar2);
+  return 0;
+}
+

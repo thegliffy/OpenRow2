@@ -1,0 +1,34 @@
+
+/* source: direct3ddevice9imp */
+
+void Direct3DDevice9Imp__DeleteVertexBufferForDrawQuad(int param_1)
+
+{
+  char cVar1;
+  char cVar2;
+  int iVar3;
+  
+  cVar2 = DAT_0451ca88;
+  cVar1 = '\x01';
+  if (DAT_0451ca55 == '\0') {
+    cVar1 = *(char *)(param_1 + 0xeb4d);
+  }
+  iVar3 = *(int *)(param_1 + 0xe9a0);
+  if (iVar3 != 0) {
+    if ((cVar1 != '\0') && (*(undefined4 *)(param_1 + 0xe9a4) = 0, cVar2 != '\0')) {
+      OpenGLContextCache____glewBindBuffer(*(undefined4 *)(param_1 + 0xeb48),0x8892,iVar3);
+      cVar2 = (*DAT_0451ecf0)(0x8892);
+      if (cVar2 != '\x01') {
+        FUN_0400a810("__glewUnmapBuffer( 0x8892 ) == 1",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+                     ,0x924,"void Direct3DDevice9Imp::DeleteVertexBufferForDrawQuad()");
+      }
+      *(undefined4 *)(param_1 + 0xe9a8) = 0;
+      iVar3 = *(int *)(param_1 + 0xe9a0);
+    }
+    FUN_040ba120(param_1,iVar3);
+    *(undefined4 *)(param_1 + 0xe9a0) = 0;
+  }
+  return;
+}
+

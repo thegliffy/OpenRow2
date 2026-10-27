@@ -1,0 +1,30 @@
+
+undefined4 ThreadPerformingSelectorOnMainThread(int param_1)
+
+{
+  int iVar1;
+  int iVar2;
+  
+  if (DAT_04411260 == '\0') {
+    FUN_0400a810("SynchroRegionInitialized",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/linux/executionOnMainThread.cpp"
+                 ,0x27,"bool ThreadPerformingSelectorOnMainThread(DWORD)");
+  }
+  pthread_mutex_lock((pthread_mutex_t *)&DAT_04411264);
+  if (DAT_044112c0 != 0) {
+    iVar2 = 0;
+    iVar1 = DAT_04411280;
+    while( true ) {
+      if (iVar1 == param_1) {
+        pthread_mutex_unlock((pthread_mutex_t *)&DAT_04411264);
+        return 1;
+      }
+      iVar2 = iVar2 + 1;
+      if (iVar2 == DAT_044112c0) break;
+      iVar1 = (&DAT_04411280)[iVar2];
+    }
+  }
+  pthread_mutex_unlock((pthread_mutex_t *)&DAT_04411264);
+  return 0;
+}
+

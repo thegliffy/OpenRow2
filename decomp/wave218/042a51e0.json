@@ -1,0 +1,20 @@
+
+void FUN_042a51e0(int param_1,int param_2)
+
+{
+  undefined1 uVar1;
+  
+  if (param_1 != 0) {
+    if (8 < param_2) {
+                    /* WARNING: Subroutine does not return */
+      png_error(param_1,"Too many bytes for PNG signature");
+    }
+    uVar1 = 0;
+    if (-1 < param_2) {
+      uVar1 = (undefined1)param_2;
+    }
+    *(undefined1 *)(param_1 + 0x1b9) = uVar1;
+  }
+  return;
+}
+

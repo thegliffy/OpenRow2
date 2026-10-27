@@ -1,0 +1,48 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+bool _glewInit_GL_NV_gpu_program4(void)
+
+{
+  int iVar1;
+  bool bVar2;
+  bool bVar3;
+  bool bVar4;
+  bool bVar5;
+  bool bVar6;
+  bool bVar7;
+  bool bVar8;
+  bool bVar9;
+  bool bVar10;
+  bool bVar11;
+  
+  iVar1 = glXGetProcAddressARB("glProgramEnvParameterI4iNV");
+  _DAT_0451d2ac = iVar1;
+  _DAT_0451d2a8 = glXGetProcAddressARB("glProgramEnvParameterI4ivNV");
+  bVar2 = _DAT_0451d2a8 == 0;
+  _DAT_0451d2a4 = glXGetProcAddressARB("glProgramEnvParameterI4uiNV");
+  bVar3 = _DAT_0451d2a4 == 0;
+  _DAT_0451d2a0 = glXGetProcAddressARB("glProgramEnvParameterI4uivNV");
+  bVar4 = _DAT_0451d2a0 == 0;
+  _DAT_0451d29c = glXGetProcAddressARB("glProgramEnvParametersI4ivNV");
+  bVar5 = _DAT_0451d29c == 0;
+  _DAT_0451d298 = glXGetProcAddressARB("glProgramEnvParametersI4uivNV");
+  bVar6 = _DAT_0451d298 == 0;
+  _DAT_0451d294 = glXGetProcAddressARB("glProgramLocalParameterI4iNV");
+  bVar7 = _DAT_0451d294 == 0;
+  _DAT_0451d290 = glXGetProcAddressARB("glProgramLocalParameterI4ivNV");
+  bVar8 = _DAT_0451d290 == 0;
+  _DAT_0451d28c = glXGetProcAddressARB("glProgramLocalParameterI4uiNV");
+  bVar9 = _DAT_0451d28c == 0;
+  _DAT_0451d288 = glXGetProcAddressARB("glProgramLocalParameterI4uivNV");
+  bVar10 = _DAT_0451d288 == 0;
+  _DAT_0451d284 = glXGetProcAddressARB("glProgramLocalParametersI4ivNV");
+  bVar11 = _DAT_0451d284 == 0;
+  _DAT_0451d280 = glXGetProcAddressARB("glProgramLocalParametersI4uivNV");
+  return _DAT_0451d280 == 0 ||
+         (bVar11 ||
+         (bVar10 ||
+         (bVar9 || (bVar8 || (bVar7 || (bVar6 || (bVar5 || (bVar4 || (bVar3 || (bVar2 || iVar1 == 0)
+                                                                     )))))))));
+}
+

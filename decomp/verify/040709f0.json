@@ -1,0 +1,332 @@
+
+/* source: direct3ddevice9imp */
+
+undefined4
+Direct3DDevice9Imp__SetCursorProperties(int *param_1,int param_2,int param_3,int *param_4)
+
+{
+  code *pcVar1;
+  char cVar2;
+  undefined4 uVar3;
+  int iVar4;
+  int *piVar5;
+  int iVar6;
+  int *piVar7;
+  uint uVar8;
+  int *piVar9;
+  int iVar10;
+  int local_c0 [31];
+  int local_44;
+  int *local_40;
+  int local_38;
+  int local_34;
+  int local_30;
+  int local_2c;
+  int local_28;
+  int *local_24;
+  int *local_20 [4];
+  
+  piVar9 = local_c0 + 0x11;
+  if (param_4 == (int *)0x0) {
+    uVar3 = 0x8876086c;
+  }
+  else {
+    iVar4 = param_1[3];
+    local_24 = &local_28;
+    local_28 = iVar4;
+    if (iVar4 != 0) {
+      piVar9 = local_c0 + 0x11;
+      if (*(char *)(iVar4 + 0xebbc) != '\0') {
+        local_c0[0x11] = iVar4 + 0xebc4;
+        local_c0[0x10] = 0x4070d2e;
+        EnterCriticalSection();
+        piVar9 = local_c0 + 0x10;
+      }
+      if (*(int *)(iVar4 + 0xec64) == 0) {
+        if (*(int *)(iVar4 + 0xebc0) != 0) {
+          piVar9[3] = (int)"void Direct3DDevice9Imp::MultithreadedGuard_Enter()";
+          piVar9[2] = 0x3ae;
+          piVar9[1] = (int)
+                      "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+          ;
+          *piVar9 = (int)"!mCurrentD3D9Thread";
+          piVar9[-1] = 0x4070a94;
+          FUN_0400a810();
+        }
+        piVar9[-1] = 0x4070a41;
+        uVar3 = FUN_0415b750();
+        *(undefined4 *)(iVar4 + 0xebc0) = uVar3;
+      }
+      else {
+        iVar10 = *(int *)(iVar4 + 0xebc0);
+        piVar9[-1] = 0x4070ceb;
+        iVar6 = FUN_0415b750();
+        if (iVar10 != iVar6) {
+          piVar9[3] = (int)"void Direct3DDevice9Imp::MultithreadedGuard_Enter()";
+          piVar9[2] = 0x3b3;
+          piVar9[1] = (int)
+                      "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+          ;
+          *piVar9 = (int)"mCurrentD3D9Thread == thread_GetCurrentThreadId()";
+          piVar9[-1] = 0x4070d17;
+          FUN_0400a810();
+        }
+      }
+      *(int *)(iVar4 + 0xec64) = *(int *)(iVar4 + 0xec64) + 1;
+    }
+    uVar3 = 0x8876086c;
+    if (param_4[0x1c] == 0x15) {
+      uVar8 = param_4[0x22];
+      if ((uVar8 <= *(uint *)(param_1[0x14bf] + 0x88)) &&
+         ((uint)param_4[0x23] <= *(uint *)(param_1[0x14bf] + 0x8c))) {
+        piVar7 = (int *)param_1[0x1d76];
+        piVar5 = piVar9;
+        if (piVar7 != (int *)0x0) {
+          iVar4 = *piVar7;
+          *piVar9 = (int)piVar7;
+                    /* try { // try from 04070ad7 to 04070ccf has its CatchHandler @ 04070f12 */
+          pcVar1 = *(code **)(iVar4 + 8);
+          piVar9[-1] = 0x4070ada;
+          (*pcVar1)();
+          piVar5 = piVar9 + -1;
+          param_1[0x1d76] = 0;
+          uVar8 = param_4[0x22];
+        }
+        if ((uVar8 == 0x20) && (param_4[0x23] == 0x20)) {
+          iVar4 = *param_4;
+          piVar5[3] = 0x10;
+          piVar5[2] = 0;
+          piVar5[1] = (int)&local_38;
+          *piVar5 = (int)param_4;
+                    /* try { // try from 04070d69 to 04070f0c has its CatchHandler @ 04070f12 */
+          pcVar1 = *(code **)(iVar4 + 0x34);
+          piVar5[-1] = 0x4070d6c;
+          iVar4 = (*pcVar1)();
+          if (iVar4 < 0) {
+            piVar5[-1] = (int)
+                         "virtual HRESULT Direct3DDevice9Imp::SetCursorProperties(UINT, UINT, IDirect3DSurface9*)"
+            ;
+            piVar5[-2] = 0x33b5;
+            piVar5[-3] = (int)
+                         "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+            ;
+            piVar5[-4] = (int)
+                         "((HRESULT)(cursorSurface->LockRect( &lockedRect, __null, 0x10 )) >= 0)";
+            piVar5[-5] = 0x4070f0d;
+            FUN_0400a810();
+          }
+          piVar5[-5] = 0x4070d7c;
+          piVar7 = (int *)FUN_04016a30();
+          iVar4 = *piVar7;
+          piVar5[2] = param_3;
+          piVar5[1] = param_2;
+          *piVar5 = param_4[0x23];
+          iVar10 = param_4[0x22];
+          piVar5[-4] = (int)piVar7;
+          piVar5[-1] = iVar10;
+          piVar5[-2] = local_38;
+          piVar5[-3] = local_34;
+          pcVar1 = *(code **)(iVar4 + 0xc);
+          piVar5[-5] = 0x4070db6;
+          cVar2 = (*pcVar1)();
+          if (cVar2 == '\0') {
+            piVar5[-1] = (int)
+                         "virtual HRESULT Direct3DDevice9Imp::SetCursorProperties(UINT, UINT, IDirect3DSurface9*)"
+            ;
+            piVar5[-2] = 0x33b8;
+            piVar5[-3] = (int)
+                         "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+            ;
+            piVar5[-4] = (int)
+                         "cursor->CreateFromARGBData( (LPCVOID) lockedRect.pBits, lockedRect.Pitch, desc->Width, desc->Height, XHotSpot, YHotSpot ) == true"
+            ;
+            piVar5[-5] = 0x4070dde;
+            FUN_0400a810();
+          }
+          iVar4 = *param_4;
+          piVar5[-4] = (int)param_4;
+          pcVar1 = *(code **)(iVar4 + 0x38);
+          piVar5[-5] = 0x4070de6;
+          (*pcVar1)();
+          piVar5[-5] = (int)piVar7;
+          piVar5[-6] = 0x4070df1;
+          eON_SetCursor();
+          piVar9 = piVar5 + -6;
+          if (param_1[0x1d75] != 0) {
+            piVar5[-6] = param_1[0x1d75];
+            piVar5[-7] = 0x4070e09;
+            eON_DestroyCursor();
+            piVar9 = piVar5 + -7;
+          }
+          param_1[0x1d75] = (int)piVar7;
+        }
+        else {
+          if (param_1[0x1d75] != 0) {
+            *piVar5 = param_1[0x1d75];
+            piVar5[-1] = 0x4070b0e;
+            eON_DestroyCursor();
+            uVar8 = param_4[0x22];
+            piVar5 = piVar5 + -1;
+          }
+          param_1[0x1d75] = 0;
+          iVar4 = *param_1;
+          piVar5[8] = 0;
+          piVar5[7] = (int)(param_1 + 0x1d76);
+          piVar5[6] = 0;
+          piVar5[5] = 0x15;
+          piVar5[4] = 0x200;
+          piVar5[3] = 1;
+          iVar10 = param_4[0x23];
+          piVar5[1] = uVar8;
+          piVar5[2] = iVar10;
+          *piVar5 = (int)param_1;
+          pcVar1 = *(code **)(iVar4 + 100);
+          piVar5[-1] = 0x4070b71;
+          iVar4 = (*pcVar1)();
+          if (iVar4 < 0) {
+            piVar5[3] = (int)
+                        "virtual HRESULT Direct3DDevice9Imp::SetCursorProperties(UINT, UINT, IDirect3DSurface9*)"
+            ;
+            piVar5[2] = 0x33c8;
+            piVar5[1] = (int)
+                        "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+            ;
+            *piVar5 = (int)
+                      "((HRESULT)(CreateTexture( desc->Width, desc->Height, 1, 0x200, D3DFMT_A8R8G8B8, D3DPOOL_DEFAULT, &mDeviceState.CursorTexture, 0 )) >= 0)"
+            ;
+            piVar5[-1] = 0x4070ea4;
+            FUN_0400a810();
+          }
+          local_20[0] = (int *)0x0;
+          piVar9 = (int *)param_1[0x1d76];
+          iVar4 = *piVar9;
+          piVar5[2] = (int)local_20;
+          piVar5[1] = 0;
+          *piVar5 = (int)piVar9;
+          pcVar1 = *(code **)(iVar4 + 0x48);
+          piVar5[-1] = 0x4070ba0;
+          iVar4 = (*pcVar1)();
+          if (iVar4 < 0) {
+            *piVar5 = (int)
+                      "virtual HRESULT Direct3DDevice9Imp::SetCursorProperties(UINT, UINT, IDirect3DSurface9*)"
+            ;
+            piVar5[-1] = 0x33cc;
+            piVar5[-2] = (int)
+                         "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+            ;
+            piVar5[-3] = (int)
+                         "((HRESULT)(mDeviceState.CursorTexture->GetSurfaceLevel( 0, &cursorZeroSurface )) >= 0)"
+            ;
+            piVar5[-4] = 0x4070e74;
+            FUN_0400a810();
+          }
+          iVar4 = *param_4;
+          *piVar5 = 0x10;
+          piVar5[-1] = 0;
+          piVar5[-2] = (int)&local_38;
+          piVar5[-3] = (int)param_4;
+          pcVar1 = *(code **)(iVar4 + 0x34);
+          piVar5[-4] = 0x4070bca;
+          iVar4 = (*pcVar1)();
+          if (iVar4 < 0) {
+            piVar5[-4] = (int)
+                         "virtual HRESULT Direct3DDevice9Imp::SetCursorProperties(UINT, UINT, IDirect3DSurface9*)"
+            ;
+            piVar5[-5] = 0x33d0;
+            piVar5[-6] = (int)
+                         "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+            ;
+            piVar5[-7] = (int)
+                         "((HRESULT)(cursorSurface->LockRect( &lockedSrcRect, __null, 0x10 )) >= 0)"
+            ;
+            piVar5[-8] = 0x4070e44;
+            FUN_0400a810();
+          }
+          iVar4 = *local_20[0];
+          piVar5[-4] = 0x2000;
+          piVar5[-5] = 0;
+          piVar5[-6] = (int)&local_30;
+          piVar5[-7] = (int)local_20[0];
+          pcVar1 = *(code **)(iVar4 + 0x34);
+          piVar5[-8] = 0x4070bf7;
+          iVar4 = (*pcVar1)();
+          if (iVar4 < 0) {
+            piVar5[-8] = (int)
+                         "virtual HRESULT Direct3DDevice9Imp::SetCursorProperties(UINT, UINT, IDirect3DSurface9*)"
+            ;
+            piVar5[-9] = 0x33d4;
+            piVar5[-10] = (int)
+                          "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+            ;
+            piVar5[-0xb] = (int)
+                           "((HRESULT)(cursorZeroSurface->LockRect( &lockedDestRect, __null, 0x2000 )) >= 0)"
+            ;
+            piVar5[-0xc] = 0x4070ee4;
+            FUN_0400a810();
+          }
+          local_44 = param_4[0x22] << 2;
+          if (param_4[0x23] != 0) {
+            local_40 = param_4;
+            uVar8 = 0;
+            iVar4 = local_34;
+            iVar10 = local_2c;
+            do {
+              piVar5[-10] = iVar4;
+              uVar8 = uVar8 + 1;
+              piVar5[-0xb] = iVar10;
+              piVar5[-9] = local_44;
+              piVar5[-0xc] = 0x4070c3e;
+              memcpy((void *)piVar5[-0xb],(void *)piVar5[-10],piVar5[-9]);
+              iVar4 = iVar4 + local_38;
+              iVar10 = iVar10 + local_30;
+              param_4 = local_40;
+            } while (uVar8 < (uint)local_40[0x23]);
+          }
+          iVar4 = *local_20[0];
+          piVar5[-0xb] = (int)local_20[0];
+          pcVar1 = *(code **)(iVar4 + 0x38);
+          piVar5[-0xc] = 0x4070c5c;
+          (*pcVar1)();
+          iVar4 = *param_4;
+          piVar5[-0xc] = (int)param_4;
+          pcVar1 = *(code **)(iVar4 + 0x38);
+          piVar5[-0xd] = 0x4070c67;
+          (*pcVar1)();
+          iVar4 = *local_20[0];
+          piVar5[-0xd] = (int)local_20[0];
+          pcVar1 = *(code **)(iVar4 + 8);
+          piVar5[-0xe] = 0x4070c75;
+          (*pcVar1)();
+          piVar9 = piVar5 + -0xe;
+        }
+        piVar9[3] = 0xc;
+        piVar9[2] = 0x25;
+        *piVar9 = (int)(param_1 + 0x3b00);
+        piVar9[1] = (int)param_1;
+        piVar9[-1] = 0x4070ca0;
+        piVar5 = (int *)D3D9CommandQueue__GetNextCommandPointer();
+        piVar7 = (int *)param_1[0x1d76];
+        *piVar5 = (int)piVar7;
+        if (piVar7 != (int *)0x0) {
+          iVar4 = *piVar7;
+          *piVar9 = (int)piVar7;
+          pcVar1 = *(code **)(iVar4 + 4);
+          piVar9[-1] = 0x4070cb9;
+          (*pcVar1)();
+          piVar9 = piVar9 + -1;
+        }
+        piVar5[1] = param_2;
+        piVar5[2] = param_3;
+        *piVar9 = (int)(param_1 + 0x3b00);
+        piVar9[-1] = 0x4070cd0;
+        D3D9CommandQueue__CommandSubmitted();
+        uVar3 = 0;
+      }
+    }
+    *piVar9 = (int)&local_24;
+    piVar9[-1] = 0x4070a64;
+    direct3ddevice9imp_040a2df0();
+  }
+  return uVar3;
+}
+

@@ -1,0 +1,89 @@
+
+/* source: caseInsensitivePath */
+
+void VPFS_MadeChangesAtPath(char *param_1)
+
+{
+  size_t sVar1;
+  __int32_t **pp_Var2;
+  char cVar3;
+  char *pcVar4;
+  char *pcVar5;
+  undefined4 local_820;
+  char local_81c [1024];
+  char local_41c [1036];
+  
+  sVar1 = strlen(param_1);
+  local_820 = (undefined1 *)sVar1;
+  memcpy(local_81c,param_1,sVar1 + 1);
+  if (local_81c[0] != '/') {
+    FUN_0400a810("modifiablePath[0] == \'/\'",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/vpfs/caseInsensitivePath.cpp"
+                 ,0x35d,"void VPFS_MadeChangesAtPath(const char*)");
+  }
+  if (local_81c[sVar1 - 1] == '/') {
+    local_81c[sVar1 - 1] = '\0';
+    local_820 = (undefined1 *)(sVar1 - 1);
+  }
+  pcVar4 = local_81c + ((int)local_820 - 1U);
+  if (CARRY4((uint)local_81c,(int)local_820 - 1U)) {
+LAB_0403c299:
+    if (*pcVar4 != '/') {
+      FUN_0400a810("*ptr == \'/\'",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/vpfs/caseInsensitivePath.cpp"
+                   ,0x36b,"void VPFS_MadeChangesAtPath(const char*)");
+    }
+  }
+  else {
+    cVar3 = local_81c[(int)local_820 - 1];
+    while (cVar3 != '/') {
+      pcVar4 = pcVar4 + -1;
+      if (pcVar4 < local_81c) goto LAB_0403c299;
+      cVar3 = *pcVar4;
+    }
+  }
+  *pcVar4 = '\0';
+  local_820 = DAT_04415c48;
+  if (DAT_04415c48 == (undefined1 *)0x0) {
+    local_820 = malloc(0x10);
+    DAT_04415c48 = local_820;
+    *(undefined4 *)(local_820 + 4) = 0;
+    local_820[1] = 4;
+    *local_820 = 0;
+    *(undefined4 *)(local_820 + 8) = 0;
+    local_820[3] = local_820[3] & 0xfc;
+    *(undefined4 *)(local_820 + 0xc) = 0;
+    local_820[2] = 0;
+  }
+  pcVar4 = local_81c;
+  do {
+    pcVar4 = pcVar4 + 1;
+    cVar3 = *pcVar4;
+    pcVar5 = local_41c;
+    if ((cVar3 != '\0') && (cVar3 != '/')) {
+      do {
+        pcVar4 = pcVar4 + 1;
+        if ((int)cVar3 + 0x80U < 0x180) {
+          pp_Var2 = __ctype_tolower_loc();
+          cVar3 = (char)(*pp_Var2)[cVar3];
+        }
+        *pcVar5 = cVar3;
+        cVar3 = *pcVar4;
+        pcVar5 = pcVar5 + 1;
+      } while ((cVar3 != '/') && (cVar3 != '\0'));
+    }
+    *pcVar5 = '\0';
+    if (*(int *)(local_820 + 0xc) == 0) {
+      return;
+    }
+    local_820 = (undefined1 *)GetSubelement();
+    if (local_820 == (undefined1 *)0x0) {
+      return;
+    }
+  } while (cVar3 != '\0');
+  if ((local_820[3] & 1) == 0) {
+    local_820[3] = local_820[3] | 2;
+  }
+  return;
+}
+

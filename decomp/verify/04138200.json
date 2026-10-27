@@ -1,0 +1,149 @@
+
+/* source: heapImplementation */
+
+uint * Heap_Allocate(int *param_1,uint param_2,int param_3)
+
+{
+  int *piVar1;
+  uint uVar2;
+  int iVar3;
+  uint *puVar4;
+  char *pcVar5;
+  uint uVar6;
+  char **ppcVar7;
+  char **ppcVar8;
+  char **ppcVar9;
+  uint uVar10;
+  int local_64 [2];
+  char *local_5c [8];
+  uint *local_3c;
+  int *local_38;
+  byte local_31;
+  uint *local_30;
+  undefined4 local_20;
+  
+  if (param_1 == (int *)0x0) {
+    return (uint *)0x0;
+  }
+  if (*param_1 != 0x59372851) {
+    return (uint *)0x0;
+  }
+  if (DAT_04515b5c == 0) {
+    local_5c[3] = "void* Heap_Allocate(HANDLE, DWORD, SIZE_T)";
+    local_5c[2] = (char *)0x537;
+    local_5c[1] = 
+    "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/heapImplementation.cpp"
+    ;
+    local_5c[0] = "sProcessHeap";
+    FUN_0400a810();
+  }
+  uVar2 = param_1[1];
+  uVar10 = param_2 & 0xd | uVar2;
+  uVar6 = param_3 + 7U & 0xfffffff8;
+  local_31 = (byte)uVar10 & 1 ^ 1;
+  if (uVar6 < 0x10) {
+    local_30 = (uint *)0x20;
+    uVar6 = 0x10;
+  }
+  else {
+    local_30 = (uint *)(uVar6 + 0x10);
+  }
+  ppcVar7 = local_5c;
+  if (local_31 != 0) {
+    piVar1 = param_1 + 0xa00;
+    local_38 = param_1;
+    ppcVar8 = local_5c;
+    while( true ) {
+      *ppcVar8 = (char *)piVar1;
+      ppcVar8[-1] = (char *)0x413832d;
+      iVar3 = TryEnterCriticalSection();
+      ppcVar7 = ppcVar8 + -1;
+      param_1 = local_38;
+      if (iVar3 != 0) break;
+      ppcVar8[-2] = (char *)0x4138325;
+      sched_yield();
+      ppcVar8 = ppcVar8 + -1;
+    }
+  }
+  ppcVar8 = ppcVar7;
+  if ((&UNK_0007f000 <= local_30) && ((uVar2 & 2) != 0)) {
+    ppcVar7[3] = (char *)0x40;
+    pcVar5 = (char *)(uVar6 + 0x100f & 0xfffff000);
+    ppcVar7[2] = (char *)0x3000;
+    ppcVar7[1] = pcVar5;
+    local_3c = (uint *)pcVar5;
+    *ppcVar7 = (char *)0x0;
+    ppcVar7[-1] = (char *)0x413838f;
+    puVar4 = (uint *)eON_VirtualAlloc();
+    ppcVar9 = ppcVar7 + -4;
+    ppcVar8 = ppcVar7 + -4;
+    if (puVar4 == (uint *)0x0) {
+      ppcVar7[-2] = (char *)local_3c;
+      ppcVar7[-3] = "LargeArea_Allocate() - Couldn\'t allocate large block of %u bytes";
+      ppcVar7[-4] = (char *)0xf;
+      ppcVar7[-5] = (char *)0x413846d;
+      FUN_0402cd10();
+      ppcVar8 = ppcVar7 + -4;
+    }
+    else {
+      *puVar4 = (uint)local_3c;
+      local_38 = (int *)param_1[4];
+      local_30 = puVar4 + 2;
+      puVar4[1] = uVar6;
+      if (local_38 == (int *)0x0) {
+        puVar4[3] = (uint)local_30;
+        puVar4[2] = (uint)local_30;
+        param_1[4] = (int)puVar4;
+      }
+      else {
+        puVar4[3] = (uint)(local_38 + 2);
+        puVar4[2] = local_38[2];
+        *(uint **)(local_38[2] + 4) = local_30;
+        local_38[2] = (int)local_30;
+      }
+      puVar4 = puVar4 + 4;
+      if (puVar4 != (uint *)0x0) goto LAB_041382c1;
+    }
+  }
+  local_20 = 0;
+  ppcVar8[-1] = (char *)0x4138293;
+  local_30 = (uint *)GetFreeSubheapAreaForAllocation();
+  if (local_30 == (uint *)0x0) {
+    if (local_31 != 0) {
+      *ppcVar8 = (char *)(param_1 + 0xa00);
+      ppcVar8[-1] = (char *)0x413842c;
+      LeaveCriticalSection();
+      ppcVar8 = ppcVar8 + -1;
+    }
+    ppcVar8[2] = (char *)uVar10;
+    ppcVar8[1] = "Heap_Allocate( dwFlags = %#x, dwBytes = %zu ) failed to allocate memory!";
+    *ppcVar8 = (char *)0xf;
+    ppcVar8[3] = (char *)param_3;
+    ppcVar8[-1] = (char *)0x413844e;
+    FUN_0402cd10();
+    return (uint *)0x0;
+  }
+  *ppcVar8 = (char *)param_3;
+  ppcVar8[-1] = (char *)0x41382b2;
+  SetupNewlyAllocatedArea();
+  puVar4 = local_30 + 2;
+  ppcVar9 = ppcVar8;
+  if ((uVar10 & 8) != 0) {
+    *ppcVar8 = (char *)puVar4;
+    local_3c = puVar4;
+    ppcVar8[1] = (char *)param_3;
+    ppcVar8[-1] = (char *)0x4138352;
+    bzero(*ppcVar8,(size_t)ppcVar8[1]);
+    puVar4 = local_3c;
+  }
+LAB_041382c1:
+  if (local_31 == 0) {
+    return puVar4;
+  }
+  local_3c = puVar4;
+  *ppcVar9 = (char *)(param_1 + 0xa00);
+  ppcVar9[-1] = (char *)0x41382dc;
+  LeaveCriticalSection();
+  return local_3c;
+}
+

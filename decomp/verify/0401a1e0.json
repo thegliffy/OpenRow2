@@ -1,0 +1,137 @@
+
+/* source: gameControllers */
+
+void LinuxDevice__UpdateForceFeedback(int param_1,short param_2,short param_3)
+
+{
+  int iVar1;
+  char cVar2;
+  ssize_t sVar3;
+  int iVar4;
+  short sVar5;
+  short sVar6;
+  undefined2 local_84;
+  undefined2 local_82;
+  undefined2 local_74;
+  undefined2 local_72;
+  undefined2 local_58;
+  undefined2 local_56;
+  short local_48;
+  short local_46;
+  undefined1 local_2c [8];
+  undefined2 local_24;
+  undefined2 local_22;
+  undefined4 local_20;
+  
+  iVar1 = *(int *)(param_1 + 0x22c);
+  if (*(char *)(iVar1 + 0x2d) != '\0') {
+    return;
+  }
+  if (*(char *)(iVar1 + 0x4e4) == '\0') {
+    return;
+  }
+  if (*(int *)(iVar1 + 0x4e8) == -1) {
+    iVar4 = open64(*(char **)(iVar1 + 0x4dc),2,0);
+    *(int *)(iVar1 + 0x4e8) = iVar4;
+    if (iVar4 < 0) {
+      *(undefined1 *)(iVar1 + 0x4e4) = 0;
+      *(undefined4 *)(iVar1 + 0x4e8) = 0xffffffff;
+      FUN_0402cd10(0xf,
+                   "Gamepads: Device \'%s\' now fails to open force feedback node for writing force feedback commands, which it opened successfully once earlier. Disabling force feedback."
+                   ,*(undefined4 *)(iVar1 + 0x28));
+      return;
+    }
+    if (*(char *)(iVar1 + 0x4e5) != '\0') {
+      local_24 = 0x15;
+      local_22 = 0x60;
+      local_20 = 0xffff;
+      sVar3 = write(iVar4,local_2c,0x10);
+      if (sVar3 < 0) {
+        FUN_0402cd10(10,"Force feedback gain change failed!");
+      }
+    }
+    bzero(&local_84,0x2c);
+    local_84 = 0x50;
+    local_82 = 0xffff;
+    local_74 = 0x7fff;
+    local_72 = 0x7fff;
+    iVar4 = ioctl(*(int *)(iVar1 + 0x4e8),0x402c4580,&local_84);
+    if (iVar4 < 0) {
+      close(*(int *)(iVar1 + 0x4e8));
+      *(undefined1 *)(iVar1 + 0x4e4) = 0;
+      *(undefined4 *)(iVar1 + 0x4e8) = 0xffffffff;
+      FUN_0402cd10(0xf,
+                   "Gamepads: Device \'%s\' now fails to create FF_RUMBLE effect, which it created successfully once earlier. Disabling force feedback."
+                   ,*(undefined4 *)(iVar1 + 0x28));
+      return;
+    }
+    *(undefined1 *)(iVar1 + 0x4f2) = 0;
+    sVar6 = 0;
+    *(undefined2 *)(iVar1 + 0x4ee) = 0x7fff;
+    sVar5 = 0;
+    *(undefined2 *)(iVar1 + 0x4f0) = 0x7fff;
+    *(undefined2 *)(iVar1 + 0x4ec) = local_82;
+    cVar2 = '\0';
+  }
+  else {
+    cVar2 = *(char *)(iVar1 + 0x4f2);
+    sVar6 = 0;
+    sVar5 = 0;
+    if (cVar2 != '\0') {
+      sVar5 = *(short *)(iVar1 + 0x4ee);
+      sVar6 = *(short *)(iVar1 + 0x4f0);
+    }
+  }
+  if ((param_3 != sVar6) || (param_2 != sVar5)) {
+    if (param_3 == 0 && param_2 == 0) {
+      if (cVar2 == '\0') {
+        FUN_0400a810("ForceFeedbackRunning",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/linux/gameControllers.cpp"
+                     ,0xff,"void LinuxDevice::UpdateForceFeedback(WORD, WORD)");
+      }
+      local_24 = 0x15;
+      local_22 = *(undefined2 *)(iVar1 + 0x4ec);
+      local_20 = 0;
+      sVar3 = write(*(int *)(iVar1 + 0x4e8),local_2c,0x10);
+      if (sVar3 < 0) {
+        FUN_0402cd10(10,"Force feedback effect stop failed!");
+      }
+      else {
+        *(undefined1 *)(iVar1 + 0x4f2) = 0;
+      }
+    }
+    else {
+      if ((param_2 != *(short *)(iVar1 + 0x4ee)) || (param_3 != *(short *)(iVar1 + 0x4f0))) {
+        bzero(&local_58,0x2c);
+        local_48 = param_2;
+        local_56 = *(undefined2 *)(iVar1 + 0x4ec);
+        local_58 = 0x50;
+        local_46 = param_3;
+        iVar4 = ioctl(*(int *)(iVar1 + 0x4e8),0x402c4580,&local_58);
+        if (iVar4 < 0) {
+          FUN_0402cd10(10,"Force feedback effect update failed!");
+          cVar2 = *(char *)(iVar1 + 0x4f2);
+        }
+        else {
+          cVar2 = *(char *)(iVar1 + 0x4f2);
+          *(short *)(iVar1 + 0x4ee) = param_2;
+          *(short *)(iVar1 + 0x4f0) = param_3;
+        }
+      }
+      if (cVar2 == '\0') {
+        local_24 = 0x15;
+        local_22 = *(undefined2 *)(iVar1 + 0x4ec);
+        local_20 = 0x7fffffff;
+        sVar3 = write(*(int *)(iVar1 + 0x4e8),local_2c,0x10);
+        if (sVar3 < 0) {
+          FUN_0402cd10(10,"Force feedback effect run failed!");
+        }
+        else {
+          *(undefined1 *)(iVar1 + 0x4f2) = 1;
+        }
+      }
+    }
+  }
+  return;
+}
+

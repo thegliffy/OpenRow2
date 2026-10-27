@@ -1,0 +1,154 @@
+
+/* source: d3dstructs */
+
+void d3dstructs_04098020(int param_1,uint param_2)
+
+{
+  _Rb_tree_node_base *p_Var1;
+  _Rb_tree_node_base *p_Var2;
+  undefined4 uVar3;
+  int iVar4;
+  undefined4 *puVar5;
+  _Rb_tree_node_base *p_Var6;
+  _Rb_tree_node_base *p_Var7;
+  _Rb_tree_node_base *p_Var8;
+  _Rb_tree_node_base *local_34;
+  
+  if (param_2 == 0) {
+    return;
+  }
+  p_Var2 = (_Rb_tree_node_base *)(param_1 + 0xea4c);
+  p_Var6 = *(_Rb_tree_node_base **)(param_1 + 0xea50);
+  p_Var7 = p_Var2;
+  if (*(_Rb_tree_node_base **)(param_1 + 0xea50) != (_Rb_tree_node_base *)0x0) {
+    do {
+      while (p_Var8 = p_Var6, *(uint *)(p_Var8 + 0x10) < param_2) {
+        p_Var1 = p_Var8 + 0xc;
+        p_Var6 = *(_Rb_tree_node_base **)p_Var1;
+        p_Var8 = p_Var7;
+        if (*(_Rb_tree_node_base **)p_Var1 == (_Rb_tree_node_base *)0x0) goto LAB_04098065;
+      }
+      p_Var6 = *(_Rb_tree_node_base **)(p_Var8 + 8);
+      p_Var7 = p_Var8;
+    } while (*(_Rb_tree_node_base **)(p_Var8 + 8) != (_Rb_tree_node_base *)0x0);
+LAB_04098065:
+    if ((p_Var2 != p_Var8) && (*(uint *)(p_Var8 + 0x10) <= param_2)) {
+      puVar5 = *(undefined4 **)(p_Var8 + 0x14);
+      goto LAB_040980d3;
+    }
+  }
+  uVar3 = *(undefined4 *)(param_1 + 0xc);
+  puVar5 = operator_new(0x74);
+  *puVar5 = &PTR_FUN_042f6f48;
+                    /* try { // try from 0409809e to 040980a2 has its CatchHandler @ 04098365 */
+  Direct3DVertexDeclaration9Imp__Direct3DVertexDeclaration9Imp(puVar5 + 1,puVar5,uVar3,param_2);
+  p_Var7 = p_Var2;
+  p_Var6 = *(_Rb_tree_node_base **)(param_1 + 0xea50);
+  if (*(_Rb_tree_node_base **)(param_1 + 0xea50) == (_Rb_tree_node_base *)0x0) {
+LAB_040980e7:
+    if ((*(int *)(param_1 + 0xea5c) == 0) ||
+       (p_Var6 = *(_Rb_tree_node_base **)(param_1 + 0xea58), param_2 <= *(uint *)(p_Var6 + 0x10))) {
+      FUN_040705b0();
+      p_Var8 = local_34;
+    }
+    else {
+      p_Var8 = operator_new(0x18);
+      if (p_Var8 != (_Rb_tree_node_base *)0x0) {
+        *(undefined4 *)p_Var8 = 0;
+        *(undefined4 *)(p_Var8 + 4) = 0;
+        *(undefined4 *)(p_Var8 + 8) = 0;
+        *(undefined4 *)(p_Var8 + 0xc) = 0;
+        *(uint *)(p_Var8 + 0x10) = param_2;
+        *(undefined4 *)(p_Var8 + 0x14) = 0;
+      }
+LAB_0409815c:
+      std::_Rb_tree_insert_and_rebalance(p_Var2 == p_Var6,p_Var8,p_Var6,p_Var2);
+      *(int *)(param_1 + 0xea5c) = *(int *)(param_1 + 0xea5c) + 1;
+    }
+  }
+  else {
+    do {
+      p_Var8 = p_Var6;
+      if (*(uint *)(p_Var8 + 0x10) < param_2) {
+        p_Var6 = *(_Rb_tree_node_base **)(p_Var8 + 0xc);
+        p_Var8 = p_Var7;
+      }
+      else {
+        p_Var6 = *(_Rb_tree_node_base **)(p_Var8 + 8);
+      }
+      p_Var7 = p_Var8;
+    } while (p_Var6 != (_Rb_tree_node_base *)0x0);
+    if (p_Var2 == p_Var8) goto LAB_040980e7;
+    if (param_2 < *(uint *)(p_Var8 + 0x10)) {
+      p_Var6 = *(_Rb_tree_node_base **)(param_1 + 0xea54);
+      if (p_Var6 == p_Var8) {
+        p_Var7 = operator_new(0x18);
+        p_Var8 = p_Var6;
+        if (p_Var7 != (_Rb_tree_node_base *)0x0) {
+          *(undefined4 *)p_Var7 = 0;
+          *(undefined4 *)(p_Var7 + 4) = 0;
+          *(undefined4 *)(p_Var7 + 8) = 0;
+          *(undefined4 *)(p_Var7 + 0xc) = 0;
+          *(uint *)(p_Var7 + 0x10) = param_2;
+          *(undefined4 *)(p_Var7 + 0x14) = 0;
+        }
+LAB_040982c1:
+        std::_Rb_tree_insert_and_rebalance(true,p_Var7,p_Var8,p_Var2);
+        *(int *)(param_1 + 0xea5c) = *(int *)(param_1 + 0xea5c) + 1;
+        p_Var8 = p_Var7;
+        goto LAB_04098178;
+      }
+      p_Var6 = (_Rb_tree_node_base *)std::_Rb_tree_decrement(p_Var8);
+      if (param_2 <= *(uint *)(p_Var6 + 0x10)) {
+        FUN_040705b0();
+        p_Var8 = local_34;
+        goto LAB_04098178;
+      }
+      if (*(int *)(p_Var6 + 0xc) != 0) {
+        p_Var7 = operator_new(0x18);
+        if (p_Var7 != (_Rb_tree_node_base *)0x0) {
+          *(undefined4 *)p_Var7 = 0;
+          *(undefined4 *)(p_Var7 + 4) = 0;
+          *(undefined4 *)(p_Var7 + 8) = 0;
+          *(undefined4 *)(p_Var7 + 0xc) = 0;
+          *(uint *)(p_Var7 + 0x10) = param_2;
+          *(undefined4 *)(p_Var7 + 0x14) = 0;
+        }
+        goto LAB_040982c1;
+      }
+      p_Var8 = operator_new(0x18);
+      if (p_Var8 != (_Rb_tree_node_base *)0x0) {
+        *(undefined4 *)p_Var8 = 0;
+        *(undefined4 *)(p_Var8 + 4) = 0;
+        *(undefined4 *)(p_Var8 + 8) = 0;
+        *(undefined4 *)(p_Var8 + 0xc) = 0;
+        *(uint *)(p_Var8 + 0x10) = param_2;
+        *(undefined4 *)(p_Var8 + 0x14) = 0;
+      }
+      goto LAB_0409815c;
+    }
+  }
+LAB_04098178:
+  *(undefined4 **)(p_Var8 + 0x14) = puVar5;
+  pthread_mutex_lock((pthread_mutex_t *)(param_1 + 0xeafc));
+  if (puVar5[6] != 0) {
+    FUN_0400a810("Prev == __null",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/d3dstructs.h"
+                 ,0x26,"void eON_ListElement::AddToList(eON_ListElement*)");
+  }
+  if (puVar5[7] != 0) {
+    FUN_0400a810("Next == __null",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/d3dstructs.h"
+                 ,0x27,"void eON_ListElement::AddToList(eON_ListElement*)");
+  }
+  puVar5[6] = param_1 + 0xeaf0;
+  puVar5[7] = *(undefined4 *)(param_1 + 0xeaf8);
+  iVar4 = *(int *)(param_1 + 0xeaf8);
+  *(undefined4 **)(param_1 + 0xeaf8) = puVar5 + 5;
+  *(undefined4 **)(iVar4 + 4) = puVar5 + 5;
+  pthread_mutex_unlock((pthread_mutex_t *)(param_1 + 0xeafc));
+LAB_040980d3:
+  Direct3DDevice9Imp__SetVertexDeclaration(param_1,puVar5);
+  return;
+}
+

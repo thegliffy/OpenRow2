@@ -1,0 +1,44 @@
+
+void __regparm3 png_safecat(uint param_1,int param_2,int param_3)
+
+{
+  char cVar1;
+  int iVar2;
+  int iVar3;
+  uint uVar4;
+  
+  iVar2 = 0;
+  iVar3 = 0x18;
+  do {
+    uVar4 = param_1 >> ((byte)iVar3 & 0x1f);
+    iVar3 = iVar3 + -8;
+    if ((uVar4 & 0xff) - 0x5b < 6 || 0x39 < (uVar4 & 0xff) - 0x41) {
+      cVar1 = "0123456789ABCDEF"[(int)(uVar4 & 0xf0) >> 4];
+      *(undefined1 *)(param_2 + iVar2) = 0x5b;
+      *(undefined1 *)(param_2 + 3 + iVar2) = 0x5d;
+      *(char *)(param_2 + 1 + iVar2) = cVar1;
+      *(char *)(param_2 + 2 + iVar2) = "0123456789ABCDEF"[uVar4 & 0xf];
+      iVar2 = iVar2 + 4;
+    }
+    else {
+      *(char *)(param_2 + iVar2) = (char)uVar4;
+      iVar2 = iVar2 + 1;
+    }
+  } while (iVar3 != -8);
+  if (param_3 == 0) {
+    *(undefined1 *)(param_2 + iVar2) = 0;
+    return;
+  }
+  iVar3 = iVar2 + 2;
+  *(undefined1 *)(param_2 + iVar2) = 0x3a;
+  *(undefined1 *)(param_2 + 1 + iVar2) = 0x20;
+  do {
+    cVar1 = *(char *)((param_3 - iVar2) + -2 + iVar3);
+    if (cVar1 == '\0') break;
+    *(char *)(param_2 + iVar3) = cVar1;
+    iVar3 = iVar3 + 1;
+  } while (iVar3 != iVar2 + 0xc5);
+  *(undefined1 *)(param_2 + iVar3) = 0;
+  return;
+}
+

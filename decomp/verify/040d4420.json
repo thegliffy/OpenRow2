@@ -1,0 +1,132 @@
+
+/* source: openGlDebugFunctions */
+
+void __regparm3 openGlDebugFunctions_040d4420(undefined4 *param_1,undefined4 param_2)
+
+{
+  int iVar1;
+  char *pcVar2;
+  void *pvVar3;
+  undefined4 uVar4;
+  int local_28;
+  size_t local_24;
+  int local_20 [4];
+  
+  iVar1 = glGetError();
+  if (iVar1 != 0) {
+    FUN_0400a810("glGetError() == 0",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                 ,0xce4,"void OpenGL_LogState_Shader(OpenGlDebugWriter*, GLint)");
+  }
+  (**(code **)*param_1)(param_1,"Shader %d info\n",param_2);
+  (*DAT_0451ec9c)(param_2,0x8b4f,&local_28);
+  iVar1 = glGetError();
+  if (iVar1 == 0) {
+    if (local_28 != 0x8b31) goto LAB_040d4478;
+LAB_040d44ee:
+    pcVar2 = "GL_VERTEX_SHADER";
+  }
+  else {
+    FUN_0400a810("glGetError() == 0",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                 ,0xcea,"void OpenGL_LogState_Shader(OpenGlDebugWriter*, GLint)");
+    if (local_28 == 0x8b31) goto LAB_040d44ee;
+LAB_040d4478:
+    if (local_28 == 0x8dd9) {
+      pcVar2 = "GL_GEOMETRY_SHADER";
+    }
+    else if (local_28 == 0x8b30) {
+      pcVar2 = "GL_FRAGMENT_SHADER";
+    }
+    else if (local_28 == 0x8e87) {
+      pcVar2 = "GL_TESS_EVALUATION_SHADER";
+    }
+    else {
+      if (local_28 != 0x8e88) {
+        (**(code **)*param_1)(param_1,"\tGL_SHADER_TYPE: unknown ( %#x )\n",local_28);
+        goto LAB_040d4506;
+      }
+      pcVar2 = "GL_TESS_CONTROL_SHADER";
+    }
+  }
+  (**(code **)*param_1)(param_1,"\tGL_SHADER_TYPE: %s\n",pcVar2);
+LAB_040d4506:
+  (*DAT_0451ec9c)(param_2,0x8b80,&local_28);
+  iVar1 = glGetError();
+  if (iVar1 != 0) {
+    FUN_0400a810("glGetError() == 0",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                 ,0xcf1,"void OpenGL_LogState_Shader(OpenGlDebugWriter*, GLint)");
+  }
+  pcVar2 = "TRUE";
+  if (local_28 == 0) {
+    pcVar2 = "FALSE";
+  }
+  (**(code **)*param_1)(param_1,"\tGL_DELETE_STATUS: %s\n",pcVar2);
+  (*DAT_0451ec9c)(param_2,0x8b81,&local_28);
+  iVar1 = glGetError();
+  if (iVar1 != 0) {
+    FUN_0400a810("glGetError() == 0",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                 ,0xcf4,"void OpenGL_LogState_Shader(OpenGlDebugWriter*, GLint)");
+  }
+  pcVar2 = "TRUE";
+  if (local_28 == 0) {
+    pcVar2 = "FALSE";
+  }
+  (**(code **)*param_1)(param_1,"\tGL_COMPILE_STATUS: %s\n",pcVar2);
+  (*DAT_0451ec9c)(param_2,0x8b88,&local_24);
+  iVar1 = glGetError();
+  if (iVar1 != 0) {
+    FUN_0400a810("glGetError() == 0",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                 ,0xcf9,"void OpenGL_LogState_Shader(OpenGlDebugWriter*, GLint)");
+  }
+  if (local_24 == 0) {
+    (**(code **)*param_1)(param_1,"\tNo shader source code\n");
+  }
+  else {
+    pvVar3 = malloc(local_24);
+    (*DAT_0451eca0)(param_2,local_24,0,pvVar3);
+    iVar1 = glGetError();
+    if (iVar1 != 0) {
+      FUN_0400a810("glGetError() == 0",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                   ,0xcfe,"void OpenGL_LogState_Shader(OpenGlDebugWriter*, GLint)");
+    }
+    iVar1 = local_24 - 1;
+    uVar4 = FUN_0400e0a0();
+    uVar4 = FUN_0400e060(uVar4,pvVar3,iVar1);
+    (**(code **)*param_1)
+              (param_1,
+               "\tShader source code (length %u characters, CRC: %#x):\n==============================================\n%s==============================================\n"
+               ,local_24 - 1,uVar4,pvVar3);
+    free(pvVar3);
+  }
+  (*DAT_0451ec9c)(param_2,0x8b84,local_20);
+  iVar1 = glGetError();
+  if (iVar1 != 0) {
+    FUN_0400a810("glGetError() == 0",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                 ,0xd08,"void OpenGL_LogState_Shader(OpenGlDebugWriter*, GLint)");
+  }
+  if (local_20[0] != 0) {
+    pvVar3 = malloc(local_20[0] + 1);
+    (*DAT_0451eca4)(param_2,local_20[0] + 1,0,pvVar3);
+    iVar1 = glGetError();
+    if (iVar1 != 0) {
+      FUN_0400a810("glGetError() == 0",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                   ,0xd0d,"void OpenGL_LogState_Shader(OpenGlDebugWriter*, GLint)");
+    }
+    (**(code **)*param_1)
+              (param_1,
+               "\tShader info log:\n==============================================\n%s==============================================\n"
+               ,pvVar3);
+    free(pvVar3);
+    return;
+  }
+  (**(code **)*param_1)(param_1,"\tNo shader info log\n");
+  return;
+}
+

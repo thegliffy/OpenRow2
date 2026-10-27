@@ -1,0 +1,89 @@
+
+int eON_accept(int param_1,undefined4 *param_2,int *param_3)
+
+{
+  int iVar1;
+  undefined4 *puVar2;
+  int iVar3;
+  int *piVar4;
+  sockaddr local_64 [4];
+  socklen_t local_24 [3];
+  undefined4 *local_18;
+  
+  piVar4 = param_3;
+  puVar2 = param_2;
+  iVar3 = param_1;
+  local_18 = &param_1;
+  eON_SetLastError(0);
+  if (piVar4 != (int *)0x0 && puVar2 != (undefined4 *)0x0) {
+    iVar1 = *piVar4;
+    if (iVar1 < 0x10) {
+      FUN_0402cd10(0xf,"SOCKETS: too small address length given to accept(): %d.",iVar1);
+      eON_SetLastError(0x271e);
+      return -1;
+    }
+    if (iVar1 != 0x10) {
+      FUN_0402cd10(10,"SOCKETS: nonstandard address length given to accept(): %d.",iVar1);
+    }
+  }
+  local_24[0] = 0x40;
+  bzero(local_64,0x40);
+  iVar3 = accept(iVar3,local_64,local_24);
+  if (iVar3 == -1) {
+    piVar4 = __errno_location();
+    iVar3 = *piVar4;
+    if (iVar3 == 0xb) {
+      eON_SetLastError(0x2733);
+      iVar3 = -1;
+    }
+    else {
+      switch(iVar3) {
+      case 4:
+        eON_SetLastError(0x2714);
+        iVar3 = -1;
+        break;
+      default:
+        FUN_0402cd10(0xf,"SOCKETS: accept() - unknown error - %d.",iVar3);
+        iVar3 = -1;
+        break;
+      case 9:
+      case 0x58:
+        eON_SetLastError(0x2736);
+        iVar3 = -1;
+        break;
+      case 0xc:
+        iVar3 = -1;
+        break;
+      case 0xe:
+        eON_SetLastError(0x271e);
+        iVar3 = -1;
+        break;
+      case 0x16:
+        eON_SetLastError(0x2726);
+        iVar3 = -1;
+        break;
+      case 0x17:
+      case 0x18:
+        eON_SetLastError(0x2728);
+        iVar3 = -1;
+        break;
+      case 0x5f:
+        eON_SetLastError(0x273d);
+        iVar3 = -1;
+        break;
+      case 0x67:
+        eON_SetLastError(0x2746);
+        iVar3 = -1;
+      }
+    }
+  }
+  else if (piVar4 != (int *)0x0 && puVar2 != (undefined4 *)0x0) {
+    *puVar2 = local_64[0]._0_4_;
+    puVar2[1] = local_64[0].sa_data._2_4_;
+    puVar2[2] = local_64[0].sa_data._6_4_;
+    puVar2[3] = local_64[0].sa_data._10_4_;
+    *piVar4 = 0x10;
+  }
+  return iVar3;
+}
+

@@ -1,0 +1,13 @@
+
+undefined4 GetKeyboardLayoutNameA(undefined4 *param_1)
+
+{
+  *param_1 = 0x30303030;
+  param_1[1] = 0x32353430;
+  *(undefined1 *)(param_1 + 2) = 0;
+  FUN_0402cd10(10,
+               "GetKeyboardLayoutNameA() returning specific hardcoded layout. Implement it to detect real keyboard layout? This might make debugging harder..."
+              );
+  return 1;
+}
+

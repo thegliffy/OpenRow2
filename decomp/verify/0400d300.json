@@ -1,0 +1,22 @@
+
+/* source: core */
+
+void Exit_eON(undefined4 param_1)
+
+{
+  char cVar1;
+  int in_FS_OFFSET;
+  
+  DAT_0441163c = 1;
+  cVar1 = eON_Int_IsMainThread();
+  if (cVar1 == '\0') {
+    eON_SuspendThread(*(undefined4 *)(*(int *)(*(int *)(in_FS_OFFSET + 0x18) + 0x130) + 0xc));
+    FUN_0400a810("false","/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/core.cpp",0x2a6,
+                 "void Exit_eON(int)");
+    return;
+  }
+  FUN_0400d2e0(param_1);
+  FUN_0400d370();
+  return;
+}
+

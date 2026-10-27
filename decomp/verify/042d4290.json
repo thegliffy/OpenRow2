@@ -1,0 +1,27 @@
+
+/* WARNING: Function: __i686.get_pc_thunk.bx replaced with injection: get_pc_thunk_bx */
+
+bool GUIDToString(undefined4 *param_1,int param_2,int param_3)
+
+{
+  int iVar1;
+  
+  if (0x24 < param_3) {
+    iVar1 = __snprintf_chk(param_2,param_3,1,0xffffffff,&DAT_0439e4f1,*param_1,
+                           *(undefined2 *)(param_1 + 1),*(undefined2 *)((int)param_1 + 6),
+                           (uint)*(byte *)((int)param_1 + 10) << 0x10 |
+                           (uint)*(byte *)((int)param_1 + 9) << 8 | (uint)*(byte *)(param_1 + 2) |
+                           (uint)*(byte *)((int)param_1 + 0xb) << 0x18,
+                           (uint)*(byte *)((int)param_1 + 0xe) << 0x10 |
+                           (uint)*(byte *)((int)param_1 + 0xd) << 8 | (uint)*(byte *)(param_1 + 3) |
+                           (uint)*(byte *)((int)param_1 + 0xf) << 0x18);
+    if (iVar1 == 0x24) {
+      *(undefined1 *)(param_2 + 0x24) = 0;
+    }
+    return iVar1 == 0x24;
+  }
+                    /* WARNING: Subroutine does not return */
+  __assert_fail("buf_len > 36","src/common/linux/guid_creator.cc",0x5e,
+                "bool GUIDToString(const GUID*, char*, int)");
+}
+

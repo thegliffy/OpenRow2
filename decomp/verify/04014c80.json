@@ -1,0 +1,46 @@
+
+undefined4 LaunchCrashReporter(int param_1,undefined4 param_2,char param_3)
+
+{
+  int *piVar1;
+  char *pcVar2;
+  int iVar3;
+  char **ppcVar4;
+  byte bVar5;
+  char *local_40;
+  char *local_3c;
+  char *local_38;
+  char *local_34;
+  char *local_30;
+  undefined4 local_2c;
+  char *local_28;
+  undefined4 local_24;
+  
+  bVar5 = 0;
+  fwrite("*** BREAKPAD CRASH ***\n",1,0x17,stderr);
+  FUN_0402cc80();
+  ppcVar4 = &local_40;
+  for (iVar3 = 9; iVar3 != 0; iVar3 = iVar3 + -1) {
+    *ppcVar4 = (char *)0x0;
+    ppcVar4 = ppcVar4 + (uint)bVar5 * -2 + 1;
+  }
+  local_3c = "com.volition.saintsrow2";
+  local_38 = "--appname";
+  local_34 = "Saints Row 2";
+  local_30 = "--applog";
+  local_28 = "--bpdump";
+  local_40 = DAT_0441121c;
+  local_2c = FUN_0402ca80();
+  local_24 = *(undefined4 *)(param_1 + 0x10);
+  if (param_3 == '\0') {
+    local_28 = (char *)0x0;
+  }
+  iVar3 = execv(local_40,&local_40);
+  if (iVar3 == -1) {
+    piVar1 = __errno_location();
+    pcVar2 = strerror(*piVar1);
+    fprintf(stderr,"Failed to launch CrashReporter - (%u) %s\n",*piVar1,pcVar2);
+  }
+  return 1;
+}
+

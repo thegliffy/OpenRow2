@@ -1,0 +1,33 @@
+
+uint __regparm3 VPFS_PathToPathInArchive(char *param_1,char *param_2)
+
+{
+  uint uVar1;
+  size_t sVar2;
+  int iVar3;
+  uint uVar4;
+  
+  uVar4 = 0;
+  sVar2 = strlen(param_1);
+  uVar1 = DAT_04468a80;
+  if ((DAT_04468a80 <= sVar2) &&
+     (iVar3 = strncasecmp(param_1,(char *)&DAT_04417820,DAT_04468a80), iVar3 == 0)) {
+    if (param_1[uVar1] == '/') {
+      uVar4 = ~uVar1 + sVar2;
+      if (uVar4 < 0x400) {
+        strcpy(param_2,param_1 + uVar1 + 1);
+      }
+      else {
+        uVar4 = 0;
+        FUN_0402cd10(0xf,"VPFS_PathToPathInArchive() error - provided outPath too short");
+      }
+    }
+    else if (param_1[uVar1] == '\0') {
+      param_2[0] = '/';
+      param_2[1] = '\0';
+      return 1;
+    }
+  }
+  return uVar4;
+}
+

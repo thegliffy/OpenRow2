@@ -1,0 +1,19 @@
+
+undefined4 DirectInputImp__GetDeviceStatus(undefined4 param_1,void *param_2)
+
+{
+  int iVar1;
+  undefined1 local_34 [40];
+  
+  iVar1 = memcmp(param_2,&DAT_042dbbf8,0x10);
+  if (iVar1 != 0) {
+    iVar1 = memcmp(param_2,&DAT_042dbc08,0x10);
+    if (iVar1 != 0) {
+      GUID_FormatLower(param_2,local_34);
+      FUN_0402cd10(0xf,"DirectInputImp::GetDeviceStatus called with guid = %s",local_34);
+      return 1;
+    }
+  }
+  return 0;
+}
+

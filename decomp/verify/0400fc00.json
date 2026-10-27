@@ -1,0 +1,142 @@
+
+void __regparm3 GamepadMapping__ApplyControlBinding(int param_1,char *param_2,char *param_3)
+
+{
+  uint *puVar1;
+  char cVar2;
+  bool bVar3;
+  char *pcVar4;
+  int iVar5;
+  uint uVar6;
+  uint uVar7;
+  uint uVar8;
+  char local_81;
+  char *local_74 [4];
+  char *local_64;
+  char *local_60;
+  char *local_5c;
+  char *local_58;
+  char *local_54;
+  char *local_50;
+  undefined *local_4c;
+  char *local_48;
+  char *local_44;
+  char *local_40;
+  undefined4 local_3c;
+  char *local_38 [5];
+  char *local_24;
+  undefined4 local_20;
+  
+  uVar8 = 0;
+  pcVar4 = "leftx";
+  local_38[0] = "leftx";
+  local_38[1] = "lefty";
+  local_38[2] = "rightx";
+  local_38[3] = "righty";
+  local_38[4] = "lefttrigger";
+  local_24 = "righttrigger";
+  local_20 = 0;
+  local_74[0] = "b";
+  local_74[1] = "x";
+  local_74[2] = "y";
+  local_74[3] = "back";
+  local_64 = "guide";
+  local_60 = "start";
+  local_5c = "leftstick";
+  local_58 = "rightstick";
+  local_54 = "leftshoulder";
+  local_50 = "rightshoulder";
+  local_4c = &DAT_042d6ba3;
+  local_48 = "dpdown";
+  local_44 = "dpleft";
+  local_40 = "dpright";
+  local_3c = 0;
+  do {
+    iVar5 = strcasecmp(param_2,pcVar4);
+    if (iVar5 == 0) {
+      bVar3 = true;
+      goto LAB_0400fce4;
+    }
+    uVar8 = uVar8 + 1;
+    pcVar4 = local_38[uVar8];
+  } while (pcVar4 != (char *)0x0);
+  pcVar4 = "a";
+  uVar8 = 0;
+  while (iVar5 = strcasecmp(param_2,pcVar4), iVar5 != 0) {
+    pcVar4 = local_74[uVar8];
+    uVar8 = uVar8 + 1;
+    if (pcVar4 == (char *)0x0) goto LAB_0400fd78;
+  }
+  bVar3 = false;
+LAB_0400fce4:
+  if (uVar8 != 0xffffffff) {
+    uVar6 = strtol(param_3 + 1,(char **)0x0,10);
+    if (0x1f < (int)uVar6) {
+      FUN_0402cd10(0x14,"Gamepad mapping: device control index %d too high to handle",uVar6);
+      return;
+    }
+    iVar5 = param_1 + 0x2c;
+    local_81 = '\x01';
+    if (bVar3) {
+      iVar5 = param_1 + 0x14;
+      local_81 = '\x02';
+    }
+    cVar2 = *param_3;
+    if (cVar2 == 'b') {
+      puVar1 = (uint *)(iVar5 + uVar8 * 4);
+      iVar5 = uVar6 + 0x38;
+      *(byte *)puVar1 = (byte)*puVar1 & 0xfc | 1;
+      *puVar1 = *puVar1 & 0xf0000003 | (uVar6 & 0x3ffffff) << 2;
+LAB_0400fee7:
+      *(byte *)(param_1 + 0xb + iVar5 * 4) =
+           *(byte *)(param_1 + 0xb + iVar5 * 4) & 0x3f | local_81 << 6;
+      *(uint *)(param_1 + 8 + iVar5 * 4) =
+           *(uint *)(param_1 + 8 + iVar5 * 4) & 0xc0000000 | uVar8 & 0x3fffffff;
+      return;
+    }
+    if (cVar2 < 'c') {
+      if (cVar2 == '\0') {
+        return;
+      }
+      if (cVar2 == 'a') {
+        puVar1 = (uint *)(iVar5 + uVar8 * 4);
+        iVar5 = uVar6 + 0x18;
+        *(byte *)puVar1 = (byte)*puVar1 & 0xfc | 2;
+        *puVar1 = *puVar1 & 0xf0000003 | (uVar6 & 0x3ffffff) << 2;
+        goto LAB_0400fee7;
+      }
+    }
+    else if (cVar2 == 'h') {
+      if (3 < (int)uVar6) {
+        FUN_0402cd10(0x14,"Gamepad mapping: device hat index %d too high to handle",uVar6);
+        return;
+      }
+      uVar7 = strtol(param_3 + 3,(char **)0x0,10);
+      if ((int)uVar7 < 0x10) {
+        puVar1 = (uint *)(iVar5 + uVar8 * 4);
+        *(byte *)puVar1 = (byte)*puVar1 | 3;
+        *puVar1 = *puVar1 & 0xf0000003 | ((uVar7 | uVar6 * 0x10) & 0x3ffffff) << 2;
+        iVar5 = uVar7 + 0x58 + uVar6 * 0x10;
+        *(byte *)(param_1 + 0xb + iVar5 * 4) =
+             *(byte *)(param_1 + 0xb + iVar5 * 4) & 0x3f | local_81 << 6;
+        *(uint *)(param_1 + 8 + iVar5 * 4) =
+             *(uint *)(param_1 + 8 + iVar5 * 4) & 0xc0000000 | uVar8 & 0x3fffffff;
+        return;
+      }
+      FUN_0402cd10(0x14,"Gamepad mapping: invalid hat mask: %d",uVar7);
+      return;
+    }
+    FUN_0402cd10(0x14,"Gamepad mapping: unrecognized device control name \'%s\'",param_3);
+    return;
+  }
+LAB_0400fd78:
+  if (*param_2 == '\n') {
+    return;
+  }
+  if (*param_2 == '\0') {
+    return;
+  }
+  FUN_0402cd10(0x14,"Gamepad mapping: unrecognized control name \'%s\'",param_2);
+  return;
+}
+

@@ -1,0 +1,87 @@
+
+/* source: direct3ddevice9imp */
+
+undefined4 Direct3DDevice9Imp__Fence_IsFinalized(int param_1,undefined4 *param_2)
+
+{
+  char cVar1;
+  undefined4 *puVar2;
+  int iVar3;
+  undefined4 *puVar4;
+  undefined4 *puVar5;
+  undefined4 local_20 [4];
+  
+  if (*(char *)(param_1 + 0xeb4e) == '\0') {
+    iVar3 = *(int *)(*(int *)(param_1 + 0xebc4) + 8);
+    if (iVar3 == 0) {
+      FUN_0400a810("FenceList->FenceAPPLE",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+                   ,0x427,"bool Direct3DDevice9Imp::Fence_IsFinalized(eONFence*)");
+      iVar3 = *(int *)(*(int *)(param_1 + 0xebc4) + 8);
+    }
+    cVar1 = (*DAT_0451e95c)(iVar3);
+    if (cVar1 == '\0') {
+      return 0;
+    }
+    puVar4 = *(undefined4 **)(param_1 + 0xebc4);
+    do {
+      puVar5 = puVar4;
+      if (puVar4 == (undefined4 *)0x0) {
+        FUN_0400a810("FenceList",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+                     ,0x42d,"bool Direct3DDevice9Imp::Fence_IsFinalized(eONFence*)");
+        puVar5 = *(undefined4 **)(param_1 + 0xebc4);
+      }
+      puVar2 = *(undefined4 **)(param_1 + 0xebd0);
+      local_20[0] = puVar5[2];
+      puVar4 = (undefined4 *)*puVar5;
+      if (puVar2 == *(undefined4 **)(param_1 + 0xebd4)) {
+        FUN_040a3200(param_1 + 0xebcc,puVar2,local_20);
+        puVar2 = *(undefined4 **)(param_1 + 0xebc4);
+      }
+      else {
+        if (puVar2 != (undefined4 *)0x0) {
+          *puVar2 = local_20[0];
+        }
+        *(undefined4 **)(param_1 + 0xebd0) = puVar2 + 1;
+        puVar2 = puVar5;
+      }
+      puVar2[2] = 0;
+      *(undefined1 *)(puVar2 + 3) = 1;
+      *(undefined4 **)(param_1 + 0xebc4) = puVar4;
+    } while (param_2 != puVar5);
+  }
+  else {
+    iVar3 = (*DAT_0451e1ac)(param_2[1],0,0,0);
+    if (iVar3 == 0x911d) {
+      FUN_0400a810("result != 0x911D",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+                   ,0x40e,"bool Direct3DDevice9Imp::Fence_IsFinalized(eONFence*)");
+    }
+    else if (iVar3 == 0x911b) {
+      return 0;
+    }
+    puVar4 = *(undefined4 **)(param_1 + 0xebc4);
+    do {
+      puVar5 = puVar4;
+      if (puVar4 == (undefined4 *)0x0) {
+        FUN_0400a810("FenceList",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+                     ,0x414,"bool Direct3DDevice9Imp::Fence_IsFinalized(eONFence*)");
+        puVar5 = *(undefined4 **)(param_1 + 0xebc4);
+      }
+      puVar4 = (undefined4 *)*puVar5;
+      (*DAT_0451e1a8)(puVar5[1]);
+      iVar3 = *(int *)(param_1 + 0xebc4);
+      *(undefined4 *)(iVar3 + 4) = 0;
+      *(undefined1 *)(iVar3 + 0xc) = 1;
+      *(undefined4 **)(param_1 + 0xebc4) = puVar4;
+    } while (param_2 != puVar5);
+  }
+  if (puVar4 != (undefined4 *)0x0) {
+    return 1;
+  }
+  *(undefined4 *)(param_1 + 0xebc8) = 0;
+  return 1;
+}
+

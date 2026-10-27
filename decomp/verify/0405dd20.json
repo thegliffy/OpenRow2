@@ -1,0 +1,237 @@
+
+void D3DFVF_ToString(undefined4 param_1,undefined4 param_2,uint param_3)
+
+{
+  uint uVar1;
+  char *pcVar2;
+  char *pcVar3;
+  uint uVar4;
+  int iVar5;
+  char *pcVar6;
+  char *pcVar7;
+  char *pcVar8;
+  char *pcVar9;
+  uint *puVar10;
+  uint *puVar11;
+  char *local_23c;
+  char *local_238;
+  uint local_21c [131];
+  
+  local_238 = "D3DFVF_XYZB2";
+  uVar1 = param_3 & 0x400e;
+  if (uVar1 != 8) {
+    if (uVar1 < 9) {
+      local_238 = "D3DFVF_XYZRHW";
+      if (((uVar1 != 4) && (local_238 = "D3DFVF_XYZB1", uVar1 != 6)) &&
+         (local_238 = "D3DFVF_XYZ", uVar1 != 2)) goto LAB_0405e2f9;
+    }
+    else {
+      local_238 = "D3DFVF_XYZB4";
+      if (uVar1 != 0xc) {
+        if (uVar1 < 0xd) {
+          local_238 = "D3DFVF_XYZB3";
+          if (uVar1 != 10) goto LAB_0405e2f9;
+        }
+        else {
+          local_238 = "D3DFVF_XYZB5";
+          if ((uVar1 != 0xe) && (local_238 = "D3DFVF_XYZW", uVar1 != 0x4002)) {
+LAB_0405e2f9:
+            local_238 = "(pos unrecognized)";
+          }
+        }
+      }
+    }
+  }
+  pcVar6 = "|D3DFVF_NORMAL";
+  if ((param_3 & 0x10) == 0) {
+    pcVar6 = "";
+  }
+  local_23c = "|D3DFVF_TEX4";
+  pcVar7 = "|D3DFVF_PSIZE";
+  if ((param_3 & 0x20) == 0) {
+    pcVar7 = "";
+  }
+  pcVar8 = "|D3DFVF_DIFFUSE";
+  if ((param_3 & 0x40) == 0) {
+    pcVar8 = "";
+  }
+  pcVar2 = "";
+  if ((param_3 & 0x80) != 0) {
+    pcVar2 = "|D3DFVF_SPECULAR";
+  }
+  uVar1 = param_3 & 0xf00;
+  if (uVar1 != 0x400) {
+    if (uVar1 < 0x401) {
+      local_23c = "|D3DFVF_TEX1";
+      if (uVar1 == 0x100) goto LAB_0405de38;
+      if (uVar1 < 0x101) {
+        local_23c = "|D3DFVF_TEX0";
+        if (uVar1 == 0) goto LAB_0405de38;
+      }
+      else {
+        local_23c = "|D3DFVF_TEX2";
+        if ((uVar1 == 0x200) || (local_23c = "|D3DFVF_TEX3", uVar1 == 0x300)) goto LAB_0405de38;
+      }
+    }
+    else {
+      local_23c = "|D3DFVF_TEX6";
+      if (uVar1 == 0x600) goto LAB_0405de38;
+      if (uVar1 < 0x601) {
+        local_23c = "|D3DFVF_TEX5";
+        if (uVar1 == 0x500) goto LAB_0405de38;
+      }
+      else {
+        local_23c = "|D3DFVF_TEX7";
+        if ((uVar1 == 0x700) || (local_23c = "|D3DFVF_TEX8", uVar1 == 0x800)) goto LAB_0405de38;
+      }
+    }
+    local_23c = "(texcount unrecognized)";
+  }
+LAB_0405de38:
+  pcVar9 = "|D3DFVF_LASTBETA_UBYTE4";
+  if ((param_3 & 0x1000) == 0) {
+    pcVar9 = "";
+  }
+  iVar5 = 0x80;
+  pcVar3 = "";
+  if ((param_3 & 0x8000) != 0) {
+    pcVar3 = "|D3DFVF_LASTBETA_D3DCOLOR";
+  }
+  puVar11 = local_21c;
+  for (; iVar5 != 0; iVar5 = iVar5 + -1) {
+    *puVar11 = 0;
+    puVar11 = puVar11 + 1;
+  }
+  puVar11 = local_21c;
+  if (*(int *)(&DAT_042ed200 + (param_3 >> 0x10 & 3) * 4) != 2) {
+    do {
+      puVar10 = puVar11;
+      uVar4 = *puVar10 + 0xfefefeff & ~*puVar10;
+      uVar1 = uVar4 & 0x80808080;
+      puVar11 = puVar10 + 1;
+    } while (uVar1 == 0);
+    if ((uVar4 & 0x8080) == 0) {
+      puVar11 = (uint *)((int)puVar10 + 6);
+      uVar1 = uVar1 >> 0x10;
+    }
+    sprintf((char *)((int)puVar11 + (-3 - (uint)CARRY1((byte)uVar1,(byte)uVar1))),
+            "|D3DFVF_TEXCOORDSIZE%u(D3DFVF_TEXTUREFORMAT%u)",0,
+            *(int *)(&DAT_042ed200 + (param_3 >> 0x10 & 3) * 4));
+  }
+  puVar11 = local_21c;
+  if (*(int *)(&DAT_042ed200 + (param_3 >> 0x12 & 3) * 4) != 2) {
+    do {
+      puVar10 = puVar11;
+      uVar4 = *puVar10 + 0xfefefeff & ~*puVar10;
+      uVar1 = uVar4 & 0x80808080;
+      puVar11 = puVar10 + 1;
+    } while (uVar1 == 0);
+    if ((uVar4 & 0x8080) == 0) {
+      puVar11 = (uint *)((int)puVar10 + 6);
+      uVar1 = uVar1 >> 0x10;
+    }
+    sprintf((char *)((int)puVar11 + (-3 - (uint)CARRY1((byte)uVar1,(byte)uVar1))),
+            "|D3DFVF_TEXCOORDSIZE%u(D3DFVF_TEXTUREFORMAT%u)",1,
+            *(int *)(&DAT_042ed200 + (param_3 >> 0x12 & 3) * 4));
+  }
+  puVar11 = local_21c;
+  if (*(int *)(&DAT_042ed200 + (param_3 >> 0x14 & 3) * 4) != 2) {
+    do {
+      puVar10 = puVar11;
+      uVar4 = *puVar10 + 0xfefefeff & ~*puVar10;
+      uVar1 = uVar4 & 0x80808080;
+      puVar11 = puVar10 + 1;
+    } while (uVar1 == 0);
+    if ((uVar4 & 0x8080) == 0) {
+      puVar11 = (uint *)((int)puVar10 + 6);
+      uVar1 = uVar1 >> 0x10;
+    }
+    sprintf((char *)((int)puVar11 + (-3 - (uint)CARRY1((byte)uVar1,(byte)uVar1))),
+            "|D3DFVF_TEXCOORDSIZE%u(D3DFVF_TEXTUREFORMAT%u)",2,
+            *(int *)(&DAT_042ed200 + (param_3 >> 0x14 & 3) * 4));
+  }
+  puVar11 = local_21c;
+  if (*(int *)(&DAT_042ed200 + (param_3 >> 0x16 & 3) * 4) != 2) {
+    do {
+      puVar10 = puVar11;
+      uVar4 = *puVar10 + 0xfefefeff & ~*puVar10;
+      uVar1 = uVar4 & 0x80808080;
+      puVar11 = puVar10 + 1;
+    } while (uVar1 == 0);
+    if ((uVar4 & 0x8080) == 0) {
+      puVar11 = (uint *)((int)puVar10 + 6);
+      uVar1 = uVar1 >> 0x10;
+    }
+    sprintf((char *)((int)puVar11 + (-3 - (uint)CARRY1((byte)uVar1,(byte)uVar1))),
+            "|D3DFVF_TEXCOORDSIZE%u(D3DFVF_TEXTUREFORMAT%u)",3,
+            *(int *)(&DAT_042ed200 + (param_3 >> 0x16 & 3) * 4));
+  }
+  puVar11 = local_21c;
+  if (*(int *)(&DAT_042ed200 + (param_3 >> 0x18 & 3) * 4) != 2) {
+    do {
+      puVar10 = puVar11;
+      uVar4 = *puVar10 + 0xfefefeff & ~*puVar10;
+      uVar1 = uVar4 & 0x80808080;
+      puVar11 = puVar10 + 1;
+    } while (uVar1 == 0);
+    if ((uVar4 & 0x8080) == 0) {
+      puVar11 = (uint *)((int)puVar10 + 6);
+      uVar1 = uVar1 >> 0x10;
+    }
+    sprintf((char *)((int)puVar11 + (-3 - (uint)CARRY1((byte)uVar1,(byte)uVar1))),
+            "|D3DFVF_TEXCOORDSIZE%u(D3DFVF_TEXTUREFORMAT%u)",4,
+            *(int *)(&DAT_042ed200 + (param_3 >> 0x18 & 3) * 4));
+  }
+  puVar11 = local_21c;
+  if (*(int *)(&DAT_042ed200 + (param_3 >> 0x1a & 3) * 4) != 2) {
+    do {
+      puVar10 = puVar11;
+      uVar4 = *puVar10 + 0xfefefeff & ~*puVar10;
+      uVar1 = uVar4 & 0x80808080;
+      puVar11 = puVar10 + 1;
+    } while (uVar1 == 0);
+    if ((uVar4 & 0x8080) == 0) {
+      puVar11 = (uint *)((int)puVar10 + 6);
+      uVar1 = uVar1 >> 0x10;
+    }
+    sprintf((char *)((int)puVar11 + (-3 - (uint)CARRY1((byte)uVar1,(byte)uVar1))),
+            "|D3DFVF_TEXCOORDSIZE%u(D3DFVF_TEXTUREFORMAT%u)",5,
+            *(int *)(&DAT_042ed200 + (param_3 >> 0x1a & 3) * 4));
+  }
+  puVar11 = local_21c;
+  if (*(int *)(&DAT_042ed200 + (param_3 >> 0x1c & 3) * 4) != 2) {
+    do {
+      puVar10 = puVar11;
+      uVar4 = *puVar10 + 0xfefefeff & ~*puVar10;
+      uVar1 = uVar4 & 0x80808080;
+      puVar11 = puVar10 + 1;
+    } while (uVar1 == 0);
+    if ((uVar4 & 0x8080) == 0) {
+      puVar11 = (uint *)((int)puVar10 + 6);
+      uVar1 = uVar1 >> 0x10;
+    }
+    sprintf((char *)((int)puVar11 + (-3 - (uint)CARRY1((byte)uVar1,(byte)uVar1))),
+            "|D3DFVF_TEXCOORDSIZE%u(D3DFVF_TEXTUREFORMAT%u)",6,
+            *(int *)(&DAT_042ed200 + (param_3 >> 0x1c & 3) * 4));
+  }
+  puVar11 = local_21c;
+  if (*(int *)(&DAT_042ed200 + (param_3 >> 0x1e) * 4) != 2) {
+    do {
+      puVar10 = puVar11;
+      uVar4 = *puVar10 + 0xfefefeff & ~*puVar10;
+      uVar1 = uVar4 & 0x80808080;
+      puVar11 = puVar10 + 1;
+    } while (uVar1 == 0);
+    if ((uVar4 & 0x8080) == 0) {
+      puVar11 = (uint *)((int)puVar10 + 6);
+      uVar1 = uVar1 >> 0x10;
+    }
+    sprintf((char *)((int)puVar11 + (-3 - (uint)CARRY1((byte)uVar1,(byte)uVar1))),
+            "|D3DFVF_TEXCOORDSIZE%u(D3DFVF_TEXTUREFORMAT%u)",7,
+            *(int *)(&DAT_042ed200 + (param_3 >> 0x1e) * 4));
+  }
+  FUN_0402cd10(param_2,"FVF: %s%s%s%s%s%s%s%s%s",local_238,pcVar6,pcVar7,pcVar8,pcVar2,local_23c,
+               pcVar9,pcVar3,local_21c);
+  return;
+}
+

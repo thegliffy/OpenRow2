@@ -1,0 +1,122 @@
+
+void EnterCriticalSection(int param_1)
+
+{
+  int *piVar1;
+  undefined4 uVar2;
+  int iVar3;
+  int iVar4;
+  int iVar5;
+  int *piVar6;
+  int in_FS_OFFSET;
+  bool bVar7;
+  undefined4 local_24;
+  int local_20;
+  char *local_1c;
+  undefined4 *local_10;
+  
+  iVar3 = param_1;
+  local_10 = &param_1;
+  local_20 = *(int *)(*(int *)(in_FS_OFFSET + 0x18) + 0x130);
+  local_24 = 0x4146238;
+  thread_SuspendPoint();
+  if (iVar3 == 0) {
+    local_1c = "EnterCriticalSection() received NULL pointer!";
+    local_20 = 0xf;
+    local_24 = 0x41463dc;
+    FUN_0402cd10();
+  }
+  else {
+    piVar6 = &local_20;
+    if (*(int *)(iVar3 + 0x14) != 0) {
+      local_20 = iVar3;
+      local_24 = 0x414624f;
+      iVar4 = TryEnterCriticalSection();
+      if (iVar4 != 0) {
+        return;
+      }
+      iVar4 = *(int *)(iVar3 + 0x14);
+      piVar6 = &local_24;
+      if (iVar4 != 0) {
+        iVar5 = *(int *)(iVar3 + 4);
+        while (piVar6 = &local_24, iVar5 < 1) {
+          if (iVar5 == -1) {
+            LOCK();
+            bVar7 = *(int *)(iVar3 + 4) == -1;
+            if (bVar7) {
+              *(int *)(iVar3 + 4) = 0;
+            }
+            UNLOCK();
+            if (bVar7) goto LAB_04146290;
+          }
+          iVar4 = iVar4 + -1;
+          piVar6 = &local_24;
+          if (iVar4 == 0) break;
+          iVar5 = *(int *)(iVar3 + 4);
+        }
+      }
+    }
+    LOCK();
+    piVar1 = (int *)(iVar3 + 4);
+    iVar4 = *piVar1;
+    *piVar1 = *piVar1 + 1;
+    UNLOCK();
+    if (iVar4 == -1) {
+LAB_04146290:
+      uVar2 = *(undefined4 *)(*(int *)(*(int *)(in_FS_OFFSET + 0x18) + 0x130) + 0xc);
+      *(undefined4 *)(iVar3 + 8) = 1;
+      *(undefined4 *)(iVar3 + 0xc) = uVar2;
+      piVar6 = (int *)(*(int *)(in_FS_OFFSET + 0x18) + 0x38);
+      *piVar6 = *piVar6 + 1;
+      return;
+    }
+    if (*(int *)(iVar3 + 0xc) == *(int *)(*(int *)(*(int *)(in_FS_OFFSET + 0x18) + 0x130) + 0xc)) {
+      *(int *)(iVar3 + 8) = *(int *)(iVar3 + 8) + 1;
+      piVar6 = (int *)(*(int *)(in_FS_OFFSET + 0x18) + 0x38);
+      *piVar6 = *piVar6 + 1;
+    }
+    else {
+      *piVar6 = (int)&DAT_04516c28;
+      piVar6[-1] = 0x41462f3;
+      pthread_mutex_lock((pthread_mutex_t *)*piVar6);
+      iVar4 = *(int *)(iVar3 + 0x10);
+      if (iVar4 != 0) {
+        do {
+          iVar5 = *(int *)(iVar4 + 0x30) + 1;
+          *(int *)(iVar4 + 0x30) = iVar5;
+          if (iVar5 == 0) {
+            iVar5 = *(int *)(iVar3 + 0xc);
+          }
+          else {
+            *(undefined4 *)(*(int *)(*(int *)(in_FS_OFFSET + 0x18) + 0x130) + 0x4c) = 1;
+            piVar6[1] = (int)&DAT_04516c28;
+            *piVar6 = iVar4;
+            piVar6[-1] = 0x414633c;
+            pthread_cond_wait((pthread_cond_t *)*piVar6,(pthread_mutex_t *)piVar6[1]);
+            *(undefined4 *)(*(int *)(*(int *)(in_FS_OFFSET + 0x18) + 0x130) + 0x4c) = 0;
+            iVar4 = *(int *)(iVar3 + 0x10);
+            if (iVar4 == 0) break;
+            iVar5 = *(int *)(iVar3 + 0xc);
+          }
+          if (iVar5 == 0) {
+            *(undefined4 *)(iVar3 + 0xc) =
+                 *(undefined4 *)(*(int *)(*(int *)(in_FS_OFFSET + 0x18) + 0x130) + 0xc);
+            *piVar6 = (int)&DAT_04516c28;
+            piVar6[-1] = 0x4146393;
+            pthread_mutex_unlock((pthread_mutex_t *)*piVar6);
+            *(undefined4 *)(iVar3 + 8) = 1;
+            piVar6 = (int *)(*(int *)(in_FS_OFFSET + 0x18) + 0x38);
+            *piVar6 = *piVar6 + 1;
+            return;
+          }
+          *(int *)(iVar4 + 0x30) = *(int *)(iVar4 + 0x30) + -1;
+        } while( true );
+      }
+      *piVar6 = (int)&DAT_04516c28;
+      piVar6[-1] = 0x4146306;
+      pthread_mutex_unlock((pthread_mutex_t *)*piVar6);
+    }
+  }
+  return;
+}
+

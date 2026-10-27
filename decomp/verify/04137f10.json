@@ -1,0 +1,41 @@
+
+undefined4 Heap_Create(undefined4 param_1,undefined4 param_2,undefined *param_3)
+
+{
+  int iVar1;
+  int iVar2;
+  undefined4 uVar3;
+  
+  if (param_3 == (undefined *)0x0) {
+    param_3 = &DAT_00110000;
+  }
+  iVar2 = Subheap_Create(param_3);
+  if (iVar2 == 0) {
+    FUN_0402cd10(0xf,"Heap_Create - no continuous free memory area to allocate of size %zu!",param_3
+                );
+    uVar3 = 0;
+  }
+  else {
+    if (DAT_04515b5c == 0) {
+      DAT_04515b5c = *(int *)(iVar2 + 0x14);
+    }
+    EnterCriticalSection(DAT_04515b5c + 0x2800);
+    iVar1 = DAT_04515b58;
+    if (DAT_04515b58 == DAT_04515b60) {
+      if (DAT_04515b54 == (void *)0x0) {
+        DAT_04515b60 = 0x10;
+        DAT_04515b54 = malloc(0x40);
+      }
+      else {
+        DAT_04515b60 = DAT_04515b58 * 2;
+        DAT_04515b54 = realloc(DAT_04515b54,DAT_04515b58 * 8);
+      }
+    }
+    *(undefined4 *)((int)DAT_04515b54 + iVar1 * 4) = *(undefined4 *)(iVar2 + 0x14);
+    DAT_04515b58 = iVar1 + 1;
+    LeaveCriticalSection(DAT_04515b5c + 0x2800);
+    uVar3 = *(undefined4 *)(iVar2 + 0x14);
+  }
+  return uVar3;
+}
+

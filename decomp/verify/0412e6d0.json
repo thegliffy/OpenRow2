@@ -1,0 +1,25 @@
+
+/* source: fs_files */
+
+void fs_files_0412e6d0(undefined4 param_1,undefined4 param_2,undefined4 param_3,int param_4,
+                      undefined4 param_5,undefined1 param_6)
+
+{
+  if (param_4 == 0) {
+    FUN_0400a810("lpOverlapped",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/fs_files.cpp"
+                 ,0x1e2,
+                 "WINBOOL vpfs_ReadFileEx(HANDLE, PVOID, DWORD, LPOVERLAPPED, LPOVERLAPPED_COMPLETION_ROUTINE, bool)"
+                );
+  }
+  if (*(int *)(param_4 + 0x10) == 0) {
+    FUN_0400a810("lpOverlapped->hEvent",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/fs_files.cpp"
+                 ,0x1e3,
+                 "WINBOOL vpfs_ReadFileEx(HANDLE, PVOID, DWORD, LPOVERLAPPED, LPOVERLAPPED_COMPLETION_ROUTINE, bool)"
+                );
+  }
+  VPFS_ReadEx(param_1,param_3,param_2,param_4,param_5,param_6);
+  return;
+}
+

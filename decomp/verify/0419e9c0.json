@@ -1,0 +1,29 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+bool _glewInit_GL_EXT_transform_feedback(void)
+
+{
+  int iVar1;
+  bool bVar2;
+  bool bVar3;
+  bool bVar4;
+  bool bVar5;
+  bool bVar6;
+  
+  iVar1 = glXGetProcAddressARB("glBeginTransformFeedbackEXT");
+  _DAT_0451d5f0 = iVar1;
+  _DAT_0451d5ec = glXGetProcAddressARB("glBindBufferBaseEXT");
+  bVar2 = _DAT_0451d5ec == 0;
+  _DAT_0451d5e8 = glXGetProcAddressARB("glBindBufferOffsetEXT");
+  bVar3 = _DAT_0451d5e8 == 0;
+  _DAT_0451d5e4 = glXGetProcAddressARB("glBindBufferRangeEXT");
+  bVar4 = _DAT_0451d5e4 == 0;
+  _DAT_0451d5e0 = glXGetProcAddressARB("glEndTransformFeedbackEXT");
+  bVar5 = _DAT_0451d5e0 == 0;
+  _DAT_0451d5dc = glXGetProcAddressARB("glGetTransformFeedbackVaryingEXT");
+  bVar6 = _DAT_0451d5dc == 0;
+  _DAT_0451d5d8 = glXGetProcAddressARB("glTransformFeedbackVaryingsEXT");
+  return _DAT_0451d5d8 == 0 || (bVar6 || (bVar5 || (bVar4 || (bVar3 || (bVar2 || iVar1 == 0)))));
+}
+

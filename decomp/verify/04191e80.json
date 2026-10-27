@@ -1,0 +1,14 @@
+
+char * WSAWaitResultToString(int param_1)
+
+{
+  char *pcVar1;
+  
+  pcVar1 = "WSA_WAIT_IO_COMPLETION";
+  if ((param_1 != 0xc0) && (pcVar1 = "WSA_WAIT_TIMEOUT", param_1 != 0x102)) {
+    sprintf(&DAT_0451c448,"WAIT_EVENT_%u",param_1);
+    pcVar1 = &DAT_0451c448;
+  }
+  return pcVar1;
+}
+

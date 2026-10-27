@@ -1,0 +1,69 @@
+
+undefined4 eON_Startup(undefined4 param_1,undefined4 param_2)
+
+{
+  char cVar1;
+  char *pcVar2;
+  undefined4 *puVar3;
+  undefined4 uVar4;
+  string *this;
+  string *psVar5;
+  undefined *puVar6;
+  undefined1 *local_28;
+  string local_24 [4];
+  undefined4 local_20;
+  undefined4 local_1c;
+  string local_18 [6];
+  allocator local_12;
+  allocator local_11;
+  
+  FUN_04017b90("volition","saintsrow2");
+  FUN_0400bfd0(param_1,param_2);
+  cVar1 = PrepareOpenGLDisplayInformation();
+  if (cVar1 == '\0') {
+    uVar4 = 0xffffffff;
+    fwrite("ERROR - eON failed to initialise!\n",1,0x22,stderr);
+  }
+  else {
+    local_28 = &DAT_04410d0c;
+                    /* try { // try from 0400a5d7 to 0400a5f3 has its CatchHandler @ 0400a75e */
+    pcVar2 = (char *)FUN_04018ad0();
+    this = local_24;
+    std::string::string(this,pcVar2,&local_12);
+                    /* try { // try from 0400a5ff to 0400a603 has its CatchHandler @ 0400a778 */
+    puVar3 = (undefined4 *)std::string::append((char *)this);
+    local_20 = *puVar3;
+    *puVar3 = &DAT_04410d0c;
+    psVar5 = (string *)&local_20;
+                    /* try { // try from 0400a61f to 0400a623 has its CatchHandler @ 0400a764 */
+    std::string::swap((string *)&local_28);
+    std::string::~string((string *)&local_20);
+    std::string::~string(this);
+                    /* try { // try from 0400a634 to 0400a650 has its CatchHandler @ 0400a74c */
+    pcVar2 = (char *)FUN_04018ad0(this,psVar5);
+    std::string::string(local_18,pcVar2,&local_11);
+    puVar6 = &DAT_043630b1;
+                    /* try { // try from 0400a65c to 0400a660 has its CatchHandler @ 0400a72e */
+    puVar3 = (undefined4 *)std::string::append((char *)local_18);
+    local_1c = *puVar3;
+    *puVar3 = &DAT_04410d0c;
+    std::string::~string(local_18);
+                    /* try { // try from 0400a67c to 0400a6fe has its CatchHandler @ 0400a74e */
+    uVar4 = eON_GetAppDataPath(1,puVar6);
+    FUN_04040250(local_1c,uVar4,0);
+    cVar1 = thread_StartMain(local_28);
+    if (cVar1 == '\0') {
+      fwrite("ERROR - eON failed to launch!\n",1,0x1e,stderr);
+      uVar4 = 0xffffffff;
+    }
+    else {
+      eON_EnterRunLoop();
+      FUN_0400bcc0();
+      uVar4 = FUN_0400bfc0();
+    }
+    std::string::~string((string *)&local_1c);
+    std::string::~string((string *)&local_28);
+  }
+  return uVar4;
+}
+

@@ -1,0 +1,53 @@
+
+uint eONMemoryReader__Seek(uint *param_1,uint param_2,uint param_3,int param_4)
+
+{
+  int *piVar1;
+  int iVar2;
+  uint uVar3;
+  int iVar4;
+  int iVar5;
+  
+  uVar3 = 0;
+  if (((param_2 >> 0x10 == 0xfafa) && (param_2 = param_2 + 0x5060000, param_2 < *param_1)) &&
+     (param_2 != 0xffffffff)) {
+    piVar1 = (int *)param_1[1];
+    uVar3 = 0xffffffff;
+    iVar5 = (int)(param_1[2] - (int)piVar1) >> 2;
+    if (iVar5 != 0) {
+      iVar2 = *piVar1;
+      iVar4 = 0;
+      uVar3 = *(uint *)(iVar2 + 0x10);
+      while (param_2 != uVar3) {
+        iVar4 = iVar4 + 1;
+        if (iVar5 == iVar4) {
+          return 0xffffffff;
+        }
+        iVar2 = piVar1[iVar4];
+        uVar3 = *(uint *)(iVar2 + 0x10);
+      }
+      if (param_4 == 1) {
+        uVar3 = ~param_3 + *(int *)(iVar2 + 8);
+        *(uint *)(iVar2 + 0xc) = uVar3;
+        return uVar3;
+      }
+      if (param_4 != 2) {
+        if (param_4 != 0) {
+          return 0xffffffff;
+        }
+        *(uint *)(iVar2 + 0xc) = param_3;
+        return param_3;
+      }
+      param_3 = param_3 + *(int *)(iVar2 + 0xc);
+      if (param_3 < *(uint *)(iVar2 + 8)) {
+        *(uint *)(iVar2 + 0xc) = param_3;
+        return param_3;
+      }
+      FUN_0402cd10(10,"eONMemoryReader internal check issue: Seek() offset outside allowed values!")
+      ;
+      uVar3 = 0xffffffff;
+    }
+  }
+  return uVar3;
+}
+

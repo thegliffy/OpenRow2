@@ -1,0 +1,219 @@
+
+/* source: direct3ddevice9imp */
+
+void Direct3DDevice9Imp__VertexArrays_EnableArrays(int param_1,int param_2)
+
+{
+  uint *puVar1;
+  char *pcVar2;
+  int *piVar3;
+  char cVar4;
+  char *pcVar5;
+  int iVar6;
+  char *pcVar7;
+  uint uVar8;
+  int iVar9;
+  int iVar10;
+  int iVar11;
+  int iVar12;
+  int local_38;
+  int local_34;
+  char *local_30;
+  uint local_20;
+  
+  piVar3 = *(int **)(*(int *)(param_1 + 0xeb48) + 0x40);
+  if (*(int *)(*(int *)(param_1 + 0xeb48) + 0x48) == 0) {
+    FUN_0400a810("mOpenGLContextCache->VertexArrays_Program",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+                 ,0x2639,"void Direct3DDevice9Imp::VertexArrays_EnableArrays(INT)");
+  }
+  cVar4 = *(char *)(*(int *)(param_1 + 0xe9ec) + 9);
+  if (cVar4 != -1) {
+    local_30 = (char *)(*(int *)(param_1 + 0xe9ec) + 9);
+    pcVar7 = local_30;
+    do {
+      if (cVar4 == '\0') {
+        if (pcVar7[1] == '\0') goto LAB_04092e7d;
+      }
+      else if (cVar4 == '\t') {
+        if ((pcVar7[1] == '\0') ||
+           (FUN_0400a810("positionInfo->UsageIndex == 0",
+                         "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+                         ,0x2647,"void Direct3DDevice9Imp::VertexArrays_EnableArrays(INT)"),
+           *pcVar7 != -1)) {
+LAB_04092e7d:
+          local_34 = 0;
+          local_38 = -1;
+          local_20 = 0;
+          goto LAB_04092e90;
+        }
+        break;
+      }
+      pcVar7 = pcVar7 + 2;
+      cVar4 = *pcVar7;
+    } while (cVar4 != -1);
+  }
+  FUN_0402cd10();
+  return;
+LAB_04092e90:
+  if (local_20 == 0) {
+    iVar6 = 0;
+    iVar9 = 0;
+    iVar12 = (piVar3[1] - *piVar3 >> 3) * -0x55555555;
+    if (iVar12 != 0) {
+      do {
+        pcVar5 = (char *)(*piVar3 + iVar6);
+        cVar4 = *pcVar5;
+        if (cVar4 == '\0') {
+          if (pcVar5[1] == '\0') {
+LAB_040930ab:
+            iVar6 = *(int *)(param_1 + 0xeb48);
+            if (*(int *)(iVar6 + iVar9 * 4) != -1) {
+              FUN_0400a810("mOpenGLContextCache->VertexArrays_LastAppliedAttribNum[j] == -1",
+                           "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+                           ,0x2660,"void Direct3DDevice9Imp::VertexArrays_EnableArrays(INT)");
+              iVar6 = *(int *)(param_1 + 0xeb48);
+            }
+            *(undefined4 *)(iVar6 + iVar9 * 4) = 0;
+            goto LAB_04092f59;
+          }
+        }
+        else if (cVar4 == '\t') goto LAB_040930ab;
+        iVar9 = iVar9 + 1;
+        iVar6 = iVar6 + 0x18;
+      } while (iVar9 != iVar12);
+    }
+    iVar6 = *(int *)(param_1 + 0xeb48);
+LAB_04093110:
+    if ((*(uint *)(iVar6 + 0x194) >> (local_20 & 0x1f) & 1) != 0) {
+      (*DAT_0451ecc8)(local_20);
+      puVar1 = (uint *)(*(int *)(param_1 + 0xeb48) + 0x194);
+      *puVar1 = *puVar1 & ~(1 << ((byte)local_20 & 0x1f));
+    }
+    if (local_20 == 0) {
+      FUN_0400a810("i",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+                   ,0x2684,"void Direct3DDevice9Imp::VertexArrays_EnableArrays(INT)");
+    }
+    (*DAT_0451eb9c)(local_20,0,0,0,0);
+  }
+  else {
+    pcVar5 = local_30 + 2;
+    if (local_30 != pcVar7) {
+      pcVar5 = local_30;
+    }
+    if (*pcVar5 == -1) {
+      uVar8 = *(uint *)(*(int *)(param_1 + 0xeb48) + 0x194);
+      do {
+        if ((uVar8 >> (local_20 & 0x1f) & 1) != 0) {
+          (*DAT_0451ecc8)(local_20);
+          uVar8 = ~(1 << ((byte)local_20 & 0x1f)) & *(uint *)(*(int *)(param_1 + 0xeb48) + 0x194);
+          *(uint *)(*(int *)(param_1 + 0xeb48) + 0x194) = uVar8;
+        }
+        local_20 = local_20 + 1;
+      } while (local_20 != 0x10);
+      return;
+    }
+    iVar6 = 0;
+    iVar9 = 0;
+    iVar12 = (piVar3[1] - *piVar3 >> 3) * -0x55555555;
+    if (iVar12 != 0) {
+      do {
+        pcVar2 = (char *)(*piVar3 + iVar6);
+        if ((*pcVar5 == *pcVar2) && (pcVar2[1] == pcVar5[1])) {
+          iVar6 = *(int *)(param_1 + 0xeb48);
+          if (*(int *)(iVar6 + iVar9 * 4) != -1) {
+            FUN_0400a810("mOpenGLContextCache->VertexArrays_LastAppliedAttribNum[j] == -1",
+                         "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+                         ,0x2671,"void Direct3DDevice9Imp::VertexArrays_EnableArrays(INT)");
+            iVar6 = *(int *)(param_1 + 0xeb48);
+          }
+          *(uint *)(iVar6 + iVar9 * 4) = local_20;
+          goto LAB_04092f55;
+        }
+        iVar9 = iVar9 + 1;
+        iVar6 = iVar6 + 0x18;
+      } while (iVar9 != iVar12);
+    }
+    iVar9 = -1;
+    iVar6 = *(int *)(param_1 + 0xeb48);
+LAB_04092f55:
+    local_30 = pcVar5 + 2;
+LAB_04092f59:
+    if (iVar9 == -1) goto LAB_04093110;
+    if ((*(uint *)(iVar6 + 0x194) >> (local_20 & 0x1f) & 1) == 0) {
+      (*DAT_0451ecc0)(local_20);
+      iVar6 = *(int *)(param_1 + 0xeb48);
+      *(uint *)(iVar6 + 0x194) = *(uint *)(iVar6 + 0x194) | 1 << ((byte)local_20 & 0x1f);
+    }
+    iVar12 = iVar9 * 0x18 + *piVar3;
+    iVar9 = *(int *)(iVar12 + 4);
+    if (iVar9 == local_38) {
+      local_38 = local_38 + 0x817;
+      iVar6 = local_34;
+    }
+    else {
+      local_38 = iVar9 + 0x817;
+      iVar10 = local_38 * 0x10 + param_1;
+      iVar11 = *(int *)(iVar10 + 8);
+      if (iVar11 == 0) {
+        FUN_0400a810("mOGLDeviceState.StreamSources[currentStreamSource].Buffer",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+                     ,0x2699,"void Direct3DDevice9Imp::VertexArrays_EnableArrays(INT)");
+        iVar11 = *(int *)(iVar10 + 8);
+        iVar6 = *(int *)(param_1 + 0xeb48);
+      }
+      OpenGLContextCache____glewBindBuffer
+                (iVar6,0x8892,*(undefined4 *)(*(int *)(iVar11 + 0x54) + 0x18));
+      local_34 = *(int *)(param_1 + 0x10 + local_38 * 0x10);
+      iVar6 = local_34;
+      if (local_34 == 0) {
+        iVar6 = *(int *)(param_1 + 0xeb48);
+        if ((*(uint *)(iVar6 + 0x194) >> (local_20 & 0x1f) & 1) != 0) {
+          (*DAT_0451ecc8)(local_20);
+          iVar6 = *(int *)(param_1 + 0xeb48);
+          *(uint *)(iVar6 + 0x194) = *(uint *)(iVar6 + 0x194) & ~(1 << ((byte)local_20 & 0x1f));
+        }
+        iVar6 = eON_Buffer__GetOpenGLSideDataRegion
+                          (*(undefined4 *)(*(int *)(param_1 + 8 + local_38 * 0x10) + 0x54),iVar6);
+        Direct3DDevice9Imp__SetVertexAttrib
+                  (param_1,local_20,*(undefined4 *)(iVar12 + 0x10),*(undefined4 *)(iVar12 + 0xc),
+                   *(undefined1 *)(iVar12 + 0x14),iVar6 + *(int *)(iVar12 + 8));
+        iVar6 = 0;
+      }
+    }
+    iVar11 = *(int *)(param_1 + 0xc + local_38 * 0x10);
+    if ((param_2 == 0) || (-1 < *(int *)(param_1 + 0x14 + (*(int *)(iVar12 + 4) + 0x817) * 0x10))) {
+      iVar10 = *(int *)(param_1 + 0xeb48);
+      if (*(int *)(iVar10 + 0xc + (local_20 + 0x50) * 4) != 0) {
+        (*DAT_0451e548)(local_20,0);
+        *(undefined4 *)(iVar10 + 0xc + (local_20 + 0x50) * 4) = 0;
+        iVar10 = *(int *)(param_1 + 0xeb48);
+      }
+      iVar11 = iVar11 + local_34 * *(int *)(iVar10 + 0x44);
+    }
+    else {
+      if (DAT_0451ca5a == '\0') {
+        FUN_0400a810("(*(const GLboolean*)&__GLEW_ARB_instanced_arrays)",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+                     ,0x26b3,"void Direct3DDevice9Imp::VertexArrays_EnableArrays(INT)");
+      }
+      iVar10 = *(int *)(param_1 + 0xeb48);
+      if (*(int *)(iVar10 + 0xc + (local_20 + 0x50) * 4) != 1) {
+        (*DAT_0451e548)(local_20,1);
+        *(undefined1 *)(iVar10 + 0x18c) = 1;
+        *(undefined4 *)(iVar10 + 0xc + (local_20 + 0x50) * 4) = 1;
+      }
+    }
+    (&DAT_044dac40)[local_20] = iVar11;
+    (*DAT_0451eb7c)(local_20,*(undefined4 *)(iVar12 + 0x10),*(undefined4 *)(iVar12 + 0xc),
+                    *(undefined1 *)(iVar12 + 0x14),iVar6,iVar11 + *(int *)(iVar12 + 8));
+    local_38 = iVar9;
+  }
+  local_20 = local_20 + 1;
+  if (local_20 == 0x10) {
+    return;
+  }
+  goto LAB_04092e90;
+}
+

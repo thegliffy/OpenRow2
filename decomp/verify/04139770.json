@@ -1,0 +1,8 @@
+
+void kernel32_ThreadDetach(void)
+
+{
+  FUN_0402cd10(5,"kernel32_ThreadDetach");
+  return;
+}
+

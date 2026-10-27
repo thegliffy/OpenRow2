@@ -1,0 +1,31 @@
+
+void png_read_sig(int param_1,int param_2)
+
+{
+  int iVar1;
+  uint uVar2;
+  
+  if (*(byte *)(param_1 + 0x1b9) < 8) {
+    uVar2 = (uint)*(byte *)(param_1 + 0x1b9);
+    *(undefined4 *)(param_1 + 800) = 0x11;
+    png_read_data(param_1,param_2 + 0x20 + uVar2,8 - uVar2);
+    *(undefined1 *)(param_1 + 0x1b9) = 8;
+    iVar1 = FUN_042a5220(param_2 + 0x20,uVar2,8 - uVar2);
+    if (iVar1 != 0) {
+      if (uVar2 < 4) {
+        iVar1 = FUN_042a5220(param_2 + 0x20,uVar2,4 - uVar2);
+        if (iVar1 != 0) {
+                    /* WARNING: Subroutine does not return */
+          png_error(param_1,"Not a PNG file");
+        }
+      }
+                    /* WARNING: Subroutine does not return */
+      png_error(param_1,"PNG file corrupted by ASCII conversion");
+    }
+    if (uVar2 < 3) {
+      *(uint *)(param_1 + 0xd0) = *(uint *)(param_1 + 0xd0) | 0x1000;
+    }
+  }
+  return;
+}
+

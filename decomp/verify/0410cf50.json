@@ -1,0 +1,15 @@
+
+/* source: xaudio2voiceimpl */
+
+int XAudio2VoiceImp__GetAudioGraphMutex(int param_1)
+
+{
+  if (*(int *)(param_1 + 0xdc) != 0) {
+    return *(int *)(param_1 + 0xdc) + 100;
+  }
+  FUN_0400a810("mEngine",
+               "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/xaudio2_full/xaudio2voiceimpl.cpp"
+               ,0x1fa,"std::mutex& XAudio2VoiceImp::GetAudioGraphMutex()");
+  return *(int *)(param_1 + 0xdc) + 100;
+}
+

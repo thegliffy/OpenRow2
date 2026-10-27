@@ -1,0 +1,36 @@
+
+undefined4 png_crc_finish(int param_1,uint param_2)
+
+{
+  int iVar1;
+  bool bVar2;
+  undefined1 local_40c [1024];
+  
+  if (param_2 != 0) {
+    do {
+      if (param_2 < 0x400) {
+        png_crc_read(param_1,local_40c,param_2);
+        break;
+      }
+      param_2 = param_2 - 0x400;
+      png_crc_read(param_1,local_40c,0x400);
+    } while (param_2 != 0);
+  }
+  iVar1 = png_crc_error(param_1);
+  if (iVar1 == 0) {
+    return 0;
+  }
+  if ((*(byte *)(param_1 + 0x17b) & 0x20) == 0) {
+    bVar2 = (*(byte *)(param_1 + 0xd5) & 4) != 0;
+  }
+  else {
+    bVar2 = (*(byte *)(param_1 + 0xd5) & 2) == 0;
+  }
+  if (bVar2) {
+    png_benign_error();
+    return 1;
+  }
+                    /* WARNING: Subroutine does not return */
+  png_chunk_error(param_1,"CRC error");
+}
+

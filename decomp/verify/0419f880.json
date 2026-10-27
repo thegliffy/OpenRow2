@@ -1,0 +1,29 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+bool _glewInit_GL_NV_fence(void)
+
+{
+  int iVar1;
+  bool bVar2;
+  bool bVar3;
+  bool bVar4;
+  bool bVar5;
+  bool bVar6;
+  
+  iVar1 = glXGetProcAddressARB("glDeleteFencesNV");
+  _DAT_0451d2e8 = iVar1;
+  _DAT_0451d2e4 = glXGetProcAddressARB("glFinishFenceNV");
+  bVar2 = _DAT_0451d2e4 == 0;
+  _DAT_0451d2e0 = glXGetProcAddressARB("glGenFencesNV");
+  bVar3 = _DAT_0451d2e0 == 0;
+  _DAT_0451d2dc = glXGetProcAddressARB("glGetFenceivNV");
+  bVar4 = _DAT_0451d2dc == 0;
+  _DAT_0451d2d8 = glXGetProcAddressARB("glIsFenceNV");
+  bVar5 = _DAT_0451d2d8 == 0;
+  _DAT_0451d2d4 = glXGetProcAddressARB("glSetFenceNV");
+  bVar6 = _DAT_0451d2d4 == 0;
+  _DAT_0451d2d0 = glXGetProcAddressARB("glTestFenceNV");
+  return _DAT_0451d2d0 == 0 || (bVar6 || (bVar5 || (bVar4 || (bVar3 || (bVar2 || iVar1 == 0)))));
+}
+

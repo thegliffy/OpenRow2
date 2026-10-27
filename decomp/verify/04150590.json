@@ -1,0 +1,34 @@
+
+undefined4 eON_FreeLibrary(uint param_1)
+
+{
+  undefined4 *puVar1;
+  undefined *puVar2;
+  undefined *puVar3;
+  undefined *puVar4;
+  
+  pthread_mutex_lock((pthread_mutex_t *)&DAT_0451add4);
+  if (DAT_0451adf4 != (undefined *)0x0) {
+    puVar2 = DAT_0451adf4;
+    puVar3 = &DAT_0451adf0;
+    do {
+      while (puVar4 = puVar2, *(uint *)(puVar4 + 0x10) < param_1) {
+        puVar1 = (undefined4 *)(puVar4 + 0xc);
+        puVar2 = (undefined *)*puVar1;
+        puVar4 = puVar3;
+        if ((undefined *)*puVar1 == (undefined *)0x0) goto LAB_041505d5;
+      }
+      puVar2 = *(undefined **)(puVar4 + 8);
+      puVar3 = puVar4;
+    } while (*(undefined **)(puVar4 + 8) != (undefined *)0x0);
+LAB_041505d5:
+    if ((puVar4 != &DAT_0451adf0) && (*(uint *)(puVar4 + 0x10) <= param_1)) {
+      pthread_mutex_unlock((pthread_mutex_t *)&DAT_0451add4);
+      return 1;
+    }
+  }
+  pthread_mutex_unlock((pthread_mutex_t *)&DAT_0451add4);
+  FUN_0402cd10(0xf,"FreeLibrary called, trying to free module %p, not found in dll map!",param_1);
+  return 1;
+}
+

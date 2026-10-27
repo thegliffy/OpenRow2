@@ -1,0 +1,8 @@
+
+void eON_ShaderData_convert_texm3x3vspec(void)
+
+{
+  FUN_0402cd10(0xf,"texm3x3vspec conversion not implemented yet, add it when you need it.");
+  return;
+}
+

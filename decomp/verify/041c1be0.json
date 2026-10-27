@@ -1,0 +1,53 @@
+
+void TiXmlDeclaration__Print(int param_1,FILE *param_2,undefined4 param_3,int param_4)
+
+{
+  if (param_2 != (FILE *)0x0) {
+    fwrite("<?xml ",1,6,param_2);
+  }
+  if (param_4 != 0) {
+    TiXmlString__append(param_4,"<?xml ",6);
+  }
+  if (**(int **)(param_1 + 0x2c) != 0) {
+    if (param_2 != (FILE *)0x0) {
+      fprintf(param_2,"version=\"%s\" ",*(int **)(param_1 + 0x2c) + 2);
+    }
+    if (param_4 != 0) {
+      TiXmlString__append(param_4,"version=\"",9);
+      TiXmlString__append(param_4,*(undefined4 **)(param_1 + 0x2c) + 2,
+                          **(undefined4 **)(param_1 + 0x2c));
+      TiXmlString__append(param_4,"\" ",2);
+    }
+  }
+  if (**(int **)(param_1 + 0x30) != 0) {
+    if (param_2 != (FILE *)0x0) {
+      fprintf(param_2,"encoding=\"%s\" ",*(int **)(param_1 + 0x30) + 2);
+    }
+    if (param_4 != 0) {
+      TiXmlString__append(param_4,"encoding=\"",10);
+      TiXmlString__append(param_4,*(undefined4 **)(param_1 + 0x30) + 2,
+                          **(undefined4 **)(param_1 + 0x30));
+      TiXmlString__append(param_4,"\" ",2);
+    }
+  }
+  if (**(int **)(param_1 + 0x34) != 0) {
+    if (param_2 != (FILE *)0x0) {
+      fprintf(param_2,"standalone=\"%s\" ",*(int **)(param_1 + 0x34) + 2);
+    }
+    if (param_4 != 0) {
+      TiXmlString__append(param_4,"standalone=\"",0xc);
+      TiXmlString__append(param_4,*(undefined4 **)(param_1 + 0x34) + 2,
+                          **(undefined4 **)(param_1 + 0x34));
+      TiXmlString__append(param_4,"\" ",2);
+    }
+  }
+  if (param_2 != (FILE *)0x0) {
+    fwrite(&DAT_04361be8,1,2,param_2);
+  }
+  if (param_4 != 0) {
+    TiXmlString__append();
+    return;
+  }
+  return;
+}
+

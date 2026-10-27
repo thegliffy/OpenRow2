@@ -1,0 +1,103 @@
+
+/* source: tinyxml */
+
+int * TiXmlNode__LinkEndChild(int *param_1,int *param_2)
+
+{
+  int *piVar1;
+  int iVar2;
+  undefined4 uVar3;
+  int *piVar4;
+  int local_20;
+  
+  piVar4 = param_2;
+  if (((int *)param_2[4] != (int *)0x0) && ((int *)param_2[4] != param_1)) {
+    FUN_0400a810("node->parent == 0 || node->parent == this",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxml.cpp"
+                 ,0xbc,"TiXmlNode* TiXmlNode::LinkEndChild(TiXmlNode*)");
+  }
+  do {
+    iVar2 = (**(code **)(*piVar4 + 0x10))(piVar4);
+    if (iVar2 != 0) {
+      iVar2 = (**(code **)(*piVar4 + 0x10))(piVar4);
+      piVar4 = param_2;
+      if (iVar2 != 0) goto LAB_041c2c2b;
+      break;
+    }
+    piVar1 = piVar4 + 4;
+    piVar4 = (int *)*piVar1;
+  } while ((int *)*piVar1 != (int *)0x0);
+  goto LAB_041c2c98;
+  while (piVar1 = piVar4 + 4, piVar4 = (int *)*piVar1, (int *)*piVar1 != (int *)0x0) {
+LAB_041c2c2b:
+    iVar2 = (**(code **)(*piVar4 + 0x10))(piVar4);
+    if (iVar2 != 0) {
+      local_20 = (**(code **)(*piVar4 + 0x10))(piVar4);
+      goto LAB_041c2c42;
+    }
+  }
+  local_20 = 0;
+LAB_041c2c42:
+  iVar2 = 0;
+  piVar4 = param_1;
+  if (param_1 != (int *)0x0) {
+    do {
+      iVar2 = (**(code **)(*piVar4 + 0x10))(piVar4);
+      if (iVar2 != 0) {
+        iVar2 = (**(code **)(*piVar4 + 0x10))(piVar4);
+        goto LAB_041c2c6f;
+      }
+      piVar1 = piVar4 + 4;
+      piVar4 = (int *)*piVar1;
+    } while ((int *)*piVar1 != (int *)0x0);
+    iVar2 = 0;
+  }
+LAB_041c2c6f:
+  if (local_20 != iVar2) {
+    FUN_0400a810("node->GetDocument() == 0 || node->GetDocument() == this->GetDocument()",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxml.cpp"
+                 ,0xbd,"TiXmlNode* TiXmlNode::LinkEndChild(TiXmlNode*)");
+  }
+LAB_041c2c98:
+  if (param_2[5] != 0) {
+    iVar2 = param_1[7];
+    param_2[4] = (int)param_1;
+    param_2[10] = 0;
+    param_2[9] = iVar2;
+    if (iVar2 == 0) {
+      param_1[6] = (int)param_2;
+    }
+    else {
+      *(int **)(iVar2 + 0x28) = param_2;
+    }
+    param_1[7] = (int)param_2;
+    return param_2;
+  }
+  (**(code **)(*param_2 + 4))(param_2);
+  piVar4 = param_1;
+  while( true ) {
+    if (piVar4 == (int *)0x0) {
+      return (int *)0x0;
+    }
+    iVar2 = (**(code **)(*piVar4 + 0x10))(piVar4);
+    if (iVar2 != 0) break;
+    piVar4 = (int *)piVar4[4];
+  }
+  iVar2 = (**(code **)(*piVar4 + 0x10))(piVar4);
+  if (iVar2 == 0) {
+    return (int *)0x0;
+  }
+  do {
+    iVar2 = (**(code **)(*param_1 + 0x10))(param_1);
+    if (iVar2 != 0) {
+      uVar3 = (**(code **)(*param_1 + 0x10))(param_1);
+      goto LAB_041c2cff;
+    }
+    param_1 = (int *)param_1[4];
+  } while (param_1 != (int *)0x0);
+  uVar3 = 0;
+LAB_041c2cff:
+  TiXmlDocument__SetError(uVar3,0xf,0,0,0);
+  return (int *)0x0;
+}
+

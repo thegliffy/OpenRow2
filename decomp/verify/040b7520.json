@@ -1,0 +1,70 @@
+
+/* source: direct3dvolume9imp */
+
+undefined4 direct3dvolume9imp_040b7520(int *param_1,undefined4 param_2,int *param_3)
+
+{
+  int *piVar1;
+  int iVar2;
+  undefined4 *__ptr;
+  code *pcVar3;
+  uint uVar4;
+  undefined4 uVar5;
+  int **ppiVar6;
+  int *local_3c;
+  char *local_38;
+  undefined4 local_34;
+  char *local_30;
+  undefined4 local_24;
+  uint local_20;
+  
+  ppiVar6 = &local_3c;
+  uVar4 = (uint)*(byte *)(param_3 + 1);
+  uVar5 = *(undefined4 *)(*param_3 + 4);
+  if (param_1[0x18] == 0x4c4c554e) {
+    local_30 = "void Direct3DVolume9Imp::SystemDataUpdated(LPBYTE, bool, const D3DBOX*)";
+    local_34 = 0x2f0;
+    local_38 = 
+    "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3dvolume9imp.cpp";
+    local_3c = (int *)0x42f8592;
+    local_24 = *(undefined4 *)(*param_3 + 4);
+    local_20 = (uint)*(byte *)(param_3 + 1);
+    FUN_0400a810();
+    uVar4 = local_20;
+    uVar5 = local_24;
+  }
+  if (param_1[0x1b] - 2U < 2) {
+    local_30 = "void Direct3DVolume9Imp::SystemDataUpdated(LPBYTE, bool, const D3DBOX*)";
+    local_34 = 0x2f1;
+    local_38 = 
+    "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3dvolume9imp.cpp";
+    local_3c = (int *)0x42fa33b;
+    local_24 = uVar5;
+    local_20 = uVar4;
+    FUN_0400a810();
+  }
+  local_3c = param_3 + 2;
+  direct3dbasetexture9imp_040b5940();
+  __ptr = (undefined4 *)*param_3;
+  LOCK();
+  piVar1 = __ptr + 2;
+  iVar2 = *piVar1;
+  *piVar1 = *piVar1 + -1;
+  UNLOCK();
+  if (iVar2 == 1) {
+    uVar5 = *__ptr;
+    local_3c = (int *)eON_GetProcessHeap();
+    local_38 = (char *)0x0;
+    local_34 = uVar5;
+    eON_HeapFree();
+    ppiVar6 = (int **)&stack0xffffffb8;
+    free(__ptr);
+  }
+  iVar2 = *param_1;
+  *ppiVar6 = param_1;
+  pcVar3 = *(code **)(iVar2 + 0x10);
+  ppiVar6[-1] = (int *)0x40b75a2;
+  (*pcVar3)();
+  return 0x20;
+}
+

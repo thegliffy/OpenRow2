@@ -1,0 +1,136 @@
+
+/* source: direct3ddevice9imp */
+
+void Direct3DDevice9Imp__SetupVertexAttributeArrays(int param_1,int param_2,int param_3)
+
+{
+  int iVar1;
+  bool bVar2;
+  int iVar3;
+  char *pcVar4;
+  int *piVar5;
+  uint uVar6;
+  uint uVar7;
+  int *piVar8;
+  int iVar9;
+  uint uVar10;
+  int local_34;
+  char *local_2c;
+  int local_28;
+  
+  piVar8 = *(int **)(param_1 + 0xeb48);
+  iVar1 = *(int *)(param_1 + 0xe9d4);
+  bVar2 = true;
+  if (piVar8[0x10] == iVar1 + 0x24) {
+    if ((param_3 == 0) && (piVar8[0x11] == param_2)) {
+      bVar2 = false;
+      if ((*(uint *)(param_1 + 0xea04) & 0x2c0) == 0) {
+        piVar8[0x12] = **(int **)(param_1 + 0xe9ec);
+        return;
+      }
+    }
+    else {
+      bVar2 = true;
+    }
+  }
+  uVar6 = *(int *)(iVar1 + 0x34) - *(int *)(iVar1 + 0x30) >> 2;
+  if (0x10 < uVar6) {
+    FUN_0400a810("numUsedStreams <= 16",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+                 ,0x2776,"void Direct3DDevice9Imp::SetupVertexAttributeArrays(INT, INT)");
+    piVar8 = *(int **)(param_1 + 0xeb48);
+  }
+  if (bVar2) {
+LAB_040934e2:
+    local_34 = **(int **)(param_1 + 0xe9ec);
+  }
+  else {
+    if ((*(byte *)(param_1 + 0xea05) & 2) != 0) {
+      if (piVar8[100] != uVar6) {
+        FUN_0400a810("mOpenGLContextCache->VertexArrays_NumUsedStreams == numUsedStreams",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+                     ,0x277b,"void Direct3DDevice9Imp::SetupVertexAttributeArrays(INT, INT)");
+        piVar8 = *(int **)(param_1 + 0xeb48);
+      }
+      if (uVar6 != 0) {
+        iVar9 = *(int *)(iVar1 + 0x30);
+        uVar7 = 0;
+        do {
+          iVar3 = memcmp(piVar8 + (uVar7 + 4) * 4 + 3,
+                         (void *)(param_1 + 8 + (*(int *)(iVar9 + uVar7 * 4) + 0x817) * 0x10),0x10);
+          if (iVar3 != 0) goto LAB_040934e2;
+          uVar7 = uVar7 + 1;
+        } while (uVar7 != uVar6);
+      }
+    }
+    piVar5 = *(int **)(param_1 + 0xe9ec);
+    local_34 = *piVar5;
+    if (piVar8[0x12] == local_34) {
+LAB_04093730:
+      piVar8[0x12] = local_34;
+      return;
+    }
+    local_2c = *(char **)(iVar1 + 0x24);
+    uVar7 = (*(int *)(iVar1 + 0x28) - (int)local_2c >> 3) * -0x55555555;
+    if (uVar7 < 0x10) {
+      if (uVar7 == 0) goto LAB_04093730;
+    }
+    else {
+      FUN_0400a810("attribsSize < 16",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+                   ,0x278b,"void Direct3DDevice9Imp::SetupVertexAttributeArrays(INT, INT)");
+      piVar5 = *(int **)(param_1 + 0xe9ec);
+      piVar8 = *(int **)(param_1 + 0xeb48);
+      local_34 = *piVar5;
+      local_2c = *(char **)(iVar1 + 0x24);
+    }
+    if ((*(char *)((int)piVar5 + *piVar8 * 2 + 9) == *local_2c) &&
+       (*(char *)((int)piVar5 + *piVar8 * 2 + 10) == local_2c[1])) {
+      local_28 = 0x18;
+      uVar10 = 0;
+      do {
+        uVar10 = uVar10 + 1;
+        if (uVar10 == uVar7) goto LAB_04093730;
+        pcVar4 = local_2c + local_28;
+      } while ((*(char *)((int)piVar5 + piVar8[uVar10] * 2 + 9) == *pcVar4) &&
+              (local_28 = local_28 + 0x18,
+              *(char *)((int)piVar5 + piVar8[uVar10] * 2 + 10) == pcVar4[1]));
+    }
+  }
+  *piVar8 = -1;
+  piVar8[1] = -1;
+  piVar8[2] = -1;
+  piVar8[3] = -1;
+  piVar8[0x10] = iVar1 + 0x24;
+  piVar8[0x12] = local_34;
+  piVar8[4] = -1;
+  piVar8[5] = -1;
+  piVar8[6] = -1;
+  piVar8[7] = -1;
+  piVar8[8] = -1;
+  piVar8[9] = -1;
+  piVar8[10] = -1;
+  piVar8[0xb] = -1;
+  piVar8[0xc] = -1;
+  piVar8[0xd] = -1;
+  piVar8[0xe] = -1;
+  piVar8[0xf] = -1;
+  piVar8[0x11] = param_2;
+  piVar8[100] = uVar6;
+  if (uVar6 != 0) {
+    uVar7 = 0;
+    do {
+      iVar3 = (uVar7 + 4) * 0x10 + *(int *)(param_1 + 0xeb48);
+      iVar9 = uVar7 * 4;
+      uVar7 = uVar7 + 1;
+      iVar9 = (*(int *)(*(int *)(iVar1 + 0x30) + iVar9) + 0x817) * 0x10 + param_1;
+      *(undefined4 *)(iVar3 + 0xc) = *(undefined4 *)(iVar9 + 8);
+      *(undefined4 *)(iVar3 + 0x10) = *(undefined4 *)(iVar9 + 0xc);
+      *(undefined4 *)(iVar3 + 0x14) = *(undefined4 *)(iVar9 + 0x10);
+      *(undefined4 *)(iVar3 + 0x18) = *(undefined4 *)(iVar9 + 0x14);
+    } while (uVar7 != uVar6);
+  }
+  Direct3DDevice9Imp__VertexArrays_EnableArrays();
+  return;
+}
+

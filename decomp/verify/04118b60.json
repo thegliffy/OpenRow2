@@ -1,0 +1,86 @@
+
+undefined4 eON_RegDeleteKeyExW(int param_1,undefined4 param_2,undefined4 param_3,int param_4)
+
+{
+  char cVar1;
+  int iVar2;
+  int iVar3;
+  void *pvVar4;
+  void *pvVar5;
+  int iVar6;
+  void *__ptr;
+  undefined4 uVar7;
+  int *piVar8;
+  
+  cVar1 = Registry_IsLoaded();
+  if (cVar1 == '\0') {
+    Registry_Load();
+    InitFakeWindowsRegistryKeys();
+    FlushRegistrySave();
+  }
+  uVar7 = 6;
+  if ((param_1 != 0) && (iVar2 = Registry_OpenPredefinedKey(), iVar2 != 0)) {
+    if (param_4 != 0) {
+      FUN_0402cd10();
+    }
+    iVar3 = FUN_0415a040();
+    pvVar4 = malloc(iVar3 * 2 + 2);
+    FUN_0415a150();
+    while (pvVar5 = (void *)FUN_04115440(), pvVar5 != (void *)0x0) {
+      iVar3 = Registry_FindOrCreateKeyNode();
+      free(pvVar5);
+      if (iVar3 == 0) {
+        free(pvVar4);
+        return 0x3fa;
+      }
+    }
+    iVar3 = Registry_FindOrCreateKeyNode();
+    free(pvVar4);
+    if (iVar3 == 0) {
+      uVar7 = 0x3fa;
+    }
+    else {
+      uVar7 = 0xffffffff;
+      iVar6 = RegistryXml_SkipChildren();
+      if (iVar6 == 0) {
+        Registry_ForceRemoveOpenKey();
+        iVar6 = FUN_0415a040();
+        pvVar4 = malloc(iVar6 * 2 + 2);
+        FUN_0415a150();
+        piVar8 = (int *)&stack0xffffff98;
+        pvVar5 = (void *)FUN_04115510();
+        if (pvVar5 != (void *)0x0) {
+          free(pvVar5);
+          iVar2 = FUN_0415a040();
+          pvVar5 = malloc(iVar2 * 2 + 2);
+          FUN_0415a150();
+          piVar8 = (int *)&stack0xffffff8c;
+          do {
+            __ptr = (void *)FUN_04115440();
+            if (__ptr == (void *)0x0) {
+              iVar2 = Registry_FindOrCreateKeyNode();
+              goto LAB_04118d4f;
+            }
+            iVar2 = Registry_FindOrCreateKeyNode();
+            free(__ptr);
+          } while (iVar2 != 0);
+          iVar2 = 0;
+LAB_04118d4f:
+          free(pvVar5);
+        }
+        *piVar8 = (int)pvVar4;
+        piVar8[-1] = 0x4118d65;
+        free((void *)*piVar8);
+        *piVar8 = iVar2;
+        uVar7 = 0;
+        piVar8[1] = iVar3;
+        piVar8[-1] = 0x4118d73;
+        RegistryXml_RemoveChild();
+        piVar8[-1] = 0x4118d78;
+        FlushRegistrySave();
+      }
+    }
+  }
+  return uVar7;
+}
+

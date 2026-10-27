@@ -1,0 +1,29 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+bool _glewInit_GL_ARB_sync(void)
+
+{
+  int iVar1;
+  bool bVar2;
+  bool bVar3;
+  bool bVar4;
+  bool bVar5;
+  bool bVar6;
+  
+  iVar1 = glXGetProcAddressARB("glClientWaitSync");
+  DAT_0451e1ac = iVar1;
+  DAT_0451e1a8 = glXGetProcAddressARB("glDeleteSync");
+  bVar2 = DAT_0451e1a8 == 0;
+  DAT_0451e1a4 = glXGetProcAddressARB("glFenceSync");
+  bVar3 = DAT_0451e1a4 == 0;
+  _DAT_0451e1a0 = glXGetProcAddressARB("glGetInteger64v");
+  bVar4 = _DAT_0451e1a0 == 0;
+  _DAT_0451e19c = glXGetProcAddressARB("glGetSynciv");
+  bVar5 = _DAT_0451e19c == 0;
+  _DAT_0451e198 = glXGetProcAddressARB("glIsSync");
+  bVar6 = _DAT_0451e198 == 0;
+  _DAT_0451e194 = glXGetProcAddressARB("glWaitSync");
+  return _DAT_0451e194 == 0 || (bVar6 || (bVar5 || (bVar4 || (bVar3 || (bVar2 || iVar1 == 0)))));
+}
+

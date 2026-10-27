@@ -1,0 +1,246 @@
+
+/* source: openGlDebugFunctions */
+
+void __regparm3 OpenGL_LogState_BoundTexture(undefined4 *param_1,int param_2)
+
+{
+  int iVar1;
+  char *pcVar2;
+  float local_3c;
+  float local_38;
+  float local_34;
+  float local_30;
+  int local_2c;
+  float local_28;
+  int local_24;
+  int local_20 [4];
+  
+  glGetTexParameterfv(param_2,0x1004,&local_3c);
+  iVar1 = glGetError();
+  if (iVar1 != 0) {
+    FUN_0400a810("glGetError() == 0",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                 ,0xa91,"void OpenGL_LogState_BoundTexture(OpenGlDebugWriter*, GLenum)");
+  }
+  (**(code **)*param_1)
+            (param_1,"\tGL_TEXTURE_BORDER_COLOR: ( %f, %f, %f, %f )\n",(double)local_3c,
+             (double)local_38,(double)local_34,(double)local_30);
+  glGetTexParameteriv(param_2,0x2801,&local_2c);
+  iVar1 = glGetError();
+  if (iVar1 != 0) {
+    FUN_0400a810("glGetError() == 0",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                 ,0xa96,"void OpenGL_LogState_BoundTexture(OpenGlDebugWriter*, GLenum)");
+  }
+  pcVar2 = "GL_NEAREST_MIPMAP_NEAREST";
+  if (local_2c != 0x2700) {
+    if (local_2c < 0x2701) {
+      pcVar2 = "GL_NEAREST";
+      if ((local_2c != 0x2600) && (pcVar2 = "GL_LINEAR", local_2c != 0x2601)) goto LAB_040d6102;
+    }
+    else {
+      pcVar2 = "GL_NEAREST_MIPMAP_LINEAR";
+      if ((local_2c != 0x2702) &&
+         ((pcVar2 = "GL_LINEAR_MIPMAP_NEAREST", 0x2701 < local_2c &&
+          (pcVar2 = "GL_LINEAR_MIPMAP_LINEAR", local_2c != 0x2703)))) {
+LAB_040d6102:
+        pcVar2 = "!!!unknown!!!";
+      }
+    }
+  }
+  (**(code **)*param_1)(param_1,"\tGL_TEXTURE_MIN_FILTER: %s\n",pcVar2);
+  glGetTexParameteriv(param_2,0x2800,&local_2c);
+  iVar1 = glGetError();
+  if (iVar1 != 0) {
+    FUN_0400a810("glGetError() == 0",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                 ,0xa99,"void OpenGL_LogState_BoundTexture(OpenGlDebugWriter*, GLenum)");
+  }
+  pcVar2 = "GL_NEAREST_MIPMAP_NEAREST";
+  if (local_2c != 0x2700) {
+    if (local_2c < 0x2701) {
+      pcVar2 = "GL_NEAREST";
+      if ((local_2c == 0x2600) || (pcVar2 = "GL_LINEAR", local_2c == 0x2601)) goto LAB_040d5b08;
+    }
+    else {
+      pcVar2 = "GL_NEAREST_MIPMAP_LINEAR";
+      if ((local_2c == 0x2702) ||
+         ((pcVar2 = "GL_LINEAR_MIPMAP_NEAREST", local_2c < 0x2702 ||
+          (pcVar2 = "GL_LINEAR_MIPMAP_LINEAR", local_2c == 0x2703)))) goto LAB_040d5b08;
+    }
+    pcVar2 = "!!!unknown!!!";
+  }
+LAB_040d5b08:
+  (**(code **)*param_1)(param_1,"\tGL_TEXTURE_MAG_FILTER: %s\n",pcVar2);
+  glGetTexParameteriv(param_2,0x2802,&local_2c);
+  iVar1 = glGetError();
+  if (iVar1 != 0) {
+    FUN_0400a810("glGetError() == 0",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                 ,0xa9c,"void OpenGL_LogState_BoundTexture(OpenGlDebugWriter*, GLenum)");
+  }
+  pcVar2 = "GL_CLAMP_TO_EDGE";
+  if (local_2c != 0x812f) {
+    if (local_2c < 0x8130) {
+      pcVar2 = "GL_REPEAT";
+      if ((local_2c != 0x2901) && (pcVar2 = "GL_CLAMP_TO_BORDER", local_2c != 0x812d)) {
+        pcVar2 = "!!!unknown!!!";
+      }
+    }
+    else {
+      pcVar2 = "GL_MIRRORED_REPEAT";
+      if ((local_2c != 0x8370) && (pcVar2 = "GL_MIRROR_CLAMP_EXT", local_2c != 0x8742)) {
+        pcVar2 = "!!!unknown!!!";
+      }
+    }
+  }
+  (**(code **)*param_1)(param_1,"\tGL_TEXTURE_WRAP_S: %s\n",pcVar2);
+  glGetTexParameteriv(param_2,0x2803,&local_2c);
+  iVar1 = glGetError();
+  if (iVar1 != 0) {
+    FUN_0400a810("glGetError() == 0",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                 ,0xa9f,"void OpenGL_LogState_BoundTexture(OpenGlDebugWriter*, GLenum)");
+  }
+  pcVar2 = "GL_CLAMP_TO_EDGE";
+  if (local_2c != 0x812f) {
+    if (local_2c < 0x8130) {
+      pcVar2 = "GL_REPEAT";
+      if ((local_2c != 0x2901) && (pcVar2 = "GL_CLAMP_TO_BORDER", local_2c != 0x812d)) {
+        pcVar2 = "!!!unknown!!!";
+      }
+    }
+    else {
+      pcVar2 = "GL_MIRRORED_REPEAT";
+      if ((local_2c != 0x8370) && (pcVar2 = "GL_MIRROR_CLAMP_EXT", local_2c != 0x8742)) {
+        pcVar2 = "!!!unknown!!!";
+      }
+    }
+  }
+  (**(code **)*param_1)(param_1,"\tGL_TEXTURE_WRAP_T: %s\n",pcVar2);
+  glGetTexParameteriv(param_2,0x8072,&local_2c);
+  iVar1 = glGetError();
+  if (iVar1 != 0) {
+    FUN_0400a810("glGetError() == 0",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                 ,0xaa2,"void OpenGL_LogState_BoundTexture(OpenGlDebugWriter*, GLenum)");
+  }
+  pcVar2 = "GL_CLAMP_TO_EDGE";
+  if (local_2c != 0x812f) {
+    if (local_2c < 0x8130) {
+      pcVar2 = "GL_REPEAT";
+      if ((local_2c != 0x2901) && (pcVar2 = "GL_CLAMP_TO_BORDER", local_2c != 0x812d)) {
+        pcVar2 = "!!!unknown!!!";
+      }
+    }
+    else {
+      pcVar2 = "GL_MIRRORED_REPEAT";
+      if ((local_2c != 0x8370) && (pcVar2 = "GL_MIRROR_CLAMP_EXT", local_2c != 0x8742)) {
+        pcVar2 = "!!!unknown!!!";
+      }
+    }
+  }
+  (**(code **)*param_1)(param_1,"\tGL_TEXTURE_WRAP_R: %s\n",pcVar2);
+  glGetTexParameterfv(param_2,0x813a,&local_28);
+  iVar1 = glGetError();
+  if (iVar1 != 0) {
+    FUN_0400a810("glGetError() == 0",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                 ,0xaa7,"void OpenGL_LogState_BoundTexture(OpenGlDebugWriter*, GLenum)");
+  }
+  (**(code **)*param_1)(param_1,"\tGL_TEXTURE_MIN_LOD: %f\n",(double)local_28);
+  glGetTexParameterfv(param_2,0x813b,&local_28);
+  iVar1 = glGetError();
+  if (iVar1 != 0) {
+    FUN_0400a810("glGetError() == 0",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                 ,0xaaa,"void OpenGL_LogState_BoundTexture(OpenGlDebugWriter*, GLenum)");
+  }
+  (**(code **)*param_1)(param_1,"\tGL_TEXTURE_MAX_LOD: %f\n",(double)local_28);
+  glGetTexParameteriv(param_2,0x813c,&local_24);
+  iVar1 = glGetError();
+  if (iVar1 != 0) {
+    FUN_0400a810("glGetError() == 0",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                 ,0xaaf,"void OpenGL_LogState_BoundTexture(OpenGlDebugWriter*, GLenum)");
+  }
+  (**(code **)*param_1)(param_1,"\tGL_TEXTURE_BASE_LEVEL: %d\n",local_24);
+  glGetTexParameteriv(param_2,0x813d,local_20);
+  iVar1 = glGetError();
+  if (iVar1 != 0) {
+    FUN_0400a810("glGetError() == 0",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                 ,0xab3,"void OpenGL_LogState_BoundTexture(OpenGlDebugWriter*, GLenum)");
+  }
+  (**(code **)*param_1)(param_1,"\tGL_TEXTURE_MAX_LEVEL: %d\n",local_20[0]);
+  glGetTexParameterfv(param_2,0x8501,&local_28);
+  iVar1 = glGetError();
+  if (iVar1 != 0) {
+    FUN_0400a810("glGetError() == 0",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                 ,0xab7,"void OpenGL_LogState_BoundTexture(OpenGlDebugWriter*, GLenum)");
+  }
+  (**(code **)*param_1)(param_1,"\tGL_TEXTURE_LOD_BIAS: %f\n",(double)local_28);
+  glGetTexParameteriv(param_2,0x884c,&local_2c);
+  iVar1 = glGetError();
+  if (iVar1 != 0) {
+    FUN_0400a810("glGetError() == 0",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                 ,0xabb,"void OpenGL_LogState_BoundTexture(OpenGlDebugWriter*, GLenum)");
+  }
+  if (local_2c != 0) {
+    if (local_2c == 0x884e) {
+      (**(code **)*param_1)(param_1,"\tGL_TEXTURE_COMPARE_MODE: GL_COMPARE_R_TO_TEXTURE\n");
+      glGetTexParameteriv(param_2,0x884d,&local_2c);
+      iVar1 = glGetError();
+      if (iVar1 != 0) {
+        FUN_0400a810("glGetError() == 0",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                     ,0xac4,"void OpenGL_LogState_BoundTexture(OpenGlDebugWriter*, GLenum)");
+      }
+      pcVar2 = "!!!unknown!!!";
+      if (local_2c - 0x200U < 8) {
+        pcVar2 = (&PTR_s_GL_NEVER_043081c0)[local_2c - 0x200U];
+      }
+      (**(code **)*param_1)(param_1,"\tGL_TEXTURE_COMPARE_FUNC: %s\n",pcVar2);
+    }
+    else {
+      (**(code **)*param_1)(param_1,"\tGL_TEXTURE_COMPARE_MODE: unknown value ( %#x )\n",local_2c);
+    }
+  }
+  glGetTexParameteriv(param_2,0x8a48,&local_2c);
+  iVar1 = glGetError();
+  if (iVar1 != 0) {
+    FUN_0400a810("glGetError() == 0",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                 ,0xaca,"void OpenGL_LogState_BoundTexture(OpenGlDebugWriter*, GLenum)");
+  }
+  pcVar2 = "GL_DECODE_EXT";
+  if ((local_2c != 0x8a49) && (pcVar2 = "GL_SKIP_DECODE_EXT", local_2c != 0x8a4a)) {
+    pcVar2 = "!!!unknown!!!";
+  }
+  (**(code **)*param_1)(param_1,"\tGL_TEXTURE_SRGB_DECODE_EXT: %s\n",pcVar2);
+  (**(code **)*param_1)(param_1,"\t\n");
+  if (local_20[0] < local_24) {
+    (**(code **)*param_1)(param_1,"\tBase texture level > max level, data makes no sense!\n\t\n");
+    return;
+  }
+  if (param_2 == 0x8513) {
+    (**(code **)*param_1)(param_1,"\tTexture face: %s\n\t\n","GL_TEXTURE_CUBE_MAP_POSITIVE_X");
+    OpenGL_LogState_CompressedTexture(local_20[0]);
+    (**(code **)*param_1)(param_1,"\tTexture face: %s\n\t\n","GL_TEXTURE_CUBE_MAP_NEGATIVE_X");
+    OpenGL_LogState_CompressedTexture(local_20[0]);
+    (**(code **)*param_1)(param_1,"\tTexture face: %s\n\t\n","GL_TEXTURE_CUBE_MAP_POSITIVE_Y");
+    OpenGL_LogState_CompressedTexture(local_20[0]);
+    (**(code **)*param_1)(param_1,"\tTexture face: %s\n\t\n","GL_TEXTURE_CUBE_MAP_NEGATIVE_Y");
+    OpenGL_LogState_CompressedTexture(local_20[0]);
+    (**(code **)*param_1)(param_1,"\tTexture face: %s\n\t\n","GL_TEXTURE_CUBE_MAP_POSITIVE_Z");
+    OpenGL_LogState_CompressedTexture(local_20[0]);
+    (**(code **)*param_1)(param_1,"\tTexture face: %s\n\t\n","GL_TEXTURE_CUBE_MAP_NEGATIVE_Z");
+    OpenGL_LogState_CompressedTexture(local_20[0]);
+    return;
+  }
+  OpenGL_LogState_CompressedTexture(local_20[0]);
+  return;
+}
+

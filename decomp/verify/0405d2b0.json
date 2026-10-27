@@ -1,0 +1,89 @@
+
+void __regparm3 D3DTOP_ToString(undefined4 param_1,undefined4 param_2,undefined4 param_3)
+
+{
+  switch(param_3) {
+  default:
+    FUN_0402cd10(param_1,"%s: !unhandled!",param_2);
+    return;
+  case 1:
+    FUN_0402cd10(param_1,"%s: D3DTOP_DISABLE",param_2);
+    return;
+  case 2:
+    FUN_0402cd10(param_1,"%s: D3DTOP_SELECTARG1",param_2);
+    return;
+  case 3:
+    FUN_0402cd10(param_1,"%s: D3DTOP_SELECTARG2",param_2);
+    return;
+  case 4:
+    FUN_0402cd10(param_1,"%s: D3DTOP_MODULATE",param_2);
+    return;
+  case 5:
+    FUN_0402cd10(param_1,"%s: D3DTOP_MODULATE2X",param_2);
+    return;
+  case 6:
+    FUN_0402cd10(param_1,"%s: D3DTOP_MODULATE4X",param_2);
+    return;
+  case 7:
+    FUN_0402cd10(param_1,"%s: D3DTOP_ADD",param_2);
+    return;
+  case 8:
+    FUN_0402cd10(param_1,"%s: D3DTOP_ADDSIGNED",param_2);
+    return;
+  case 9:
+    FUN_0402cd10(param_1,"%s: D3DTOP_ADDSIGNED2X",param_2);
+    return;
+  case 10:
+    FUN_0402cd10(param_1,"%s: D3DTOP_SUBTRACT",param_2);
+    return;
+  case 0xb:
+    FUN_0402cd10(param_1,"%s: D3DTOP_ADDSMOOTH",param_2);
+    return;
+  case 0xc:
+    FUN_0402cd10(param_1,"%s: D3DTOP_BLENDDIFFUSEALPHA",param_2);
+    return;
+  case 0xd:
+    FUN_0402cd10(param_1,"%s: D3DTOP_BLENDTEXTUREALPHA",param_2);
+    return;
+  case 0xe:
+    FUN_0402cd10(param_1,"%s: D3DTOP_BLENDFACTORALPHA",param_2);
+    return;
+  case 0xf:
+    FUN_0402cd10(param_1,"%s: D3DTOP_BLENDTEXTUREALPHAPM",param_2);
+    return;
+  case 0x10:
+    FUN_0402cd10(param_1,"%s: D3DTOP_BLENDCURRENTALPHA",param_2);
+    return;
+  case 0x11:
+    FUN_0402cd10(param_1,"%s: D3DTOP_PREMODULATE",param_2);
+    return;
+  case 0x12:
+    FUN_0402cd10(param_1,"%s: D3DTOP_MODULATEALPHA_ADDCOLOR",param_2);
+    return;
+  case 0x13:
+    FUN_0402cd10(param_1,"%s: D3DTOP_MODULATECOLOR_ADDALPHA",param_2);
+    return;
+  case 0x14:
+    FUN_0402cd10(param_1,"%s: D3DTOP_MODULATEINVALPHA_ADDCOLOR",param_2);
+    return;
+  case 0x15:
+    FUN_0402cd10(param_1,"%s: D3DTOP_MODULATEINVCOLOR_ADDALPHA",param_2);
+    return;
+  case 0x16:
+    FUN_0402cd10(param_1,"%s: D3DTOP_BUMPENVMAP",param_2);
+    return;
+  case 0x17:
+    FUN_0402cd10(param_1,"%s: D3DTOP_BUMPENVMAPLUMINANCE",param_2);
+    return;
+  case 0x18:
+    FUN_0402cd10(param_1,"%s: D3DTOP_DOTPRODUCT3",param_2);
+    return;
+  case 0x19:
+    FUN_0402cd10(param_1,"%s: D3DTOP_MULTIPLYADD",param_2);
+    return;
+  case 0x1a:
+    FUN_0402cd10(param_1,"%s: D3DTOP_LERP",param_2);
+    return;
+  }
+}
+

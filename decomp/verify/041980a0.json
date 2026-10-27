@@ -1,0 +1,26 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+bool _glewInit_GL_VERSION_2_1(void)
+
+{
+  int iVar1;
+  bool bVar2;
+  bool bVar3;
+  bool bVar4;
+  bool bVar5;
+  
+  iVar1 = glXGetProcAddressARB("glUniformMatrix2x3fv");
+  _DAT_0451eb78 = iVar1;
+  _DAT_0451eb74 = glXGetProcAddressARB("glUniformMatrix2x4fv");
+  bVar2 = _DAT_0451eb74 == 0;
+  _DAT_0451eb70 = glXGetProcAddressARB("glUniformMatrix3x2fv");
+  bVar3 = _DAT_0451eb70 == 0;
+  _DAT_0451eb6c = glXGetProcAddressARB("glUniformMatrix3x4fv");
+  bVar4 = _DAT_0451eb6c == 0;
+  _DAT_0451eb68 = glXGetProcAddressARB("glUniformMatrix4x2fv");
+  bVar5 = _DAT_0451eb68 == 0;
+  _DAT_0451eb64 = glXGetProcAddressARB("glUniformMatrix4x3fv");
+  return _DAT_0451eb64 == 0 || (bVar5 || (bVar4 || (bVar3 || (bVar2 || iVar1 == 0))));
+}
+

@@ -1,0 +1,185 @@
+
+/* source: iphlpapi */
+
+int eON_GetAdaptersInfo(int *param_1,uint *param_2)
+
+{
+  short *psVar1;
+  in_addr __in;
+  uint uVar2;
+  int iVar3;
+  int iVar4;
+  void *pvVar5;
+  char *pcVar6;
+  void *pvVar7;
+  int *piVar8;
+  uint uVar9;
+  uint uVar10;
+  int *local_3c;
+  int *local_38;
+  uint *local_34;
+  size_t local_24;
+  void *local_20;
+  uint *local_1c;
+  uint *local_18;
+  uint local_14;
+  
+  if (param_2 == (uint *)0x0) {
+    return 0x57;
+  }
+  uVar2 = eON_Int_CountNetworkInterfaces();
+  if (uVar2 == 0) {
+    return 0xe8;
+  }
+  iVar3 = socket(2,2,0);
+  if (iVar3 != -1) {
+    local_24 = 0x8000;
+    local_20 = malloc(0x8000);
+    iVar4 = ioctl(iVar3,0x8912,&local_24);
+    close(iVar3);
+    if (iVar4 == 0) {
+      if (0x8000 < (int)local_24) {
+        FUN_0400a810("ifConfig->ifc_len <= initialLength",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/iphlpapi/iphlpapi.cpp"
+                     ,0xa8,"HRESULT eON_EnumerateIPAddresses(ifconf*, DWORD*)");
+      }
+      if ((int)local_24 < 0x8000) {
+        local_20 = realloc(local_20,local_24);
+      }
+      pvVar5 = (void *)((int)local_20 + (local_24 - 0x20));
+      local_38 = (int *)0x0;
+      if (local_20 <= pvVar5) {
+        iVar3 = 0;
+        pvVar7 = local_20;
+        do {
+          psVar1 = (short *)((int)pvVar7 + 0x10);
+          pvVar7 = (void *)((int)pvVar7 + 0x20);
+          iVar3 = iVar3 + (uint)(*psVar1 == 2);
+        } while (pvVar7 <= pvVar5);
+        local_38 = (int *)(iVar3 * 0x28);
+      }
+      goto LAB_04128257;
+    }
+    free(local_20);
+  }
+  local_38 = (int *)0x0;
+LAB_04128257:
+  free(local_20);
+  uVar10 = uVar2 * 0x280 + (int)local_38;
+  if ((param_1 == (int *)0x0) || (*param_2 < uVar10)) {
+    *param_2 = uVar10;
+    iVar3 = 0x6f;
+  }
+  else {
+    local_1c = (uint *)0x0;
+    iVar3 = eON_Int_GetIpAddressTable();
+    if (-1 < iVar3) {
+      local_18 = (uint *)0x0;
+      iVar3 = eON_Int_GetIpForwardTable();
+      if (iVar3 < 0) {
+        free(local_1c);
+      }
+      else {
+        local_14 = 0;
+        pvVar5 = (void *)eON_Int_EnumNetworkInterfaces();
+        if ((pvVar5 == (void *)0x0) && (local_14 != 0)) {
+          free(local_18);
+          free(local_1c);
+          iVar3 = 0xe;
+        }
+        else {
+          if (uVar2 != local_14) {
+            FUN_0400a810("indexesCount == nonLoopbackInterfaceCount",
+                         "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/iphlpapi/iphlpapi.cpp"
+                         ,0x2de,"DWORD eON_GetAdaptersInfo(PIP_ADAPTER_INFO, PULONG)");
+          }
+          uVar2 = local_14 * 0x280 + *local_1c * 0x28;
+          if (uVar10 < uVar2) {
+            FUN_0400a810("neededBufferSize2 <= neededBufferSize",
+                         "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/iphlpapi/iphlpapi.cpp"
+                         ,0x2e0,"DWORD eON_GetAdaptersInfo(PIP_ADAPTER_INFO, PULONG)");
+          }
+          if (*param_2 < uVar2) {
+            FUN_0400a810("*pOutBufLen >= neededBufferSize2",
+                         "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/iphlpapi/iphlpapi.cpp"
+                         ,0x2e1,"DWORD eON_GetAdaptersInfo(PIP_ADAPTER_INFO, PULONG)");
+          }
+          uVar10 = local_14;
+          bzero(param_1,uVar2);
+          local_34 = local_18;
+          if (local_14 != 0) {
+            uVar2 = 0;
+            local_38 = param_1 + uVar10 * 0xa0;
+            do {
+              uVar10 = *(uint *)((int)pvVar5 + uVar2 * 4);
+              param_1[0x67] = uVar10;
+              if_indextoname(uVar10,(char *)(param_1 + 2));
+              if_indextoname(param_1[0x67],(char *)(param_1 + 0x43));
+              param_1[100] = 8;
+              eON_GetPhysicalInterfaceAddress(param_1 + 0x68);
+              uVar10 = *local_1c;
+              if (uVar10 != 0) {
+                local_34 = local_1c;
+                uVar9 = 0;
+                local_3c = (int *)0x0;
+                do {
+                  if (local_34[uVar9 * 6 + 2] == param_1[0x67]) {
+                    if (local_3c == (int *)0x0) {
+                      eON_Ipv4AddressToString();
+                      eON_Ipv4AddressToString();
+                      local_3c = param_1 + 0x6b;
+                      local_34 = local_1c;
+                      uVar10 = *local_1c;
+                    }
+                    else {
+                      piVar8 = local_38;
+                      __in.s_addr = local_34[uVar9 * 6 + 1];
+                      *local_3c = (int)local_38;
+                      pcVar6 = inet_ntoa(__in);
+                      strncpy((char *)(local_38 + 1),pcVar6,0x10);
+                      pcVar6 = inet_ntoa((in_addr)local_1c[uVar9 * 6 + 3]);
+                      strncpy((char *)(local_38 + 5),pcVar6,0x10);
+                      local_34 = local_1c;
+                      local_38 = local_38 + 10;
+                      uVar10 = *local_1c;
+                      local_3c = piVar8;
+                    }
+                  }
+                  uVar9 = uVar9 + 1;
+                } while (uVar9 < uVar10);
+              }
+              uVar10 = *local_18;
+              local_34 = local_18;
+              if (uVar10 != 0) {
+                uVar9 = 0;
+                do {
+                  if ((local_34[uVar9 * 0xe + 5] == param_1[0x67]) &&
+                     (local_34[uVar9 * 0xe + 6] == 4)) {
+                    eON_Ipv4AddressToString();
+                    local_34 = local_18;
+                    uVar10 = *local_18;
+                  }
+                  uVar9 = uVar9 + 1;
+                } while (uVar9 < uVar10);
+              }
+              param_1[0x89] = 0;
+              piVar8 = (int *)0;
+              if (local_14 - 1 != uVar2) {
+                piVar8 = param_1 + 0xa0;
+              }
+              uVar2 = uVar2 + 1;
+              *param_1 = (int)piVar8;
+              param_1 = param_1 + 0xa0;
+            } while (uVar2 < local_14);
+          }
+          free(local_34);
+          free(local_1c);
+          free(pvVar5);
+          iVar3 = 0;
+        }
+      }
+    }
+  }
+  return iVar3;
+}
+

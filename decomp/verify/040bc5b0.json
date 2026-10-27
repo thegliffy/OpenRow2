@@ -1,0 +1,146 @@
+
+/* source: eonBuffer */
+
+undefined4
+TryReacquireTransientRegion(int param_1,int param_2,int param_3,int *param_4,uint param_5)
+
+{
+  int iVar1;
+  int *piVar2;
+  int *piVar3;
+  char cVar4;
+  int iVar5;
+  int *piVar6;
+  undefined1 *puVar7;
+  size_t *psVar8;
+  uint local_20;
+  
+  if (*(char *)(param_1 + 0x14) == '\0') {
+LAB_040bc7d8:
+    iVar5 = *(int *)(param_1 + 0x20);
+LAB_040bc7db:
+    if (iVar5 != 0) goto LAB_040bc5d4;
+  }
+  else {
+    if (*(int *)(param_1 + 0x20) != 0) goto LAB_040bc5d4;
+    piVar6 = *(int **)(param_1 + 0x28);
+    if (piVar6 != (int *)0x0) {
+      if (*(char *)(param_1 + 0x13) != '\0') {
+        FUN_0402cd10();
+        piVar6 = *(int **)(param_1 + 0x28);
+      }
+      pthread_mutex_lock((pthread_mutex_t *)&DAT_044a7f08);
+      if (piVar6[3] == 0) {
+        FUN_0400a810();
+      }
+      if (param_1 != piVar6[4]) {
+        pthread_mutex_unlock((pthread_mutex_t *)&DAT_044a7f08);
+        *(undefined4 *)(param_1 + 0x28) = 0;
+        goto LAB_040bc7d8;
+      }
+      LOCK();
+      *piVar6 = *piVar6 + 1;
+      UNLOCK();
+      pthread_mutex_unlock((pthread_mutex_t *)&DAT_044a7f08);
+      iVar5 = *(int *)(param_1 + 0x28);
+      *(int *)(param_1 + 0x20) = iVar5;
+      goto LAB_040bc7db;
+    }
+  }
+  iVar5 = FUN_040ba680();
+  *(int *)(param_1 + 0x20) = iVar5;
+  if (iVar5 == 0) {
+    return 0x8007000e;
+  }
+LAB_040bc5d4:
+  if (((param_5 & 0x10) == 0) && (*(char *)(param_1 + 0x12) == '\0')) {
+    piVar6 = DAT_044a7f2c;
+    psVar8 = (size_t *)&stack0xffffffb4;
+    if (((param_5 & 0x1000) == 0) &&
+       ((*(char *)(param_1 + 0x3c) != '\0' ||
+        (cVar4 = FUN_040bc490(), piVar6 = DAT_044a7f2c, psVar8 = (size_t *)&stack0xffffffb4,
+        cVar4 != '\0')))) {
+      if (*(char *)(param_1 + 0x14) == '\0') {
+        iVar5 = FUN_040ba680();
+        if (iVar5 == 0) {
+          return 0x8007000e;
+        }
+        if ((param_5 & 0x2000) == 0) {
+          memcpy(*(void **)(iVar5 + 8),*(void **)(*(int *)(param_1 + 0x20) + 8),
+                 *(size_t *)(param_1 + 8));
+        }
+        piVar6 = *(int **)(param_1 + 0x20);
+        LOCK();
+        iVar1 = *piVar6;
+        *piVar6 = *piVar6 + -1;
+        UNLOCK();
+        puVar7 = &stack0xffffffb4;
+        if ((iVar1 == 1) && (puVar7 = &stack0xffffffb4, piVar6[3] == 0)) {
+          eON_VirtualFree();
+          puVar7 = &stack0xffffffa8;
+          free(piVar6);
+        }
+        *(int *)(param_1 + 0x20) = iVar5;
+      }
+      else {
+        piVar6 = *(int **)(param_1 + 0x20);
+        LOCK();
+        iVar5 = *piVar6;
+        *piVar6 = *piVar6 + -1;
+        UNLOCK();
+        puVar7 = &stack0xffffffb4;
+        if ((iVar5 == 1) && (puVar7 = &stack0xffffffb4, piVar6[3] == 0)) {
+          eON_VirtualFree();
+          puVar7 = &stack0xffffffa8;
+          free(piVar6);
+        }
+        *(undefined4 *)(puVar7 + -4) = 0x40bc837;
+        iVar5 = FUN_040ba680();
+        *(int *)(param_1 + 0x20) = iVar5;
+        if (iVar5 == 0) {
+          return 0x8007000e;
+        }
+      }
+      iVar5 = *(int *)(param_1 + 0x34);
+      piVar6 = DAT_044a7f2c;
+      while (iVar1 = iVar5, iVar1 != 0) {
+        *(int *)(param_1 + 0x34) = *(int *)(iVar1 + 0xc);
+        piVar3 = *(int **)(iVar1 + 8);
+        while (piVar2 = piVar3, piVar2 != (int *)0x0) {
+          *(int *)(iVar1 + 8) = piVar2[2];
+          piVar2[2] = (int)piVar6;
+          piVar6 = piVar2;
+          DAT_044a7f2c = piVar2;
+          piVar3 = *(int **)(iVar1 + 8);
+        }
+        *(int *)(iVar1 + 0xc) = DAT_044a7f30;
+        DAT_044a7f30 = iVar1;
+        iVar5 = *(int *)(param_1 + 0x34);
+      }
+      *(undefined1 *)(param_1 + 0x3c) = 0;
+      psVar8 = (size_t *)puVar7;
+    }
+    local_20 = param_5 & 0x2000;
+    if (piVar6 == (int *)0x0) {
+      *psVar8 = 0xc;
+      psVar8[-1] = 0x40bc874;
+      piVar6 = malloc(*psVar8);
+    }
+    else {
+      DAT_044a7f2c = (int *)piVar6[2];
+    }
+    *piVar6 = param_2;
+    piVar6[1] = param_3;
+    piVar6[2] = *(int *)(param_1 + 0x30);
+    *(int **)(param_1 + 0x30) = piVar6;
+    if (local_20 != 0) {
+      *(uint *)(param_1 + 0x2c) = *(uint *)(param_1 + 0x2c) | 0x2000;
+    }
+    if ((param_5 & 0x1000) == 0) {
+      *(uint *)(param_1 + 0x2c) = *(uint *)(param_1 + 0x2c) & 0xffffefff;
+    }
+  }
+  *param_4 = param_2 + *(int *)(*(int *)(param_1 + 0x20) + 8);
+  return 0;
+}
+

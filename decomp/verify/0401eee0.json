@@ -1,0 +1,14 @@
+
+void BringMainGameWindowToFront(void)
+
+{
+  if (DAT_044116a4 != (int *)0x0) {
+    (**(code **)(*DAT_044116a4 + 0xb0))(DAT_044116a4);
+    return;
+  }
+  FUN_0402cd10(10,
+               "Attempt to bring main game window to front, when there\'s no main game window set!")
+  ;
+  return;
+}
+

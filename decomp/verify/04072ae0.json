@@ -1,0 +1,117 @@
+
+/* source: d3dstructs, direct3ddevice9imp */
+
+undefined4 Direct3DDevice9Imp__CreateVertexDeclaration(int param_1,uint param_2,undefined4 *param_3)
+
+{
+  int iVar1;
+  uint uVar2;
+  int iVar3;
+  undefined4 uVar4;
+  undefined4 *puVar5;
+  int iVar6;
+  uint *puVar7;
+  undefined4 uStack_40;
+  int local_3c [6];
+  int local_24;
+  int *local_20 [4];
+  
+  local_20[0] = &local_24;
+  puVar7 = (uint *)local_3c;
+  iVar1 = *(int *)(param_1 + 0xc);
+  local_24 = iVar1;
+  if (iVar1 != 0) {
+    puVar7 = (uint *)local_3c;
+    if (*(char *)(iVar1 + 0xebbc) != '\0') {
+      local_3c[0] = iVar1 + 0xebc4;
+      uStack_40 = 0x4072c9e;
+      EnterCriticalSection();
+      puVar7 = &uStack_40;
+    }
+    if (*(int *)(iVar1 + 0xec64) == 0) {
+      if (*(int *)(iVar1 + 0xebc0) != 0) {
+        puVar7[3] = (uint)"void Direct3DDevice9Imp::MultithreadedGuard_Enter()";
+        puVar7[2] = 0x3ae;
+        puVar7[1] = (uint)
+                    "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+        ;
+        *puVar7 = (uint)"!mCurrentD3D9Thread";
+        puVar7[-1] = 0x4072c44;
+        FUN_0400a810();
+      }
+      puVar7[-1] = 0x4072b2a;
+      uVar4 = FUN_0415b750();
+      *(undefined4 *)(iVar1 + 0xebc0) = uVar4;
+    }
+    else {
+      iVar3 = *(int *)(iVar1 + 0xebc0);
+      puVar7[-1] = 0x4072c5b;
+      iVar6 = FUN_0415b750();
+      if (iVar3 != iVar6) {
+        puVar7[3] = (uint)"void Direct3DDevice9Imp::MultithreadedGuard_Enter()";
+        puVar7[2] = 0x3b3;
+        puVar7[1] = (uint)
+                    "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+        ;
+        *puVar7 = (uint)"mCurrentD3D9Thread == thread_GetCurrentThreadId()";
+        puVar7[-1] = 0x4072c87;
+        FUN_0400a810();
+      }
+    }
+    *(int *)(iVar1 + 0xec64) = *(int *)(iVar1 + 0xec64) + 1;
+  }
+  *puVar7 = 0x74;
+                    /* try { // try from 04072b3e to 04072b42 has its CatchHandler @ 04072ca6 */
+  puVar7[-1] = 0x4072b43;
+  puVar5 = operator_new(*puVar7);
+  *puVar5 = &PTR_FUN_042f6f48;
+  puVar7[1] = (uint)puVar5;
+  *puVar7 = (uint)(puVar5 + 1);
+                    /* try { // try from 04072b55 to 04072b59 has its CatchHandler @ 04072cbb */
+  puVar7[-1] = 0x4072b5a;
+  Direct3DVertexDeclaration9Imp__Direct3DVertexDeclaration9Imp();
+  puVar7[2] = param_2;
+  uVar2 = *(uint *)(param_1 + 0xc);
+  *puVar7 = (uint)(puVar5 + 1);
+  puVar7[1] = uVar2;
+                    /* try { // try from 04072b6b to 04072bd8 has its CatchHandler @ 04072ca6 */
+  puVar7[-1] = 0x4072b70;
+  Direct3DVertexDeclaration9Imp__Initialize();
+  *param_3 = puVar5;
+  *puVar7 = param_1 + 0xeafc;
+  puVar7[-1] = 0x4072b83;
+  pthread_mutex_lock((pthread_mutex_t *)*puVar7);
+  if (puVar5[6] != 0) {
+    puVar7[3] = (uint)"void eON_ListElement::AddToList(eON_ListElement*)";
+    puVar7[2] = 0x26;
+    puVar7[1] = (uint)
+                "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/d3dstructs.h"
+    ;
+    *puVar7 = (uint)"Prev == __null";
+    puVar7[-1] = 0x4072bae;
+    FUN_0400a810();
+  }
+  if (puVar5[7] != 0) {
+    puVar7[3] = (uint)"void eON_ListElement::AddToList(eON_ListElement*)";
+    puVar7[2] = 0x27;
+    puVar7[1] = (uint)
+                "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/d3dstructs.h"
+    ;
+    *puVar7 = (uint)"Next == __null";
+    puVar7[-1] = 0x4072bd9;
+    FUN_0400a810();
+  }
+  puVar5[6] = param_1 + 0xeaf0;
+  puVar5[7] = *(undefined4 *)(param_1 + 0xeaf8);
+  iVar1 = *(int *)(param_1 + 0xeaf8);
+  *(undefined4 **)(param_1 + 0xeaf8) = puVar5 + 5;
+  *(undefined4 **)(iVar1 + 4) = puVar5 + 5;
+  *puVar7 = param_1 + 0xeafc;
+  puVar7[-1] = 0x4072c05;
+  pthread_mutex_unlock((pthread_mutex_t *)*puVar7);
+  *puVar7 = (uint)local_20;
+  puVar7[-1] = 0x4072c10;
+  direct3ddevice9imp_040a2df0();
+  return 0;
+}
+

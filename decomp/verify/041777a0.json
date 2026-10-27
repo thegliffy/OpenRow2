@@ -1,0 +1,39 @@
+
+uint eON_MessageBoxA(undefined4 param_1,undefined4 param_2,undefined4 param_3,uint param_4)
+
+{
+  uint uVar1;
+  int iVar2;
+  
+  uVar1 = 0;
+  switch(param_4 & 0xf) {
+  case 0:
+    iVar2 = FUN_041767f0(param_2,param_3,&DAT_043465b8,0,0);
+    return (uint)(iVar2 == 0);
+  case 1:
+    iVar2 = FUN_041767f0(param_2,param_3,&DAT_043465b8,"Cancel",0);
+    return 2 - (iVar2 == 0);
+  case 2:
+    iVar2 = FUN_041767f0(param_2,param_3,"Abort","Retry","Ignore");
+    uVar1 = 3;
+    if (iVar2 - 1U < 2) {
+      uVar1 = *(uint *)(&DAT_043465f8 + (iVar2 - 1U) * 4);
+    }
+    break;
+  case 3:
+    iVar2 = FUN_041767f0(param_2,param_3,&PTR_DAT_04302ae3,&DAT_04302ae7,"Cancel");
+    uVar1 = 6;
+    if (iVar2 - 1U < 2) {
+      uVar1 = *(uint *)(&DAT_04346600 + (iVar2 - 1U) * 4);
+    }
+    break;
+  case 4:
+    iVar2 = FUN_041767f0(param_2,param_3,&PTR_DAT_04302ae3,&DAT_04302ae7,0);
+    return 7 - (iVar2 == 0);
+  case 5:
+    iVar2 = FUN_041767f0(param_2,param_3,"Retry","Cancel",0);
+    uVar1 = (-(uint)(iVar2 == 0) & 2) + 2;
+  }
+  return uVar1;
+}
+

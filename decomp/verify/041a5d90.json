@@ -1,0 +1,13 @@
+
+undefined * GLXError_ToString(uint param_1)
+
+{
+  uint uVar1;
+  
+  uVar1 = 4;
+  if (param_1 < 5) {
+    uVar1 = param_1;
+  }
+  return (&PTR_s_No_error_04361b28)[uVar1];
+}
+

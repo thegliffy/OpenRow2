@@ -1,0 +1,15 @@
+
+undefined4 FUN_042a8190(undefined4 param_1,undefined4 param_2,undefined4 param_3,undefined4 param_4)
+
+{
+  int iVar1;
+  undefined4 local_10 [4];
+  
+  iVar1 = FUN_042a75f0(local_10,param_2,param_3,param_4);
+  if (iVar1 != 0) {
+    return local_10[0];
+  }
+  png_warning(param_1,"fixed point overflow ignored");
+  return 0;
+}
+

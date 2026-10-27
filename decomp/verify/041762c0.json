@@ -1,0 +1,48 @@
+
+uint eON_LoadKeyboardLayoutA(byte *param_1)
+
+{
+  uint uVar1;
+  int iVar2;
+  byte *pbVar3;
+  byte *pbVar4;
+  undefined1 uVar5;
+  bool bVar6;
+  undefined1 uVar7;
+  bool bVar8;
+  byte bVar9;
+  
+  bVar9 = 0;
+  uVar5 = &stack0xfffffff0 < (undefined1 *)0x10;
+  uVar7 = &stack0x00000000 == (undefined1 *)0x20;
+  FUN_0402cd10();
+  iVar2 = 9;
+  uVar1 = 0x409;
+  pbVar3 = param_1;
+  pbVar4 = &DAT_0434616e;
+  do {
+    if (iVar2 == 0) break;
+    iVar2 = iVar2 + -1;
+    uVar5 = *pbVar3 < *pbVar4;
+    uVar7 = *pbVar3 == *pbVar4;
+    pbVar3 = pbVar3 + (uint)bVar9 * -2 + 1;
+    pbVar4 = pbVar4 + (uint)bVar9 * -2 + 1;
+  } while ((bool)uVar7);
+  bVar6 = (!(bool)uVar5 && !(bool)uVar7) < (byte)uVar5;
+  bVar8 = (!(bool)uVar5 && !(bool)uVar7) == (bool)uVar5;
+  if (!bVar8) {
+    iVar2 = 9;
+    pbVar3 = &DAT_04346177;
+    do {
+      if (iVar2 == 0) break;
+      iVar2 = iVar2 + -1;
+      bVar6 = *param_1 < *pbVar3;
+      bVar8 = *param_1 == *pbVar3;
+      param_1 = param_1 + (uint)bVar9 * -2 + 1;
+      pbVar3 = pbVar3 + (uint)bVar9 * -2 + 1;
+    } while (bVar8);
+    uVar1 = -(uint)((!bVar6 && !bVar8) == bVar6) & 0x452;
+  }
+  return uVar1;
+}
+

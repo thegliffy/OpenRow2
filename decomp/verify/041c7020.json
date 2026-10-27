@@ -1,0 +1,157 @@
+
+/* WARNING: Removing unreachable block (ram,0x041c71c4) */
+/* WARNING: Removing unreachable block (ram,0x041c71cc) */
+/* source: tinyxmlparser */
+
+char * TiXmlBase__GetEntity(char *param_1,char *param_2,undefined4 *param_3,int param_4)
+
+{
+  char cVar1;
+  undefined *puVar2;
+  int iVar3;
+  char *pcVar4;
+  int iVar5;
+  size_t sVar6;
+  int iVar7;
+  size_t sVar8;
+  int local_30;
+  
+  *param_3 = 0;
+  sVar8 = DAT_04410c44;
+  pcVar4 = PTR_s__amp__04410c40;
+  if ((param_1[1] != '#') || (param_1[2] == '\0')) {
+    iVar3 = strncmp(PTR_s__amp__04410c40,param_1,DAT_04410c44);
+    sVar6 = DAT_04410c50;
+    puVar2 = PTR_DAT_04410c4c;
+    if (iVar3 == 0) {
+      local_30 = 0;
+    }
+    else {
+      iVar3 = strncmp(PTR_DAT_04410c4c,param_1,DAT_04410c50);
+      sVar8 = DAT_04410c5c;
+      pcVar4 = PTR_DAT_04410c58;
+      if (iVar3 == 0) {
+        local_30 = 1;
+        sVar8 = sVar6;
+        pcVar4 = puVar2;
+      }
+      else {
+        iVar3 = strncmp(PTR_DAT_04410c58,param_1,DAT_04410c5c);
+        sVar6 = DAT_04410c68;
+        puVar2 = PTR_s__quot__04410c64;
+        if (iVar3 == 0) {
+          local_30 = 2;
+        }
+        else {
+          iVar3 = strncmp(PTR_s__quot__04410c64,param_1,DAT_04410c68);
+          sVar8 = DAT_04410c74;
+          pcVar4 = PTR_s__apos__04410c70;
+          if (iVar3 == 0) {
+            local_30 = 3;
+            sVar8 = sVar6;
+            pcVar4 = puVar2;
+          }
+          else {
+            iVar3 = strncmp(PTR_s__apos__04410c70,param_1,DAT_04410c74);
+            if (iVar3 != 0) {
+              *param_2 = *param_1;
+              return param_1 + 1;
+            }
+            local_30 = 4;
+          }
+        }
+      }
+    }
+    sVar6 = strlen(pcVar4);
+    if (sVar6 != sVar8) {
+                    /* try { // try from 041c72d2 to 041c72d6 has its CatchHandler @ 041c737c */
+      FUN_0400a810("strlen( entity[i].str ) == entity[i].strLength",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxmlparser.cpp"
+                   ,0x207,
+                   "static const char* TiXmlBase::GetEntity(const char*, char*, int*, TiXmlEncoding)"
+                  );
+    }
+    *param_2 = *(char *)(local_30 * 0xc + 0x4410c48);
+    *param_3 = 1;
+    return param_1 + (&DAT_04410c44)[local_30 * 3];
+  }
+  if (param_1[2] == 'x') {
+    iVar3 = 0;
+    if (param_1[3] == '\0') {
+      return (char *)0x0;
+    }
+    pcVar4 = strchr(param_1 + 3,0x3b);
+    if (pcVar4 == (char *)0x0) {
+      return (char *)0x0;
+    }
+    if (*pcVar4 == '\0') {
+      return (char *)0x0;
+    }
+    local_30 = (int)pcVar4 - (int)param_1;
+    cVar1 = pcVar4[-1];
+    if (cVar1 != 'x') {
+      pcVar4 = pcVar4 + -1;
+      iVar5 = 1;
+      do {
+        if ((byte)(cVar1 - 0x30U) < 10) {
+          iVar3 = iVar3 + (cVar1 + -0x30) * iVar5;
+        }
+        else if ((byte)(cVar1 + 0x9fU) < 6) {
+          iVar3 = iVar3 + (cVar1 + -0x57) * iVar5;
+        }
+        else {
+          if (5 < (byte)(cVar1 + 0xbfU)) {
+            return (char *)0x0;
+          }
+          iVar3 = iVar3 + (cVar1 + -0x37) * iVar5;
+        }
+        pcVar4 = pcVar4 + -1;
+        iVar5 = iVar5 << 4;
+        cVar1 = *pcVar4;
+      } while (cVar1 != 'x');
+      goto LAB_041c7195;
+    }
+  }
+  else {
+    pcVar4 = strchr(param_1 + 2,0x3b);
+    if (pcVar4 == (char *)0x0) {
+      return (char *)0x0;
+    }
+    if (*pcVar4 == '\0') {
+      return (char *)0x0;
+    }
+    cVar1 = pcVar4[-1];
+    local_30 = (int)pcVar4 - (int)param_1;
+    if (cVar1 != '#') {
+      if (9 < (byte)(cVar1 - 0x30U)) {
+        return (char *)0x0;
+      }
+      pcVar4 = pcVar4 + -1;
+      iVar3 = 0;
+      iVar5 = 1;
+      while( true ) {
+        pcVar4 = pcVar4 + -1;
+        iVar7 = (cVar1 + -0x30) * iVar5;
+        iVar5 = iVar5 * 10;
+        iVar3 = iVar3 + iVar7;
+        cVar1 = *pcVar4;
+        if (cVar1 == '#') break;
+        if (9 < (byte)(cVar1 - 0x30U)) {
+          return (char *)0x0;
+        }
+      }
+      goto LAB_041c7195;
+    }
+  }
+  iVar3 = 0;
+LAB_041c7195:
+  if (param_4 == 1) {
+    TiXmlBase__ConvertUTF32ToUTF8(iVar3,param_2,param_3);
+  }
+  else {
+    *param_2 = (char)iVar3;
+    *param_3 = 1;
+  }
+  return param_1 + local_30 + 1;
+}
+

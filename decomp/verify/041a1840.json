@@ -1,0 +1,124 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+bool LoadGL_OES_fixed_point(void)
+
+{
+  int iVar1;
+  bool bVar2;
+  bool bVar3;
+  bool bVar4;
+  bool bVar5;
+  bool bVar6;
+  bool bVar7;
+  bool bVar8;
+  bool bVar9;
+  bool bVar10;
+  bool bVar11;
+  bool bVar12;
+  bool bVar13;
+  bool bVar14;
+  bool bVar15;
+  bool bVar16;
+  bool bVar17;
+  bool bVar18;
+  bool bVar19;
+  bool bVar20;
+  bool bVar21;
+  bool bVar22;
+  bool bVar23;
+  bool bVar24;
+  bool bVar25;
+  bool bVar26;
+  bool bVar27;
+  bool bVar28;
+  bool bVar29;
+  bool bVar30;
+  
+  iVar1 = glXGetProcAddressARB("glAlphaFuncx");
+  _DAT_0451cd58 = iVar1;
+  _DAT_0451cd54 = glXGetProcAddressARB("glClearColorx");
+  bVar2 = _DAT_0451cd54 == 0;
+  _DAT_0451cd50 = glXGetProcAddressARB("glClearDepthx");
+  bVar3 = _DAT_0451cd50 == 0;
+  _DAT_0451cd4c = glXGetProcAddressARB("glColor4x");
+  bVar4 = _DAT_0451cd4c == 0;
+  _DAT_0451cd48 = glXGetProcAddressARB("glDepthRangex");
+  bVar5 = _DAT_0451cd48 == 0;
+  _DAT_0451cd44 = glXGetProcAddressARB("glFogx");
+  bVar6 = _DAT_0451cd44 == 0;
+  _DAT_0451cd40 = glXGetProcAddressARB("glFogxv");
+  bVar7 = _DAT_0451cd40 == 0;
+  _DAT_0451cd3c = glXGetProcAddressARB("glFrustumf");
+  bVar8 = _DAT_0451cd3c == 0;
+  _DAT_0451cd38 = glXGetProcAddressARB("glFrustumx");
+  bVar9 = _DAT_0451cd38 == 0;
+  _DAT_0451cd34 = glXGetProcAddressARB("glLightModelx");
+  bVar10 = _DAT_0451cd34 == 0;
+  _DAT_0451cd30 = glXGetProcAddressARB("glLightModelxv");
+  bVar11 = _DAT_0451cd30 == 0;
+  _DAT_0451cd2c = glXGetProcAddressARB("glLightx");
+  bVar12 = _DAT_0451cd2c == 0;
+  _DAT_0451cd28 = glXGetProcAddressARB("glLightxv");
+  bVar13 = _DAT_0451cd28 == 0;
+  _DAT_0451cd24 = glXGetProcAddressARB("glLineWidthx");
+  bVar14 = _DAT_0451cd24 == 0;
+  _DAT_0451cd20 = glXGetProcAddressARB("glLoadMatrixx");
+  bVar15 = _DAT_0451cd20 == 0;
+  _DAT_0451cd1c = glXGetProcAddressARB("glMaterialx");
+  bVar16 = _DAT_0451cd1c == 0;
+  _DAT_0451cd18 = glXGetProcAddressARB("glMaterialxv");
+  bVar17 = _DAT_0451cd18 == 0;
+  _DAT_0451cd14 = glXGetProcAddressARB("glMultMatrixx");
+  bVar18 = _DAT_0451cd14 == 0;
+  _DAT_0451cd10 = glXGetProcAddressARB("glMultiTexCoord4x");
+  bVar19 = _DAT_0451cd10 == 0;
+  _DAT_0451cd0c = glXGetProcAddressARB("glNormal3x");
+  bVar20 = _DAT_0451cd0c == 0;
+  _DAT_0451cd08 = glXGetProcAddressARB("glOrthof");
+  bVar21 = _DAT_0451cd08 == 0;
+  _DAT_0451cd04 = glXGetProcAddressARB("glOrthox");
+  bVar22 = _DAT_0451cd04 == 0;
+  _DAT_0451cd00 = glXGetProcAddressARB("glPointSizex");
+  bVar23 = _DAT_0451cd00 == 0;
+  _DAT_0451ccfc = glXGetProcAddressARB("glPolygonOffsetx");
+  bVar24 = _DAT_0451ccfc == 0;
+  _DAT_0451ccf8 = glXGetProcAddressARB("glRotatex");
+  bVar25 = _DAT_0451ccf8 == 0;
+  _DAT_0451ccf4 = glXGetProcAddressARB("glSampleCoveragex");
+  bVar26 = _DAT_0451ccf4 == 0;
+  _DAT_0451ccf0 = glXGetProcAddressARB("glScalex");
+  bVar27 = _DAT_0451ccf0 == 0;
+  _DAT_0451ccec = glXGetProcAddressARB("glTexEnvx");
+  bVar28 = _DAT_0451ccec == 0;
+  _DAT_0451cce8 = glXGetProcAddressARB("glTexEnvxv");
+  bVar29 = _DAT_0451cce8 == 0;
+  _DAT_0451cce4 = glXGetProcAddressARB("glTexParameterx");
+  bVar30 = _DAT_0451cce4 == 0;
+  _DAT_0451cce0 = glXGetProcAddressARB("glTranslatex");
+  return _DAT_0451cce0 == 0 ||
+         (bVar30 ||
+         (bVar29 ||
+         (bVar28 ||
+         (bVar27 ||
+         (bVar26 ||
+         (bVar25 ||
+         (bVar24 ||
+         (bVar23 ||
+         (bVar22 ||
+         (bVar21 ||
+         (bVar20 ||
+         (bVar19 ||
+         (bVar18 ||
+         (bVar17 ||
+         (bVar16 ||
+         (bVar15 ||
+         (bVar14 ||
+         (bVar13 ||
+         (bVar12 ||
+         (bVar11 ||
+         (bVar10 ||
+         (bVar9 || (bVar8 || (bVar7 || (bVar6 || (bVar5 || (bVar4 || (bVar3 || (bVar2 || iVar1 == 0)
+                                                                     ))))))))))))))))))))))))))));
+}
+

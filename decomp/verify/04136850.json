@@ -1,0 +1,131 @@
+
+/* source: heapImplementation */
+
+void __regparm3 Subheap_SetupMemoryAsFreeArea(int param_1,uint *param_2,uint param_3)
+
+{
+  uint *puVar1;
+  int iVar2;
+  int *piVar3;
+  undefined4 *puVar4;
+  byte *pbVar5;
+  int iVar6;
+  uint uVar7;
+  undefined4 *puVar8;
+  uint uVar9;
+  byte *pbVar10;
+  undefined4 *local_28;
+  
+  pbVar10 = (byte *)((int)param_2 + param_3);
+  pbVar5 = (byte *)(*(int *)(param_1 + 8) + param_1);
+  if ((pbVar10 < pbVar5) && ((pbVar10[4] & 1) != 0)) {
+    if (((*pbVar10 & 7) != 0) ||
+       (((((pbVar10[4] & 0xfc) != 0xfc || (pbVar10[5] != 0x78)) || (pbVar10[6] != 0xe5)) ||
+        (pbVar10[7] != 0x77)))) {
+      FUN_0400a810("((AreaData_Free*)nextArea)->Header.IsFreeAreaValid()",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/heapImplementation.cpp"
+                   ,0x2ab,"void Subheap_SetupMemoryAsFreeArea(eON_Subheap*, LPVOID, SIZE_T)");
+    }
+    piVar3 = *(int **)(pbVar10 + 0xc);
+    if (piVar3 == (int *)0x0) {
+      puVar8 = *(undefined4 **)(pbVar10 + 8);
+      if (puVar8[-2] == 0) {
+        puVar4 = (undefined4 *)*puVar8;
+        puVar8[2] = 0;
+        for (; (puVar4 != (undefined4 *)0x0 && (puVar4[-2] == 0)); puVar4 = (undefined4 *)*puVar4) {
+          puVar4[2] = 0;
+        }
+      }
+    }
+    else {
+      if (piVar3[-2] == 0) {
+        local_28 = *(undefined4 **)(pbVar10 + 8);
+        if (local_28[-2] == 0) {
+          iVar2 = piVar3[2];
+          local_28[2] = iVar2;
+          for (puVar8 = (undefined4 *)*local_28; (puVar8 != (undefined4 *)0x0 && (puVar8[-2] == 0));
+              puVar8 = (undefined4 *)*puVar8) {
+            puVar8[2] = iVar2;
+          }
+        }
+      }
+      else {
+        local_28 = *(undefined4 **)(pbVar10 + 8);
+      }
+      *piVar3 = (int)local_28;
+      puVar8 = *(undefined4 **)(pbVar10 + 8);
+    }
+    puVar8[1] = piVar3;
+    param_3 = param_3 + *(int *)pbVar10;
+    pbVar10 = pbVar10 + *(int *)pbVar10;
+  }
+  if (pbVar5 < pbVar10) {
+    FUN_0400a810("addressPastMemory <= subheapEndAddress",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/heapImplementation.cpp"
+                 ,0x2bd,"void Subheap_SetupMemoryAsFreeArea(eON_Subheap*, LPVOID, SIZE_T)");
+  }
+  if (pbVar10 != pbVar5) {
+    pbVar10[4] = pbVar10[4] | 0xfe;
+    *(uint **)(pbVar10 + -4) = param_2;
+  }
+  puVar1 = param_2 + 2;
+  *(undefined1 *)((int)param_2 + 5) = 0x78;
+  *(undefined1 *)((int)param_2 + 6) = 0xe5;
+  *(undefined1 *)((int)param_2 + 7) = 0x77;
+  *param_2 = param_3;
+  *(undefined1 *)(param_2 + 1) = 0xfd;
+  if (param_3 < 0x18) {
+    FUN_0400a810("totalAreaSize >= 24",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/heapImplementation.cpp"
+                 ,0x215,"SIZE_T GetFreeAreasListIndex(SIZE_T)");
+  }
+  iVar2 = *(int *)(param_1 + 0x14);
+  uVar7 = (param_3 >> 3) - 3;
+  uVar9 = 0x1fe;
+  if (uVar7 < 0x1ff) {
+    uVar9 = uVar7;
+  }
+  iVar6 = iVar2 + 0x10 + uVar9 * 0x14;
+  if (*(int *)(iVar6 + 4) == 0) {
+    puVar8 = *(undefined4 **)(iVar6 + 0xc);
+    *(int *)(iVar6 + 0x14) = iVar6 + 4;
+    for (; (puVar8 != (undefined4 *)0x0 && (puVar8[-2] == 0)); puVar8 = (undefined4 *)*puVar8) {
+      puVar8[2] = iVar6 + 4;
+    }
+  }
+  if (pbVar10 == pbVar5) {
+    uVar7 = iVar6 + 0xcU;
+    if (uVar9 != 0x1fe) {
+      iVar2 = iVar2 + 0x10 + (uVar9 * 5 + 5) * 4;
+      param_2[3] = iVar2 + 0xc;
+      param_2[2] = *(uint *)(iVar2 + 0xc);
+      iVar6 = *(int *)(iVar2 + 0xc);
+      if (iVar6 == 0) {
+        FUN_0400a810("rootLink2->Prev",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/heapImplementation.cpp"
+                     ,0x2e2,"void Subheap_SetupMemoryAsFreeArea(eON_Subheap*, LPVOID, SIZE_T)");
+        iVar6 = *(int *)(iVar2 + 0xc);
+      }
+      *(uint **)(iVar6 + 4) = puVar1;
+      *(uint **)(iVar2 + 0xc) = puVar1;
+      return;
+    }
+    do {
+      uVar9 = uVar7;
+      uVar7 = *(uint *)(uVar9 + 4);
+    } while (*(uint *)(uVar9 + 4) != 0);
+    param_2[2] = uVar9;
+    param_2[3] = 0;
+    *(uint **)(uVar9 + 4) = puVar1;
+    return;
+  }
+  uVar9 = *(uint *)(iVar6 + 0x10);
+  param_2[2] = iVar6 + 0xcU;
+  param_2[3] = uVar9;
+  if (*(int **)(iVar6 + 0x10) != (int *)0x0) {
+    **(int **)(iVar6 + 0x10) = (int)puVar1;
+  }
+  *(uint **)(iVar6 + 0x10) = puVar1;
+  return;
+}
+

@@ -1,0 +1,59 @@
+
+int __regparm3
+zstream_inflate_stream
+          (int param_1,undefined4 param_2,uint *param_3,undefined4 param_4,int *param_5,int param_6)
+
+{
+  uint uVar1;
+  int iVar2;
+  int iVar3;
+  int iVar4;
+  uint uVar5;
+  
+  if (*(int *)(param_1 + 0xdc) == *(int *)(param_1 + 0x178)) {
+    uVar5 = 0x400;
+    *(undefined4 *)(param_1 + 0xf0) = 0;
+    *(undefined4 *)(param_1 + 0xec) = param_4;
+    do {
+      if (*(int *)(param_1 + 0xe4) == 0) {
+        uVar1 = *param_3;
+        if (uVar1 < uVar5) {
+          uVar5 = uVar1;
+        }
+        *param_3 = uVar1 - uVar5;
+        if (uVar5 != 0) {
+          png_crc_read(param_1,param_2,uVar5);
+        }
+        *(uint *)(param_1 + 0xe4) = uVar5;
+        *(undefined4 *)(param_1 + 0xe0) = param_2;
+      }
+      if (*(int *)(param_1 + 0xf0) == 0) {
+        iVar2 = *param_5;
+        *param_5 = 0;
+        *(int *)(param_1 + 0xf0) = iVar2;
+      }
+      iVar2 = 0;
+      if (*param_3 == 0) {
+        iVar2 = (-(uint)(param_6 == 0) & 0xfffffffe) + 4;
+      }
+      iVar2 = inflate(param_1 + 0xe0,iVar2);
+      if (iVar2 != 0) {
+        iVar4 = *param_5;
+        iVar3 = *(int *)(param_1 + 0xf0);
+        goto LAB_042b6658;
+      }
+    } while ((*param_5 != 0) || (*(int *)(param_1 + 0xf0) != 0));
+    iVar3 = 0;
+    iVar4 = 0;
+LAB_042b6658:
+    *param_5 = iVar4 + iVar3;
+    *(undefined4 *)(param_1 + 0xf0) = 0;
+    FUN_042a6270(param_1,iVar2);
+  }
+  else {
+    *(char **)(param_1 + 0xf8) = "zstream unclaimed";
+    iVar2 = -2;
+  }
+  return iVar2;
+}
+

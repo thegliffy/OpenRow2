@@ -1,0 +1,149 @@
+
+undefined4
+Direct3DDevice9Imp__DrawPrimitive_RenderArrays(int param_1,undefined4 param_2,undefined4 *param_3)
+
+{
+  int iVar1;
+  int iVar2;
+  bool bVar3;
+  char cVar4;
+  undefined1 local_60 [67];
+  char local_1d [13];
+  
+  cVar4 = OpenGLContextCache__MaterialShininess(param_1,*param_3,param_3[1],local_1d);
+  if (cVar4 == '\0') {
+    FUN_0402cd10(0xf,"Couldn\'t set up render pipeline in DrawPrimitive! Skipping the draw.");
+    return 0x18;
+  }
+  if ((DAT_0451ca41 == '\0') || (*(char *)(param_1 + 0xeb4c) == '\0')) {
+    Direct3DDevice9Imp__MakeSureTexturesForDrawAreCurrent(param_1,local_60);
+    OpenGLContextCache__PointAttenuation(param_1);
+    OpenGLContextCache__glLodBias(param_1,local_60);
+    cVar4 = *(char *)(param_1 + 0xeb4c);
+    bVar3 = false;
+  }
+  else {
+    OpenGLContextCache__PointAttenuation(param_1);
+    Direct3DDevice9Imp__SetupTexturesForDraw(param_1);
+    cVar4 = *(char *)(param_1 + 0xeb4c);
+    bVar3 = true;
+  }
+  if ((cVar4 == '\0') &&
+     (FUN_0408b2e0(param_1,*(undefined4 *)(param_1 + 0xe9ec)), local_1d[0] != '\0')) {
+    FUN_040e8c90(*(undefined4 *)(param_1 + 0xe9ec),*(undefined4 *)(param_1 + 0xc));
+  }
+  Direct3DDevice9Imp__SetupVertexAttributeArrays(param_1,0,0);
+  OpenGLContextCache____glewBindBuffer(*(undefined4 *)(param_1 + 0xeb48),0x8893,0);
+  iVar1 = *(int *)(param_1 + 0xeb48);
+  if (*(char *)(iVar1 + 0x18c) == '\0') goto LAB_04097794;
+  if (*(int *)(iVar1 + 0x14c) == 0) {
+    if (*(int *)(iVar1 + 0x150) != 0) goto LAB_04097915;
+LAB_040976c9:
+    if (*(int *)(iVar1 + 0x154) != 0) goto LAB_04097942;
+LAB_040976d7:
+    if (*(int *)(iVar1 + 0x158) != 0) goto LAB_0409796f;
+LAB_040976e5:
+    if (*(int *)(iVar1 + 0x15c) != 0) goto LAB_0409799c;
+LAB_040976f3:
+    if (*(int *)(iVar1 + 0x160) != 0) goto LAB_040979c9;
+LAB_04097701:
+    if (*(int *)(iVar1 + 0x164) != 0) goto LAB_040979f6;
+LAB_0409770f:
+    if (*(int *)(iVar1 + 0x168) != 0) goto LAB_04097a23;
+LAB_0409771d:
+    if (*(int *)(iVar1 + 0x16c) != 0) goto LAB_04097a50;
+LAB_0409772b:
+    if (*(int *)(iVar1 + 0x170) != 0) goto LAB_04097a7d;
+LAB_04097739:
+    if (*(int *)(iVar1 + 0x174) != 0) goto LAB_04097aaa;
+LAB_04097747:
+    if (*(int *)(iVar1 + 0x178) != 0) goto LAB_04097ad7;
+LAB_04097755:
+    if (*(int *)(iVar1 + 0x17c) != 0) goto LAB_04097b04;
+LAB_04097763:
+    if (*(int *)(iVar1 + 0x180) != 0) goto LAB_04097b31;
+LAB_04097771:
+    iVar2 = *(int *)(iVar1 + 0x184);
+  }
+  else {
+    (*DAT_0451e548)(0,0);
+    *(undefined4 *)(iVar1 + 0x14c) = 0;
+    if (*(int *)(iVar1 + 0x150) == 0) goto LAB_040976c9;
+LAB_04097915:
+    (*DAT_0451e548)(1,0);
+    *(undefined4 *)(iVar1 + 0x150) = 0;
+    if (*(int *)(iVar1 + 0x154) == 0) goto LAB_040976d7;
+LAB_04097942:
+    (*DAT_0451e548)(2,0);
+    *(undefined4 *)(iVar1 + 0x154) = 0;
+    if (*(int *)(iVar1 + 0x158) == 0) goto LAB_040976e5;
+LAB_0409796f:
+    (*DAT_0451e548)(3,0);
+    *(undefined4 *)(iVar1 + 0x158) = 0;
+    if (*(int *)(iVar1 + 0x15c) == 0) goto LAB_040976f3;
+LAB_0409799c:
+    (*DAT_0451e548)(4,0);
+    *(undefined4 *)(iVar1 + 0x15c) = 0;
+    if (*(int *)(iVar1 + 0x160) == 0) goto LAB_04097701;
+LAB_040979c9:
+    (*DAT_0451e548)(5,0);
+    *(undefined4 *)(iVar1 + 0x160) = 0;
+    if (*(int *)(iVar1 + 0x164) == 0) goto LAB_0409770f;
+LAB_040979f6:
+    (*DAT_0451e548)(6,0);
+    *(undefined4 *)(iVar1 + 0x164) = 0;
+    if (*(int *)(iVar1 + 0x168) == 0) goto LAB_0409771d;
+LAB_04097a23:
+    (*DAT_0451e548)(7,0);
+    *(undefined4 *)(iVar1 + 0x168) = 0;
+    if (*(int *)(iVar1 + 0x16c) == 0) goto LAB_0409772b;
+LAB_04097a50:
+    (*DAT_0451e548)(8,0);
+    *(undefined4 *)(iVar1 + 0x16c) = 0;
+    if (*(int *)(iVar1 + 0x170) == 0) goto LAB_04097739;
+LAB_04097a7d:
+    (*DAT_0451e548)(9,0);
+    *(undefined4 *)(iVar1 + 0x170) = 0;
+    if (*(int *)(iVar1 + 0x174) == 0) goto LAB_04097747;
+LAB_04097aaa:
+    (*DAT_0451e548)(10,0);
+    *(undefined4 *)(iVar1 + 0x174) = 0;
+    if (*(int *)(iVar1 + 0x178) == 0) goto LAB_04097755;
+LAB_04097ad7:
+    (*DAT_0451e548)(0xb,0);
+    *(undefined4 *)(iVar1 + 0x178) = 0;
+    if (*(int *)(iVar1 + 0x17c) == 0) goto LAB_04097763;
+LAB_04097b04:
+    (*DAT_0451e548)(0xc,0);
+    *(undefined4 *)(iVar1 + 0x17c) = 0;
+    if (*(int *)(iVar1 + 0x180) == 0) goto LAB_04097771;
+LAB_04097b31:
+    (*DAT_0451e548)(0xd,0);
+    iVar2 = *(int *)(iVar1 + 0x184);
+    *(undefined4 *)(iVar1 + 0x180) = 0;
+  }
+  if (iVar2 != 0) {
+    (*DAT_0451e548)(0xe,0);
+    *(undefined4 *)(iVar1 + 0x184) = 0;
+  }
+  if (*(int *)(iVar1 + 0x188) != 0) {
+    (*DAT_0451e548)(0xf,0);
+    *(undefined4 *)(iVar1 + 0x188) = 0;
+  }
+  *(undefined1 *)(iVar1 + 0x18c) = 0;
+LAB_04097794:
+  OpenGLContextCache__UpdateTextureMatrices(param_1,*(undefined1 *)(param_3 + 5));
+  glDrawArrays(param_3[3],param_3[2],param_3[4]);
+  DAT_044dac2c = param_3[2];
+  DAT_04468c38 = 0;
+  DAT_044dac20 = 0;
+  DAT_044dac28 = param_3[4];
+  OpenGLDebugEvent(0,0);
+  DAT_044dac28 = 0;
+  if (!bVar3) {
+    FUN_040972d0(param_1);
+  }
+  *(uint *)(param_1 + 0xea04) = *(uint *)(param_1 + 0xea04) & 0xffffe01c;
+  return 0x18;
+}
+

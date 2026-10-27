@@ -1,0 +1,92 @@
+
+undefined1 * eON_CreateBitmapIndirect(int *param_1)
+
+{
+  ushort uVar1;
+  uint uVar2;
+  int iVar3;
+  undefined1 *puVar4;
+  int iVar5;
+  uint uVar6;
+  undefined2 uVar7;
+  int local_24;
+  
+  if (((param_1 == (int *)0x0) || (*param_1 != 0)) || ((short)param_1[4] != 1)) {
+LAB_04122430:
+    puVar4 = (undefined1 *)0x0;
+    eON_SetLastError(0x57);
+  }
+  else {
+    uVar6 = param_1[1];
+    if ((uVar6 == 0) || (uVar2 = param_1[2], uVar2 == 0)) {
+      FUN_0402cd10(5,"Trying to create 0-width or 0-height bitmap!! Failed.");
+      return (undefined1 *)0x0;
+    }
+    uVar1 = *(ushort *)((int)param_1 + 0x12);
+    iVar3 = param_1[5];
+    uVar6 = (uVar6 ^ (int)uVar6 >> 0x1f) - ((int)uVar6 >> 0x1f);
+    if (uVar1 == 1) {
+      iVar5 = uVar6 + 0xf;
+      if ((int)(uVar6 + 0xf) < 0) {
+        iVar5 = uVar6 + 0x1e;
+      }
+      local_24 = (iVar5 >> 4) * 2;
+      uVar7 = 1;
+    }
+    else if (uVar1 < 5) {
+      uVar7 = 4;
+      iVar5 = uVar6 + 3;
+      if ((int)(uVar6 + 3) < 0) {
+        iVar5 = uVar6 + 6;
+      }
+      local_24 = (iVar5 >> 2) * 2;
+    }
+    else if (uVar1 < 9) {
+      uVar7 = 8;
+      local_24 = (uVar6 & 1) + uVar6;
+    }
+    else if (uVar1 < 0x11) {
+      local_24 = uVar6 * 2;
+      uVar7 = 0x10;
+    }
+    else if (uVar1 < 0x19) {
+      uVar7 = 0x18;
+      local_24 = (uVar6 & 1) + uVar6 * 3;
+    }
+    else {
+      if (0x20 < uVar1) {
+        FUN_0402cd10(5,"Bad bmBitsPixel in CreateBitmapIndirect: %u",uVar1);
+        goto LAB_04122430;
+      }
+      local_24 = uVar6 * 4;
+      uVar7 = 0x20;
+    }
+    puVar4 = malloc(0x2c);
+    if (puVar4 == (undefined1 *)0x0) {
+      eON_SetLastError(8);
+    }
+    else {
+      *puVar4 = 7;
+      puVar4[1] = 0;
+      puVar4[2] = 0;
+      iVar5 = (uVar2 ^ (int)uVar2 >> 0x1f) - ((int)uVar2 >> 0x1f);
+      puVar4[3] = 0;
+      *(undefined4 *)(puVar4 + 4) = 0;
+      *(undefined4 *)(puVar4 + 8) = 0;
+      *(uint *)(puVar4 + 0xc) = uVar6;
+      *(int *)(puVar4 + 0x10) = iVar5;
+      *(int *)(puVar4 + 0x14) = local_24;
+      *(undefined2 *)(puVar4 + 0x18) = 1;
+      *(undefined2 *)(puVar4 + 0x1a) = uVar7;
+      *(undefined4 *)(puVar4 + 0x1c) = 0;
+      *(undefined4 *)(puVar4 + 0x20) = 0;
+      *(undefined4 *)(puVar4 + 0x24) = 0;
+      *(undefined4 *)(puVar4 + 0x28) = 0;
+      if (iVar3 != 0) {
+        eON_SetBitmapBits(puVar4,iVar5 * local_24,iVar3);
+      }
+    }
+  }
+  return puVar4;
+}
+

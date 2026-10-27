@@ -1,0 +1,25 @@
+
+/* source: direct3ddevice9imp */
+
+void direct3ddevice9imp_040806a0(int param_1,uint param_2,int param_3)
+
+{
+  int iVar1;
+  
+  iVar1 = (param_3 - *(int *)(param_1 + 0xec84)) - (uint)(param_2 < *(uint *)(param_1 + 0xec80));
+  if ((-1 < iVar1) && ((0 < iVar1 || (param_2 != *(uint *)(param_1 + 0xec80))))) {
+    iVar1 = D3D9CommandQueue__TryExecuteNextCommand(param_1 + 0xec00);
+    while( true ) {
+      if (iVar1 == 0) {
+        FUN_0400a810("commandExecuted",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+                     ,0x4c8,"void Direct3DDevice9Imp::FlushUntilCommand(ULONGLONG)");
+      }
+      if (((param_3 == *(int *)(param_1 + 0xec84) && param_2 == *(uint *)(param_1 + 0xec80)) ||
+          (*(char *)(param_1 + 0xebf4) != '\0')) || (DAT_0441163c != '\0')) break;
+      iVar1 = D3D9CommandQueue__TryExecuteNextCommand(param_1 + 0xec00);
+    }
+  }
+  return;
+}
+

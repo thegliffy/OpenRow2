@@ -1,0 +1,126 @@
+
+undefined4 eON_RegisterClassExW(int *param_1)
+
+{
+  int *piVar1;
+  int iVar2;
+  undefined4 uVar3;
+  int *piVar4;
+  undefined1 local_94 [28];
+  undefined4 uStackY_78;
+  int local_70;
+  char *local_6c;
+  int *local_68;
+  void *local_64;
+  size_t local_60;
+  undefined4 local_5c;
+  undefined4 local_58;
+  int local_50;
+  int local_4c;
+  int local_48;
+  int local_44;
+  int local_40;
+  int local_3c;
+  int local_38;
+  int local_34;
+  int local_30;
+  void *local_2c;
+  void *local_28;
+  int local_24;
+  undefined4 *local_14;
+  
+  piVar1 = param_1;
+  local_14 = &param_1;
+  piVar4 = &local_70;
+  local_6c = "RegisterClassExW( wc = %p )";
+  local_70 = 5;
+  local_68 = param_1;
+  FUN_0402cd10();
+  if (((*piVar1 == 0x30) && (local_44 = piVar1[3], -1 < local_44)) &&
+     (local_40 = piVar1[4], -1 < local_40)) {
+    local_38 = piVar1[6];
+    local_48 = piVar1[2];
+    local_50 = 0x30;
+    local_4c = piVar1[1];
+    local_30 = piVar1[8];
+    local_24 = piVar1[0xb];
+    local_34 = piVar1[7];
+    local_3c = piVar1[5];
+    if (piVar1[10] == 0) {
+      local_28 = (void *)0x0;
+    }
+    else {
+      local_70 = piVar1[10];
+      iVar2 = FUN_0415a040();
+      uStackY_78 = 0x4181c74;
+      local_64 = malloc(iVar2 + 1U);
+      local_58 = 0;
+      local_5c = 0;
+      local_68 = (int *)0xffffffff;
+      local_6c = (char *)piVar1[10];
+      local_70 = 0;
+      uStackY_78 = 0x4181cb2;
+      local_60 = iVar2 + 1U;
+      local_28 = local_64;
+      eON_WideCharToMultiByte();
+      piVar4 = (int *)local_94;
+    }
+    if (piVar1[9] == 0) {
+      local_2c = (void *)0x0;
+    }
+    else {
+      *piVar4 = piVar1[9];
+      piVar4[-1] = 0x4181cc8;
+      iVar2 = FUN_0415a040();
+      piVar4[-1] = iVar2 + 1;
+      piVar4[-2] = 0x4181cd6;
+      local_2c = malloc(piVar4[-1]);
+      piVar4[6] = 0;
+      piVar4[5] = 0;
+      piVar4[4] = iVar2 + 1;
+      piVar4[3] = (int)local_2c;
+      piVar4[2] = -1;
+      iVar2 = piVar1[9];
+      *piVar4 = 0;
+      piVar4[-1] = 0;
+      piVar4[1] = iVar2;
+      piVar4[-2] = 0x4181d14;
+      eON_WideCharToMultiByte();
+      piVar4 = piVar4 + -9;
+    }
+    piVar4[1] = (int)"RegisterClassExA( wc = %p )";
+    piVar4[2] = (int)&local_50;
+    *piVar4 = 5;
+    piVar4[-1] = 0x4181d32;
+    FUN_0402cd10();
+    if (((local_50 == 0x30) && (-1 < local_44)) && (-1 < local_40)) {
+      piVar4[-1] = 0x4181d4d;
+      uVar3 = eON_Int_RegisterClassExA_Core();
+    }
+    else {
+      *piVar4 = 0x57;
+      uVar3 = 0;
+      piVar4[-1] = 0x4181d8e;
+      eON_SetLastError();
+      piVar4 = piVar4 + -1;
+    }
+    if (local_28 != (void *)0x0) {
+      *piVar4 = (int)local_28;
+      piVar4[-1] = 0x4181da0;
+      free((void *)*piVar4);
+    }
+    if (local_2c != (void *)0x0) {
+      *piVar4 = (int)local_2c;
+      piVar4[-1] = 0x4181daf;
+      free((void *)*piVar4);
+      return uVar3;
+    }
+  }
+  else {
+    local_70 = 0x57;
+    uVar3 = 0;
+    eON_SetLastError();
+  }
+  return uVar3;
+}
+

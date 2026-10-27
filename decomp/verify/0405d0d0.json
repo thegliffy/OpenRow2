@@ -1,0 +1,35 @@
+
+void __regparm3 D3DSTENCILOP_ToString(undefined4 param_1,undefined4 param_2,undefined4 param_3)
+
+{
+  switch(param_3) {
+  default:
+    FUN_0402cd10(param_1,"%s: !unhandled!",param_2);
+    return;
+  case 1:
+    FUN_0402cd10(param_1,"%s: D3DSTENCILOP_KEEP",param_2);
+    return;
+  case 2:
+    FUN_0402cd10(param_1,"%s: D3DSTENCILOP_ZERO",param_2);
+    return;
+  case 3:
+    FUN_0402cd10(param_1,"%s: D3DSTENCILOP_REPLACE",param_2);
+    return;
+  case 4:
+    FUN_0402cd10(param_1,"%s: D3DSTENCILOP_INCRSAT",param_2);
+    return;
+  case 5:
+    FUN_0402cd10(param_1,"%s: D3DSTENCILOP_DECRSAT",param_2);
+    return;
+  case 6:
+    FUN_0402cd10(param_1,"%s: D3DSTENCILOP_INVERT",param_2);
+    return;
+  case 7:
+    FUN_0402cd10(param_1,"%s: D3DSTENCILOP_INCR",param_2);
+    return;
+  case 8:
+    FUN_0402cd10(param_1,"%s: D3DSTENCILOP_DECR",param_2);
+    return;
+  }
+}
+

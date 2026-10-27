@@ -1,0 +1,62 @@
+
+void FUN_042bc350(int param_1,int param_2,void *param_3,size_t param_4,undefined4 *param_5)
+
+{
+  ushort uVar1;
+  undefined2 uVar2;
+  void *__dest;
+  int iVar3;
+  
+  if (param_2 == 0) {
+    return;
+  }
+  if (param_1 == 0) {
+    return;
+  }
+  if (param_3 != (void *)0x0) {
+    FUN_042a5780(param_1,param_2,0x2000,0);
+    __dest = (void *)FUN_042aa2c0(param_1,0x100);
+    *(void **)(param_2 + 0x9c) = __dest;
+    *(void **)(param_1 + 0x210) = __dest;
+    if (param_4 - 1 < 0x100) {
+      memcpy(__dest,param_3,param_4);
+    }
+  }
+  if (param_5 == (undefined4 *)0x0) {
+    *(short *)(param_2 + 0x16) = (short)param_4;
+    if (param_4 == 0) {
+      return;
+    }
+    goto LAB_042bc41f;
+  }
+  iVar3 = 1 << (*(byte *)(param_2 + 0x18) & 0x1f);
+  if (*(char *)(param_2 + 0x19) == '\0') {
+    uVar1 = *(ushort *)(param_5 + 2);
+joined_r0x042bc4ae:
+    if (iVar3 < (int)(uint)uVar1) {
+LAB_042bc460:
+      png_warning(param_1,"tRNS chunk has out-of-range samples for bit_depth");
+    }
+  }
+  else if (*(char *)(param_2 + 0x19) == '\x02') {
+    if (((int)(uint)*(ushort *)((int)param_5 + 2) <= iVar3) &&
+       ((int)(uint)*(ushort *)(param_5 + 1) <= iVar3)) {
+      uVar1 = *(ushort *)((int)param_5 + 6);
+      goto joined_r0x042bc4ae;
+    }
+    goto LAB_042bc460;
+  }
+  *(undefined4 *)(param_2 + 0xa0) = *param_5;
+  *(undefined4 *)(param_2 + 0xa4) = param_5[1];
+  *(undefined2 *)(param_2 + 0xa8) = *(undefined2 *)(param_5 + 2);
+  uVar2 = 1;
+  if (param_4 != 0) {
+    uVar2 = (short)param_4;
+  }
+  *(undefined2 *)(param_2 + 0x16) = uVar2;
+LAB_042bc41f:
+  *(uint *)(param_2 + 8) = *(uint *)(param_2 + 8) | 0x10;
+  *(uint *)(param_2 + 0xe8) = *(uint *)(param_2 + 0xe8) | 0x2000;
+  return;
+}
+

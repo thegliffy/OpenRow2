@@ -1,0 +1,43 @@
+
+undefined4 shader_pch_PrepareFixedPipelineFragment(int param_1,undefined4 param_2)
+
+{
+  int iVar1;
+  char *__s;
+  size_t sVar2;
+  undefined4 uVar3;
+  undefined4 *puVar4;
+  int local_34 [5];
+  undefined1 local_20;
+  undefined1 local_1f;
+  undefined1 local_1e;
+  undefined1 local_1d;
+  
+  iVar1 = param_1 + 0x70;
+  FUN_040edc40(local_34,iVar1,param_2);
+  if (*(int *)(*(int *)(param_1 + 0x78) + *(int *)(param_1 + 0x7c) * 4) != local_34[0]) {
+    return *(undefined4 *)(local_34[0] + 0x6c);
+  }
+  FUN_0402cd10(5,"Preparing fixed pipeline emulation GLSL fragment program...");
+  local_20 = 0;
+  local_1f = 0;
+  local_1e = 0;
+  local_1d = 0;
+  __s = (char *)FragmentShaderCompiler__GenerateProgram(&local_20,param_2);
+  sVar2 = strlen(__s);
+  uVar3 = FUN_040e5a00(param_1,__s,sVar2,1,1);
+  if (*(int *)(param_1 + 0x10c) == 0) {
+    puVar4 = (undefined4 *)FUN_040ee560(iVar1,param_2);
+    *puVar4 = uVar3;
+  }
+  else {
+    pthread_mutex_lock((pthread_mutex_t *)(param_1 + 0x110));
+    puVar4 = (undefined4 *)FUN_040ee560(iVar1,param_2);
+    *puVar4 = uVar3;
+    pthread_mutex_unlock((pthread_mutex_t *)(param_1 + 0x110));
+    shader_pch_save_emulated_fragment_program(param_1,param_2,sVar2,__s);
+  }
+  free(__s);
+  return uVar3;
+}
+

@@ -1,0 +1,49 @@
+
+void eON_GetCOMObjects(void)
+
+{
+  undefined4 uVar1;
+  undefined4 uVar2;
+  int *piVar3;
+  int iVar4;
+  int iVar5;
+  undefined4 *puVar6;
+  _List_node_base *p_Var7;
+  
+  piVar3 = (int *)FUN_04111e90();
+  iVar4 = *piVar3;
+  do {
+    while( true ) {
+      if (iVar4 == 0) {
+        return;
+      }
+      iVar4 = FUN_04111ef0(iVar4,"eON_GetCOMObjects");
+      iVar5 = FUN_04111ef0(*piVar3,"DllGetClassObject");
+      if ((iVar5 != 0) && (iVar4 != 0)) break;
+LAB_04161b50:
+      piVar3 = piVar3 + 1;
+      iVar4 = *piVar3;
+    }
+    puVar6 = (undefined4 *)(**(code **)(iVar4 + 8))();
+    iVar4 = puVar6[1];
+    if (iVar4 == 0) goto LAB_04161b50;
+    do {
+      uVar1 = *puVar6;
+      uVar2 = *(undefined4 *)(iVar5 + 8);
+      p_Var7 = operator_new(0x14);
+      if (p_Var7 != (_List_node_base *)0x0) {
+        *(undefined4 *)p_Var7 = 0;
+        *(undefined4 *)(p_Var7 + 4) = 0;
+        *(int *)(p_Var7 + 0xc) = iVar4;
+        *(undefined4 *)(p_Var7 + 0x10) = uVar2;
+        *(undefined4 *)(p_Var7 + 8) = uVar1;
+      }
+      std::__detail::_List_node_base::_M_hook(p_Var7);
+      iVar4 = puVar6[3];
+      puVar6 = puVar6 + 2;
+    } while (iVar4 != 0);
+    piVar3 = piVar3 + 1;
+    iVar4 = *piVar3;
+  } while( true );
+}
+

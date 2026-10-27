@@ -1,0 +1,26 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+bool _glewInit_GL_OES_single_precision(void)
+
+{
+  int iVar1;
+  bool bVar2;
+  bool bVar3;
+  bool bVar4;
+  bool bVar5;
+  
+  iVar1 = glXGetProcAddressARB("glClearDepthfOES");
+  _DAT_0451cd70 = iVar1;
+  _DAT_0451cd6c = glXGetProcAddressARB("glClipPlanefOES");
+  bVar2 = _DAT_0451cd6c == 0;
+  _DAT_0451cd68 = glXGetProcAddressARB("glDepthRangefOES");
+  bVar3 = _DAT_0451cd68 == 0;
+  _DAT_0451cd64 = glXGetProcAddressARB("glFrustumfOES");
+  bVar4 = _DAT_0451cd64 == 0;
+  _DAT_0451cd60 = glXGetProcAddressARB("glGetClipPlanefOES");
+  bVar5 = _DAT_0451cd60 == 0;
+  _DAT_0451cd5c = glXGetProcAddressARB("glOrthofOES");
+  return _DAT_0451cd5c == 0 || (bVar5 || (bVar4 || (bVar3 || (bVar2 || iVar1 == 0))));
+}
+

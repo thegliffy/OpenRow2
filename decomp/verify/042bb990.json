@@ -1,0 +1,23 @@
+
+void png_set_sCAL_fixed(undefined4 param_1,undefined4 param_2,undefined4 param_3,int param_4,
+                       int param_5)
+
+{
+  undefined1 local_30 [18];
+  undefined1 local_1e [18];
+  
+  if (param_4 < 1) {
+    png_warning(param_1,"Invalid sCAL width ignored");
+  }
+  else {
+    if (param_5 < 1) {
+      png_warning(param_1,"Invalid sCAL height ignored");
+      return;
+    }
+    FUN_042a7430(param_1,local_30,0x12,param_4);
+    FUN_042a7430(param_1,local_1e,0x12,param_5);
+    png_set_sCAL_s(param_1,param_2,param_3,local_30,local_1e);
+  }
+  return;
+}
+

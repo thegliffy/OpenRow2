@@ -1,0 +1,81 @@
+
+undefined4 fs_MoveFileA(undefined4 param_1,undefined4 param_2)
+
+{
+  undefined4 uVar1;
+  undefined4 uVar2;
+  int iVar3;
+  int *piVar4;
+  undefined4 uVar5;
+  char local_2020 [4096];
+  char local_1020 [4104];
+  undefined4 *local_18;
+  
+  uVar2 = param_2;
+  uVar1 = param_1;
+  local_18 = &param_1;
+  iVar3 = FUN_041322f0(param_2);
+  uVar5 = 0;
+  if (iVar3 == -1) {
+    FUN_0400f520(uVar1,local_2020);
+    FUN_0400f520(uVar2,local_1020);
+    iVar3 = rename(local_2020,local_1020);
+    uVar5 = 1;
+    if (iVar3 != 0) {
+      piVar4 = __errno_location();
+      switch(*piVar4) {
+      default:
+        FUN_0402cd10(0xf,"   rename() errno unknown (%d).",*piVar4);
+        break;
+      case 1:
+        FUN_0402cd10(0xf,"   rename() errno: EPERM.");
+        break;
+      case 2:
+        eON_SetLastError(2);
+        return 0;
+      case 5:
+        FUN_0402cd10(0xf,"   rename() errno: EIO.");
+        break;
+      case 0xd:
+        FUN_0402cd10(0xf,"   rename() errno: EACCES.");
+        break;
+      case 0xe:
+        FUN_0402cd10(0xf,"   rename() errno: EFAULT.");
+        break;
+      case 0x12:
+        FUN_0402cd10(0xf,"   rename() errno: EXDEV.");
+        break;
+      case 0x14:
+        FUN_0402cd10(0xf,"   rename() errno: ENOTDIR.");
+        break;
+      case 0x15:
+        FUN_0402cd10(0xf,"   rename() errno: EISDIR.");
+        break;
+      case 0x16:
+        FUN_0402cd10(0xf,"   rename() errno: EINVAL.");
+        break;
+      case 0x1c:
+        FUN_0402cd10(0xf,"   rename() errno: ENOSPC.");
+        break;
+      case 0x1e:
+        FUN_0402cd10(0xf,"   rename() errno: EROFS.");
+        break;
+      case 0x24:
+        FUN_0402cd10(0xf,"   rename() errno: ENAMETOOLONG.");
+        break;
+      case 0x27:
+        FUN_0402cd10(0xf,"   rename() errno: ENOTEMPTY.");
+        break;
+      case 0x28:
+        FUN_0402cd10(0xf,"   rename() errno: ELOOP.");
+        break;
+      case 0x7a:
+        FUN_0402cd10(0xf,"   rename() errno: EDQUOT.");
+      }
+      FUN_0402cd10(0xf,"Make sure correct SetLastError() is set in fs_MoveFileA().");
+      uVar5 = 0;
+    }
+  }
+  return uVar5;
+}
+

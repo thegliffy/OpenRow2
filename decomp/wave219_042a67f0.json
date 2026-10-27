@@ -1,0 +1,48 @@
+
+undefined4 FUN_042a67f0(void)
+
+{
+  byte bVar1;
+  byte bVar2;
+  byte bVar3;
+  byte bVar4;
+  undefined4 uVar5;
+  int iVar6;
+  byte *pbVar7;
+  uint uVar8;
+  int iVar9;
+  uint in_stack_00000010;
+  int in_stack_00000014;
+  
+  iVar6 = (uint)*(byte *)(in_stack_00000014 + 0x80) * 0x1000000 +
+          (uint)*(byte *)(in_stack_00000014 + 0x81) * 0x10000 +
+          (uint)*(byte *)(in_stack_00000014 + 0x83) +
+          (uint)*(byte *)(in_stack_00000014 + 0x82) * 0x100;
+  if (iVar6 != 0) {
+    pbVar7 = (byte *)(in_stack_00000014 + 0x84);
+    iVar9 = 0;
+    do {
+      bVar1 = pbVar7[8];
+      uVar8 = (uint)pbVar7[4] * 0x1000000 + (uint)pbVar7[5] * 0x10000 + (uint)pbVar7[7] +
+              (uint)pbVar7[6] * 0x100;
+      bVar2 = pbVar7[9];
+      bVar3 = pbVar7[10];
+      bVar4 = pbVar7[0xb];
+      if ((uVar8 & 3) != 0) {
+        FUN_042a4fe0((uint)pbVar7[2] * 0x100 +
+                     (uint)*pbVar7 * 0x1000000 + (uint)pbVar7[1] * 0x10000 + (uint)pbVar7[3],
+                     "ICC profile tag start not a multiple of 4");
+      }
+      if ((in_stack_00000010 < uVar8) ||
+         (in_stack_00000010 - uVar8 <
+          (uint)bVar1 * 0x1000000 + (uint)bVar2 * 0x10000 + (uint)bVar4 + (uint)bVar3 * 0x100)) {
+        uVar5 = FUN_042a4fe0();
+        return uVar5;
+      }
+      iVar9 = iVar9 + 1;
+      pbVar7 = pbVar7 + 0xc;
+    } while (iVar9 != iVar6);
+  }
+  return 1;
+}
+

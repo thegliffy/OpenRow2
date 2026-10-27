@@ -1,0 +1,16 @@
+
+void Direct3DIndexBuffer9Imp__Direct3DIndexBuffer9Imp(undefined4 *param_1,undefined4 param_2)
+
+{
+  Direct3DResource9Imp__Direct3DResource9Imp(param_1,param_2);
+  *param_1 = &PTR_FUN_042f7568;
+  param_1[0x13] = 0;
+  param_1[0x14] = 0;
+  *(undefined1 *)(param_1 + 0x15) = 0;
+  param_1[0x16] = 0;
+  param_1[0x17] = 0;
+  param_1[1] = "Direct3DIndexBuffer9Imp";
+  param_1[8] = 7;
+  return;
+}
+

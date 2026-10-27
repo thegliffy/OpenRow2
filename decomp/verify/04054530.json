@@ -1,0 +1,176 @@
+
+void eON_ShaderData__GenerateVaryingAssignments(int *param_1)
+
+{
+  int iVar1;
+  uint uVar2;
+  undefined4 uVar3;
+  int iVar4;
+  uint uVar5;
+  uint uVar6;
+  char **ppcVar7;
+  byte bVar8;
+  undefined1 local_2a4 [128];
+  undefined1 local_224 [128];
+  undefined1 local_1a4 [128];
+  undefined1 local_124 [16];
+  char *local_114 [4];
+  char *local_104;
+  undefined *local_100;
+  char *local_fc;
+  undefined *local_f8;
+  char *local_f4;
+  char *local_f0;
+  char *local_ec;
+  char *local_e8;
+  char *local_e4;
+  char *local_e0;
+  char *local_dc;
+  char *local_d8;
+  char *local_d4;
+  char *local_d0;
+  char *local_cc;
+  char *local_c8;
+  char *local_9c [4];
+  char *local_8c;
+  undefined *local_88;
+  char *local_84;
+  undefined *local_80;
+  char *local_7c;
+  char *local_78;
+  char *local_74;
+  char *local_70;
+  char *local_6c;
+  char *local_68;
+  char *local_64;
+  char *local_60;
+  char *local_5c;
+  char *local_58;
+  char *local_54;
+  char *local_50;
+  undefined1 local_22 [18];
+  
+  bVar8 = 0;
+  local_1a4[0] = 0;
+  local_124[0] = 0;
+  iVar4 = param_1[0xe];
+  eON_ShaderData__InputRegisterIsColor(local_1a4);
+  iVar1 = ShaderData_AppendDestMask();
+  if (iVar1 != 0) {
+    eON_AppendShaderCompileMessage
+              (iVar4,"%s%s = %s(",local_1a4,local_124,
+               (&PTR_DAT_042eb360)[*(byte *)((int)param_1 + 0xf) & 0xf]);
+  }
+  uVar2 = ShaderData_AppendDestMask();
+  if (*(int *)(*param_1 + 4) == -0xfefc) {
+    uVar5 = param_1[6] & 0x7ff;
+    uVar6 = param_1[6] & 0xf000000;
+    ShaderData_AppendSwizzle(local_9c,*(undefined1 *)(*param_1 + 0x10));
+    if (uVar6 == 0x9000000) {
+      uVar3 = 0x40000;
+    }
+    else {
+      uVar3 = 0x80000;
+      if (uVar6 != 0xa000000) {
+        ppcVar7 = local_114;
+        for (iVar4 = 0x1e; iVar4 != 0; iVar4 = iVar4 + -1) {
+          *ppcVar7 = (char *)0x0;
+          ppcVar7 = ppcVar7 + (uint)bVar8 * -2 + 1;
+        }
+        local_114[0] = "eON_Varyings[0]";
+        local_114[1] = "gl_TexCoord[0]";
+        local_114[2] = "eON_Varyings[1]";
+        local_114[3] = "gl_TexCoord[1]";
+        local_104 = "eON_Varyings[2]";
+        local_100 = &DAT_042e76da;
+        local_fc = "eON_Varyings[3]";
+        local_f8 = &DAT_042e76f9;
+        local_f4 = "eON_Varyings[4]";
+        local_f0 = "gl_TexCoord[4]";
+        local_ec = "eON_Varyings[5]";
+        local_e8 = "gl_TexCoord[5]";
+        local_e4 = "eON_Varyings[6]";
+        local_e0 = "gl_TexCoord[6]";
+        local_dc = "eON_Varyings[7]";
+        local_d8 = "gl_TexCoord[7]";
+        local_d4 = "eON_Varyings[8]";
+        local_d0 = "eON_Texcoord8";
+        local_cc = "eON_Varyings[9]";
+        local_c8 = "eON_Texcoord9";
+        eON_AppendShaderCompileMessage
+                  (param_1[0xe],"%s%s );\n",local_114[(DAT_04468c04 ^ 1) + uVar5 * 2],local_9c);
+        return;
+      }
+    }
+    uVar2 = ((((uint)((uVar2 & 0x10000) != 0) - (uint)((uVar2 & 0x20000) == 0)) -
+             (uint)((uVar2 & 0x40000) == 0)) + 3) - (uint)((uVar2 & 0x80000) == 0);
+    eON_ShaderData_ApplySourceModifier(uVar3,local_2a4);
+    ppcVar7 = local_114;
+    for (iVar4 = 0x1e; iVar4 != 0; iVar4 = iVar4 + -1) {
+      *ppcVar7 = (char *)0x0;
+      ppcVar7 = ppcVar7 + (uint)bVar8 * -2 + 1;
+    }
+    local_114[0] = "eON_Varyings[0]";
+    local_114[1] = "gl_TexCoord[0]";
+    local_114[2] = "eON_Varyings[1]";
+    local_114[3] = "gl_TexCoord[1]";
+    local_104 = "eON_Varyings[2]";
+    local_100 = &DAT_042e76da;
+    local_fc = "eON_Varyings[3]";
+    local_f8 = &DAT_042e76f9;
+    local_f4 = "eON_Varyings[4]";
+    local_f0 = "gl_TexCoord[4]";
+    local_ec = "eON_Varyings[5]";
+    local_e8 = "gl_TexCoord[5]";
+    local_e4 = "eON_Varyings[6]";
+    local_e0 = "gl_TexCoord[6]";
+    local_dc = "eON_Varyings[7]";
+    local_d8 = "gl_TexCoord[7]";
+    local_d4 = "eON_Varyings[8]";
+    local_d0 = "eON_Texcoord8";
+    local_cc = "eON_Varyings[9]";
+    local_c8 = "eON_Texcoord9";
+    if (1 < uVar2) {
+      eON_AppendShaderCompileMessage
+                (param_1[0xe],"%s%s / vec%d( %s ) );\n",local_114[(DAT_04468c04 ^ 1) + uVar5 * 2],
+                 local_9c,uVar2,local_224);
+      return;
+    }
+    eON_AppendShaderCompileMessage
+              (param_1[0xe],"%s%s / %s );\n",local_114[(DAT_04468c04 ^ 1) + uVar5 * 2],local_9c,
+               local_224);
+  }
+  else {
+    uVar2 = param_1[3];
+    ppcVar7 = local_9c;
+    for (iVar4 = 0x1e; iVar4 != 0; iVar4 = iVar4 + -1) {
+      *ppcVar7 = (char *)0x0;
+      ppcVar7 = ppcVar7 + (uint)bVar8 * -2 + 1;
+    }
+    local_84 = "eON_Varyings[3]";
+    local_9c[0] = "eON_Varyings[0]";
+    local_9c[1] = "gl_TexCoord[0]";
+    local_9c[2] = "eON_Varyings[1]";
+    local_9c[3] = "gl_TexCoord[1]";
+    local_8c = "eON_Varyings[2]";
+    local_88 = &DAT_042e76da;
+    local_80 = &DAT_042e76f9;
+    local_7c = "eON_Varyings[4]";
+    local_78 = "gl_TexCoord[4]";
+    local_74 = "eON_Varyings[5]";
+    local_70 = "gl_TexCoord[5]";
+    local_6c = "eON_Varyings[6]";
+    local_68 = "gl_TexCoord[6]";
+    local_64 = "eON_Varyings[7]";
+    local_60 = "gl_TexCoord[7]";
+    local_5c = "eON_Varyings[8]";
+    local_58 = "eON_Texcoord8";
+    local_54 = "eON_Varyings[9]";
+    local_50 = "eON_Texcoord9";
+    eON_AppendShaderCompileMessage
+              (param_1[0xe],"clamp( %s, 0.0, 1.0 )%s );\n",
+               local_9c[(DAT_04468c04 ^ 1) + (uVar2 & 0x7ff) * 2],local_22);
+  }
+  return;
+}
+

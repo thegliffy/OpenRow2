@@ -1,0 +1,35 @@
+
+/* source: opengl_objects */
+
+undefined4 OpenGLDisplayName(int *param_1,char *param_2,uint param_3,char param_4)
+
+{
+  char *__src;
+  undefined4 uVar1;
+  
+  if (param_1 == (int *)0x0) {
+    FUN_0400a810("display",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/linux/opengl_objects.cpp"
+                 ,0x60e,"bool OpenGLDisplayName(OpenGLDisplay*, void*, uint32_t, bool)");
+  }
+  if (DAT_044115a4 <= *param_1) {
+    FUN_0400a810("display->GetDisplayIndex() < (int)DisplayCount",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/linux/opengl_objects.cpp"
+                 ,0x60f,"bool OpenGLDisplayName(OpenGLDisplay*, void*, uint32_t, bool)");
+  }
+  __src = (char *)param_1[3];
+  uVar1 = 0;
+  if (__src != (char *)0x0) {
+    if (param_4 != '\0') {
+      eON_MultiByteToWideChar(0,0,__src,0xffffffff,param_2,param_3 >> 1);
+      (param_2 + (param_3 >> 1) * 2 + -2)[0] = '\0';
+      (param_2 + (param_3 >> 1) * 2 + -2)[1] = '\0';
+      return 1;
+    }
+    strncpy(param_2,__src,param_3 - 1);
+    param_2[param_3 - 1] = '\0';
+    uVar1 = 1;
+  }
+  return uVar1;
+}
+

@@ -1,0 +1,50 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+undefined1 LogMemoryResidentStats(void)
+
+{
+  float fVar1;
+  char cVar2;
+  undefined8 uVar3;
+  longlong lVar4;
+  undefined4 local_1c;
+  int iStack_18;
+  undefined4 local_14;
+  int iStack_10;
+  
+  DAT_04515bec = 0;
+  uVar3 = FUN_0402f570();
+  if (((int)((ulonglong)uVar3 >> 0x20) == 0) && ((int)uVar3 != -1)) {
+    lVar4 = FUN_0402f570();
+    DAT_04515bf0 = (float)lVar4;
+    if (lVar4 < 0) {
+      DAT_04515bf0 = DAT_04515bf0 + _DAT_042f73a4;
+    }
+  }
+  else {
+    DAT_04515bf0 = 4.2949673e+09;
+  }
+  cVar2 = getProcessVMInfo(&local_1c,&local_14);
+  if (cVar2 != '\0') {
+    FUN_0402cd10(5,"Resident: %llu out of %llu, virtual: %llu out of 4GB",local_14,iStack_10,
+                 (double)DAT_04515bf0,local_1c,iStack_18);
+    fVar1 = (float)CONCAT44(iStack_10,local_14);
+    if (iStack_10 < 0) {
+      fVar1 = fVar1 + _DAT_042f73a4;
+    }
+    if (_DAT_0432ce60 < fVar1 / DAT_04515bf0) {
+      DAT_04515bec = 1;
+    }
+    fVar1 = (float)CONCAT44(iStack_18,local_1c);
+    if (iStack_18 < 0) {
+      fVar1 = fVar1 + _DAT_042f73a4;
+    }
+    if ((float)s__fff_Memory_handle_manager_mutex_0432ce67._1_4_ < fVar1 * _DAT_0432ce64) {
+      DAT_04515bec = 1;
+      return 1;
+    }
+  }
+  return DAT_04515bec;
+}
+

@@ -1,0 +1,292 @@
+
+/* source: audioallocator, xaudio2dsp, xaudio2helpers */
+
+void Dsp__ProcessEffect(undefined4 *param_1,int *param_2,int *param_3)
+
+{
+  int *piVar1;
+  int iVar2;
+  uint uVar3;
+  int iVar4;
+  undefined4 *puVar5;
+  undefined4 *puVar6;
+  int *piVar7;
+  int iVar8;
+  uint uVar9;
+  int iVar10;
+  uint uVar11;
+  int *piVar12;
+  undefined4 *puVar13;
+  bool bVar14;
+  int local_9c;
+  int local_98;
+  int local_90;
+  undefined2 local_84;
+  undefined2 local_82;
+  int local_80;
+  int local_7c;
+  undefined2 local_78;
+  undefined2 local_76;
+  undefined2 local_74;
+  undefined2 local_72;
+  undefined2 local_70;
+  int local_6e;
+  int local_6a;
+  undefined2 local_66;
+  undefined2 local_64;
+  undefined2 local_62;
+  void *local_60;
+  void *local_5c;
+  undefined4 local_58;
+  undefined4 *local_54;
+  undefined4 *local_50;
+  undefined4 *local_4c;
+  void *local_48;
+  undefined4 local_44;
+  int local_40;
+  void *local_3c;
+  undefined4 local_38;
+  int local_34;
+  undefined2 *local_30;
+  int local_2c;
+  undefined2 *local_28;
+  int local_24;
+  int *local_20 [4];
+  
+  local_20[0] = (int *)0x0;
+  iVar2 = (*(code *)**(undefined4 **)*param_1)((undefined4 *)*param_1,&DAT_042dafc8,local_20);
+  if ((iVar2 < 0) || (local_20[0] == (int *)0x0)) {
+    FUN_0400a810("((HRESULT)(result) >= 0) && xapoEffect",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/xaudio2_full/xaudio2dsp.cpp"
+                 ,0x185,
+                 "void Dsp::ProcessEffect(const XAUDIO2_EFFECT_DESCRIPTOR&, const PcmFormat&, PcmData&)"
+                );
+  }
+  local_60 = (void *)0x0;
+  local_5c = (void *)0x0;
+  local_58 = 0;
+  local_9c = param_3[1];
+  piVar7 = (int *)*param_3;
+  uVar11 = 0;
+  iVar2 = (local_9c - (int)piVar7 >> 2) * -0x55555555;
+  if (iVar2 == 0) {
+    FUN_0400a810("pcm.channels.size() > 0",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/xaudio2_full/xaudio2helpers.h"
+                 ,0x13,"int GetNumOfSamples(const PcmData&)");
+    local_9c = param_3[1];
+    piVar7 = (int *)*param_3;
+    uVar11 = (int)local_5c - (int)local_60 >> 2;
+    uVar3 = (piVar7[1] - *piVar7 >> 2) * (local_9c - (int)piVar7 >> 2) * -0x55555555;
+    bVar14 = uVar3 < uVar11;
+    uVar9 = uVar3;
+    if (!bVar14 && uVar3 - uVar11 != 0) goto LAB_0410526e;
+  }
+  else {
+    uVar3 = (piVar7[1] - *piVar7 >> 2) * iVar2;
+    bVar14 = false;
+    uVar9 = 0;
+    if (uVar3 != 0) {
+LAB_0410526e:
+      audioallocator_04105480(&local_60,uVar3 - uVar11);
+      local_9c = param_3[1];
+      piVar7 = (int *)*param_3;
+      goto LAB_04104d79;
+    }
+  }
+  if (bVar14) {
+    local_5c = (void *)((int)local_60 + uVar9 * 4);
+  }
+LAB_04104d79:
+  local_98 = 0;
+  while( true ) {
+    iVar2 = local_9c - (int)piVar7;
+    local_90 = (iVar2 >> 2) * -0x55555555;
+    if (local_90 == 0) {
+                    /* try { // try from 04104e2f to 0410536c has its CatchHandler @ 0410545c */
+      FUN_0400a810("pcm.channels.size() > 0",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/xaudio2_full/xaudio2helpers.h"
+                   ,0x13,"int GetNumOfSamples(const PcmData&)");
+      local_9c = param_3[1];
+      piVar7 = (int *)*param_3;
+      iVar2 = local_9c - (int)piVar7;
+      local_90 = (iVar2 >> 2) * -0x55555555;
+      local_24 = piVar7[1] - *piVar7;
+    }
+    else {
+      local_24 = piVar7[1] - *piVar7;
+    }
+    local_24 = local_24 >> 2;
+    if (local_24 <= local_98) break;
+    if (0xb < iVar2) {
+      iVar8 = 0;
+      iVar4 = 0;
+      iVar2 = local_98 * 4;
+      do {
+        piVar1 = (int *)((int)piVar7 + iVar8);
+        iVar4 = iVar4 + 1;
+        iVar8 = iVar8 + 0xc;
+        *(undefined4 *)((int)local_60 + iVar2) = *(undefined4 *)(*piVar1 + local_98 * 4);
+        iVar2 = iVar2 + 4;
+      } while (iVar4 < local_90);
+    }
+    local_98 = local_98 + 1;
+  }
+  local_84 = 3;
+  local_76 = 0x20;
+  local_74 = 0;
+  local_72 = 3;
+  iVar2 = param_2[1];
+  local_64 = 0x20;
+  local_80 = *param_2;
+  local_62 = 0;
+  local_82 = (undefined2)iVar2;
+  local_7c = iVar2 * 4 * local_80;
+  local_78 = (undefined2)(iVar2 << 2);
+  iVar2 = param_1[2];
+  local_70 = (undefined2)iVar2;
+  local_6a = local_80 * iVar2 * 4;
+  local_66 = (undefined2)(iVar2 << 2);
+  local_30 = &local_84;
+  local_6e = local_80;
+  if (local_90 == 0) {
+    FUN_0400a810("pcm.channels.size() > 0",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/xaudio2_full/xaudio2helpers.h"
+                 ,0x13,"int GetNumOfSamples(const PcmData&)");
+    piVar7 = (int *)*param_3;
+    local_90 = (param_3[1] - (int)piVar7 >> 2) * -0x55555555;
+    local_24 = piVar7[1] - *piVar7 >> 2;
+  }
+  local_28 = &local_72;
+  local_2c = local_24;
+  if (local_90 == 0) {
+    FUN_0400a810("pcm.channels.size() > 0",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/xaudio2_full/xaudio2helpers.h"
+                 ,0x13,"int GetNumOfSamples(const PcmData&)");
+    local_24 = ((int *)*param_3)[1] - *(int *)*param_3 >> 2;
+  }
+  (**(code **)(*local_20[0] + 0x20))(local_20[0],1,&local_30,1,&local_28);
+  local_44 = 1;
+  local_48 = local_60;
+  piVar7 = (int *)*param_3;
+  if ((param_3[1] - (int)piVar7 >> 2) * -0x55555555 == 0) {
+    FUN_0400a810("pcm.channels.size() > 0",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/xaudio2_full/xaudio2helpers.h"
+                 ,0x13,"int GetNumOfSamples(const PcmData&)");
+    piVar7 = (int *)*param_3;
+  }
+  local_40 = piVar7[1] - *piVar7 >> 2;
+  if (param_1[2] != param_2[1]) {
+    FUN_0400a810("effect.OutputChannels == (UINT32) inputFormat.numOfChannels && \"Effects that change number of channels not supported yet!\""
+                 ,
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/xaudio2_full/xaudio2dsp.cpp"
+                 ,0x1a8,
+                 "void Dsp::ProcessEffect(const XAUDIO2_EFFECT_DESCRIPTOR&, const PcmFormat&, PcmData&)"
+                );
+    piVar7 = (int *)*param_3;
+  }
+  local_38 = 1;
+  local_3c = local_48;
+  if ((param_3[1] - (int)piVar7 >> 2) * -0x55555555 == 0) {
+    FUN_0400a810("pcm.channels.size() > 0",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/xaudio2_full/xaudio2helpers.h"
+                 ,0x13,"int GetNumOfSamples(const PcmData&)");
+    piVar7 = (int *)*param_3;
+  }
+  local_34 = piVar7[1] - *piVar7 >> 2;
+  (**(code **)(*local_20[0] + 0x28))(local_20[0],1,&local_48,1,&local_3c,1);
+  (**(code **)(*local_20[0] + 0x24))(local_20[0]);
+  piVar7 = (int *)*param_3;
+  if ((param_3[1] - (int)piVar7 >> 2) * -0x55555555 == 0) {
+    FUN_0400a810("pcm.channels.size() > 0",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/xaudio2_full/xaudio2helpers.h"
+                 ,0x13,"int GetNumOfSamples(const PcmData&)");
+    piVar7 = (int *)*param_3;
+  }
+  local_54 = (undefined4 *)0x0;
+  local_50 = (undefined4 *)0x0;
+  local_4c = (undefined4 *)0x0;
+  iVar2 = piVar7[1] - *piVar7 >> 2;
+  if (iVar2 == 0) {
+    local_4c = (undefined4 *)0x0;
+  }
+  else {
+    puVar5 = (undefined4 *)memalign(0x10,iVar2 * 4);
+    if (puVar5 == (undefined4 *)0x0) {
+                    /* try { // try from 04105438 to 0410543c has its CatchHandler @ 0410545c */
+      FUN_0400a810("memory",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/xaudio2_full/audioallocator.h"
+                   ,0x4b,
+                   "T* AudioAllocator<T>::allocate(AudioAllocator<T>::size_type, const void*) [with T = float, AudioAllocator<T>::pointer = float*, AudioAllocator<T>::size_type = unsigned int]"
+                  );
+    }
+    puVar13 = puVar5 + iVar2;
+    bzero(puVar5,iVar2 * 4);
+    puVar6 = puVar5;
+    do {
+      if (puVar6 != (undefined4 *)0x0) {
+        *puVar6 = 0;
+      }
+      puVar6 = puVar6 + 1;
+      iVar2 = iVar2 + -1;
+    } while (iVar2 != 0);
+    piVar7 = (int *)*param_3;
+    local_54 = puVar5;
+    local_4c = puVar13;
+  }
+  uVar11 = param_1[2];
+  piVar1 = (int *)param_3[1];
+  uVar9 = ((int)piVar1 - (int)piVar7 >> 2) * -0x55555555;
+  local_50 = local_4c;
+  if (uVar9 < uVar11) {
+                    /* try { // try from 0410540c to 04105410 has its CatchHandler @ 04105442 */
+    audioallocator_04103eb0(&local_54);
+  }
+  else if (uVar11 < uVar9) {
+    for (piVar12 = piVar7 + uVar11 * 3; piVar1 != piVar12; piVar12 = piVar12 + 3) {
+      if ((void *)*piVar12 != (void *)0x0) {
+        free((void *)*piVar12);
+      }
+    }
+    param_3[1] = (int)(piVar7 + uVar11 * 3);
+  }
+  if (local_54 != (undefined4 *)0x0) {
+    free(local_54);
+  }
+  local_9c = 0;
+  piVar7 = (int *)*param_3;
+  if ((param_3[1] - (int)piVar7 >> 2) * -0x55555555 == 0) goto LAB_041051a8;
+  while (local_9c < piVar7[1] - *piVar7 >> 2) {
+    while( true ) {
+      iVar2 = param_3[1];
+      iVar4 = iVar2 - (int)piVar7;
+      if (0xb < iVar4) {
+        iVar10 = 0;
+        local_90 = 0;
+        iVar8 = local_9c * 4;
+        do {
+          piVar1 = (int *)((int)piVar7 + iVar10);
+          iVar10 = iVar10 + 0xc;
+          puVar5 = (undefined4 *)((int)local_60 + iVar8);
+          iVar8 = iVar8 + 4;
+          local_90 = local_90 + 1;
+          *(undefined4 *)(*piVar1 + local_9c * 4) = *puVar5;
+        } while (local_90 < (iVar4 >> 2) * -0x55555555);
+      }
+      local_9c = local_9c + 1;
+      if ((iVar2 - (int)piVar7 >> 2) * -0x55555555 != 0) break;
+LAB_041051a8:
+      FUN_0400a810("pcm.channels.size() > 0",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/xaudio2_full/xaudio2helpers.h"
+                   ,0x13,"int GetNumOfSamples(const PcmData&)");
+      piVar7 = (int *)*param_3;
+      if (piVar7[1] - *piVar7 >> 2 <= local_9c) goto LAB_041051e5;
+    }
+  }
+LAB_041051e5:
+  (**(code **)(*local_20[0] + 8))(local_20[0]);
+  if (local_60 != (void *)0x0) {
+    free(local_60);
+  }
+  return;
+}
+

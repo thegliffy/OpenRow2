@@ -1,0 +1,353 @@
+
+void Heap_Validate(void)
+
+{
+  undefined4 *puVar1;
+  byte bVar2;
+  int iVar3;
+  uint uVar4;
+  uint uVar5;
+  bool bVar6;
+  uint *puVar7;
+  uint *puVar8;
+  uint *puVar9;
+  int *piVar10;
+  int iVar11;
+  uint uVar12;
+  int iVar13;
+  uint uVar14;
+  bool bVar15;
+  bool bVar16;
+  uint uVar17;
+  uint uVar18;
+  undefined4 uVar19;
+  int local_68;
+  int local_64;
+  int local_60;
+  int local_5c;
+  int local_58;
+  int local_54;
+  uint local_50;
+  int local_4c;
+  int local_48;
+  uint local_44;
+  int local_40;
+  int local_3c;
+  uint local_38;
+  int local_30;
+  int local_2c;
+  int local_28;
+  uint local_20;
+  
+  FUN_0402cd10(0x14,"Heaps validation start\n");
+  if (DAT_04515b58 == 0) {
+    iVar11 = 0;
+    local_60 = 0;
+    local_5c = 0;
+    local_68 = 0;
+    local_64 = 0;
+  }
+  else {
+    local_60 = 0;
+    local_5c = 0;
+    local_68 = 0;
+    local_64 = 0;
+    local_50 = 0;
+    do {
+      while (piVar10 = *(int **)(DAT_04515b54 + local_50 * 4), *piVar10 == 0x59372851) {
+        FUN_0402cd10(0x14,"\theap %p\n",piVar10);
+        FUN_0402cd10(0x14,"\theap flags: %#x\n",piVar10[1]);
+        uVar17 = piVar10[2];
+        uVar18 = uVar17;
+        FUN_0402cd10(0x14,"\tsize to grow by: %#zx (%zu bytes)\n",uVar17,uVar17);
+        puVar8 = (uint *)piVar10[4];
+        if (puVar8 == (uint *)0x0) {
+          FUN_0402cd10(0x14,"\tno large areas in heap.\n",uVar17,uVar18);
+          local_58 = 0;
+          local_54 = 0;
+          local_38 = 0;
+        }
+        else {
+          local_54 = 0;
+          local_58 = 0;
+          local_38 = 0;
+          do {
+            uVar17 = *puVar8;
+            uVar18 = puVar8[1];
+            iVar3 = (uVar17 - 0x10) - uVar18;
+            puVar7 = puVar8;
+            uVar12 = uVar17;
+            uVar14 = uVar18;
+            iVar11 = iVar3;
+            FUN_0402cd10(0x14,
+                         "\t\tlarge area %p ( total size %#zx(%zu), bytes used %#zx(%zu), bytes wasted %#zx(%zu) )\n"
+                         ,puVar8,uVar17,uVar17,uVar18,uVar18,iVar3,iVar3);
+            if ((short)puVar8 == 0) {
+              uVar4 = *puVar8;
+              if ((uVar4 & 0xfff) == 0) goto LAB_041376de;
+LAB_0413778c:
+              FUN_0402cd10(0x14,"\t\tLARGE AREA SIZE NOT MULTIPLE OF PAGE SIZE!\n",puVar7,uVar17,
+                           uVar12,uVar18,uVar14,iVar3,iVar11);
+              uVar5 = puVar8[1];
+              if (*puVar8 < uVar5 + 0x10) {
+LAB_041377b0:
+                FUN_0402cd10(0x14,"\t\tLARGE AREA INTERNAL DATA INCONSISTENCY!\n",puVar7,uVar17,
+                             uVar12,uVar18,uVar14,iVar3,iVar11);
+                uVar5 = puVar8[1];
+              }
+            }
+            else {
+              FUN_0402cd10(0x14,
+                           "\t\tLARGE AREA NOT ALLOCATED ON MULTIPLE OF WINDOWS ALLOCATION GRANULARITY!\n"
+                           ,puVar7,uVar17,uVar12,uVar18,uVar14,iVar3,iVar11);
+              uVar4 = *puVar8;
+              if ((uVar4 & 0xfff) != 0) goto LAB_0413778c;
+LAB_041376de:
+              uVar5 = puVar8[1];
+              if (uVar4 < uVar5 + 0x10) goto LAB_041377b0;
+            }
+            if (uVar5 < 0x10) {
+              FUN_0402cd10(0x14,"\t\tLARGE AREA USER DATA SIZE TOO SMALL!\n",puVar7,uVar17,uVar12,
+                           uVar18,uVar14,iVar3,iVar11);
+              uVar5 = puVar8[1];
+            }
+            uVar17 = *puVar8;
+            local_54 = local_54 + uVar5;
+            local_38 = local_38 + uVar17;
+            puVar8 = (uint *)(puVar8[3] - 8);
+            local_58 = ((uVar17 - 0x10) + local_58) - uVar5;
+          } while (puVar8 != (uint *)piVar10[4]);
+          uVar17 = local_38;
+          uVar18 = local_38;
+          FUN_0402cd10(0x14,
+                       "\ttotal for large areas: address space taken and committed: %#zx (%zu), bytesAllocated: %zu, wasted: %zu\n"
+                       ,local_38,local_38,local_54,local_58,uVar14,iVar3,iVar11);
+        }
+        uVar12 = piVar10[3];
+        if (uVar12 == 0) {
+          local_4c = 0x1ff;
+          FUN_0402cd10(0x14,"\tno subheaps in heap.\n",uVar17,uVar18);
+          local_20 = local_38;
+        }
+        else {
+          FUN_0402cd10(0x14,"\theap->Subheaps = %p\n",uVar12,uVar18);
+          local_48 = 0;
+          local_44 = 0;
+          local_40 = 0;
+          local_3c = 0;
+          local_4c = 0;
+          do {
+            if ((short)uVar12 != 0) {
+              FUN_0402cd10(0x14,
+                           "\t\tSUBHEAP %p NOT ALLOCATED ON MULTIPLE OF WINDOWS ALLOCATION GRANULARITY!\n"
+                           ,uVar12,uVar18);
+            }
+            uVar19 = *(undefined4 *)(uVar12 + 0x10);
+            uVar17 = *(uint *)(uVar12 + 0xc);
+            uVar18 = *(uint *)(uVar12 + 8);
+            uVar14 = uVar12;
+            FUN_0402cd10(0x14,
+                         "\t\tsubheap %p ( total size %#zx, commit size minimal %#zx, current %#zx )\n"
+                         ,uVar12,uVar18,uVar17,uVar19);
+            if (*(short *)(uVar12 + 8) != 0) {
+              FUN_0402cd10(0x14,"\t\tSUBHEAP SIZE NOT MULTIPLE OF WINDOWS ALLOCATION GRANULARITY!\n"
+                           ,uVar14,uVar18,uVar17,uVar19);
+            }
+            if (*(short *)(uVar12 + 0xc) != 0) {
+              FUN_0402cd10(0x14,
+                           "\t\tSUBHEAP MINIMAL COMMIT SIZE NOT MULTIPLE OF WINDOWS ALLOCATION GRANULARITY!\n"
+                           ,uVar14,uVar18,uVar17,uVar19);
+            }
+            uVar4 = *(uint *)(uVar12 + 0x10);
+            if ((short)uVar4 != 0) {
+              FUN_0402cd10(0x14,
+                           "\t\tSUBHEAP CURRENT COMMIT SIZE NOT MULTIPLE OF WINDOWS ALLOCATION GRANULARITY!\n"
+                           ,uVar14,uVar18,uVar17,uVar19);
+              uVar4 = *(uint *)(uVar12 + 0x10);
+            }
+            if (uVar4 < *(uint *)(uVar12 + 0xc)) {
+              FUN_0402cd10(0x14,"\t\tSUBHEAP CURRENT COMMIT SIZE LESS THAN MINIMAL COMMIT SIZE!\n",
+                           uVar14,uVar18,uVar17,uVar19);
+              uVar4 = *(uint *)(uVar12 + 0x10);
+            }
+            if (*(uint *)(uVar12 + 8) < uVar4) {
+              FUN_0402cd10(0x14,"\t\tSUBHEAP CURRENT COMMIT SIZE MORE THAN TOTAL SIZE!\n");
+            }
+            uVar14 = 0;
+            bVar6 = false;
+            local_28 = 0;
+            local_20 = 0;
+            local_2c = 0;
+            local_30 = 0;
+            puVar7 = (uint *)0x0;
+            puVar8 = (uint *)(uVar12 + 0x18);
+            do {
+              puVar9 = puVar8;
+              uVar14 = uVar14 + 1;
+              if (((uint)puVar9 & 7) != 0) {
+                FUN_0402cd10(0x14,"\t\tAREA %p IS NOT PROPERLY ALIGNED!\n",puVar9,uVar18,uVar17,
+                             uVar19);
+              }
+              bVar2 = (byte)puVar9[1];
+              if ((bVar2 & 2) == 0) {
+                if ((puVar7 == (uint *)0x0) || (!bVar6)) goto LAB_04137919;
+                FUN_0402cd10(0x14,"\t\tAREA %p SAYS PREVIOUS AREA IS NOT FREE, BUT IT IS!\n",puVar9)
+                ;
+                bVar2 = (byte)puVar9[1];
+                uVar4 = *puVar9;
+                if ((bVar2 & 1) != 0) goto LAB_04137923;
+LAB_041379c0:
+                if ((((uVar4 & 7) != 0) || ((bVar2 & 0xfc) != 0xfc)) ||
+                   ((*(char *)((int)puVar9 + 5) != -0x1b || (*(char *)((int)puVar9 + 6) != '\0'))))
+                {
+                  FUN_0402cd10(0x14,"\t\tUSED AREA HEADER IS INVALID FOR AREA %p!\n",puVar9);
+                  uVar4 = *puVar9;
+                }
+                uVar5 = (uint)*(byte *)((int)puVar9 + 7);
+                if (uVar4 <= uVar5) {
+                  uVar19 = 8;
+                  uVar18 = uVar5;
+                  uVar17 = uVar4;
+                  FUN_0402cd10(0x14,
+                               "\t\tUSED AREA %p HAS LESS THAN ZERO USED BYTES ( UnusedBytes = %u, total area size = %u, size of area struct = %u )!\n"
+                               ,puVar9,uVar5,uVar4,8);
+                  uVar5 = (uint)*(byte *)((int)puVar9 + 7);
+                }
+                bVar6 = false;
+                local_30 = local_30 + uVar5;
+                local_20 = (local_20 + uVar4) - uVar5;
+                puVar8 = (uint *)((int)puVar9 + uVar4);
+                iVar11 = *(int *)(uVar12 + 8);
+                bVar15 = puVar8 < (uint *)(iVar11 + uVar12);
+                bVar16 = puVar8 == (uint *)(iVar11 + uVar12);
+              }
+              else {
+                if (puVar7 == (uint *)0x0) {
+                  FUN_0402cd10(0x14,
+                               "\t\tAREA %p SAYS PREVIOUS AREA IS FREE, BUT THERE\'S NO PREVIOUS AREA!\n"
+                               ,puVar9);
+                  bVar2 = (byte)puVar9[1];
+                }
+                else if (bVar6) {
+                  if (puVar7 != (uint *)puVar9[-1]) {
+                    FUN_0402cd10(0x14,
+                                 "\t\tAREA %p SAYS PREVIOUS AREA IS FREE, BUT POINTER TO IT AT ITS END IS WRONG!\n"
+                                 ,puVar9);
+                    bVar2 = (byte)puVar9[1];
+                  }
+                }
+                else {
+                  FUN_0402cd10(0x14,"\t\tAREA %p SAYS PREVIOUS AREA IS FREE, BUT IT\'S USED!\n",
+                               puVar9);
+                  bVar2 = (byte)puVar9[1];
+                }
+LAB_04137919:
+                uVar4 = *puVar9;
+                if ((bVar2 & 1) == 0) goto LAB_041379c0;
+LAB_04137923:
+                if (((((uVar4 & 7) != 0) || ((bVar2 & 0xfc) != 0xfc)) ||
+                    (*(char *)((int)puVar9 + 5) != 'x')) ||
+                   ((*(char *)((int)puVar9 + 6) != -0x1b || (*(char *)((int)puVar9 + 7) != 'w')))) {
+                  uVar18 = uVar14;
+                  FUN_0402cd10(0x14,"\t\tFREE AREA HEADER IS INVALID FOR AREA %p (%d)!\n",puVar9,
+                               uVar14);
+                  uVar4 = *puVar9;
+                }
+                local_2c = local_2c + uVar4;
+                puVar8 = (uint *)((int)puVar9 + uVar4);
+                bVar6 = true;
+                iVar11 = *(int *)(uVar12 + 8);
+                local_28 = local_28 + 1;
+                bVar15 = puVar8 < (uint *)(iVar11 + uVar12);
+                bVar16 = puVar8 == (uint *)(iVar11 + uVar12);
+              }
+              puVar7 = puVar9;
+            } while (bVar15);
+            if (!bVar16) {
+              uVar18 = uVar12;
+              FUN_0402cd10(0x14,"\t\tAREA %p GOES BEYOND SUBHEAP %p!\n",puVar9,uVar12,uVar17,uVar19)
+              ;
+              iVar11 = *(int *)(uVar12 + 8);
+            }
+            local_3c = local_3c + iVar11;
+            local_40 = local_40 + *(int *)(uVar12 + 0x10);
+            local_4c = local_4c + local_28;
+            local_44 = local_44 + local_20;
+            local_48 = local_48 + local_30 + local_2c;
+            FUN_0402cd10(0x14,"\t\tNum of areas: %d\n",uVar14,uVar18,uVar17,uVar19);
+            if (piVar10 != *(int **)(uVar12 + 0x14)) {
+              FUN_0402cd10(0x14,"\tSUBHEAP DOESN\'T POINT BACK TO HEAP!\n",uVar14,uVar18);
+            }
+            FUN_0402cd10(0x14,"\tsubheap->SubheapsLink.Next = %p\n",*(undefined4 *)(uVar12 + 4),
+                         uVar18);
+            uVar12 = *(uint *)(uVar12 + 4);
+          } while (uVar12 != piVar10[3]);
+          FUN_0402cd10(0x14,
+                       "\ttotal for subheaps: address space taken: %#zx (%zu), committed: %#zx (%zu), wasted %#zx (%zu)\n"
+                       ,local_3c,local_3c,local_40,local_40,local_3c - local_40,local_3c - local_40)
+          ;
+          uVar17 = local_44;
+          uVar18 = local_44;
+          FUN_0402cd10(0x14,
+                       "\t                    bytes allocated: %#zx (%zu), wasted inside committed heaps %#zx (%zu)\n"
+                       ,local_44,local_44,local_48,local_48);
+          local_20 = local_3c + local_38;
+          local_38 = local_38 + local_40;
+          local_4c = local_4c + 0x1ff;
+          local_58 = local_58 + local_48;
+          local_54 = local_54 + local_44;
+        }
+        if (piVar10[7] != 0) {
+          FUN_0402cd10(0x14,"\tFREE AREAS LIST HEADER HAS PREVIOUS ELEMENT!\n",uVar17,uVar18);
+        }
+        iVar11 = piVar10[8];
+        iVar3 = 1;
+        if (iVar11 == 0) {
+          iVar13 = 0;
+          piVar10 = piVar10 + 5;
+        }
+        else {
+          do {
+            iVar13 = iVar3;
+            piVar10 = (int *)(iVar11 + -8);
+            iVar11 = *(int *)(iVar11 + 4);
+            iVar3 = iVar13 + 1;
+          } while (iVar11 != 0);
+        }
+        if (iVar3 != local_4c) {
+          FUN_0402cd10(0x14,"\tNOT ALL FREE AREAS ARE IN THE LIST!\n",uVar17,uVar18);
+        }
+        for (puVar1 = (undefined4 *)piVar10[2]; puVar1 != (undefined4 *)0x0;
+            puVar1 = (undefined4 *)*puVar1) {
+          iVar13 = iVar13 + -1;
+        }
+        if (iVar13 != 0) {
+          FUN_0402cd10(0x14,"\tCORRUPTION IN FREE AREAS LIST PREV POINTERS!\n",uVar17,uVar18);
+        }
+        local_50 = local_50 + 1;
+        local_60 = local_60 + local_20;
+        local_5c = local_5c + local_38;
+        local_68 = local_68 + local_54;
+        local_64 = local_64 + local_58;
+        if (DAT_04515b58 <= local_50) goto LAB_04137bdc;
+      }
+      FUN_0402cd10(0x14,"\tMagic value of heap %p invalid! Ignoring heap.\n",piVar10);
+      local_50 = local_50 + 1;
+    } while (local_50 < DAT_04515b58);
+LAB_04137bdc:
+    iVar11 = local_60 - local_5c;
+  }
+  FUN_0402cd10(0x14,"Summary:\n");
+  FUN_0402cd10(0x14,"\ttotal address space taken by heaps: %#zx (%zu)\n",local_60,local_60);
+  FUN_0402cd10(0x14,"\ttotal address space committed in heaps: %#zx (%zu)\n",local_5c,local_5c);
+  FUN_0402cd10(0x14,"\ttotal address space wasted in uncommitted heaps: %#zx (%zu)\n",iVar11,iVar11)
+  ;
+  FUN_0402cd10(0x14,"\ttotal bytes allocated in committed areas of heaps: %#zx (%zu)\n",local_68,
+               local_68);
+  FUN_0402cd10(0x14,
+               "\ttotal bytes free (wasted due to fragmentation) in committed areas of heaps: %#zx (%zu)\n"
+               ,local_64,local_64);
+  FUN_0402cd10(0x14,"Heaps validation end\n");
+  return;
+}
+

@@ -1,0 +1,64 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+bool _glewInit_GL_ARB_window_pos(void)
+
+{
+  int iVar1;
+  bool bVar2;
+  bool bVar3;
+  bool bVar4;
+  bool bVar5;
+  bool bVar6;
+  bool bVar7;
+  bool bVar8;
+  bool bVar9;
+  bool bVar10;
+  bool bVar11;
+  bool bVar12;
+  bool bVar13;
+  bool bVar14;
+  bool bVar15;
+  
+  iVar1 = glXGetProcAddressARB("glWindowPos2dARB");
+  _DAT_0451de28 = iVar1;
+  _DAT_0451de24 = glXGetProcAddressARB("glWindowPos2dvARB");
+  bVar2 = _DAT_0451de24 == 0;
+  _DAT_0451de20 = glXGetProcAddressARB("glWindowPos2fARB");
+  bVar3 = _DAT_0451de20 == 0;
+  _DAT_0451de1c = glXGetProcAddressARB("glWindowPos2fvARB");
+  bVar4 = _DAT_0451de1c == 0;
+  _DAT_0451de18 = glXGetProcAddressARB("glWindowPos2iARB");
+  bVar5 = _DAT_0451de18 == 0;
+  _DAT_0451de14 = glXGetProcAddressARB("glWindowPos2ivARB");
+  bVar6 = _DAT_0451de14 == 0;
+  _DAT_0451de10 = glXGetProcAddressARB("glWindowPos2sARB");
+  bVar7 = _DAT_0451de10 == 0;
+  _DAT_0451de0c = glXGetProcAddressARB("glWindowPos2svARB");
+  bVar8 = _DAT_0451de0c == 0;
+  _DAT_0451de08 = glXGetProcAddressARB("glWindowPos3dARB");
+  bVar9 = _DAT_0451de08 == 0;
+  _DAT_0451de04 = glXGetProcAddressARB("glWindowPos3dvARB");
+  bVar10 = _DAT_0451de04 == 0;
+  _DAT_0451de00 = glXGetProcAddressARB("glWindowPos3fARB");
+  bVar11 = _DAT_0451de00 == 0;
+  _DAT_0451ddfc = glXGetProcAddressARB("glWindowPos3fvARB");
+  bVar12 = _DAT_0451ddfc == 0;
+  _DAT_0451ddf8 = glXGetProcAddressARB("glWindowPos3iARB");
+  bVar13 = _DAT_0451ddf8 == 0;
+  _DAT_0451ddf4 = glXGetProcAddressARB("glWindowPos3ivARB");
+  bVar14 = _DAT_0451ddf4 == 0;
+  _DAT_0451ddf0 = glXGetProcAddressARB("glWindowPos3sARB");
+  bVar15 = _DAT_0451ddf0 == 0;
+  _DAT_0451ddec = glXGetProcAddressARB("glWindowPos3svARB");
+  return _DAT_0451ddec == 0 ||
+         (bVar15 ||
+         (bVar14 ||
+         (bVar13 ||
+         (bVar12 ||
+         (bVar11 ||
+         (bVar10 ||
+         (bVar9 || (bVar8 || (bVar7 || (bVar6 || (bVar5 || (bVar4 || (bVar3 || (bVar2 || iVar1 == 0)
+                                                                     )))))))))))));
+}
+

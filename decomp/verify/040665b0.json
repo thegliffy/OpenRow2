@@ -1,0 +1,24 @@
+
+char * D3DPOOL_ToString(uint param_1)
+
+{
+  char *pcVar1;
+  
+  pcVar1 = "D3DPOOL_SYSTEMMEM";
+  if (param_1 != 2) {
+    if (param_1 < 3) {
+      pcVar1 = "D3DPOOL_DEFAULT";
+      if ((param_1 != 0) && (pcVar1 = "D3DPOOL_MANAGED", param_1 != 1)) {
+        pcVar1 = "!unknown!";
+      }
+    }
+    else {
+      pcVar1 = "D3DPOOL_SCRATCH";
+      if ((param_1 != 3) && (pcVar1 = "D3DPOOL_EON_NONE", param_1 != 0xfffffff)) {
+        pcVar1 = "!unknown!";
+      }
+    }
+  }
+  return pcVar1;
+}
+

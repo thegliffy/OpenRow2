@@ -1,0 +1,162 @@
+
+/* source: fs_misc */
+
+undefined4 fs_CopyFileA(undefined4 param_1,undefined4 param_2,int param_3)
+
+{
+  uint uVar1;
+  int iVar2;
+  int *piVar3;
+  int *piVar4;
+  undefined4 *puVar5;
+  bool bVar6;
+  undefined4 local_b8;
+  int local_b4;
+  undefined4 local_b0;
+  undefined4 local_8c;
+  undefined4 local_88;
+  undefined4 local_84;
+  int local_80;
+  undefined4 local_7c;
+  undefined4 local_78;
+  undefined4 uStack_74;
+  undefined4 local_70;
+  undefined4 local_6c;
+  undefined4 local_68;
+  undefined4 local_64;
+  undefined4 local_60;
+  undefined4 local_5c;
+  undefined4 local_58;
+  int local_50;
+  undefined4 local_4c;
+  undefined4 local_48;
+  int local_44;
+  int local_40;
+  void *local_3c;
+  uint local_38;
+  int local_34;
+  uint local_30;
+  int local_2c;
+  uint local_24 [3];
+  undefined4 *local_18;
+  
+  iVar2 = param_3;
+  local_18 = &param_1;
+  local_4c = param_1;
+  local_58 = 0;
+  local_5c = 0;
+  local_60 = 3;
+  local_48 = param_2;
+  local_64 = 0;
+  local_68 = 1;
+  local_6c = 0x80000000;
+  local_70 = param_1;
+  uStack_74 = 0x4132e2d;
+  local_40 = eON_CreateFileA();
+  puVar5 = &local_8c;
+  if (local_40 != -1) {
+    local_8c = local_48;
+    uVar1 = FUN_041322f0();
+    if ((uVar1 != 0xffffffff) && ((uVar1 & 3) != 0)) {
+      eON_SetLastError();
+      eON_CloseHandle();
+      return 0;
+    }
+    local_78 = 0;
+    local_7c = 0;
+    local_84 = 0;
+    local_80 = (-(uint)(iVar2 == 0) & 3) + 1;
+    local_88 = 2;
+    local_8c = 0x40000000;
+    local_44 = eON_CreateFileA();
+    if (local_44 != -1) {
+      local_b0 = 0x4132eb4;
+      local_3c = malloc(0x100000);
+      local_b0 = 0x4132ec9;
+      FUN_041322c0();
+      local_b4 = local_44;
+      local_b8 = 0x4132ed7;
+      fs_files_04132a50();
+      local_38 = local_30;
+      local_34 = local_2c;
+      piVar4 = &local_b8;
+      while( true ) {
+        piVar3 = piVar4;
+        if ((local_34 != 0) || (uVar1 = local_38, 0x100000 < local_38)) {
+          uVar1 = 0x100000;
+        }
+        piVar3[4] = 0;
+        piVar3[3] = (int)local_24;
+        piVar3[2] = uVar1;
+        piVar3[1] = (int)local_3c;
+        *piVar3 = local_40;
+        piVar3[-1] = 0x4132f25;
+        iVar2 = eON_ReadFile();
+        piVar4 = piVar3 + -5;
+        if ((iVar2 == 0) || (piVar4 = piVar3 + -5, local_24[0] < uVar1)) break;
+        piVar3[-1] = 0;
+        piVar3[-2] = (int)local_24;
+        piVar3[-3] = uVar1;
+        piVar3[-4] = (int)local_3c;
+        piVar3[-5] = local_44;
+        piVar3[-6] = 0x4132f5e;
+        iVar2 = eON_WriteFile();
+        piVar4 = piVar3 + -10;
+        if ((iVar2 == 0) || (piVar4 = piVar3 + -10, local_24[0] < uVar1)) break;
+        bVar6 = local_38 < uVar1;
+        local_38 = local_38 - uVar1;
+        local_34 = local_34 - (uint)bVar6;
+        piVar4 = piVar3 + -10;
+        if (local_34 == 0 && local_38 == 0) {
+          piVar3[-10] = (int)local_3c;
+          piVar3[-0xb] = 0x4132f91;
+          free((void *)piVar3[-10]);
+          piVar3[-10] = local_4c;
+          piVar3[-0xb] = 0x4132f9c;
+          iVar2 = FUN_041322f0();
+          if (iVar2 == -1) {
+            piVar3[-8] = (int)"WINBOOL fs_CopyFileA(LPCSTR, LPCSTR, WINBOOL)";
+            piVar3[-9] = 0xaa;
+            piVar3[-10] = (int)
+                          "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/fs_misc.cpp"
+            ;
+            piVar3[-0xb] = (int)"sourceAttrs != ((DWORD)-1)";
+            piVar3[-0xc] = 0x41330c7;
+            local_50 = iVar2;
+            FUN_0400a810();
+            iVar2 = local_50;
+          }
+          piVar3[-10] = iVar2;
+          piVar3[-0xb] = local_48;
+          piVar3[-0xc] = 0x4132fb7;
+          FUN_04132670();
+          piVar3[-0xd] = local_40;
+          piVar3[-0xe] = 0x4132fc5;
+          eON_CloseHandle();
+          piVar3[-0xe] = local_44;
+          piVar3[-0xf] = 0x4132fd3;
+          eON_CloseHandle();
+          return 1;
+        }
+      }
+      *piVar4 = (int)local_3c;
+      piVar4[-1] = 0x413300b;
+      free((void *)*piVar4);
+      *piVar4 = local_40;
+      piVar4[-1] = 0x4133016;
+      eON_CloseHandle();
+      piVar4[-1] = local_44;
+      piVar4[-2] = 0x4133024;
+      eON_CloseHandle();
+      return 0;
+    }
+    local_b0 = 0x413304b;
+    eON_CloseHandle();
+    puVar5 = &local_b0;
+  }
+  *puVar5 = 2;
+  puVar5[-1] = 0x413305a;
+  eON_SetLastError();
+  return 0;
+}
+

@@ -1,0 +1,967 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+/* source: direct3ddevice9imp */
+
+undefined4
+Direct3DDevice9Imp__OpenGLSide_SetRenderState(int param_1,undefined4 param_2,undefined4 *param_3)
+
+{
+  uint uVar1;
+  int iVar2;
+  float fVar3;
+  uint uVar4;
+  undefined4 uVar5;
+  float fVar6;
+  
+  fVar3 = _DAT_042dc5a0;
+  fVar6 = DAT_042dbf34;
+  switch(*param_3) {
+  case 7:
+    *(undefined4 *)(param_1 + 0x7a50) = param_3[1];
+    uVar4 = *(uint *)(param_1 + 0xea04) | 8;
+    break;
+  case 8:
+    iVar2 = param_3[1];
+    if (iVar2 == 2) {
+      *(undefined4 *)(param_1 + 0x7a20) = 0x1b01;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+    }
+    else if (iVar2 == 3) {
+      *(undefined4 *)(param_1 + 0x7a20) = 0x1b02;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+    }
+    else if (iVar2 == 1) {
+      *(undefined4 *)(param_1 + 0x7a20) = 0x1b00;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+    }
+    else {
+      FUN_0402cd10(0xf,"Unsupported D3DRS_FILLMODE value: %u",iVar2);
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      *(undefined4 *)(param_1 + 0x7a20) = 0x1b02;
+    }
+    break;
+  case 9:
+    *(uint *)(param_1 + 0x7a24) = (param_3[1] != 1) + 0x1d00;
+    uVar4 = *(uint *)(param_1 + 0xea04);
+    break;
+  default:
+    FUN_0400a810("false",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+                 ,0x1bc8,"DWORD Direct3DDevice9Imp::OpenGLSide_SetRenderState(DWORD, LPVOID)");
+    uVar4 = *(uint *)(param_1 + 0xea04);
+    break;
+  case 0xe:
+    *(undefined4 *)(param_1 + 0x7a54) = param_3[1];
+    uVar4 = *(uint *)(param_1 + 0xea04) | 8;
+    break;
+  case 0xf:
+    *(undefined4 *)(param_1 + 0x7a4c) = param_3[1];
+    uVar4 = *(uint *)(param_1 + 0xea04);
+    break;
+  case 0x13:
+    switch(param_3[1]) {
+    default:
+      FUN_0402cd10(0xf,"Unsupported D3DRS_SRCBLEND value: %u",param_3[1]);
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      break;
+    case 1:
+      *(undefined4 *)(param_1 + 0x79d8) = 0;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      break;
+    case 2:
+      *(undefined4 *)(param_1 + 0x79d8) = 1;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      break;
+    case 3:
+      *(undefined4 *)(param_1 + 0x79d8) = 0x300;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      break;
+    case 4:
+      *(undefined4 *)(param_1 + 0x79d8) = 0x301;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      break;
+    case 5:
+      *(undefined4 *)(param_1 + 0x79d8) = 0x302;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      break;
+    case 6:
+      *(undefined4 *)(param_1 + 0x79d8) = 0x303;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      break;
+    case 7:
+      *(undefined4 *)(param_1 + 0x79d8) = 0x304;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      break;
+    case 8:
+      *(undefined4 *)(param_1 + 0x79d8) = 0x305;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      break;
+    case 9:
+      *(undefined4 *)(param_1 + 0x79d8) = 0x306;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      break;
+    case 10:
+      *(undefined4 *)(param_1 + 0x79d8) = 0x307;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      break;
+    case 0xb:
+      *(undefined4 *)(param_1 + 0x79d8) = 0x308;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      break;
+    case 0xc:
+      *(undefined4 *)(param_1 + 0x79d8) = 0x2ff;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      break;
+    case 0xd:
+      *(undefined4 *)(param_1 + 0x79d8) = 0x2fe;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      break;
+    case 0xe:
+      *(undefined4 *)(param_1 + 0x79d8) = 0x8001;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      break;
+    case 0xf:
+      *(undefined4 *)(param_1 + 0x79d8) = 0x8002;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+    }
+    break;
+  case 0x14:
+    switch(param_3[1]) {
+    default:
+      FUN_0402cd10(0xf,"Unsupported D3DRS_DESTBLEND value: %u",param_3[1]);
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      break;
+    case 1:
+      *(undefined4 *)(param_1 + 0x79dc) = 0;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      break;
+    case 2:
+      *(undefined4 *)(param_1 + 0x79dc) = 1;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      break;
+    case 3:
+      *(undefined4 *)(param_1 + 0x79dc) = 0x300;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      break;
+    case 4:
+      *(undefined4 *)(param_1 + 0x79dc) = 0x301;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      break;
+    case 5:
+      *(undefined4 *)(param_1 + 0x79dc) = 0x302;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      break;
+    case 6:
+      *(undefined4 *)(param_1 + 0x79dc) = 0x303;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      break;
+    case 7:
+      *(undefined4 *)(param_1 + 0x79dc) = 0x304;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      break;
+    case 8:
+      *(undefined4 *)(param_1 + 0x79dc) = 0x305;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      break;
+    case 9:
+      *(undefined4 *)(param_1 + 0x79dc) = 0x306;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      break;
+    case 10:
+      *(undefined4 *)(param_1 + 0x79dc) = 0x307;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      break;
+    case 0xb:
+      *(undefined4 *)(param_1 + 0x79dc) = 0x308;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      break;
+    case 0xe:
+      *(undefined4 *)(param_1 + 0x79dc) = 0x8001;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      break;
+    case 0xf:
+      *(undefined4 *)(param_1 + 0x79dc) = 0x8002;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+    }
+    break;
+  case 0x16:
+    iVar2 = param_3[1];
+    if (iVar2 == 2) {
+      *(undefined1 *)(param_1 + 0x7ad5) = 1;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      *(undefined4 *)(param_1 + 0x7ad8) = 0x405;
+    }
+    else if (iVar2 == 3) {
+      *(undefined1 *)(param_1 + 0x7ad5) = 1;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      *(undefined4 *)(param_1 + 0x7ad8) = 0x404;
+    }
+    else {
+      if (iVar2 != 1) {
+        FUN_0400a810("cmdBody->Value == D3DCULL_NONE",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+                     ,0x1ac1,"DWORD Direct3DDevice9Imp::OpenGLSide_SetRenderState(DWORD, LPVOID)");
+      }
+      *(undefined1 *)(param_1 + 0x7ad5) = 0;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+    }
+    break;
+  case 0x17:
+    switch(param_3[1]) {
+    default:
+      *(undefined4 *)(param_1 + 0x7a14) = 0x201;
+      FUN_0402cd10(0xf,"Unknown value for D3DRS_ZFUNC!");
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      break;
+    case 1:
+      *(undefined4 *)(param_1 + 0x7a14) = 0x200;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      break;
+    case 2:
+      *(undefined4 *)(param_1 + 0x7a14) = 0x201;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      break;
+    case 3:
+      *(undefined4 *)(param_1 + 0x7a14) = 0x202;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      break;
+    case 4:
+      *(undefined4 *)(param_1 + 0x7a14) = 0x203;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      break;
+    case 5:
+      *(undefined4 *)(param_1 + 0x7a14) = 0x204;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      break;
+    case 6:
+      *(undefined4 *)(param_1 + 0x7a14) = 0x205;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      break;
+    case 7:
+      *(undefined4 *)(param_1 + 0x7a14) = 0x206;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      break;
+    case 8:
+      *(undefined4 *)(param_1 + 0x7a14) = 0x207;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+    }
+    break;
+  case 0x18:
+    fVar6 = ((float)((uint)param_3[1] >> 0x10) * DAT_042dbf34 + (float)(param_3[1] & 0xffff)) /
+            _DAT_042dc5a0;
+    *(float *)(param_1 + 0x79d4) = fVar6;
+    if (*(char *)(param_1 + 0xeb4c) == '\0') {
+      uVar4 = *(uint *)(param_1 + 0xea04);
+    }
+    else {
+      *(float *)(*(int *)(param_1 + 0xeb78) + 0x788) = fVar6;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      *(int *)(param_1 + 0xc648) = *(int *)(param_1 + 0xc648) + 1;
+    }
+    break;
+  case 0x19:
+    *(undefined4 *)(param_1 + 0x79d0) = param_3[1];
+    uVar4 = *(uint *)(param_1 + 0xea04);
+    break;
+  case 0x1a:
+    *(undefined4 *)(param_1 + 0x7a58) = param_3[1];
+    uVar4 = *(uint *)(param_1 + 0xea04);
+    break;
+  case 0x1b:
+    *(undefined4 *)(param_1 + 0x7a44) = param_3[1];
+    uVar4 = *(uint *)(param_1 + 0xea04);
+    break;
+  case 0x22:
+    uVar4 = param_3[1];
+    *(float *)(param_1 + 0x7a28) =
+         (DAT_042dbf34 * 0.0 + (float)(uVar4 >> 0x10 & 0xff)) / _DAT_042dc5a0;
+    *(float *)(param_1 + 0x7a2c) = (fVar6 * 0.0 + (float)(uVar4 >> 8 & 0xff)) / fVar3;
+    *(float *)(param_1 + 0x7a30) = (fVar6 * 0.0 + (float)(uVar4 & 0xff)) / fVar3;
+    *(float *)(param_1 + 0x7a34) = ((float)(uVar4 >> 0x18) + 0.0) / fVar3;
+    if (*(char *)(param_1 + 0xeb4c) == '\0') {
+      uVar4 = *(uint *)(param_1 + 0xea04);
+    }
+    else {
+      iVar2 = *(int *)(param_1 + 0xeb78);
+      *(undefined4 *)(iVar2 + 0x76c) = *(undefined4 *)(param_1 + 0x7a28);
+      *(undefined4 *)(iVar2 + 0x770) = *(undefined4 *)(param_1 + 0x7a2c);
+      *(undefined4 *)(iVar2 + 0x774) = *(undefined4 *)(param_1 + 0x7a30);
+      *(undefined4 *)(iVar2 + 0x778) = *(undefined4 *)(param_1 + 0x7a34);
+      *(int *)(param_1 + 0xc648) = *(int *)(param_1 + 0xc648) + 1;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+    }
+    break;
+  case 0x24:
+    fVar6 = (float)param_3[1];
+    *(float *)(param_1 + 0x7a38) = fVar6;
+    if (*(char *)(param_1 + 0xeb4c) == '\0') {
+      uVar4 = *(uint *)(param_1 + 0xea04);
+    }
+    else {
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      *(float *)(*(int *)(param_1 + 0xeb78) + 0x784) =
+           DAT_042dbf3c / (*(float *)(param_1 + 0x7a3c) - fVar6);
+      *(int *)(param_1 + 0xc648) = *(int *)(param_1 + 0xc648) + 1;
+    }
+    break;
+  case 0x25:
+    uVar5 = param_3[1];
+    *(undefined4 *)(param_1 + 0x7a3c) = uVar5;
+    fVar6 = DAT_042dbf3c;
+    if (*(char *)(param_1 + 0xeb4c) == '\0') {
+      uVar4 = *(uint *)(param_1 + 0xea04);
+    }
+    else {
+      iVar2 = *(int *)(param_1 + 0xeb78);
+      *(undefined4 *)(iVar2 + 0x780) = uVar5;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      *(float *)(iVar2 + 0x784) =
+           fVar6 / (*(float *)(param_1 + 0x7a3c) - *(float *)(param_1 + 0x7a38));
+      *(int *)(param_1 + 0xc648) = *(int *)(param_1 + 0xc648) + 1;
+    }
+    break;
+  case 0x26:
+    uVar5 = param_3[1];
+    *(undefined4 *)(param_1 + 0x7a40) = uVar5;
+    if (*(char *)(param_1 + 0xeb4c) == '\0') {
+      uVar4 = *(uint *)(param_1 + 0xea04);
+    }
+    else {
+      *(undefined4 *)(*(int *)(param_1 + 0xeb78) + 0x77c) = uVar5;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      *(int *)(param_1 + 0xc648) = *(int *)(param_1 + 0xc648) + 1;
+    }
+    break;
+  case 0x28:
+    *(undefined4 *)(param_1 + 0x7a78) = param_3[1];
+    uVar4 = *(uint *)(param_1 + 0xea04);
+    break;
+  case 0x34:
+    *(undefined4 *)(param_1 + 0x7a7c) = param_3[1];
+    uVar4 = *(uint *)(param_1 + 0xea04) | 8;
+    break;
+  case 0x35:
+    switch(param_3[1]) {
+    default:
+      FUN_0402cd10(10,"Unrecognized stencil op %u - setting KEEP instead!",param_3[1]);
+    case 1:
+      uVar5 = 0x1e00;
+      break;
+    case 2:
+      uVar5 = 0;
+      break;
+    case 3:
+      uVar5 = 0x1e01;
+      break;
+    case 4:
+      uVar5 = 0x1e02;
+      break;
+    case 5:
+      uVar5 = 0x1e03;
+      break;
+    case 6:
+      uVar5 = 0x150a;
+      break;
+    case 7:
+      uVar5 = 0x8507;
+      break;
+    case 8:
+      uVar5 = 0x8508;
+    }
+    *(undefined4 *)(param_1 + 0x79f4) = uVar5;
+    uVar4 = *(uint *)(param_1 + 0xea04);
+    break;
+  case 0x36:
+    switch(param_3[1]) {
+    default:
+      FUN_0402cd10(10,"Unrecognized stencil op %u - setting KEEP instead!",param_3[1]);
+    case 1:
+      uVar5 = 0x1e00;
+      break;
+    case 2:
+      uVar5 = 0;
+      break;
+    case 3:
+      uVar5 = 0x1e01;
+      break;
+    case 4:
+      uVar5 = 0x1e02;
+      break;
+    case 5:
+      uVar5 = 0x1e03;
+      break;
+    case 6:
+      uVar5 = 0x150a;
+      break;
+    case 7:
+      uVar5 = 0x8507;
+      break;
+    case 8:
+      uVar5 = 0x8508;
+    }
+    *(undefined4 *)(param_1 + 0x79f8) = uVar5;
+    uVar4 = *(uint *)(param_1 + 0xea04);
+    break;
+  case 0x37:
+    switch(param_3[1]) {
+    default:
+      FUN_0402cd10(10,"Unrecognized stencil op %u - setting KEEP instead!",param_3[1]);
+    case 1:
+      uVar5 = 0x1e00;
+      break;
+    case 2:
+      uVar5 = 0;
+      break;
+    case 3:
+      uVar5 = 0x1e01;
+      break;
+    case 4:
+      uVar5 = 0x1e02;
+      break;
+    case 5:
+      uVar5 = 0x1e03;
+      break;
+    case 6:
+      uVar5 = 0x150a;
+      break;
+    case 7:
+      uVar5 = 0x8507;
+      break;
+    case 8:
+      uVar5 = 0x8508;
+    }
+    *(undefined4 *)(param_1 + 0x79fc) = uVar5;
+    uVar4 = *(uint *)(param_1 + 0xea04);
+    break;
+  case 0x38:
+    switch(param_3[1]) {
+    default:
+      FUN_0402cd10(0xf,
+                   "Unknown value for D3DRS_STENCILFUNC: %u! Setting D3DCMP_ALWAYS as a fallback.",
+                   param_3[1]);
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      *(undefined4 *)(param_1 + 0x7a00) = 0x207;
+      break;
+    case 1:
+      *(undefined4 *)(param_1 + 0x7a00) = 0x200;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      break;
+    case 2:
+      *(undefined4 *)(param_1 + 0x7a00) = 0x201;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      break;
+    case 3:
+      *(undefined4 *)(param_1 + 0x7a00) = 0x202;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      break;
+    case 4:
+      *(undefined4 *)(param_1 + 0x7a00) = 0x203;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      break;
+    case 5:
+      *(undefined4 *)(param_1 + 0x7a00) = 0x204;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      break;
+    case 6:
+      *(undefined4 *)(param_1 + 0x7a00) = 0x205;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      break;
+    case 7:
+      *(undefined4 *)(param_1 + 0x7a00) = 0x206;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      break;
+    case 8:
+      *(undefined4 *)(param_1 + 0x7a00) = 0x207;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+    }
+    break;
+  case 0x39:
+    *(undefined4 *)(param_1 + 0x7a80) = param_3[1];
+    uVar4 = *(uint *)(param_1 + 0xea04);
+    break;
+  case 0x3a:
+    *(undefined4 *)(param_1 + 0x7a84) = param_3[1];
+    uVar4 = *(uint *)(param_1 + 0xea04);
+    break;
+  case 0x3b:
+    *(undefined4 *)(param_1 + 0x7a88) = param_3[1];
+    uVar4 = *(uint *)(param_1 + 0xea04) | 8;
+    break;
+  case 0x3c:
+    uVar1 = param_3[1];
+    *(uint *)(param_1 + 0xc64c) = uVar1;
+    fVar3 = _DAT_042dc5a0;
+    fVar6 = DAT_042dbf34;
+    if (*(char *)(param_1 + 0xeb4c) == '\0') {
+      uVar4 = *(uint *)(param_1 + 0xea04);
+    }
+    else {
+      iVar2 = *(int *)(param_1 + 0xeb78);
+      *(float *)(iVar2 + 0x64c) =
+           (DAT_042dbf34 * 0.0 + (float)(uVar1 >> 0x10 & 0xff)) / _DAT_042dc5a0;
+      *(float *)(iVar2 + 0x650) = (fVar6 * 0.0 + (float)(uVar1 >> 8 & 0xff)) / fVar3;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      *(float *)(iVar2 + 0x654) = (fVar6 * 0.0 + (float)(uVar1 & 0xff)) / fVar3;
+      *(float *)(iVar2 + 0x658) = ((float)(uVar1 >> 0x18) + 0.0) / fVar3;
+      *(int *)(param_1 + 0xc644) = *(int *)(param_1 + 0xc644) + 1;
+    }
+    break;
+  case 0x89:
+    *(undefined4 *)(param_1 + 0x79cc) = param_3[1];
+    uVar4 = *(uint *)(param_1 + 0xea04);
+    break;
+  case 0x8b:
+    uVar5 = param_3[1];
+    *(int *)(param_1 + 0x7a1c) = *(int *)(param_1 + 0x7a1c) + 1;
+    *(undefined4 *)(param_1 + 0x7a18) = uVar5;
+    uVar4 = *(uint *)(param_1 + 0xea04);
+    break;
+  case 0x98:
+    uVar4 = param_3[1];
+    *(uint *)(param_1 + 0x7c04) = uVar4;
+    if (*(char *)(param_1 + 0xeb4c) == '\0') {
+      *(int *)(param_1 + 0x7bfc) = *(int *)(param_1 + 0x7bfc) + 1;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+    }
+    else {
+      *(uint *)(param_1 + 0x7c08) = (uint)((uVar4 & 1) != 0);
+      if ((uVar4 >> 1 & 1) != 0) {
+        *(int *)(param_1 + 0x7c08) = *(int *)(param_1 + 0x7c08) + 1;
+      }
+      if ((uVar4 >> 2 & 1) != 0) {
+        *(int *)(param_1 + 0x7c08) = *(int *)(param_1 + 0x7c08) + 1;
+      }
+      if ((uVar4 >> 3 & 1) != 0) {
+        *(int *)(param_1 + 0x7c08) = *(int *)(param_1 + 0x7c08) + 1;
+      }
+      if ((uVar4 >> 4 & 1) != 0) {
+        *(int *)(param_1 + 0x7c08) = *(int *)(param_1 + 0x7c08) + 1;
+      }
+      if ((uVar4 >> 4 & 2) != 0) {
+        *(int *)(param_1 + 0x7c08) = *(int *)(param_1 + 0x7c08) + 1;
+      }
+      *(int *)(param_1 + 0x7c00) = *(int *)(param_1 + 0x7c00) + 1;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+    }
+    break;
+  case 0x9a:
+    uVar5 = param_3[1];
+    *(undefined1 *)(param_1 + 0x7ad4) = 1;
+    *(undefined4 *)(param_1 + 0x7aa4) = uVar5;
+    uVar4 = *(uint *)(param_1 + 0xea04);
+    break;
+  case 0x9b:
+    *(undefined4 *)(param_1 + 0x7abc) = param_3[1];
+    uVar4 = *(uint *)(param_1 + 0xea04);
+    break;
+  case 0x9c:
+    *(undefined4 *)(param_1 + 0x7aa8) = param_3[1];
+    uVar4 = *(uint *)(param_1 + 0xea04);
+    break;
+  case 0x9d:
+    uVar5 = param_3[1];
+    *(undefined1 *)(param_1 + 0x7ad4) = 1;
+    *(undefined4 *)(param_1 + 0x7aac) = uVar5;
+    uVar4 = *(uint *)(param_1 + 0xea04);
+    break;
+  case 0x9e:
+    uVar5 = param_3[1];
+    *(undefined1 *)(param_1 + 0x7ad4) = 1;
+    *(undefined4 *)(param_1 + 0x7ab0) = uVar5;
+    uVar4 = *(uint *)(param_1 + 0xea04);
+    break;
+  case 0x9f:
+    uVar5 = param_3[1];
+    *(undefined1 *)(param_1 + 0x7ad4) = 1;
+    *(undefined4 *)(param_1 + 0x7ab4) = uVar5;
+    uVar4 = *(uint *)(param_1 + 0xea04);
+    break;
+  case 0xa0:
+    uVar5 = param_3[1];
+    *(undefined1 *)(param_1 + 0x7ad4) = 1;
+    *(undefined4 *)(param_1 + 0x7ab8) = uVar5;
+    uVar4 = *(uint *)(param_1 + 0xea04);
+    break;
+  case 0xa6:
+    *(undefined4 *)(param_1 + 0x7ac0) = param_3[1];
+    uVar4 = *(uint *)(param_1 + 0xea04);
+    break;
+  case 0xa8:
+    *(undefined4 *)(param_1 + 0x7a60) = param_3[1];
+    uVar4 = *(uint *)(param_1 + 0xea04) | 4;
+    break;
+  case 0xab:
+    switch(param_3[1]) {
+    default:
+      FUN_0402cd10(0xf,"Unsupported D3DRS_BLENDOP value: %u",param_3[1]);
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      break;
+    case 1:
+      *(undefined4 *)(param_1 + 0x79e8) = 0x8006;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      break;
+    case 2:
+      *(undefined4 *)(param_1 + 0x79e8) = 0x800a;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      break;
+    case 3:
+      *(undefined4 *)(param_1 + 0x79e8) = 0x800b;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      break;
+    case 4:
+      *(undefined4 *)(param_1 + 0x79e8) = 0x8007;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      break;
+    case 5:
+      *(undefined4 *)(param_1 + 0x79e8) = 0x8008;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+    }
+    break;
+  case 0xae:
+    *(undefined4 *)(param_1 + 0x7a5c) = param_3[1];
+    uVar4 = *(uint *)(param_1 + 0xea04);
+    break;
+  case 0xaf:
+    *(undefined4 *)(param_1 + 0x7a94) = param_3[1];
+    uVar4 = *(uint *)(param_1 + 0xea04);
+    break;
+  case 0xb0:
+    *(undefined4 *)(param_1 + 0x7a74) = param_3[1];
+    uVar4 = *(uint *)(param_1 + 0xea04);
+    break;
+  case 0xb4:
+    *(undefined4 *)(param_1 + 0x7a98) = param_3[1];
+    uVar4 = *(uint *)(param_1 + 0xea04);
+    break;
+  case 0xb6:
+    *(undefined4 *)(param_1 + 0x7a9c) = param_3[1];
+    uVar4 = *(uint *)(param_1 + 0xea04);
+    break;
+  case 0xb7:
+    *(undefined4 *)(param_1 + 0x7aa0) = param_3[1];
+    uVar4 = *(uint *)(param_1 + 0xea04);
+    break;
+  case 0xb9:
+    *(undefined4 *)(param_1 + 0x7a8c) = param_3[1];
+    uVar4 = *(uint *)(param_1 + 0xea04) | 8;
+    break;
+  case 0xba:
+    switch(param_3[1]) {
+    default:
+      FUN_0402cd10(10,"Unrecognized stencil op %u - setting KEEP instead!",param_3[1]);
+    case 1:
+      uVar5 = 0x1e00;
+      break;
+    case 2:
+      uVar5 = 0;
+      break;
+    case 3:
+      uVar5 = 0x1e01;
+      break;
+    case 4:
+      uVar5 = 0x1e02;
+      break;
+    case 5:
+      uVar5 = 0x1e03;
+      break;
+    case 6:
+      uVar5 = 0x150a;
+      break;
+    case 7:
+      uVar5 = 0x8507;
+      break;
+    case 8:
+      uVar5 = 0x8508;
+    }
+    *(undefined4 *)(param_1 + 0x7a04) = uVar5;
+    uVar4 = *(uint *)(param_1 + 0xea04);
+    break;
+  case 0xbb:
+    switch(param_3[1]) {
+    default:
+      FUN_0402cd10(10,"Unrecognized stencil op %u - setting KEEP instead!",param_3[1]);
+    case 1:
+      uVar5 = 0x1e00;
+      break;
+    case 2:
+      uVar5 = 0;
+      break;
+    case 3:
+      uVar5 = 0x1e01;
+      break;
+    case 4:
+      uVar5 = 0x1e02;
+      break;
+    case 5:
+      uVar5 = 0x1e03;
+      break;
+    case 6:
+      uVar5 = 0x150a;
+      break;
+    case 7:
+      uVar5 = 0x8507;
+      break;
+    case 8:
+      uVar5 = 0x8508;
+    }
+    *(undefined4 *)(param_1 + 0x7a08) = uVar5;
+    uVar4 = *(uint *)(param_1 + 0xea04);
+    break;
+  case 0xbc:
+    switch(param_3[1]) {
+    default:
+      FUN_0402cd10(10,"Unrecognized stencil op %u - setting KEEP instead!",param_3[1]);
+    case 1:
+      uVar5 = 0x1e00;
+      break;
+    case 2:
+      uVar5 = 0;
+      break;
+    case 3:
+      uVar5 = 0x1e01;
+      break;
+    case 4:
+      uVar5 = 0x1e02;
+      break;
+    case 5:
+      uVar5 = 0x1e03;
+      break;
+    case 6:
+      uVar5 = 0x150a;
+      break;
+    case 7:
+      uVar5 = 0x8507;
+      break;
+    case 8:
+      uVar5 = 0x8508;
+    }
+    *(undefined4 *)(param_1 + 0x7a0c) = uVar5;
+    uVar4 = *(uint *)(param_1 + 0xea04);
+    break;
+  case 0xbd:
+    switch(param_3[1]) {
+    default:
+      FUN_0402cd10(0xf,
+                   "Unknown value for D3DRS_CCW_STENCILFUNC: %u! Setting D3DCMP_ALWAYS as a fallback."
+                   ,param_3[1]);
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      *(undefined4 *)(param_1 + 0x7a10) = 0x207;
+      break;
+    case 1:
+      *(undefined4 *)(param_1 + 0x7a10) = 0x200;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      break;
+    case 2:
+      *(undefined4 *)(param_1 + 0x7a10) = 0x201;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      break;
+    case 3:
+      *(undefined4 *)(param_1 + 0x7a10) = 0x202;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      break;
+    case 4:
+      *(undefined4 *)(param_1 + 0x7a10) = 0x203;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      break;
+    case 5:
+      *(undefined4 *)(param_1 + 0x7a10) = 0x204;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      break;
+    case 6:
+      *(undefined4 *)(param_1 + 0x7a10) = 0x205;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      break;
+    case 7:
+      *(undefined4 *)(param_1 + 0x7a10) = 0x206;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      break;
+    case 8:
+      *(undefined4 *)(param_1 + 0x7a10) = 0x207;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+    }
+    break;
+  case 0xbe:
+    *(undefined4 *)(param_1 + 0x7a64) = param_3[1];
+    uVar4 = *(uint *)(param_1 + 0xea04) | 4;
+    break;
+  case 0xbf:
+    *(undefined4 *)(param_1 + 0x7a68) = param_3[1];
+    uVar4 = *(uint *)(param_1 + 0xea04) | 4;
+    break;
+  case 0xc0:
+    *(undefined4 *)(param_1 + 0x7a6c) = param_3[1];
+    uVar4 = *(uint *)(param_1 + 0xea04) | 4;
+    break;
+  case 0xc1:
+    *(undefined4 *)(param_1 + 0x79f0) = param_3[1];
+    uVar4 = *(uint *)(param_1 + 0xea04);
+    break;
+  case 0xc2:
+    *(undefined4 *)(param_1 + 0x7a70) = param_3[1];
+    uVar4 = *(uint *)(param_1 + 0xea04);
+    break;
+  case 0xc3:
+    *(undefined4 *)(param_1 + 0x7a90) = param_3[1];
+    uVar4 = *(uint *)(param_1 + 0xea04);
+    break;
+  case 0xce:
+    *(undefined4 *)(param_1 + 0x7a48) = param_3[1];
+    uVar4 = *(uint *)(param_1 + 0xea04);
+    break;
+  case 0xcf:
+    switch(param_3[1]) {
+    default:
+      FUN_0402cd10(0xf,"Unsupported D3DRS_SRCBLENDALPHA value: %u",param_3[1]);
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      break;
+    case 1:
+      *(undefined4 *)(param_1 + 0x79e0) = 0;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      break;
+    case 2:
+      *(undefined4 *)(param_1 + 0x79e0) = 1;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      break;
+    case 3:
+      *(undefined4 *)(param_1 + 0x79e0) = 0x300;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      break;
+    case 4:
+      *(undefined4 *)(param_1 + 0x79e0) = 0x301;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      break;
+    case 5:
+      *(undefined4 *)(param_1 + 0x79e0) = 0x302;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      break;
+    case 6:
+      *(undefined4 *)(param_1 + 0x79e0) = 0x303;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      break;
+    case 7:
+      *(undefined4 *)(param_1 + 0x79e0) = 0x304;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      break;
+    case 8:
+      *(undefined4 *)(param_1 + 0x79e0) = 0x305;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      break;
+    case 9:
+      *(undefined4 *)(param_1 + 0x79e0) = 0x306;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      break;
+    case 10:
+      *(undefined4 *)(param_1 + 0x79e0) = 0x307;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      break;
+    case 0xb:
+      *(undefined4 *)(param_1 + 0x79e0) = 0x308;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      break;
+    case 0xc:
+      *(undefined4 *)(param_1 + 0x79e0) = 0x2ff;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      break;
+    case 0xd:
+      *(undefined4 *)(param_1 + 0x79e0) = 0x2fe;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      break;
+    case 0xe:
+      *(undefined4 *)(param_1 + 0x79e0) = 0x8001;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      break;
+    case 0xf:
+      *(undefined4 *)(param_1 + 0x79e0) = 0x8002;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+    }
+    break;
+  case 0xd0:
+    switch(param_3[1]) {
+    default:
+      FUN_0402cd10(0xf,"Unsupported D3DRS_DESTBLENDALPHA value: %u",param_3[1]);
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      break;
+    case 1:
+      *(undefined4 *)(param_1 + 0x79e4) = 0;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      break;
+    case 2:
+      *(undefined4 *)(param_1 + 0x79e4) = 1;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      break;
+    case 3:
+      *(undefined4 *)(param_1 + 0x79e4) = 0x300;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      break;
+    case 4:
+      *(undefined4 *)(param_1 + 0x79e4) = 0x301;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      break;
+    case 5:
+      *(undefined4 *)(param_1 + 0x79e4) = 0x302;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      break;
+    case 6:
+      *(undefined4 *)(param_1 + 0x79e4) = 0x303;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      break;
+    case 7:
+      *(undefined4 *)(param_1 + 0x79e4) = 0x304;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      break;
+    case 8:
+      *(undefined4 *)(param_1 + 0x79e4) = 0x305;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      break;
+    case 9:
+      *(undefined4 *)(param_1 + 0x79e4) = 0x306;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      break;
+    case 10:
+      *(undefined4 *)(param_1 + 0x79e4) = 0x307;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      break;
+    case 0xb:
+      *(undefined4 *)(param_1 + 0x79e4) = 0x308;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      break;
+    case 0xe:
+      *(undefined4 *)(param_1 + 0x79e4) = 0x8001;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      break;
+    case 0xf:
+      *(undefined4 *)(param_1 + 0x79e4) = 0x8002;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+    }
+    break;
+  case 0xd1:
+    switch(param_3[1]) {
+    default:
+      FUN_0402cd10(0xf,"Unsupported D3DRS_BLENDOPALPHA value: %u",param_3[1]);
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      break;
+    case 1:
+      *(undefined4 *)(param_1 + 0x79ec) = 0x8006;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      break;
+    case 2:
+      *(undefined4 *)(param_1 + 0x79ec) = 0x800a;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      break;
+    case 3:
+      *(undefined4 *)(param_1 + 0x79ec) = 0x800b;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      break;
+    case 4:
+      *(undefined4 *)(param_1 + 0x79ec) = 0x8007;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+      break;
+    case 5:
+      *(undefined4 *)(param_1 + 0x79ec) = 0x8008;
+      uVar4 = *(uint *)(param_1 + 0xea04);
+    }
+  }
+  *(uint *)(param_1 + 0xea04) = uVar4 | 0x20;
+  return 8;
+}
+

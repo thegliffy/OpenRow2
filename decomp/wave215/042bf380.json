@@ -1,0 +1,90 @@
+
+void FUN_042bf380(int param_1,int param_2,undefined1 param_3)
+
+{
+  byte bVar1;
+  undefined1 *puVar2;
+  
+  if (param_1 != 0) {
+    if (((param_2 != 0x40) || ((*(byte *)(param_1 + 0x2c4) & 4) == 0)) && (param_2 != 0)) {
+                    /* WARNING: Subroutine does not return */
+      png_error(param_1,"Unknown custom filter method");
+    }
+    switch(param_3) {
+    case 1:
+      *(undefined1 *)(param_1 + 0x1b2) = 0x10;
+      break;
+    case 2:
+      *(undefined1 *)(param_1 + 0x1b2) = 0x20;
+      break;
+    case 3:
+      *(undefined1 *)(param_1 + 0x1b2) = 0x40;
+      break;
+    case 4:
+      *(undefined1 *)(param_1 + 0x1b2) = 0x80;
+      break;
+    case 5:
+    case 6:
+    case 7:
+      FUN_042a9df0(param_1,"Unknown row filter for method 0");
+    case 0:
+      *(undefined1 *)(param_1 + 0x1b2) = 8;
+      break;
+    default:
+      *(undefined1 *)(param_1 + 0x1b2) = param_3;
+    }
+    if (*(int *)(param_1 + 0x180) != 0) {
+      bVar1 = *(byte *)(param_1 + 0x1b2);
+      if (((bVar1 & 0x10) != 0) && (*(int *)(param_1 + 0x184) == 0)) {
+        puVar2 = (undefined1 *)FUN_042aa2c0(param_1,*(int *)(param_1 + 0x16c) + 1);
+        *(undefined1 **)(param_1 + 0x184) = puVar2;
+        *puVar2 = 1;
+        bVar1 = *(byte *)(param_1 + 0x1b2);
+      }
+      if (((bVar1 & 0x20) != 0) && (*(int *)(param_1 + 0x188) == 0)) {
+        if (*(int *)(param_1 + 0x17c) == 0) {
+          png_warning(param_1,"Can\'t add Up filter after starting");
+          bVar1 = *(byte *)(param_1 + 0x1b2) & 0xdf;
+          *(byte *)(param_1 + 0x1b2) = bVar1;
+        }
+        else {
+          puVar2 = (undefined1 *)FUN_042aa2c0(param_1,*(int *)(param_1 + 0x16c) + 1);
+          *(undefined1 **)(param_1 + 0x188) = puVar2;
+          *puVar2 = 2;
+          bVar1 = *(byte *)(param_1 + 0x1b2);
+        }
+      }
+      if (((bVar1 & 0x40) != 0) && (*(int *)(param_1 + 0x18c) == 0)) {
+        if (*(int *)(param_1 + 0x17c) == 0) {
+          png_warning(param_1,"Can\'t add Average filter after starting");
+          bVar1 = *(byte *)(param_1 + 0x1b2) & 0xbf;
+          *(byte *)(param_1 + 0x1b2) = bVar1;
+        }
+        else {
+          puVar2 = (undefined1 *)FUN_042aa2c0(param_1,*(int *)(param_1 + 0x16c) + 1);
+          *(undefined1 **)(param_1 + 0x18c) = puVar2;
+          *puVar2 = 3;
+          bVar1 = *(byte *)(param_1 + 0x1b2);
+        }
+      }
+      if (((char)bVar1 < '\0') && (*(int *)(param_1 + 400) == 0)) {
+        if (*(int *)(param_1 + 0x17c) == 0) {
+          png_warning(param_1,"Can\'t add Paeth filter after starting");
+          bVar1 = *(byte *)(param_1 + 0x1b2) & 0x7f;
+          *(byte *)(param_1 + 0x1b2) = bVar1;
+        }
+        else {
+          puVar2 = (undefined1 *)FUN_042aa2c0(param_1,*(int *)(param_1 + 0x16c) + 1);
+          *(undefined1 **)(param_1 + 400) = puVar2;
+          *puVar2 = 4;
+          bVar1 = *(byte *)(param_1 + 0x1b2);
+        }
+      }
+      if (bVar1 == 0) {
+        *(undefined1 *)(param_1 + 0x1b2) = 8;
+      }
+    }
+  }
+  return;
+}
+

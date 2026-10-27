@@ -1,0 +1,23 @@
+
+/* source: shell32 */
+
+undefined4
+shell32_0416c260(undefined4 param_1,undefined4 param_2,int param_3,int param_4,int param_5)
+
+{
+  undefined4 uVar1;
+  
+  if (param_5 == 0) {
+    FUN_0400a810("pszPath",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/shell32/shell32.cpp"
+                 ,0x4aa,"HRESULT eON_SHGetFolderPathA(HWND, INT, HANDLE, DWORD, LPSTR)");
+  }
+  if ((param_4 == 0) && (param_3 == 0)) {
+    uVar1 = FUN_0416a9c0(0,param_5);
+  }
+  else {
+    uVar1 = 1;
+  }
+  return uVar1;
+}
+

@@ -1,0 +1,87 @@
+
+void png_handle_bKGD(int param_1,int param_2,int param_3)
+
+{
+  byte bVar1;
+  uint uVar2;
+  int iVar3;
+  byte *pbVar4;
+  byte local_1c [2];
+  ushort local_1a;
+  ushort local_18;
+  ushort local_16;
+  ushort local_14;
+  byte local_12;
+  undefined1 local_11;
+  undefined1 local_10;
+  undefined1 local_f;
+  undefined1 local_e;
+  undefined1 local_d;
+  
+  uVar2 = *(uint *)(param_1 + 0xd0);
+  if ((uVar2 & 1) == 0) {
+                    /* WARNING: Subroutine does not return */
+    png_chunk_error(param_1,"missing IHDR");
+  }
+  if (((uVar2 & 4) != 0) || ((bVar1 = *(byte *)(param_1 + 0x1b3), bVar1 == 3 && ((uVar2 & 2) == 0)))
+     ) {
+    png_crc_finish(param_1,param_3);
+    png_chunk_benign_error(param_1,"out of place");
+    return;
+  }
+  if ((param_2 != 0) && ((*(byte *)(param_2 + 8) & 0x20) != 0)) {
+    png_crc_finish(param_1,param_3);
+    png_chunk_benign_error(param_1,"duplicate");
+    return;
+  }
+  iVar3 = 1;
+  if (bVar1 != 3) {
+    iVar3 = (-(uint)((bVar1 & 2) == 0) & 0xfffffffc) + 6;
+  }
+  if (param_3 != iVar3) {
+    png_crc_finish(param_1,param_3);
+    png_chunk_benign_error(param_1,"invalid");
+    return;
+  }
+  png_crc_read(param_1,&local_12,param_3);
+  iVar3 = png_crc_finish(param_1,0);
+  if (iVar3 != 0) {
+    return;
+  }
+  if (*(byte *)(param_1 + 0x1b3) == 3) {
+    local_1c[0] = local_12;
+    if ((param_2 == 0) || (*(ushort *)(param_2 + 0x14) == 0)) {
+      local_16 = 0;
+      local_18 = 0;
+      local_1a = 0;
+    }
+    else {
+      if (*(ushort *)(param_2 + 0x14) <= (ushort)local_12) {
+        png_chunk_benign_error(param_1,"invalid index");
+        return;
+      }
+      pbVar4 = (byte *)((uint)local_12 * 3 + *(int *)(param_1 + 0x1a0));
+      local_1a = (ushort)*pbVar4;
+      local_18 = (ushort)pbVar4[1];
+      local_16 = (ushort)pbVar4[2];
+    }
+  }
+  else {
+    local_1c[0] = 0;
+    if ((*(byte *)(param_1 + 0x1b3) & 2) == 0) {
+      local_1a = CONCAT11(local_12,local_11);
+      local_18 = local_1a;
+      local_16 = local_1a;
+      local_14 = local_1a;
+      goto LAB_042b818f;
+    }
+    local_1a = CONCAT11(local_12,local_11);
+    local_18 = CONCAT11(local_10,local_f);
+    local_16 = CONCAT11(local_e,local_d);
+  }
+  local_14 = 0;
+LAB_042b818f:
+  FUN_042bab40(param_1,param_2,local_1c);
+  return;
+}
+

@@ -1,0 +1,259 @@
+
+uint Direct3D9Imp__CheckDeviceFormat
+               (int param_1,uint param_2,int param_3,undefined4 param_4,uint param_5,int param_6,
+               uint param_7)
+
+{
+  char cVar1;
+  uint uVar2;
+  int iVar3;
+  char *pcVar4;
+  undefined4 uVar5;
+  bool local_b5;
+  undefined4 local_a4;
+  undefined4 local_a0;
+  undefined4 local_9c;
+  undefined4 local_98;
+  undefined4 local_94;
+  undefined4 local_90;
+  undefined4 local_8c;
+  undefined1 local_88;
+  undefined1 local_87;
+  undefined1 local_86;
+  undefined1 local_74 [4];
+  undefined4 local_70;
+  undefined4 local_6c;
+  undefined4 *local_68;
+  undefined4 *local_64;
+  undefined4 local_60;
+  undefined1 local_5c [4];
+  undefined4 local_58;
+  undefined4 local_54;
+  undefined4 *local_50;
+  undefined4 *local_4c;
+  undefined4 local_48;
+  undefined1 local_44 [4];
+  undefined4 local_40;
+  undefined4 local_3c;
+  undefined4 *local_38;
+  undefined4 *local_34;
+  undefined4 local_30;
+  uint local_2c;
+  uint local_28;
+  uint local_24;
+  undefined1 local_20;
+  bool local_1f;
+  undefined1 local_1e;
+  undefined1 local_1d;
+  
+  uVar2 = OpenGLDisplay_GetCount();
+  if (uVar2 <= param_2) {
+    return 0x8876086c;
+  }
+  if (param_3 != 1) {
+    pcVar4 = "!unknown!";
+    if (param_3 - 1U < 4) {
+      pcVar4 = (&PTR_s_D3DDEVTYPE_HAL_042eec58)[param_3 - 1U];
+    }
+    FUN_0402cd10(5,"CheckDeviceFormat with device type %s. Returning D3DDERR_NOTAVAILABLE",pcVar4);
+    return 0x8876086a;
+  }
+  if ((param_5 & 3) == 3) {
+    return 0x8876086a;
+  }
+  switch(param_6) {
+  default:
+    FUN_0402cd10(10,"Unknown resource type: %d",param_6);
+    return 0x8876086a;
+  case 1:
+  case 3:
+  case 5:
+    if (param_7 == 0x14) {
+      return 0x8876086a;
+    }
+    if ((0x13 < param_7) && (param_7 - 100 < 3)) {
+      return 0x8876086a;
+    }
+    if (param_6 == 5) {
+      if ((param_5 & 2) != 0) {
+        return 0x8876086a;
+      }
+      local_b5 = false;
+    }
+    else {
+      local_b5 = param_6 == 1;
+      if ((local_b5) && (param_5 == 0)) {
+        if (param_7 == 0x28) {
+          return 0;
+        }
+        if (param_7 < 0x29) {
+          if (param_7 == 0x1f) {
+            return 0;
+          }
+          if (0x1f < param_7) {
+            if (param_7 - 0x22 < 3) {
+              return 0;
+            }
+            return 0x8876086a;
+          }
+          param_7 = param_7 - 0x15;
+joined_r0x040682c9:
+          if (param_7 < 6) {
+            return 0;
+          }
+          return 0x8876086a;
+        }
+        if (param_7 == 0x32595559) {
+          return 0;
+        }
+        if (param_7 < 0x3259555a) {
+          param_7 = param_7 - 0x6f;
+          goto joined_r0x040682c9;
+        }
+        if (param_7 != 0x4244564e) {
+          if (param_7 == 0x59565955) {
+            return 0;
+          }
+          return 0x8876086a;
+        }
+        local_b5 = true;
+      }
+    }
+    local_68 = &local_70;
+    local_50 = &local_58;
+    local_38 = &local_40;
+    local_a4 = 0;
+    local_a0 = 0xffffffff;
+    local_9c = 0xffffffff;
+    local_98 = 0xffffffff;
+    local_94 = 0xffffffff;
+    local_90 = 0xffffffff;
+    local_8c = 0;
+    local_88 = 0;
+    local_87 = 0;
+    local_86 = 0;
+    local_70 = 0;
+    local_6c = 0;
+    local_60 = 0;
+    local_58 = 0;
+    local_54 = 0;
+    local_48 = 0;
+    local_40 = 0;
+    local_3c = 0;
+    local_30 = 0;
+    local_64 = local_68;
+    local_4c = local_50;
+    local_34 = local_38;
+                    /* try { // try from 040681e5 to 040682e8 has its CatchHandler @ 0406835e */
+    local_a4 = OpenGLDisplay_GetByIndex(param_2);
+    cVar1 = PixelFormatData__MapDeviceFormat(&local_a4,param_4);
+    if (cVar1 == '\0') {
+LAB_040680c0:
+      uVar2 = 0x8876086a;
+      goto LAB_040680c5;
+    }
+    iVar3 = *(int *)(param_1 + 0x10);
+    if (*(int *)(param_1 + 0x14) - iVar3 >> 2 != 0) {
+      uVar2 = 0;
+      do {
+        cVar1 = FUN_040e2d60(*(undefined4 *)(iVar3 + uVar2 * 4),&local_a4);
+        if (cVar1 != '\0') {
+          uVar5 = *(undefined4 *)(*(int *)(param_1 + 0x10) + uVar2 * 4);
+          goto LAB_04068262;
+        }
+        iVar3 = *(int *)(param_1 + 0x10);
+        uVar2 = uVar2 + 1;
+      } while (uVar2 < (uint)(*(int *)(param_1 + 0x14) - iVar3 >> 2));
+    }
+    uVar5 = Direct3D9Imp__Int_AllocDeviceFormatCacheEntry();
+LAB_04068262:
+    cVar1 = FUN_040e2e40(uVar5);
+    uVar2 = 0x8876086a;
+    if (cVar1 == '\0') goto LAB_040680c5;
+    local_1d = 0;
+    local_20 = (param_5 & 3) != 0;
+    local_1e = param_6 == 5;
+    local_24 = param_7;
+    local_1f = local_b5;
+    cVar1 = PixelFormatData__TestSurfaceOrTexture(uVar5,&local_24);
+    break;
+  case 2:
+  case 4:
+    if (param_7 == 0x14) {
+      return 0x8876086a;
+    }
+    if ((0x13 < param_7) && (param_7 - 100 < 3)) {
+      return 0x8876086a;
+    }
+    if ((param_5 & 2) != 0) {
+      return 0x8876086a;
+    }
+    local_68 = &local_70;
+    local_50 = &local_58;
+    local_38 = &local_40;
+    local_a4 = 0;
+    local_a0 = 0xffffffff;
+    local_9c = 0xffffffff;
+    local_98 = 0xffffffff;
+    local_94 = 0xffffffff;
+    local_90 = 0xffffffff;
+    local_8c = 0;
+    local_88 = 0;
+    local_87 = 0;
+    local_86 = 0;
+    local_70 = 0;
+    local_6c = 0;
+    local_60 = 0;
+    local_58 = 0;
+    local_54 = 0;
+    local_48 = 0;
+    local_40 = 0;
+    local_3c = 0;
+    local_30 = 0;
+    local_64 = local_68;
+    local_4c = local_50;
+    local_34 = local_38;
+                    /* try { // try from 04067f31 to 04067fe9 has its CatchHandler @ 0406834c */
+    local_a4 = OpenGLDisplay_GetByIndex(param_2);
+    cVar1 = PixelFormatData__MapDeviceFormat(&local_a4,param_4);
+    if (cVar1 == '\0') goto LAB_040680c0;
+    iVar3 = *(int *)(param_1 + 0x10);
+    if (*(int *)(param_1 + 0x14) - iVar3 >> 2 != 0) {
+      uVar2 = 0;
+      do {
+        cVar1 = FUN_040e2d60(*(undefined4 *)(iVar3 + uVar2 * 4),&local_a4);
+        if (cVar1 != '\0') {
+          uVar5 = *(undefined4 *)(*(int *)(param_1 + 0x10) + uVar2 * 4);
+          goto LAB_04067fb2;
+        }
+        iVar3 = *(int *)(param_1 + 0x10);
+        uVar2 = uVar2 + 1;
+      } while (uVar2 < (uint)(*(int *)(param_1 + 0x14) - iVar3 >> 2));
+    }
+                    /* try { // try from 040682f4 to 040682f8 has its CatchHandler @ 0406834c */
+    uVar5 = Direct3D9Imp__Int_AllocDeviceFormatCacheEntry();
+LAB_04067fb2:
+    cVar1 = FUN_040e2e40(uVar5);
+    uVar2 = 0x8876086a;
+    if (cVar1 == '\0') goto LAB_040680c5;
+    local_2c = param_7;
+    local_28 = (uint)(param_6 == 4);
+    cVar1 = CheckDeviceFormat_VolumeTexture(uVar5,&local_2c);
+    break;
+  case 6:
+    uVar2 = 0;
+    if (param_7 != 100) {
+      uVar2 = 0x8876086a;
+    }
+    return uVar2;
+  case 7:
+    return ~-(uint)(param_7 - 0x65 < 2) & 0x8876086a;
+  }
+  uVar2 = -(uint)(cVar1 == '\0') & 0x8876086a;
+LAB_040680c5:
+  FUN_0406ba50(local_44,local_3c);
+  FUN_0406b8c0(local_5c,local_54);
+  FUN_0406b730(local_74,local_6c);
+  return uVar2;
+}
+

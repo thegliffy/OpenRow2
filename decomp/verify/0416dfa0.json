@@ -1,0 +1,11 @@
+
+bool eON_IsClipboardFormatAvailable(int param_1)
+
+{
+  if (param_1 == 0xd) {
+    return DAT_0451bdc0 != 0;
+  }
+  FUN_0402cd10(0xf,"Game asking if clipboard format %#x is available.",param_1);
+  return false;
+}
+

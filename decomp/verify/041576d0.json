@@ -1,0 +1,223 @@
+
+/* source: winprofile */
+
+size_t eON_GetPrivateProfileStringA
+                 (char *param_1,char *param_2,char *param_3,char *param_4,uint param_5,
+                 undefined4 param_6)
+
+{
+  char cVar1;
+  char *__dest;
+  uint uVar2;
+  undefined4 uVar3;
+  char cVar4;
+  size_t sVar5;
+  uint *puVar6;
+  uint uVar7;
+  uint uVar8;
+  int iVar9;
+  int iVar10;
+  void *__ptr;
+  char *pcVar11;
+  ushort **ppuVar12;
+  size_t sVar13;
+  char *pcVar14;
+  char *pcVar15;
+  char *pcVar16;
+  uint *puVar17;
+  uint *puVar18;
+  uint *local_38;
+  size_t local_30 [2];
+  undefined4 local_28;
+  size_t local_24 [3];
+  undefined4 *local_18;
+  
+  uVar3 = param_6;
+  uVar2 = param_5;
+  __dest = param_4;
+  pcVar11 = param_3;
+  pcVar16 = param_2;
+  pcVar15 = param_1;
+  local_18 = &param_1;
+  if (param_3 == (char *)0x0) {
+    sVar5 = 1;
+    pcVar11 = "";
+  }
+  else {
+    sVar5 = strlen(param_3);
+    sVar5 = sVar5 + 1;
+  }
+  puVar6 = malloc(sVar5);
+  strcpy((char *)puVar6,pcVar11);
+  FUN_04159ea0(puVar6);
+  puVar18 = puVar6;
+  do {
+    puVar17 = puVar18;
+    uVar7 = *puVar17 + 0xfefefeff & ~*puVar17;
+    uVar8 = uVar7 & 0x80808080;
+    puVar18 = puVar17 + 1;
+  } while (uVar8 == 0);
+  if ((uVar7 & 0x8080) == 0) {
+    puVar18 = (uint *)((int)puVar17 + 6);
+    uVar8 = uVar8 >> 0x10;
+  }
+  if ((int)puVar18 + ((-3 - (uint)CARRY1((byte)uVar8,(byte)uVar8)) - (int)puVar6) < uVar2) {
+    strcpy(__dest,(char *)puVar6);
+  }
+  else if ((pcVar16 == (char *)0x0) || (pcVar15 == (char *)0x0)) {
+    strncpy(__dest,(char *)puVar6,uVar2 - 2);
+    __dest[uVar2 - 2] = '\0';
+    __dest[uVar2 - 1] = '\0';
+  }
+  else {
+    strncpy(__dest,(char *)puVar6,uVar2 - 1);
+    __dest[uVar2 - 1] = '\0';
+  }
+  sVar5 = strlen(__dest);
+  free(puVar6);
+  iVar9 = eON_CreateFileA(uVar3,0x80000000,1,0,3,0,0);
+  if (iVar9 == -1) {
+    return sVar5;
+  }
+  iVar10 = FUN_041322c0(iVar9,local_30);
+  if (iVar10 == 0) {
+    return sVar5;
+  }
+  __ptr = malloc(local_30[0]);
+  local_28 = 0;
+  iVar10 = eON_ReadFile(iVar9,__ptr,local_30[0],local_24,0);
+  eON_CloseHandle(iVar9);
+  if ((((iVar10 != 0) && (local_30[0] == local_24[0])) && (pcVar15 != (char *)0x0)) &&
+     (pcVar16 != (char *)0x0)) {
+    while (pcVar11 = (char *)Profile_ReadNextLine(), pcVar11 != (char *)0x0) {
+      cVar1 = *pcVar11;
+      if (cVar1 != '\0') {
+        ppuVar12 = __ctype_b_loc();
+        pcVar14 = pcVar11;
+        cVar4 = cVar1;
+        do {
+          if ((*(byte *)((int)*ppuVar12 + cVar4 * 2 + 1) & 0x20) == 0) {
+            sVar13 = strlen(pcVar11);
+            if ((cVar1 == '[') && (pcVar11[sVar13 - 1] == ']')) {
+              pcVar14 = malloc(sVar13 - 1);
+              strncpy(pcVar14,pcVar11 + 1,sVar13 - 2);
+              pcVar14[sVar13 - 2] = '\0';
+              if (pcVar14 != (char *)0x0) {
+                iVar9 = strcasecmp(pcVar14,pcVar15);
+                if (iVar9 == 0) {
+                  free(pcVar14);
+                  free(pcVar11);
+                  goto LAB_041579ee;
+                }
+                free(pcVar14);
+              }
+            }
+            break;
+          }
+          pcVar14 = pcVar14 + 1;
+          cVar4 = *pcVar14;
+        } while (cVar4 != '\0');
+      }
+      free(pcVar11);
+    }
+  }
+  goto LAB_041578d2;
+LAB_041579ee:
+  pcVar15 = (char *)Profile_ReadNextLine();
+  if (pcVar15 != (char *)0x0) {
+    cVar1 = *pcVar15;
+    if (cVar1 != '\0') {
+      pcVar11 = pcVar15;
+      cVar4 = cVar1;
+      do {
+        if ((*(byte *)((int)*ppuVar12 + cVar4 * 2 + 1) & 0x20) == 0) {
+          sVar13 = strlen(pcVar15);
+          if ((cVar1 == '[') && (pcVar15[sVar13 - 1] == ']')) {
+            pcVar11 = malloc(sVar13 - 1);
+            strncpy(pcVar11,pcVar15 + 1,sVar13 - 2);
+            pcVar11[sVar13 - 2] = '\0';
+            if (pcVar11 != (char *)0x0) {
+              free(pcVar11);
+              free(pcVar15);
+              goto LAB_041578d2;
+            }
+          }
+          pcVar11 = strchr(pcVar15,0x3d);
+          if (pcVar11 == (char *)0x0) {
+LAB_04157c68:
+            pcVar11 = (char *)0x0;
+            FUN_0400a810("keyName",
+                         "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/winprofile.cpp"
+                         ,0x126,
+                         "DWORD eON_GetPrivateProfileStringA(LPCSTR, LPCSTR, LPCSTR, LPSTR, DWORD, LPCSTR)"
+                        );
+          }
+          else {
+            sVar13 = (int)pcVar11 - (int)pcVar15;
+            pcVar11 = malloc(sVar13 + 1);
+            strncpy(pcVar11,pcVar15,sVar13);
+            pcVar11[sVar13] = '\0';
+            FUN_04159ef0(pcVar11);
+            FUN_04159ea0(pcVar11);
+            if (pcVar11 == (char *)0x0) goto LAB_04157c68;
+          }
+          iVar9 = strcasecmp(pcVar11,pcVar16);
+          if (iVar9 == 0) {
+            free(pcVar11);
+            pcVar16 = strchr(pcVar15,0x3d);
+            if (pcVar16 != (char *)0x0) {
+              sVar5 = strlen(pcVar16 + 1);
+              local_38 = malloc(sVar5 + 1);
+              strcpy((char *)local_38,pcVar16 + 1);
+              FUN_04159ef0(local_38);
+              FUN_04159ea0(local_38);
+              if (local_38 != (uint *)0x0) goto LAB_04157ba6;
+            }
+            FUN_0400a810("keyValue",
+                         "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/winprofile.cpp"
+                         ,0x132,
+                         "DWORD eON_GetPrivateProfileStringA(LPCSTR, LPCSTR, LPCSTR, LPSTR, DWORD, LPCSTR)"
+                        );
+            local_38 = (uint *)0x0;
+LAB_04157ba6:
+            free(pcVar15);
+            puVar18 = local_38;
+            do {
+              puVar6 = puVar18;
+              uVar7 = *puVar6 + 0xfefefeff & ~*puVar6;
+              uVar8 = uVar7 & 0x80808080;
+              puVar18 = puVar6 + 1;
+            } while (uVar8 == 0);
+            if ((uVar7 & 0x8080) == 0) {
+              puVar18 = (uint *)((int)puVar6 + 6);
+              uVar8 = uVar8 >> 0x10;
+            }
+            if ((int)puVar18 + ((-3 - (uint)CARRY1((byte)uVar8,(byte)uVar8)) - (int)local_38) <
+                uVar2) {
+              strcpy(__dest,(char *)local_38);
+            }
+            else {
+              strncpy(__dest,(char *)local_38,uVar2 - 1);
+              __dest[uVar2 - 1] = '\0';
+            }
+            sVar5 = strlen(__dest);
+            free(local_38);
+            free(__ptr);
+            return sVar5;
+          }
+          free(pcVar11);
+          free(pcVar15);
+          goto LAB_041579ee;
+        }
+        pcVar11 = pcVar11 + 1;
+        cVar4 = *pcVar11;
+      } while (cVar4 != '\0');
+    }
+    free(pcVar15);
+    goto LAB_041579ee;
+  }
+LAB_041578d2:
+  free(__ptr);
+  return sVar5;
+}
+

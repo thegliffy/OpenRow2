@@ -1,0 +1,76 @@
+
+undefined4 eON_RedrawWindow(int *param_1,undefined4 param_2,int param_3,uint param_4)
+
+{
+  int iVar1;
+  code *pcVar2;
+  int *piVar3;
+  uint uVar4;
+  char cVar5;
+  int **ppiVar6;
+  int in_FS_OFFSET;
+  undefined1 auStack_3c [8];
+  undefined4 uStack_34;
+  int *local_30;
+  undefined4 local_2c;
+  uint local_28;
+  undefined4 *local_14;
+  
+  uVar4 = param_4;
+  piVar3 = param_1;
+  local_14 = &param_1;
+  ppiVar6 = &local_30;
+  if (((param_4 & 1) != 0) && (ppiVar6 = &local_30, param_3 == 0)) {
+    local_2c = param_2;
+    local_28 = (uint)((param_4 & 4) != 0);
+    local_30 = param_1;
+    uStack_34 = 0x4184633;
+    eON_InvalidateRect();
+    ppiVar6 = (int **)auStack_3c;
+  }
+  if (((uVar4 & 0x100) != 0) && (piVar3 != (int *)0x271a)) {
+    *ppiVar6 = piVar3;
+    ppiVar6[-1] = (int *)0x4184598;
+    cVar5 = FUN_0404ecd0();
+    if (cVar5 == '\0') {
+      *ppiVar6 = (int *)0x578;
+      ppiVar6[-1] = (int *)0x418460c;
+      eON_SetLastError();
+    }
+    else {
+      if (piVar3[0x16] != 0) {
+        if (piVar3 == (int *)0xffff) {
+          ppiVar6[1] = (int *)"HWND_BROADCAST not supported in SendMessageA(). Add it.";
+          *ppiVar6 = (int *)0xf;
+          ppiVar6[-1] = (int *)0x4184668;
+          FUN_0402cd10();
+        }
+        *ppiVar6 = (int *)*(undefined4 *)(*(int *)(in_FS_OFFSET + 0x18) + 0x130);
+        ppiVar6[-1] = (int *)0x41845d0;
+        thread_SuspendPoint();
+        *ppiVar6 = piVar3;
+        ppiVar6[-1] = (int *)0x41845d8;
+        cVar5 = FUN_0404ecd0();
+        if (cVar5 == '\0') {
+          *ppiVar6 = (int *)0x578;
+          ppiVar6[-1] = (int *)0x418464c;
+          eON_SetLastError();
+          ppiVar6 = ppiVar6 + -1;
+        }
+        else {
+          *ppiVar6 = (int *)0x0;
+          ppiVar6[-1] = (int *)0x41845f1;
+          eON_SendMessageA();
+          ppiVar6 = ppiVar6 + -1;
+        }
+      }
+      iVar1 = *piVar3;
+      *ppiVar6 = piVar3;
+      pcVar2 = *(code **)(iVar1 + 0x78);
+      ppiVar6[-1] = (int *)0x41845ab;
+      (*pcVar2)();
+    }
+  }
+  return 1;
+}
+

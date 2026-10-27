@@ -1,0 +1,730 @@
+
+/* source: direct3ddevice9imp */
+
+uint Direct3DDevice9__Initialize
+               (int *param_1,int param_2,uint param_3,uint *param_4,int param_5,int param_6,
+               uint param_7)
+
+{
+  code *pcVar1;
+  uint *puVar2;
+  int **ppiVar3;
+  char cVar4;
+  int iVar5;
+  int iVar6;
+  uint uVar7;
+  int *piVar8;
+  undefined4 *puVar9;
+  uint uVar10;
+  int **ppiVar11;
+  uint *puVar12;
+  int **ppiVar13;
+  bool bVar14;
+  ushort in_FPUControlWord;
+  int aiStack_b0 [11];
+  uint auStack_84 [6];
+  int *local_6c;
+  uint local_68 [8];
+  uint local_48;
+  int *local_44;
+  void *local_40;
+  undefined1 local_30 [8];
+  uint local_28;
+  uint local_24;
+  ushort local_1e;
+  
+  ppiVar13 = &local_6c;
+  ppiVar11 = &local_6c;
+  if ((param_7 & 4) == 0) {
+    if ((char)param_1[0x3adf] != '\0') goto LAB_0409b6e8;
+    ppiVar3 = &local_6c;
+    if (param_1[0x3b09] != 0) goto LAB_0409b701;
+LAB_0409b021:
+    ppiVar11 = ppiVar3;
+    if (param_1[0x3ae0] != 0) {
+      ppiVar11[3] = (int *)"void Direct3DDevice9Imp::MultithreadedGuard_Enter()";
+      ppiVar11[2] = (int *)0x3ae;
+      ppiVar11[1] = (int *)
+                    "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+      ;
+      *ppiVar11 = (int *)"!mCurrentD3D9Thread";
+      ppiVar11[-1] = (int *)0x409b244;
+      FUN_0400a810();
+    }
+    ppiVar11[-1] = (int *)0x409b034;
+    iVar5 = FUN_0415b750();
+    param_1[0x3ae0] = iVar5;
+  }
+  else {
+    local_6c = param_1 + 0x3ae1;
+    auStack_84[5] = 0x409b6de;
+    eON_InitializeCriticalSection();
+    *(undefined1 *)(param_1 + 0x3adf) = 1;
+    ppiVar13 = (int **)(auStack_84 + 5);
+LAB_0409b6e8:
+    *ppiVar13 = param_1 + 0x3ae1;
+    ppiVar13[-1] = (int *)0x409b6f0;
+    EnterCriticalSection();
+    ppiVar11 = ppiVar13 + -1;
+    ppiVar3 = ppiVar13 + -1;
+    if (param_1[0x3b09] == 0) goto LAB_0409b021;
+LAB_0409b701:
+    iVar5 = param_1[0x3ae0];
+    ppiVar11[-1] = (int *)0x409b70c;
+    iVar6 = FUN_0415b750();
+    if (iVar5 != iVar6) {
+      ppiVar11[3] = (int *)"void Direct3DDevice9Imp::MultithreadedGuard_Enter()";
+      ppiVar11[2] = (int *)0x3b3;
+      ppiVar11[1] = (int *)
+                    "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+      ;
+      *ppiVar11 = (int *)"mCurrentD3D9Thread == thread_GetCurrentThreadId()";
+      ppiVar11[-1] = (int *)0x409b738;
+      FUN_0400a810();
+    }
+  }
+  param_1[0x3b09] = param_1[0x3b09] + 1;
+  ppiVar11[1] = (int *)"Direct3DDevice9::Initialize()";
+  *ppiVar11 = (int *)0x5;
+  ppiVar11[-1] = (int *)0x409b055;
+  FUN_0402cd10();
+  *ppiVar11 = (int *)0x5;
+  ppiVar11[1] = (int *)param_4;
+  ppiVar11[-1] = (int *)0x409b068;
+  Direct3DDevice9_LogPresentParameters();
+  uVar7 = param_4[7];
+  if (param_4[7] == 0) {
+    uVar7 = param_3;
+  }
+  if (uVar7 == 0x271a) {
+LAB_0409b085:
+    iVar5 = param_1[0x3ae0];
+    *(undefined4 *)((int)ppiVar11 + -4) = 0x409b090;
+    iVar6 = FUN_0415b750();
+    if (iVar5 == iVar6) goto LAB_0409b0b8;
+  }
+  else {
+    *ppiVar11 = (int *)uVar7;
+    ppiVar11[-1] = (int *)0x409b081;
+    cVar4 = FUN_0404ecd0();
+    if (cVar4 == '\0') goto LAB_0409b085;
+    *ppiVar11 = (int *)0x78;
+    ppiVar11[-1] = (int *)0x409b10c;
+    piVar8 = operator_new((uint)*ppiVar11);
+    piVar8[1] = -1;
+    piVar8[2] = -1;
+    piVar8[3] = -1;
+    piVar8[4] = -1;
+    piVar8[5] = -1;
+    piVar8[6] = 0;
+    *(undefined1 *)(piVar8 + 7) = 0;
+    *(undefined1 *)((int)piVar8 + 0x1d) = 0;
+    *(undefined1 *)((int)piVar8 + 0x1e) = 0;
+    piVar8[0x11] = 0;
+    piVar8[0xd] = 0;
+    piVar8[0xe] = 0;
+    piVar8[0xf] = (int)(piVar8 + 0xd);
+    piVar8[0x10] = (int)(piVar8 + 0xd);
+    piVar8[0x15] = (int)(piVar8 + 0x13);
+    piVar8[0x16] = (int)(piVar8 + 0x13);
+    piVar8[0x1b] = (int)(piVar8 + 0x19);
+    piVar8[0x1c] = (int)(piVar8 + 0x19);
+    uVar10 = param_4[2];
+    piVar8[0x13] = 0;
+    piVar8[0x14] = 0;
+    piVar8[0x17] = 0;
+    piVar8[0x19] = 0;
+    piVar8[0x1a] = 0;
+    piVar8[0x1d] = 0;
+    *piVar8 = param_2;
+    if (uVar10 == 0) {
+      param_4[2] = 0x15;
+      ppiVar11[1] = (int *)0x15;
+      *ppiVar11 = piVar8;
+      ppiVar11[-1] = (int *)0x409b268;
+      cVar4 = PixelFormatData__MapDeviceFormat();
+    }
+    else {
+      ppiVar11[1] = (int *)uVar10;
+      *ppiVar11 = piVar8;
+      ppiVar11[-1] = (int *)0x409b1bd;
+      cVar4 = PixelFormatData__MapDeviceFormat();
+    }
+    if (cVar4 != '\0') {
+      ppiVar11[1] = (int *)uVar7;
+      ppiVar11[2] = (int *)((int)param_1 + 0x75fb);
+      *ppiVar11 = piVar8;
+      ppiVar11[-1] = (int *)0x409b286;
+      FUN_040e2f90();
+      uVar10 = param_4[4];
+      if (uVar10 == 1) {
+        uVar10 = param_4[5];
+        if (uVar10 != 0) {
+          if (uVar10 == 1) {
+            if (*(char *)((int)param_1 + 0x7609) == '\0') {
+              if ((char)param_1[0x1d82] == '\0') {
+                if (*(char *)((int)param_1 + 0x7607) == '\0') {
+                  if (*(char *)((int)param_1 + 0x7606) == '\0') {
+                    if (*(char *)((int)param_1 + 0x7605) == '\0') {
+                      if ((char)param_1[0x1d81] == '\0') {
+                        if (*(char *)((int)param_1 + 0x7603) == '\0') {
+                          if (*(char *)((int)param_1 + 0x7602) == '\0') {
+                            if (*(char *)((int)param_1 + 0x7601) == '\0') {
+                              if ((char)param_1[0x1d80] == '\0') {
+                                if (*(char *)((int)param_1 + 0x75ff) == '\0') {
+                                  if (*(char *)((int)param_1 + 0x75fe) == '\0') {
+                                    if (*(char *)((int)param_1 + 0x75fd) == '\0') {
+                                      if ((char)param_1[0x1d7f] == '\0') {
+                                        iVar5 = 0;
+                                        if (*(char *)((int)param_1 + 0x75fb) == '\0') {
+                                          param_4[4] = 0;
+                                          param_4[5] = 0;
+                                          goto LAB_0409b2b1;
+                                        }
+                                      }
+                                      else {
+                                        iVar5 = 1;
+                                      }
+                                    }
+                                    else {
+                                      iVar5 = 2;
+                                    }
+                                  }
+                                  else {
+                                    iVar5 = 3;
+                                  }
+                                }
+                                else {
+                                  iVar5 = 4;
+                                }
+                              }
+                              else {
+                                iVar5 = 5;
+                              }
+                            }
+                            else {
+                              iVar5 = 6;
+                            }
+                          }
+                          else {
+                            iVar5 = 7;
+                          }
+                        }
+                        else {
+                          iVar5 = 8;
+                        }
+                      }
+                      else {
+                        iVar5 = 9;
+                      }
+                    }
+                    else {
+                      iVar5 = 10;
+                    }
+                  }
+                  else {
+                    iVar5 = 0xb;
+                  }
+                }
+                else {
+                  iVar5 = 0xc;
+                }
+              }
+              else {
+                iVar5 = 0xd;
+              }
+            }
+            else {
+              iVar5 = 0xe;
+            }
+            uVar10 = iVar5 + 2;
+            param_4[4] = uVar10;
+            param_4[5] = 1;
+            goto LAB_0409b29e;
+          }
+          iVar5 = (int)(uVar10 - 2) / 2;
+          if (*(char *)((int)param_1 + 0x75fb) == '\0') {
+LAB_0409b844:
+            if ((char)param_1[0x1d7f] != '\0') {
+              if (iVar5 == 0) {
+                iVar5 = 1;
+                goto LAB_0409bb53;
+              }
+              iVar5 = iVar5 + -1;
+            }
+            if (*(char *)((int)param_1 + 0x75fd) != '\0') {
+              if (iVar5 == 0) {
+                iVar5 = 2;
+                goto LAB_0409bb53;
+              }
+              iVar5 = iVar5 + -1;
+            }
+            if (*(char *)((int)param_1 + 0x75fe) != '\0') {
+              if (iVar5 == 0) {
+                iVar5 = 3;
+                goto LAB_0409bb53;
+              }
+              iVar5 = iVar5 + -1;
+            }
+            if (*(char *)((int)param_1 + 0x75ff) != '\0') {
+              if (iVar5 == 0) {
+                iVar5 = 4;
+                goto LAB_0409bb53;
+              }
+              iVar5 = iVar5 + -1;
+            }
+            if ((char)param_1[0x1d80] != '\0') {
+              if (iVar5 == 0) {
+                iVar5 = 5;
+                goto LAB_0409bb53;
+              }
+              iVar5 = iVar5 + -1;
+            }
+            if (*(char *)((int)param_1 + 0x7601) != '\0') {
+              if (iVar5 == 0) {
+                iVar5 = 6;
+                goto LAB_0409bb53;
+              }
+              iVar5 = iVar5 + -1;
+            }
+            if (*(char *)((int)param_1 + 0x7602) != '\0') {
+              if (iVar5 == 0) {
+                iVar5 = 7;
+                goto LAB_0409bb53;
+              }
+              iVar5 = iVar5 + -1;
+            }
+            if (*(char *)((int)param_1 + 0x7603) != '\0') {
+              if (iVar5 == 0) {
+                iVar5 = 8;
+                goto LAB_0409bb53;
+              }
+              iVar5 = iVar5 + -1;
+            }
+            if ((char)param_1[0x1d81] != '\0') {
+              if (iVar5 == 0) {
+                iVar5 = 9;
+                goto LAB_0409bb53;
+              }
+              iVar5 = iVar5 + -1;
+            }
+            if (*(char *)((int)param_1 + 0x7605) != '\0') {
+              if (iVar5 == 0) {
+                iVar5 = 10;
+                goto LAB_0409bb53;
+              }
+              iVar5 = iVar5 + -1;
+            }
+            if (*(char *)((int)param_1 + 0x7606) != '\0') {
+              if (iVar5 == 0) {
+                iVar5 = 0xb;
+                goto LAB_0409bb53;
+              }
+              iVar5 = iVar5 + -1;
+            }
+            if (*(char *)((int)param_1 + 0x7607) != '\0') {
+              if (iVar5 == 0) {
+                iVar5 = 0xc;
+                goto LAB_0409bb53;
+              }
+              iVar5 = iVar5 + -1;
+            }
+            if ((char)param_1[0x1d82] != '\0') {
+              if (iVar5 == 0) {
+                iVar5 = 0xd;
+                goto LAB_0409bb53;
+              }
+              iVar5 = iVar5 + -1;
+            }
+            if ((*(char *)((int)param_1 + 0x7609) == '\0') || (iVar5 != 0)) {
+              ppiVar11[1] = (int *)
+                            "GetMultisamplingOptionForLevel() - given index beyond supported range!"
+              ;
+              *ppiVar11 = (int *)0xa;
+              ppiVar11[-1] = (int *)0x409b96d;
+              FUN_0402cd10();
+              goto LAB_0409b1c5;
+            }
+            iVar5 = 0xe;
+          }
+          else {
+            if (iVar5 != 0) {
+              iVar5 = iVar5 + -1;
+              goto LAB_0409b844;
+            }
+            iVar5 = 0;
+          }
+LAB_0409bb53:
+          uVar10 = iVar5 + 2;
+          param_4[4] = uVar10;
+          param_4[5] = 0;
+          goto LAB_0409b29e;
+        }
+        param_4[4] = 0;
+        param_4[5] = 0;
+      }
+      else {
+        if (0x10 < uVar10) goto LAB_0409b740;
+LAB_0409b29e:
+        if ((1 < uVar10) && (*(char *)((int)param_1 + uVar10 + 0x75f9) == '\0')) {
+LAB_0409b740:
+          ppiVar11[1] = (int *)piVar8[0x1a];
+          *ppiVar11 = piVar8 + 0x18;
+          ppiVar11[-1] = (int *)0x409b752;
+          FUN_0406ba50();
+          ppiVar11[1] = (int *)piVar8[0x14];
+          *ppiVar11 = piVar8 + 0x12;
+          ppiVar11[-1] = (int *)0x409b764;
+          FUN_0406b8c0();
+          ppiVar11[1] = (int *)piVar8[0xe];
+          *ppiVar11 = piVar8 + 0xc;
+          ppiVar11[-1] = (int *)0x409b776;
+          FUN_0406b730();
+          *ppiVar11 = piVar8;
+          ppiVar11[-1] = (int *)0x409b77e;
+          operator_delete(*ppiVar11);
+          iVar5 = param_1[0x3ae0];
+          ppiVar11[-1] = (int *)0x409b789;
+          iVar6 = FUN_0415b750();
+          if (iVar5 != iVar6) {
+            ppiVar11[3] = (int *)"void Direct3DDevice9Imp::MultithreadedGuard_Leave()";
+            ppiVar11[2] = (int *)0x3bf;
+            ppiVar11[1] = (int *)
+                          "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+            ;
+            *ppiVar11 = (int *)"mCurrentD3D9Thread == thread_GetCurrentThreadId()";
+            ppiVar11[-1] = (int *)0x409b7b1;
+            FUN_0400a810();
+          }
+          iVar5 = param_1[0x3b09];
+          param_1[0x3b09] = iVar5 + -1;
+          if (iVar5 + -1 == 0) {
+            param_1[0x3ae0] = 0;
+          }
+          if ((char)param_1[0x3adf] != '\0') {
+            *ppiVar11 = param_1 + 0x3ae1;
+            ppiVar11[-1] = (int *)0x409b7e5;
+            LeaveCriticalSection();
+            ppiVar11 = ppiVar11 + -1;
+          }
+          uVar7 = param_4[4];
+          ppiVar11[1] = (int *)
+                        "Game requested that device support render targets with %u samples, which is not supported by underlying OpenGL"
+          ;
+          *ppiVar11 = (int *)0x14;
+          ppiVar11[2] = (int *)uVar7;
+          ppiVar11[-1] = (int *)0x409b806;
+          FUN_0402cd10();
+          return 0;
+        }
+      }
+LAB_0409b2b1:
+      ppiVar11[2] = param_1 + 0x1d7d;
+      ppiVar11[1] = param_1 + 0x1d7c;
+      *ppiVar11 = (int *)param_2;
+      ppiVar11[-1] = (int *)0x409b2d0;
+      OpenGLDisplay_GetOrigin();
+      uVar10 = param_1[0x1d7c];
+      ppiVar11[1] = (int *)"Available video memory: %d MB";
+      *ppiVar11 = (int *)0x14;
+      ppiVar11[2] = (int *)uVar10;
+      ppiVar11[-1] = (int *)0x409b2ee;
+      FUN_0402cd10();
+      uVar10 = param_1[0x1d7d];
+      ppiVar11[1] = (int *)"Available texture memory: %d MB";
+      *ppiVar11 = (int *)0x14;
+      ppiVar11[2] = (int *)uVar10;
+      ppiVar11[-1] = (int *)0x409b30c;
+      FUN_0402cd10();
+      bVar14 = false;
+      if (1 < param_4[4]) {
+        bVar14 = param_4[5] != 0;
+      }
+      local_48 = param_1[3];
+      *(bool *)((int)param_1 + 0xeb52) = bVar14;
+      piVar8[3] = 0;
+      piVar8[4] = 0;
+      *ppiVar11 = (int *)0x128;
+      ppiVar11[-1] = (int *)0x409b345;
+      local_40 = operator_new((uint)*ppiVar11);
+      *ppiVar11 = local_40;
+      ppiVar11[1] = (int *)local_48;
+                    /* try { // try from 0409b352 to 0409b356 has its CatchHandler @ 0409bc46 */
+      ppiVar11[-1] = (int *)0x409b357;
+      FUN_040eabb0();
+      param_1[0x3ad5] = (int)local_40;
+      *ppiVar11 = local_40;
+      ppiVar11[-1] = (int *)0x409b368;
+      shader_pch_load();
+      local_40 = (void *)*param_4;
+      local_48 = param_4[1];
+      ppiVar11[1] = (int *)local_30;
+      *ppiVar11 = (int *)uVar7;
+      ppiVar11[-1] = (int *)0x409b388;
+      eON_GetClientRect();
+      ppiVar11[-2] = (int *)uVar7;
+      if (local_40 == (void *)0x0) {
+        local_48 = local_28;
+      }
+      if (local_48 == 0) {
+        local_48 = local_24;
+      }
+      *ppiVar11 = (int *)local_48;
+      ppiVar11[-1] = (int *)local_48;
+      ppiVar11[-3] = (int *)0x409b3b0;
+      FUN_0402d2e0();
+      ppiVar11[-3] = (int *)0x409b3b5;
+      BringMainGameWindowToFront();
+      ppiVar11[-2] = (int *)param_1[0x3b30];
+      ppiVar11[-3] = (int *)0x409b3c3;
+      eON_ResetEvent();
+      local_44 = param_1 + 0x3b00;
+      ppiVar11[-3] = local_44;
+      *ppiVar11 = (int *)0xc;
+      ppiVar11[-1] = (int *)0x32;
+      ppiVar11[-2] = param_1;
+      ppiVar11[-4] = (int *)0x409b3eb;
+      puVar9 = (undefined4 *)D3D9CommandQueue__GetNextCommandPointer();
+      *puVar9 = piVar8;
+      puVar9[1] = uVar7;
+      puVar9[2] = param_4[0xd];
+      ppiVar11[-3] = local_44;
+      ppiVar11[-4] = (int *)0x409b404;
+      D3D9CommandQueue__CommandSubmitted();
+      if ((param_7 & 2) == 0) {
+        local_1e = in_FPUControlWord & 0xf0c0 | 0x3f;
+      }
+      ppiVar11[2] = (int *)0x0;
+      ppiVar11[1] = (int *)0x0;
+      iVar5 = param_1[3];
+      ppiVar11[-1] = (int *)Direct3DDevice9Imp__OpenGLThreadStart;
+      ppiVar11[-2] = (int *)0x10000;
+      ppiVar11[-3] = (int *)0x0;
+      *ppiVar11 = (int *)iVar5;
+      ppiVar11[-4] = (int *)0x409b458;
+      eON_CreateThread();
+      ppiVar11[-8] = (int *)0xffffffff;
+      ppiVar11[-9] = (int *)param_1[0x3b30];
+      ppiVar11[-10] = (int *)0x409b471;
+      eON_WaitForSingleObject();
+      puVar12 = (uint *)(ppiVar11 + -0xb);
+      puVar2 = (uint *)(ppiVar11 + -0xb);
+      if (param_1[0x3afe] != 0) {
+        uVar10 = param_4[8];
+        ppiVar11[-9] = (int *)local_48;
+        ppiVar11[-0xb] = param_1;
+        ppiVar11[-8] = (int *)(uint)(uVar10 == 0);
+        ppiVar11[-10] = local_40;
+        ppiVar11[-0xc] = (int *)0x409b4ac;
+        FUN_040b99b0();
+        piVar8 = local_44;
+        if (DAT_04408c6c != '\0') {
+          if (param_4[8] == 0) {
+            if (uVar7 == 0) {
+              ppiVar11[-8] = (int *)
+                             "bool Direct3DDevice9Imp::Initialize(OpenGLDisplay*, HWND, D3DPRESENT_PARAMETERS*, IDirect3D9*, UINT, DWORD)"
+              ;
+              ppiVar11[-9] = (int *)0x5e5;
+              ppiVar11[-10] =
+                   (int *)
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+              ;
+              ppiVar11[-0xb] = (int *)"displayWindow";
+              ppiVar11[-0xc] = (int *)0x409bb46;
+              FUN_0400a810();
+            }
+            *(uint *)(uVar7 + 0x10) = local_48;
+            *(uint *)(uVar7 + 0x20) = local_48;
+            *(undefined4 *)(uVar7 + 4) = 0;
+            *(undefined4 *)(uVar7 + 8) = 0;
+            *(void **)(uVar7 + 0xc) = local_40;
+            *(undefined4 *)(uVar7 + 0x14) = 0;
+            *(undefined4 *)(uVar7 + 0x18) = 0;
+            *(void **)(uVar7 + 0x1c) = local_40;
+            ppiVar11[-10] = (int *)0x1;
+            ppiVar11[-0xb] = (int *)uVar7;
+            ppiVar11[-0xc] = (int *)0x409b50c;
+            eON_ShowWindow_Checked();
+            puVar12 = (uint *)(ppiVar11 + -0xd);
+          }
+          param_1[0xc] = 1;
+          param_1[0xd] = param_3;
+          param_1[10] = param_5;
+          param_1[0xe] = param_7;
+          param_1[0xb] = param_6;
+          param_1[0xf] = *param_4;
+          param_1[0x10] = param_4[1];
+          param_1[0x11] = param_4[2];
+          param_1[0x12] = param_4[3];
+          param_1[0x13] = param_4[4];
+          param_1[0x14] = param_4[5];
+          param_1[0x15] = param_4[6];
+          param_1[0x16] = param_4[7];
+          param_1[0x17] = param_4[8];
+          param_1[0x18] = param_4[9];
+          param_1[0x19] = param_4[10];
+          param_1[0x1a] = param_4[0xb];
+          param_1[0x1b] = param_4[0xc];
+          uVar7 = param_4[0xd];
+          param_1[0xf] = (int)local_40;
+          param_1[0x10] = local_48;
+          param_1[0x1c] = uVar7;
+          *puVar12 = (uint)param_1;
+          puVar12[-1] = 0x409b598;
+          Direct3DDevice9Imp__CreateScreenBuffers();
+          iVar5 = *param_1;
+          puVar12[2] = 3;
+          puVar12[1] = 0x16;
+          *puVar12 = (uint)param_1;
+          pcVar1 = *(code **)(iVar5 + 0xec);
+          puVar12[-1] = 0x409b5b3;
+          (*pcVar1)();
+          uVar7 = param_4[9];
+          iVar5 = *param_1;
+          puVar12[1] = 7;
+          *puVar12 = (uint)param_1;
+          puVar12[2] = (uint)(uVar7 != 0);
+          pcVar1 = *(code **)(iVar5 + 0xec);
+          puVar12[-1] = 0x409b5d4;
+          (*pcVar1)();
+          iVar5 = *param_1;
+          puVar12[2] = (uint)(param_1 + 0x1d7a);
+          puVar12[1] = 1;
+          *puVar12 = (uint)param_1;
+          pcVar1 = *(code **)(iVar5 + 0xf4);
+          puVar12[-1] = 0x409b5f1;
+          iVar5 = (*pcVar1)();
+          if (iVar5 < 0) {
+            puVar12[3] = (uint)
+                         "bool Direct3DDevice9Imp::Initialize(OpenGLDisplay*, HWND, D3DPRESENT_PARAMETERS*, IDirect3D9*, UINT, DWORD)"
+            ;
+            puVar12[2] = 0x606;
+            puVar12[1] = (uint)
+                         "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+            ;
+            *puVar12 = (uint)
+                       "((HRESULT)(CreateStateBlock( D3DSBT_ALL, (IDirect3DStateBlock9**) &mDeviceState.InitialDeviceStateBlock )) >= 0)"
+            ;
+            puVar12[-1] = 0x409bb00;
+            FUN_0400a810();
+          }
+          param_1[0x1d84] = param_2;
+          puVar12[1] = 1;
+          *puVar12 = (uint)FUN_0406f980;
+          puVar12[-1] = 0x409b616;
+          MainGameWindow_RegisterForFullscreenToggle();
+          iVar5 = param_1[0x3ae0];
+          DAT_044116b0 = FUN_040e09c0;
+          DAT_044116ac = FUN_040e08f0;
+          puVar12[-1] = 0x409b635;
+          iVar6 = FUN_0415b750();
+          if (iVar5 != iVar6) {
+            puVar12[3] = (uint)"void Direct3DDevice9Imp::MultithreadedGuard_Leave()";
+            puVar12[2] = 0x3bf;
+            puVar12[1] = (uint)
+                         "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+            ;
+            *puVar12 = (uint)"mCurrentD3D9Thread == thread_GetCurrentThreadId()";
+            puVar12[-1] = 0x409b65d;
+            FUN_0400a810();
+          }
+          iVar5 = param_1[0x3b09];
+          param_1[0x3b09] = iVar5 + -1;
+          if (iVar5 + -1 == 0) {
+            param_1[0x3ae0] = 0;
+          }
+          if ((char)param_1[0x3adf] != '\0') {
+            *puVar12 = (uint)(param_1 + 0x3ae1);
+            puVar12[-1] = 0x409b691;
+            LeaveCriticalSection();
+            puVar12 = puVar12 + -1;
+          }
+          iVar5 = *param_1;
+          puVar12[4] = 0;
+          puVar12[3] = 0;
+          puVar12[2] = 0;
+          puVar12[1] = 0;
+          *puVar12 = (uint)param_1;
+          pcVar1 = *(code **)(iVar5 + 0x4c);
+          puVar12[-1] = 0x409b6bc;
+          (*pcVar1)();
+          return 1;
+        }
+        ppiVar11[-8] = (int *)0x0;
+        ppiVar11[-9] = (int *)0x31;
+        ppiVar11[-10] = param_1;
+        ppiVar11[-0xb] = local_44;
+        ppiVar11[-0xc] = (int *)0x409b991;
+        D3D9CommandQueue__GetNextCommandPointer();
+        ppiVar11[-0xb] = piVar8;
+        ppiVar11[-0xc] = (int *)0x409b999;
+        D3D9CommandQueue__CommandSubmitted();
+        ppiVar11[-10] = (int *)0xffffffff;
+        ppiVar11[-0xb] = (int *)param_1[0x3afe];
+        ppiVar11[-0xc] = (int *)0x409b9af;
+        eON_WaitForSingleObject();
+        ppiVar11[-0xd] = (int *)param_1[0x3afe];
+        ppiVar11[-0xe] = (int *)0x409b9c0;
+        eON_CloseHandle();
+        param_1[0x3afe] = 0;
+        puVar2 = (uint *)(ppiVar11 + -0xe);
+      }
+      ppiVar11 = (int **)puVar2;
+      iVar5 = param_1[0x3ad5];
+      if (iVar5 != 0) {
+        *ppiVar11 = (int *)iVar5;
+        ppiVar11[-1] = (int *)0x409b9df;
+        FUN_040ea8a0();
+        *ppiVar11 = (int *)iVar5;
+        ppiVar11[-1] = (int *)0x409b9e7;
+        operator_delete(*ppiVar11);
+      }
+      param_1[0x3ad5] = 0;
+      goto LAB_0409b085;
+    }
+LAB_0409b1c5:
+    ppiVar11[1] = (int *)piVar8[0x1a];
+    *ppiVar11 = piVar8 + 0x18;
+    ppiVar11[-1] = (int *)0x409b1d7;
+    FUN_0406ba50();
+    ppiVar11[1] = (int *)piVar8[0x14];
+    *ppiVar11 = piVar8 + 0x12;
+    ppiVar11[-1] = (int *)0x409b1e9;
+    FUN_0406b8c0();
+    ppiVar11[1] = (int *)piVar8[0xe];
+    *ppiVar11 = piVar8 + 0xc;
+    ppiVar11[-1] = (int *)0x409b1fb;
+    FUN_0406b730();
+    *ppiVar11 = piVar8;
+    ppiVar11[-1] = (int *)0x409b203;
+    operator_delete(*ppiVar11);
+    iVar5 = param_1[0x3ae0];
+    ppiVar11[-1] = (int *)0x409b20e;
+    iVar6 = FUN_0415b750();
+    if (iVar5 == iVar6) goto LAB_0409b0b8;
+  }
+  ppiVar11[3] = (int *)"void Direct3DDevice9Imp::MultithreadedGuard_Leave()";
+  ppiVar11[2] = (int *)0x3bf;
+  ppiVar11[1] = (int *)
+                "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+  ;
+  *ppiVar11 = (int *)"mCurrentD3D9Thread == thread_GetCurrentThreadId()";
+  ppiVar11[-1] = (int *)0x409b0b8;
+  FUN_0400a810();
+LAB_0409b0b8:
+  iVar5 = param_1[0x3b09];
+  param_1[0x3b09] = iVar5 + -1;
+  if (iVar5 + -1 == 0) {
+    param_1[0x3ae0] = 0;
+  }
+  uVar7 = 0;
+  if ((char)param_1[0x3adf] != '\0') {
+    local_48 = local_48 & 0xffffff00;
+    *ppiVar11 = param_1 + 0x3ae1;
+    ppiVar11[-1] = (int *)0x409b0f1;
+    LeaveCriticalSection();
+    uVar7 = local_48 & 0xff;
+  }
+  return uVar7;
+}
+

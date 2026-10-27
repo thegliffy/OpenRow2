@@ -1,0 +1,294 @@
+
+/* source: synchronisationPrimitives */
+
+void OverlappedIOThreadFunction(void)
+
+{
+  int iVar1;
+  undefined4 *puVar2;
+  uint uVar3;
+  int iVar4;
+  int *piVar5;
+  int iVar6;
+  int *piVar7;
+  char *pcVar8;
+  char *pcVar9;
+  uint uVar10;
+  int iVar11;
+  int *piVar12;
+  undefined4 uVar13;
+  uint uVar14;
+  uint uVar15;
+  int in_FS_OFFSET;
+  int local_60;
+  
+  piVar12 = (int *)&stack0xffffffa4;
+  eON_SetThreadName();
+  *(undefined4 *)(*(int *)(*(int *)(in_FS_OFFSET + 0x18) + 0x130) + 0x4c) = 1;
+  pthread_mutex_lock((pthread_mutex_t *)&DAT_04516d10);
+  do {
+    while (piVar5 = DAT_04516d2c, DAT_04516d2c == (int *)0x0) {
+      piVar12[1] = (int)&DAT_04516d10;
+      *piVar12 = (int)&DAT_04516ce0;
+      piVar12[-1] = 0x4149a84;
+      pthread_cond_wait((pthread_cond_t *)*piVar12,(pthread_mutex_t *)piVar12[1]);
+    }
+    piVar7 = (int *)DAT_04516d2c[5];
+    DAT_04516d2c[5] = 0;
+    uVar14 = 0;
+    *piVar12 = (int)&DAT_04516d10;
+    uVar13 = 6;
+    piVar12[-1] = 0x414977c;
+    DAT_04516d2c = piVar7;
+    pthread_mutex_unlock((pthread_mutex_t *)*piVar12);
+    *piVar12 = *piVar5;
+    piVar12[-1] = 0x4149786;
+    iVar6 = FUN_0412e5a0();
+    if (iVar6 != 0) {
+      uVar15 = piVar5[7];
+      uVar13 = 0;
+      if (uVar15 != 0) {
+        uVar3 = *(uint *)(piVar5[4] + 8);
+        iVar1 = *(int *)(piVar5[4] + 0xc);
+        if (piVar5[6] == 0) {
+          iVar11 = piVar5[8];
+          if (iVar11 == 0) {
+            piVar12[2] = uVar15;
+            piVar12[4] = iVar1;
+            piVar12[3] = uVar3;
+            piVar12[1] = piVar5[2];
+            *piVar12 = iVar6;
+            piVar12[-1] = 0x414999f;
+            uVar14 = pread64(*piVar12,(void *)piVar12[1],piVar12[2],*(__off64_t *)(piVar12 + 3));
+          }
+          else {
+            if (iVar11 != 1) {
+              piVar12[2] = iVar11;
+              piVar12[1] = (int)"Unknown operation in OverlappedIO thread! ( %d )";
+              *piVar12 = 0xf;
+              piVar12[-1] = 0x4149ab1;
+              FUN_0402cd10();
+              goto LAB_0414979b;
+            }
+            piVar12[2] = uVar15;
+            piVar12[4] = iVar1;
+            piVar12[3] = uVar3;
+            piVar12[1] = piVar5[2];
+            *piVar12 = iVar6;
+            piVar12[-1] = 0x4149b6c;
+            uVar14 = pwrite64(*piVar12,(void *)piVar12[1],piVar12[2],*(__off64_t *)(piVar12 + 3));
+          }
+          if (uVar14 == 0xffffffff) {
+            iVar1 = *piVar5;
+            piVar12[-1] = 0x41499b4;
+            piVar7 = __errno_location();
+            *piVar12 = *piVar7;
+            piVar12[-1] = 0x41499c0;
+            pcVar8 = strerror(*piVar12);
+            iVar11 = piVar5[8];
+            pcVar9 = "pread";
+            iVar4 = *piVar7;
+            piVar12[4] = (int)pcVar8;
+            piVar12[1] = (int)"OverlappedIO - %s failed (%u) %s - HANDLE %p, fileDesc %d";
+            *piVar12 = 0xf;
+            if (iVar11 != 0) {
+              pcVar9 = "pwrite";
+            }
+            piVar12[3] = iVar4;
+            piVar12[2] = (int)pcVar9;
+            piVar12[6] = iVar6;
+            piVar12[5] = iVar1;
+            piVar12[-1] = 0x4149a04;
+            FUN_0402cd10();
+            if (*piVar7 == 0xe) {
+              piVar12[3] = piVar5[7];
+              iVar6 = piVar5[2];
+              piVar12[1] = (int)"\tEFAULT TargetBuffer %p, NumOfBytesToTransfer %u";
+              *piVar12 = 0xf;
+              piVar12[2] = iVar6;
+              piVar12[-1] = 0x4149c1c;
+              FUN_0402cd10();
+            }
+            iVar6 = *piVar5;
+            *piVar12 = (int)&DAT_04516c7c;
+            piVar12[-1] = 0x4149a1b;
+            pthread_mutex_lock((pthread_mutex_t *)*piVar12);
+            if ((((DAT_04516c6c == '\0') || (iVar6 < 0)) ||
+                (DAT_04516c74 - DAT_04516c70 >> 2 <= iVar6)) ||
+               (piVar7 = *(int **)(DAT_04516c70 + iVar6 * 4), piVar7 == (int *)0x0)) {
+              *piVar12 = (int)&DAT_04516c7c;
+              uVar14 = 0;
+              uVar13 = 0x3e3;
+              piVar12[-1] = 0x4149a55;
+              pthread_mutex_unlock((pthread_mutex_t *)*piVar12);
+              piVar12[1] = (int)
+                           "\tHANDLE wasn\'t found by Synchronisation_GetUserDataFromHandle() !!";
+              *piVar12 = 0xf;
+              piVar12[-1] = 0x4149a69;
+              FUN_0402cd10();
+            }
+            else {
+              iVar6 = *piVar7;
+              iVar1 = piVar7[3];
+              *piVar12 = (int)&DAT_04516c7c;
+              piVar12[-1] = 0x4149b9c;
+              pthread_mutex_unlock((pthread_mutex_t *)*piVar12);
+              if (iVar6 == 1) {
+                uVar13 = 0x57;
+                piVar12[4] = iVar1 + 0xc;
+                iVar6 = *(int *)(iVar1 + 4);
+                piVar12[2] = iVar1;
+                uVar14 = 0;
+                piVar12[1] = (int)"\tFileHandle %p, file handle %d, filename %s";
+                *piVar12 = 0xf;
+                piVar12[3] = iVar6;
+                piVar12[-1] = 0x4149bf5;
+                FUN_0402cd10();
+              }
+              else {
+                piVar12[2] = iVar6;
+                uVar14 = 0;
+                uVar13 = 0x57;
+                piVar12[1] = (int)"\tHANDLE wasn\'t a HandleFile (%u)";
+                *piVar12 = 0xf;
+                piVar12[-1] = 0x4149bc0;
+                FUN_0402cd10();
+              }
+            }
+            goto LAB_041497aa;
+          }
+          uVar13 = 0;
+        }
+        else {
+          piVar7 = (int *)piVar5[2];
+          uVar14 = 0;
+          do {
+            if (*piVar7 == 0) {
+              piVar12[3] = (int)"DWORD OverlappedIOThreadFunction(LPVOID)";
+              piVar12[2] = 0x2ae;
+              piVar12[1] = (int)
+                           "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/synchronisationPrimitives.cpp"
+              ;
+              *piVar12 = (int)"fileBuffer[pageCounter].Buffer != __null";
+              piVar12[-1] = 0x4149b3c;
+              FUN_0400a810();
+            }
+            uVar10 = 0x1000;
+            if (uVar15 < 0x1001) {
+              uVar10 = uVar15;
+            }
+            iVar11 = piVar5[8];
+            if (iVar11 == 0) {
+              piVar12[2] = uVar10;
+              piVar12[3] = uVar14 + uVar3;
+              piVar12[4] = ((int)uVar14 >> 0x1f) + iVar1 + (uint)CARRY4(uVar14,uVar3);
+              piVar12[1] = *piVar7;
+              *piVar12 = iVar6;
+              piVar12[-1] = 0x414989d;
+              iVar11 = pread64(*piVar12,(void *)piVar12[1],piVar12[2],*(__off64_t *)(piVar12 + 3));
+              if (iVar11 < 0) break;
+LAB_041498a8:
+              uVar14 = uVar14 + iVar11;
+              if (iVar11 < (int)uVar10) {
+LAB_0414990a:
+                uVar13 = 0x26;
+                goto LAB_04149914;
+              }
+            }
+            else {
+              if (iVar11 == 1) {
+                piVar12[2] = uVar10;
+                piVar12[3] = uVar14 + uVar3;
+                piVar12[4] = ((int)uVar14 >> 0x1f) + iVar1 + (uint)CARRY4(uVar14,uVar3);
+                piVar12[1] = *piVar7;
+                *piVar12 = iVar6;
+                piVar12[-1] = 0x4149955;
+                iVar11 = pwrite64(*piVar12,(void *)piVar12[1],piVar12[2],*(__off64_t *)(piVar12 + 3)
+                                 );
+                if (-1 < iVar11) goto LAB_041498a8;
+                break;
+              }
+              piVar12[2] = iVar11;
+              piVar12[1] = (int)"Unknown operation in OverlappedIO thread for scatter! ( %d )";
+              *piVar12 = 0xf;
+              piVar12[-1] = 0x41498fd;
+              FUN_0402cd10();
+              iVar11 = 0;
+              if (0 < (int)uVar10) goto LAB_0414990a;
+            }
+            piVar7 = piVar7 + 2;
+            uVar15 = uVar15 - iVar11;
+          } while (uVar15 != 0);
+          uVar13 = 0;
+        }
+LAB_04149914:
+        if (uVar14 != 0) goto LAB_041497aa;
+      }
+LAB_0414979b:
+      uVar14 = 0;
+      if (piVar5[7] != 0) {
+        uVar13 = 0x26;
+      }
+    }
+LAB_041497aa:
+    *piVar12 = (int)&DAT_04516d10;
+    piVar12[-1] = 0x41497b6;
+    pthread_mutex_lock((pthread_mutex_t *)*piVar12);
+    puVar2 = (undefined4 *)piVar5[4];
+    iVar6 = DAT_04516d30 * 0x10;
+    *(undefined4 **)(&DAT_04516d40 + iVar6) = puVar2;
+    *(int *)(&DAT_04516d44 + iVar6) = piVar5[2];
+    *(int *)(&DAT_04516d48 + iVar6) = piVar5[7];
+    *(int *)(&DAT_04516d4c + iVar6) = piVar5[6];
+    iVar6 = DAT_04516d30 + 1;
+    DAT_04516d30 = 0;
+    if (iVar6 != 0x200) {
+      DAT_04516d30 = iVar6;
+    }
+    if (DAT_04518d40 < 0x200) {
+      DAT_04518d40 = DAT_04518d40 + 1;
+    }
+    *puVar2 = uVar13;
+    puVar2[1] = uVar14;
+    iVar6 = piVar5[3];
+    if (iVar6 == 0) {
+      if (puVar2[4] == 0) {
+        iVar6 = *piVar5;
+        *piVar12 = (int)&DAT_04516c7c;
+        piVar12[-1] = 0x4149ace;
+        pthread_mutex_lock((pthread_mutex_t *)*piVar12);
+        if (((DAT_04516c6c != '\0') && (-1 < iVar6)) &&
+           ((iVar6 < DAT_04516c74 - DAT_04516c70 >> 2 &&
+            ((piVar7 = *(int **)(DAT_04516c70 + iVar6 * 4), piVar7 != (int *)0x0 && (*piVar7 == 1)))
+            ))) {
+          piVar7[4] = 1;
+          piVar12[-1] = 0x4149c32;
+          SignalObject();
+        }
+        *piVar12 = (int)&DAT_04516c7c;
+        piVar12[-1] = 0x4149b0d;
+        pthread_mutex_unlock((pthread_mutex_t *)*piVar12);
+      }
+      else {
+        *piVar12 = puVar2[4];
+        piVar12[-1] = 0x4149834;
+        eON_SetEvent();
+        piVar12 = piVar12 + -1;
+      }
+    }
+    else {
+      piVar12[2] = (int)puVar2;
+      iVar1 = piVar5[1];
+      *piVar12 = iVar6;
+      piVar12[1] = iVar1;
+      piVar12[-1] = 0x4149733;
+      FUN_04145980();
+      *piVar12 = piVar5[1];
+      piVar12[-1] = 0x414973e;
+      Synchronisation_SignalAPCOnThread();
+    }
+    piVar5[5] = (int)DAT_04518d44;
+    DAT_04518d44 = piVar5;
+  } while( true );
+}
+

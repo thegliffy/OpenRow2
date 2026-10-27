@@ -1,0 +1,14 @@
+
+undefined4 eON_GetSystemWindowsDirectoryW(undefined4 param_1,uint param_2)
+
+{
+  undefined4 uVar1;
+  
+  uVar1 = 0xc;
+  if (0xb < param_2) {
+    eON_MultiByteToWideChar(0,0,"C:\\Windows",0xffffffff,param_1,param_2);
+    uVar1 = 0xb;
+  }
+  return uVar1;
+}
+

@@ -1,0 +1,52 @@
+
+/* source: pixelformatdata */
+
+undefined4
+PixelFormatData__TestFramebuffer
+          (undefined4 param_1,int param_2,char param_3,char param_4,int param_5,char param_6)
+
+{
+  undefined4 uVar1;
+  int iVar2;
+  undefined4 local_20 [4];
+  
+  uVar1 = 0;
+  if (param_5 != 0) {
+    (*DAT_0451e668)(1,local_20);
+    (*DAT_0451e694)(0x8d40,local_20[0]);
+    if (param_2 == 0) {
+      (*DAT_0451eed0)(0);
+      (*DAT_0451eed4)(0);
+    }
+    else {
+      if (param_3 == '\0') {
+        (*DAT_0451e674)(0x8d40,0x8ce0,(-(uint)(param_4 == '\0') & 0xffff88cc) + 0x8515,param_2,0);
+      }
+      else {
+        (*DAT_0451e67c)(0x8d40,0x8ce0,0x8d41,param_2);
+      }
+      (*DAT_0451eed0)(0x8ce0);
+      (*DAT_0451eed4)(0x8ce0);
+    }
+    (*DAT_0451e67c)(0x8d40,0x8d00,0x8d41,param_5);
+    if (param_6 != '\0') {
+      (*DAT_0451e67c)(0x8d40,0x8d20,0x8d41,param_5);
+    }
+    iVar2 = (*DAT_0451e688)(0x8d40);
+    (*DAT_0451e694)(0x8d40,0);
+    (*DAT_0451e684)(1,local_20);
+    if ((iVar2 == 0x8cd6) || (iVar2 == 0x8cdd)) {
+      return 0;
+    }
+    uVar1 = 1;
+    if (iVar2 != 0x8cd5) {
+      FUN_0400a810("false",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/pixelformatdata.cpp"
+                   ,0x2c3,"bool PixelFormatData::TestFramebuffer(GLuint, bool, bool, GLuint, bool)")
+      ;
+      uVar1 = 0;
+    }
+  }
+  return uVar1;
+}
+

@@ -1,0 +1,54 @@
+
+int * eON_SetCursor(int *param_1)
+
+{
+  char cVar1;
+  int *piVar2;
+  int *piVar3;
+  int iVar4;
+  
+  if (param_1 == (int *)0x1) {
+    return DAT_044111f0;
+  }
+  if (param_1 == (int *)0x0) {
+    piVar3 = (int *)0x0;
+    if (DAT_044111f0 == (int *)0x0) goto LAB_0416ea2c;
+  }
+  else {
+    cVar1 = FUN_0400e1f0(param_1);
+    piVar3 = param_1;
+    if ((cVar1 == '\0') && (piVar3 = (int *)FUN_0400e240(param_1), piVar3 == (int *)0x0)) {
+      piVar3 = (int *)FUN_04016a30();
+      iVar4 = (**(code **)(*piVar3 + 0x10))(piVar3,param_1);
+      if (iVar4 == 0) {
+        FUN_0402cd10(0xf,"Couldn\'t create eON_Cursor from HICON! It may crash now...");
+        (**(code **)(*piVar3 + 8))(piVar3);
+        piVar3 = DAT_044111f0;
+        goto joined_r0x0416ea09;
+      }
+    }
+    if (DAT_044111f0 == piVar3) {
+LAB_0416ea2c:
+      if (piVar3 == (int *)0x0) {
+        return (int *)0x0;
+      }
+      piVar2 = (int *)piVar3[0xd];
+      if ((int *)piVar3[0xd] == (int *)0x0) {
+        piVar2 = piVar3;
+      }
+      return piVar2;
+    }
+  }
+  if (piVar3 != (int *)0x0) {
+    DAT_0441124c = 1;
+  }
+joined_r0x0416ea09:
+  piVar2 = (int *)0x0;
+  if ((DAT_044111f0 != (int *)0x0) &&
+     (piVar2 = (int *)DAT_044111f0[0xd], (int *)DAT_044111f0[0xd] == (int *)0x0)) {
+    piVar2 = DAT_044111f0;
+  }
+  DAT_044111f0 = piVar3;
+  return piVar2;
+}
+

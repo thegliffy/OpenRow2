@@ -1,0 +1,74 @@
+
+undefined4 ChangeDisplaySettingsExA(char *param_1,int param_2,undefined4 param_3,byte param_4)
+
+{
+  char cVar1;
+  ulong uVar2;
+  uint uVar3;
+  undefined4 uVar4;
+  int iVar5;
+  char *pcVar6;
+  uint uVar7;
+  char *pcVar8;
+  int iVar9;
+  bool bVar10;
+  bool bVar11;
+  int local_20;
+  int local_1c;
+  int local_18;
+  int local_14;
+  
+  if (param_1 == (char *)0x0) {
+    uVar7 = 0;
+  }
+  else {
+    iVar5 = 0xb;
+    bVar10 = false;
+    pcVar6 = param_1;
+    pcVar8 = "\\\\.\\DISPLAY";
+    do {
+      if (iVar5 == 0) break;
+      iVar5 = iVar5 + -1;
+      bVar10 = *pcVar6 == *pcVar8;
+      pcVar6 = pcVar6 + 1;
+      pcVar8 = pcVar8 + 1;
+    } while (bVar10);
+    if (!bVar10) {
+      FUN_0402cd10(10,"ChangeDisplaySettingsExA() - unrecognised device name passed %s",param_1);
+      return 0xfffffffb;
+    }
+    uVar2 = strtoul(param_1 + 0xb,(char **)0x0,10);
+    uVar7 = uVar2 - 1;
+    uVar3 = OpenGLDisplay_GetCount();
+    if (uVar3 <= uVar7) {
+      return 0xfffffffb;
+    }
+  }
+  uVar4 = OpenGLDisplay_GetByIndex(uVar7);
+  OpenGLDisplayWorkArea(uVar4,&local_20,&local_18,&local_1c,&local_14);
+  iVar5 = local_1c - local_20;
+  iVar9 = local_14 - local_18;
+  if (param_2 != 0) {
+    if ((*(uint *)(param_2 + 0x28) & 0x80000) != 0) {
+      iVar5 = *(int *)(param_2 + 0x6c);
+    }
+    if ((*(uint *)(param_2 + 0x28) & 0x100000) != 0) {
+      iVar9 = *(int *)(param_2 + 0x70);
+    }
+  }
+  uVar4 = 0xffffffff;
+  if ((99 < iVar5) && (99 < iVar9)) {
+    bVar11 = (param_4 & 4) == 0;
+    bVar10 = !bVar11;
+    if ((bVar11) && (cVar1 = FUN_0402d680(), cVar1 == '\0')) {
+      uVar4 = FUN_0402d670();
+      FUN_0402d2e0(uVar4,iVar5,iVar9);
+      return 0;
+    }
+    FUN_0402d690(bVar10);
+    eON_Int_SetMainWindowDisplayMode(iVar5,iVar9,bVar10,0);
+    uVar4 = 0;
+  }
+  return uVar4;
+}
+

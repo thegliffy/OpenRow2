@@ -1,0 +1,23 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+bool _glewInit_GLX_SGIX_video_resize(void)
+
+{
+  int iVar1;
+  bool bVar2;
+  bool bVar3;
+  bool bVar4;
+  
+  iVar1 = glXGetProcAddressARB("glXBindChannelToWindowSGIX");
+  _DAT_0451c720 = iVar1;
+  _DAT_0451c71c = glXGetProcAddressARB("glXChannelRectSGIX");
+  bVar2 = _DAT_0451c71c == 0;
+  _DAT_0451c718 = glXGetProcAddressARB("glXChannelRectSyncSGIX");
+  bVar3 = _DAT_0451c718 == 0;
+  _DAT_0451c714 = glXGetProcAddressARB("glXQueryChannelDeltasSGIX");
+  bVar4 = _DAT_0451c714 == 0;
+  _DAT_0451c710 = glXGetProcAddressARB("glXQueryChannelRectSGIX");
+  return _DAT_0451c710 == 0 || (bVar4 || (bVar3 || (bVar2 || iVar1 == 0)));
+}
+

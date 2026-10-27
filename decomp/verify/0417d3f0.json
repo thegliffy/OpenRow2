@@ -1,0 +1,73 @@
+
+undefined4
+eON_GetUserObjectInformationW
+          (int param_1,int param_2,undefined4 *param_3,uint param_4,undefined4 *param_5)
+
+{
+  undefined4 uVar1;
+  undefined *local_56;
+  undefined *local_52;
+  undefined *local_4e;
+  undefined *local_4a;
+  undefined *local_46;
+  undefined *local_42;
+  undefined *local_3e;
+  undefined *local_3a;
+  undefined *local_36;
+  undefined *local_32;
+  undefined *local_2e;
+  undefined *local_2a;
+  undefined *local_26;
+  undefined2 local_22;
+  undefined4 *local_18;
+  
+  local_18 = &param_1;
+  if (param_2 == 1) {
+    *param_3 = 0;
+    uVar1 = 1;
+    param_3[1] = 0;
+    param_3[2] = 1;
+    *param_5 = 0xc;
+  }
+  else if (param_2 == 2) {
+    uVar1 = 0;
+    if (param_1 == -0x21504542) {
+      local_56 = PTR_DAT_0434a25c;
+      local_52 = PTR_DAT_0434a260;
+      local_4e = PTR_DAT_0434a264;
+      local_4a = PTR_DAT_0434a268;
+      local_46 = PTR_DAT_0434a26c;
+      local_42 = PTR_DAT_0434a270;
+      local_3e = PTR_DAT_0434a274;
+      local_3a = PTR_DAT_0434a278;
+      local_36 = PTR_DAT_0434a27c;
+      local_32 = PTR_DAT_0434a280;
+      local_2e = PTR_DAT_0434a284;
+      local_2a = PTR_DAT_0434a288;
+      local_26 = PTR_DAT_0434a28c;
+      local_22 = DAT_0434a290;
+      if (param_5 != (undefined4 *)0x0) {
+        *param_5 = 0x36;
+      }
+      if (param_4 < 0x36) {
+        if (param_5 != (undefined4 *)0x0) {
+          *param_5 = 0x36;
+        }
+        uVar1 = 0;
+        eON_SetLastError(0x7a);
+      }
+      else {
+        uVar1 = 1;
+        if (param_3 != (undefined4 *)0x0) {
+          FUN_0415a150(param_3,&local_56);
+        }
+      }
+    }
+  }
+  else {
+    uVar1 = 0;
+    FUN_0402cd10(10,"eON_GetUserObjectInformationW - unhandled flag %d",param_2);
+  }
+  return uVar1;
+}
+

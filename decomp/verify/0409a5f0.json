@@ -1,0 +1,101 @@
+
+uint Direct3DSurface9Imp_ClampRenderbufferSamples(int param_1,uint param_2)
+
+{
+  int iVar1;
+  
+  if (param_2 == 1) {
+    if (*(char *)(param_1 + 0x7609) == '\0') {
+      if (*(char *)(param_1 + 0x7608) == '\0') {
+        if (*(char *)(param_1 + 0x7607) == '\0') {
+          if (*(char *)(param_1 + 0x7606) == '\0') {
+            if (*(char *)(param_1 + 0x7605) == '\0') {
+              if (*(char *)(param_1 + 0x7604) == '\0') {
+                if (*(char *)(param_1 + 0x7603) == '\0') {
+                  if (*(char *)(param_1 + 0x7602) == '\0') {
+                    if (*(char *)(param_1 + 0x7601) == '\0') {
+                      if (*(char *)(param_1 + 0x7600) == '\0') {
+                        if (*(char *)(param_1 + 0x75ff) == '\0') {
+                          if (*(char *)(param_1 + 0x75fe) == '\0') {
+                            if (*(char *)(param_1 + 0x75fd) == '\0') {
+                              iVar1 = 1;
+                              if (*(char *)(param_1 + 0x75fc) == '\0') {
+                                if (*(char *)(param_1 + 0x75fb) == '\0') {
+                                  return 1;
+                                }
+                                iVar1 = 0;
+                              }
+                            }
+                            else {
+                              iVar1 = 2;
+                            }
+                          }
+                          else {
+                            iVar1 = 3;
+                          }
+                        }
+                        else {
+                          iVar1 = 4;
+                        }
+                      }
+                      else {
+                        iVar1 = 5;
+                      }
+                    }
+                    else {
+                      iVar1 = 6;
+                    }
+                  }
+                  else {
+                    iVar1 = 7;
+                  }
+                }
+                else {
+                  iVar1 = 8;
+                }
+              }
+              else {
+                iVar1 = 9;
+              }
+            }
+            else {
+              iVar1 = 10;
+            }
+          }
+          else {
+            iVar1 = 0xb;
+          }
+        }
+        else {
+          iVar1 = 0xc;
+        }
+      }
+      else {
+        iVar1 = 0xd;
+      }
+    }
+    else {
+      iVar1 = 0xe;
+    }
+    param_2 = iVar1 + 2;
+  }
+  else {
+    if (param_2 == 0) {
+      return 1;
+    }
+    if (0x10 < param_2) {
+      FUN_0402cd10(0xf,
+                   "Requested more than 16 samples per pixel in renderbuffer creation. Setting it to safe value - 1."
+                  );
+      return 1;
+    }
+  }
+  if (param_2 == 1) {
+    return 1;
+  }
+  if (*(char *)(param_1 + 0xeb50) == '\0') {
+    param_2 = 1;
+  }
+  return param_2;
+}
+

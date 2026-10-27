@@ -1,0 +1,47 @@
+
+/* source: audioclientimp */
+
+void AudioClientImp__AudioClientImp(undefined4 *param_1,int param_2,undefined1 param_3)
+
+{
+  int iVar1;
+  pthread_mutexattr_t local_20 [4];
+  
+  IUnknownImp__IUnknownImp(param_1,param_1 + 4);
+  *param_1 = &PTR_AudioClientImp___AudioClientImp_0434c028;
+  param_1[4] = &PTR_FUN_04410ae0;
+  param_1[5] = param_1;
+  param_1[6] = param_2;
+  param_1[7] = 0;
+  *(undefined1 *)(param_1 + 8) = param_3;
+  *(undefined1 *)((int)param_1 + 0x21) = 0;
+  *(undefined1 *)((int)param_1 + 0x22) = 0;
+  *(undefined1 *)((int)param_1 + 0x23) = 0;
+  *(undefined1 *)(param_1 + 9) = 0;
+  param_1[0x18] = 0;
+  param_1[0x19] = 0;
+  param_1[0x1a] = 0;
+  param_1[0x1b] = 0;
+  param_1[0x1c] = 0;
+  param_1[1] = "AudioClientImp";
+  if (param_2 == 0) {
+    FUN_0400a810("deviceId",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/winmm/audioclientimp.cpp"
+                 ,0xa0,"AudioClientImp::AudioClientImp(eON_AudioDevice, bool)");
+  }
+  pthread_mutexattr_init(local_20);
+  pthread_mutexattr_setprioceiling(local_20,0);
+  pthread_mutexattr_setprotocol(local_20,0);
+  pthread_mutexattr_setpshared(local_20,1);
+  pthread_mutexattr_settype(local_20,1);
+  iVar1 = pthread_mutex_init((pthread_mutex_t *)(param_1 + 0x1d),local_20);
+  if (iVar1 != 0) {
+                    /* try { // try from 0418a07f to 0418a0bb has its CatchHandler @ 0418a0c1 */
+    FUN_0400a810("pthread_mutex_init( &mClientMutex, &attr ) == 0",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/winmm/audioclientimp.cpp"
+                 ,0xad,"AudioClientImp::AudioClientImp(eON_AudioDevice, bool)");
+  }
+  pthread_mutexattr_destroy(local_20);
+  return;
+}
+

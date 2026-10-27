@@ -1,0 +1,13 @@
+
+undefined4 eON_GetDoubleClickTime(void)
+
+{
+  if (DAT_0451c02d == '\0') {
+    FUN_0402cd10(0x14,
+                 "Game asks for Windows double click time interval. Returning default 500 ms, as there\'s no standard in Linux for it; in the future, as time permits we\'ll be adding support for various window managers, detecting them."
+                );
+    DAT_0451c02d = '\x01';
+  }
+  return 500;
+}
+

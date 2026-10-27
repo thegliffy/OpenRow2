@@ -1,0 +1,42 @@
+
+undefined4 eON_UuidToStringW(undefined4 *param_1,int *param_2)
+
+{
+  undefined4 *puVar1;
+  int *piVar2;
+  undefined4 uVar3;
+  int iVar4;
+  undefined4 *puVar5;
+  int iVar6;
+  char local_48 [52];
+  undefined4 *local_14;
+  
+  piVar2 = param_2;
+  puVar1 = param_1;
+  local_14 = &param_1;
+  uVar3 = eON_GetProcessHeap();
+  iVar4 = HeapAlloc(uVar3,0,0x4a);
+  *piVar2 = iVar4;
+  uVar3 = 0xe;
+  if (iVar4 != 0) {
+    puVar5 = (undefined4 *)&DAT_0451bd98;
+    if (puVar1 != (undefined4 *)0x0) {
+      puVar5 = puVar1;
+    }
+    sprintf(local_48,"%08x-%04x-%04x-%02x%02x-%02x%02x%02x%02x%02x%02x",*puVar5,
+            (uint)*(ushort *)(puVar5 + 1),(uint)*(ushort *)((int)puVar5 + 6),
+            (uint)*(byte *)(puVar5 + 2),(uint)*(byte *)((int)puVar5 + 9),
+            (uint)*(byte *)((int)puVar5 + 10),(uint)*(byte *)((int)puVar5 + 0xb),
+            (uint)*(byte *)(puVar5 + 3),(uint)*(byte *)((int)puVar5 + 0xd),
+            (uint)*(byte *)((int)puVar5 + 0xe),(uint)*(byte *)((int)puVar5 + 0xf));
+    iVar4 = *piVar2;
+    iVar6 = 0;
+    do {
+      *(short *)(iVar4 + iVar6 * 2) = (short)local_48[iVar6];
+      iVar6 = iVar6 + 1;
+    } while (iVar6 != 0x25);
+    uVar3 = 0;
+  }
+  return uVar3;
+}
+

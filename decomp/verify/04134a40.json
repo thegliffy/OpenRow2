@@ -1,0 +1,8 @@
+
+undefined4 CheckApplicationW(undefined4 param_1)
+
+{
+  FUN_0402cd10(5,"Checking application \'%ls\'",param_1);
+  return 0;
+}
+

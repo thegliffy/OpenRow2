@@ -1,0 +1,40 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+bool _glewInit_GL_EXT_histogram(void)
+
+{
+  int iVar1;
+  bool bVar2;
+  bool bVar3;
+  bool bVar4;
+  bool bVar5;
+  bool bVar6;
+  bool bVar7;
+  bool bVar8;
+  bool bVar9;
+  
+  iVar1 = glXGetProcAddressARB("glGetHistogramEXT");
+  _DAT_0451d72c = iVar1;
+  _DAT_0451d728 = glXGetProcAddressARB("glGetHistogramParameterfvEXT");
+  bVar2 = _DAT_0451d728 == 0;
+  _DAT_0451d724 = glXGetProcAddressARB("glGetHistogramParameterivEXT");
+  bVar3 = _DAT_0451d724 == 0;
+  _DAT_0451d720 = glXGetProcAddressARB("glGetMinmaxEXT");
+  bVar4 = _DAT_0451d720 == 0;
+  _DAT_0451d71c = glXGetProcAddressARB("glGetMinmaxParameterfvEXT");
+  bVar5 = _DAT_0451d71c == 0;
+  _DAT_0451d718 = glXGetProcAddressARB("glGetMinmaxParameterivEXT");
+  bVar6 = _DAT_0451d718 == 0;
+  _DAT_0451d714 = glXGetProcAddressARB("glHistogramEXT");
+  bVar7 = _DAT_0451d714 == 0;
+  _DAT_0451d710 = glXGetProcAddressARB("glMinmaxEXT");
+  bVar8 = _DAT_0451d710 == 0;
+  _DAT_0451d70c = glXGetProcAddressARB("glResetHistogramEXT");
+  bVar9 = _DAT_0451d70c == 0;
+  _DAT_0451d708 = glXGetProcAddressARB("glResetMinmaxEXT");
+  return _DAT_0451d708 == 0 ||
+         (bVar9 || (bVar8 || (bVar7 || (bVar6 || (bVar5 || (bVar4 || (bVar3 || (bVar2 || iVar1 == 0)
+                                                                     )))))));
+}
+

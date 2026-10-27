@@ -1,0 +1,300 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+undefined4 * eON_LoadLibraryEx(char *param_1,undefined4 param_2,int param_3)
+
+{
+  int iVar1;
+  undefined4 *puVar2;
+  undefined *puVar3;
+  undefined *puVar4;
+  int iVar5;
+  undefined *puVar6;
+  undefined4 *puVar7;
+  char *pcVar8;
+  undefined4 *puVar9;
+  char *pcVar10;
+  undefined1 uVar11;
+  byte bVar12;
+  undefined *local_19c4;
+  undefined4 local_19b4 [65];
+  undefined4 local_18b0 [256];
+  undefined4 local_14b0;
+  undefined1 local_14ac;
+  undefined1 local_14ab;
+  undefined1 local_14aa;
+  undefined4 local_14a8;
+  undefined4 local_14a4;
+  undefined4 local_14a0;
+  undefined4 local_149c;
+  undefined1 local_1498 [4];
+  undefined4 local_1494;
+  undefined4 local_1490;
+  undefined4 *local_148c;
+  undefined4 *local_1488;
+  undefined4 local_1484;
+  void *local_1480;
+  undefined4 local_147c;
+  undefined4 local_1478;
+  undefined4 local_1474;
+  undefined4 *local_1470;
+  undefined4 local_146c [65];
+  undefined4 local_1368 [256];
+  undefined4 local_f68;
+  undefined1 local_f64;
+  undefined1 local_f63;
+  undefined1 local_f62;
+  undefined4 local_f60;
+  undefined4 local_f5c;
+  undefined4 local_f58;
+  undefined4 local_f54;
+  undefined1 local_f50 [4];
+  undefined4 local_f4c;
+  undefined4 local_f48;
+  undefined4 *local_f44;
+  undefined4 *local_f40;
+  undefined4 local_f3c;
+  undefined4 local_f38;
+  undefined4 local_f34;
+  undefined4 local_f30;
+  undefined4 local_f2c;
+  char local_f28 [260];
+  undefined1 local_e24 [1024];
+  undefined4 local_a24;
+  undefined1 local_a20;
+  undefined1 local_a1f;
+  undefined1 local_a1e;
+  undefined4 local_a1c;
+  undefined4 local_a18;
+  undefined4 local_a14;
+  undefined4 local_a10;
+  undefined1 local_a0c [4];
+  undefined4 local_a08;
+  undefined4 local_a04;
+  undefined4 *local_a00;
+  undefined4 *local_9fc;
+  undefined4 local_9f8;
+  void *local_9f4;
+  undefined4 local_9f0;
+  undefined4 local_9ec;
+  undefined4 *local_9e8;
+  undefined4 local_9e4 [65];
+  undefined4 local_8e0 [262];
+  undefined1 local_4c8 [4];
+  undefined1 local_4c4 [4];
+  undefined4 local_4c0;
+  undefined1 *local_4bc;
+  undefined1 *local_4b8;
+  void *local_4b0;
+  undefined1 local_4a0 [1024];
+  char local_a0 [136];
+  undefined4 *local_18;
+  
+  iVar5 = param_3;
+  pcVar8 = param_1;
+  bVar12 = 0;
+  local_18 = &param_1;
+  iVar1 = strcasecmp(param_1,"nvapi.dll");
+  if (((iVar1 == 0) || (iVar1 = strcasecmp(pcVar8,"atiadlxx.dll"), iVar1 == 0)) ||
+     (iVar1 = strcasecmp(pcVar8,"atiadlxy.dll"), iVar1 == 0)) {
+    return (undefined4 *)0x0;
+  }
+  if (iVar5 != 0) {
+    FUN_0402cd10(10,
+                 "eON_LoadLibraryExA() for \'%s\' has non-zero flags ( %#x ), probably unhandled functionality!"
+                 ,pcVar8,iVar5);
+  }
+  if (pcVar8 == (char *)0x0) {
+    return (undefined4 *)0x0;
+  }
+  if (*pcVar8 == '\0') {
+    return (undefined4 *)0x0;
+  }
+  puVar2 = (undefined4 *)LoadLibraryA_Resolve();
+  if (puVar2 != (undefined4 *)0x0) {
+    return puVar2;
+  }
+  ProcessLibraryPath();
+  puVar2 = (undefined4 *)FindPEModuleByName(local_a0);
+  if (puVar2 == (undefined4 *)0x0) {
+    puVar2 = (undefined4 *)AddTLSSlot(local_4a0,local_a0,0);
+    if (puVar2 != (undefined4 *)0x0) {
+      return puVar2;
+    }
+    FUN_04159f70(local_f28,&DAT_04519dc0,0x400);
+    puVar2 = (undefined4 *)AddTLSSlot(local_f28,local_a0,0);
+    if (puVar2 == (undefined4 *)0x0) {
+      FUN_0402cd10(10,"eON_LoadLibraryEx() couldn\'t load \'%s\', returning NULL!",pcVar8);
+      eON_SetLastError(2);
+      return (undefined4 *)0x0;
+    }
+    return puVar2;
+  }
+  puVar6 = &DAT_0451adf0;
+  local_a04 = 0;
+  local_9f4 = (void *)0x0;
+  local_a00 = &local_a08;
+  local_9f0 = 0;
+  local_9ec = 0;
+  local_a08 = 0;
+  local_9f8 = 0;
+  local_9fc = local_a00;
+  strcpy(local_f28,(char *)*puVar2);
+  local_e24[0] = 0;
+  local_a24 = 1;
+  local_a10 = puVar2[1];
+  local_a20 = 1;
+  local_a1f = 1;
+  local_a1e = 0;
+  local_a14 = 0;
+  local_a1c = 0;
+  local_a18 = 0;
+  local_9e8 = puVar2;
+  pthread_mutex_lock((pthread_mutex_t *)&DAT_0451add4);
+  puVar4 = DAT_0451adf4;
+  if (DAT_0451adf4 != (undefined *)0x0) {
+    do {
+      if (*(undefined4 **)(puVar4 + 0x10) < puVar2) {
+        puVar3 = *(undefined **)(puVar4 + 0xc);
+      }
+      else {
+        puVar3 = *(undefined **)(puVar4 + 8);
+        puVar6 = puVar4;
+      }
+      puVar4 = puVar3;
+    } while (puVar3 != (undefined *)0x0);
+    if ((puVar6 != &DAT_0451adf0) &&
+       (uVar11 = puVar2 == *(undefined4 **)(puVar6 + 0x10),
+       *(undefined4 **)(puVar6 + 0x10) <= puVar2)) goto LAB_04151f37;
+  }
+  local_f64 = 0;
+  local_f4c = 0;
+  puVar7 = local_9e4;
+  for (iVar5 = 0x151; iVar5 != 0; iVar5 = iVar5 + -1) {
+    *puVar7 = 0;
+    puVar7 = puVar7 + (uint)bVar12 * -2 + 1;
+  }
+  local_f63 = 0;
+  local_4bc = local_4c4;
+  local_4b8 = local_4c4;
+  local_f48 = 0;
+  local_f62 = 0;
+  puVar7 = local_9e4;
+  puVar9 = local_146c;
+  for (iVar5 = 0x41; iVar5 != 0; iVar5 = iVar5 + -1) {
+    *puVar9 = *puVar7;
+    puVar7 = puVar7 + (uint)bVar12 * -2 + 1;
+    puVar9 = puVar9 + (uint)bVar12 * -2 + 1;
+  }
+  local_f3c = 0;
+  local_f38 = 0;
+  local_f34 = 0;
+  local_f44 = &local_f4c;
+  local_f40 = &local_f4c;
+  local_f30 = 0;
+  puVar7 = local_8e0;
+  puVar9 = local_1368;
+  for (iVar5 = 0x100; iVar5 != 0; iVar5 = iVar5 + -1) {
+    *puVar9 = *puVar7;
+    puVar7 = puVar7 + (uint)bVar12 * -2 + 1;
+    puVar9 = puVar9 + (uint)bVar12 * -2 + 1;
+  }
+  local_f68 = 0;
+  local_f60 = 0;
+  local_f5c = 0;
+  local_f58 = 0;
+  local_f54 = 0;
+  local_f2c = 0;
+  puVar7 = local_146c;
+  puVar9 = local_19b4;
+  local_1470 = puVar2;
+  for (iVar5 = 0x41; iVar5 != 0; iVar5 = iVar5 + -1) {
+    *puVar9 = *puVar7;
+    puVar7 = puVar7 + (uint)bVar12 * -2 + 1;
+    puVar9 = puVar9 + (uint)bVar12 * -2 + 1;
+  }
+  puVar7 = local_1368;
+  puVar9 = local_18b0;
+  for (iVar5 = 0x100; iVar5 != 0; iVar5 = iVar5 + -1) {
+    *puVar9 = *puVar7;
+    puVar7 = puVar7 + (uint)bVar12 * -2 + 1;
+    puVar9 = puVar9 + (uint)bVar12 * -2 + 1;
+  }
+  local_14b0 = 0;
+  local_14ac = 0;
+  local_14ab = 0;
+  local_14aa = 0;
+  local_14a8 = 0;
+  local_14a4 = 0;
+  local_14a0 = 0;
+  local_149c = 0;
+  local_1494 = 0;
+  local_1490 = 0;
+  local_1484 = 0;
+  local_1480 = (void *)0x0;
+  local_147c = 0;
+  local_1478 = 0;
+  local_1474 = 0;
+  local_148c = &local_1494;
+  local_1488 = &local_1494;
+  FUN_04153bf0(local_f50,local_f48);
+                    /* try { // try from 04151ed8 to 04151edc has its CatchHandler @ 0415205f */
+  FUN_0414f610();
+  if (local_1480 != (void *)0x0) {
+    operator_delete(local_1480);
+  }
+  FUN_04153bf0(local_1498,local_1490);
+  uVar11 = local_4b0 == (void *)0x0;
+  if (!(bool)uVar11) {
+    operator_delete(local_4b0);
+  }
+  FUN_04153bf0(local_4c8,local_4c0);
+  puVar6 = local_19c4;
+LAB_04151f37:
+  *(undefined4 *)(puVar6 + 0x518) = local_a24;
+  pcVar8 = local_f28;
+  puVar7 = (undefined4 *)(puVar6 + 0x14);
+  for (iVar5 = 0x41; iVar5 != 0; iVar5 = iVar5 + -1) {
+    *puVar7 = *(undefined4 *)pcVar8;
+    pcVar8 = pcVar8 + ((uint)bVar12 * -2 + 1) * 4;
+    puVar7 = puVar7 + (uint)bVar12 * -2 + 1;
+  }
+  puVar6[0x51c] = local_a20;
+  puVar7 = (undefined4 *)local_e24;
+  puVar9 = (undefined4 *)(puVar6 + 0x118);
+  for (iVar5 = 0x100; iVar5 != 0; iVar5 = iVar5 + -1) {
+    *puVar9 = *puVar7;
+    puVar7 = puVar7 + (uint)bVar12 * -2 + 1;
+    puVar9 = puVar9 + (uint)bVar12 * -2 + 1;
+  }
+  puVar6[0x51d] = local_a1f;
+  puVar6[0x51e] = local_a1e;
+  *(undefined4 *)(puVar6 + 0x520) = local_a1c;
+  *(undefined4 *)(puVar6 + 0x524) = local_a18;
+  *(undefined4 *)(puVar6 + 0x528) = local_a14;
+  *(undefined4 *)(puVar6 + 0x52c) = local_a10;
+                    /* try { // try from 04151fc8 to 04151fdd has its CatchHandler @ 0415204a */
+  FUN_04150d90();
+  FUN_0414f170();
+  *(undefined4 **)(puVar6 + 0x554) = local_9e8;
+  pthread_mutex_unlock((pthread_mutex_t *)&DAT_0451add4);
+  iVar5 = 0xd;
+  pcVar8 = local_a0;
+  pcVar10 = "opengl32.dll";
+  do {
+    if (iVar5 == 0) break;
+    iVar5 = iVar5 + -1;
+    uVar11 = *pcVar8 == *pcVar10;
+    pcVar8 = pcVar8 + (uint)bVar12 * -2 + 1;
+    pcVar10 = pcVar10 + (uint)bVar12 * -2 + 1;
+  } while ((bool)uVar11);
+  if ((bool)uVar11) {
+    _DAT_04518dac = puVar2;
+  }
+  if (local_9f4 != (void *)0x0) {
+    operator_delete(local_9f4);
+  }
+  FUN_04153bf0(local_a0c,local_a04);
+  return puVar2;
+}
+

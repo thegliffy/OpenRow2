@@ -1,0 +1,22 @@
+
+undefined4 eON_IsValidLocale(uint param_1,undefined4 param_2)
+
+{
+  short sVar1;
+  uint uVar2;
+  ushort uVar3;
+  
+  uVar2 = (param_1 & 0xffff) >> 10;
+  uVar3 = (ushort)param_1 & 0x3ff;
+  sVar1 = (short)uVar2;
+  if ((sVar1 == 1) && ((param_1 & 0x3ff) == 0)) {
+    return 1;
+  }
+  if ((sVar1 == 2) && (uVar3 == 9)) {
+    return 1;
+  }
+  FUN_0402cd10(5,"IsValidLocale( ( lang = %u, sublang = %u, sort = %u ), dwFlags = %#x )",uVar3,
+               uVar2,(param_1 & 0xfffff) >> 0x10,param_2);
+  return 0;
+}
+

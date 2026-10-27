@@ -1,0 +1,100 @@
+
+/* source: direct3dbasetexture9imp, direct3dsurface9imp */
+
+undefined4 Direct3DSurface9Imp__OpenGLSide_SyncSurface(int param_1)
+
+{
+  undefined4 uVar1;
+  int iVar2;
+  
+  if (*(int *)(param_1 + 0x8c) == 1) {
+    if (*(int *)(param_1 + 0xd4) == 0) {
+      if (*(char *)(param_1 + 0x68) != '\0') {
+        FUN_0400a810("!RenderTargetDataTransferPending",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3dsurface9imp.cpp"
+                     ,0x4c5,"DWORD Direct3DSurface9Imp::OpenGLSide_SyncSurface(DWORD, LPVOID)");
+      }
+    }
+    else {
+      uVar1 = Direct3DDevice9Imp__GetContextCache(*(int *)(param_1 + 0x1c) + 0x40);
+      OpenGLContextCache____glewBindBuffer(uVar1,0x88eb,**(undefined4 **)(param_1 + 0xd4));
+      (*DAT_0451ed0c)(0x88eb,0,*(undefined4 *)(param_1 + 0xbc),
+                      *(undefined4 *)(*(int *)(param_1 + 200) + 4));
+      *(undefined1 *)(param_1 + 0x68) = 0;
+      Direct3DDevice9Imp__GRTD_Delete
+                (*(int *)(param_1 + 0x1c) + 0x40,*(undefined4 *)(param_1 + 0xd4));
+    }
+  }
+  else if (*(int *)(param_1 + 0xd0) == 0) {
+    iVar2 = *(int *)(param_1 + 0x90);
+    if (iVar2 == 0) {
+      FUN_0400a810("false",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3dsurface9imp.cpp"
+                   ,0x4ea,"DWORD Direct3DSurface9Imp::OpenGLSide_SyncSurface(DWORD, LPVOID)");
+    }
+    else {
+      if (*(int *)(iVar2 + 0x284) < 1) {
+        FUN_0400a810("(INT) mOpenGLTexturesCount > index",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3dbasetexture9imp.h"
+                     ,0x8c,"OpenGLTexture* Direct3DBaseTexture9Imp::GetOpenGLTexture(INT)");
+      }
+      iVar2 = *(int *)(iVar2 + 0x244);
+      if (iVar2 == 0) {
+        FUN_0400a810(&PTR_DAT_042e85bd,
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3dsurface9imp.cpp"
+                     ,0x4d2,"DWORD Direct3DSurface9Imp::OpenGLSide_SyncSurface(DWORD, LPVOID)");
+      }
+      uVar1 = Direct3DDevice9Imp__GetContextCache(*(int *)(param_1 + 0x1c) + 0x40);
+      FUN_0406d620(iVar2,uVar1);
+      uVar1 = *(undefined4 *)(*(int *)(param_1 + 200) + 4);
+      if (*(char *)(param_1 + 0xb0) == '\0') {
+        if ((*(uint *)(param_1 + 0xb8) & 3) == 0) {
+          (*DAT_0451eecc)(*(undefined4 *)(param_1 + 0xc4),*(undefined4 *)(param_1 + 0xc0),
+                          *(undefined4 *)(param_1 + 0xa8),*(undefined4 *)(param_1 + 0xa4),uVar1);
+        }
+        else {
+          glPixelStorei(0xd05,2 - (*(uint *)(param_1 + 0xb8) & 1));
+          (*DAT_0451eecc)(*(undefined4 *)(param_1 + 0xc4),*(undefined4 *)(param_1 + 0xc0),
+                          *(undefined4 *)(param_1 + 0xa8),*(undefined4 *)(param_1 + 0xa4),uVar1);
+          glPixelStorei(0xd05,4);
+        }
+      }
+      else {
+        (*DAT_0451ee8c)(*(undefined4 *)(param_1 + 0xc4),*(undefined4 *)(param_1 + 0xc0),uVar1);
+      }
+    }
+  }
+  else {
+    if (*(int *)(param_1 + 0x6c) == 0x4c4c554e) {
+      FUN_0400a810("mDesc.Format != D3DFMT_NULL",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3dsurface9imp.cpp"
+                   ,0x401,
+                   "void Direct3DSurface9Imp::TransferFromOpenGLThroughReadPixels(bool, const RECT&)"
+                  );
+    }
+    if (*(char *)(param_1 + 0xb0) != '\0') {
+      FUN_0400a810("!mCompressed",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3dsurface9imp.cpp"
+                   ,0x402,
+                   "void Direct3DSurface9Imp::TransferFromOpenGLThroughReadPixels(bool, const RECT&)"
+                  );
+    }
+    iVar2 = Direct3DDevice9Imp__GetContextCache(*(int *)(param_1 + 0x1c) + 0x40);
+    FramebufferCache__GetFramebufferHash(iVar2 + 0x1f8,*(undefined4 *)(param_1 + 0xc),0,0,0,0,0);
+    if ((*(uint *)(param_1 + 0xb8) & 3) == 0) {
+      glReadPixels(0,0,*(undefined4 *)(param_1 + 0x84),*(undefined4 *)(param_1 + 0x88),
+                   *(undefined4 *)(param_1 + 0xa8),*(undefined4 *)(param_1 + 0xa4),
+                   *(undefined4 *)(*(int *)(param_1 + 200) + 4));
+    }
+    else {
+      glPixelStorei(0xd05,2 - (*(uint *)(param_1 + 0xb8) & 1));
+      glReadPixels(0,0,*(undefined4 *)(param_1 + 0x84),*(undefined4 *)(param_1 + 0x88),
+                   *(undefined4 *)(param_1 + 0xa8),*(undefined4 *)(param_1 + 0xa4),
+                   *(undefined4 *)(*(int *)(param_1 + 200) + 4));
+      glPixelStorei(0xd05,4);
+    }
+  }
+  eON_SetEvent(*(undefined4 *)(*(int *)(param_1 + 0x1c) + 0xed00));
+  return 0;
+}
+

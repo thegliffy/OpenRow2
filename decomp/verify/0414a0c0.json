@@ -1,0 +1,181 @@
+
+/* WARNING: Removing unreachable block (ram,0x0414a484) */
+/* WARNING: Removing unreachable block (ram,0x0414a44b) */
+/* WARNING: Removing unreachable block (ram,0x0414a45c) */
+/* source: synchronisationPrimitives */
+
+undefined4 Synchronisation_ObjectExistsForName(char *param_1,int *param_2)
+
+{
+  int iVar1;
+  uint uVar2;
+  uint uVar3;
+  undefined1 *__s2;
+  undefined *puVar4;
+  int iVar5;
+  int *piVar6;
+  uint uVar7;
+  undefined *puVar8;
+  bool bVar9;
+  undefined4 local_4c;
+  undefined *local_48;
+  undefined1 *local_44;
+  undefined *local_40;
+  void *local_2c;
+  undefined1 *local_28;
+  allocator local_21;
+  allocator local_20 [16];
+  
+  pthread_mutex_lock((pthread_mutex_t *)&DAT_04516c7c);
+  std::string::string((string *)&local_2c,param_1,&local_21);
+  if (DAT_04518d80 == (undefined *)0x0) {
+    local_4c = 0;
+    bVar9 = false;
+  }
+  else {
+    local_48 = &DAT_04518d7c;
+    uVar2 = *(uint *)((int)local_2c + -0xc);
+    puVar4 = DAT_04518d80;
+    do {
+      while( true ) {
+        puVar8 = puVar4;
+        uVar3 = *(uint *)((int)*(void **)(puVar8 + 0x10) + -0xc);
+        uVar7 = uVar3;
+        if (uVar2 <= uVar3) {
+          uVar7 = uVar2;
+        }
+        iVar5 = memcmp(*(void **)(puVar8 + 0x10),local_2c,uVar7);
+        if (iVar5 == 0) {
+          iVar5 = uVar3 - uVar2;
+        }
+        if (-1 < iVar5) break;
+        puVar4 = *(undefined **)(puVar8 + 0xc);
+        if (*(undefined **)(puVar8 + 0xc) == (undefined *)0x0) goto LAB_0414a14c;
+      }
+      puVar4 = *(undefined **)(puVar8 + 8);
+      local_48 = puVar8;
+    } while (*(undefined **)(puVar8 + 8) != (undefined *)0x0);
+LAB_0414a14c:
+    bVar9 = false;
+    local_4c = 0;
+    if (local_48 != &DAT_04518d7c) {
+      uVar3 = *(uint *)((int)*(void **)(local_48 + 0x10) + -0xc);
+      uVar7 = uVar3;
+      if (uVar2 <= uVar3) {
+        uVar7 = uVar2;
+      }
+      iVar5 = memcmp(local_2c,*(void **)(local_48 + 0x10),uVar7);
+      if (iVar5 == 0) {
+        iVar5 = uVar2 - uVar3;
+      }
+      if (-1 < iVar5) {
+        local_4c = 1;
+        bVar9 = param_2 != (int *)0x0;
+      }
+    }
+  }
+  if ((allocator *)((int)local_2c + -0xc) != (allocator *)&std::string::_Rep::_S_empty_rep_storage)
+  {
+    LOCK();
+    piVar6 = (int *)((int)local_2c + -4);
+    iVar5 = *piVar6;
+    *piVar6 = *piVar6 + -1;
+    UNLOCK();
+    if (iVar5 < 1) {
+      std::string::_Rep::_M_destroy((allocator *)((int)local_2c + -0xc));
+    }
+  }
+  if (!bVar9) {
+    pthread_mutex_unlock((pthread_mutex_t *)&DAT_04516c7c);
+    return local_4c;
+  }
+  std::string::string((string *)&local_28,param_1,local_20);
+  __s2 = local_28;
+  if (DAT_04518d80 != (undefined *)0x0) {
+    local_48 = &DAT_04518d7c;
+    local_44 = local_28;
+    uVar2 = *(uint *)(local_28 + -0xc);
+    puVar4 = DAT_04518d80;
+    do {
+      while( true ) {
+        puVar8 = puVar4;
+        uVar3 = *(uint *)((int)*(void **)(puVar8 + 0x10) + -0xc);
+        uVar7 = uVar3;
+        if (uVar2 <= uVar3) {
+          uVar7 = uVar2;
+        }
+        iVar5 = memcmp(*(void **)(puVar8 + 0x10),__s2,uVar7);
+        if (iVar5 == 0) {
+          iVar5 = uVar3 - uVar2;
+        }
+        if (-1 < iVar5) break;
+        puVar4 = *(undefined **)(puVar8 + 0xc);
+        if (*(undefined **)(puVar8 + 0xc) == (undefined *)0x0) goto LAB_0414a21c;
+      }
+      puVar4 = *(undefined **)(puVar8 + 8);
+      local_48 = puVar8;
+    } while (*(undefined **)(puVar8 + 8) != (undefined *)0x0);
+LAB_0414a21c:
+    if (local_48 != &DAT_04518d7c) {
+      uVar3 = *(uint *)((int)*(void **)(local_48 + 0x10) + -0xc);
+      uVar7 = uVar3;
+      if (uVar2 <= uVar3) {
+        uVar7 = uVar2;
+      }
+      iVar5 = memcmp(__s2,*(void **)(local_48 + 0x10),uVar7);
+      if (iVar5 == 0) {
+        iVar5 = uVar2 - uVar3;
+      }
+      if (-1 < iVar5) goto LAB_0414a293;
+    }
+  }
+  local_28 = &DAT_04410d0c;
+                    /* try { // try from 0414a270 to 0414a274 has its CatchHandler @ 0414a39d */
+  FUN_04148950();
+  local_48 = local_40;
+  if ((allocator *)(__s2 + -0xc) == (allocator *)&std::string::_Rep::_S_empty_rep_storage) {
+    local_44 = local_28;
+  }
+  else {
+    LOCK();
+    piVar6 = (int *)(__s2 + -4);
+    iVar5 = *piVar6;
+    *piVar6 = *piVar6 + -1;
+    UNLOCK();
+    if (iVar5 < 1) {
+      std::string::_Rep::_M_destroy((allocator *)(__s2 + -0xc));
+      local_44 = local_28;
+    }
+    else {
+      local_44 = local_28;
+    }
+  }
+LAB_0414a293:
+  iVar5 = *(int *)(local_48 + 0x14);
+  if ((allocator *)(local_44 + -0xc) != (allocator *)&std::string::_Rep::_S_empty_rep_storage) {
+    LOCK();
+    piVar6 = (int *)(local_44 + -4);
+    iVar1 = *piVar6;
+    *piVar6 = *piVar6 + -1;
+    UNLOCK();
+    if (iVar1 < 1) {
+      std::string::_Rep::_M_destroy((allocator *)(local_44 + -0xc));
+    }
+  }
+  if (iVar5 != 0) {
+    if ((((DAT_04516c6c == '\0') || (iVar5 < 0)) || (DAT_04516c74 - DAT_04516c70 >> 2 <= iVar5)) ||
+       (piVar6 = *(int **)(DAT_04516c70 + iVar5 * 4), piVar6 == (int *)0x0)) {
+      FUN_0400a810(&DAT_04334813,
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/synchronisationPrimitives.cpp"
+                   ,0x65c,"WINBOOL Synchronisation_ObjectExistsForName(LPCSTR, void**)");
+      piVar6 = (int *)0x0;
+    }
+    if (*piVar6 == 6) {
+      piVar6[1] = piVar6[1] + 1;
+      *param_2 = iVar5;
+    }
+  }
+  pthread_mutex_unlock((pthread_mutex_t *)&DAT_04516c7c);
+  return 1;
+}
+

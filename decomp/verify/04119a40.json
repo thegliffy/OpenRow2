@@ -1,0 +1,35 @@
+
+void Registry_ForceRemoveOpenKey(int param_1)
+
+{
+  int *piVar1;
+  int *piVar2;
+  
+  piVar1 = DAT_04512a60;
+  if (DAT_04512a60 == (int *)0x0) {
+    return;
+  }
+  if (*DAT_04512a60 == param_1) {
+    FUN_0402cd10(0xf,
+                 "Forcibly removing a key that\'s currently open, as game deleted it in registry! This is not a good behaviour."
+                );
+    DAT_04512a60 = (int *)piVar1[2];
+  }
+  else {
+    do {
+      piVar2 = piVar1;
+      piVar1 = (int *)piVar2[2];
+      if (piVar1 == (int *)0x0) {
+        return;
+      }
+    } while (*piVar1 != param_1);
+    FUN_0402cd10(0xf,
+                 "Forcibly removing a key that\'s currently open, as game deleted it in registry! This is not a good behaviour."
+                );
+    piVar2[2] = piVar1[2];
+  }
+  piVar1[2] = (int)DAT_04512a64;
+  DAT_04512a64 = piVar1;
+  return;
+}
+

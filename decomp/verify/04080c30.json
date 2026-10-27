@@ -1,0 +1,54 @@
+
+/* source: d3dstructs */
+
+void Direct3DDevice9Imp__AddResourceToPool(int param_1,int param_2,int param_3)
+
+{
+  undefined4 uVar1;
+  int iVar2;
+  int iVar3;
+  pthread_mutex_t *__mutex;
+  
+  if (param_3 == 1) {
+    iVar3 = param_1 + 0xea84;
+    __mutex = (pthread_mutex_t *)(param_1 + 0xea90);
+  }
+  else {
+    iVar3 = param_1 + 60000;
+    __mutex = (pthread_mutex_t *)(param_1 + 0xea6c);
+    if (param_3 != 0) {
+      if (param_3 == 2) {
+        iVar3 = param_1 + 0xeaa8;
+        __mutex = (pthread_mutex_t *)(param_1 + 0xeab4);
+      }
+      else {
+        if (param_3 != 3) {
+          FUN_0402cd10();
+          return;
+        }
+        iVar3 = param_1 + 0xeacc;
+        __mutex = (pthread_mutex_t *)(param_1 + 0xead8);
+      }
+    }
+  }
+  pthread_mutex_lock(__mutex);
+  if (*(int *)(param_2 + 0x18) != 0) {
+    FUN_0400a810("Prev == __null",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/d3dstructs.h"
+                 ,0x26,"void eON_ListElement::AddToList(eON_ListElement*)");
+  }
+  if (*(int *)(param_2 + 0x1c) != 0) {
+    FUN_0400a810("Next == __null",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/d3dstructs.h"
+                 ,0x27,"void eON_ListElement::AddToList(eON_ListElement*)");
+  }
+  uVar1 = *(undefined4 *)(iVar3 + 8);
+  *(int *)(param_2 + 0x18) = iVar3;
+  *(undefined4 *)(param_2 + 0x1c) = uVar1;
+  iVar2 = *(int *)(iVar3 + 8);
+  *(int *)(iVar3 + 8) = param_2 + 0x14;
+  *(int *)(iVar2 + 4) = param_2 + 0x14;
+  pthread_mutex_unlock(__mutex);
+  return;
+}
+

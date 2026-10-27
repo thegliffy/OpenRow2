@@ -1,0 +1,15 @@
+
+void png_chunk_error(int param_1,undefined4 param_2)
+
+{
+  undefined1 local_e2 [218];
+  
+  if (param_1 != 0) {
+    png_safecat();
+                    /* WARNING: Subroutine does not return */
+    png_error(param_1,local_e2);
+  }
+                    /* WARNING: Subroutine does not return */
+  png_error(0,param_2);
+}
+

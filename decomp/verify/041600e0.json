@@ -1,0 +1,26 @@
+
+undefined4 GUID_FormatUpper(undefined4 *param_1,undefined4 param_2,int param_3)
+
+{
+  undefined4 uVar1;
+  int iVar2;
+  undefined4 uVar3;
+  char local_47 [47];
+  undefined4 *local_18;
+  
+  iVar2 = param_3;
+  uVar1 = param_2;
+  local_18 = &param_1;
+  uVar3 = 0;
+  if (0x26 < param_3) {
+    sprintf(local_47,"{%08X-%04X-%04X-%02X%02X-%02X%02X%02X%02X%02X%02X}",*param_1,
+            (uint)*(ushort *)(param_1 + 1),(uint)*(ushort *)((int)param_1 + 6),
+            (uint)*(byte *)(param_1 + 2),(uint)*(byte *)((int)param_1 + 9),
+            (uint)*(byte *)((int)param_1 + 10),(uint)*(byte *)((int)param_1 + 0xb),
+            (uint)*(byte *)(param_1 + 3),(uint)*(byte *)((int)param_1 + 0xd),
+            (uint)*(byte *)((int)param_1 + 0xe),(uint)*(byte *)((int)param_1 + 0xf));
+    uVar3 = eON_MultiByteToWideChar(0,0,local_47,0xffffffff,uVar1,iVar2);
+  }
+  return uVar3;
+}
+

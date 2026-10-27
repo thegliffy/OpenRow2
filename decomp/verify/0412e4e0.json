@@ -1,0 +1,25 @@
+
+void __regparm3 eON_LogGameStdout(void *param_1,uint param_2)
+
+{
+  void *__dest;
+  undefined1 local_10c [256];
+  
+  if (param_2 < 0x100) {
+    local_10c[param_2] = 0;
+    memcpy(local_10c,param_1,param_2);
+    FUN_0402cd10(0x14,"Game stdout/err: %s",local_10c);
+  }
+  else {
+    __dest = malloc(param_2 + 1);
+    *(undefined1 *)((int)__dest + param_2) = 0;
+    memcpy(__dest,param_1,param_2);
+    FUN_0402cd10(0x14,"Game stdout/err: %s",__dest);
+    if (__dest != (void *)0x0) {
+      free(__dest);
+      return;
+    }
+  }
+  return;
+}
+

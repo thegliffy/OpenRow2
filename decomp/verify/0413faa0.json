@@ -1,0 +1,99 @@
+
+/* source: MemoryHandleManager */
+
+uint MemoryHandleManager__GetFreeSlot(int *param_1)
+
+{
+  ushort uVar1;
+  int iVar2;
+  int iVar3;
+  uint uVar4;
+  undefined4 *puVar5;
+  int iVar6;
+  undefined4 *puVar7;
+  undefined1 local_4c [4];
+  undefined1 local_48 [8];
+  undefined4 local_40;
+  undefined4 local_3c;
+  undefined4 local_38;
+  int local_34;
+  int local_30;
+  uint local_24;
+  int *local_20;
+  
+  iVar6 = 0;
+  uVar4 = 0;
+  puVar5 = &local_3c;
+  uVar1 = *(ushort *)(param_1 + 1);
+  iVar3 = *param_1;
+  if (uVar1 == 0) {
+LAB_0413faea:
+    local_24 = uVar1 + 0x10;
+    *(short *)(param_1 + 1) = (short)local_24;
+    local_20 = param_1;
+    if (iVar3 == 0) {
+      local_40 = 0x413fbb5;
+      local_3c = eON_GetProcessHeap();
+      local_38 = 8;
+      local_34 = (local_24 & 0xffff) << 3;
+      local_40 = 0x413fbd2;
+      iVar3 = HeapAlloc();
+      puVar5 = (undefined4 *)local_48;
+      *local_20 = iVar3;
+    }
+    else {
+      local_40 = 0x413fb04;
+      local_3c = eON_GetProcessHeap();
+      local_38 = 8;
+      local_30 = (local_24 & 0xffff) << 3;
+      local_40 = 0x413fb25;
+      local_34 = iVar3;
+      iVar3 = HeapRealloc();
+      puVar5 = (undefined4 *)local_4c;
+      *local_20 = iVar3;
+    }
+    if (iVar3 == 0) {
+      puVar5[3] = "WORD MemoryHandleManager::GetFreeSlot()";
+      puVar5[2] = 0x17f;
+      puVar5[1] = 
+      "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/MemoryHandleManager.cpp"
+      ;
+      *puVar5 = "mBuffer";
+      puVar5[-1] = 0x413fbab;
+      FUN_0400a810();
+    }
+  }
+  else {
+    if ((*(byte *)(iVar3 + 5) & 1) == 0) goto LAB_0413fb37;
+    iVar2 = 8;
+    do {
+      iVar6 = iVar2;
+      uVar4 = uVar4 + 1;
+      if ((ushort)uVar4 == uVar1) {
+        iVar6 = (uVar4 & 0xffff) << 3;
+        goto LAB_0413faea;
+      }
+      local_20 = param_1;
+      iVar2 = iVar6 + 8;
+    } while ((*(byte *)(iVar3 + 5 + iVar6) & 1) != 0);
+  }
+  param_1 = local_20;
+  if (0xfffd < (ushort)uVar4) {
+    puVar5[3] = "WORD MemoryHandleManager::GetFreeSlot()";
+    puVar5[2] = 0x182;
+    puVar5[1] = 
+    "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/MemoryHandleManager.cpp"
+    ;
+    *puVar5 = "i < 0xFFFE";
+    puVar5[-1] = 0x413fb7f;
+    FUN_0400a810();
+    param_1 = local_20;
+  }
+LAB_0413fb37:
+  puVar7 = (undefined4 *)(iVar6 + *param_1);
+  *(byte *)((int)puVar7 + 5) = *(byte *)((int)puVar7 + 5) | 1;
+  *(undefined1 *)(puVar7 + 1) = 0;
+  *puVar7 = 0;
+  return uVar4;
+}
+

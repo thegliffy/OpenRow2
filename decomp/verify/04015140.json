@@ -1,0 +1,92 @@
+
+/* source: cursorLinux */
+
+undefined4
+eON_CursorLinux__CreateFromBitPlanes
+          (int *param_1,int param_2,int param_3,uint param_4,int param_5,undefined4 param_6,
+          undefined4 param_7)
+
+{
+  byte bVar1;
+  undefined4 *puVar2;
+  int iVar3;
+  int iVar4;
+  undefined4 uVar5;
+  uint uVar6;
+  uint uVar7;
+  char cVar8;
+  uint uVar9;
+  int local_2c;
+  uint local_28;
+  int local_24;
+  
+  FUN_0400e440(param_1);
+  (**(code **)(*param_1 + 0x1c))(param_1,1);
+  if ((param_4 & 7) != 0) {
+    FUN_0400a810("width % 8 == 0",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/linux/cursorLinux.cpp",
+                 0x135,
+                 "virtual bool eON_CursorLinux::CreateFromBitPlanes(const void*, const void*, uint32_t, uint32_t, uint32_t, uint32_t)"
+                );
+  }
+  iVar3 = SDL_CreateRGBSurface(0,param_4,param_5,0x20,0xff0000,0xff00,0xff,0xff000000);
+  if (iVar3 == 0) {
+    FUN_0400a810("surface",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/linux/cursorLinux.cpp",
+                 0x139,
+                 "virtual bool eON_CursorLinux::CreateFromBitPlanes(const void*, const void*, uint32_t, uint32_t, uint32_t, uint32_t)"
+                );
+  }
+  iVar4 = SDL_LockSurface(iVar3);
+  if (iVar4 != 0) {
+    FUN_0400a810("SDL_LockSurface( surface ) == 0",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/linux/cursorLinux.cpp",
+                 0x13b,
+                 "virtual bool eON_CursorLinux::CreateFromBitPlanes(const void*, const void*, uint32_t, uint32_t, uint32_t, uint32_t)"
+                );
+  }
+  local_2c = *(int *)(iVar3 + 0x14);
+  if (param_5 != 0) {
+    local_28 = 0;
+    local_24 = 0;
+    do {
+      if (param_4 != 0) {
+        uVar7 = 0;
+        iVar4 = local_2c + 4;
+        do {
+          while( true ) {
+            uVar9 = uVar7 >> 3;
+            uVar6 = ~uVar7;
+            if ((*(byte *)(param_2 + uVar9 + (local_28 >> 3)) >> (uVar6 & 7) & 1) != 0) break;
+            uVar7 = uVar7 + 1;
+            bVar1 = *(byte *)(uVar9 + param_3 + local_24 * 4);
+            *(undefined1 *)(iVar4 + -1) = 0xff;
+            cVar8 = -((byte)((int)(uint)bVar1 >> (sbyte)(uVar6 & 7)) & 1);
+            *(char *)(iVar4 + -4) = cVar8;
+            *(char *)(iVar4 + -3) = cVar8;
+            *(char *)(iVar4 + -2) = cVar8;
+            iVar4 = iVar4 + 4;
+            if (uVar7 == param_4) goto LAB_0401527e;
+          }
+          uVar7 = uVar7 + 1;
+          *(undefined1 *)(iVar4 + -4) = 0;
+          *(undefined1 *)(iVar4 + -3) = 0;
+          *(undefined1 *)(iVar4 + -2) = 0;
+          *(undefined1 *)(iVar4 + -1) = 0;
+          iVar4 = iVar4 + 4;
+        } while (uVar7 != param_4);
+LAB_0401527e:
+        local_2c = local_2c + param_4 * 4;
+      }
+      local_24 = local_24 + 1;
+      local_28 = local_28 + param_4;
+    } while (local_24 != param_5);
+  }
+  SDL_UnlockSurface(iVar3);
+  puVar2 = (undefined4 *)param_1[0x10];
+  uVar5 = SDL_CreateColorCursor(iVar3,param_6,param_7);
+  *puVar2 = uVar5;
+  SDL_FreeSurface(iVar3);
+  return CONCAT31((int3)((uint)*(int *)param_1[0x10] >> 8),*(int *)param_1[0x10] != 0);
+}
+

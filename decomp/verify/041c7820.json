@@ -1,0 +1,33 @@
+
+/* source: tinyxmlparser */
+
+undefined4 TiXmlBase__StringEqual(char *param_1,int param_2)
+
+{
+  undefined4 uVar1;
+  
+  if (param_1 == (char *)0x0) {
+    FUN_0400a810(&DAT_04361ca0,
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxmlparser.cpp"
+                 ,0x21b,
+                 "static bool TiXmlBase::StringEqual(const char*, const char*, bool, TiXmlEncoding)"
+                );
+  }
+  if (param_2 == 0) {
+    FUN_0400a810(&PTR_DAT_0435cf24,
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxmlparser.cpp"
+                 ,0x21c,
+                 "static bool TiXmlBase::StringEqual(const char*, const char*, bool, TiXmlEncoding)"
+                );
+  }
+  if ((param_1 != (char *)0x0) && (*param_1 != '\0')) {
+    uVar1 = TiXmlBase__StringEqual();
+    return uVar1;
+  }
+  FUN_0400a810("0",
+               "/home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxmlparser.cpp"
+               ,0x21f,
+               "static bool TiXmlBase::StringEqual(const char*, const char*, bool, TiXmlEncoding)");
+  return 0;
+}
+

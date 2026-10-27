@@ -1,0 +1,18 @@
+
+undefined4 VPFS_UnpackArchive(undefined4 param_1)
+
+{
+  int iVar1;
+  
+  iVar1 = FUN_040491e0();
+  if (iVar1 != 0) {
+    VPFS_UnpackFolderContents();
+    if (DAT_04417800 != '\0') {
+      FUN_0403e230();
+    }
+    return 1;
+  }
+  FUN_0402cd10(0xf,"VPFS_UnpackArchive() error - failed to open archive set: %s",param_1);
+  return 0;
+}
+

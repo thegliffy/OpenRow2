@@ -1,0 +1,318 @@
+
+/* source: fixedPipelineEmulation */
+
+void __regparm3
+fixedPipelineEmulation_040bd330
+          (char *param_1,undefined4 param_2,undefined4 param_3,byte *param_4,char *param_5,
+          undefined4 param_6,char param_7,byte param_8,byte param_9,char param_10)
+
+{
+  byte bVar1;
+  bool bVar2;
+  bool bVar3;
+  int iVar4;
+  char *pcVar5;
+  char *pcVar6;
+  undefined **ppuVar7;
+  int *piVar8;
+  bool bVar9;
+  byte bVar10;
+  char *pcVar11;
+  char *local_90;
+  int local_80 [20];
+  undefined4 local_30;
+  undefined2 local_2c;
+  undefined4 local_2a;
+  undefined1 local_26;
+  undefined4 local_25;
+  undefined1 local_21;
+  undefined2 local_20;
+  undefined1 local_1e;
+  char local_1d [13];
+  
+  bVar10 = 0;
+  local_30 = 0x6161612e;
+  local_2a = 0x6161612e;
+  local_2c = 0x61;
+  local_1d[0] = '\0';
+  local_26 = 0;
+  local_25 = 0x6267722e;
+  local_21 = 0;
+  local_20 = 0x612e;
+  local_1e = 0;
+  if (param_10 == '\0') {
+    if (param_7 != '\0') {
+      local_90 = (char *)&local_25;
+      if ((param_8 & 0x20) != 0) {
+        local_90 = (char *)&local_2a;
+      }
+      pcVar6 = (char *)&local_25;
+      goto LAB_040bd3ca;
+    }
+    pcVar6 = (char *)&local_20;
+    bVar3 = false;
+    bVar2 = false;
+    local_90 = pcVar6;
+  }
+  else {
+    if (param_7 == '\0') {
+      FUN_0400a810("colorArg",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/fixedPipelineEmulation.cpp"
+                   ,0x47e,
+                   "void FragmentShaderCompiler::PrepareArg(TextBuffer&, TextBuffer&, const FragmentShaderConfig&, int32_t, int32_t, bool, uint8_t, uint8_t, bool)"
+                  );
+    }
+    local_90 = local_1d;
+    if ((param_8 & 0x20) != 0) {
+      local_90 = (char *)&local_30;
+    }
+    pcVar6 = local_1d;
+    if (param_7 == '\0') {
+LAB_040bd4f8:
+      bVar3 = false;
+      bVar2 = false;
+    }
+    else {
+LAB_040bd3ca:
+      bVar3 = false;
+      bVar2 = false;
+      if ((param_8 & 0xf) == 2) {
+        if (((param_9 & 0x10) == 0) || ((int)param_5 < 1)) goto LAB_040bd4f8;
+        pcVar5 = param_5 + -1;
+        if (param_4[(int)pcVar5 * 10 + 1] != 0x16) {
+          if (param_4[(int)pcVar5 * 10 + 1] != 0x17) goto LAB_040bd3e6;
+          bVar3 = true;
+        }
+        if ((*param_4 & 0x40) == 0) {
+          eON_AppendShaderCompileMessage
+                    (param_2,
+                     "\tbumpEnvMapPixel.rg = bumpEnvMapPixel.rr * BumpEnvMap%u.rg + bumpEnvMapPixel.gg * BumpEnvMap%u.ba;\n"
+                     ,pcVar5,pcVar5);
+        }
+        else {
+          eON_AppendShaderCompileMessage
+                    (param_2,
+                     "\tbumpEnvMapPixel.rg = bumpEnvMapPixel.rr * BumpEnvMap[%u].rg + bumpEnvMapPixel.gg * BumpEnvMap[%u].ba;\n"
+                     ,pcVar5,pcVar5);
+        }
+        if (bVar3) {
+          if ((*param_4 & 0x40) == 0) {
+            pcVar11 = 
+            "\tbumpEnvMapPixel.b = bumpEnvMapPixel.b * LuminanceScaleOffset%u.r + LuminanceScaleOffset%u.g;\n"
+            ;
+          }
+          else {
+            pcVar11 = 
+            "\tbumpEnvMapPixel.b = bumpEnvMapPixel.b * LuminanceScaleOffset[%u].r + LuminanceScaleOffset[%u].g;\n"
+            ;
+          }
+          eON_AppendShaderCompileMessage(param_2,pcVar11,pcVar5,pcVar5);
+          bVar2 = true;
+        }
+        else {
+          bVar2 = true;
+        }
+      }
+    }
+  }
+LAB_040bd3e6:
+  pcVar5 = (char *)(uint)param_8;
+  eON_AppendShaderCompileMessage(param_2,"\tStageArg%u%s = ",param_6,pcVar6);
+  bVar9 = (param_8 & 0x10) != 0;
+  if (bVar9) {
+    if (param_7 == '\0') {
+      eON_AppendShaderCompileMessage(param_2,"( 1.0 - ",param_6,pcVar6);
+    }
+    else {
+      eON_AppendShaderCompileMessage(param_2,"( vec3( 1.0 ) - ",param_6,pcVar6);
+    }
+  }
+  switch((uint)pcVar5 & 0xf) {
+  case 0:
+    goto switchD_040bd4d0_caseD_0;
+  case 1:
+    if (param_5 != (char *)0x0) {
+      eON_AppendShaderCompileMessage(param_2,"currentRegister%s",local_90,pcVar6);
+      pcVar5 = local_90;
+      break;
+    }
+    goto switchD_040bd4d0_caseD_0;
+  case 2:
+    if ((param_9 & 0x10) != 0) {
+      if (bVar2) {
+        pcVar5 = " + bumpEnvMapPixel.rg";
+        fixedPipelineEmulation_040bca60
+                  (param_5,param_9," + bumpEnvMapPixel.rg",local_90,(*param_4 & 0x20) != 0,
+                   (*param_4 & 0x40) != 0);
+      }
+      else {
+        pcVar5 = param_5;
+        eON_AppendShaderCompileMessage(param_2,"texSample%u%s",param_5,local_90);
+        param_1[3] = param_1[3] | (byte)(1 << ((byte)param_5 & 0x1f));
+      }
+      pcVar6 = local_90;
+      if (bVar3) {
+        eON_AppendShaderCompileMessage(param_2," * bumpEnvMapPixel.b",pcVar5,local_90);
+        pcVar6 = local_90;
+      }
+      break;
+    }
+switchD_040bd4d0_caseD_0:
+    pcVar5 = "gl_Color";
+    if ((*param_4 & 0x20) != 0) {
+      if (param_4[0x58] == 0) {
+LAB_040bdb0d:
+        iVar4 = 0;
+      }
+      else {
+        pcVar5 = "vec4(0.0)";
+        if (param_4[0x58] == 0xff) goto LAB_040bd618;
+        if (param_4[0x5a] == 0) {
+LAB_040bdb14:
+          iVar4 = 1;
+        }
+        else {
+          if (param_4[0x5a] == 0xff) goto LAB_040bd618;
+          if (param_4[0x5c] == 0) {
+LAB_040bdb1e:
+            iVar4 = 2;
+          }
+          else {
+            if (param_4[0x5c] == 0xff) goto LAB_040bd618;
+            if (param_4[0x5e] == 0) {
+LAB_040bdb28:
+              iVar4 = 3;
+            }
+            else {
+              if (param_4[0x5e] == 0xff) goto LAB_040bd618;
+              if (param_4[0x60] == 0) {
+LAB_040bdb32:
+                iVar4 = 4;
+              }
+              else {
+                if (param_4[0x60] == 0xff) goto LAB_040bd618;
+                if (param_4[0x62] == 0) {
+LAB_040bdb3c:
+                  iVar4 = 5;
+                }
+                else {
+                  if (param_4[0x62] == 0xff) goto LAB_040bd618;
+                  if (param_4[100] == 0) {
+LAB_040bdb46:
+                    iVar4 = 6;
+                  }
+                  else {
+                    if (param_4[100] == 0xff) goto LAB_040bd618;
+                    if (param_4[0x66] == 0) {
+LAB_040bdb50:
+                      iVar4 = 7;
+                    }
+                    else {
+                      if (param_4[0x66] == 0xff) goto LAB_040bd618;
+                      if (param_4[0x68] == 0) {
+LAB_040bdb5a:
+                        iVar4 = 8;
+                      }
+                      else {
+                        if ((param_4[0x68] == 0xff) || (param_4[0x6a] != 0)) goto LAB_040bd618;
+LAB_040bd8e3:
+                        iVar4 = 9;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      bVar1 = param_4[iVar4 * 2 + 0x59];
+      ppuVar7 = &PTR_s_eON_Varyings_0__042ff180;
+      piVar8 = local_80;
+      for (iVar4 = 0x14; iVar4 != 0; iVar4 = iVar4 + -1) {
+        *piVar8 = (int)*ppuVar7;
+        ppuVar7 = ppuVar7 + (uint)bVar10 * -2 + 1;
+        piVar8 = piVar8 + (uint)bVar10 * -2 + 1;
+      }
+      pcVar5 = (char *)local_80[(uint)bVar1 * 2];
+    }
+LAB_040bd618:
+    eON_AppendShaderCompileMessage(param_2,"%s%s",pcVar5,local_90);
+    pcVar6 = local_90;
+    break;
+  case 3:
+    eON_AppendShaderCompileMessage(param_2,"TextureFactor%s",local_90,pcVar6);
+    pcVar5 = local_90;
+    if (*param_1 == '\0') {
+      if ((*param_4 & 0x40) == 0) {
+        eON_AppendShaderCompileMessage(param_3,"uniform vec4 TextureFactor;\n",local_90,pcVar6);
+      }
+      *param_1 = '\x01';
+      pcVar5 = local_90;
+    }
+    break;
+  case 4:
+    pcVar5 = "gl_SecondaryColor";
+    if ((*param_4 & 0x20) != 0) {
+      if (param_4[0x58] == 1) goto LAB_040bdb0d;
+      pcVar5 = "vec4(0.0)";
+      if (param_4[0x58] == 0xff) goto LAB_040bd618;
+      if (param_4[0x5a] == 1) goto LAB_040bdb14;
+      if (param_4[0x5a] == 0xff) goto LAB_040bd618;
+      if (param_4[0x5c] == 1) goto LAB_040bdb1e;
+      if (param_4[0x5c] == 0xff) goto LAB_040bd618;
+      if (param_4[0x5e] == 1) goto LAB_040bdb28;
+      if (param_4[0x5e] == 0xff) goto LAB_040bd618;
+      if (param_4[0x60] == 1) goto LAB_040bdb32;
+      if (param_4[0x60] == 0xff) goto LAB_040bd618;
+      if (param_4[0x62] == 1) goto LAB_040bdb3c;
+      if (param_4[0x62] == 0xff) goto LAB_040bd618;
+      if (param_4[100] == 1) goto LAB_040bdb46;
+      if (param_4[100] == 0xff) goto LAB_040bd618;
+      if (param_4[0x66] == 1) goto LAB_040bdb50;
+      if (param_4[0x66] == 0xff) goto LAB_040bd618;
+      if (param_4[0x68] == 1) goto LAB_040bdb5a;
+      if ((param_4[0x68] == 0xff) || (param_4[0x6a] != 1)) goto LAB_040bd618;
+      goto LAB_040bd8e3;
+    }
+    goto LAB_040bd618;
+  case 5:
+    eON_AppendShaderCompileMessage(param_2,"tempRegister%s",local_90,pcVar6);
+    pcVar5 = local_90;
+    break;
+  case 6:
+    if ((*param_4 & 0x40) == 0) {
+      pcVar5 = param_5;
+      eON_AppendShaderCompileMessage(param_2,"TextureStageConstant%u%s",param_5,local_90);
+    }
+    else {
+      pcVar5 = param_5;
+      eON_AppendShaderCompileMessage(param_2,"TextureStageConstant[%u]%s",param_5,local_90);
+    }
+    bVar10 = param_1[1];
+    pcVar6 = local_90;
+    if ((bVar10 >> ((uint)param_5 & 0x1f) & 1) == 0) {
+      if ((*param_4 & 0x40) == 0) {
+        pcVar5 = param_5;
+        eON_AppendShaderCompileMessage
+                  (param_3,"uniform vec4 TextureStageConstant%u;\n",param_5,local_90);
+        bVar10 = param_1[1];
+      }
+      param_1[1] = (byte)(1 << ((byte)param_5 & 0x1f)) | bVar10;
+      pcVar6 = local_90;
+    }
+    break;
+  default:
+    FUN_0402cd10(0xf,"Unrecognized texture stage arg type ( %u ) in texture stage %u!",pcVar5,
+                 param_5);
+    eON_AppendShaderCompileMessage(param_2,"(unknown)");
+    pcVar6 = param_5;
+  }
+  if (bVar9) {
+    eON_AppendShaderCompileMessage(param_2," );\n",pcVar5,pcVar6);
+    return;
+  }
+  eON_AppendShaderCompileMessage(param_2,";\n",pcVar5,pcVar6);
+  return;
+}
+

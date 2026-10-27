@@ -1,0 +1,55 @@
+
+/* source: xaudio2impl */
+
+void XAudio2Imp__ExecuteOperation(undefined4 param_1,int param_2)
+
+{
+  undefined4 uVar1;
+  
+  switch(*(undefined4 *)(param_2 + 4)) {
+  case 0:
+    XAudio2VoiceImp__Real_SetFilterParameters();
+    return;
+  case 1:
+    uVar1 = 0;
+    break;
+  case 2:
+    uVar1 = 1;
+    break;
+  case 3:
+    XAudio2VoiceImp__Real_SetChannelVolumes();
+    return;
+  case 4:
+    XAudio2VoiceImp__Real_SetEffectParameters
+              (*(int *)(param_2 + 8) + 4,*(undefined4 *)(param_2 + 0xc),
+               *(undefined4 *)(param_2 + 0x10),*(undefined4 *)(param_2 + 0x18));
+    return;
+  case 5:
+    XAudio2VoiceImp__Real_SetOutputMatrix();
+    return;
+  case 6:
+    XAudio2VoiceImp__Real_SetVolume();
+    return;
+  case 7:
+    XAudio2SourceVoiceImp__Real_Start();
+    return;
+  case 8:
+    XAudio2SourceVoiceImp__Real_SetFrequencyRatio();
+    return;
+  case 9:
+    XAudio2SourceVoiceImp__Real_Discontinuity();
+    return;
+  case 10:
+    XAudio2SourceVoiceImp__Real_Stop();
+    return;
+  default:
+    FUN_0400a810("false",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/xaudio2_full/xaudio2impl.cpp"
+                 ,0x1cd,"void XAudio2Imp::ExecuteOperation(XAudio2Imp::PendingOperation*)");
+    return;
+  }
+  XAudio2VoiceImp__Real_EnableEffect(*(int *)(param_2 + 8) + 4,*(undefined4 *)(param_2 + 0xc),uVar1)
+  ;
+  return;
+}
+

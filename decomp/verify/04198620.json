@@ -1,0 +1,23 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+bool _glewInit_GL_VERSION_4_0(void)
+
+{
+  int iVar1;
+  bool bVar2;
+  bool bVar3;
+  bool bVar4;
+  
+  iVar1 = glXGetProcAddressARB("glBlendEquationSeparatei");
+  _DAT_0451ea64 = iVar1;
+  _DAT_0451ea60 = glXGetProcAddressARB("glBlendEquationi");
+  bVar2 = _DAT_0451ea60 == 0;
+  _DAT_0451ea5c = glXGetProcAddressARB("glBlendFuncSeparatei");
+  bVar3 = _DAT_0451ea5c == 0;
+  _DAT_0451ea58 = glXGetProcAddressARB("glBlendFunci");
+  bVar4 = _DAT_0451ea58 == 0;
+  _DAT_0451ea54 = glXGetProcAddressARB("glMinSampleShading");
+  return _DAT_0451ea54 == 0 || (bVar4 || (bVar3 || (bVar2 || iVar1 == 0)));
+}
+

@@ -1,0 +1,99 @@
+
+/* source: xinput1_3 */
+
+int EnsureGamepadConnected(int param_1)
+
+{
+  undefined4 *__s1;
+  int iVar1;
+  int iVar2;
+  int iVar3;
+  int iVar4;
+  undefined4 *puVar5;
+  undefined4 *local_2c;
+  int local_28;
+  
+  GamepadControl__SetInitialMinMaxValues();
+  __s1 = &DAT_045129a0 + param_1 * 4;
+  iVar1 = memcmp(__s1,&DAT_042dbc58,0x10);
+  if ((iVar1 != 0) && (iVar1 = FUN_04010e80(__s1), iVar1 != 0)) {
+    return iVar1;
+  }
+  iVar1 = FUN_04010dd0();
+  local_2c = (undefined4 *)0x0;
+  if (0 < iVar1) {
+    local_2c = malloc(iVar1 << 4);
+    FUN_04010e10(local_2c);
+  }
+  local_28 = 0;
+  do {
+    iVar2 = memcmp(&DAT_045129a0 + local_28 * 4,&DAT_042dbc58,0x10);
+    if (iVar2 != 0) {
+      if (0 < iVar1) {
+        iVar2 = 0;
+        puVar5 = local_2c;
+        do {
+          iVar3 = memcmp(puVar5,&DAT_045129a0 + local_28 * 4,0x10);
+          if (iVar3 == 0) goto LAB_041107e7;
+          iVar2 = iVar2 + 1;
+          puVar5 = puVar5 + 4;
+        } while (iVar2 != iVar1);
+      }
+      (&DAT_045129a0)[local_28 * 4] = DAT_042dbc58;
+      (&DAT_045129a4)[local_28 * 4] = DAT_042dbc5c;
+      (&DAT_045129a8)[local_28 * 4] = DAT_042dbc60;
+      (&DAT_045129ac)[local_28 * 4] = DAT_042dbc64;
+    }
+LAB_041107e7:
+    local_28 = local_28 + 1;
+  } while (local_28 != 4);
+  if (0 < iVar1) {
+    iVar2 = 0;
+    puVar5 = local_2c;
+    do {
+      iVar3 = memcmp(puVar5,&DAT_045129a0,0x10);
+      if ((((iVar3 != 0) && (iVar3 = memcmp(puVar5,&DAT_045129b0,0x10), iVar3 != 0)) &&
+          (iVar3 = memcmp(puVar5,&DAT_045129c0,0x10), iVar3 != 0)) &&
+         (iVar3 = memcmp(puVar5,&DAT_045129d0,0x10), iVar3 != 0)) {
+        iVar3 = memcmp(&DAT_045129a0,&DAT_042dbc58,0x10);
+        if (iVar3 == 0) {
+          iVar3 = 0;
+        }
+        else {
+          iVar3 = memcmp(&DAT_045129b0,&DAT_042dbc58,0x10);
+          if (iVar3 == 0) {
+            iVar3 = 1;
+          }
+          else {
+            iVar3 = memcmp(&DAT_045129c0,&DAT_042dbc58,0x10);
+            if (iVar3 == 0) {
+              iVar3 = 2;
+            }
+            else {
+              iVar4 = memcmp(&DAT_045129d0,&DAT_042dbc58,0x10);
+              iVar3 = 3;
+              if (iVar4 != 0) goto LAB_0411091d;
+            }
+          }
+        }
+        (&DAT_045129a0)[iVar3 * 4] = *puVar5;
+        (&DAT_045129a4)[iVar3 * 4] = puVar5[1];
+        (&DAT_045129a8)[iVar3 * 4] = puVar5[2];
+        (&DAT_045129ac)[iVar3 * 4] = puVar5[3];
+      }
+LAB_0411091d:
+      iVar2 = iVar2 + 1;
+      puVar5 = puVar5 + 4;
+    } while (iVar2 != iVar1);
+  }
+  free(local_2c);
+  iVar1 = memcmp(__s1,&DAT_042dbc58,0x10);
+  iVar2 = 0;
+  if ((iVar1 != 0) && (iVar2 = FUN_04010e80(__s1), iVar2 == 0)) {
+    FUN_0400a810("gamepad",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/xinput1_3/xinput1_3.cpp"
+                 ,0x57,"eON_Gamepad* EnsureGamepadConnected(DWORD)");
+  }
+  return iVar2;
+}
+

@@ -1,0 +1,63 @@
+
+undefined4 eON_DirectSoundCreate8(void *param_1,undefined4 *param_2,int param_3)
+
+{
+  void *__s1;
+  undefined4 *puVar1;
+  int iVar2;
+  undefined4 uVar3;
+  int *piVar4;
+  int *piVar5;
+  undefined1 local_48 [52];
+  undefined4 *local_14;
+  
+  puVar1 = param_2;
+  __s1 = param_1;
+  local_14 = &param_1;
+  if (param_3 == 0) {
+    if (param_2 == (undefined4 *)0x0) {
+      uVar3 = 0x80070057;
+    }
+    else {
+      if ((((param_1 != (void *)0x0) && (iVar2 = memcmp(param_1,&DAT_042daa38,0x10), iVar2 != 0)) &&
+          (iVar2 = memcmp(__s1,&DAT_042db718,0x10), iVar2 != 0)) &&
+         ((iVar2 = memcmp(__s1,&DAT_042db6f8,0x10), iVar2 != 0 &&
+          (iVar2 = memcmp(__s1,&DAT_042dbc58,0x10), iVar2 != 0)))) {
+        GUID_FormatLower(__s1,local_48);
+        FUN_0402cd10(10,"Unhandled - eON_DirectSoundCreate8 called with pcGuidDevice = %s",local_48)
+        ;
+        return 0x88780078;
+      }
+      if (DAT_044fa4ec == (int *)0x0) {
+        piVar4 = operator_new(0x28);
+        *piVar4 = (int)&PTR_FUN_0430eec8;
+                    /* try { // try from 04100ad6 to 04100ada has its CatchHandler @ 04100afa */
+        DirectSound8Imp__DirectSound8Imp(piVar4 + 1,piVar4);
+        DAT_044fa4ec = piVar4;
+      }
+      piVar4 = DAT_044fa4ec;
+      iVar2 = *DAT_044fa4ec;
+      *(undefined1 *)(DAT_044fa4ec + 5) = 0;
+      (**(code **)(iVar2 + 4))(piVar4);
+      piVar4 = DAT_044fa4ec;
+      if (DAT_044fa4ec == (int *)0x0) {
+        uVar3 = 0x88780078;
+      }
+      else {
+        iVar2 = (**(code **)(*DAT_044fa4ec + 0x28))(DAT_044fa4ec,0);
+        piVar5 = piVar4;
+        if (iVar2 != 0) {
+          piVar5 = (int *)0x0;
+          (**(code **)(*piVar4 + 8))(piVar4);
+        }
+        *puVar1 = piVar5;
+        uVar3 = 0;
+      }
+    }
+  }
+  else {
+    uVar3 = 0x80040110;
+  }
+  return uVar3;
+}
+

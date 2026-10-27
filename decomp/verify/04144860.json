@@ -1,0 +1,65 @@
+
+void Exception_Unwind(undefined4 *param_1,undefined4 param_2,undefined4 *param_3,undefined4 param_4,
+                     int param_5)
+
+{
+  char cVar1;
+  uint uVar2;
+  int iVar3;
+  undefined4 *puVar4;
+  undefined4 *puVar5;
+  undefined4 *in_FS_OFFSET;
+  undefined4 local_64;
+  undefined4 local_60;
+  undefined4 local_5c;
+  undefined4 local_58;
+  undefined4 local_54;
+  undefined4 *local_14;
+  
+  if (param_3 == (undefined4 *)0x0) {
+    param_3 = &local_64;
+    FUN_0402cd10(5,"\tNo exception record specified, creating STATUS_UNWIND record to %p",
+                 *(undefined4 *)(param_5 + 0xb8));
+    local_60 = 0;
+    local_5c = 0;
+    local_64 = 0xc0000027;
+    local_54 = 0;
+    local_58 = *(undefined4 *)(param_5 + 0xb8);
+    uVar2 = 2;
+  }
+  else {
+    uVar2 = param_3[1] | 2;
+  }
+  param_3[1] = uVar2;
+  if (param_1 == (undefined4 *)0x0) {
+    param_3[1] = uVar2 | 4;
+  }
+  *(undefined4 *)(param_5 + 0xb0) = param_4;
+  puVar5 = *(undefined4 **)in_FS_OFFSET[6];
+  if ((puVar5 != (undefined4 *)0xffffffff) && (param_1 != puVar5)) {
+    do {
+      if ((param_1 < puVar5) && (param_1 != (undefined4 *)0x0)) {
+        FUN_041451a0(param_3,0xc0000029);
+        cVar1 = FUN_04145170(puVar5);
+      }
+      else {
+        cVar1 = FUN_04145170(puVar5);
+      }
+      if (cVar1 == '\0') {
+        FUN_041451a0(param_3,0xc0000028);
+      }
+      FUN_0402cd10(5,"\tCalling handler at %p code=%x flags=%x",puVar5[1],*param_3,param_3[1]);
+      iVar3 = FUN_0414458c(param_3,puVar5,param_5,&local_14,puVar5[1],FUN_041446c0);
+      FUN_0402cd10(5,"\tHandler at %p returned %x",puVar5[1],iVar3);
+      puVar4 = puVar5;
+      if ((iVar3 != 1) && (puVar4 = local_14, iVar3 != 3)) {
+        FUN_041451a0(param_3,0xc0000026);
+        puVar4 = puVar5;
+      }
+      *in_FS_OFFSET = *puVar4;
+      puVar5 = (undefined4 *)*puVar4;
+    } while ((puVar5 != (undefined4 *)0xffffffff) && (param_1 != puVar5));
+  }
+  return;
+}
+

@@ -1,0 +1,210 @@
+
+char * __regparm3 OpenGL_DataTypeToString(int param_1)
+
+{
+  if (param_1 == 0x8dc0) {
+    return "GL_SAMPLER_1D_ARRAY";
+  }
+  if (param_1 < 0x8dc1) {
+    if (param_1 == 0x8b5b) {
+      return "GL_FLOAT_MAT3";
+    }
+    if (param_1 < 0x8b5c) {
+      if (param_1 == 0x8b53) {
+        return "GL_INT_VEC2";
+      }
+      if (0x8b53 < param_1) {
+        if (param_1 == 0x8b57) {
+          return "GL_BOOL_VEC2";
+        }
+        if (0x8b57 < param_1) {
+          if (param_1 == 0x8b59) {
+            return "GL_BOOL_VEC4";
+          }
+          if (param_1 < 0x8b5a) {
+            return "GL_BOOL_VEC3";
+          }
+          return "GL_FLOAT_MAT2";
+        }
+        if (param_1 == 0x8b55) {
+          return "GL_INT_VEC4";
+        }
+        if (param_1 < 0x8b56) {
+          return "GL_INT_VEC3";
+        }
+        return "GL_BOOL";
+      }
+      if (param_1 == 0x1406) {
+        return "GL_FLOAT";
+      }
+      if (param_1 < 0x1407) {
+        if (param_1 == 0x1404) {
+          return "GL_INT";
+        }
+        if (param_1 == 0x1405) {
+          return "GL_UNSIGNED_INT";
+        }
+      }
+      else {
+        if (param_1 == 0x8b51) {
+          return "GL_FLOAT_VEC3";
+        }
+        if (0x8b51 < param_1) {
+          return "GL_FLOAT_VEC4";
+        }
+        if (param_1 == 0x8b50) {
+          return "GL_FLOAT_VEC2";
+        }
+      }
+    }
+    else {
+      if (param_1 == 0x8b63) {
+        return "GL_SAMPLER_2D_RECT";
+      }
+      if (param_1 < 0x8b64) {
+        if (param_1 == 0x8b5f) {
+          return "GL_SAMPLER_3D";
+        }
+        if (0x8b5f < param_1) {
+          if (param_1 == 0x8b61) {
+            return "GL_SAMPLER_1D_SHADOW";
+          }
+          if (param_1 < 0x8b62) {
+            return "GL_SAMPLER_CUBE";
+          }
+          return "GL_SAMPLER_2D_SHADOW";
+        }
+        if (param_1 == 0x8b5d) {
+          return "GL_SAMPLER_1D";
+        }
+        if (param_1 < 0x8b5e) {
+          return "GL_FLOAT_MAT4";
+        }
+        return "GL_SAMPLER_2D";
+      }
+      if (param_1 == 0x8b67) {
+        return "GL_FLOAT_MAT3x2";
+      }
+      if (param_1 < 0x8b68) {
+        if (param_1 == 0x8b65) {
+          return "GL_FLOAT_MAT2x3";
+        }
+        if (param_1 < 0x8b66) {
+          return "GL_SAMPLER_2D_RECT_SHADOW";
+        }
+        return "GL_FLOAT_MAT2x4";
+      }
+      if (param_1 == 0x8b69) {
+        return "GL_FLOAT_MAT4x2";
+      }
+      if (param_1 < 0x8b69) {
+        return "GL_FLOAT_MAT3x4";
+      }
+      if (param_1 == 0x8b6a) {
+        return "GL_FLOAT_MAT4x3";
+      }
+    }
+  }
+  else {
+    if (param_1 == 0x8dcf) {
+      return "GL_INT_SAMPLER_2D_ARRAY";
+    }
+    if (param_1 < 0x8dd0) {
+      if (param_1 == 0x8dc7) {
+        return "GL_UNSIGNED_INT_VEC3";
+      }
+      if (0x8dc7 < param_1) {
+        if (param_1 == 0x8dcb) {
+          return "GL_INT_SAMPLER_3D";
+        }
+        if (0x8dcb < param_1) {
+          if (param_1 == 0x8dcd) {
+            return "GL_INT_SAMPLER_2D_RECT";
+          }
+          if (param_1 < 0x8dce) {
+            return "GL_INT_SAMPLER_CUBE";
+          }
+          return "GL_INT_SAMPLER_1D_ARRAY";
+        }
+        if (param_1 == 0x8dc9) {
+          return "GL_INT_SAMPLER_1D";
+        }
+        if (param_1 < 0x8dca) {
+          return "GL_UNSIGNED_INT_VEC4";
+        }
+        return "GL_INT_SAMPLER_2D";
+      }
+      if (param_1 == 0x8dc3) {
+        return "GL_SAMPLER_1D_ARRAY_SHADOW";
+      }
+      if (0x8dc3 < param_1) {
+        if (param_1 == 0x8dc5) {
+          return "GL_SAMPLER_CUBE_SHADOW";
+        }
+        if (param_1 < 0x8dc6) {
+          return "GL_SAMPLER_2D_ARRAY_SHADOW";
+        }
+        return "GL_UNSIGNED_INT_VEC2";
+      }
+      if (param_1 == 0x8dc1) {
+        return "GL_SAMPLER_2D_ARRAY";
+      }
+      if (param_1 == 0x8dc2) {
+        return "GL_SAMPLER_BUFFER";
+      }
+    }
+    else {
+      if (param_1 == 0x8dd7) {
+        return "GL_UNSIGNED_INT_SAMPLER_2D_ARRAY";
+      }
+      if (param_1 < 0x8dd8) {
+        if (param_1 == 0x8dd3) {
+          return "GL_UNSIGNED_INT_SAMPLER_3D";
+        }
+        if (0x8dd3 < param_1) {
+          if (param_1 == 0x8dd5) {
+            return "GL_UNSIGNED_INT_SAMPLER_2D_RECT";
+          }
+          if (param_1 < 0x8dd6) {
+            return "GL_UNSIGNED_INT_SAMPLER_CUBE";
+          }
+          return "GL_UNSIGNED_INT_SAMPLER_1D_ARRAY";
+        }
+        if (param_1 == 0x8dd1) {
+          return "GL_UNSIGNED_INT_SAMPLER_1D";
+        }
+        if (param_1 < 0x8dd2) {
+          return "GL_INT_SAMPLER_BUFFER";
+        }
+        return "GL_UNSIGNED_INT_SAMPLER_2D";
+      }
+      if (param_1 == 0x910a) {
+        return "GL_UNSIGNED_INT_SAMPLER_2D_MULTISAMPLE";
+      }
+      if (param_1 < 0x910b) {
+        if (param_1 == 0x9108) {
+          return "GL_SAMPLER_2D_MULTISAMPLE";
+        }
+        if (0x9108 < param_1) {
+          return "GL_INT_SAMPLER_2D_MULTISAMPLE";
+        }
+        if (param_1 == 0x8dd8) {
+          return "GL_UNSIGNED_INT_SAMPLER_BUFFER";
+        }
+      }
+      else {
+        if (param_1 == 0x910c) {
+          return "GL_INT_SAMPLER_2D_MULTISAMPLE_ARRAY";
+        }
+        if (param_1 < 0x910c) {
+          return "GL_SAMPLER_2D_MULTISAMPLE_ARRAY";
+        }
+        if (param_1 == 0x910d) {
+          return "GL_UNSIGNED_INT_SAMPLER_2D_MULTISAMPLE_ARRAY";
+        }
+      }
+    }
+  }
+  return "!!!unknown!!!";
+}
+

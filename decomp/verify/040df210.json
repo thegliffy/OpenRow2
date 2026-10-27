@@ -1,0 +1,78 @@
+
+/* source: openGlDebugFunctions */
+
+void OGLC_SetRootSavePath(char *param_1)
+
+{
+  uint uVar1;
+  uint uVar2;
+  int iVar3;
+  int *piVar4;
+  uint *puVar5;
+  uint *puVar6;
+  undefined1 *puVar7;
+  char *pcVar8;
+  char local_40c;
+  char local_40b [1023];
+  
+  strcpy(&DAT_044daca0,param_1);
+  puVar6 = (uint *)&DAT_044daca0;
+  do {
+    puVar5 = puVar6;
+    uVar1 = *puVar5 + 0xfefefeff & ~*puVar5;
+    uVar2 = uVar1 & 0x80808080;
+    puVar6 = puVar5 + 1;
+  } while (uVar2 == 0);
+  if ((uVar1 & 0x8080) == 0) {
+    puVar6 = (uint *)((int)puVar5 + 6);
+    uVar2 = uVar2 >> 0x10;
+  }
+  puVar7 = (undefined1 *)((int)puVar6 + (-3 - (uint)CARRY1((byte)uVar2,(byte)uVar2)));
+  if (puVar7[-1] != '/') {
+    *puVar7 = 0x2f;
+    puVar7[1] = 0;
+  }
+  strcpy(&local_40c,&DAT_044daca0);
+  pcVar8 = &local_40c;
+  if (local_40c == '~') {
+    pcVar8 = local_40b;
+    local_40c = local_40b[0];
+  }
+  if (local_40c != '/') {
+    FUN_0400a810("*ptr == \'/\'",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                 ,0x13bc,"void OGLC_SetRootSavePath(const char*)");
+  }
+  pcVar8 = pcVar8 + 2;
+  do {
+    if (pcVar8[-1] == '/') {
+      pcVar8[-1] = '\0';
+      iVar3 = mkdir(&local_40c,0x1fd);
+      if (iVar3 == -1) {
+        piVar4 = __errno_location();
+        iVar3 = *piVar4;
+        if (iVar3 != 0x11) {
+          if (iVar3 == 0x14) {
+            printf("Path \'%s\' is not a folder!\n",&local_40c);
+            return;
+          }
+          if (iVar3 == 2) {
+            printf("Parent path to \'%s\' not found!\n",&local_40c);
+            return;
+          }
+          if (iVar3 == 0xd) {
+            printf("Couldn\'t create \'%s\' (permission denied). Hardcode your own default root folder in SetDefaultRootSavePath() in file openGlDebugFunctions.mm? It won\'t try to create it then.\n"
+                   ,&local_40c);
+            return;
+          }
+        }
+      }
+      pcVar8[-1] = '/';
+      if (*pcVar8 == '\0') {
+        return;
+      }
+    }
+    pcVar8 = pcVar8 + 1;
+  } while( true );
+}
+

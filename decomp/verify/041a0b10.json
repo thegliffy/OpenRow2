@@ -1,0 +1,44 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+bool _glewInit_GL_NV_transform_feedback(void)
+
+{
+  int iVar1;
+  bool bVar2;
+  bool bVar3;
+  bool bVar4;
+  bool bVar5;
+  bool bVar6;
+  bool bVar7;
+  bool bVar8;
+  bool bVar9;
+  bool bVar10;
+  
+  iVar1 = glXGetProcAddressARB("glActiveVaryingNV");
+  _DAT_0451cf94 = iVar1;
+  _DAT_0451cf90 = glXGetProcAddressARB("glBeginTransformFeedbackNV");
+  bVar2 = _DAT_0451cf90 == 0;
+  _DAT_0451cf8c = glXGetProcAddressARB("glBindBufferBaseNV");
+  bVar3 = _DAT_0451cf8c == 0;
+  _DAT_0451cf88 = glXGetProcAddressARB("glBindBufferOffsetNV");
+  bVar4 = _DAT_0451cf88 == 0;
+  _DAT_0451cf84 = glXGetProcAddressARB("glBindBufferRangeNV");
+  bVar5 = _DAT_0451cf84 == 0;
+  _DAT_0451cf80 = glXGetProcAddressARB("glEndTransformFeedbackNV");
+  bVar6 = _DAT_0451cf80 == 0;
+  _DAT_0451cf7c = glXGetProcAddressARB("glGetActiveVaryingNV");
+  bVar7 = _DAT_0451cf7c == 0;
+  _DAT_0451cf78 = glXGetProcAddressARB("glGetTransformFeedbackVaryingNV");
+  bVar8 = _DAT_0451cf78 == 0;
+  _DAT_0451cf74 = glXGetProcAddressARB("glGetVaryingLocationNV");
+  bVar9 = _DAT_0451cf74 == 0;
+  _DAT_0451cf70 = glXGetProcAddressARB("glTransformFeedbackAttribsNV");
+  bVar10 = _DAT_0451cf70 == 0;
+  _DAT_0451cf6c = glXGetProcAddressARB("glTransformFeedbackVaryingsNV");
+  return _DAT_0451cf6c == 0 ||
+         (bVar10 ||
+         (bVar9 || (bVar8 || (bVar7 || (bVar6 || (bVar5 || (bVar4 || (bVar3 || (bVar2 || iVar1 == 0)
+                                                                     ))))))));
+}
+

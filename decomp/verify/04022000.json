@@ -1,0 +1,36 @@
+
+undefined4 eON_GetMaxSamplesForFormat(uint param_1)
+
+{
+  undefined4 *puVar1;
+  undefined *puVar2;
+  undefined4 uVar3;
+  undefined *puVar4;
+  undefined *puVar5;
+  
+  if (DAT_044115cc != (undefined *)0x0) {
+    puVar2 = DAT_044115cc;
+    puVar4 = &DAT_044115c8;
+    do {
+      while (puVar5 = puVar2, *(uint *)(puVar5 + 0x10) < param_1) {
+        puVar1 = (undefined4 *)(puVar5 + 0xc);
+        puVar2 = (undefined *)*puVar1;
+        puVar5 = puVar4;
+        if ((undefined *)*puVar1 == (undefined *)0x0) goto LAB_04022035;
+      }
+      puVar2 = *(undefined **)(puVar5 + 8);
+      puVar4 = puVar5;
+    } while (*(undefined **)(puVar5 + 8) != (undefined *)0x0);
+LAB_04022035:
+    if ((puVar5 != &DAT_044115c8) && (*(uint *)(puVar5 + 0x10) <= param_1)) {
+      return *(undefined4 *)(puVar5 + 0x14);
+    }
+  }
+  if (DAT_044115ac != '\0') {
+    uVar3 = OpenGL_InternalFormatToString(param_1);
+    FUN_0402cd10(10,"Game wants to know max samples for format %s (%#x). No idea, returning 1.",
+                 uVar3,param_1);
+  }
+  return 1;
+}
+

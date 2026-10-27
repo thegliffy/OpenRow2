@@ -1,0 +1,59 @@
+
+void png_set_sPLT(int param_1,int param_2,undefined4 *param_3,int param_4)
+
+{
+  char *__s;
+  int iVar1;
+  size_t sVar2;
+  void *pvVar3;
+  undefined4 *puVar4;
+  
+  if ((((param_2 != 0) && (param_1 != 0)) && (0 < param_4)) && (param_3 != (undefined4 *)0x0)) {
+    iVar1 = FUN_042aa1c0(param_1,*(undefined4 *)(param_2 + 0xf4),*(undefined4 *)(param_2 + 0xf8),
+                         param_4,0x10);
+    if (iVar1 == 0) {
+LAB_042bc660:
+      FUN_042a9e50();
+      return;
+    }
+    FUN_042aa410(param_1,*(undefined4 *)(param_2 + 0xf4));
+    *(int *)(param_2 + 0xf4) = iVar1;
+    *(uint *)(param_2 + 0xe8) = *(uint *)(param_2 + 0xe8) | 0x20;
+    puVar4 = (undefined4 *)(iVar1 + *(int *)(param_2 + 0xf8) * 0x10);
+    do {
+      __s = (char *)*param_3;
+      if ((__s != (char *)0x0) && (param_3[2] != 0)) {
+        *(undefined1 *)(puVar4 + 1) = *(undefined1 *)(param_3 + 1);
+        sVar2 = strlen(__s);
+        pvVar3 = (void *)FUN_042aa110(param_1,sVar2 + 1);
+        *puVar4 = pvVar3;
+        if (pvVar3 != (void *)0x0) {
+          memcpy(pvVar3,(void *)*param_3,sVar2 + 1);
+          pvVar3 = (void *)FUN_042aa150(param_1,param_3[3],10);
+          puVar4[2] = pvVar3;
+          if (pvVar3 != (void *)0x0) {
+            iVar1 = param_3[3];
+            puVar4[3] = iVar1;
+            puVar4 = puVar4 + 4;
+            memcpy(pvVar3,(void *)param_3[2],iVar1 * 10);
+            *(uint *)(param_2 + 8) = *(uint *)(param_2 + 8) | 0x2000;
+            *(int *)(param_2 + 0xf8) = *(int *)(param_2 + 0xf8) + 1;
+            goto LAB_042bc5f7;
+          }
+          FUN_042aa410(param_1,*puVar4);
+          *puVar4 = 0;
+        }
+        if (param_4 < 1) {
+          return;
+        }
+        goto LAB_042bc660;
+      }
+      FUN_042a9df0(param_1,"png_set_sPLT: invalid sPLT");
+LAB_042bc5f7:
+      param_3 = param_3 + 4;
+      param_4 = param_4 + -1;
+    } while (param_4 != 0);
+  }
+  return;
+}
+

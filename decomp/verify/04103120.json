@@ -1,0 +1,332 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+/* source: audioallocator, xaudio2dsp */
+
+void Dsp__ChangeSampleRate(int *param_1,float param_2,int param_3)
+
+{
+  int iVar1;
+  int iVar2;
+  float *pfVar3;
+  float *pfVar4;
+  void *__ptr;
+  float fVar5;
+  float fVar6;
+  float fVar7;
+  float fVar8;
+  float fVar9;
+  float fVar10;
+  float fVar11;
+  float fVar12;
+  float fVar13;
+  float fVar14;
+  float fVar15;
+  float fVar16;
+  float fVar17;
+  float fVar18;
+  float fVar19;
+  float fVar20;
+  float fVar21;
+  float fVar22;
+  float fVar23;
+  float fVar24;
+  undefined4 *puVar25;
+  float *pfVar26;
+  int iVar27;
+  int iVar28;
+  int iVar29;
+  uint uVar30;
+  int iVar31;
+  uint uVar32;
+  uint uVar33;
+  undefined4 *__n;
+  undefined4 *puVar34;
+  int iVar35;
+  float *pfVar36;
+  undefined4 *__s;
+  int iVar37;
+  uint uVar38;
+  uint uVar39;
+  int iVar40;
+  float fVar41;
+  int iVar42;
+  int iVar43;
+  int iVar44;
+  float fVar45;
+  float fVar46;
+  uint uVar47;
+  uint uVar48;
+  uint uVar49;
+  uint uVar50;
+  uint uVar51;
+  uint uVar52;
+  float fVar53;
+  double dVar54;
+  int local_114;
+  int local_7c;
+  int local_74;
+  int local_40;
+  
+  if ((DAT_044fa970 == '\0') && (iVar29 = __cxa_guard_acquire(&DAT_044fa970), iVar29 != 0)) {
+    DAT_044fa978 = (float *)0x0;
+    DAT_044fa97c = (float *)0x0;
+    _DAT_044fa980 = (float *)0x0;
+    pfVar26 = (float *)memalign(0x10);
+    if (pfVar26 == (float *)0x0) {
+                    /* try { // try from 04103b89 to 04103b8d has its CatchHandler @ 04103b93 */
+      FUN_0400a810("memory",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/xaudio2_full/audioallocator.h"
+                   ,0x4b,
+                   "T* AudioAllocator<T>::allocate(AudioAllocator<T>::size_type, const void*) [with T = float, AudioAllocator<T>::pointer = float*, AudioAllocator<T>::size_type = unsigned int]"
+                  );
+    }
+    bzero(pfVar26,0x64000);
+    pfVar36 = pfVar26 + 0x19000;
+    DAT_044fa978 = pfVar26;
+    _DAT_044fa980 = pfVar36;
+    do {
+      if (pfVar26 != (float *)0x0) {
+        *pfVar26 = 0.0;
+      }
+      pfVar26 = pfVar26 + 1;
+    } while (pfVar26 != pfVar36);
+    DAT_044fa97c = pfVar26;
+    __cxa_guard_release(&DAT_044fa970);
+    __cxa_atexit(FUN_04105460,&DAT_044fa978,&DAT_04408b44);
+  }
+  dVar54 = round((double)(DAT_04310050 / param_2));
+  if ((int)DAT_044fa97c - (int)DAT_044fa978 >> 2 <= param_3) {
+    FUN_0400a810("numOfAudioSamplesNeeded < (signed) conversionBuffer.size()",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/xaudio2_full/xaudio2dsp.cpp"
+                 ,0x15d,"void Dsp::ChangeSampleRate(PcmData&, float, int)");
+  }
+  iVar29 = *param_1;
+  if (0xb < param_1[1] - iVar29) {
+    local_74 = 0;
+    local_7c = 0;
+    uVar30 = (uint)(param_2 * _DAT_04310054);
+    iVar31 = (int)dVar54;
+    iVar2 = iVar31 + param_3;
+    iVar1 = param_3 + 8;
+    iVar27 = 4 - iVar31 / 2;
+    iVar40 = 0;
+    if (-1 < iVar27) {
+      iVar40 = iVar27;
+    }
+    iVar27 = 8;
+    if (iVar31 < 9) {
+      iVar27 = iVar31;
+    }
+    iVar31 = iVar31 / 2 + -4;
+    if (iVar31 < 0) {
+      iVar31 = 0;
+    }
+    iVar35 = uVar30 * 4;
+    uVar32 = uVar30 + (uVar30 & 0xfff);
+    uVar33 = uVar32 & 0xfff;
+    iVar28 = ((int)uVar32 >> 0xc) + ((int)uVar30 >> 0xc);
+    uVar32 = uVar30 + uVar33;
+    __n = (undefined4 *)(iVar1 * 4);
+    do {
+      pfVar26 = DAT_044fa978;
+      iVar29 = *(int *)(iVar29 + local_74);
+      if (DAT_044fa984 == '\0') {
+        pfVar36 = (float *)&DAT_044fa994;
+        iVar37 = 0;
+        do {
+          fVar41 = (float)iVar37 * _DAT_04310058;
+          fVar45 = DAT_042dbf3c + fVar41;
+          if (fVar45 == 0.0) {
+            pfVar36[-1] = DAT_042dbf3c;
+          }
+          else {
+            fVar53 = fabsf(fVar45);
+            fVar46 = 0.0;
+            if (fVar53 < _DAT_0431005c) {
+              fVar46 = DAT_042f73a0 * fVar45;
+              fVar53 = sinf(fVar46);
+              fVar46 = sinf(fVar46 * DAT_042dbf38);
+              fVar46 = ((fVar53 + fVar53) * fVar46) / (DAT_04310060 * fVar45 * fVar45);
+            }
+            pfVar36[-1] = fVar46;
+          }
+          if (fVar41 == 0.0) {
+            *pfVar36 = 1.0;
+            fVar46 = fVar41 - DAT_042dbf3c;
+LAB_041035ff:
+            fVar53 = fabsf(fVar46);
+            fVar45 = 0.0;
+            if (fVar53 < _DAT_0431005c) {
+              fVar45 = DAT_042f73a0 * fVar46;
+              fVar53 = sinf(fVar45);
+              fVar45 = sinf(fVar45 * DAT_042dbf38);
+              fVar45 = ((fVar53 + fVar53) * fVar45) / (DAT_04310060 * fVar46 * fVar46);
+            }
+          }
+          else {
+            fVar46 = fabsf(fVar41);
+            fVar45 = 0.0;
+            if (fVar46 < _DAT_0431005c) {
+              fVar45 = DAT_042f73a0 * fVar41;
+              fVar46 = sinf(fVar45);
+              fVar45 = sinf(fVar45 * DAT_042dbf38);
+              fVar45 = ((fVar46 + fVar46) * fVar45) / (DAT_04310060 * fVar41 * fVar41);
+            }
+            *pfVar36 = fVar45;
+            fVar46 = fVar41 - DAT_042dbf3c;
+            fVar45 = DAT_042dbf3c;
+            if (fVar46 != 0.0) goto LAB_041035ff;
+          }
+          fVar41 = fVar41 - _DAT_0431005c;
+          pfVar36[1] = fVar45;
+          fVar45 = DAT_042dbf3c;
+          if (fVar41 != 0.0) {
+            fVar46 = fabsf(fVar41);
+            fVar45 = 0.0;
+            if (fVar46 < _DAT_0431005c) {
+              fVar45 = DAT_042f73a0 * fVar41;
+              fVar46 = sinf(fVar45);
+              fVar45 = sinf(fVar45 * DAT_042dbf38);
+              fVar45 = ((fVar46 + fVar46) * fVar45) / (DAT_04310060 * fVar41 * fVar41);
+            }
+          }
+          iVar37 = iVar37 + 1;
+          pfVar36[2] = fVar45;
+          pfVar36 = pfVar36 + 4;
+        } while (iVar37 != 0x1000);
+        DAT_044fa984 = '\x01';
+      }
+      iVar37 = iVar29 + -4;
+      uVar39 = 0;
+      if (iVar2 < 4) {
+        uVar39 = 0;
+        local_114 = 0;
+        iVar42 = 0;
+      }
+      else {
+        local_114 = 0;
+        pfVar36 = pfVar26;
+        iVar42 = (int)uVar30 >> 0xc;
+        iVar43 = iVar28;
+        iVar44 = ((int)uVar32 >> 0xc) + iVar28;
+        uVar38 = uVar30 & 0xfff;
+        uVar49 = uVar33;
+        uVar51 = uVar32 & 0xfff;
+        local_40 = iVar2;
+        do {
+          pfVar3 = (float *)(iVar37 + iVar42 * 4);
+          fVar41 = *pfVar3;
+          fVar45 = pfVar3[1];
+          fVar46 = pfVar3[2];
+          fVar53 = pfVar3[3];
+          uVar47 = uVar39 + iVar35;
+          uVar48 = uVar38 + iVar35;
+          uVar50 = uVar49 + iVar35;
+          uVar52 = uVar51 + iVar35;
+          pfVar3 = (float *)(iVar37 + iVar44 * 4);
+          fVar5 = *pfVar3;
+          fVar6 = pfVar3[1];
+          fVar7 = pfVar3[2];
+          fVar8 = pfVar3[3];
+          pfVar3 = (float *)(iVar37 + local_114 * 4);
+          pfVar4 = (float *)(iVar37 + iVar43 * 4);
+          fVar9 = *pfVar4;
+          fVar10 = pfVar4[1];
+          fVar11 = pfVar4[2];
+          fVar12 = pfVar4[3];
+          fVar13 = (float)(&DAT_044fa990)[uVar49 * 4];
+          fVar14 = (float)(&DAT_044fa994)[uVar49 * 4];
+          fVar15 = (float)(&DAT_044fa998)[uVar49 * 4];
+          fVar16 = (float)(&DAT_044fa99c)[uVar49 * 4];
+          local_40 = local_40 + -4;
+          fVar17 = (float)(&DAT_044fa990)[uVar38 * 4];
+          fVar18 = (float)(&DAT_044fa994)[uVar38 * 4];
+          fVar19 = (float)(&DAT_044fa998)[uVar38 * 4];
+          fVar20 = (float)(&DAT_044fa99c)[uVar38 * 4];
+          fVar21 = (float)(&DAT_044fa990)[uVar51 * 4];
+          fVar22 = (float)(&DAT_044fa994)[uVar51 * 4];
+          fVar23 = (float)(&DAT_044fa998)[uVar51 * 4];
+          fVar24 = (float)(&DAT_044fa99c)[uVar51 * 4];
+          *pfVar36 = *pfVar3 * (float)(&DAT_044fa990)[uVar39 * 4] +
+                     pfVar3[1] * (float)(&DAT_044fa994)[uVar39 * 4] +
+                     pfVar3[2] * (float)(&DAT_044fa998)[uVar39 * 4] +
+                     pfVar3[3] * (float)(&DAT_044fa99c)[uVar39 * 4];
+          pfVar36[1] = fVar41 * fVar17 + fVar45 * fVar18 + fVar46 * fVar19 + fVar53 * fVar20;
+          pfVar36[2] = fVar9 * fVar13 + fVar10 * fVar14 + fVar11 * fVar15 + fVar12 * fVar16;
+          pfVar36[3] = fVar5 * fVar21 + fVar6 * fVar22 + fVar7 * fVar23 + fVar8 * fVar24;
+          pfVar36 = pfVar36 + 4;
+          uVar39 = uVar47 & _DAT_04310090;
+          uVar38 = uVar48 & _UNK_04310094;
+          uVar49 = uVar50 & _UNK_04310098;
+          uVar51 = uVar52 & _UNK_0431009c;
+          local_114 = (uVar47 >> 0xc) + local_114;
+          iVar42 = (uVar48 >> 0xc) + iVar42;
+          iVar43 = (uVar50 >> 0xc) + iVar43;
+          iVar44 = (uVar52 >> 0xc) + iVar44;
+        } while (3 < local_40);
+        iVar42 = (iVar2 - 4U & 0xfffffffc) + 4;
+      }
+      for (; iVar42 < iVar2; iVar42 = iVar42 + 1) {
+        uVar38 = uVar39 + uVar30;
+        pfVar26[iVar42] =
+             *(float *)(iVar37 + local_114 * 4) * (float)(&DAT_044fa990)[uVar39 * 4] +
+             *(float *)(iVar29 + local_114 * 4) * (float)(&DAT_044fa994)[uVar39 * 4] +
+             *(float *)(iVar29 + 4 + local_114 * 4) * (float)(&DAT_044fa998)[uVar39 * 4] +
+             *(float *)(iVar29 + 8 + local_114 * 4) * (float)(&DAT_044fa99c)[uVar39 * 4];
+        uVar39 = uVar38 & 0xfff;
+        local_114 = local_114 + ((int)uVar38 >> 0xc);
+      }
+      __s = (undefined4 *)0x0;
+      puVar25 = __n;
+      if (iVar1 != 0) {
+        __s = (undefined4 *)memalign(0x10);
+        if (__s == (undefined4 *)0x0) {
+          FUN_0400a810("memory",
+                       "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/xaudio2_full/audioallocator.h"
+                       ,0x4b,
+                       "T* AudioAllocator<T>::allocate(AudioAllocator<T>::size_type, const void*) [with T = float, AudioAllocator<T>::pointer = float*, AudioAllocator<T>::size_type = unsigned int]"
+                      );
+        }
+        bzero(__s,(size_t)__n);
+        puVar25 = (undefined4 *)((int)__n + (int)__s);
+        iVar29 = iVar1;
+        puVar34 = __s;
+        do {
+          if (puVar34 != (undefined4 *)0x0) {
+            *puVar34 = 0;
+          }
+          puVar34 = puVar34 + 1;
+          iVar29 = iVar29 + -1;
+        } while (iVar29 != 0);
+      }
+      puVar34 = (undefined4 *)(local_74 + *param_1);
+      __ptr = (void *)*puVar34;
+      puVar34[1] = puVar25;
+      *puVar34 = __s;
+      puVar34[2] = puVar25;
+      if (__ptr != (void *)0x0) {
+        free(__ptr);
+      }
+      if (((int *)(local_74 + *param_1))[1] - *(int *)(local_74 + *param_1) >> 2 <
+          param_3 + iVar40 + iVar27) {
+        FUN_0400a810("targetOffset + numOfAudioSamplesNeeded + paddingToCopy <= (signed) data.channels[channel].size()"
+                     ,
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/xaudio2_full/xaudio2dsp.cpp"
+                     ,0x16a,"void Dsp::ChangeSampleRate(PcmData&, float, int)");
+      }
+      if ((int)DAT_044fa97c - (int)DAT_044fa978 >> 2 < iVar31 + 8 + param_3) {
+        FUN_0400a810("sourceOffset + numOfAudioSamplesNeeded + kNumOfPaddingSamples <= (signed) conversionBuffer.size()"
+                     ,
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/xaudio2_full/xaudio2dsp.cpp"
+                     ,0x16b,"void Dsp::ChangeSampleRate(PcmData&, float, int)");
+      }
+      memcpy((void *)(*(int *)(*param_1 + local_74) + iVar40 * 4),DAT_044fa978 + iVar31,
+             (iVar27 + param_3) * 4);
+      local_7c = local_7c + 1;
+      local_74 = local_74 + 0xc;
+      iVar29 = *param_1;
+    } while (local_7c < (param_1[1] - iVar29 >> 2) * -0x55555555);
+  }
+  return;
+}
+

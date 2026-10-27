@@ -1,0 +1,1534 @@
+
+void SetVertexDeclaration(int *param_1,undefined4 param_2)
+
+{
+  char *pcVar1;
+  int iVar2;
+  char *pcVar3;
+  int *piVar4;
+  char *pcVar5;
+  uint uVar6;
+  uint uVar7;
+  char *pcVar8;
+  undefined *puVar9;
+  int *piVar10;
+  bool bVar11;
+  bool bVar12;
+  double dVar13;
+  double dVar14;
+  undefined8 in_stack_ffffff8c;
+  undefined8 uVar15;
+  ulonglong uVar16;
+  undefined4 uVar17;
+  int local_20;
+  
+  uVar17 = (undefined4)((ulonglong)in_stack_ffffff8c >> 0x20);
+  FUN_0402cd10(param_2,"********************************");
+  FUN_0402cd10(param_2,"* D3D Rendering Pipeline State *");
+  FUN_0402cd10(param_2,"********************************");
+  FUN_0402cd10(param_2,&DAT_04328763);
+  FUN_0402cd10(param_2," - Alpha Blending State");
+  pcVar1 = "TRUE";
+  if (param_1[0x110] == 0) {
+    pcVar1 = "FALSE";
+  }
+  uVar15 = CONCAT44(uVar17,pcVar1);
+  FUN_0402cd10(param_2,"D3DRS_ALPHABLENDENABLE: %s",pcVar1);
+  if (param_1[0x110] != 0) {
+    D3DBLEND_ToString();
+    D3DBLEND_ToString();
+    switch(param_1[0x1a0]) {
+    default:
+      FUN_0402cd10(param_2,"D3DRS_BLENDOP: !unhandled!",uVar15);
+      uVar17 = (undefined4)((ulonglong)uVar15 >> 0x20);
+      break;
+    case 1:
+      FUN_0402cd10(param_2,"D3DRS_BLENDOP: D3DBLENDOP_ADD",uVar15);
+      uVar17 = (undefined4)((ulonglong)uVar15 >> 0x20);
+      break;
+    case 2:
+      FUN_0402cd10(param_2,"D3DRS_BLENDOP: D3DBLENDOP_SUBTRACT",uVar15);
+      uVar17 = (undefined4)((ulonglong)uVar15 >> 0x20);
+      break;
+    case 3:
+      FUN_0402cd10(param_2,"D3DRS_BLENDOP: D3DBLENDOP_REVSUBTRACT",uVar15);
+      uVar17 = (undefined4)((ulonglong)uVar15 >> 0x20);
+      break;
+    case 4:
+      FUN_0402cd10(param_2,"D3DRS_BLENDOP: D3DBLENDOP_MIN",uVar15);
+      uVar17 = (undefined4)((ulonglong)uVar15 >> 0x20);
+      break;
+    case 5:
+      FUN_0402cd10(param_2,"D3DRS_BLENDOP: D3DBLENDOP_MAX",uVar15);
+      uVar17 = (undefined4)((ulonglong)uVar15 >> 0x20);
+    }
+    pcVar1 = "TRUE";
+    if (param_1[0x1c3] == 0) {
+      pcVar1 = "FALSE";
+    }
+    uVar15 = CONCAT44(uVar17,pcVar1);
+    FUN_0402cd10(param_2,"D3DRS_SEPARATEALPHABLENDENABLE: %s",pcVar1);
+    if (param_1[0x1c3] != 0) {
+      D3DBLEND_ToString();
+      D3DBLEND_ToString();
+      switch(param_1[0x1c6]) {
+      default:
+        FUN_0402cd10(param_2,"D3DRS_BLENDOPALPHA: !unhandled!",uVar15);
+        break;
+      case 1:
+        FUN_0402cd10(param_2,"D3DRS_BLENDOPALPHA: D3DBLENDOP_ADD (default)",uVar15);
+        break;
+      case 2:
+        FUN_0402cd10(param_2,"D3DRS_BLENDOPALPHA: D3DBLENDOP_SUBTRACT",uVar15);
+        break;
+      case 3:
+        FUN_0402cd10(param_2,"D3DRS_BLENDOPALPHA: D3DBLENDOP_REVSUBTRACT",uVar15);
+        break;
+      case 4:
+        FUN_0402cd10(param_2,"D3DRS_BLENDOPALPHA: D3DBLENDOP_MIN",uVar15);
+        break;
+      case 5:
+        FUN_0402cd10(param_2,"D3DRS_BLENDOPALPHA: D3DBLENDOP_MAX",uVar15);
+      }
+    }
+    iVar2 = param_1[0x1b6];
+    if (iVar2 != -1) {
+      uVar15 = CONCAT44((int)((ulonglong)uVar15 >> 0x20),iVar2);
+      FUN_0402cd10(param_2,"D3DRS_BLENDFACTOR: 0x8%x (argb bytes)",iVar2);
+    }
+  }
+  FUN_0402cd10(param_2,&DAT_04328763,uVar15);
+  uVar17 = (undefined4)((ulonglong)uVar15 >> 0x20);
+  FUN_0402cd10(param_2," - Alpha Testing State");
+  pcVar1 = "TRUE";
+  if (param_1[0x104] == 0) {
+    pcVar1 = "FALSE";
+  }
+  uVar16 = CONCAT44(uVar17,pcVar1);
+  FUN_0402cd10(param_2,"D3DRS_ALPHATESTENABLE: %s",pcVar1);
+  if (param_1[0x104] != 0) {
+    D3DCMP_ToString();
+    uVar6 = (uint)*(byte *)(param_1 + 0x10d);
+    uVar16 = (ulonglong)CONCAT14(*(byte *)(param_1 + 0x10d),uVar6);
+    FUN_0402cd10(param_2,"D3DRS_ALPHAREF: %#x (%u)",uVar6,uVar6);
+  }
+  FUN_0402cd10(param_2,&DAT_04328763,uVar16);
+  uVar17 = (undefined4)(uVar16 >> 0x20);
+  FUN_0402cd10(param_2," - Ambient Lighting State");
+  FUN_0402cd10(param_2,"D3DRS_AMBIENT: %#8x (argb bytes)",param_1[0x180]);
+  FUN_0402cd10(param_2,&DAT_04328763);
+  FUN_0402cd10(param_2," - Antialiasing State");
+  pcVar1 = "TRUE";
+  if (param_1[0x196] == 0) {
+    pcVar1 = "FALSE";
+  }
+  uVar15 = CONCAT44(uVar17,pcVar1);
+  FUN_0402cd10(param_2,"D3DRS_MULTISAMPLEANTIALIAS: %s",pcVar1);
+  FUN_0402cd10(param_2,&DAT_04328763);
+  FUN_0402cd10(param_2," - Culling State");
+  iVar2 = param_1[0x10b];
+  if (iVar2 == 2) {
+    FUN_0402cd10(param_2,"D3DRS_CULLMODE: CW",uVar15);
+  }
+  else if (iVar2 == 3) {
+    FUN_0402cd10(param_2,"D3DRS_CULLMODE: CCW",uVar15);
+  }
+  else if (iVar2 == 1) {
+    FUN_0402cd10(param_2,"D3DRS_CULLMODE: NONE",uVar15);
+  }
+  else {
+    FUN_0402cd10(param_2,"D3DRS_CULLMODE: !unhandled!",uVar15);
+  }
+  FUN_0402cd10(param_2,&DAT_04328763);
+  FUN_0402cd10(param_2," - Depth Buffering State");
+  iVar2 = param_1[0xfc];
+  if (iVar2 == 1) {
+    FUN_0402cd10(param_2,"D3DRS_ZENABLE: TRUE");
+  }
+  else if (iVar2 == 0) {
+    FUN_0402cd10(param_2,"D3DRS_ZENABLE: FALSE");
+  }
+  else if (iVar2 == 2) {
+    FUN_0402cd10(param_2,"D3DRS_ZENABLE: USE W");
+  }
+  else {
+    FUN_0402cd10(param_2,"D3DRS_ZENABLE: !unhandled!");
+  }
+  pcVar5 = "FALSE";
+  pcVar1 = "TRUE";
+  if (param_1[0x103] == 0) {
+    pcVar1 = "FALSE";
+  }
+  FUN_0402cd10(param_2,"D3DRS_ZWRITEENABLE: %s",pcVar1);
+  D3DCMP_ToString();
+  FUN_0402cd10(param_2,"D3DRS_DEPTHBIAS: %f",(double)(float)param_1[0x1b8]);
+  dVar14 = (double)(float)param_1[0x1a4];
+  FUN_0402cd10(param_2,"D3DRS_SLOPESCALEDEPTHBIAS: %f",dVar14);
+  uVar17 = (undefined4)((ulonglong)dVar14 >> 0x20);
+  FUN_0402cd10(param_2,&DAT_04328763);
+  FUN_0402cd10(param_2," - Fog State");
+  pcVar1 = "TRUE";
+  if (param_1[0x111] == 0) {
+    pcVar1 = "FALSE";
+  }
+  dVar14 = (double)CONCAT44(uVar17,pcVar1);
+  FUN_0402cd10(param_2,"D3DRS_FOGENABLE: %s",pcVar1);
+  if (param_1[0x111] == 0) goto LAB_0405e700;
+  if (param_1[0x125] != 0) {
+    pcVar5 = "TRUE";
+  }
+  uVar17 = (undefined4)((ulonglong)dVar14 >> 0x20);
+  FUN_0402cd10(param_2,"D3DRS_RANGEFOGENABLE: %s",pcVar5);
+  dVar14 = (double)CONCAT44(uVar17,param_1[0x117]);
+  FUN_0402cd10(param_2,"D3DRS_FOGCOLOR: 0x8%x (argb bytes) (alpha should be ignored)",param_1[0x117]
+              );
+  iVar2 = param_1[0x118];
+  if (iVar2 == 1) {
+    FUN_0402cd10(param_2,"D3DRS_FOGTABLEMODE: D3DFOG_EXP",dVar14);
+LAB_04061c81:
+    dVar14 = (double)(float)param_1[0x11b];
+    FUN_0402cd10(param_2,"D3DRS_FOGDENSITY: %f",dVar14);
+  }
+  else {
+    if (iVar2 != 0) {
+      if (iVar2 != 2) {
+        if (iVar2 != 3) {
+          FUN_0402cd10(param_2,"D3DRS_FOGTABLEMODE: !unhandled!",dVar14);
+          goto LAB_0405e6ba;
+        }
+        FUN_0402cd10(param_2,"D3DRS_FOGTABLEMODE: D3DFOG_LINEAR",dVar14);
+LAB_04061c2a:
+        FUN_0402cd10(param_2,"D3DRS_FOGSTART: %f",(double)(float)param_1[0x119]);
+        dVar14 = (double)(float)param_1[0x11a];
+        FUN_0402cd10(param_2,"D3DRS_FOGEND: %f",dVar14);
+        goto LAB_0405e700;
+      }
+      FUN_0402cd10(param_2,"D3DRS_FOGTABLEMODE: D3DFOG_EXP2",dVar14);
+      goto LAB_04061c81;
+    }
+    FUN_0402cd10(param_2,"D3DRS_FOGTABLEMODE: D3DFOG_NONE",dVar14);
+LAB_0405e6ba:
+    iVar2 = param_1[0x181];
+    if (iVar2 == 1) {
+      FUN_0402cd10(param_2,"D3DRS_FOGVERTEXMODE: D3DFOG_EXP",dVar14);
+      goto LAB_04061c81;
+    }
+    if (iVar2 == 0) {
+      FUN_0402cd10(param_2,"D3DRS_FOGVERTEXMODE: D3DFOG_NONE",dVar14);
+    }
+    else {
+      if (iVar2 == 2) {
+        FUN_0402cd10(param_2,"D3DRS_FOGVERTEXMODE: D3DFOG_EXP2",dVar14);
+        goto LAB_04061c81;
+      }
+      if (iVar2 == 3) {
+        FUN_0402cd10(param_2,"D3DRS_FOGVERTEXMODE: D3DFOG_LINEAR",dVar14);
+        goto LAB_04061c2a;
+      }
+      FUN_0402cd10(param_2,"D3DRS_FOGVERTEXMODE: !unhandled!",dVar14);
+    }
+  }
+LAB_0405e700:
+  FUN_0402cd10(param_2,&DAT_04328763,dVar14);
+  uVar17 = (undefined4)((ulonglong)dVar14 >> 0x20);
+  FUN_0402cd10(param_2," - Lighting State");
+  pcVar1 = "TRUE";
+  if (param_1[0x17e] == 0) {
+    pcVar1 = "FALSE";
+  }
+  dVar14 = (double)CONCAT44(uVar17,pcVar1);
+  FUN_0402cd10(param_2,"D3DRS_LIGHTING: %s",pcVar1);
+  if (param_1[0x17e] != 0) {
+    piVar4 = param_1;
+    uVar6 = 0;
+LAB_0405e777:
+    do {
+      if (*piVar4 != 0) {
+        uVar16 = (ulonglong)uVar6;
+        FUN_0402cd10(param_2,"Light %u:",uVar6);
+        iVar2 = param_1[uVar6 * 0x1b + 1];
+        if (iVar2 == 2) {
+          FUN_0402cd10(param_2,"\tType: D3DLIGHT_SPOT",uVar16);
+        }
+        else if (iVar2 == 3) {
+          FUN_0402cd10(param_2,"\tType: D3DLIGHT_DIRECTIONAL",uVar16);
+        }
+        else if (iVar2 == 1) {
+          FUN_0402cd10(param_2,"\tType: D3DLIGHT_POINT",uVar16);
+        }
+        else {
+          FUN_0402cd10(param_2,"\tType: !unhandled!",uVar16);
+        }
+        FUN_0402cd10(param_2,"\tDiffuse:  ( r %f g %f b %f a %f )",
+                     (double)(float)param_1[uVar6 * 0x1b + 2],
+                     (double)(float)param_1[uVar6 * 0x1b + 3],
+                     (double)(float)param_1[uVar6 * 0x1b + 4],
+                     (double)(float)param_1[uVar6 * 0x1b + 5]);
+        FUN_0402cd10(param_2,"\tSpecular: ( r %f g %f b %f a %f )",
+                     (double)(float)param_1[uVar6 * 0x1b + 6],
+                     (double)(float)param_1[uVar6 * 0x1b + 7],
+                     (double)(float)param_1[uVar6 * 0x1b + 8],
+                     (double)(float)param_1[uVar6 * 0x1b + 9]);
+        dVar13 = (double)(float)param_1[uVar6 * 0x1b + 0xd];
+        FUN_0402cd10(param_2,"\tAmbient:  ( r %f g %f b %f a %f )",
+                     (double)(float)param_1[uVar6 * 0x1b + 10],
+                     (double)(float)param_1[uVar6 * 0x1b + 0xb],
+                     (double)(float)param_1[uVar6 * 0x1b + 0xc],dVar13);
+        if (param_1[uVar6 * 0x1b + 1] != 3) {
+          FUN_0402cd10(param_2,"\tPosition: ( %f , %f, %f )",
+                       (double)(float)param_1[uVar6 * 0x1b + 0xe],
+                       (double)(float)param_1[uVar6 * 0x1b + 0xf],
+                       (double)(float)param_1[uVar6 * 0x1b + 0x10],dVar13);
+          FUN_0402cd10(param_2,"\tRange: %f",(double)(float)param_1[uVar6 * 0x1b + 0x14]);
+          FUN_0402cd10(param_2,"\tAttenuation (constant):  %f",
+                       (double)(float)param_1[uVar6 * 0x1b + 0x16]);
+          FUN_0402cd10(param_2,"\tAttenuation (linear):    %f",
+                       (double)(float)param_1[uVar6 * 0x1b + 0x17]);
+          dVar14 = (double)(float)param_1[uVar6 * 0x1b + 0x18];
+          FUN_0402cd10(param_2,"\tAttenuation (quadratic): %f",dVar14);
+          if (param_1[uVar6 * 0x1b + 1] == 1) goto LAB_0405e768;
+        }
+        dVar14 = (double)(float)param_1[uVar6 * 0x1b + 0x11];
+        FUN_0402cd10(param_2,"\tDirection: ( %f , %f, %f )",dVar14,
+                     (double)(float)param_1[uVar6 * 0x1b + 0x12],
+                     (double)(float)param_1[uVar6 * 0x1b + 0x13],dVar13);
+        if (param_1[uVar6 * 0x1b + 1] == 2) {
+          uVar7 = uVar6 + 1;
+          piVar4 = piVar4 + 0x1b;
+          dVar14 = (double)(float)param_1[uVar6 * 0x1b + 0x1a];
+          FUN_0402cd10(param_2,"\tPhi (outer cone): %f, theta (inner cone): %f, falloff: %f",dVar14,
+                       (double)(float)param_1[uVar6 * 0x1b + 0x19],
+                       (double)(float)param_1[uVar6 * 0x1b + 0x15],dVar13);
+          uVar6 = uVar7;
+          if (uVar7 == 8) break;
+          goto LAB_0405e777;
+        }
+      }
+LAB_0405e768:
+      uVar6 = uVar6 + 1;
+      piVar4 = piVar4 + 0x1b;
+    } while (uVar6 != 8);
+  }
+  FUN_0402cd10(param_2,&DAT_04328763,dVar14);
+  uVar17 = (undefined4)((ulonglong)dVar14 >> 0x20);
+  FUN_0402cd10(param_2," - Outline and Fill State");
+  iVar2 = param_1[0xfd];
+  if (iVar2 == 2) {
+    FUN_0402cd10(param_2,"D3DRS_FILLMODE: D3DFILL_WIREFRAME");
+  }
+  else if (iVar2 == 3) {
+    FUN_0402cd10(param_2,"D3DRS_FILLMODE: D3DFILL_SOLID");
+  }
+  else if (iVar2 == 1) {
+    FUN_0402cd10(param_2,"D3DRS_FILLMODE: D3DFILL_POINT");
+  }
+  else {
+    FUN_0402cd10(param_2,"D3DRS_FILLMODE: !unhandled!");
+  }
+  pcVar5 = "TRUE";
+  pcVar1 = "FALSE";
+  if (param_1[0x10f] != 0) {
+    pcVar1 = "TRUE";
+  }
+  FUN_0402cd10(param_2,"D3DRS_DITHERENABLE: %s",pcVar1);
+  pcVar1 = "FALSE";
+  if (param_1[0x105] != 0) {
+    pcVar1 = "TRUE";
+  }
+  FUN_0402cd10(param_2,"D3DRS_LASTPIXEL: %s",pcVar1);
+  pcVar1 = "FALSE";
+  if (param_1[0x1a5] != 0) {
+    pcVar1 = "TRUE";
+  }
+  FUN_0402cd10(param_2,"D3DRS_ANTIALIASEDLINEENABLE: %s",pcVar1);
+  FUN_0402cd10(param_2,&DAT_04328763);
+  FUN_0402cd10(param_2," - Per-Vertex Color State");
+  if (param_1[0x182] == 0) {
+    pcVar5 = "FALSE";
+  }
+  uVar15 = CONCAT44(uVar17,pcVar5);
+  FUN_0402cd10(param_2,"D3DRS_COLORVERTEX: %s",pcVar5);
+  if (param_1[0x182] != 0) {
+    iVar2 = param_1[0x188];
+    uVar17 = (undefined4)((ulonglong)uVar15 >> 0x20);
+    if (iVar2 == 1) {
+      FUN_0402cd10(param_2,"%s: D3DMCS_COLOR1 (diffuse vertex color)","D3DRS_AMBIENTMATERIALSOURCE")
+      ;
+    }
+    else if (iVar2 == 0) {
+      FUN_0402cd10(param_2,"%s: D3DMCS_MATERIAL (color from current material)",
+                   "D3DRS_AMBIENTMATERIALSOURCE");
+    }
+    else if (iVar2 == 2) {
+      FUN_0402cd10(param_2,"%s: D3DMCS_COLOR2 (specular vertex color)","D3DRS_AMBIENTMATERIALSOURCE"
+                  );
+    }
+    else {
+      FUN_0402cd10(param_2,"%s: !unhandled!","D3DRS_AMBIENTMATERIALSOURCE");
+    }
+    iVar2 = param_1[0x186];
+    if (iVar2 == 1) {
+      FUN_0402cd10(param_2,"%s: D3DMCS_COLOR1 (diffuse vertex color)","D3DRS_DIFFUSEMATERIALSOURCE")
+      ;
+    }
+    else if (iVar2 == 0) {
+      FUN_0402cd10(param_2,"%s: D3DMCS_MATERIAL (color from current material)",
+                   "D3DRS_DIFFUSEMATERIALSOURCE");
+    }
+    else if (iVar2 == 2) {
+      FUN_0402cd10(param_2,"%s: D3DMCS_COLOR2 (specular vertex color)","D3DRS_DIFFUSEMATERIALSOURCE"
+                  );
+    }
+    else {
+      FUN_0402cd10(param_2,"%s: !unhandled!","D3DRS_DIFFUSEMATERIALSOURCE");
+    }
+    iVar2 = param_1[0x189];
+    if (iVar2 == 1) {
+      FUN_0402cd10(param_2,"%s: D3DMCS_COLOR1 (diffuse vertex color)","D3DRS_EMISSIVEMATERIALSOURCE"
+                  );
+    }
+    else if (iVar2 == 0) {
+      FUN_0402cd10(param_2,"%s: D3DMCS_MATERIAL (color from current material)",
+                   "D3DRS_EMISSIVEMATERIALSOURCE");
+    }
+    else if (iVar2 == 2) {
+      FUN_0402cd10(param_2,"%s: D3DMCS_COLOR2 (specular vertex color)",
+                   "D3DRS_EMISSIVEMATERIALSOURCE");
+    }
+    else {
+      FUN_0402cd10(param_2,"%s: !unhandled!","D3DRS_EMISSIVEMATERIALSOURCE");
+    }
+    iVar2 = param_1[0x187];
+    if (iVar2 == 1) {
+      uVar15 = CONCAT44(uVar17,"D3DRS_SPECULARMATERIALSOURCE");
+      FUN_0402cd10(param_2,"%s: D3DMCS_COLOR1 (diffuse vertex color)","D3DRS_SPECULARMATERIALSOURCE"
+                  );
+    }
+    else if (iVar2 == 0) {
+      uVar15 = CONCAT44(uVar17,"D3DRS_SPECULARMATERIALSOURCE");
+      FUN_0402cd10(param_2,"%s: D3DMCS_MATERIAL (color from current material)",
+                   "D3DRS_SPECULARMATERIALSOURCE");
+    }
+    else if (iVar2 == 2) {
+      uVar15 = CONCAT44(uVar17,"D3DRS_SPECULARMATERIALSOURCE");
+      FUN_0402cd10(param_2,"%s: D3DMCS_COLOR2 (specular vertex color)",
+                   "D3DRS_SPECULARMATERIALSOURCE");
+    }
+    else {
+      uVar15 = CONCAT44(uVar17,"D3DRS_SPECULARMATERIALSOURCE");
+      FUN_0402cd10(param_2,"%s: !unhandled!","D3DRS_SPECULARMATERIALSOURCE");
+    }
+  }
+  FUN_0402cd10(param_2,&DAT_04328763,uVar15);
+  uVar17 = (undefined4)((ulonglong)uVar15 >> 0x20);
+  FUN_0402cd10(param_2," - Primitive Clipping State");
+  pcVar1 = "TRUE";
+  if (param_1[0x17d] == 0) {
+    pcVar1 = "FALSE";
+  }
+  uVar15 = CONCAT44(uVar17,pcVar1);
+  FUN_0402cd10(param_2,"D3DRS_CLIPPING: %s",pcVar1);
+  FUN_0402cd10(param_2,&DAT_04328763);
+  FUN_0402cd10(param_2," - Shading State");
+  iVar2 = param_1[0xfe];
+  if (iVar2 == 2) {
+    FUN_0402cd10(param_2,"D3DRS_SHADEMODE: D3DSHADE_GOURAUD",uVar15);
+    uVar17 = (undefined4)((ulonglong)uVar15 >> 0x20);
+  }
+  else if (iVar2 == 3) {
+    FUN_0402cd10(param_2,"D3DRS_SHADEMODE: D3DSHADE_PHONG",uVar15);
+    uVar17 = (undefined4)((ulonglong)uVar15 >> 0x20);
+  }
+  else if (iVar2 == 1) {
+    FUN_0402cd10(param_2,"D3DRS_SHADEMODE: D3DSHADE_FLAT",uVar15);
+    uVar17 = (undefined4)((ulonglong)uVar15 >> 0x20);
+  }
+  else {
+    FUN_0402cd10(param_2,"D3DRS_SHADEMODE: !unhandled!",uVar15);
+    uVar17 = (undefined4)((ulonglong)uVar15 >> 0x20);
+  }
+  pcVar5 = "FALSE";
+  FUN_0402cd10(param_2,&DAT_04328763);
+  FUN_0402cd10(param_2," - Stencil Buffer State");
+  pcVar1 = "TRUE";
+  if (param_1[0x129] == 0) {
+    pcVar1 = "FALSE";
+  }
+  dVar14 = (double)CONCAT44(uVar17,pcVar1);
+  FUN_0402cd10(param_2,"D3DRS_STENCILENABLE: %s",pcVar1);
+  if (param_1[0x129] != 0) {
+    D3DSTENCILOP_ToString();
+    D3DSTENCILOP_ToString();
+    D3DSTENCILOP_ToString();
+    D3DCMP_ToString();
+    iVar2 = param_1[0x12e];
+    FUN_0402cd10(param_2,"D3DRS_STENCILREF: %#x (%d)",iVar2,iVar2);
+    FUN_0402cd10(param_2,"D3DRS_STENCILMASK: %#x",param_1[0x12f]);
+    FUN_0402cd10(param_2,"D3DRS_STENCILWRITEMASK: %#x",param_1[0x130]);
+    if (param_1[0x1ae] != 0) {
+      pcVar5 = "TRUE";
+    }
+    dVar14 = (double)CONCAT44(iVar2,pcVar5);
+    FUN_0402cd10(param_2,"D3DRS_TWOSIDEDSTENCILMODE: %s",pcVar5);
+    if (param_1[0x1ae] != 0) {
+      D3DSTENCILOP_ToString();
+      D3DSTENCILOP_ToString();
+      D3DSTENCILOP_ToString();
+      D3DCMP_ToString();
+    }
+  }
+  FUN_0402cd10(param_2,&DAT_04328763,dVar14);
+  FUN_0402cd10(param_2," - Texture Wrapping State (not mentioned aren\'t wrappped)");
+  if (param_1[0x175] != 0) {
+    bVar11 = (param_1[0x175] & 1U) == 0;
+    pcVar1 = "";
+    pcVar5 = "V";
+    if (bVar11) {
+      pcVar5 = "";
+    }
+    pcVar8 = "3";
+    if (bVar11) {
+      pcVar8 = "";
+    }
+    pcVar3 = "W";
+    if (bVar11) {
+      pcVar3 = "";
+    }
+    else {
+      pcVar1 = "U";
+    }
+    dVar14 = (double)(ZEXT48(pcVar1) << 0x20);
+    FUN_0402cd10(param_2,"D3DRS_WRAP%u: %s%s%s%s",0,pcVar1,pcVar5,pcVar3,pcVar8);
+  }
+  if (param_1[0x176] != 0) {
+    bVar11 = (param_1[0x176] & 1U) == 0;
+    pcVar1 = "";
+    pcVar5 = "V";
+    if (bVar11) {
+      pcVar5 = "";
+    }
+    pcVar8 = "3";
+    if (bVar11) {
+      pcVar8 = "";
+    }
+    pcVar3 = "W";
+    if (bVar11) {
+      pcVar3 = "";
+    }
+    else {
+      pcVar1 = "U";
+    }
+    dVar14 = (double)CONCAT44(pcVar1,1);
+    FUN_0402cd10(param_2,"D3DRS_WRAP%u: %s%s%s%s",1,pcVar1,pcVar5,pcVar3,pcVar8);
+  }
+  if (param_1[0x177] != 0) {
+    bVar11 = (param_1[0x177] & 1U) == 0;
+    pcVar1 = "";
+    pcVar5 = "V";
+    if (bVar11) {
+      pcVar5 = "";
+    }
+    pcVar8 = "3";
+    if (bVar11) {
+      pcVar8 = "";
+    }
+    pcVar3 = "W";
+    if (bVar11) {
+      pcVar3 = "";
+    }
+    else {
+      pcVar1 = "U";
+    }
+    dVar14 = (double)CONCAT44(pcVar1,2);
+    FUN_0402cd10(param_2,"D3DRS_WRAP%u: %s%s%s%s",2,pcVar1,pcVar5,pcVar3,pcVar8);
+  }
+  if (param_1[0x178] != 0) {
+    bVar11 = (param_1[0x178] & 1U) == 0;
+    pcVar1 = "";
+    pcVar5 = "V";
+    if (bVar11) {
+      pcVar5 = "";
+    }
+    pcVar8 = "3";
+    if (bVar11) {
+      pcVar8 = "";
+    }
+    pcVar3 = "W";
+    if (bVar11) {
+      pcVar3 = "";
+    }
+    else {
+      pcVar1 = "U";
+    }
+    dVar14 = (double)CONCAT44(pcVar1,3);
+    FUN_0402cd10(param_2,"D3DRS_WRAP%u: %s%s%s%s",3,pcVar1,pcVar5,pcVar3,pcVar8);
+  }
+  if (param_1[0x179] != 0) {
+    bVar11 = (param_1[0x179] & 1U) == 0;
+    pcVar1 = "";
+    pcVar5 = "V";
+    if (bVar11) {
+      pcVar5 = "";
+    }
+    pcVar8 = "3";
+    if (bVar11) {
+      pcVar8 = "";
+    }
+    pcVar3 = "W";
+    if (bVar11) {
+      pcVar3 = "";
+    }
+    else {
+      pcVar1 = "U";
+    }
+    dVar14 = (double)CONCAT44(pcVar1,4);
+    FUN_0402cd10(param_2,"D3DRS_WRAP%u: %s%s%s%s",4,pcVar1,pcVar5,pcVar3,pcVar8);
+  }
+  if (param_1[0x17a] != 0) {
+    bVar11 = (param_1[0x17a] & 1U) == 0;
+    pcVar1 = "";
+    pcVar5 = "V";
+    if (bVar11) {
+      pcVar5 = "";
+    }
+    pcVar8 = "3";
+    if (bVar11) {
+      pcVar8 = "";
+    }
+    pcVar3 = "W";
+    if (bVar11) {
+      pcVar3 = "";
+    }
+    else {
+      pcVar1 = "U";
+    }
+    dVar14 = (double)CONCAT44(pcVar1,5);
+    FUN_0402cd10(param_2,"D3DRS_WRAP%u: %s%s%s%s",5,pcVar1,pcVar5,pcVar3,pcVar8);
+  }
+  if (param_1[0x17b] != 0) {
+    bVar11 = (param_1[0x17b] & 1U) == 0;
+    pcVar1 = "";
+    pcVar5 = "V";
+    if (bVar11) {
+      pcVar5 = "";
+    }
+    pcVar8 = "3";
+    if (bVar11) {
+      pcVar8 = "";
+    }
+    pcVar3 = "W";
+    if (bVar11) {
+      pcVar3 = "";
+    }
+    else {
+      pcVar1 = "U";
+    }
+    dVar14 = (double)CONCAT44(pcVar1,6);
+    FUN_0402cd10(param_2,"D3DRS_WRAP%u: %s%s%s%s",6,pcVar1,pcVar5,pcVar3,pcVar8);
+  }
+  if (param_1[0x17c] != 0) {
+    bVar11 = (param_1[0x17c] & 1U) == 0;
+    pcVar1 = "W";
+    if (bVar11) {
+      pcVar1 = "";
+    }
+    pcVar5 = "V";
+    if (bVar11) {
+      pcVar5 = "";
+    }
+    pcVar8 = "3";
+    if (bVar11) {
+      pcVar8 = "";
+    }
+    pcVar3 = "U";
+    if (bVar11) {
+      pcVar3 = "";
+    }
+    dVar14 = (double)CONCAT44(pcVar3,7);
+    FUN_0402cd10(param_2,"D3DRS_WRAP%u: %s%s%s%s",7,pcVar3,pcVar5,pcVar1,pcVar8);
+  }
+  if (param_1[0x1bb] != 0) {
+    bVar11 = (param_1[0x1bb] & 1U) == 0;
+    pcVar1 = "";
+    pcVar5 = "V";
+    if (bVar11) {
+      pcVar5 = "";
+    }
+    pcVar8 = "3";
+    if (bVar11) {
+      pcVar8 = "";
+    }
+    pcVar3 = "W";
+    if (bVar11) {
+      pcVar3 = "";
+    }
+    else {
+      pcVar1 = "U";
+    }
+    dVar14 = (double)CONCAT44(pcVar1,8);
+    FUN_0402cd10(param_2,"D3DRS_WRAP%u: %s%s%s%s",8,pcVar1,pcVar5,pcVar3,pcVar8);
+  }
+  if (param_1[0x1bc] != 0) {
+    bVar11 = (param_1[0x1bc] & 1U) == 0;
+    pcVar1 = "";
+    pcVar5 = "V";
+    if (bVar11) {
+      pcVar5 = "";
+    }
+    pcVar8 = "3";
+    if (bVar11) {
+      pcVar8 = "";
+    }
+    pcVar3 = "W";
+    if (bVar11) {
+      pcVar3 = "";
+    }
+    else {
+      pcVar1 = "U";
+    }
+    dVar14 = (double)CONCAT44(pcVar1,9);
+    FUN_0402cd10(param_2,"D3DRS_WRAP%u: %s%s%s%s",9,pcVar1,pcVar5,pcVar3,pcVar8);
+  }
+  if (param_1[0x1bd] != 0) {
+    bVar11 = (param_1[0x1bd] & 1U) == 0;
+    pcVar1 = "";
+    pcVar5 = "V";
+    if (bVar11) {
+      pcVar5 = "";
+    }
+    pcVar8 = "3";
+    if (bVar11) {
+      pcVar8 = "";
+    }
+    pcVar3 = "W";
+    if (bVar11) {
+      pcVar3 = "";
+    }
+    else {
+      pcVar1 = "U";
+    }
+    dVar14 = (double)CONCAT44(pcVar1,10);
+    FUN_0402cd10(param_2,"D3DRS_WRAP%u: %s%s%s%s",10,pcVar1,pcVar5,pcVar3,pcVar8);
+  }
+  if (param_1[0x1be] != 0) {
+    bVar11 = (param_1[0x1be] & 1U) == 0;
+    pcVar1 = "";
+    pcVar5 = "V";
+    if (bVar11) {
+      pcVar5 = "";
+    }
+    pcVar8 = "3";
+    if (bVar11) {
+      pcVar8 = "";
+    }
+    pcVar3 = "W";
+    if (bVar11) {
+      pcVar3 = "";
+    }
+    else {
+      pcVar1 = "U";
+    }
+    dVar14 = (double)CONCAT44(pcVar1,0xb);
+    FUN_0402cd10(param_2,"D3DRS_WRAP%u: %s%s%s%s",0xb,pcVar1,pcVar5,pcVar3,pcVar8);
+  }
+  if (param_1[0x1bf] != 0) {
+    bVar11 = (param_1[0x1bf] & 1U) == 0;
+    pcVar1 = "";
+    pcVar5 = "V";
+    if (bVar11) {
+      pcVar5 = "";
+    }
+    pcVar8 = "3";
+    if (bVar11) {
+      pcVar8 = "";
+    }
+    pcVar3 = "W";
+    if (bVar11) {
+      pcVar3 = "";
+    }
+    else {
+      pcVar1 = "U";
+    }
+    dVar14 = (double)CONCAT44(pcVar1,0xc);
+    FUN_0402cd10(param_2,"D3DRS_WRAP%u: %s%s%s%s",0xc,pcVar1,pcVar5,pcVar3,pcVar8);
+  }
+  if (param_1[0x1c0] != 0) {
+    bVar11 = (param_1[0x1c0] & 1U) == 0;
+    pcVar1 = "";
+    pcVar5 = "V";
+    if (bVar11) {
+      pcVar5 = "";
+    }
+    pcVar8 = "3";
+    if (bVar11) {
+      pcVar8 = "";
+    }
+    pcVar3 = "W";
+    if (bVar11) {
+      pcVar3 = "";
+    }
+    else {
+      pcVar1 = "U";
+    }
+    dVar14 = (double)CONCAT44(pcVar1,0xd);
+    FUN_0402cd10(param_2,"D3DRS_WRAP%u: %s%s%s%s",0xd,pcVar1,pcVar5,pcVar3,pcVar8);
+  }
+  if (param_1[0x1c1] != 0) {
+    bVar11 = (param_1[0x1c1] & 1U) == 0;
+    pcVar1 = "";
+    pcVar5 = "V";
+    if (bVar11) {
+      pcVar5 = "";
+    }
+    pcVar8 = "3";
+    if (bVar11) {
+      pcVar8 = "";
+    }
+    pcVar3 = "W";
+    if (bVar11) {
+      pcVar3 = "";
+    }
+    else {
+      pcVar1 = "U";
+    }
+    dVar14 = (double)CONCAT44(pcVar1,0xe);
+    FUN_0402cd10(param_2,"D3DRS_WRAP%u: %s%s%s%s",0xe,pcVar1,pcVar5,pcVar3,pcVar8);
+  }
+  if (param_1[0x1c2] != 0) {
+    bVar11 = (param_1[0x1c2] & 1U) == 0;
+    pcVar1 = "W";
+    if (bVar11) {
+      pcVar1 = "";
+    }
+    pcVar5 = "V";
+    if (bVar11) {
+      pcVar5 = "";
+    }
+    pcVar8 = "3";
+    if (bVar11) {
+      pcVar8 = "";
+    }
+    pcVar3 = "U";
+    if (bVar11) {
+      pcVar3 = "";
+    }
+    dVar14 = (double)CONCAT44(pcVar3,0xf);
+    FUN_0402cd10(param_2,"D3DRS_WRAP%u: %s%s%s%s",0xf,pcVar3,pcVar5,pcVar1,pcVar8);
+  }
+  FUN_0402cd10(param_2,&DAT_04328763);
+  FUN_0402cd10(param_2," - Other Curios (not mentioned if in default state)");
+  if (param_1[0x1a3] != 0) {
+    FUN_0402cd10(param_2,"D3DRS_SCISSORTESTENABLE: TRUE");
+    dVar14 = *(double *)(param_1 + 0x30f);
+    FUN_0402cd10(param_2,"Scissor rect: left %d top %d right %d bottom %d",param_1[0x30f],
+                 param_1[0x310],param_1[0x311],param_1[0x312]);
+  }
+  if (param_1[0x112] != 0) {
+    FUN_0402cd10(param_2,"D3DRS_SPECULARENABLE: TRUE",dVar14);
+  }
+  uVar6 = param_1[0x131];
+  if (uVar6 != 0xffffffff) {
+    dVar14 = (double)(ulonglong)uVar6;
+    FUN_0402cd10(param_2,"D3DRS_TEXTUREFACTOR: %#x",uVar6);
+  }
+  if (param_1[0x183] == 0) {
+    FUN_0402cd10(param_2,"D3DRS_LOCALVIEWER: FALSE",dVar14);
+  }
+  if (param_1[0x184] != 0) {
+    FUN_0402cd10(param_2,"D3DRS_NORMALIZENORMALS: TRUE",dVar14);
+  }
+  uVar6 = param_1[0x18c];
+  if (uVar6 != 0) {
+    if (uVar6 == 2) {
+      FUN_0402cd10(param_2,"D3DRS_VERTEXBLEND: D3DVBF_2WEIGHTS");
+    }
+    else {
+      if (uVar6 < 3) {
+        if (uVar6 == 1) {
+          FUN_0402cd10(param_2,"D3DRS_VERTEXBLEND: D3DVBF_1WEIGHTS");
+          goto LAB_0405f2c8;
+        }
+      }
+      else {
+        if (uVar6 == 3) {
+          FUN_0402cd10(param_2,"D3DRS_VERTEXBLEND: D3DVBF_3WEIGHTS");
+          goto LAB_0405f2c8;
+        }
+        if (uVar6 == 0xff) {
+          FUN_0402cd10(param_2,"D3DRS_VERTEXBLEND: D3DVBF_TWEENING");
+          goto LAB_0405f2c8;
+        }
+      }
+      FUN_0402cd10(param_2,"D3DRS_VERTEXBLEND: !unhandled!");
+    }
+  }
+LAB_0405f2c8:
+  uVar6 = param_1[0x18d];
+  if ((uVar6 & 1) != 0) {
+    dVar14 = (double)(float)param_1[0xdd];
+    FUN_0402cd10(param_2,"Clip plane 0: { %f , %f , %f , %f }",dVar14,(double)(float)param_1[0xde],
+                 (double)(float)param_1[0xdf],(double)(float)param_1[0xe0]);
+    uVar6 = param_1[0x18d];
+  }
+  if ((uVar6 & 2) != 0) {
+    dVar14 = (double)(float)param_1[0xe1];
+    FUN_0402cd10(param_2,"Clip plane 1: { %f , %f , %f , %f }",dVar14,(double)(float)param_1[0xe2],
+                 (double)(float)param_1[0xe3],(double)(float)param_1[0xe4]);
+    uVar6 = param_1[0x18d];
+  }
+  if ((uVar6 & 4) != 0) {
+    dVar14 = (double)(float)param_1[0xe5];
+    FUN_0402cd10(param_2,"Clip plane 2: { %f , %f , %f , %f }",dVar14,(double)(float)param_1[0xe6],
+                 (double)(float)param_1[0xe7],(double)(float)param_1[0xe8]);
+    uVar6 = param_1[0x18d];
+  }
+  if ((uVar6 & 8) != 0) {
+    dVar14 = (double)(float)param_1[0xe9];
+    FUN_0402cd10(param_2,"Clip plane 3: { %f , %f , %f , %f }",dVar14,(double)(float)param_1[0xea],
+                 (double)(float)param_1[0xeb],(double)(float)param_1[0xec]);
+    uVar6 = param_1[0x18d];
+  }
+  if ((uVar6 & 0x10) != 0) {
+    dVar14 = (double)(float)param_1[0xed];
+    FUN_0402cd10(param_2,"Clip plane 4: { %f , %f , %f , %f }",dVar14,(double)(float)param_1[0xee],
+                 (double)(float)param_1[0xef],(double)(float)param_1[0xf0]);
+    uVar6 = param_1[0x18d];
+  }
+  if ((uVar6 & 0x20) != 0) {
+    dVar14 = (double)(float)param_1[0xf1];
+    FUN_0402cd10(param_2,"Clip plane 5: { %f , %f , %f , %f }",dVar14,(double)(float)param_1[0xf2],
+                 (double)(float)param_1[0xf3],(double)(float)param_1[0xf4]);
+  }
+  if ((float)param_1[399] != 1.0) {
+    dVar14 = (double)(float)param_1[399];
+    FUN_0402cd10(param_2,"D3DRS_POINTSIZE: %f",dVar14);
+  }
+  if ((float)param_1[400] != 1.0) {
+    dVar14 = (double)(float)param_1[400];
+    FUN_0402cd10(param_2,"D3DRS_POINTSIZE_MIN: %f",dVar14);
+  }
+  if ((float)param_1[0x19b] != 8192.0) {
+    dVar14 = (double)(float)param_1[0x19b];
+    FUN_0402cd10(param_2,"D3DRS_POINTSIZE_MAX: %f",dVar14);
+  }
+  if (param_1[0x191] != 0) {
+    FUN_0402cd10(param_2,"D3DRS_POINTSPRITEENABLE: TRUE",dVar14);
+  }
+  if (param_1[0x192] != 0) {
+    FUN_0402cd10(param_2,"D3DRS_POINTSCALEENABLE: TRUE",dVar14);
+    if ((float)param_1[0x193] != 1.0) {
+      dVar14 = (double)(float)param_1[0x193];
+      FUN_0402cd10(param_2,"D3DRS_POINTSCALE_A: %f",dVar14);
+    }
+    if ((float)param_1[0x194] != 0.0) {
+      dVar14 = (double)(float)param_1[0x194];
+      FUN_0402cd10(param_2,"D3DRS_POINTSCALE_B: %f",dVar14);
+    }
+    if ((float)param_1[0x195] != 0.0) {
+      dVar14 = (double)(float)param_1[0x195];
+      FUN_0402cd10(param_2,"D3DRS_POINTSCALE_C: %f",dVar14);
+    }
+  }
+  uVar6 = param_1[0x197];
+  if (uVar6 != 0xffffffff) {
+    dVar14 = (double)(ulonglong)uVar6;
+    FUN_0402cd10(param_2,"D3DRS_MULTISAMPLEMASK: %#x",uVar6);
+  }
+  if (param_1[0x198] != 0) {
+    FUN_0402cd10(param_2,"D3DRS_PATCHEDGESTYLE: D3DPATCHEDEDGE_CONTINUOUS",dVar14);
+  }
+  if (param_1[0x19c] != 0) {
+    FUN_0402cd10(param_2,"D3DRS_INDEXEDVERTEXBLENDENABLE: TRUE",dVar14);
+  }
+  uVar6 = param_1[0x19d];
+  if ((uVar6 & 0xf) != 0xf) {
+    puVar9 = &DAT_042ec005;
+    pcVar1 = "G";
+    if ((uVar6 & 4) == 0) {
+      puVar9 = &DAT_04328763;
+    }
+    if ((uVar6 & 2) == 0) {
+      pcVar1 = "";
+    }
+    pcVar5 = "R";
+    if ((uVar6 & 1) == 0) {
+      pcVar5 = "";
+    }
+    pcVar8 = "";
+    if ((uVar6 & 8) != 0) {
+      pcVar8 = "A";
+    }
+    dVar14 = (double)CONCAT44(pcVar5,pcVar8);
+    FUN_0402cd10(param_2,"D3DRS_COLORWRITEENABLE: %s%s%s%s",pcVar8,pcVar5,pcVar1,puVar9);
+  }
+  uVar6 = param_1[0x1b3];
+  if ((uVar6 & 0xf) != 0xf) {
+    puVar9 = &DAT_042ec005;
+    if ((uVar6 & 4) == 0) {
+      puVar9 = &DAT_04328763;
+    }
+    pcVar1 = "G";
+    pcVar5 = "R";
+    if ((uVar6 & 2) == 0) {
+      pcVar1 = "";
+    }
+    if ((uVar6 & 1) == 0) {
+      pcVar5 = "";
+    }
+    pcVar8 = "";
+    if ((uVar6 & 8) != 0) {
+      pcVar8 = "A";
+    }
+    dVar14 = (double)CONCAT44(pcVar5,pcVar8);
+    FUN_0402cd10(param_2,"D3DRS_COLORWRITEENABLE1: %s%s%s%s",pcVar8,pcVar5,pcVar1,puVar9);
+  }
+  uVar6 = param_1[0x1b4];
+  if ((uVar6 & 0xf) != 0xf) {
+    puVar9 = &DAT_042ec005;
+    if ((uVar6 & 4) == 0) {
+      puVar9 = &DAT_04328763;
+    }
+    pcVar1 = "G";
+    pcVar5 = "R";
+    if ((uVar6 & 2) == 0) {
+      pcVar1 = "";
+    }
+    if ((uVar6 & 1) == 0) {
+      pcVar5 = "";
+    }
+    pcVar8 = "";
+    if ((uVar6 & 8) != 0) {
+      pcVar8 = "A";
+    }
+    dVar14 = (double)CONCAT44(pcVar5,pcVar8);
+    FUN_0402cd10(param_2,"D3DRS_COLORWRITEENABLE2: %s%s%s%s",pcVar8,pcVar5,pcVar1,puVar9);
+  }
+  uVar6 = param_1[0x1b5];
+  if ((uVar6 & 0xf) != 0xf) {
+    puVar9 = &DAT_042ec005;
+    if ((uVar6 & 4) == 0) {
+      puVar9 = &DAT_04328763;
+    }
+    pcVar1 = "G";
+    pcVar5 = "R";
+    if ((uVar6 & 2) == 0) {
+      pcVar1 = "";
+    }
+    if ((uVar6 & 1) == 0) {
+      pcVar5 = "";
+    }
+    pcVar8 = "";
+    if ((uVar6 & 8) != 0) {
+      pcVar8 = "A";
+    }
+    dVar14 = (double)CONCAT44(pcVar5,pcVar8);
+    FUN_0402cd10(param_2,"D3DRS_COLORWRITEENABLE3: %s%s%s%s",pcVar8,pcVar5,pcVar1,puVar9);
+  }
+  if ((float)param_1[0x19f] != 0.0) {
+    dVar14 = (double)(float)param_1[0x19f];
+    FUN_0402cd10(param_2,"D3DRS_TWEENFACTOR: %f",dVar14);
+  }
+  if (param_1[0x1a1] != 3) {
+    FUN_0402cd10(param_2,"D3DRS_POSITIONDEGREE: D3DDEGREE_LINEAR",dVar14);
+  }
+  if (param_1[0x1a2] != 1) {
+    FUN_0402cd10(param_2,"D3DRS_NORMALDEGREE: D3DDEGREE_QUADRATIC",dVar14);
+  }
+  if (param_1[0x1ad] != 0) {
+    FUN_0402cd10(param_2,"D3DRS_ENABLEADAPTIVETESSELLATION: TRUE",dVar14);
+    if ((float)param_1[0x1a7] != 1.0) {
+      dVar14 = (double)(float)param_1[0x1a7];
+      FUN_0402cd10(param_2,"D3DRS_MINTESSELLATIONLEVEL: %f",dVar14);
+    }
+    if ((float)param_1[0x1a8] != 1.0) {
+      dVar14 = (double)(float)param_1[0x1a8];
+      FUN_0402cd10(param_2,"D3DRS_MAXTESSELLATIONLEVEL: %f",dVar14);
+    }
+    if ((float)param_1[0x1a9] != 0.0) {
+      dVar14 = (double)(float)param_1[0x1a9];
+      FUN_0402cd10(param_2,"D3DRS_ADAPTIVETESS_X: %f",dVar14);
+    }
+    if ((float)param_1[0x1aa] != 0.0) {
+      dVar14 = (double)(float)param_1[0x1aa];
+      FUN_0402cd10(param_2,"D3DRS_ADAPTIVETESS_Y: %f",dVar14);
+    }
+    if ((float)param_1[0x1ab] != 1.0) {
+      dVar14 = (double)(float)param_1[0x1ab];
+      FUN_0402cd10(param_2,"D3DRS_ADAPTIVETESS_Z: %f",dVar14);
+    }
+    if ((float)param_1[0x1ac] != 0.0) {
+      dVar14 = (double)(float)param_1[0x1ac];
+      FUN_0402cd10(param_2,"D3DRS_ADAPTIVETESS_W: %f",dVar14);
+    }
+  }
+  uVar6 = param_1[0x1b7];
+  if (uVar6 != 0) {
+    dVar14 = (double)(ulonglong)uVar6;
+    FUN_0402cd10(param_2,"D3DRS_SRGBWRITEENABLE: %#x",uVar6);
+  }
+  if ((float)param_1[0x208] != 0.0) {
+    dVar14 = (double)(float)param_1[0x208];
+    FUN_0402cd10(param_2,"NPatches: %f",dVar14);
+  }
+  FUN_0402cd10(param_2,&DAT_04328763,dVar14);
+  FUN_0402cd10(param_2," - Rest of device state");
+  FUN_0402cd10(param_2,"Viewport: x: %u, y: %u, width: %u, height: %u, minZ: %f, maxZ: %f",
+               param_1[0x1498],param_1[0x1499],param_1[0x149a],param_1[0x149b],
+               (double)(float)param_1[0x149c],(double)(float)param_1[0x149d]);
+  FUN_0402cd10(param_2,"Stream source %u - buffer offset: %u, stride: %u, divider: %u",0,
+               param_1[0x314],param_1[0x315],param_1[0x316]);
+  FUN_0402cd10(param_2,"Stream source %u - buffer offset: %u, stride: %u, divider: %u",1,
+               param_1[0x318],param_1[0x319],param_1[0x31a]);
+  FUN_0402cd10(param_2,"Stream source %u - buffer offset: %u, stride: %u, divider: %u",2,
+               param_1[0x31c],param_1[0x31d],param_1[0x31e]);
+  FUN_0402cd10(param_2,"Stream source %u - buffer offset: %u, stride: %u, divider: %u",3,
+               param_1[800],param_1[0x321],param_1[0x322]);
+  FUN_0402cd10(param_2,"Stream source %u - buffer offset: %u, stride: %u, divider: %u",4,
+               param_1[0x324],param_1[0x325],param_1[0x326]);
+  FUN_0402cd10(param_2,"Stream source %u - buffer offset: %u, stride: %u, divider: %u",5,
+               param_1[0x328],param_1[0x329],param_1[0x32a]);
+  FUN_0402cd10(param_2,"Stream source %u - buffer offset: %u, stride: %u, divider: %u",6,
+               param_1[0x32c],param_1[0x32d],param_1[0x32e]);
+  FUN_0402cd10(param_2,"Stream source %u - buffer offset: %u, stride: %u, divider: %u",7,
+               param_1[0x330],param_1[0x331],param_1[0x332]);
+  FUN_0402cd10(param_2,"Stream source %u - buffer offset: %u, stride: %u, divider: %u",8,
+               param_1[0x334],param_1[0x335],param_1[0x336]);
+  FUN_0402cd10(param_2,"Stream source %u - buffer offset: %u, stride: %u, divider: %u",9,
+               param_1[0x338],param_1[0x339],param_1[0x33a]);
+  FUN_0402cd10(param_2,"Stream source %u - buffer offset: %u, stride: %u, divider: %u",10,
+               param_1[0x33c],param_1[0x33d],param_1[0x33e]);
+  FUN_0402cd10(param_2,"Stream source %u - buffer offset: %u, stride: %u, divider: %u",0xb,
+               param_1[0x340],param_1[0x341],param_1[0x342]);
+  FUN_0402cd10(param_2,"Stream source %u - buffer offset: %u, stride: %u, divider: %u",0xc,
+               param_1[0x344],param_1[0x345],param_1[0x346]);
+  FUN_0402cd10(param_2,"Stream source %u - buffer offset: %u, stride: %u, divider: %u",0xd,
+               param_1[0x348],param_1[0x349],param_1[0x34a]);
+  FUN_0402cd10(param_2,"Stream source %u - buffer offset: %u, stride: %u, divider: %u",0xe,
+               param_1[0x34c],param_1[0x34d],param_1[0x34e]);
+  uVar15 = *(undefined8 *)(param_1 + 0x351);
+  uVar16 = CONCAT44(param_1[0x350],0xf);
+  FUN_0402cd10(param_2,"Stream source %u - buffer offset: %u, stride: %u, divider: %u",0xf,
+               param_1[0x350],param_1[0x351],param_1[0x352]);
+  iVar2 = param_1[0x1f5];
+  if (iVar2 != 0xffff) {
+    uVar17 = (undefined4)(uVar16 >> 0x20);
+    uVar16 = CONCAT44(uVar17,iVar2);
+    FUN_0402cd10(param_2,"Current texture palette: %u",iVar2,uVar17,uVar15);
+  }
+  FUN_0402cd10(param_2,"WorldTransform",uVar16,uVar15);
+  LogMatrix4x4(param_2,param_1 + 0x498);
+  FUN_0402cd10(param_2,"ViewTransform");
+  LogMatrix4x4(param_2,param_1 + 0x3f8);
+  FUN_0402cd10(param_2,"ProjectionTransform");
+  LogMatrix4x4(param_2,param_1 + 0x408);
+  if ((((((DAT_042dbf3c != (float)param_1[0x418]) || ((float)param_1[0x419] != 0.0)) ||
+        ((float)param_1[0x41a] != 0.0)) ||
+       (((float)param_1[0x41b] != 0.0 || ((float)param_1[0x41c] != 0.0)))) ||
+      (DAT_042dbf3c != (float)param_1[0x41d])) ||
+     (((((float)param_1[0x41e] != 0.0 || ((float)param_1[0x41f] != 0.0)) ||
+       (((float)param_1[0x420] != 0.0 ||
+        ((((float)param_1[0x421] != 0.0 || (DAT_042dbf3c != (float)param_1[0x422])) ||
+         ((float)param_1[0x423] != 0.0)))))) ||
+      ((((float)param_1[0x424] != 0.0 || ((float)param_1[0x425] != 0.0)) ||
+       (((float)param_1[0x426] != 0.0 || (DAT_042dbf3c != (float)param_1[0x427])))))))) {
+    uVar16 = uVar16 & 0xffffffff00000000;
+    FUN_0402cd10(param_2,"TextureTransform %u",0);
+    LogMatrix4x4(param_2,param_1 + 0x418);
+  }
+  if (((((DAT_042dbf3c != (float)param_1[0x428]) || ((float)param_1[0x429] != 0.0)) ||
+       (((float)param_1[0x42a] != 0.0 ||
+        ((((float)param_1[0x42b] != 0.0 || ((float)param_1[0x42c] != 0.0)) ||
+         (DAT_042dbf3c != (float)param_1[0x42d])))))) ||
+      (((float)param_1[0x42e] != 0.0 || ((float)param_1[0x42f] != 0.0)))) ||
+     (((float)param_1[0x430] != 0.0 ||
+      ((((float)param_1[0x431] != 0.0 || (DAT_042dbf3c != (float)param_1[0x432])) ||
+       (((float)param_1[0x433] != 0.0 ||
+        (((((float)param_1[0x434] != 0.0 || ((float)param_1[0x435] != 0.0)) ||
+          ((float)param_1[0x436] != 0.0)) || (DAT_042dbf3c != (float)param_1[0x437])))))))))) {
+    uVar16 = CONCAT44((int)(uVar16 >> 0x20),1);
+    FUN_0402cd10(param_2,"TextureTransform %u",1);
+    LogMatrix4x4(param_2,param_1 + 0x428);
+  }
+  if ((((DAT_042dbf3c != (float)param_1[0x438]) || ((float)param_1[0x439] != 0.0)) ||
+      ((((float)param_1[0x43a] != 0.0 ||
+        (((float)param_1[0x43b] != 0.0 || ((float)param_1[0x43c] != 0.0)))) ||
+       ((DAT_042dbf3c != (float)param_1[0x43d] ||
+        (((((float)param_1[0x43e] != 0.0 || ((float)param_1[0x43f] != 0.0)) ||
+          ((float)param_1[0x440] != 0.0)) ||
+         ((((float)param_1[0x441] != 0.0 || (DAT_042dbf3c != (float)param_1[0x442])) ||
+          (((float)param_1[0x443] != 0.0 ||
+           (((float)param_1[0x444] != 0.0 || ((float)param_1[0x445] != 0.0)))))))))))))) ||
+     (((float)param_1[0x446] != 0.0 || (DAT_042dbf3c != (float)param_1[0x447])))) {
+    uVar16 = CONCAT44((int)(uVar16 >> 0x20),2);
+    FUN_0402cd10(param_2,"TextureTransform %u",2);
+    LogMatrix4x4(param_2,param_1 + 0x438);
+  }
+  if (((((DAT_042dbf3c != (float)param_1[0x448]) || ((float)param_1[0x449] != 0.0)) ||
+       ((float)param_1[0x44a] != 0.0)) ||
+      ((((float)param_1[1099] != 0.0 || ((float)param_1[0x44c] != 0.0)) ||
+       ((((DAT_042dbf3c != (float)param_1[0x44d] ||
+          (((float)param_1[0x44e] != 0.0 || ((float)param_1[0x44f] != 0.0)))) ||
+         ((float)param_1[0x450] != 0.0)) ||
+        (((((float)param_1[0x451] != 0.0 || (DAT_042dbf3c != (float)param_1[0x452])) ||
+          ((float)param_1[0x453] != 0.0)) ||
+         (((float)param_1[0x454] != 0.0 || ((float)param_1[0x455] != 0.0)))))))))) ||
+     (((float)param_1[0x456] != 0.0 || (DAT_042dbf3c != (float)param_1[0x457])))) {
+    uVar16 = CONCAT44((int)(uVar16 >> 0x20),3);
+    FUN_0402cd10(param_2,"TextureTransform %u",3);
+    LogMatrix4x4(param_2,param_1 + 0x448);
+  }
+  if (((((DAT_042dbf3c != (float)param_1[0x458]) || ((float)param_1[0x459] != 0.0)) ||
+       (((float)param_1[0x45a] != 0.0 ||
+        ((((float)param_1[0x45b] != 0.0 || ((float)param_1[0x45c] != 0.0)) ||
+         (DAT_042dbf3c != (float)param_1[0x45d])))))) ||
+      (((float)param_1[0x45e] != 0.0 || ((float)param_1[0x45f] != 0.0)))) ||
+     (((float)param_1[0x460] != 0.0 ||
+      (((((float)param_1[0x461] != 0.0 || (DAT_042dbf3c != (float)param_1[0x462])) ||
+        (((float)param_1[0x463] != 0.0 ||
+         ((((float)param_1[0x464] != 0.0 || ((float)param_1[0x465] != 0.0)) ||
+          ((float)param_1[0x466] != 0.0)))))) || (DAT_042dbf3c != (float)param_1[0x467])))))) {
+    uVar16 = CONCAT44((int)(uVar16 >> 0x20),4);
+    FUN_0402cd10(param_2,"TextureTransform %u",4);
+    LogMatrix4x4(param_2,param_1 + 0x458);
+  }
+  if ((((DAT_042dbf3c != (float)param_1[0x468]) || ((float)param_1[0x469] != 0.0)) ||
+      (((float)param_1[0x46a] != 0.0 ||
+       (((float)param_1[0x46b] != 0.0 || ((float)param_1[0x46c] != 0.0)))))) ||
+     ((DAT_042dbf3c != (float)param_1[0x46d] ||
+      ((((((((float)param_1[0x46e] != 0.0 || ((float)param_1[0x46f] != 0.0)) ||
+           ((float)param_1[0x470] != 0.0)) ||
+          (((float)param_1[0x471] != 0.0 || (DAT_042dbf3c != (float)param_1[0x472])))) ||
+         ((float)param_1[0x473] != 0.0)) ||
+        (((float)param_1[0x474] != 0.0 || ((float)param_1[0x475] != 0.0)))) ||
+       (((float)param_1[0x476] != 0.0 || (DAT_042dbf3c != (float)param_1[0x477])))))))) {
+    uVar16 = CONCAT44((int)(uVar16 >> 0x20),5);
+    FUN_0402cd10(param_2,"TextureTransform %u",5);
+    LogMatrix4x4(param_2,param_1 + 0x468);
+  }
+  if (((((((DAT_042dbf3c != (float)param_1[0x478]) || ((float)param_1[0x479] != 0.0)) ||
+         ((float)param_1[0x47a] != 0.0)) ||
+        ((((float)param_1[0x47b] != 0.0 || ((float)param_1[0x47c] != 0.0)) ||
+         ((DAT_042dbf3c != (float)param_1[0x47d] ||
+          (((float)param_1[0x47e] != 0.0 || ((float)param_1[0x47f] != 0.0)))))))) ||
+       ((float)param_1[0x480] != 0.0)) ||
+      ((((float)param_1[0x481] != 0.0 || (DAT_042dbf3c != (float)param_1[0x482])) ||
+       ((float)param_1[0x483] != 0.0)))) ||
+     ((((float)param_1[0x484] != 0.0 || ((float)param_1[0x485] != 0.0)) ||
+      (((float)param_1[0x486] != 0.0 || (DAT_042dbf3c != (float)param_1[0x487])))))) {
+    uVar16 = CONCAT44((int)(uVar16 >> 0x20),6);
+    FUN_0402cd10(param_2,"TextureTransform %u",6);
+    LogMatrix4x4(param_2,param_1 + 0x478);
+  }
+  if (((((DAT_042dbf3c != (float)param_1[0x488]) || ((float)param_1[0x489] != 0.0)) ||
+       (((float)param_1[0x48a] != 0.0 ||
+        (((((float)param_1[0x48b] != 0.0 || ((float)param_1[0x48c] != 0.0)) ||
+          (DAT_042dbf3c != (float)param_1[0x48d])) ||
+         (((float)param_1[0x48e] != 0.0 || ((float)param_1[0x48f] != 0.0)))))))) ||
+      (((float)param_1[0x490] != 0.0 ||
+       (((float)param_1[0x491] != 0.0 || (DAT_042dbf3c != (float)param_1[0x492])))))) ||
+     ((((float)param_1[0x493] != 0.0 ||
+       ((((float)param_1[0x494] != 0.0 || ((float)param_1[0x495] != 0.0)) ||
+        ((float)param_1[0x496] != 0.0)))) || (DAT_042dbf3c != (float)param_1[0x497])))) {
+    uVar16 = CONCAT44((int)(uVar16 >> 0x20),7);
+    FUN_0402cd10(param_2,"TextureTransform %u",7);
+    LogMatrix4x4(param_2,param_1 + 0x488);
+  }
+  FUN_0402cd10(param_2,"Texture Stages",uVar16);
+  local_20 = 0;
+  piVar4 = param_1;
+  piVar10 = param_1;
+  do {
+    uVar17 = (undefined4)(uVar16 >> 0x20);
+    FUN_0402cd10(param_2,"  Color Stage %u",local_20);
+    D3DTOP_ToString();
+    iVar2 = piVar10[0x368];
+    if (iVar2 == 0x16) {
+      FUN_0402cd10(param_2,"  D3DTSS_BUMPENVMAT00: %f",param_1[local_20 * 0x12 + 0x371]);
+      FUN_0402cd10(param_2,"  D3DTSS_BUMPENVMAT01: %f",param_1[local_20 * 0x12 + 0x372]);
+      FUN_0402cd10(param_2,"  D3DTSS_BUMPENVMAT10: %f",param_1[local_20 * 0x12 + 0x373]);
+      pcVar1 = "  D3DTSS_BUMPENVMAT11: %f";
+      uVar15 = CONCAT44(uVar17,param_1[local_20 * 0x12 + 0x374]);
+LAB_04060f80:
+      FUN_0402cd10(param_2,pcVar1,uVar15);
+      uVar17 = (undefined4)((ulonglong)uVar15 >> 0x20);
+      bVar12 = piVar10[0x36a] == 2;
+      bVar11 = false;
+    }
+    else {
+      if (iVar2 == 0x17) {
+        FUN_0402cd10(param_2,"  D3DTSS_BUMPENVLSCALE: %f",param_1[local_20 * 0x12 + 0x375]);
+        pcVar1 = "  D3DTSS_BUMPENVLOFFSET: %f";
+        uVar15 = CONCAT44(uVar17,param_1[local_20 * 0x12 + 0x376]);
+        goto LAB_04060f80;
+      }
+      if ((iVar2 == 3) || (iVar2 == 1)) {
+LAB_040600e0:
+        bVar11 = false;
+        bVar12 = false;
+      }
+      else {
+        D3DTA_ToString();
+        if (piVar10[0x36a] == 2) {
+          iVar2 = piVar10[0x368];
+          bVar11 = false;
+          bVar12 = true;
+        }
+        else {
+          iVar2 = piVar10[0x368];
+          if (piVar10[0x36a] != 6) goto LAB_040600e0;
+          bVar11 = true;
+          bVar12 = false;
+        }
+      }
+      if ((iVar2 - 1U < 2) || (iVar2 == 0x16)) {
+LAB_04060130:
+        if (iVar2 - 0x19U < 2) {
+          D3DTA_ToString();
+          if (piVar10[0x369] == 2) {
+            bVar12 = true;
+          }
+          else if (piVar10[0x369] == 6) {
+            bVar11 = true;
+          }
+        }
+      }
+      else if (iVar2 != 0x17) {
+        D3DTA_ToString();
+        if (piVar10[0x36a] == 2) {
+          iVar2 = piVar10[0x368];
+          bVar12 = true;
+        }
+        else {
+          iVar2 = piVar10[0x368];
+          if (piVar10[0x36b] == 6) {
+            bVar11 = true;
+          }
+        }
+        goto LAB_04060130;
+      }
+    }
+    uVar16 = CONCAT44(uVar17,local_20);
+    FUN_0402cd10(param_2,"  Alpha Stage %u",local_20);
+    D3DTOP_ToString();
+    if (piVar10[0x36c] - 0x12U < 6) {
+      FUN_0402cd10(param_2,
+                   "  WARNING: This operation is not supported for alpha stage! State undefined in DirectX!"
+                   ,uVar16);
+      iVar2 = piVar10[0x368];
+LAB_0405fdc4:
+      if (iVar2 != 1) goto LAB_0405fdc9;
+    }
+    else {
+      iVar2 = piVar10[0x368];
+      if (((((iVar2 != 3) && (iVar2 != 1)) && (iVar2 != 0x17)) && (iVar2 != 0x16)) ||
+         (iVar2 - 0x12U < 4)) {
+        D3DTA_ToString();
+        if (piVar10[0x36e] == 2) {
+          iVar2 = piVar10[0x368];
+          bVar12 = true;
+        }
+        else {
+          iVar2 = piVar10[0x368];
+          if (piVar10[0x36e] == 6) {
+            bVar11 = true;
+          }
+        }
+      }
+      if ((iVar2 - 1U < 2) || (iVar2 == 0x16)) {
+LAB_0405fdb8:
+        if (iVar2 - 0x19U < 2) {
+          D3DTA_ToString();
+          if (piVar10[0x36d] == 2) {
+            iVar2 = piVar10[0x368];
+            bVar12 = true;
+          }
+          else {
+            iVar2 = piVar10[0x368];
+            if (piVar10[0x36d] == 6) {
+              bVar11 = true;
+            }
+          }
+        }
+        goto LAB_0405fdc4;
+      }
+      if (iVar2 != 0x17) {
+        D3DTA_ToString();
+        if (piVar10[0x36f] == 2) {
+          iVar2 = piVar10[0x368];
+          bVar12 = true;
+        }
+        else {
+          iVar2 = piVar10[0x368];
+          if (piVar10[0x36f] == 6) {
+            bVar11 = true;
+          }
+        }
+        goto LAB_0405fdb8;
+      }
+LAB_0405fdc9:
+      if ((piVar10[0x370] == 1) || ((piVar10[0x370] == 5 && (local_20 != 0)))) {
+        D3DTA_ToString();
+      }
+      else {
+        FUN_0402cd10(param_2,
+                     "    WARNING: Incorrect result arg value - Direct3D doesn\'t support it!");
+      }
+    }
+    if (bVar11) {
+      uVar16 = CONCAT44((int)(uVar16 >> 0x20),piVar10[0x379]);
+      FUN_0402cd10(param_2,"  D3DTSS_CONSTANT: %#x",piVar10[0x379]);
+    }
+    if (bVar12) {
+      if (param_1[local_20 + 0x353] == 0) {
+        FUN_0402cd10(param_2,"  WARNING: Null texture in stage where it\'s used!",uVar16);
+      }
+      uVar15 = CONCAT44((int)(uVar16 >> 0x20),piVar10[0x377]);
+      FUN_0402cd10(param_2,"  D3DTSS_TEXCOORDINDEX: %#x (lower word is stage number)",piVar10[0x377]
+                  );
+      uVar6 = piVar10[0x377];
+      if ((uVar6 & 0x10000) != 0) {
+        FUN_0402cd10(param_2,"      has D3DTSS_TCI_CAMERASPACENORMAL set",uVar15);
+        uVar6 = piVar10[0x377];
+      }
+      if ((uVar6 & 0x20000) != 0) {
+        FUN_0402cd10(param_2,"      has D3DTSS_TCI_CAMERASPACEPOSITION set",uVar15);
+        uVar6 = piVar10[0x377];
+      }
+      if ((uVar6 & 0x30000) != 0) {
+        FUN_0402cd10(param_2,"      has D3DTSS_TCI_CAMERASPACEREFLECTIONVECTOR set",uVar15);
+        uVar6 = piVar10[0x377];
+      }
+      uVar17 = (undefined4)((ulonglong)uVar15 >> 0x20);
+      if ((uVar6 & 0x40000) != 0) {
+        FUN_0402cd10(param_2,"      has D3DTSS_TCI_SPHEREMAP set");
+      }
+      pcVar1 = "|D3DTTFF_PROJECTED";
+      if ((piVar10[0x378] & 0x100U) == 0) {
+        pcVar1 = "";
+      }
+      uVar15 = CONCAT44(uVar17,pcVar1);
+      switch(piVar10[0x378] & 0xfffffeff) {
+      case 0:
+        FUN_0402cd10(param_2,"  D3DTSS_TEXTURETRANSFORMFLAGS: D3DTTFF_DISABLE%s",pcVar1);
+        break;
+      case 1:
+        FUN_0402cd10(param_2,"  D3DTSS_TEXTURETRANSFORMFLAGS: D3DTTFF_COUNT1%s",pcVar1);
+        break;
+      case 2:
+        FUN_0402cd10(param_2,"  D3DTSS_TEXTURETRANSFORMFLAGS: D3DTTFF_COUNT2%s",pcVar1);
+        break;
+      case 3:
+        FUN_0402cd10(param_2,"  D3DTSS_TEXTURETRANSFORMFLAGS: D3DTTFF_COUNT3%s",pcVar1);
+        break;
+      case 4:
+        FUN_0402cd10(param_2,"  D3DTSS_TEXTURETRANSFORMFLAGS: D3DTTFF_COUNT4%s",pcVar1);
+        break;
+      default:
+        FUN_0402cd10(param_2,"  D3DTSS_TEXTURETRANSFORMFLAGS: !unhandled!%s",pcVar1);
+      }
+      FUN_0402cd10(param_2,"  Sampler state for texture:",uVar15);
+      switch(piVar4[0x20b]) {
+      default:
+        FUN_0402cd10(param_2,"%s: !unhandled!","    D3DSAMP_ADDRESSU");
+        break;
+      case 1:
+        FUN_0402cd10(param_2,"%s: D3DTADDRESS_WRAP","    D3DSAMP_ADDRESSU");
+        break;
+      case 2:
+        FUN_0402cd10(param_2,"%s: D3DTADDRESS_MIRROR","    D3DSAMP_ADDRESSU");
+        break;
+      case 3:
+        FUN_0402cd10(param_2,"%s: D3DTADDRESS_CLAMP","    D3DSAMP_ADDRESSU");
+        break;
+      case 4:
+        FUN_0402cd10(param_2,"%s: D3DTADDRESS_BORDER","    D3DSAMP_ADDRESSU");
+        break;
+      case 5:
+        FUN_0402cd10(param_2,"%s: D3DTADDRESS_MIRRORONCE","    D3DSAMP_ADDRESSU");
+      }
+      switch(piVar4[0x20c]) {
+      default:
+        FUN_0402cd10(param_2,"%s: !unhandled!","    D3DSAMP_ADDRESSV");
+        break;
+      case 1:
+        FUN_0402cd10(param_2,"%s: D3DTADDRESS_WRAP","    D3DSAMP_ADDRESSV");
+        break;
+      case 2:
+        FUN_0402cd10(param_2,"%s: D3DTADDRESS_MIRROR","    D3DSAMP_ADDRESSV");
+        break;
+      case 3:
+        FUN_0402cd10(param_2,"%s: D3DTADDRESS_CLAMP","    D3DSAMP_ADDRESSV");
+        break;
+      case 4:
+        FUN_0402cd10(param_2,"%s: D3DTADDRESS_BORDER","    D3DSAMP_ADDRESSV");
+        break;
+      case 5:
+        FUN_0402cd10(param_2,"%s: D3DTADDRESS_MIRRORONCE","    D3DSAMP_ADDRESSV");
+      }
+      switch(piVar4[0x20d]) {
+      default:
+        FUN_0402cd10(param_2,"%s: !unhandled!","    D3DSAMP_ADDRESSW");
+        break;
+      case 1:
+        FUN_0402cd10(param_2,"%s: D3DTADDRESS_WRAP","    D3DSAMP_ADDRESSW");
+        break;
+      case 2:
+        FUN_0402cd10(param_2,"%s: D3DTADDRESS_MIRROR","    D3DSAMP_ADDRESSW");
+        break;
+      case 3:
+        FUN_0402cd10(param_2,"%s: D3DTADDRESS_CLAMP","    D3DSAMP_ADDRESSW");
+        break;
+      case 4:
+        FUN_0402cd10(param_2,"%s: D3DTADDRESS_BORDER","    D3DSAMP_ADDRESSW");
+        break;
+      case 5:
+        FUN_0402cd10(param_2,"%s: D3DTADDRESS_MIRRORONCE","    D3DSAMP_ADDRESSW");
+      }
+      FUN_0402cd10(param_2,"    D3DSAMP_BORDERCOLOR: %#x",piVar4[0x20e]);
+      D3DTEXF_ToString();
+      D3DTEXF_ToString();
+      D3DTEXF_ToString();
+      dVar14 = (double)(float)piVar4[0x212];
+      FUN_0402cd10(param_2,"    D3DSAMP_MIPMAPLODBIAS: %f",dVar14);
+      uVar17 = (undefined4)((ulonglong)dVar14 >> 0x20);
+      FUN_0402cd10(param_2,"    D3DSAMP_MAXMIPLEVEL: %u",piVar4[0x213]);
+      FUN_0402cd10(param_2,"    D3DSAMP_MAXANISOTROPY: %u",piVar4[0x214]);
+      pcVar1 = "(non-zero)";
+      if (piVar4[0x215] == 0) {
+        pcVar1 = "(zero)";
+      }
+      FUN_0402cd10(param_2,"    D3DSAMP_SRGBTEXTURE: %s",pcVar1);
+      FUN_0402cd10(param_2,"    D3DSAMP_ELEMENTINDEX: %u",piVar4[0x216]);
+      uVar16 = CONCAT44(uVar17,piVar4[0x217]);
+      FUN_0402cd10(param_2,"    D3DSAMP_DMAPOFFSET: %u",piVar4[0x217]);
+    }
+    if (piVar10[0x368] == 1) break;
+    if (piVar10[0x36c] == 1) {
+      uVar16 = CONCAT44((int)(uVar16 >> 0x20),local_20);
+      FUN_0402cd10(param_2,
+                   "    WARNING: Alpha stage %u disabled while color stage enabled. State undefined in DirectX!"
+                   ,local_20);
+    }
+    local_20 = local_20 + 1;
+    piVar10 = piVar10 + 0x12;
+    piVar4 = piVar4 + 0xd;
+  } while (local_20 != 8);
+  if (param_1[0x149e] == 0) {
+    FUN_0402cd10();
+    return;
+  }
+  LogVertexDeclaration(param_1[0x149e] + 4,param_2);
+  LogVertexDeclarationUsage(param_1[0x149e] + 4,param_2);
+  iVar2 = param_1[0x149e];
+  if (*(int *)(iVar2 + 0x6c) != 0) {
+    D3DFVF_ToString(param_1,param_2,*(int *)(iVar2 + 0x6c));
+    iVar2 = param_1[0x149e];
+  }
+  if (*(char *)(iVar2 + 0x6a) != '\0') {
+    FUN_0402cd10();
+    return;
+  }
+  FUN_0402cd10();
+  return;
+}
+

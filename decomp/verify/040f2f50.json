@@ -1,0 +1,295 @@
+
+undefined4
+DirectInputGamepadDeviceImp__EnumObjects(int param_1,code *param_2,int param_3,uint param_4)
+
+{
+  int iVar1;
+  int *piVar2;
+  int *piVar3;
+  bool bVar4;
+  int local_3cc [10];
+  undefined4 *local_3a4;
+  uint local_3a0;
+  undefined4 local_398;
+  undefined4 local_394;
+  undefined4 local_390;
+  undefined4 local_38c;
+  undefined4 local_388;
+  int local_384;
+  uint local_380;
+  undefined4 local_37c;
+  undefined1 local_378 [520];
+  undefined4 local_170;
+  undefined4 local_16c;
+  undefined2 local_168;
+  undefined2 local_166;
+  undefined2 local_164;
+  undefined2 local_162;
+  undefined4 local_160;
+  undefined2 local_15c;
+  undefined2 local_15a;
+  undefined4 local_158;
+  undefined4 local_154;
+  undefined4 local_150;
+  undefined4 local_14c;
+  undefined4 local_148;
+  int local_144;
+  uint local_140;
+  undefined4 local_13c;
+  undefined4 local_138;
+  undefined4 local_134;
+  undefined4 local_130;
+  undefined1 local_12c;
+  undefined4 local_34;
+  undefined4 local_30;
+  undefined2 local_2c;
+  undefined2 local_2a;
+  undefined2 local_28;
+  undefined2 local_26;
+  undefined4 local_24;
+  undefined2 local_20;
+  undefined2 local_1e;
+  
+  piVar2 = local_3cc;
+  piVar3 = local_3cc;
+  GamepadControl__SetInitialMinMaxValues();
+  local_3cc[0] = param_1 + 0x20;
+  iVar1 = FUN_04010e80();
+  if (iVar1 == 0) {
+    return 0x8007001e;
+  }
+  bVar4 = (char)param_4 == '\0';
+  if ((bVar4) || ((param_4 & 3) != 0)) {
+    iVar1 = 0;
+    local_3a0 = param_4 & 2;
+    do {
+      piVar2[1] = 0x13c;
+      *piVar2 = (int)&local_158;
+      piVar2[-1] = 0x40f2fb0;
+      bzero((void *)*piVar2,piVar2[1]);
+      local_158 = 0x13c;
+      if ((!bVar4) && (local_3a0 == 0)) goto LAB_040f31bd;
+      switch(iVar1) {
+      default:
+        local_140 = 2;
+        local_144 = 0;
+        local_138 = 0x78412058;
+        local_134 = CONCAT13(local_134._3_1_,0x7369);
+        local_154 = DAT_042dbbc8;
+        local_150 = DAT_042dbbcc;
+        local_14c = DAT_042dbbd0;
+        local_148 = DAT_042dbbd4;
+        break;
+      case 1:
+        local_140 = 0x102;
+        local_144 = 4;
+        local_138 = 0x78412059;
+        local_134 = CONCAT13(local_134._3_1_,0x7369);
+        local_154 = DAT_042dbbb8;
+        local_150 = DAT_042dbbbc;
+        local_14c = DAT_042dbbc0;
+        local_148 = DAT_042dbbc4;
+        break;
+      case 2:
+        local_140 = 0x302;
+        local_144 = 0xc;
+        local_138 = 0x68676952;
+        local_134 = 0x20582074;
+        local_130 = 0x73697841;
+        local_154 = DAT_042dbb98;
+        local_12c = 0;
+        local_150 = DAT_042dbb9c;
+        local_14c = DAT_042dbba0;
+        local_148 = DAT_042dbba4;
+        break;
+      case 3:
+        local_154 = DAT_042dbb88;
+        local_140 = 0x402;
+        local_144 = 0x10;
+        local_138 = 0x68676952;
+        local_134 = 0x20592074;
+        local_130 = 0x73697841;
+        local_150 = DAT_042dbb8c;
+        local_12c = 0;
+        local_14c = DAT_042dbb90;
+        local_148 = DAT_042dbb94;
+        break;
+      case 4:
+        local_140 = 0x202;
+        local_144 = 8;
+        local_138 = 0x7841205a;
+        local_134 = CONCAT13(local_134._3_1_,0x7369);
+        local_154 = DAT_042dbba8;
+        local_150 = DAT_042dbbac;
+        local_14c = DAT_042dbbb0;
+        local_148 = DAT_042dbbb4;
+        goto LAB_040f34a3;
+      case 5:
+        local_154 = DAT_042dbb78;
+        local_140 = 0x502;
+        local_144 = 0x14;
+        local_138 = 0x68676952;
+        local_134 = 0x205a2074;
+        local_130 = 0x73697841;
+        local_150 = DAT_042dbb7c;
+        local_12c = 0;
+        local_14c = DAT_042dbb80;
+        local_148 = DAT_042dbb84;
+LAB_040f34a3:
+        local_13c = 0x400;
+        goto LAB_040f303d;
+      }
+      local_13c = 0x100;
+LAB_040f303d:
+      local_3a4 = &local_138;
+      local_34 = 10;
+      local_30 = 0x100;
+      local_2c = 1;
+      local_2a = 0;
+      local_28 = 0;
+      local_26 = 0;
+      local_24 = 0;
+      local_20 = 0;
+      local_1e = 0;
+      piVar2[2] = (int)local_3a4;
+      piVar2[1] = (int)"reporting %s";
+      *piVar2 = 0x14;
+      piVar2[-1] = 0x40f309a;
+      FUN_0402cd10();
+      if (*(char *)(param_1 + 0x1c) == '\0') {
+        *piVar2 = (int)&local_158;
+        piVar2[1] = param_3;
+        piVar2[-1] = 0x40f341d;
+        (*param_2)();
+        piVar2 = piVar2 + -2;
+      }
+      else {
+        piVar2[1] = 0x240;
+        *piVar2 = (int)&local_398;
+        piVar2[-1] = 0x40f30bd;
+        bzero((void *)*piVar2,piVar2[1]);
+        local_398 = 0x240;
+        local_394 = local_154;
+        local_390 = local_150;
+        local_38c = local_14c;
+        piVar2[5] = 0x104;
+        piVar2[3] = -1;
+        piVar2[2] = (int)local_3a4;
+        local_388 = local_148;
+        piVar2[1] = 0;
+        *piVar2 = 0;
+        local_384 = local_144;
+        local_380 = local_140;
+        local_37c = local_13c;
+        piVar2[4] = (int)local_378;
+        piVar2[-1] = 0x40f3147;
+        eON_MultiByteToWideChar();
+        local_170 = local_34;
+        piVar2[-5] = param_3;
+        local_16c = local_30;
+        local_168 = local_2c;
+        local_166 = local_2a;
+        local_164 = local_28;
+        local_162 = local_26;
+        local_160 = local_24;
+        local_15c = local_20;
+        local_15a = local_1e;
+        piVar2[-6] = (int)&local_398;
+        piVar2[-7] = 0x40f31ba;
+        (*param_2)();
+        piVar2 = piVar2 + -8;
+      }
+LAB_040f31bd:
+      iVar1 = iVar1 + 1;
+    } while (iVar1 != 6);
+    piVar3 = piVar2;
+    if (bVar4) goto LAB_040f31d3;
+  }
+  if ((param_4 & 0xc) == 0) {
+    return 0;
+  }
+LAB_040f31d3:
+  iVar1 = 0;
+  do {
+    while( true ) {
+      piVar3[1] = 0x13c;
+      *piVar3 = (int)&local_158;
+      piVar3[-1] = 0x40f330c;
+      bzero((void *)*piVar3,piVar3[1]);
+      local_144 = iVar1 + 0x30;
+      piVar3[2] = iVar1;
+      local_140 = iVar1 << 8 | 0xc;
+      *piVar3 = (int)&local_138;
+      local_154 = DAT_042dbbe8;
+      local_158 = 0x13c;
+      local_13c = 0;
+      local_150 = DAT_042dbbec;
+      piVar3[1] = (int)"Button %u";
+      local_14c = DAT_042dbbf0;
+      local_148 = DAT_042dbbf4;
+      piVar3[-1] = 0x40f337b;
+      sprintf((char *)*piVar3,(char *)piVar3[1]);
+      local_34 = 0;
+      local_30 = 0;
+      local_2c = 1;
+      local_2a = 0;
+      local_28 = 0;
+      local_26 = 0;
+      local_24 = 0;
+      local_20 = 0;
+      local_1e = 0;
+      piVar3[2] = (int)&local_138;
+      piVar3[1] = (int)"reporting %s";
+      *piVar3 = 0x14;
+      piVar3[-1] = 0x40f33cc;
+      FUN_0402cd10();
+      if (*(char *)(param_1 + 0x1c) == '\0') break;
+      piVar3[1] = 0x240;
+      iVar1 = iVar1 + 1;
+      *piVar3 = (int)&local_398;
+      piVar3[-1] = 0x40f31f9;
+      bzero((void *)*piVar3,piVar3[1]);
+      local_398 = 0x240;
+      local_394 = local_154;
+      local_390 = local_150;
+      local_38c = local_14c;
+      piVar3[4] = (int)local_378;
+      piVar3[5] = 0x104;
+      piVar3[3] = -1;
+      local_388 = local_148;
+      piVar3[2] = (int)&local_138;
+      piVar3[1] = 0;
+      *piVar3 = 0;
+      local_384 = local_144;
+      local_380 = local_140;
+      local_37c = local_13c;
+      piVar3[-1] = 0x40f327d;
+      eON_MultiByteToWideChar();
+      local_170 = local_34;
+      piVar3[-5] = param_3;
+      local_16c = local_30;
+      local_168 = local_2c;
+      local_166 = local_2a;
+      local_164 = local_28;
+      local_162 = local_26;
+      local_160 = local_24;
+      local_15c = local_20;
+      local_15a = local_1e;
+      piVar3[-6] = (int)&local_398;
+      piVar3[-7] = 0x40f32f0;
+      (*param_2)();
+      piVar3 = piVar3 + -8;
+      if (iVar1 == 0xf) {
+        return 0;
+      }
+    }
+    *piVar3 = (int)&local_158;
+    iVar1 = iVar1 + 1;
+    piVar3[1] = param_3;
+    piVar3[-1] = 0x40f33e9;
+    (*param_2)();
+    piVar3 = piVar3 + -2;
+  } while (iVar1 != 0xf);
+  return 0;
+}
+

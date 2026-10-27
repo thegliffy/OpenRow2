@@ -1,0 +1,26 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+bool _glewInit_GLX_SGIX_fbconfig(void)
+
+{
+  int iVar1;
+  bool bVar2;
+  bool bVar3;
+  bool bVar4;
+  bool bVar5;
+  
+  iVar1 = glXGetProcAddressARB("glXChooseFBConfigSGIX");
+  _DAT_0451c778 = iVar1;
+  _DAT_0451c774 = glXGetProcAddressARB("glXCreateContextWithConfigSGIX");
+  bVar2 = _DAT_0451c774 == 0;
+  _DAT_0451c770 = glXGetProcAddressARB("glXCreateGLXPixmapWithConfigSGIX");
+  bVar3 = _DAT_0451c770 == 0;
+  _DAT_0451c76c = glXGetProcAddressARB("glXGetFBConfigAttribSGIX");
+  bVar4 = _DAT_0451c76c == 0;
+  _DAT_0451c768 = glXGetProcAddressARB("glXGetFBConfigFromVisualSGIX");
+  bVar5 = _DAT_0451c768 == 0;
+  _DAT_0451c764 = glXGetProcAddressARB("glXGetVisualFromFBConfigSGIX");
+  return _DAT_0451c764 == 0 || (bVar5 || (bVar4 || (bVar3 || (bVar2 || iVar1 == 0))));
+}
+

@@ -1,0 +1,113 @@
+
+int __regparm3 LoadLibraryA_Resolve(char *param_1)
+
+{
+  int iVar1;
+  _Rb_tree_node_base *p_Var2;
+  char *pcVar3;
+  _Rb_tree_node_base *__s1;
+  undefined4 *puVar4;
+  char *pcVar5;
+  bool bVar6;
+  byte bVar7;
+  undefined1 auStackY_4dc [8];
+  undefined4 uStackY_4d4;
+  char local_4b0 [1024];
+  char local_b0 [140];
+  
+  bVar7 = 0;
+  uStackY_4d4 = 0x4153000;
+  ProcessLibraryPath();
+  uStackY_4d4 = 0x4153012;
+  iVar1 = strcasecmp(param_1,local_b0);
+  uStackY_4d4 = 0x4153020;
+  pthread_mutex_lock((pthread_mutex_t *)&DAT_0451add4);
+  if (DAT_0451adf8 != (_Rb_tree_node_base *)&DAT_0451adf0) {
+    p_Var2 = DAT_0451adf8;
+    if (iVar1 == 0) {
+      do {
+        uStackY_4d4 = 0x415313c;
+        iVar1 = strcasecmp((char *)(p_Var2 + 0x14),local_b0);
+        if (iVar1 == 0) goto LAB_04153140;
+        uStackY_4d4 = 0x4153120;
+        p_Var2 = (_Rb_tree_node_base *)std::_Rb_tree_increment(p_Var2);
+      } while (p_Var2 != (_Rb_tree_node_base *)&DAT_0451adf0);
+    }
+    else {
+      do {
+        __s1 = p_Var2 + 0x118;
+        if (p_Var2[0x118] == (_Rb_tree_node_base)0x0) {
+          __s1 = (_Rb_tree_node_base *)0x0;
+        }
+        uStackY_4d4 = 0x4153064;
+        iVar1 = strcasecmp((char *)(p_Var2 + 0x14),local_b0);
+        if (iVar1 == 0) {
+          if (__s1 == (_Rb_tree_node_base *)0x0) goto LAB_04153140;
+          uStackY_4d4 = 0x4153082;
+          iVar1 = strcmp((char *)__s1,local_4b0);
+          if (iVar1 == 0) goto LAB_04153140;
+        }
+        uStackY_4d4 = 0x4153092;
+        p_Var2 = (_Rb_tree_node_base *)std::_Rb_tree_increment(p_Var2);
+      } while (p_Var2 != (_Rb_tree_node_base *)&DAT_0451adf0);
+    }
+  }
+  uStackY_4d4 = 0x41530a7;
+  pthread_mutex_unlock((pthread_mutex_t *)&DAT_0451add4);
+LAB_041530a7:
+  puVar4 = (undefined4 *)&stack0xfffffb30;
+  if (DAT_0451ae04 == 0) {
+    iVar1 = 10;
+    bVar6 = true;
+    pcVar3 = param_1;
+    pcVar5 = "ntdll.dll";
+    do {
+      if (iVar1 == 0) break;
+      iVar1 = iVar1 + -1;
+      bVar6 = *pcVar3 == *pcVar5;
+      pcVar3 = pcVar3 + (uint)bVar7 * -2 + 1;
+      pcVar5 = pcVar5 + (uint)bVar7 * -2 + 1;
+    } while (bVar6);
+    puVar4 = (undefined4 *)&stack0xfffffb30;
+    if (bVar6) {
+      DAT_0451ae04 = 1;
+      uStackY_4d4 = 0x41531b7;
+      iVar1 = eON_LoadLibraryEx();
+      puVar4 = (undefined4 *)auStackY_4dc;
+      if (iVar1 != 0) {
+        DAT_0451ae04 = 0;
+        DAT_0451ae08 = 0;
+        return iVar1;
+      }
+    }
+  }
+  DAT_0451ae04 = 0;
+  iVar1 = 0;
+  if (DAT_0451ae08 == 0) {
+    puVar4[1] = "xactengine3_7.dll";
+    *puVar4 = param_1;
+    puVar4[-1] = 0x41530e3;
+    pcVar3 = strstr((char *)*puVar4,(char *)puVar4[1]);
+    if (pcVar3 != (char *)0x0) {
+      DAT_0451ae08 = 1;
+      puVar4[2] = 0;
+      puVar4[1] = 0;
+      *puVar4 = "xactengine3_7.dll";
+      puVar4[-1] = 0x415310d;
+      iVar1 = eON_LoadLibraryEx();
+    }
+  }
+  DAT_0451ae08 = 0;
+  return iVar1;
+LAB_04153140:
+  iVar1 = *(int *)(p_Var2 + 0x10);
+  uStackY_4d4 = 0x415314f;
+  pthread_mutex_unlock((pthread_mutex_t *)&DAT_0451add4);
+  if (iVar1 != 0) {
+    DAT_0451ae04 = 0;
+    DAT_0451ae08 = 0;
+    return iVar1;
+  }
+  goto LAB_041530a7;
+}
+

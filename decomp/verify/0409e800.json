@@ -1,0 +1,606 @@
+
+/* source: direct3ddevice9imp */
+
+undefined4 Direct3DDevice9Imp__OpenGLSide_ShutdownDevice(int param_1)
+
+{
+  code *pcVar1;
+  int iVar2;
+  char cVar3;
+  int iVar4;
+  int iVar5;
+  int **ppiVar6;
+  int *piVar7;
+  int aiStack_108 [47];
+  int *local_4c [7];
+  int *local_30;
+  undefined4 local_20 [4];
+  
+  ppiVar6 = local_4c;
+  piVar7 = *(int **)(param_1 + 0xe9e0);
+  if (piVar7 != (int *)0x0) {
+    aiStack_108[0x2e] = 0x409e81e;
+    local_4c[0] = piVar7;
+    (**(code **)(*piVar7 + 8))();
+    *(undefined4 *)(param_1 + 0xe9e0) = 0;
+    ppiVar6 = (int **)(aiStack_108 + 0x2e);
+  }
+  piVar7 = *(int **)(param_1 + 0xc65c);
+  if (piVar7 != (int *)0x0) {
+    iVar5 = *piVar7;
+    *ppiVar6 = piVar7;
+    pcVar1 = *(code **)(iVar5 + 8);
+    ppiVar6[-1] = (int *)0x409e83d;
+    (*pcVar1)();
+    *(undefined4 *)(param_1 + 0xc65c) = 0;
+    ppiVar6 = ppiVar6 + -1;
+  }
+  piVar7 = *(int **)(param_1 + 0xc660);
+  if (piVar7 != (int *)0x0) {
+    iVar5 = *piVar7;
+    *ppiVar6 = piVar7;
+    pcVar1 = *(code **)(iVar5 + 8);
+    ppiVar6[-1] = (int *)0x409e85c;
+    (*pcVar1)();
+    *(undefined4 *)(param_1 + 0xc660) = 0;
+    ppiVar6 = ppiVar6 + -1;
+  }
+  piVar7 = *(int **)(param_1 + 0xc664);
+  if (piVar7 != (int *)0x0) {
+    iVar5 = *piVar7;
+    *ppiVar6 = piVar7;
+    pcVar1 = *(code **)(iVar5 + 8);
+    ppiVar6[-1] = (int *)0x409e87b;
+    (*pcVar1)();
+    *(undefined4 *)(param_1 + 0xc664) = 0;
+    ppiVar6 = ppiVar6 + -1;
+  }
+  piVar7 = *(int **)(param_1 + 0xc668);
+  if (piVar7 != (int *)0x0) {
+    iVar5 = *piVar7;
+    *ppiVar6 = piVar7;
+    pcVar1 = *(code **)(iVar5 + 8);
+    ppiVar6[-1] = (int *)0x409e89a;
+    (*pcVar1)();
+    *(undefined4 *)(param_1 + 0xc668) = 0;
+    ppiVar6 = ppiVar6 + -1;
+  }
+  piVar7 = *(int **)(param_1 + 0xc66c);
+  if (piVar7 != (int *)0x0) {
+    iVar5 = *piVar7;
+    *ppiVar6 = piVar7;
+    pcVar1 = *(code **)(iVar5 + 8);
+    ppiVar6[-1] = (int *)0x409e8b9;
+    (*pcVar1)();
+    *(undefined4 *)(param_1 + 0xc66c) = 0;
+    ppiVar6 = ppiVar6 + -1;
+  }
+  piVar7 = *(int **)(param_1 + 0xe9d4);
+  if (piVar7 != (int *)0x0) {
+    iVar5 = *piVar7;
+    *ppiVar6 = piVar7;
+    pcVar1 = *(code **)(iVar5 + 8);
+    ppiVar6[-1] = (int *)0x409e8d8;
+    (*pcVar1)();
+    *(undefined4 *)(param_1 + 0xe9d4) = 0;
+    ppiVar6 = ppiVar6 + -1;
+  }
+  piVar7 = *(int **)(param_1 + 0x8278);
+  if (piVar7 != (int *)0x0) {
+    iVar5 = *piVar7;
+    *ppiVar6 = piVar7;
+    pcVar1 = *(code **)(iVar5 + 8);
+    ppiVar6[-1] = (int *)0x409e8f7;
+    (*pcVar1)();
+    *(undefined4 *)(param_1 + 0x8278) = 0;
+    ppiVar6 = ppiVar6 + -1;
+  }
+  piVar7 = *(int **)(param_1 + 0x827c);
+  if (piVar7 != (int *)0x0) {
+    iVar5 = *piVar7;
+    *ppiVar6 = piVar7;
+    pcVar1 = *(code **)(iVar5 + 8);
+    ppiVar6[-1] = (int *)0x409e916;
+    (*pcVar1)();
+    *(undefined4 *)(param_1 + 0x827c) = 0;
+    ppiVar6 = ppiVar6 + -1;
+  }
+  piVar7 = *(int **)(param_1 + 0x8280);
+  if (piVar7 != (int *)0x0) {
+    iVar5 = *piVar7;
+    *ppiVar6 = piVar7;
+    pcVar1 = *(code **)(iVar5 + 8);
+    ppiVar6[-1] = (int *)0x409e935;
+    (*pcVar1)();
+    *(undefined4 *)(param_1 + 0x8280) = 0;
+    ppiVar6 = ppiVar6 + -1;
+  }
+  piVar7 = *(int **)(param_1 + 0x8284);
+  if (piVar7 != (int *)0x0) {
+    iVar5 = *piVar7;
+    *ppiVar6 = piVar7;
+    pcVar1 = *(code **)(iVar5 + 8);
+    ppiVar6[-1] = (int *)0x409e954;
+    (*pcVar1)();
+    *(undefined4 *)(param_1 + 0x8284) = 0;
+    ppiVar6 = ppiVar6 + -1;
+  }
+  piVar7 = *(int **)(param_1 + 0x8288);
+  if (piVar7 != (int *)0x0) {
+    iVar5 = *piVar7;
+    *ppiVar6 = piVar7;
+    pcVar1 = *(code **)(iVar5 + 8);
+    ppiVar6[-1] = (int *)0x409e973;
+    (*pcVar1)();
+    *(undefined4 *)(param_1 + 0x8288) = 0;
+    ppiVar6 = ppiVar6 + -1;
+  }
+  piVar7 = *(int **)(param_1 + 0x828c);
+  if (piVar7 != (int *)0x0) {
+    iVar5 = *piVar7;
+    *ppiVar6 = piVar7;
+    pcVar1 = *(code **)(iVar5 + 8);
+    ppiVar6[-1] = (int *)0x409e992;
+    (*pcVar1)();
+    *(undefined4 *)(param_1 + 0x828c) = 0;
+    ppiVar6 = ppiVar6 + -1;
+  }
+  piVar7 = *(int **)(param_1 + 0x8290);
+  if (piVar7 != (int *)0x0) {
+    iVar5 = *piVar7;
+    *ppiVar6 = piVar7;
+    pcVar1 = *(code **)(iVar5 + 8);
+    ppiVar6[-1] = (int *)0x409e9b1;
+    (*pcVar1)();
+    *(undefined4 *)(param_1 + 0x8290) = 0;
+    ppiVar6 = ppiVar6 + -1;
+  }
+  piVar7 = *(int **)(param_1 + 0x8294);
+  if (piVar7 != (int *)0x0) {
+    iVar5 = *piVar7;
+    *ppiVar6 = piVar7;
+    pcVar1 = *(code **)(iVar5 + 8);
+    ppiVar6[-1] = (int *)0x409e9d0;
+    (*pcVar1)();
+    *(undefined4 *)(param_1 + 0x8294) = 0;
+    ppiVar6 = ppiVar6 + -1;
+  }
+  piVar7 = *(int **)(param_1 + 0x8298);
+  if (piVar7 != (int *)0x0) {
+    iVar5 = *piVar7;
+    *ppiVar6 = piVar7;
+    pcVar1 = *(code **)(iVar5 + 8);
+    ppiVar6[-1] = (int *)0x409e9ef;
+    (*pcVar1)();
+    *(undefined4 *)(param_1 + 0x8298) = 0;
+    ppiVar6 = ppiVar6 + -1;
+  }
+  piVar7 = *(int **)(param_1 + 0x829c);
+  if (piVar7 != (int *)0x0) {
+    iVar5 = *piVar7;
+    *ppiVar6 = piVar7;
+    pcVar1 = *(code **)(iVar5 + 8);
+    ppiVar6[-1] = (int *)0x409ea0e;
+    (*pcVar1)();
+    *(undefined4 *)(param_1 + 0x829c) = 0;
+    ppiVar6 = ppiVar6 + -1;
+  }
+  piVar7 = *(int **)(param_1 + 0x82a0);
+  if (piVar7 != (int *)0x0) {
+    iVar5 = *piVar7;
+    *ppiVar6 = piVar7;
+    pcVar1 = *(code **)(iVar5 + 8);
+    ppiVar6[-1] = (int *)0x409ea2d;
+    (*pcVar1)();
+    *(undefined4 *)(param_1 + 0x82a0) = 0;
+    ppiVar6 = ppiVar6 + -1;
+  }
+  piVar7 = *(int **)(param_1 + 0x82a4);
+  if (piVar7 != (int *)0x0) {
+    iVar5 = *piVar7;
+    *ppiVar6 = piVar7;
+    pcVar1 = *(code **)(iVar5 + 8);
+    ppiVar6[-1] = (int *)0x409ea4c;
+    (*pcVar1)();
+    *(undefined4 *)(param_1 + 0x82a4) = 0;
+    ppiVar6 = ppiVar6 + -1;
+  }
+  piVar7 = *(int **)(param_1 + 0x82a8);
+  if (piVar7 != (int *)0x0) {
+    iVar5 = *piVar7;
+    *ppiVar6 = piVar7;
+    pcVar1 = *(code **)(iVar5 + 8);
+    ppiVar6[-1] = (int *)0x409ea6b;
+    (*pcVar1)();
+    *(undefined4 *)(param_1 + 0x82a8) = 0;
+    ppiVar6 = ppiVar6 + -1;
+  }
+  piVar7 = *(int **)(param_1 + 0x82ac);
+  if (piVar7 != (int *)0x0) {
+    iVar5 = *piVar7;
+    *ppiVar6 = piVar7;
+    pcVar1 = *(code **)(iVar5 + 8);
+    ppiVar6[-1] = (int *)0x409ea8a;
+    (*pcVar1)();
+    *(undefined4 *)(param_1 + 0x82ac) = 0;
+    ppiVar6 = ppiVar6 + -1;
+  }
+  piVar7 = *(int **)(param_1 + 0x82b0);
+  if (piVar7 != (int *)0x0) {
+    iVar5 = *piVar7;
+    *ppiVar6 = piVar7;
+    pcVar1 = *(code **)(iVar5 + 8);
+    ppiVar6[-1] = (int *)0x409eaa9;
+    (*pcVar1)();
+    *(undefined4 *)(param_1 + 0x82b0) = 0;
+    ppiVar6 = ppiVar6 + -1;
+  }
+  piVar7 = *(int **)(param_1 + 0x82b4);
+  if (piVar7 != (int *)0x0) {
+    iVar5 = *piVar7;
+    *ppiVar6 = piVar7;
+    pcVar1 = *(code **)(iVar5 + 8);
+    ppiVar6[-1] = (int *)0x409eac8;
+    (*pcVar1)();
+    *(undefined4 *)(param_1 + 0x82b4) = 0;
+    ppiVar6 = ppiVar6 + -1;
+  }
+  piVar7 = *(int **)(param_1 + 0x82b8);
+  if (piVar7 != (int *)0x0) {
+    iVar5 = *piVar7;
+    *ppiVar6 = piVar7;
+    pcVar1 = *(code **)(iVar5 + 8);
+    ppiVar6[-1] = (int *)0x409eae7;
+    (*pcVar1)();
+    *(undefined4 *)(param_1 + 0x82b8) = 0;
+    ppiVar6 = ppiVar6 + -1;
+  }
+  piVar7 = *(int **)(param_1 + 0x82bc);
+  if (piVar7 != (int *)0x0) {
+    iVar5 = *piVar7;
+    *ppiVar6 = piVar7;
+    pcVar1 = *(code **)(iVar5 + 8);
+    ppiVar6[-1] = (int *)0x409eb06;
+    (*pcVar1)();
+    *(undefined4 *)(param_1 + 0x82bc) = 0;
+    ppiVar6 = ppiVar6 + -1;
+  }
+  piVar7 = *(int **)(param_1 + 0x82c0);
+  if (piVar7 != (int *)0x0) {
+    iVar5 = *piVar7;
+    *ppiVar6 = piVar7;
+    pcVar1 = *(code **)(iVar5 + 8);
+    ppiVar6[-1] = (int *)0x409eb25;
+    (*pcVar1)();
+    *(undefined4 *)(param_1 + 0x82c0) = 0;
+    ppiVar6 = ppiVar6 + -1;
+  }
+  piVar7 = *(int **)(param_1 + 0x82c4);
+  if (piVar7 != (int *)0x0) {
+    iVar5 = *piVar7;
+    *ppiVar6 = piVar7;
+    pcVar1 = *(code **)(iVar5 + 8);
+    ppiVar6[-1] = (int *)0x409eb44;
+    (*pcVar1)();
+    *(undefined4 *)(param_1 + 0x82c4) = 0;
+    ppiVar6 = ppiVar6 + -1;
+  }
+  piVar7 = *(int **)(param_1 + 0x8178);
+  if (piVar7 != (int *)0x0) {
+    iVar5 = *piVar7;
+    *ppiVar6 = piVar7;
+    pcVar1 = *(code **)(iVar5 + 8);
+    ppiVar6[-1] = (int *)0x409eb63;
+    (*pcVar1)();
+    *(undefined4 *)(param_1 + 0x8178) = 0;
+    ppiVar6 = ppiVar6 + -1;
+  }
+  piVar7 = *(int **)(param_1 + 0x8188);
+  if (piVar7 != (int *)0x0) {
+    iVar5 = *piVar7;
+    *ppiVar6 = piVar7;
+    pcVar1 = *(code **)(iVar5 + 8);
+    ppiVar6[-1] = (int *)0x409eb82;
+    (*pcVar1)();
+    *(undefined4 *)(param_1 + 0x8188) = 0;
+    ppiVar6 = ppiVar6 + -1;
+  }
+  piVar7 = *(int **)(param_1 + 0x8198);
+  if (piVar7 != (int *)0x0) {
+    iVar5 = *piVar7;
+    *ppiVar6 = piVar7;
+    pcVar1 = *(code **)(iVar5 + 8);
+    ppiVar6[-1] = (int *)0x409eba1;
+    (*pcVar1)();
+    *(undefined4 *)(param_1 + 0x8198) = 0;
+    ppiVar6 = ppiVar6 + -1;
+  }
+  piVar7 = *(int **)(param_1 + 0x81a8);
+  if (piVar7 != (int *)0x0) {
+    iVar5 = *piVar7;
+    *ppiVar6 = piVar7;
+    pcVar1 = *(code **)(iVar5 + 8);
+    ppiVar6[-1] = (int *)0x409ebc0;
+    (*pcVar1)();
+    *(undefined4 *)(param_1 + 0x81a8) = 0;
+    ppiVar6 = ppiVar6 + -1;
+  }
+  piVar7 = *(int **)(param_1 + 0x81b8);
+  if (piVar7 != (int *)0x0) {
+    iVar5 = *piVar7;
+    *ppiVar6 = piVar7;
+    pcVar1 = *(code **)(iVar5 + 8);
+    ppiVar6[-1] = (int *)0x409ebdf;
+    (*pcVar1)();
+    *(undefined4 *)(param_1 + 0x81b8) = 0;
+    ppiVar6 = ppiVar6 + -1;
+  }
+  piVar7 = *(int **)(param_1 + 0x81c8);
+  if (piVar7 != (int *)0x0) {
+    iVar5 = *piVar7;
+    *ppiVar6 = piVar7;
+    pcVar1 = *(code **)(iVar5 + 8);
+    ppiVar6[-1] = (int *)0x409ebfe;
+    (*pcVar1)();
+    *(undefined4 *)(param_1 + 0x81c8) = 0;
+    ppiVar6 = ppiVar6 + -1;
+  }
+  piVar7 = *(int **)(param_1 + 0x81d8);
+  if (piVar7 != (int *)0x0) {
+    iVar5 = *piVar7;
+    *ppiVar6 = piVar7;
+    pcVar1 = *(code **)(iVar5 + 8);
+    ppiVar6[-1] = (int *)0x409ec1d;
+    (*pcVar1)();
+    *(undefined4 *)(param_1 + 0x81d8) = 0;
+    ppiVar6 = ppiVar6 + -1;
+  }
+  piVar7 = *(int **)(param_1 + 0x81e8);
+  if (piVar7 != (int *)0x0) {
+    iVar5 = *piVar7;
+    *ppiVar6 = piVar7;
+    pcVar1 = *(code **)(iVar5 + 8);
+    ppiVar6[-1] = (int *)0x409ec3c;
+    (*pcVar1)();
+    *(undefined4 *)(param_1 + 0x81e8) = 0;
+    ppiVar6 = ppiVar6 + -1;
+  }
+  piVar7 = *(int **)(param_1 + 0x81f8);
+  if (piVar7 != (int *)0x0) {
+    iVar5 = *piVar7;
+    *ppiVar6 = piVar7;
+    pcVar1 = *(code **)(iVar5 + 8);
+    ppiVar6[-1] = (int *)0x409ec5b;
+    (*pcVar1)();
+    *(undefined4 *)(param_1 + 0x81f8) = 0;
+    ppiVar6 = ppiVar6 + -1;
+  }
+  piVar7 = *(int **)(param_1 + 0x8208);
+  if (piVar7 != (int *)0x0) {
+    iVar5 = *piVar7;
+    *ppiVar6 = piVar7;
+    pcVar1 = *(code **)(iVar5 + 8);
+    ppiVar6[-1] = (int *)0x409ec7a;
+    (*pcVar1)();
+    *(undefined4 *)(param_1 + 0x8208) = 0;
+    ppiVar6 = ppiVar6 + -1;
+  }
+  piVar7 = *(int **)(param_1 + 0x8218);
+  if (piVar7 != (int *)0x0) {
+    iVar5 = *piVar7;
+    *ppiVar6 = piVar7;
+    pcVar1 = *(code **)(iVar5 + 8);
+    ppiVar6[-1] = (int *)0x409ec99;
+    (*pcVar1)();
+    *(undefined4 *)(param_1 + 0x8218) = 0;
+    ppiVar6 = ppiVar6 + -1;
+  }
+  piVar7 = *(int **)(param_1 + 0x8228);
+  if (piVar7 != (int *)0x0) {
+    iVar5 = *piVar7;
+    *ppiVar6 = piVar7;
+    pcVar1 = *(code **)(iVar5 + 8);
+    ppiVar6[-1] = (int *)0x409ecb8;
+    (*pcVar1)();
+    *(undefined4 *)(param_1 + 0x8228) = 0;
+    ppiVar6 = ppiVar6 + -1;
+  }
+  piVar7 = *(int **)(param_1 + 0x8238);
+  if (piVar7 != (int *)0x0) {
+    iVar5 = *piVar7;
+    *ppiVar6 = piVar7;
+    pcVar1 = *(code **)(iVar5 + 8);
+    ppiVar6[-1] = (int *)0x409ecd7;
+    (*pcVar1)();
+    *(undefined4 *)(param_1 + 0x8238) = 0;
+    ppiVar6 = ppiVar6 + -1;
+  }
+  piVar7 = *(int **)(param_1 + 0x8248);
+  if (piVar7 != (int *)0x0) {
+    iVar5 = *piVar7;
+    *ppiVar6 = piVar7;
+    pcVar1 = *(code **)(iVar5 + 8);
+    ppiVar6[-1] = (int *)0x409ecf6;
+    (*pcVar1)();
+    *(undefined4 *)(param_1 + 0x8248) = 0;
+    ppiVar6 = ppiVar6 + -1;
+  }
+  piVar7 = *(int **)(param_1 + 0x8258);
+  if (piVar7 != (int *)0x0) {
+    iVar5 = *piVar7;
+    *ppiVar6 = piVar7;
+    pcVar1 = *(code **)(iVar5 + 8);
+    ppiVar6[-1] = (int *)0x409ed15;
+    (*pcVar1)();
+    *(undefined4 *)(param_1 + 0x8258) = 0;
+    ppiVar6 = ppiVar6 + -1;
+  }
+  piVar7 = *(int **)(param_1 + 0x8268);
+  if (piVar7 != (int *)0x0) {
+    iVar5 = *piVar7;
+    *ppiVar6 = piVar7;
+    pcVar1 = *(code **)(iVar5 + 8);
+    ppiVar6[-1] = (int *)0x409ed34;
+    (*pcVar1)();
+    *(undefined4 *)(param_1 + 0x8268) = 0;
+    ppiVar6 = ppiVar6 + -1;
+  }
+  piVar7 = *(int **)(param_1 + 0x7c0c);
+  if (piVar7 != (int *)0x0) {
+    iVar5 = *piVar7;
+    *ppiVar6 = piVar7;
+    pcVar1 = *(code **)(iVar5 + 8);
+    ppiVar6[-1] = (int *)0x409ed53;
+    (*pcVar1)();
+    *(undefined4 *)(param_1 + 0x7c0c) = 0;
+    ppiVar6 = ppiVar6 + -1;
+  }
+  piVar7 = *(int **)(param_1 + 0x7c58);
+  if (piVar7 != (int *)0x0) {
+    iVar5 = *piVar7;
+    *ppiVar6 = piVar7;
+    pcVar1 = *(code **)(iVar5 + 8);
+    ppiVar6[-1] = (int *)0x409ed72;
+    (*pcVar1)();
+    *(undefined4 *)(param_1 + 0x7c58) = 0;
+    ppiVar6 = ppiVar6 + -1;
+  }
+  piVar7 = *(int **)(param_1 + 0x7c5c);
+  if (piVar7 != (int *)0x0) {
+    iVar5 = *piVar7;
+    *ppiVar6 = piVar7;
+    pcVar1 = *(code **)(iVar5 + 8);
+    ppiVar6[-1] = (int *)0x409ed91;
+    (*pcVar1)();
+    *(undefined4 *)(param_1 + 0x7c5c) = 0;
+    ppiVar6 = ppiVar6 + -1;
+  }
+  iVar5 = param_1 + 0xc674;
+  iVar4 = *(int *)(param_1 + 0xc67c);
+  while (iVar4 != iVar5) {
+    ppiVar6[1] = (int *)*(int *)(iVar4 + 0x20);
+    *ppiVar6 = (int *)*(undefined4 *)(param_1 + 0xeb48);
+    ppiVar6[-1] = (int *)0x409edc5;
+    FUN_040c6dd0();
+    iVar2 = *(int *)(iVar4 + 0x14);
+    *ppiVar6 = (int *)param_1;
+    ppiVar6[1] = (int *)iVar2;
+    ppiVar6[-1] = (int *)0x409edd4;
+    Direct3DDevice9Imp__DeleteTextureInOpenGL();
+    *ppiVar6 = (int *)iVar4;
+    ppiVar6[-1] = (int *)0x409eddc;
+    iVar4 = std::_Rb_tree_increment((_Rb_tree_node_base *)*ppiVar6);
+  }
+  ppiVar6[1] = (int *)*(int *)(param_1 + 0xc678);
+  *ppiVar6 = (int *)(param_1 + 0xc670);
+  ppiVar6[-1] = (int *)0x409edfa;
+  FUN_040a2eb0();
+  *(int *)(param_1 + 0xc67c) = iVar5;
+  *(undefined4 *)(param_1 + 0xc678) = 0;
+  *(int *)(param_1 + 0xc680) = iVar5;
+  *(undefined4 *)(param_1 + 0xc684) = 0;
+  *ppiVar6 = (int *)param_1;
+  ppiVar6[-1] = (int *)0x409ee22;
+  Direct3DDevice9Imp__DeleteVertexBufferForDrawQuad();
+  ppiVar6[-1] = (int *)0x409ee27;
+  glFinish();
+  *ppiVar6 = (int *)param_1;
+  ppiVar6[-1] = (int *)0x409ee2f;
+  Direct3DDevice9Imp__Fence_Tick();
+  iVar5 = *(int *)(param_1 + 0xebd8);
+  while (iVar5 != 0) {
+    iVar4 = *(int *)(iVar5 + 0x18);
+    ppiVar6[1] = (int *)param_1;
+    *ppiVar6 = (int *)(iVar5 + 4);
+    ppiVar6[-1] = (int *)0x409ee72;
+    cVar3 = FUN_040a5960();
+    if (cVar3 == '\0') break;
+    *ppiVar6 = (int *)(*(int *)(*(int *)(param_1 + 0xebd8) + 0x14) + 4);
+    ppiVar6[-1] = (int *)0x409ee54;
+    Direct3DSurface9Imp__TransferDataFromPBO();
+    *(int *)(param_1 + 0xebd8) = iVar4;
+    iVar5 = iVar4;
+  }
+  if (*(int *)(param_1 + 0xebc4) != 0) {
+    ppiVar6[3] = (int *)"DWORD Direct3DDevice9Imp::OpenGLSide_ShutdownDevice(DWORD, LPVOID)";
+    ppiVar6[2] = (int *)0x24c;
+    ppiVar6[1] = (int *)
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+    ;
+    *ppiVar6 = (int *)"FenceList == __null";
+    ppiVar6[-1] = (int *)0x409eea4;
+    FUN_0400a810();
+  }
+  if (*(int *)(param_1 + 0xebc8) != 0) {
+    ppiVar6[3] = (int *)"DWORD Direct3DDevice9Imp::OpenGLSide_ShutdownDevice(DWORD, LPVOID)";
+    ppiVar6[2] = (int *)0x24d;
+    ppiVar6[1] = (int *)
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+    ;
+    *ppiVar6 = (int *)"FenceListTail == __null";
+    ppiVar6[-1] = (int *)0x409eed2;
+    FUN_0400a810();
+  }
+  iVar5 = *(int *)(param_1 + 0xebd0);
+  if (iVar5 != *(int *)(param_1 + 0xebcc)) {
+    do {
+      *ppiVar6 = (int *)0x1;
+      ppiVar6[1] = (int *)(iVar5 + -4);
+      ppiVar6[-1] = (int *)0x409eef4;
+      (*DAT_0451e974)();
+      iVar5 = *(int *)(param_1 + 0xebd0) + -4;
+      *(int *)(param_1 + 0xebd0) = iVar5;
+    } while (iVar5 != *(int *)(param_1 + 0xebcc));
+  }
+  iVar5 = *(int *)(param_1 + 0xebe0);
+  if (iVar5 != *(int *)(param_1 + 0xebdc)) {
+    do {
+      local_20[0] = *(undefined4 *)(iVar5 + -4);
+      ppiVar6[1] = local_20;
+      *ppiVar6 = (int *)0x1;
+      ppiVar6[-1] = (int *)0x409ef37;
+      (*DAT_0451ed24)();
+      iVar5 = *(int *)(param_1 + 0xebe0) + -4;
+      *(int *)(param_1 + 0xebe0) = iVar5;
+    } while (iVar5 != *(int *)(param_1 + 0xebdc));
+  }
+  *ppiVar6 = (int *)(param_1 + 0xeb20);
+  ppiVar6[-1] = (int *)0x409ef5c;
+  pthread_mutex_lock((pthread_mutex_t *)*ppiVar6);
+  piVar7 = *(int **)(param_1 + 0xeb1c);
+  local_30 = (int *)(param_1 + 0xeb14);
+  if (local_30 != piVar7) {
+    do {
+      *ppiVar6 = (int *)(*piVar7 + 4);
+      ppiVar6[-1] = (int *)0x409ef7d;
+      direct3dquery9imp_040a5cc0();
+      piVar7 = (int *)piVar7[2];
+    } while (local_30 != piVar7);
+  }
+  *ppiVar6 = (int *)(param_1 + 0xeb20);
+  ppiVar6[-1] = (int *)0x409ef8d;
+  pthread_mutex_unlock((pthread_mutex_t *)*ppiVar6);
+  iVar5 = *(int *)(param_1 + 0xeb78);
+  if (iVar5 != 0) {
+    *ppiVar6 = (int *)iVar5;
+    ppiVar6[-1] = (int *)0x409ef9f;
+    FUN_040effb0();
+    *ppiVar6 = (int *)iVar5;
+    ppiVar6[-1] = (int *)0x409efa7;
+    operator_delete(*ppiVar6);
+    *(undefined4 *)(param_1 + 0xeb78) = 0;
+  }
+  if (DAT_04468c30 == '\0') {
+    ppiVar6[-1] = (int *)0x409efc1;
+    FUN_040bc3d0();
+    ppiVar6[-1] = (int *)0x409efc6;
+    FUN_040bca40();
+    ppiVar6[-1] = (int *)0x409efcb;
+    FUN_040ad550();
+    ppiVar6[-1] = (int *)0x409efd5;
+    FUN_040b7190();
+    DAT_04468c30 = '\x01';
+  }
+  return 0;
+}
+

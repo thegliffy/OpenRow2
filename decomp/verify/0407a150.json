@@ -1,0 +1,192 @@
+
+/* source: direct3ddevice9imp */
+
+int Direct3DDevice9Imp__DrawPrimitiveUP
+              (int *param_1,undefined4 param_2,int param_3,int param_4,int param_5)
+
+{
+  int iVar1;
+  code *pcVar2;
+  undefined4 uVar3;
+  int *piVar4;
+  uint uVar5;
+  int iVar6;
+  int *piVar7;
+  int *piVar8;
+  int iVar9;
+  int aiStack_90 [20];
+  uint local_40;
+  int local_34;
+  int *local_30 [2];
+  int local_28;
+  undefined4 local_24;
+  undefined1 local_1d [13];
+  
+  local_30[0] = &local_34;
+  piVar8 = aiStack_90 + 9;
+  iVar9 = param_1[3];
+  local_34 = iVar9;
+  if (iVar9 != 0) {
+    piVar8 = aiStack_90 + 9;
+    if (*(char *)(iVar9 + 0xebbc) != '\0') {
+      aiStack_90[9] = iVar9 + 0xebc4;
+      aiStack_90[8] = 0x407a3be;
+      EnterCriticalSection();
+      piVar8 = aiStack_90 + 8;
+    }
+    if (*(int *)(iVar9 + 0xec64) == 0) {
+      if (*(int *)(iVar9 + 0xebc0) != 0) {
+        piVar8[3] = (int)"void Direct3DDevice9Imp::MultithreadedGuard_Enter()";
+        piVar8[2] = 0x3ae;
+        piVar8[1] = (int)
+                    "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+        ;
+        *piVar8 = (int)"!mCurrentD3D9Thread";
+        piVar8[-1] = 0x407a35c;
+        FUN_0400a810();
+      }
+      piVar8[-1] = 0x407a19d;
+      uVar3 = FUN_0415b750();
+      *(undefined4 *)(iVar9 + 0xebc0) = uVar3;
+    }
+    else {
+      local_40 = *(uint *)(iVar9 + 0xebc0);
+      piVar8[-1] = 0x407a37e;
+      uVar5 = FUN_0415b750();
+      if (local_40 != uVar5) {
+        piVar8[3] = (int)"void Direct3DDevice9Imp::MultithreadedGuard_Enter()";
+        piVar8[2] = 0x3b3;
+        piVar8[1] = (int)
+                    "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+        ;
+        *piVar8 = (int)"mCurrentD3D9Thread == thread_GetCurrentThreadId()";
+        piVar8[-1] = 0x407a3ab;
+        FUN_0400a810();
+      }
+    }
+    *(int *)(iVar9 + 0xec64) = *(int *)(iVar9 + 0xec64) + 1;
+  }
+  *(undefined1 *)((int)param_1 + 0x75fa) = 1;
+  if (param_3 == 0) {
+    iVar9 = 0;
+    goto LAB_0407a320;
+  }
+  piVar8[1] = (int)local_1d;
+  *piVar8 = (int)&local_28;
+                    /* try { // try from 0407a1ce to 0407a31a has its CatchHandler @ 0407a44a */
+  piVar8[-1] = 0x407a1d3;
+  DeterminePrimitiveType();
+  piVar4 = (int *)param_1[0x3ad6];
+  iVar9 = param_5 * local_28;
+  if (piVar4 == (int *)0x0) {
+LAB_0407a3e5:
+    iVar6 = *param_1;
+    param_1[0x3ad9] = iVar9 * 10;
+    piVar8[6] = 0;
+    piVar8[5] = (int)(param_1 + 0x3ad6);
+    piVar8[4] = 0;
+    piVar8[3] = 0;
+    piVar8[2] = 0x208;
+    piVar8[1] = iVar9 * 10;
+    *piVar8 = (int)param_1;
+    pcVar2 = *(code **)(iVar6 + 0x70);
+    piVar8[-1] = 0x407a426;
+    iVar6 = (*pcVar2)();
+    if (iVar6 < 0) {
+      iVar9 = -0x7789f794;
+      goto LAB_0407a320;
+    }
+    uVar5 = param_1[0x3ad9];
+    iVar6 = 0;
+    piVar4 = (int *)param_1[0x3ad6];
+    piVar7 = piVar8;
+  }
+  else {
+    uVar5 = param_1[0x3ad9];
+    if (uVar5 < (uint)(iVar9 * 10)) {
+      iVar6 = *piVar4;
+      *piVar8 = (int)piVar4;
+                    /* try { // try from 0407a3d5 to 0407a425 has its CatchHandler @ 0407a44a */
+      pcVar2 = *(code **)(iVar6 + 8);
+      piVar8[-1] = 0x407a3d8;
+      (*pcVar2)();
+      param_1[0x3ad6] = 0;
+      piVar8 = piVar8 + -1;
+      goto LAB_0407a3e5;
+    }
+    iVar6 = param_1[0x3ad8] + param_1[0x3ad7];
+    piVar7 = piVar8;
+  }
+  param_1[0x3ad7] = iVar6;
+  local_40 = iVar6 + iVar9;
+  iVar6 = 0x1000;
+  param_1[0x3ad8] = iVar9;
+  if (uVar5 < local_40) {
+    param_1[0x3ad7] = 0;
+    iVar6 = 0x2000;
+  }
+  iVar1 = *piVar4;
+  piVar7[4] = iVar6;
+  piVar7[3] = (int)&local_24;
+  piVar7[2] = iVar9;
+  iVar9 = param_1[0x3ad7];
+  local_24 = 0;
+  *piVar7 = (int)piVar4;
+  piVar7[1] = iVar9;
+  pcVar2 = *(code **)(iVar1 + 0x2c);
+  piVar7[-1] = 0x407a258;
+  iVar9 = (*pcVar2)();
+  piVar8 = piVar7 + -5;
+  if (-1 < iVar9) {
+    piVar7[-3] = param_1[0x3ad8];
+    piVar7[-4] = param_4;
+    piVar7[-5] = local_24;
+    piVar7[-6] = 0x407a281;
+    memcpy((void *)piVar7[-5],(void *)piVar7[-4],piVar7[-3]);
+    iVar9 = *(int *)param_1[0x3ad6];
+    piVar7[-5] = param_1[0x3ad6];
+    pcVar2 = *(code **)(iVar9 + 0x30);
+    piVar7[-6] = 0x407a28f;
+    iVar9 = (*pcVar2)();
+    piVar8 = piVar7 + -6;
+    if (-1 < iVar9) {
+      iVar9 = *param_1;
+      piVar7[-2] = param_5;
+      piVar7[-3] = param_1[0x3ad7];
+      iVar6 = param_1[0x3ad6];
+      piVar7[-5] = 0;
+      piVar7[-6] = (int)param_1;
+      piVar7[-4] = iVar6;
+      pcVar2 = *(code **)(iVar9 + 0x198);
+      piVar7[-7] = 0x407a2ca;
+      iVar9 = (*pcVar2)();
+      piVar8 = piVar7 + -6;
+      if (-1 < iVar9) {
+        iVar9 = *param_1;
+        piVar7[-3] = param_3;
+        piVar7[-4] = 0;
+        piVar7[-6] = (int)param_1;
+        piVar7[-5] = param_2;
+        pcVar2 = *(code **)(iVar9 + 0x14c);
+        piVar7[-7] = 0x407a2ee;
+        iVar9 = (*pcVar2)();
+        iVar6 = *param_1;
+        piVar7[-2] = 0;
+        piVar7[-3] = 0;
+        piVar7[-4] = 0;
+        piVar7[-5] = 0;
+        piVar7[-6] = (int)param_1;
+        pcVar2 = *(code **)(iVar6 + 0x198);
+        piVar7[-7] = 0x407a31b;
+        (*pcVar2)();
+        piVar8 = piVar7 + -6;
+      }
+    }
+  }
+LAB_0407a320:
+  *piVar8 = (int)local_30;
+  piVar8[-1] = 0x407a32b;
+  direct3ddevice9imp_040a2df0();
+  return iVar9;
+}
+

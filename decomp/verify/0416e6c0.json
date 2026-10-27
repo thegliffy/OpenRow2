@@ -1,0 +1,103 @@
+
+int eON_LoadCursorW(undefined1 *param_1,uint param_2)
+
+{
+  undefined1 *puVar1;
+  uint uVar2;
+  int iVar3;
+  undefined1 *puVar4;
+  undefined4 *puVar5;
+  undefined1 **ppuVar6;
+  undefined4 local_48c;
+  char *local_488;
+  undefined1 *local_484;
+  undefined4 uStackY_478;
+  undefined1 *local_474;
+  undefined1 *local_470;
+  undefined4 local_46c;
+  undefined4 local_468;
+  char *local_464;
+  uint local_460;
+  undefined4 uStackY_458;
+  undefined1 local_420 [1032];
+  undefined4 *local_18;
+  
+  uVar2 = param_2;
+  puVar1 = param_1;
+  local_18 = &param_1;
+  if ((param_2 & 0xffff0000) == 0) {
+    if (param_1 == (undefined1 *)0x0) {
+      iVar3 = eON_LoadStandardCursor();
+    }
+    else {
+      iVar3 = eON_LoadImageA();
+      if (iVar3 != 0) {
+        return iVar3;
+      }
+      local_460 = uVar2;
+      local_464 = "Could not load cursor: %p";
+      local_468 = 5;
+      local_46c = 0x416e81b;
+      FUN_0402cd10();
+      local_468 = 0x7f00;
+      local_46c = 0x416e827;
+      iVar3 = eON_LoadStandardCursor();
+    }
+    if (iVar3 != 0) {
+      return iVar3;
+    }
+    return 1;
+  }
+  iVar3 = FUN_0415a040();
+  puVar4 = local_420;
+  if (0x400 < (int)(iVar3 + 1U)) {
+    uStackY_458 = 0x416e83e;
+    puVar4 = malloc(iVar3 + 1U);
+  }
+  uStackY_458 = 0x416e750;
+  eON_WideCharToMultiByte();
+  ppuVar6 = &local_474;
+  if (puVar1 == (undefined1 *)0x0) {
+    uStackY_478 = 0x416e858;
+    local_474 = puVar4;
+    iVar3 = eON_LoadStandardCursor();
+  }
+  else {
+    local_460 = 0x40;
+    local_464 = (char *)0x0;
+    local_468 = 0;
+    local_46c = 2;
+    local_474 = puVar1;
+    uStackY_478 = 0x416e787;
+    local_470 = puVar4;
+    iVar3 = eON_LoadImageA();
+    ppuVar6 = (undefined1 **)&local_48c;
+    puVar5 = &local_48c;
+    if (iVar3 != 0) goto LAB_0416e792;
+    local_484 = puVar4;
+    if (((uint)puVar4 & 0xffff0000) == 0) {
+      local_488 = "Could not load cursor: %p";
+      local_48c = 5;
+      FUN_0402cd10();
+    }
+    else {
+      local_488 = "Could not load cursor: \'%s\'";
+      local_48c = 5;
+      FUN_0402cd10();
+    }
+    local_48c = 0x7f00;
+    iVar3 = eON_LoadStandardCursor();
+  }
+  puVar5 = ppuVar6;
+  if (iVar3 == 0) {
+    iVar3 = 1;
+  }
+LAB_0416e792:
+  if (puVar4 != local_420) {
+    *puVar5 = puVar4;
+    puVar5[-1] = 0x416e7a8;
+    free((void *)*puVar5);
+  }
+  return iVar3;
+}
+

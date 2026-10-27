@@ -1,0 +1,8 @@
+
+undefined4 XAudio2MasteringVoiceImp__SetFilterParameters(void)
+
+{
+  FUN_0402cd10(10,"Trying to set filter parameters for a mastering voice. It doesn\'t make sense.");
+  return 0;
+}
+

@@ -1,0 +1,36 @@
+
+/* source: direct3dsurface9imp */
+
+undefined4 Direct3DSurface9Imp__OpenGLSide_CreateRenderbuffer(int param_1)
+
+{
+  undefined4 uVar1;
+  int iVar2;
+  
+  uVar1 = Direct3DDevice9Imp__CreateRenderbufferInOpenGL(*(int *)(param_1 + 0x1c) + 0x40);
+  *(undefined4 *)(param_1 + 0xd0) = uVar1;
+  (*DAT_0451e690)(0x8d41,uVar1);
+  iVar2 = *(int *)(param_1 + 0x9c);
+  if (iVar2 < 2) {
+    (*DAT_0451e64c)(0x8d41,*(undefined4 *)(param_1 + 0xac),*(undefined4 *)(param_1 + 0x84),
+                    *(undefined4 *)(param_1 + 0x88));
+  }
+  else if ((DAT_0451cad2 == '\0') && (DAT_0451ca65 == '\0')) {
+    if (DAT_0451c9c2 == '\0') {
+      FUN_0400a810("(*(const GLboolean*)&__GLEW_EXT_framebuffer_multisample)",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3dsurface9imp.cpp"
+                   ,0x19a,"DWORD Direct3DSurface9Imp::OpenGLSide_CreateRenderbuffer(DWORD, LPVOID)")
+      ;
+      iVar2 = *(int *)(param_1 + 0x9c);
+    }
+    (*DAT_0451d810)(0x8d41,iVar2,*(undefined4 *)(param_1 + 0xac),*(undefined4 *)(param_1 + 0x84),
+                    *(undefined4 *)(param_1 + 0x88));
+  }
+  else {
+    (*DAT_0451e648)(0x8d41,iVar2,*(undefined4 *)(param_1 + 0xac),*(undefined4 *)(param_1 + 0x84),
+                    *(undefined4 *)(param_1 + 0x88));
+  }
+  (*DAT_0451e690)(0x8d41,0);
+  return 0;
+}
+

@@ -1,0 +1,150 @@
+
+uint eON_GetTempFileNameW(undefined *param_1,short *param_2,uint param_3,int param_4)
+
+{
+  short sVar1;
+  short *psVar2;
+  int iVar3;
+  int *piVar4;
+  uint uVar5;
+  int iVar6;
+  undefined *puVar7;
+  short *psVar8;
+  short *psVar9;
+  int *piVar10;
+  uint uVar11;
+  undefined1 local_60 [4];
+  undefined4 local_5c;
+  int local_58;
+  undefined *local_54;
+  undefined *local_50;
+  uint local_28;
+  uint local_24;
+  undefined4 *local_18;
+  
+  iVar3 = param_4;
+  psVar2 = param_2;
+  puVar7 = param_1;
+  local_18 = &param_1;
+  local_24 = param_3;
+  if ((param_4 == 0) || (param_1 == (undefined *)0x0)) {
+    local_50 = (undefined *)0x57;
+    uVar5 = 0;
+    local_54 = (undefined *)0x413545e;
+    eON_SetLastError();
+  }
+  else {
+    local_50 = param_1;
+    local_54 = (undefined *)0x41353de;
+    local_28 = FUN_0415a040();
+    if (local_28 == 0) {
+      local_28 = 2;
+      puVar7 = &DAT_0432a3a0;
+    }
+    else if (0xf6 < (int)local_28) {
+      local_54 = (undefined *)0x6f;
+      local_58 = 0x4135435;
+      eON_SetLastError();
+      return 0;
+    }
+    local_58 = 0x41353fc;
+    local_54 = puVar7;
+    uVar5 = FUN_041323d0();
+    if ((uVar5 == 0xffffffff) || ((uVar5 & 0x10) == 0)) {
+      local_58 = 0x10b;
+      uVar5 = 0;
+      local_5c = 0x4135419;
+      eON_SetLastError();
+    }
+    else {
+      local_58 = iVar3;
+      local_5c = 0x4135477;
+      local_54 = puVar7;
+      FUN_0415a150();
+      psVar8 = (short *)(iVar3 + local_28 * 2);
+      if (psVar8[-1] != 0x5c) {
+        *psVar8 = 0x5c;
+        psVar8 = psVar8 + 1;
+      }
+      psVar9 = psVar8;
+      if ((psVar2 != (short *)0x0) && (*psVar2 != 0)) {
+        *psVar8 = *psVar2;
+        psVar9 = psVar8 + 1;
+        if (psVar2[1] != 0) {
+          psVar8[1] = psVar2[1];
+          psVar9 = psVar8 + 2;
+          if (psVar2[2] != 0) {
+            psVar8[2] = psVar2[2];
+            psVar9 = psVar8 + 3;
+          }
+        }
+      }
+      uVar5 = local_24 & 0xffff;
+      if (uVar5 == 0) {
+        local_28 = eON_timeGetTime();
+        local_28 = local_28 % 0xffff;
+        piVar4 = (int *)local_60;
+        uVar11 = local_28;
+        if (local_28 == 0) {
+          local_28 = 1;
+          piVar4 = (int *)local_60;
+          uVar11 = local_28;
+        }
+        do {
+          piVar10 = piVar4;
+          psVar9[4] = 0x2e;
+          psVar9[5] = 0x54;
+          psVar9[6] = 0x4d;
+          sVar1 = (&DAT_0432a400)[uVar11 >> 0xc & 0xf];
+          psVar9[7] = 0x50;
+          psVar9[8] = 0;
+          *psVar9 = sVar1;
+          psVar9[1] = (&DAT_0432a400)[uVar11 >> 8 & 0xf];
+          psVar9[2] = (&DAT_0432a400)[uVar11 >> 4 & 0xf];
+          psVar9[3] = (&DAT_0432a400)[uVar11 & 0xf];
+          piVar10[6] = 0;
+          piVar10[5] = 0;
+          piVar10[4] = 1;
+          piVar10[3] = 0;
+          piVar10[2] = 3;
+          piVar10[1] = -0x40000000;
+          *piVar10 = iVar3;
+          piVar10[-1] = 0x4135615;
+          iVar6 = eON_CreateFileW();
+          if (iVar6 != -1) {
+            piVar10[-7] = iVar6;
+            piVar10[-8] = 0x413565a;
+            eON_CloseHandle();
+            return uVar11;
+          }
+          uVar5 = 1;
+          if (uVar11 != 0xffff) {
+            uVar5 = uVar11 + 1;
+          }
+          piVar4 = piVar10 + -7;
+          uVar11 = uVar5;
+        } while (uVar5 != local_28);
+        piVar10[-6] = (int)
+                      "Temporary folder contains all possible temp files that could be generated from eON_GetTempFileNameW() with given prefix string!"
+        ;
+        piVar10[-7] = 0xf;
+        piVar10[-8] = 0x413564d;
+        FUN_0402cd10();
+      }
+      else {
+        psVar9[4] = 0x2e;
+        psVar9[5] = 0x54;
+        sVar1 = (&DAT_0432a400)[uVar5 >> 0xc];
+        psVar9[6] = 0x4d;
+        psVar9[7] = 0x50;
+        psVar9[8] = 0;
+        *psVar9 = sVar1;
+        psVar9[1] = (&DAT_0432a400)[uVar5 >> 8 & 0xf];
+        psVar9[2] = (&DAT_0432a400)[uVar5 >> 4 & 0xf];
+        psVar9[3] = (&DAT_0432a400)[local_24 & 0xf];
+      }
+    }
+  }
+  return uVar5;
+}
+

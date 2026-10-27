@@ -1,0 +1,40 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+bool _glewInit_GL_ARB_vertex_attrib_64bit(void)
+
+{
+  int iVar1;
+  bool bVar2;
+  bool bVar3;
+  bool bVar4;
+  bool bVar5;
+  bool bVar6;
+  bool bVar7;
+  bool bVar8;
+  bool bVar9;
+  
+  iVar1 = glXGetProcAddressARB("glGetVertexAttribLdv");
+  _DAT_0451e098 = iVar1;
+  _DAT_0451e094 = glXGetProcAddressARB("glVertexAttribL1d");
+  bVar2 = _DAT_0451e094 == 0;
+  _DAT_0451e090 = glXGetProcAddressARB("glVertexAttribL1dv");
+  bVar3 = _DAT_0451e090 == 0;
+  _DAT_0451e08c = glXGetProcAddressARB("glVertexAttribL2d");
+  bVar4 = _DAT_0451e08c == 0;
+  _DAT_0451e088 = glXGetProcAddressARB("glVertexAttribL2dv");
+  bVar5 = _DAT_0451e088 == 0;
+  _DAT_0451e084 = glXGetProcAddressARB("glVertexAttribL3d");
+  bVar6 = _DAT_0451e084 == 0;
+  _DAT_0451e080 = glXGetProcAddressARB("glVertexAttribL3dv");
+  bVar7 = _DAT_0451e080 == 0;
+  _DAT_0451e07c = glXGetProcAddressARB("glVertexAttribL4d");
+  bVar8 = _DAT_0451e07c == 0;
+  _DAT_0451e078 = glXGetProcAddressARB("glVertexAttribL4dv");
+  bVar9 = _DAT_0451e078 == 0;
+  _DAT_0451e074 = glXGetProcAddressARB("glVertexAttribLPointer");
+  return _DAT_0451e074 == 0 ||
+         (bVar9 || (bVar8 || (bVar7 || (bVar6 || (bVar5 || (bVar4 || (bVar3 || (bVar2 || iVar1 == 0)
+                                                                     )))))));
+}
+

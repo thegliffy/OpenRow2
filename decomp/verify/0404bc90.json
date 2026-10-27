@@ -1,0 +1,118 @@
+
+/* source: vpfsdb */
+
+int VPFSDB_Init(char *param_1)
+
+{
+  undefined4 *puVar1;
+  char cVar2;
+  size_t sVar3;
+  char *__dest;
+  int iVar4;
+  char local_24 [4];
+  undefined *local_20;
+  
+  puVar1 = DAT_04468ab0;
+  if (DAT_04468aa4 != '\0') {
+    if (DAT_04468ab0 != (undefined4 *)0x0) {
+      if (DAT_04468ab0[3] != 0) {
+        FUN_0404b260();
+      }
+      if (puVar1[2] != 0) {
+        FUN_0404b260();
+      }
+      free((void *)*puVar1);
+      free(puVar1);
+      DAT_04468ab0 = (undefined4 *)0x0;
+    }
+    if (DAT_04468aa8 != (void *)0x0) {
+      free(DAT_04468aa8);
+      DAT_04468aa8 = (void *)0x0;
+    }
+    if (DAT_04468aac != (void *)0x0) {
+      free(DAT_04468aac);
+    }
+    DAT_04468aa4 = '\0';
+  }
+  builtin_strncpy(local_24,".bac",4);
+  local_20 = &DAT_0070756b;
+  sVar3 = strlen(param_1);
+  DAT_04468aa8 = malloc(sVar3 + 1);
+  strcpy(DAT_04468aa8,param_1);
+  __dest = malloc(sVar3 + 8);
+  DAT_04468aac = __dest;
+  strcpy(__dest,param_1);
+  strcat(__dest,local_24);
+  iVar4 = FUN_0404b970();
+  if (iVar4 == 1) {
+    unlink(DAT_04468aac);
+  }
+  else {
+    if (iVar4 == 2) {
+      unlink(DAT_04468aa8);
+      unlink(DAT_04468aac);
+      if (DAT_04468ab0 != (undefined4 *)0x0) {
+        FUN_0404b260();
+        DAT_04468ab0 = (undefined4 *)0x0;
+      }
+      cVar2 = WriteDatabase();
+      if (cVar2 == '\0') goto LAB_0404be7c;
+    }
+    else {
+      unlink(DAT_04468aa8);
+      if (iVar4 != 0) {
+        FUN_0400a810("!result",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/vpfs/vpfsdb.cpp",
+                     0x1ba,"int32_t VPFSDB_Init(const char*)");
+      }
+      iVar4 = FUN_0404b970();
+      if (iVar4 == 1) {
+        iVar4 = rename(DAT_04468aac,DAT_04468aa8);
+        if (iVar4 == 0) {
+          FUN_0402cd10(0x14,"Successfully restored VPFS database from backup");
+          DAT_04468aa4 = 1;
+          return 1;
+        }
+LAB_0404be7c:
+        puVar1 = DAT_04468ab0;
+        if (DAT_04468ab0 != (undefined4 *)0x0) {
+          if (DAT_04468ab0[3] != 0) {
+            FUN_0404b260();
+          }
+          if (puVar1[2] != 0) {
+            FUN_0404b260();
+          }
+          free((void *)*puVar1);
+          free(puVar1);
+          DAT_04468ab0 = (undefined4 *)0x0;
+        }
+        if (DAT_04468aa8 != (char *)0x0) {
+          free(DAT_04468aa8);
+          DAT_04468aa8 = (char *)0x0;
+        }
+        if (DAT_04468aac != (char *)0x0) {
+          free(DAT_04468aac);
+          DAT_04468aac = (char *)0x0;
+        }
+        DAT_04468aa4 = 0;
+        return 0;
+      }
+      unlink(DAT_04468aac);
+      if (DAT_04468ab0 != (undefined4 *)0x0) {
+        FUN_0404b260();
+        DAT_04468ab0 = (undefined4 *)0x0;
+      }
+      cVar2 = WriteDatabase();
+      if (cVar2 == '\0') goto LAB_0404be7c;
+      if (iVar4 != 2) {
+        FUN_0402cd10(0x14,"Found no valid VPFS database; created empty one.");
+        DAT_04468aa4 = 1;
+        return 1;
+      }
+    }
+    FUN_0402cd10(0x14,"Found database from different game version; deleted, created empty one.");
+  }
+  DAT_04468aa4 = 1;
+  return iVar4;
+}
+

@@ -1,0 +1,15 @@
+
+/* source: mainGameWindow */
+
+void MainGameWindow_GetDisplayOrigin(undefined4 param_1,undefined4 param_2)
+
+{
+  if (DAT_044116a4 == (int *)0x0) {
+    FUN_0400a810("sMainGameWindow",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/linux/mainGameWindow.cpp"
+                 ,0x25,"void MainGameWindow_GetDisplayOrigin(int*, int*)");
+  }
+  (**(code **)(*DAT_044116a4 + 0x4c))(DAT_044116a4,param_1,param_2);
+  return;
+}
+

@@ -1,0 +1,159 @@
+
+/* source: windll */
+
+undefined4 InitializeTLS(void)
+
+{
+  code *pcVar1;
+  int iVar2;
+  undefined *puVar3;
+  uint uVar4;
+  int iVar5;
+  int *piVar6;
+  int iVar7;
+  int iVar8;
+  uint uVar9;
+  uint *puVar10;
+  uint *puVar11;
+  undefined4 *puVar12;
+  undefined *puVar13;
+  undefined *puVar14;
+  int iVar15;
+  
+  pthread_mutex_lock((pthread_mutex_t *)&DAT_0451add4);
+  FUN_0402cd10();
+  DAT_0451add0 = 1;
+  DAT_04518da4 = 0;
+  DAT_04518da8 = 0;
+  if (DAT_0451adc8 - DAT_0451adc4 >> 2 != 0) {
+    uVar4 = 0;
+    iVar5 = DAT_0451adc4;
+    iVar15 = DAT_0451adc8;
+    do {
+      iVar8 = *(int *)(iVar5 + uVar4 * 4);
+      iVar7 = *(int *)(iVar8 + 0xc0 + *(int *)(iVar8 + 0x3c));
+      if (iVar7 != 0) {
+        piVar6 = (int *)(iVar8 + iVar7);
+        iVar8 = piVar6[1] - *piVar6;
+        if (iVar8 == 0) {
+          FUN_0400a810();
+          iVar5 = DAT_0451adc4;
+          iVar15 = DAT_0451adc8;
+        }
+        DAT_04518da4 = DAT_04518da4 + iVar8;
+        DAT_04518da8 = DAT_04518da8 + 1;
+      }
+      uVar4 = uVar4 + 1;
+      uVar9 = iVar15 - iVar5 >> 2;
+    } while (uVar4 < uVar9);
+    if (DAT_04518da8 != 0) {
+      DAT_04518da0 = malloc(DAT_04518da8 << 2);
+      if (DAT_04518da0 == (void *)0x0) {
+        FUN_0400a810();
+        uVar9 = DAT_0451adc8 - DAT_0451adc4 >> 2;
+        iVar5 = DAT_0451adc4;
+        iVar15 = DAT_0451adc8;
+      }
+      if (uVar9 != 0) {
+        iVar8 = 0;
+        uVar4 = 0;
+        do {
+          iVar7 = *(int *)(iVar5 + uVar4 * 4);
+          iVar2 = *(int *)(iVar7 + 0xc0 + *(int *)(iVar7 + 0x3c));
+          if (iVar2 != 0) {
+            iVar7 = iVar7 + iVar2;
+            *(int *)((int)DAT_04518da0 + iVar8 * 4) = iVar7;
+            iVar5 = DAT_0451adc4;
+            *(int *)(iVar7 + 8) = iVar8;
+            iVar8 = iVar8 + 1;
+            iVar15 = DAT_0451adc8;
+          }
+          uVar4 = uVar4 + 1;
+        } while (uVar4 < (uint)(iVar15 - iVar5 >> 2));
+      }
+    }
+  }
+  kernel32_ProcessAttach();
+  puVar11 = (uint *)&stack0xffffffc4;
+  if (DAT_0451adc8 - DAT_0451adc4 >> 2 != 0) {
+    uVar4 = 0;
+    do {
+      uVar4 = uVar4 + 1;
+      FUN_0414fd00();
+      uVar9 = DAT_0451adc8 - DAT_0451adc4 >> 2;
+    } while (uVar4 < uVar9);
+    puVar11 = (uint *)&stack0xffffffc4;
+    if (uVar9 != 0) {
+      uVar4 = 0;
+      puVar10 = (uint *)&stack0xffffffc4;
+      do {
+        uVar9 = *(uint *)(DAT_0451adc4 + uVar4 * 4);
+        iVar5 = *(int *)(uVar9 + 0xc0 + *(int *)(uVar9 + 0x3c));
+        if ((iVar5 != 0) &&
+           (puVar12 = *(undefined4 **)(uVar9 + 0xc + iVar5), puVar12 != (undefined4 *)0x0)) {
+          for (; pcVar1 = (code *)*puVar12, pcVar1 != (code *)0x0; puVar12 = puVar12 + 1) {
+            puVar10[2] = 0;
+            puVar10[1] = 1;
+            *puVar10 = uVar9;
+            puVar10[-1] = 0x4150150;
+            (*pcVar1)();
+            puVar10 = puVar10 + -3;
+          }
+        }
+        puVar11 = puVar10;
+        if (DAT_0451adf4 != (undefined *)0x0) {
+          puVar3 = DAT_0451adf4;
+          puVar13 = &DAT_0451adf0;
+          do {
+            while (puVar14 = puVar3, uVar9 <= *(uint *)(puVar14 + 0x10)) {
+              puVar3 = *(undefined **)(puVar14 + 8);
+              puVar13 = puVar14;
+              if (*(undefined **)(puVar14 + 8) == (undefined *)0x0) goto LAB_04150185;
+            }
+            puVar12 = (undefined4 *)(puVar14 + 0xc);
+            puVar3 = (undefined *)*puVar12;
+            puVar14 = puVar13;
+          } while ((undefined *)*puVar12 != (undefined *)0x0);
+LAB_04150185:
+          if ((((puVar14 != &DAT_0451adf0) && (*(uint *)(puVar14 + 0x10) <= uVar9)) &&
+              (puVar14[0x51c] != '\0')) &&
+             (pcVar1 = *(code **)(puVar14 + 0x52c), pcVar1 != (code *)0x0)) {
+            puVar10[2] = 1;
+            puVar10[1] = 1;
+            *puVar10 = uVar9;
+            puVar10[-1] = 0x41501ba;
+            iVar5 = (*pcVar1)();
+            puVar11 = puVar10 + -3;
+            if (iVar5 == 0) {
+              puVar10[-3] = (uint)&DAT_0451add4;
+              puVar10[-4] = 0x4150223;
+              pthread_mutex_unlock((pthread_mutex_t *)puVar10[-3]);
+              *puVar10 = uVar9;
+              puVar10[-1] = (uint)(puVar14 + 0x14);
+              puVar10[-2] = (uint)
+                            "dll_ProcessAttach() - DLL_PROCESS_ATTACH for dll %s (%p) failed !";
+              puVar10[-3] = 0xf;
+              puVar10[-4] = 0x415023f;
+              FUN_0402cd10();
+              return 0;
+            }
+          }
+        }
+        uVar4 = uVar4 + 1;
+        puVar10 = puVar11;
+      } while (uVar4 < (uint)(DAT_0451adc8 - DAT_0451adc4 >> 2));
+    }
+  }
+  puVar11[-1] = 0x41501e7;
+  DAT_0451adc8 = DAT_0451adc4;
+  InitializeImplicitTLSForThread();
+  puVar11[1] = (uint)"DLL_PROCESS_ATTACH done.";
+  *puVar11 = 0x14;
+  puVar11[-1] = 0x41501fb;
+  FUN_0402cd10();
+  *puVar11 = (uint)&DAT_0451add4;
+  puVar11[-1] = 0x4150207;
+  pthread_mutex_unlock((pthread_mutex_t *)*puVar11);
+  return 1;
+}
+

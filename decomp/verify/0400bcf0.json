@@ -1,0 +1,118 @@
+
+/* WARNING: Removing unreachable block (ram,0x0400bf7c) */
+/* WARNING: Removing unreachable block (ram,0x0400bf82) */
+/* WARNING: Removing unreachable block (ram,0x0400bf9f) */
+/* WARNING: Removing unreachable block (ram,0x0400bfac) */
+/* WARNING: Removing unreachable block (ram,0x0400bf8f) */
+/* WARNING: Removing unreachable block (ram,0x0400bf9a) */
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+undefined4 thread_StartMain(undefined4 param_1)
+
+{
+  int *piVar1;
+  int *piVar2;
+  int *piVar3;
+  int *piVar4;
+  int *piVar5;
+  char cVar6;
+  int iVar7;
+  char *pcVar8;
+  undefined4 uVar9;
+  size_t sVar10;
+  uint uVar11;
+  allocator *paVar12;
+  allocator *paVar13;
+  undefined *puVar14;
+  char local_101d [4096];
+  undefined local_1d [13];
+  
+  iVar7 = FUN_04048720(param_1,0);
+  if (iVar7 == 0) {
+    FUN_0402cd10(0xf,"VPFS_Setup() failed!");
+    return 0;
+  }
+  iVar7 = VPFS_OpenExec(local_101d,0x1000);
+  if (iVar7 == 0) {
+    FUN_0402cd10(0xf,"VPFS_OpenExec() failed!");
+    uVar9 = 0;
+  }
+  else {
+    eON_VPFS_Close(iVar7);
+    pcVar8 = strrchr(local_101d,0x5c);
+    if (pcVar8 == (char *)0x0) {
+      strcpy(&DAT_04518dc0,local_101d);
+      _DAT_04519dc0 = 0x5c;
+    }
+    else {
+      sVar10 = (int)pcVar8 - (int)local_101d;
+      strcpy(&DAT_04518dc0,pcVar8 + 1);
+      strncpy(&DAT_04519dc0,local_101d,sVar10);
+      (&DAT_04519dc0)[sVar10] = 0;
+      sVar10 = strlen(&DAT_04519dc0);
+      *(undefined2 *)(&DAT_04519dc0 + sVar10) = 0x5c;
+      FUN_0400f520(&DAT_04519dc0,local_101d);
+      chdir(local_101d);
+      FUN_0402cd10(5,"Changing current directory to: \'%s\'",&DAT_04519dc0);
+      VPFS_SetCurrentDirectory(&DAT_04519dc0);
+    }
+    puVar14 = &DAT_04518dc0;
+    paVar12 = (allocator *)&DAT_04519dc0;
+    eON_BuildCommandLineA(&DAT_04519dc0,&DAT_04518dc0);
+    piVar2 = DAT_044111bc;
+    piVar3 = DAT_044111bc;
+    piVar1 = DAT_044111c0;
+    if ((int)DAT_044111c0 - (int)DAT_044111bc >> 2 != 0) {
+      uVar11 = 0;
+      do {
+        paVar12 = (allocator *)DAT_044111bc[uVar11];
+        uVar11 = uVar11 + 1;
+        eON_SetCommandLineA(paVar12);
+        piVar2 = DAT_044111bc;
+        piVar3 = DAT_044111bc;
+        piVar1 = DAT_044111c0;
+      } while (uVar11 < (uint)((int)DAT_044111c0 - (int)DAT_044111bc >> 2));
+    }
+    for (; piVar5 = DAT_044111c0, piVar4 = DAT_044111bc, DAT_044111c0 != piVar2; piVar2 = piVar2 + 1
+        ) {
+      paVar13 = (allocator *)(*piVar2 + -0xc);
+      DAT_044111bc = piVar3;
+      DAT_044111c0 = piVar1;
+      if (paVar13 != (allocator *)&std::string::_Rep::_S_empty_rep_storage) {
+        LOCK();
+        piVar1 = (int *)(*piVar2 + -4);
+        iVar7 = *piVar1;
+        *piVar1 = *piVar1 + -1;
+        UNLOCK();
+        if (iVar7 < 1) {
+          puVar14 = local_1d;
+          std::string::_Rep::_M_destroy(paVar13);
+          paVar12 = paVar13;
+        }
+      }
+      piVar3 = DAT_044111bc;
+      piVar1 = DAT_044111c0;
+      DAT_044111c0 = piVar5;
+      DAT_044111bc = piVar4;
+    }
+    DAT_044111c0 = DAT_044111bc;
+    DAT_044111bc = piVar3;
+    eON_LogCommandLine(paVar12,puVar14);
+    iVar7 = AddTLSSlot(&DAT_04519dc0,&DAT_04518dc0,1);
+    if (iVar7 == 0) {
+      FUN_0402cd10(0xf,"Loading Win32 executable failed!!");
+      uVar9 = 0;
+    }
+    else {
+      eON_LoadLibraryA("xactengine3_2.dll");
+      cVar6 = eON_Int_Thread_StartHelperFromMain();
+      uVar9 = 1;
+      if (cVar6 == '\0') {
+        FUN_0402cd10(0xf,"thread_StartMain() failed!!");
+        return 0;
+      }
+    }
+  }
+  return uVar9;
+}
+

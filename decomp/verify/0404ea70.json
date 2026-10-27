@@ -1,0 +1,38 @@
+
+undefined4 eON_ShowWindow(int *param_1,undefined4 param_2)
+
+{
+  undefined4 uVar1;
+  undefined4 uVar2;
+  
+  switch(param_2) {
+  case 0:
+    uVar2 = 0;
+    break;
+  case 1:
+  case 5:
+  case 10:
+    uVar2 = 1;
+    break;
+  default:
+    uVar2 = 0;
+    FUN_0402cd10(0xf,"Unhandled argument ( %d ) in eON_ShowWindow()!! Handle it.",param_2);
+    break;
+  case 6:
+    uVar2 = 0;
+    FUN_0402cd10(10,
+                 "Game tried to minimize window, and it\'s not handled well in eON. Perhaps hack it by not sending it WM_ACTIVATE ( FALSE ) messages?"
+                );
+    break;
+  case 9:
+    uVar2 = 1;
+    param_2 = 5;
+    FUN_0402cd10(5,
+                 "ShowWindow called with SW_RESTORE. Ignoring specifics of this flag, just showing window."
+                );
+  }
+  uVar1 = (**(code **)*param_1)(param_1);
+  (**(code **)(*param_1 + 0xc4))(param_1,param_2,uVar2);
+  return uVar1;
+}
+

@@ -1,0 +1,265 @@
+
+void Direct3DDevice9_LogPresentParameters(undefined4 param_1,undefined4 *param_2)
+
+{
+  undefined4 uVar1;
+  undefined4 uVar2;
+  undefined4 uVar3;
+  undefined4 uVar4;
+  bool bVar5;
+  uint uVar6;
+  undefined4 uVar7;
+  char *pcVar8;
+  undefined4 uVar9;
+  undefined4 *puVar10;
+  char *pcVar11;
+  uint *puVar12;
+  uint *puVar13;
+  uint uVar14;
+  uint uVar15;
+  char *pcVar16;
+  char *pcVar17;
+  uint local_11c [67];
+  
+  bVar5 = false;
+  local_11c[0]._0_2_ = (ushort)local_11c[0] & 0xff00;
+  uVar6 = param_2[0xb];
+  puVar13 = local_11c;
+  if ((uVar6 & 4) != 0) {
+    do {
+      puVar12 = puVar13;
+      uVar14 = *puVar12 + 0xfefefeff & ~*puVar12;
+      uVar15 = uVar14 & 0x80808080;
+      puVar13 = puVar12 + 1;
+    } while (uVar15 == 0);
+    if ((uVar14 & 0x8080) == 0) {
+      puVar13 = (uint *)((int)puVar12 + 6);
+      uVar15 = uVar15 >> 0x10;
+    }
+    bVar5 = true;
+    puVar10 = (undefined4 *)((int)puVar13 + (-3 - (uint)CARRY1((byte)uVar15,(byte)uVar15)));
+    *puVar10 = 0x50443344;
+    puVar10[1] = 0x45534552;
+    puVar10[2] = 0x4c46544e;
+    puVar10[3] = 0x445f4741;
+    puVar10[4] = 0x43495645;
+    puVar10[5] = 0x494c4345;
+    *(undefined2 *)(puVar10 + 6) = 0x50;
+  }
+  if ((uVar6 & 2) != 0) {
+    puVar13 = local_11c;
+    if (bVar5) {
+      do {
+        puVar12 = puVar13;
+        uVar14 = *puVar12 + 0xfefefeff & ~*puVar12;
+        uVar15 = uVar14 & 0x80808080;
+        puVar13 = puVar12 + 1;
+      } while (uVar15 == 0);
+      if ((uVar14 & 0x8080) == 0) {
+        puVar13 = (uint *)((int)puVar12 + 6);
+        uVar15 = uVar15 >> 0x10;
+      }
+      *(undefined2 *)((int)puVar13 + (-3 - (uint)CARRY1((byte)uVar15,(byte)uVar15))) = 0x7c;
+      puVar13 = local_11c;
+    }
+    do {
+      puVar12 = puVar13;
+      uVar14 = *puVar12 + 0xfefefeff & ~*puVar12;
+      uVar15 = uVar14 & 0x80808080;
+      puVar13 = puVar12 + 1;
+    } while (uVar15 == 0);
+    if ((uVar14 & 0x8080) == 0) {
+      puVar13 = (uint *)((int)puVar12 + 6);
+      uVar15 = uVar15 >> 0x10;
+    }
+    bVar5 = true;
+    puVar10 = (undefined4 *)((int)puVar13 + (-3 - (uint)CARRY1((byte)uVar15,(byte)uVar15)));
+    *puVar10 = 0x50443344;
+    puVar10[1] = 0x45534552;
+    puVar10[2] = 0x4c46544e;
+    puVar10[3] = 0x445f4741;
+    puVar10[4] = 0x41435349;
+    puVar10[5] = 0x445f4452;
+    puVar10[6] = 0x48545045;
+    puVar10[7] = 0x4e455453;
+    puVar10[8] = &DAT_004c4943;
+  }
+  if ((uVar6 & 1) != 0) {
+    puVar13 = local_11c;
+    if (bVar5) {
+      do {
+        puVar12 = puVar13;
+        uVar14 = *puVar12 + 0xfefefeff & ~*puVar12;
+        uVar15 = uVar14 & 0x80808080;
+        puVar13 = puVar12 + 1;
+      } while (uVar15 == 0);
+      if ((uVar14 & 0x8080) == 0) {
+        puVar13 = (uint *)((int)puVar12 + 6);
+        uVar15 = uVar15 >> 0x10;
+      }
+      *(undefined2 *)((int)puVar13 + (-3 - (uint)CARRY1((byte)uVar15,(byte)uVar15))) = 0x7c;
+      puVar13 = local_11c;
+    }
+    do {
+      puVar12 = puVar13;
+      uVar14 = *puVar12 + 0xfefefeff & ~*puVar12;
+      uVar15 = uVar14 & 0x80808080;
+      puVar13 = puVar12 + 1;
+    } while (uVar15 == 0);
+    if ((uVar14 & 0x8080) == 0) {
+      puVar13 = (uint *)((int)puVar12 + 6);
+      uVar15 = uVar15 >> 0x10;
+    }
+    bVar5 = true;
+    puVar10 = (undefined4 *)((int)puVar13 + (-3 - (uint)CARRY1((byte)uVar15,(byte)uVar15)));
+    *puVar10 = 0x50443344;
+    puVar10[1] = 0x45534552;
+    puVar10[2] = 0x4c46544e;
+    puVar10[3] = 0x4c5f4741;
+    puVar10[4] = 0x414b434f;
+    puVar10[5] = 0x5f454c42;
+    puVar10[6] = 0x4b434142;
+    puVar10[7] = 0x46465542;
+    *(undefined2 *)(puVar10 + 8) = 0x5245;
+    *(undefined1 *)((int)puVar10 + 0x22) = 0;
+  }
+  if ((uVar6 & 0x20) != 0) {
+    puVar13 = local_11c;
+    if (bVar5) {
+      do {
+        puVar12 = puVar13;
+        uVar14 = *puVar12 + 0xfefefeff & ~*puVar12;
+        uVar15 = uVar14 & 0x80808080;
+        puVar13 = puVar12 + 1;
+      } while (uVar15 == 0);
+      if ((uVar14 & 0x8080) == 0) {
+        puVar13 = (uint *)((int)puVar12 + 6);
+        uVar15 = uVar15 >> 0x10;
+      }
+      *(undefined2 *)((int)puVar13 + (-3 - (uint)CARRY1((byte)uVar15,(byte)uVar15))) = 0x7c;
+      puVar13 = local_11c;
+    }
+    do {
+      puVar12 = puVar13;
+      uVar14 = *puVar12 + 0xfefefeff & ~*puVar12;
+      uVar15 = uVar14 & 0x80808080;
+      puVar13 = puVar12 + 1;
+    } while (uVar15 == 0);
+    if ((uVar14 & 0x8080) == 0) {
+      puVar13 = (uint *)((int)puVar12 + 6);
+      uVar15 = uVar15 >> 0x10;
+    }
+    bVar5 = true;
+    puVar10 = (undefined4 *)((int)puVar13 + (-3 - (uint)CARRY1((byte)uVar15,(byte)uVar15)));
+    *puVar10 = 0x50443344;
+    puVar10[1] = 0x45534552;
+    puVar10[2] = 0x4c46544e;
+    puVar10[3] = 0x4e5f4741;
+    puVar10[4] = 0x5455414f;
+    puVar10[5] = 0x544f524f;
+    puVar10[6] = &DAT_00455441;
+  }
+  if ((uVar6 & 0x40) != 0) {
+    puVar13 = local_11c;
+    if (bVar5) {
+      do {
+        puVar12 = puVar13;
+        uVar14 = *puVar12 + 0xfefefeff & ~*puVar12;
+        uVar15 = uVar14 & 0x80808080;
+        puVar13 = puVar12 + 1;
+      } while (uVar15 == 0);
+      if ((uVar14 & 0x8080) == 0) {
+        puVar13 = (uint *)((int)puVar12 + 6);
+        uVar15 = uVar15 >> 0x10;
+      }
+      *(undefined2 *)((int)puVar13 + (-3 - (uint)CARRY1((byte)uVar15,(byte)uVar15))) = 0x7c;
+      puVar13 = local_11c;
+    }
+    do {
+      puVar12 = puVar13;
+      uVar14 = *puVar12 + 0xfefefeff & ~*puVar12;
+      uVar15 = uVar14 & 0x80808080;
+      puVar13 = puVar12 + 1;
+    } while (uVar15 == 0);
+    if ((uVar14 & 0x8080) == 0) {
+      puVar13 = (uint *)((int)puVar12 + 6);
+      uVar15 = uVar15 >> 0x10;
+    }
+    bVar5 = true;
+    puVar10 = (undefined4 *)((int)puVar13 + (-3 - (uint)CARRY1((byte)uVar15,(byte)uVar15)));
+    *puVar10 = 0x50443344;
+    puVar10[1] = 0x45534552;
+    puVar10[2] = 0x4c46544e;
+    puVar10[3] = 0x555f4741;
+    puVar10[4] = 0x5552504e;
+    puVar10[5] = 0x4d44454e;
+    puVar10[6] = &DAT_0045444f;
+  }
+  if ((uVar6 & 0x10) == 0) {
+    if (!bVar5) {
+      local_11c[0]._0_2_ = 0x30;
+    }
+  }
+  else {
+    puVar13 = local_11c;
+    if (bVar5) {
+      do {
+        puVar12 = puVar13;
+        uVar15 = *puVar12 + 0xfefefeff & ~*puVar12;
+        uVar6 = uVar15 & 0x80808080;
+        puVar13 = puVar12 + 1;
+      } while (uVar6 == 0);
+      if ((uVar15 & 0x8080) == 0) {
+        puVar13 = (uint *)((int)puVar12 + 6);
+        uVar6 = uVar6 >> 0x10;
+      }
+      *(undefined2 *)((int)puVar13 + (-3 - (uint)CARRY1((byte)uVar6,(byte)uVar6))) = 0x7c;
+      puVar13 = local_11c;
+    }
+    do {
+      puVar12 = puVar13;
+      uVar15 = *puVar12 + 0xfefefeff & ~*puVar12;
+      uVar6 = uVar15 & 0x80808080;
+      puVar13 = puVar12 + 1;
+    } while (uVar6 == 0);
+    if ((uVar15 & 0x8080) == 0) {
+      puVar13 = (uint *)((int)puVar12 + 6);
+      uVar6 = uVar6 >> 0x10;
+    }
+    puVar10 = (undefined4 *)((int)puVar13 + (-3 - (uint)CARRY1((byte)uVar6,(byte)uVar6)));
+    *puVar10 = 0x50443344;
+    puVar10[1] = 0x45534552;
+    puVar10[2] = 0x4c46544e;
+    puVar10[3] = 0x565f4741;
+    puVar10[4] = 0x4f454449;
+    *(undefined1 *)(puVar10 + 5) = 0;
+  }
+  uVar1 = param_2[0xd];
+  uVar2 = param_2[0xc];
+  uVar7 = D3D9_FormatToString(param_2[10]);
+  pcVar8 = "true";
+  pcVar11 = "true";
+  if (param_2[9] == 0) {
+    pcVar11 = "false";
+  }
+  if (param_2[8] == 0) {
+    pcVar8 = "false";
+  }
+  pcVar16 = "!!!unknown!!!";
+  if (param_2[6] - 1 < 3) {
+    pcVar16 = (&PTR_s_D3DSWAPEFFECT_DISCARD_042eebe0)[param_2[6] - 1];
+  }
+  pcVar17 = "!!!unknown!!!";
+  uVar3 = param_2[5];
+  if ((uint)param_2[4] < 0x11) {
+    pcVar17 = (&PTR_s_D3DMULTISAMPLE_NONE_042eeb80)[param_2[4]];
+  }
+  uVar4 = param_2[3];
+  uVar9 = D3D9_FormatToString(param_2[2]);
+  FUN_0402cd10(param_1,
+               "    pParams: BackBufferWidth: %u, BackBufferHeight: %u, BackBufferFormat: %s, BackBufferCount: %u\n             MultiSampleType = %s, MultiSampleQuality = %u\n             SwapEffect: %s, Windowed: %s, EnableAutoDepthStencil: %s, AutoDepthStencilFormat: %s\n             Flags: %s, Fullscreen_RefreshRateInHz: %u, PresentationInterval: %u"
+               ,*param_2,param_2[1],uVar9,uVar4,pcVar17,uVar3,pcVar16,pcVar8,pcVar11,uVar7,local_11c
+               ,uVar2,uVar1);
+  return;
+}
+

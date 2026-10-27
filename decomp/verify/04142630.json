@@ -1,0 +1,66 @@
+
+void LCID_ToString(uint param_1,char *param_2)
+
+{
+  ushort uVar1;
+  char *__s;
+  char local_3c [44];
+  
+  if (param_1 == 0x800) {
+    builtin_strncpy(param_2,"LOCALE_SYSTEM_DEFAULT",0x16);
+    return;
+  }
+  if (param_1 < 0x801) {
+    if (param_1 == 0x7f) {
+      builtin_strncpy(param_2,"LOCALE_INVARIANT",0x11);
+      return;
+    }
+    if (param_1 == 0x400) {
+      param_2[0] = 'L';
+      param_2[1] = 'O';
+      param_2[2] = 'C';
+      param_2[3] = 'A';
+      param_2[4] = 'L';
+      param_2[5] = 'E';
+      param_2[6] = '_';
+      param_2[7] = 'U';
+      param_2[8] = 'S';
+      param_2[9] = 'E';
+      param_2[10] = 'R';
+      param_2[0xb] = '_';
+      param_2[0xc] = 'D';
+      param_2[0xd] = 'E';
+      param_2[0xe] = 'F';
+      param_2[0xf] = 'A';
+      *(undefined **)(param_2 + 0x10) = &DAT_00544c55;
+      return;
+    }
+    if (param_1 == 0) {
+      builtin_strncpy(param_2,"LOCALE_NEUTRAL",0xf);
+      return;
+    }
+  }
+  else {
+    if (param_1 == 0x1000) {
+      builtin_strncpy(param_2,"LOCALE_CUSTOM_UNSPECIFIED",0x1a);
+      return;
+    }
+    if (param_1 == 0x1400) {
+      builtin_strncpy(param_2,"LOCALE_CUSTOM_UI_DEFAULT",0x19);
+      return;
+    }
+    if (param_1 == 0xc00) {
+      builtin_strncpy(param_2,"LOCALE_CUSTOM_DEFAULT",0x16);
+      return;
+    }
+  }
+  uVar1 = (ushort)param_1 & 0x3ff;
+  if ((0x8e < uVar1) || (__s = (&PTR_s_LANG_NEUTRAL_0432dec0)[uVar1], __s == (char *)0x0)) {
+    __s = local_3c;
+    sprintf(__s,"(unknown - %#x)",(uint)uVar1);
+  }
+  sprintf(param_2,"LCID[Language = %s, sublanguage = %u, sort = %u]",__s,(param_1 & 0xffff) >> 10,
+          (param_1 & 0xfffff) >> 0x10);
+  return;
+}
+

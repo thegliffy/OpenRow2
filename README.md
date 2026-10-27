@@ -14,10 +14,11 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 ## Scoreboard
 
-**4,982 / 9,221 functions carry a project name (54.0%).** A name is kept when that function references a matching assert signature, a single source file, or a D3D9 vtable slot locked by those signatures. Module prefixes name the file, not the function. Message-style strings do not replace a signature name.
+**4,994 / 9,221 functions carry a project name (54.2%).** A name is kept when that function references a matching assert signature, a single source file, or a D3D9 vtable slot locked by those signatures. Module prefixes name the file, not the function. Message-style strings do not replace a signature name.
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
+| 219 | ICC csstatics: relaxed matcher (body-verified individually); malloc family split by error/warning/NULL-base paths (`tools/decomp_notes_wave219_icc_malloc.md`). | 12 | 12 |
 | 218 | colorspace/ICC statics district, matcher across both tags + pair split by control flow (`tools/decomp_notes_wave218_colorspace_district.md`). | 12 | 12 |
 | 217 | held png_set_* family body-matched; 042a6070 corrected to png_convert_to_rfc1123 (`tools/decomp_notes_wave217_pngset_family.md`). | 12 | 11 |
 | 216 | full-ledger audit: 0 contradictions, 1,500 body-confirmed (`tools/decomp_notes_wave216_full_audit.md`). | 0 | 0 |

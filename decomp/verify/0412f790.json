@@ -1,0 +1,72 @@
+
+/* source: fs_files */
+
+undefined4
+fs_ReadFileEx(undefined4 param_1,undefined4 param_2,undefined4 param_3,undefined4 *param_4,
+             undefined4 param_5,char param_6)
+
+{
+  undefined4 uVar1;
+  undefined4 uVar2;
+  undefined4 *puVar3;
+  undefined4 uVar4;
+  char cVar5;
+  char cVar6;
+  int iVar7;
+  undefined4 uVar8;
+  int local_28;
+  int local_24 [3];
+  undefined4 *local_18;
+  
+  cVar5 = param_6;
+  uVar4 = param_5;
+  puVar3 = param_4;
+  uVar2 = param_3;
+  uVar1 = param_2;
+  uVar8 = param_1;
+  local_18 = &param_1;
+  if (param_4 == (undefined4 *)0x0) {
+    FUN_0400a810("lpOverlapped",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/fs_files.cpp"
+                 ,0x5e2,
+                 "WINBOOL fs_ReadFileEx(HANDLE, PVOID, DWORD, LPOVERLAPPED, LPOVERLAPPED_COMPLETION_ROUTINE, bool)"
+                );
+  }
+  cVar6 = FUN_0403c420(uVar8);
+  if (cVar6 != '\0') {
+    FUN_0400a810("!SplitFile_IsHandleToSplitFile( (size_t) hFile )",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/fs_files.cpp"
+                 ,0x5e3,
+                 "WINBOOL fs_ReadFileEx(HANDLE, PVOID, DWORD, LPOVERLAPPED, LPOVERLAPPED_COMPLETION_ROUTINE, bool)"
+                );
+  }
+  iVar7 = Synchronisation_GetObjectInfo(uVar8,&local_28,local_24);
+  if ((iVar7 == 0) || (local_24[0] != 1)) {
+    eON_SetLastError(6);
+    uVar8 = 0;
+  }
+  else {
+    if (*(int *)(local_28 + 8) == 0) {
+      FUN_0400a810("handle->overlapped",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/fs_files.cpp"
+                   ,0x5ef,
+                   "WINBOOL fs_ReadFileEx(HANDLE, PVOID, DWORD, LPOVERLAPPED, LPOVERLAPPED_COMPLETION_ROUTINE, bool)"
+                  );
+    }
+    *puVar3 = 0x103;
+    puVar3[1] = 0;
+    Synchronisation_ResetOverlappedEvent(uVar8);
+    if (cVar5 == '\0') {
+      eON_SetLastError(0);
+      FUN_041492d0(uVar8,uVar2,puVar3,uVar1,0,uVar4,0);
+      uVar8 = 1;
+    }
+    else {
+      eON_SetLastError(0x3e5);
+      FUN_041492d0(uVar8,uVar2,puVar3,uVar1,0,uVar4,1);
+      uVar8 = 0;
+    }
+  }
+  return uVar8;
+}
+

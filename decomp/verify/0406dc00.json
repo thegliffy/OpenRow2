@@ -1,0 +1,33 @@
+
+/* source: direct3dbasetexture9imp */
+
+void Direct3DBaseTexture9Imp__EvictManagedResourcesD3D9(int param_1)
+
+{
+  int iVar1;
+  int iVar2;
+  
+  if (*(int *)(param_1 + 0x34) != 1) {
+    FUN_0400a810("mPoolType == D3DPOOL_MANAGED",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3dbasetexture9imp.cpp"
+                 ,0x3ac,"void Direct3DBaseTexture9Imp::EvictManagedResourcesD3D9()");
+  }
+  if (0 < *(int *)(param_1 + 0x1bc)) {
+    iVar2 = 0;
+    do {
+      iVar1 = iVar2 * 4;
+      iVar2 = iVar2 + 1;
+      direct3dsurface9imp_040ae900(*(int *)(param_1 + 0x3c + iVar1) + 4,0,0);
+    } while (iVar2 < *(int *)(param_1 + 0x1bc));
+  }
+  if (0 < *(int *)(param_1 + 0x200)) {
+    iVar2 = 0;
+    do {
+      iVar1 = iVar2 * 4;
+      iVar2 = iVar2 + 1;
+      direct3dvolume9imp_040b7630(*(int *)(param_1 + 0x1c0 + iVar1) + 4,0,0);
+    } while (iVar2 < *(int *)(param_1 + 0x200));
+  }
+  return;
+}
+

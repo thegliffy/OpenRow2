@@ -1,0 +1,352 @@
+
+/* source: fixedPipelineEmulation */
+
+void VertexShaderConfig__AnalyzeDeviceState
+               (uint *param_1,int param_2,byte param_3,char param_4,byte param_5,char param_6)
+
+{
+  int iVar1;
+  byte bVar2;
+  byte bVar3;
+  byte bVar4;
+  char cVar5;
+  uint uVar6;
+  int iVar7;
+  uint uVar8;
+  int iVar9;
+  byte *pbVar10;
+  bool bVar11;
+  byte bVar12;
+  bool bVar13;
+  bool bVar14;
+  bool bVar15;
+  bool bVar16;
+  bool bVar17;
+  uint local_34;
+  uint local_30;
+  uint local_24;
+  
+  bzero(param_1,0x10);
+  if (param_6 != '\0') {
+    *param_1 = *param_1 | 0x10000;
+  }
+  cVar5 = FUN_04021ee0();
+  if (cVar5 != '\0') {
+    *param_1 = *param_1 | 0x20000;
+  }
+  if (*(int *)(param_2 + 0x5f8) != 0) {
+    *param_1 = *param_1 | 1;
+    *(byte *)((int)param_1 + 0xd) = param_3 & 0xf | param_4 << 4;
+    *(byte *)((int)param_1 + 0xe) = *(byte *)((int)param_1 + 0xe) & 0xf0 | param_5 & 0xf;
+    bVar12 = (byte)param_1[3];
+    bVar2 = (byte)*(undefined4 *)(param_2 + 0x620) & 3;
+    *(byte *)(param_1 + 3) = bVar12 & 0xfc | bVar2;
+    bVar4 = (byte)((*(uint *)(param_2 + 0x618) & 3) << 2);
+    *(byte *)(param_1 + 3) = bVar12 & 0xf0 | bVar2 | bVar4;
+    bVar3 = (byte)(*(int *)(param_2 + 0x61c) << 6);
+    *(byte *)(param_1 + 3) = bVar12 & 0x30 | bVar2 | bVar4 | bVar3;
+    *(byte *)(param_1 + 3) = bVar2 | bVar4 | bVar3 | (byte)((*(uint *)(param_2 + 0x624) & 3) << 4);
+  }
+  if (*(int *)(param_2 + 0x608) != 0) {
+    *param_1 = *param_1 | 0x8000;
+  }
+  if (*(int *)(param_2 + 0x60c) != 0) {
+    *param_1 = *param_1 | 2;
+  }
+  uVar8 = *(uint *)(param_2 + 0x634);
+  if (uVar8 != 0) {
+    uVar6 = uVar8 & 1;
+    if ((uVar8 & 2) != 0) {
+      uVar6 = (uVar8 & 1) + 1;
+    }
+    *param_1 = *param_1 |
+               (((((uVar6 - ((uVar8 >> 2 & 1) == 0)) - (uint)((uVar8 >> 3 & 1) == 0)) -
+                 (uint)((uVar8 >> 4 & 1) == 0)) + 4) - (uint)((uVar8 >> 5 & 1) == 0)) * 4;
+  }
+  if (*(int *)(param_2 + 0x444) != 0) {
+    uVar8 = *param_1;
+    iVar7 = *(int *)(param_2 + 0x460);
+    uVar6 = uVar8 | 0x20;
+    *param_1 = uVar6;
+    if (iVar7 == 0) {
+      if (*(int *)(param_2 + 0x494) != 0) {
+        uVar6 = uVar8 | 0x820;
+        *param_1 = uVar6;
+      }
+      uVar8 = *(uint *)(param_2 + 0x604);
+      if (3 < uVar8) {
+        FUN_0400a810("vertexFogType < 4",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/fixedPipelineEmulation.cpp"
+                     ,0x5d,
+                     "void VertexShaderConfig::AnalyzeDeviceState(const eON_Direct3DDeviceState*, int32_t, int32_t, int32_t, bool)"
+                    );
+        uVar6 = *param_1;
+      }
+      *param_1 = uVar8 << 0xc | uVar6;
+    }
+    else {
+      *param_1 = uVar8 | 0x4020;
+    }
+  }
+  if (*(int *)(param_2 + 0x610) != 0) {
+    *param_1 = *param_1 | 0x40;
+  }
+  *(char *)((int)param_1 + 5) = (char)*(undefined4 *)(param_2 + 0x630);
+  iVar7 = *(int *)(param_2 + 0x5278);
+  if (iVar7 == 0) {
+    FUN_0400a810("deviceState->VertexDeclaration",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/fixedPipelineEmulation.cpp"
+                 ,0x6c,
+                 "void VertexShaderConfig::AnalyzeDeviceState(const eON_Direct3DDeviceState*, int32_t, int32_t, int32_t, bool)"
+                );
+    iVar7 = *(int *)(param_2 + 0x5278);
+  }
+  iVar1 = *(int *)(iVar7 + 0x24);
+  local_24 = 0;
+  iVar7 = *(int *)(iVar7 + 0x28);
+  if ((iVar7 - iVar1 >> 3) * -0x55555555 != 0) {
+    iVar9 = 0;
+    uVar8 = 0;
+    do {
+      pbVar10 = (byte *)(iVar1 + iVar9);
+      bVar12 = *pbVar10;
+      if (bVar12 == 5) {
+        local_24 = local_24 | 1 << (pbVar10[1] & 0x1f);
+      }
+      else if (bVar12 < 6) {
+        if (bVar12 == 3) {
+          *param_1 = *param_1 | 0x80;
+        }
+      }
+      else if (bVar12 == 9) {
+        *param_1 = *param_1 | 0x100;
+      }
+      else if (bVar12 == 10) {
+        if (pbVar10[1] == 0) {
+          *param_1 = *param_1 | 0x200;
+        }
+        else if (pbVar10[1] == 1) {
+          *param_1 = *param_1 | 0x400;
+        }
+      }
+      uVar8 = uVar8 + 1;
+      iVar9 = iVar9 + 0x18;
+    } while (uVar8 < (uint)((iVar7 - iVar1 >> 3) * -0x55555555));
+  }
+  iVar7 = *(int *)(param_2 + 0xda0);
+  local_30 = *(uint *)(param_2 + 0xddc);
+  bVar11 = iVar7 == 1;
+  if ((local_30 & 0xffff0000) == 0) {
+    if ((local_24 >> (local_30 & 0x1f) & 1) != 0) {
+      local_30 = local_30 & 7;
+      goto LAB_040bde0d;
+    }
+    if (((param_6 != '\0') && (!bVar11)) &&
+       (((((*(int *)(param_2 + 0xda8) == 2 && (iVar7 != 3)) ||
+          ((*(int *)(param_2 + 0xdac) == 2 && (iVar7 != 2)))) ||
+         ((*(int *)(param_2 + 0xdb8) == 2 && (*(int *)(param_2 + 0xdb0) != 3)))) ||
+        ((((*(int *)(param_2 + 0xdbc) == 2 && (*(int *)(param_2 + 0xdb0) != 2)) || (iVar7 == 0xd))
+         || (*(int *)(param_2 + 0xdb0) == 0xd)))))) {
+      local_30 = local_30 & 7;
+      goto LAB_040bde0d;
+    }
+    bVar12 = false;
+    local_30 = param_1[2] | 0xf;
+    param_1[2] = local_30;
+  }
+  else {
+    local_30 = local_30 >> 0x10 & 7 | 8;
+LAB_040bde0d:
+    local_30 = local_30 | param_1[2];
+    param_1[2] = local_30;
+    bVar12 = *(int *)(param_2 + 0xde0) != 0;
+  }
+  iVar7 = *(int *)(param_2 + 0xde8);
+  bVar13 = iVar7 == 1;
+  uVar8 = *(uint *)(param_2 + 0xe24);
+  if ((uVar8 & 0xffff0000) == 0) {
+    if (((local_24 >> (uVar8 & 0x1f) & 1) != 0) ||
+       (((param_6 != '\0' && (!bVar13 && !bVar11)) &&
+        (((((*(int *)(param_2 + 0xdf0) == 2 && (iVar7 != 3)) ||
+           (((*(int *)(param_2 + 0xdf4) == 2 && (iVar7 != 2)) ||
+            ((*(int *)(param_2 + 0xe00) == 2 && (*(int *)(param_2 + 0xdf8) != 3)))))) ||
+          (((*(int *)(param_2 + 0xe04) == 2 && (*(int *)(param_2 + 0xdf8) != 2)) || (iVar7 == 0xd)))
+          ) || (*(int *)(param_2 + 0xdf8) == 0xd)))))) {
+      uVar8 = uVar8 & 7;
+      goto LAB_040bde6b;
+    }
+    local_34 = local_30 | 0xf0;
+    param_1[2] = local_34;
+  }
+  else {
+    uVar8 = uVar8 >> 0x10 & 7 | 8;
+LAB_040bde6b:
+    local_34 = uVar8 << 4 | local_30;
+    iVar7 = *(int *)(param_2 + 0xe28);
+    param_1[2] = local_34;
+    if (iVar7 != 0) {
+      bVar12 = bVar12 | 2;
+    }
+  }
+  iVar7 = *(int *)(param_2 + 0xe30);
+  uVar8 = *(uint *)(param_2 + 0xe6c);
+  bVar14 = iVar7 == 1;
+  if ((uVar8 & 0xffff0000) == 0) {
+    if (((local_24 >> (uVar8 & 0x1f) & 1) != 0) ||
+       (((param_6 != '\0' && (!bVar14 && (!bVar13 && !bVar11))) &&
+        (((*(int *)(param_2 + 0xe38) == 2 && (iVar7 != 3)) ||
+         ((((*(int *)(param_2 + 0xe3c) == 2 && (iVar7 != 2)) ||
+           ((*(int *)(param_2 + 0xe48) == 2 && (*(int *)(param_2 + 0xe40) != 3)))) ||
+          ((((*(int *)(param_2 + 0xe4c) == 2 && (*(int *)(param_2 + 0xe40) != 2)) || (iVar7 == 0xd))
+           || (*(int *)(param_2 + 0xe40) == 0xd)))))))))) {
+      uVar8 = uVar8 & 7;
+      goto LAB_040bded3;
+    }
+    local_30 = local_34 | 0xf00;
+    param_1[2] = local_30;
+  }
+  else {
+    uVar8 = uVar8 >> 0x10 & 7 | 8;
+LAB_040bded3:
+    local_30 = uVar8 << 8 | local_34;
+    param_1[2] = local_30;
+    if (*(int *)(param_2 + 0xe70) != 0) {
+      bVar12 = bVar12 | 4;
+    }
+  }
+  iVar7 = *(int *)(param_2 + 0xe78);
+  bVar15 = iVar7 == 1;
+  uVar8 = *(uint *)(param_2 + 0xeb4);
+  if ((uVar8 & 0xffff0000) == 0) {
+    if (((local_24 >> (uVar8 & 0x1f) & 1) != 0) ||
+       (((param_6 != '\0' && (!bVar15 && (!bVar14 && (!bVar13 && !bVar11)))) &&
+        (((((*(int *)(param_2 + 0xe80) == 2 && (iVar7 != 3)) ||
+           ((*(int *)(param_2 + 0xe84) == 2 && (iVar7 != 2)))) ||
+          ((*(int *)(param_2 + 0xe90) == 2 && (*(int *)(param_2 + 0xe88) != 3)))) ||
+         ((((*(int *)(param_2 + 0xe94) == 2 && (*(int *)(param_2 + 0xe88) != 2)) || (iVar7 == 0xd))
+          || (*(int *)(param_2 + 0xe88) == 0xd)))))))) {
+      uVar8 = uVar8 & 7;
+      goto LAB_040bdf3b;
+    }
+    local_34 = local_30 | 0xf000;
+    param_1[2] = local_34;
+  }
+  else {
+    uVar8 = uVar8 >> 0x10 & 7 | 8;
+LAB_040bdf3b:
+    local_34 = uVar8 << 0xc | local_30;
+    iVar7 = *(int *)(param_2 + 0xeb8);
+    param_1[2] = local_34;
+    if (iVar7 != 0) {
+      bVar12 = bVar12 | 8;
+    }
+  }
+  iVar7 = *(int *)(param_2 + 0xec0);
+  uVar8 = *(uint *)(param_2 + 0xefc);
+  bVar16 = iVar7 == 1;
+  if ((uVar8 & 0xffff0000) == 0) {
+    if (((local_24 >> (uVar8 & 0x1f) & 1) != 0) ||
+       (((param_6 != '\0' && (!bVar16 && (!bVar15 && (!bVar14 && (!bVar13 && !bVar11))))) &&
+        ((((*(int *)(param_2 + 0xec8) == 2 && (iVar7 != 3)) ||
+          (((*(int *)(param_2 + 0xecc) == 2 && (iVar7 != 2)) ||
+           ((*(int *)(param_2 + 0xed8) == 2 && (*(int *)(param_2 + 0xed0) != 3)))))) ||
+         ((((*(int *)(param_2 + 0xedc) == 2 && (*(int *)(param_2 + 0xed0) != 2)) || (iVar7 == 0xd))
+          || (*(int *)(param_2 + 0xed0) == 0xd)))))))) {
+      local_30 = (uVar8 & 7) << 0x10;
+      goto LAB_040bdfa6;
+    }
+    local_30 = local_34 | 0xf0000;
+    param_1[2] = local_30;
+  }
+  else {
+    local_30 = uVar8 & 0x70000 | 0x80000;
+LAB_040bdfa6:
+    local_30 = local_30 | local_34;
+    param_1[2] = local_30;
+    if (*(int *)(param_2 + 0xf00) != 0) {
+      bVar12 = bVar12 | 0x10;
+    }
+  }
+  iVar7 = *(int *)(param_2 + 0xf08);
+  bVar17 = iVar7 == 1;
+  uVar8 = *(uint *)(param_2 + 0xf44);
+  if ((uVar8 & 0xffff0000) == 0) {
+    if (((local_24 >> (uVar8 & 0x1f) & 1) != 0) ||
+       (((param_6 != '\0' &&
+         (!bVar17 && (!bVar16 && (!bVar15 && (!bVar14 && (!bVar13 && !bVar11)))))) &&
+        (((*(int *)(param_2 + 0xf10) == 2 && (iVar7 != 3)) ||
+         ((((*(int *)(param_2 + 0xf14) == 2 && (iVar7 != 2)) ||
+           ((*(int *)(param_2 + 0xf20) == 2 && (*(int *)(param_2 + 0xf18) != 3)))) ||
+          ((((*(int *)(param_2 + 0xf24) == 2 && (*(int *)(param_2 + 0xf18) != 2)) || (iVar7 == 0xd))
+           || (*(int *)(param_2 + 0xf18) == 0xd)))))))))) {
+      uVar8 = uVar8 & 7;
+      goto LAB_040be00b;
+    }
+    local_34 = local_30 | 0xf00000;
+    param_1[2] = local_34;
+  }
+  else {
+    uVar8 = uVar8 >> 0x10 & 7 | 8;
+LAB_040be00b:
+    local_34 = uVar8 << 0x14 | local_30;
+    iVar7 = *(int *)(param_2 + 0xf48);
+    param_1[2] = local_34;
+    if (iVar7 != 0) {
+      bVar12 = bVar12 | 0x20;
+    }
+  }
+  iVar7 = *(int *)(param_2 + 0xf50);
+  uVar8 = *(uint *)(param_2 + 0xf8c);
+  if ((uVar8 & 0xffff0000) == 0) {
+    if (((local_24 >> (uVar8 & 0x1f) & 1) == 0) &&
+       (((param_6 == '\0' ||
+         (iVar7 == 1 || (bVar17 || (bVar16 || (bVar15 || (bVar14 || (bVar13 || bVar11))))))) ||
+        (((((*(int *)(param_2 + 0xf58) != 2 || (iVar7 == 3)) &&
+           ((*(int *)(param_2 + 0xf5c) != 2 || (iVar7 == 2)))) &&
+          ((*(int *)(param_2 + 0xf68) != 2 || (*(int *)(param_2 + 0xf60) == 3)))) &&
+         ((((*(int *)(param_2 + 0xf6c) != 2 || (*(int *)(param_2 + 0xf60) == 2)) && (iVar7 != 0xd))
+          && (*(int *)(param_2 + 0xf60) != 0xd)))))))) {
+      local_30 = local_34 | 0xf000000;
+      param_1[2] = local_30;
+      goto LAB_040be091;
+    }
+    uVar8 = uVar8 & 7;
+  }
+  else {
+    uVar8 = uVar8 >> 0x10 & 7 | 8;
+  }
+  local_30 = uVar8 << 0x18 | local_34;
+  param_1[2] = local_30;
+  if (*(int *)(param_2 + 0xf90) != 0) {
+    bVar12 = bVar12 | 0x40;
+  }
+LAB_040be091:
+  iVar1 = *(int *)(param_2 + 0xf98);
+  uVar8 = *(uint *)(param_2 + 0xfd4);
+  if ((uVar8 & 0xffff0000) == 0) {
+    if (((local_24 >> (uVar8 & 0x1f) & 1) == 0) &&
+       (((param_6 == '\0' ||
+         (iVar1 == 1 ||
+          (iVar7 == 1 || (bVar17 || (bVar16 || (bVar15 || (bVar14 || (bVar13 || bVar11)))))))) ||
+        ((((*(int *)(param_2 + 4000) != 2 || (iVar1 == 3)) &&
+          (((*(int *)(param_2 + 0xfa4) != 2 || (iVar1 == 2)) &&
+           ((*(int *)(param_2 + 0xfb0) != 2 || (*(int *)(param_2 + 0xfa8) == 3)))))) &&
+         ((((*(int *)(param_2 + 0xfb4) != 2 || (*(int *)(param_2 + 0xfa8) == 2)) && (iVar1 != 0xd))
+          && (*(int *)(param_2 + 0xfa8) != 0xd)))))))) {
+      *(byte *)(param_1 + 1) = bVar12;
+      param_1[2] = local_30 | 0xf0000000;
+      return;
+    }
+    uVar8 = uVar8 & 7;
+  }
+  else {
+    uVar8 = uVar8 >> 0x10 & 7 | 8;
+  }
+  if (*(int *)(param_2 + 0xfd8) != 0) {
+    bVar12 = bVar12 | 0x80;
+  }
+  param_1[2] = uVar8 << 0x1c | local_30;
+  *(byte *)(param_1 + 1) = bVar12;
+  return;
+}
+

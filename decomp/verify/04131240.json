@@ -1,0 +1,41 @@
+
+undefined4 vpfs_GetFileInformationByHandle(undefined4 param_1,undefined4 *param_2)
+
+{
+  int iVar1;
+  undefined4 uVar2;
+  undefined8 uVar3;
+  
+  if (param_2 == (undefined4 *)0x0) {
+    FUN_0402cd10(10,"vpfs_GetFileInformationByHandle failed (1)");
+    uVar2 = 0;
+  }
+  else {
+    iVar1 = FUN_04042870(param_1);
+    if (iVar1 == 0) {
+      uVar2 = fs_GetFileInformationByHandle(param_1,param_2);
+    }
+    else {
+      iVar1 = VPFS_GetDateTime(param_1,param_2 + 1,param_2 + 5,param_2 + 3);
+      if (iVar1 == 0) {
+        FUN_0402cd10(10,"vpfs_GetFileInformationByHandle failed (2)");
+        uVar2 = 0;
+      }
+      else {
+        uVar2 = VPFS_GetFileAttributes(param_1);
+        param_2[7] = 0;
+        *param_2 = uVar2;
+        uVar3 = VPFS_GetSize(param_1);
+        param_2[10] = 1;
+        param_2[9] = (int)uVar3;
+        param_2[8] = (int)((ulonglong)uVar3 >> 0x20);
+        uVar3 = VPFS_FileOffset(param_1);
+        param_2[0xc] = (int)uVar3;
+        uVar2 = 1;
+        param_2[0xb] = (int)((ulonglong)uVar3 >> 0x20);
+      }
+    }
+  }
+  return uVar2;
+}
+

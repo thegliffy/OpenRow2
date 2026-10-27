@@ -1,0 +1,35 @@
+
+/* source: audioRenderCaptureOpenALsoft */
+
+void * AudioUnit_Create(int param_1,char param_2)
+
+{
+  char cVar1;
+  void *pvVar2;
+  
+  if ((param_1 != 0) && (param_2 == '\0')) {
+    if (*(int *)(param_1 + 4) != 0) {
+      FUN_0400a810("forAudioCapture == captureDevice",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/winmm/linux/audioRenderCaptureOpenALsoft.cpp"
+                   ,0xd8,
+                   "void* AudioUnit_Create(eON_AudioDevice, bool, void*, void*, const WAVEFORMATEXTENSIBLE*, int32_t)"
+                  );
+    }
+    pvVar2 = operator_new(0x14);
+    cVar1 = audioRenderCaptureOpenALsoft_0418ad90((int)pvVar2 + 8);
+    if ((cVar1 != '\0') && (cVar1 = FUN_0400dd30(), cVar1 != '\0')) {
+      alGenSources(1,(int)pvVar2 + 0x10);
+      if (*(int *)((int)pvVar2 + 0x10) != 0) {
+        alSourcei(*(int *)((int)pvVar2 + 0x10),0x202,1);
+        alSourcef(*(undefined4 *)((int)pvVar2 + 0x10),0x100a,0x3f800000);
+        alSourcei(*(undefined4 *)((int)pvVar2 + 0x10),0x1007,0);
+        *(undefined1 *)((int)pvVar2 + 0xc) = 0;
+        return pvVar2;
+      }
+    }
+    operator_delete(pvVar2);
+    return (void *)0x0;
+  }
+  return (void *)0x0;
+}
+

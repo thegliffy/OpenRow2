@@ -1,0 +1,15 @@
+
+/* source: windowFunctions */
+
+undefined4 eON_EndDialog(undefined4 param_1,int param_2)
+
+{
+  if (param_2 < -999) {
+    FUN_0400a810("nResult > -1000",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/user32/windowFunctions.cpp"
+                 ,0xc28,"WINBOOL eON_EndDialog(HWND, INT_PTR)");
+  }
+  FUN_04027470(param_2);
+  return 1;
+}
+

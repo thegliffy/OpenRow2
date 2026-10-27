@@ -1,0 +1,90 @@
+
+void FUN_042bb3c0(int param_1,int param_2,char *param_3,undefined4 param_4,undefined4 param_5,
+                 uint param_6,uint param_7,char *param_8,int *param_9)
+
+{
+  int *piVar1;
+  bool bVar2;
+  size_t sVar3;
+  size_t sVar4;
+  int iVar5;
+  void *pvVar6;
+  undefined4 uVar7;
+  int iVar8;
+  char *__s;
+  undefined1 local_34;
+  
+  if ((((param_2 == 0) || (param_1 == 0)) || (param_8 == (char *)0x0)) ||
+     ((param_3 == (char *)0x0 || ((bVar2 = 0 < (int)param_7, param_9 == (int *)0x0 && (bVar2)))))) {
+    return;
+  }
+  sVar3 = strlen(param_3);
+  if (3 < param_6) {
+                    /* WARNING: Subroutine does not return */
+    png_error(param_1,"Invalid pCAL equation type");
+  }
+  if (0xff < param_7) {
+                    /* WARNING: Subroutine does not return */
+    png_error(param_1,"Invalid pCAL parameter count");
+  }
+  if (bVar2) {
+    __s = (char *)*param_9;
+    if (__s != (char *)0x0) {
+      iVar8 = 0;
+      do {
+        sVar4 = strlen(__s);
+        iVar5 = FUN_042a6e00(__s,sVar4);
+        if (iVar5 == 0) break;
+        iVar8 = iVar8 + 1;
+        if ((int)param_7 <= iVar8) goto LAB_042bb4bd;
+        __s = (char *)param_9[iVar8];
+      } while (__s != (char *)0x0);
+    }
+                    /* WARNING: Subroutine does not return */
+    png_error(param_1,"Invalid format for pCAL parameter");
+  }
+LAB_042bb4bd:
+  pvVar6 = (void *)FUN_042aa3a0(param_1,sVar3 + 1);
+  *(void **)(param_2 + 0xd0) = pvVar6;
+  if (pvVar6 != (void *)0x0) {
+    memcpy(pvVar6,param_3,sVar3 + 1);
+    local_34 = (undefined1)param_6;
+    *(undefined4 *)(param_2 + 0xd4) = param_4;
+    *(undefined1 *)(param_2 + 0xe4) = local_34;
+    *(undefined4 *)(param_2 + 0xd8) = param_5;
+    *(char *)(param_2 + 0xe5) = (char)param_7;
+    sVar3 = strlen(param_8);
+    pvVar6 = (void *)FUN_042aa3a0(param_1,sVar3 + 1);
+    *(void **)(param_2 + 0xdc) = pvVar6;
+    if (pvVar6 != (void *)0x0) {
+      sVar4 = param_7 * 4 + 4;
+      memcpy(pvVar6,param_8,sVar3 + 1);
+      pvVar6 = (void *)FUN_042aa3a0(param_1,sVar4);
+      *(void **)(param_2 + 0xe0) = pvVar6;
+      if (pvVar6 != (void *)0x0) {
+        memset(pvVar6,0,sVar4);
+        if (bVar2) {
+          iVar8 = 0;
+          do {
+            sVar3 = strlen((char *)param_9[iVar8]);
+            iVar5 = *(int *)(param_2 + 0xe0);
+            uVar7 = FUN_042aa3a0(param_1,sVar3 + 1);
+            *(undefined4 *)(iVar8 * 4 + iVar5) = uVar7;
+            pvVar6 = *(void **)(*(int *)(param_2 + 0xe0) + iVar8 * 4);
+            if (pvVar6 == (void *)0x0) goto LAB_042bb61e;
+            piVar1 = param_9 + iVar8;
+            iVar8 = iVar8 + 1;
+            memcpy(pvVar6,(void *)*piVar1,sVar3 + 1);
+          } while (iVar8 < (int)param_7);
+        }
+        *(uint *)(param_2 + 8) = *(uint *)(param_2 + 8) | 0x400;
+        *(uint *)(param_2 + 0xe8) = *(uint *)(param_2 + 0xe8) | 0x80;
+        return;
+      }
+    }
+  }
+LAB_042bb61e:
+  png_warning();
+  return;
+}
+

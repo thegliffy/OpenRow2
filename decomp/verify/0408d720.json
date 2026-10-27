@@ -1,0 +1,13 @@
+
+char * D3DPRIMITIVETYPE_ToString(int param_1)
+
+{
+  char *pcVar1;
+  
+  pcVar1 = "!!!(unknown)!!!";
+  if (param_1 - 1U < 6) {
+    pcVar1 = (&PTR_s_D3DPT_POINTLIST_042f51dc)[param_1 - 1U];
+  }
+  return pcVar1;
+}
+

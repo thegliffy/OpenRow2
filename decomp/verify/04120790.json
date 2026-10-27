@@ -1,0 +1,122 @@
+
+/* source: gdi32 */
+
+undefined4
+eON_GetTextExtentExPointI
+          (int param_1,int param_2,int param_3,int param_4,int *param_5,int param_6,int *param_7)
+
+{
+  int iVar1;
+  int iVar2;
+  int iVar3;
+  int *piVar4;
+  int *piVar5;
+  undefined4 uVar6;
+  int iVar7;
+  int iVar8;
+  int iVar9;
+  int iVar10;
+  int iVar11;
+  int local_74;
+  int local_5c [17];
+  undefined4 *local_18;
+  
+  piVar5 = param_7;
+  iVar10 = param_6;
+  piVar4 = param_5;
+  iVar9 = param_4;
+  iVar3 = param_3;
+  iVar2 = param_2;
+  iVar8 = param_1;
+  local_18 = &param_1;
+  eON_FontCache_EnsureInitialized();
+  uVar6 = 0;
+  if ((((iVar8 != 0) && (iVar8 + 0x68686869U < 0x80)) &&
+      (iVar1 = *(int *)(&DAT_04512ac4 + (iVar8 + 0x68686869U) * 0x60), iVar1 != 0)) &&
+     (*(char *)(iVar1 + 3) == '\0')) {
+    eON_GetTextMetrics(iVar8,local_5c);
+    if (piVar5 == (int *)0x0) {
+      FUN_0400a810("lpSize",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/gdi32/gdi32.cpp",
+                   0x9a2,
+                   "WINBOOL eON_GetTextExtentExPointI(HDC, LPWORD, INT, INT, LPINT, LPINT, LPSIZE)")
+      ;
+    }
+    *piVar5 = 0;
+    piVar5[1] = local_5c[0];
+    if (iVar3 < 1) {
+      local_74 = 0;
+    }
+    else {
+      iVar11 = 0;
+      local_74 = 0;
+      iVar8 = *(int *)(iVar1 + 100);
+      if (iVar10 == 0) {
+        if (piVar4 == (int *)0x0) {
+          local_74 = 0;
+          do {
+            iVar8 = FT_Load_Glyph(iVar8,*(undefined2 *)(iVar2 + iVar11 * 2),0x208);
+            if (iVar8 != 0) {
+              return 0;
+            }
+            iVar11 = iVar11 + 1;
+            local_74 = local_74 + 1;
+            iVar8 = *(int *)(iVar1 + 100);
+            *piVar5 = *piVar5 + (*(int *)(*(int *)(iVar8 + 0x54) + 0x28) + 0x3f >> 6);
+          } while (iVar11 != iVar3);
+        }
+        else {
+          local_74 = 0;
+          do {
+            iVar8 = FT_Load_Glyph(iVar8,*(undefined2 *)(iVar2 + iVar11 * 2),0x208);
+            if (iVar8 != 0) {
+              return 0;
+            }
+            iVar8 = *(int *)(iVar1 + 100);
+            iVar10 = (*(int *)(*(int *)(iVar8 + 0x54) + 0x28) + 0x3f >> 6) + *piVar5;
+            *piVar5 = iVar10;
+            iVar11 = iVar11 + 1;
+            local_74 = local_74 + (uint)(iVar10 <= iVar9);
+          } while (iVar11 != iVar3);
+        }
+      }
+      else if (piVar4 == (int *)0x0) {
+        local_74 = 0;
+        do {
+          iVar8 = FT_Load_Glyph(iVar8,*(undefined2 *)(iVar2 + iVar11 * 2),0x208);
+          if (iVar8 != 0) {
+            return 0;
+          }
+          local_74 = local_74 + 1;
+          iVar8 = *(int *)(iVar1 + 100);
+          iVar9 = (*(int *)(*(int *)(iVar8 + 0x54) + 0x28) + 0x3f >> 6) + *piVar5;
+          *piVar5 = iVar9;
+          *(int *)(iVar10 + iVar11 * 4) = iVar9;
+          iVar11 = iVar11 + 1;
+        } while (iVar11 != iVar3);
+      }
+      else {
+        do {
+          iVar8 = FT_Load_Glyph(iVar8,*(undefined2 *)(iVar2 + iVar11 * 2),0x208);
+          if (iVar8 != 0) {
+            return 0;
+          }
+          iVar8 = *(int *)(iVar1 + 100);
+          iVar7 = (*(int *)(*(int *)(iVar8 + 0x54) + 0x28) + 0x3f >> 6) + *piVar5;
+          *piVar5 = iVar7;
+          if (iVar7 <= iVar9) {
+            local_74 = local_74 + 1;
+            *(int *)(iVar10 + iVar11 * 4) = iVar7;
+          }
+          iVar11 = iVar11 + 1;
+        } while (iVar11 != iVar3);
+      }
+    }
+    uVar6 = 1;
+    if (piVar4 != (int *)0x0) {
+      *piVar4 = local_74;
+    }
+  }
+  return uVar6;
+}
+

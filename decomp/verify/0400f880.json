@@ -1,0 +1,138 @@
+
+undefined4 eON_FileSystem__removeDirRecursive(char *param_1)
+
+{
+  uchar uVar1;
+  char cVar2;
+  DIR *__dirp;
+  int iVar3;
+  uint uVar4;
+  uint uVar5;
+  int *piVar6;
+  char *pcVar7;
+  uint *puVar8;
+  uint *puVar9;
+  char *pcVar10;
+  char *pcVar11;
+  bool bVar12;
+  byte bVar13;
+  uint local_1194 [1024];
+  dirent64 local_194;
+  stat64 local_80;
+  dirent64 *local_20 [4];
+  
+  bVar13 = 0;
+  __dirp = opendir(param_1);
+  if (__dirp == (DIR *)0x0) {
+    piVar6 = __errno_location();
+    pcVar7 = strerror(*piVar6);
+    FUN_0402cd10(0xf,"eON_FileSystem::removeDirRecursive(): couldn\'t opendir() %s, (%d) %s",param_1
+                 ,*piVar6,pcVar7);
+  }
+  else {
+    do {
+      while( true ) {
+        iVar3 = readdir64_r(__dirp,&local_194,local_20);
+        if (iVar3 == -1) {
+          piVar6 = __errno_location();
+          pcVar7 = strerror(*piVar6);
+          FUN_0402cd10(0xf,"eON_FileSystem::removeDirRecursive(): couldn\'t readdir_r() %s, (%d) %s"
+                       ,param_1,*piVar6,pcVar7);
+          goto LAB_0400fb05;
+        }
+        if (local_20[0] == (dirent64 *)0x0) {
+          closedir(__dirp);
+          iVar3 = rmdir(param_1);
+          if (iVar3 != -1) {
+            return 1;
+          }
+          piVar6 = __errno_location();
+          pcVar7 = strerror(*piVar6);
+          FUN_0402cd10(0xf,"eON_FileSystem::removeDirRecursive(): couldn\'t rmdir() %s, (%d) %s",
+                       param_1,*piVar6,pcVar7);
+          return 0;
+        }
+        pcVar7 = local_194.d_name;
+        if ((local_194.d_type != '\b') && (local_194.d_type != '\x04')) {
+          iVar3 = dirfd(__dirp);
+          iVar3 = __fxstatat64(3,iVar3,pcVar7,&local_80,0);
+          if (iVar3 != -1) {
+            local_194.d_type = (uchar)((local_80.st_mode & 0xf000) >> 0xc);
+          }
+        }
+        uVar1 = local_194.d_type;
+        if (local_194.d_type != '\x04') break;
+        iVar3 = 2;
+        bVar12 = true;
+        pcVar10 = pcVar7;
+        pcVar11 = ".";
+        do {
+          if (iVar3 == 0) break;
+          iVar3 = iVar3 + -1;
+          bVar12 = *pcVar10 == *pcVar11;
+          pcVar10 = pcVar10 + (uint)bVar13 * -2 + 1;
+          pcVar11 = pcVar11 + (uint)bVar13 * -2 + 1;
+        } while (bVar12);
+        if (!bVar12) {
+          iVar3 = 3;
+          pcVar10 = pcVar7;
+          pcVar11 = "..";
+          do {
+            if (iVar3 == 0) break;
+            iVar3 = iVar3 + -1;
+            bVar12 = *pcVar10 == *pcVar11;
+            pcVar10 = pcVar10 + (uint)bVar13 * -2 + 1;
+            pcVar11 = pcVar11 + (uint)bVar13 * -2 + 1;
+          } while (bVar12);
+          if (!bVar12) {
+            strcpy((char *)local_1194,param_1);
+            puVar9 = local_1194;
+            do {
+              puVar8 = puVar9;
+              uVar4 = *puVar8 + 0xfefefeff & ~*puVar8;
+              uVar5 = uVar4 & 0x80808080;
+              puVar9 = puVar8 + 1;
+            } while (uVar5 == 0);
+            if ((uVar4 & 0x8080) == 0) {
+              puVar9 = (uint *)((int)puVar8 + 6);
+              uVar5 = uVar5 >> 0x10;
+            }
+            *(undefined2 *)((int)puVar9 + (-3 - (uint)CARRY1((byte)uVar5,(byte)uVar5))) = 0x2f;
+            strcat((char *)local_1194,pcVar7);
+            cVar2 = eON_FileSystem__removeDirRecursive(local_1194);
+            if (cVar2 == '\0') goto LAB_0400fb05;
+          }
+        }
+      }
+      strcpy((char *)local_1194,param_1);
+      puVar9 = local_1194;
+      do {
+        puVar8 = puVar9;
+        uVar4 = *puVar8 + 0xfefefeff & ~*puVar8;
+        uVar5 = uVar4 & 0x80808080;
+        puVar9 = puVar8 + 1;
+      } while (uVar5 == 0);
+      if ((uVar4 & 0x8080) == 0) {
+        puVar9 = (uint *)((int)puVar8 + 6);
+        uVar5 = uVar5 >> 0x10;
+      }
+      *(undefined2 *)((int)puVar9 + (-3 - (uint)CARRY1((byte)uVar5,(byte)uVar5))) = 0x2f;
+      strcat((char *)local_1194,pcVar7);
+      if ((uVar1 != '\n') && (uVar1 != '\b')) {
+        FUN_0402cd10(0xf,
+                     "eON_FileSystem::removeDirRecursive(): couldn\'t remove %s, unknown d_type %u",
+                     local_1194,uVar1);
+        goto LAB_0400fb05;
+      }
+      iVar3 = remove((char *)local_1194);
+    } while (iVar3 != -1);
+    piVar6 = __errno_location();
+    pcVar7 = strerror(*piVar6);
+    FUN_0402cd10(0xf,"eON_FileSystem::removeDirRecursive(): couldn\'t remove() %s, (%d) %s",
+                 local_1194,*piVar6,pcVar7);
+LAB_0400fb05:
+    closedir(__dirp);
+  }
+  return 0;
+}
+

@@ -1,0 +1,166 @@
+
+/* source: direct3ddevice9imp */
+
+undefined4 Direct3DDevice9Imp__SetTransform(int param_1,size_t param_2,size_t *param_3)
+
+{
+  undefined4 uVar1;
+  int iVar2;
+  int iVar3;
+  size_t *psVar4;
+  size_t *psVar5;
+  size_t *psVar6;
+  undefined4 uStack_50;
+  int local_4c [6];
+  size_t *local_34;
+  int local_30;
+  int local_24;
+  int *local_20 [4];
+  
+  psVar6 = (size_t *)local_4c;
+  iVar3 = *(int *)(param_1 + 0xc);
+  local_20[0] = &local_24;
+  local_24 = iVar3;
+  if (iVar3 != 0) {
+    psVar6 = (size_t *)local_4c;
+    if (*(char *)(iVar3 + 0xebbc) != '\0') {
+      local_4c[0] = iVar3 + 0xebc4;
+      uStack_50 = 0x4086a5e;
+      EnterCriticalSection();
+      psVar6 = &uStack_50;
+    }
+    if (*(int *)(iVar3 + 0xec64) == 0) {
+      if (*(int *)(iVar3 + 0xebc0) != 0) {
+        psVar6[3] = (size_t)"void Direct3DDevice9Imp::MultithreadedGuard_Enter()";
+        psVar6[2] = 0x3ae;
+        psVar6[1] = (size_t)
+                    "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+        ;
+        *psVar6 = (size_t)"!mCurrentD3D9Thread";
+        psVar6[-1] = 0x4086974;
+        FUN_0400a810();
+      }
+      psVar6[-1] = 0x4086890;
+      uVar1 = FUN_0415b750();
+      *(undefined4 *)(iVar3 + 0xebc0) = uVar1;
+    }
+    else {
+      local_30 = *(int *)(iVar3 + 0xebc0);
+      psVar6[-1] = 0x4086a16;
+      iVar2 = FUN_0415b750();
+      if (local_30 != iVar2) {
+        psVar6[3] = (size_t)"void Direct3DDevice9Imp::MultithreadedGuard_Enter()";
+        psVar6[2] = 0x3b3;
+        psVar6[1] = (size_t)
+                    "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3ddevice9imp.cpp"
+        ;
+        *psVar6 = (size_t)"mCurrentD3D9Thread == thread_GetCurrentThreadId()";
+        psVar6[-1] = 0x4086a43;
+        FUN_0400a810();
+      }
+    }
+    *(int *)(iVar3 + 0xec64) = *(int *)(iVar3 + 0xec64) + 1;
+  }
+  iVar3 = *(int *)(param_1 + 0x75ec);
+  if (iVar3 == 0) {
+    psVar6[2] = (size_t)param_3;
+    psVar6[1] = param_2;
+    *psVar6 = param_1;
+                    /* try { // try from 04086a7b to 04086aa1 has its CatchHandler @ 04086b36 */
+    psVar6[-1] = 0x4086a80;
+    iVar3 = FUN_04086670();
+    uVar1 = 0;
+    if (iVar3 == 0) {
+      psVar6[2] = param_2;
+      psVar6[1] = (size_t)"Unknown state in Direct3DDevice9Imp::SetTransform(): %u";
+      *psVar6 = 0xf;
+      psVar6[-1] = 0x4086aa2;
+      FUN_0402cd10();
+      uVar1 = 0x8876086c;
+    }
+  }
+  else {
+    psVar4 = *(size_t **)(iVar3 + 0x114);
+    if (*(size_t **)(iVar3 + 0x114) == (size_t *)0x0) {
+      *psVar6 = 0x48;
+      psVar6[-1] = 0x4086ab8;
+      psVar4 = malloc(*psVar6);
+      *(size_t **)(iVar3 + 0x114) = psVar4;
+      *psVar4 = param_2;
+      psVar4[1] = *param_3;
+      psVar4[2] = param_3[1];
+      psVar4[3] = param_3[2];
+      psVar4[4] = param_3[3];
+      psVar4[5] = param_3[4];
+      psVar4[6] = param_3[5];
+      psVar4[7] = param_3[6];
+      psVar4[8] = param_3[7];
+      psVar4[9] = param_3[8];
+      psVar4[10] = param_3[9];
+      psVar4[0xb] = param_3[10];
+      psVar4[0xc] = param_3[0xb];
+      psVar4[0xd] = param_3[0xc];
+      psVar4[0xe] = param_3[0xd];
+      psVar4[0xf] = param_3[0xe];
+      uVar1 = 0;
+      psVar4[0x10] = param_3[0xf];
+      *(undefined4 *)(*(int *)(iVar3 + 0x114) + 0x44) = 0;
+    }
+    else {
+      do {
+        psVar5 = psVar4;
+        if (param_2 == *psVar5) {
+          psVar5[1] = *param_3;
+          psVar5[2] = param_3[1];
+          psVar5[3] = param_3[2];
+          psVar5[4] = param_3[3];
+          psVar5[5] = param_3[4];
+          psVar5[6] = param_3[5];
+          psVar5[7] = param_3[6];
+          psVar5[8] = param_3[7];
+          psVar5[9] = param_3[8];
+          psVar5[10] = param_3[9];
+          psVar5[0xb] = param_3[10];
+          psVar5[0xc] = param_3[0xb];
+          psVar5[0xd] = param_3[0xc];
+          psVar5[0xe] = param_3[0xd];
+          psVar5[0xf] = param_3[0xe];
+          uVar1 = 0;
+          psVar5[0x10] = param_3[0xf];
+          goto LAB_04086936;
+        }
+        psVar4 = (size_t *)psVar5[0x11];
+      } while ((size_t *)psVar5[0x11] != (size_t *)0x0);
+      *psVar6 = 0x48;
+      psVar6[-1] = 0x408698f;
+      local_34 = psVar5;
+      psVar4 = malloc(*psVar6);
+      *psVar4 = param_2;
+      local_34[0x11] = (size_t)psVar4;
+      psVar4[1] = *param_3;
+      psVar4[2] = param_3[1];
+      psVar4[3] = param_3[2];
+      psVar4[4] = param_3[3];
+      psVar4[5] = param_3[4];
+      psVar4[6] = param_3[5];
+      psVar4[7] = param_3[6];
+      psVar4[8] = param_3[7];
+      psVar4[9] = param_3[8];
+      psVar4[10] = param_3[9];
+      psVar4[0xb] = param_3[10];
+      psVar4[0xc] = param_3[0xb];
+      psVar4[0xd] = param_3[0xc];
+      psVar4[0xe] = param_3[0xd];
+      psVar4[0xf] = param_3[0xe];
+      uVar1 = 0;
+      psVar4[0x10] = param_3[0xf];
+      psVar4[0x11] = 0;
+    }
+  }
+LAB_04086936:
+  *psVar6 = (size_t)local_20;
+  psVar6[-1] = 0x4086941;
+  direct3ddevice9imp_040a2df0();
+  return uVar1;
+}
+

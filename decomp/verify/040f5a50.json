@@ -1,0 +1,91 @@
+
+/* source: directinputkeyboarddevice8imp */
+
+void KeyboardEventReceiver__ProcessKeyDown(int param_1,int param_2,undefined2 param_3)
+
+{
+  ushort uVar1;
+  byte *pbVar2;
+  int *piVar3;
+  int iVar4;
+  int iVar5;
+  byte *pbVar6;
+  int iVar7;
+  int local_44;
+  int local_30;
+  int local_2c;
+  int local_28;
+  int local_24;
+  int local_20;
+  
+  iVar4 = KeycodeToDirectInputCode(param_3);
+  if (iVar4 == 0) {
+    FUN_0402cd10(0xf,
+                 "Can\'t translate keyCode %u in DirectInput8\'s ProcessKeyDown function!! Please add translation to the table in KeycodeToDirectInput."
+                 ,param_3);
+    return;
+  }
+  local_44 = *(int *)(param_1 + 8);
+  iVar7 = iVar4;
+  if (*(char *)(local_44 + 0x16d) == '\0') {
+    uVar1 = *(ushort *)((int)&DAT_04408e44 + iVar4 * 0x28 + 1);
+    if (0xff < uVar1) {
+      FUN_0400a810("buttonNum < 256",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/dinput8/directinputkeyboarddevice8imp.cpp"
+                   ,0x171,"virtual void KeyboardEventReceiver::ProcessKeyDown(DWORD, WORD)");
+      local_44 = *(int *)(param_1 + 8);
+    }
+    pbVar2 = *(byte **)(local_44 + 0x188);
+    iVar7 = *(int *)(local_44 + 0x18c) - (int)pbVar2 >> 3;
+    if (iVar7 == 0) {
+LAB_040f5ae7:
+      pthread_mutex_lock((pthread_mutex_t *)(local_44 + 0x54));
+      *(undefined1 *)(*(int *)(param_1 + 8) + 0x6c + iVar4) = 0x80;
+      pthread_mutex_unlock((pthread_mutex_t *)(*(int *)(param_1 + 8) + 0x54));
+      return;
+    }
+    pbVar6 = pbVar2;
+    if (*pbVar2 != uVar1) {
+      iVar5 = 0;
+      do {
+        iVar5 = iVar5 + 1;
+        if (iVar5 == iVar7) goto LAB_040f5ae7;
+        pbVar6 = pbVar2 + iVar5 * 8;
+      } while (*pbVar6 != uVar1);
+    }
+    iVar7 = *(int *)(pbVar6 + 4);
+  }
+  pthread_mutex_lock((pthread_mutex_t *)(local_44 + 0x54));
+  *(undefined1 *)(*(int *)(param_1 + 8) + 0x6c + iVar4) = 0x80;
+  pthread_mutex_unlock((pthread_mutex_t *)(*(int *)(param_1 + 8) + 0x54));
+  if (iVar7 == -1) {
+    return;
+  }
+  bzero(&local_30,0x14);
+  local_2c = 0x80;
+  local_24 = param_2;
+  local_30 = iVar7;
+  local_28 = eON_timeGetTime();
+  local_20 = 0;
+  pthread_mutex_lock((pthread_mutex_t *)(*(int *)(param_1 + 8) + 0x54));
+  iVar4 = *(int *)(param_1 + 8);
+  piVar3 = *(int **)(iVar4 + 0x44);
+  if (piVar3 == (int *)(*(int *)(iVar4 + 0x4c) + -0x14)) {
+    FUN_040f5850();
+    iVar4 = *(int *)(param_1 + 8);
+  }
+  else {
+    if (piVar3 != (int *)0x0) {
+      *piVar3 = local_30;
+      piVar3[1] = local_2c;
+      piVar3[2] = local_28;
+      piVar3[3] = local_24;
+      piVar3[4] = local_20;
+    }
+    *(int **)(iVar4 + 0x44) = piVar3 + 5;
+  }
+  pthread_mutex_unlock((pthread_mutex_t *)(iVar4 + 0x54));
+  FUN_040f22b0(*(undefined4 *)(param_1 + 8));
+  return;
+}
+

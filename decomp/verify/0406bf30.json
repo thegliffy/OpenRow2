@@ -1,0 +1,34 @@
+
+/* source: direct3dbasetexture9imp */
+
+int direct3dbasetexture9imp_0406bf30(int param_1)
+
+{
+  int *piVar1;
+  int iVar2;
+  int iVar3;
+  
+  LOCK();
+  piVar1 = (int *)(param_1 + 8);
+  iVar3 = *piVar1;
+  *piVar1 = *piVar1 + -1;
+  UNLOCK();
+  LOCK();
+  piVar1 = (int *)(param_1 + 0x288);
+  iVar2 = *piVar1;
+  *piVar1 = *piVar1 + -1;
+  UNLOCK();
+  if (iVar3 + -1 == 0) {
+    if (*(int *)(param_1 + 0x38) != 0x1ceb00da) {
+      FUN_0400a810("mDeleted == 0x1CEB00DA",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3dbasetexture9imp.cpp"
+                   ,0x3f1,"virtual ULONG Direct3DBaseTexture9Imp::Release()");
+    }
+    if (iVar2 == 1) {
+      iVar3 = direct3dbasetexture9imp_0406be40();
+      return iVar3;
+    }
+  }
+  return iVar3 + -1;
+}
+

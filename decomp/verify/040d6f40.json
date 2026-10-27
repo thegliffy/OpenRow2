@@ -1,0 +1,710 @@
+
+/* source: openGlDebugFunctions */
+
+void __regparm3 OpenGL_InterpretCurrentVertexBufferWithVertexAttribInfo(uint param_1,char *param_2)
+
+{
+  ushort uVar1;
+  bool bVar2;
+  bool bVar3;
+  uint uVar4;
+  int iVar5;
+  int iVar6;
+  void *__ptr;
+  int iVar7;
+  uint uVar8;
+  size_t sVar9;
+  void *pvVar10;
+  undefined **ppuVar11;
+  float *pfVar12;
+  uint *puVar13;
+  uint *puVar14;
+  uint uVar15;
+  char *pcVar16;
+  undefined2 *puVar17;
+  float fVar18;
+  int *piVar19;
+  uint uVar20;
+  int iVar21;
+  bool bVar22;
+  float fVar23;
+  float fVar24;
+  float fVar25;
+  int local_988;
+  int local_97c;
+  int local_978;
+  size_t local_970;
+  int local_96c;
+  int local_95c;
+  size_t local_958;
+  uint local_954;
+  uint local_94c [512];
+  uint local_14c [5];
+  undefined *local_138;
+  undefined4 local_134;
+  undefined *local_130;
+  undefined1 local_12c;
+  float local_4c [4];
+  uint local_3c;
+  undefined4 local_38;
+  int local_30;
+  uint local_2c;
+  int local_28;
+  uint local_24;
+  int local_20 [4];
+  
+  (*DAT_0451ed14)(0x8892,0x88bc,&local_30);
+  iVar5 = glGetError();
+  if (iVar5 != 0) {
+    FUN_0400a810("glGetError() == 0",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                 ,0x379);
+  }
+  if (local_30 != 0) {
+    printf("Can\'t map vertex array buffer %d, as it\'s currently mapped!.\n",param_1);
+    return;
+  }
+  local_2c = 0;
+  if (DAT_0451cad3 == '\0') {
+    (*DAT_0451ed14)(0x8892,0x8764,&local_2c);
+    iVar5 = glGetError();
+    uVar20 = local_2c;
+    if (iVar5 != 0) {
+      FUN_0400a810("glGetError() == 0",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                   ,0x38b);
+      uVar20 = local_2c;
+    }
+  }
+  else {
+    local_3c = 0;
+    local_38 = 0;
+    (*DAT_0451ea70)(0x8892,0x8764,&local_3c);
+    iVar5 = glGetError();
+    uVar20 = local_3c;
+    if (iVar5 != 0) {
+      FUN_0400a810("glGetError() == 0",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                   ,0x385);
+      uVar20 = local_3c;
+    }
+  }
+  local_2c = uVar20;
+  if (DAT_0451ca55 != '\0') {
+    iVar5 = (*DAT_0451e520)(0x8892,0,local_2c);
+    iVar6 = glGetError();
+    if (iVar6 != 0) {
+      FUN_0400a810("glGetError() == 0",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                   ,0x392);
+    }
+    if (iVar5 == 0) {
+      printf("Failed to map vertex array buffer %d through gl3MapBufferRange()!.\n",param_1);
+    }
+    else {
+      local_28 = 0;
+      glGetIntegerv(0x8869,&local_28);
+      iVar6 = glGetError();
+      if (iVar6 != 0) {
+        FUN_0400a810("glGetError() == 0",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                     ,0x39c);
+      }
+      __ptr = malloc(local_28 * 0x1c);
+      if (__ptr != (void *)0x0) {
+        if (0 < local_28) {
+          local_958 = 0;
+          iVar6 = 0;
+          bVar2 = true;
+          local_954 = 0xffffffff;
+          local_978 = -1;
+          local_970 = -1;
+          do {
+            (*DAT_0451ec80)(iVar6,0x8622,&local_24);
+            iVar7 = glGetError();
+            if (iVar7 != 0) {
+              FUN_0400a810("glGetError() == 0",
+                           "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                           ,0x3b3);
+            }
+            sVar9 = local_958;
+            if (local_24 != 0) {
+              (*DAT_0451ec80)(iVar6,0x889f,&local_24);
+              iVar7 = glGetError();
+              if (iVar7 != 0) {
+                FUN_0400a810("glGetError() == 0",
+                             "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                             ,0x3b8);
+              }
+              if (local_24 == param_1) {
+                piVar19 = (int *)(local_958 * 0x1c + (int)__ptr);
+                *piVar19 = iVar6;
+                (*DAT_0451ec80)(iVar6,0x8623,piVar19 + 3);
+                iVar7 = glGetError();
+                if (iVar7 != 0) {
+                  FUN_0400a810("glGetError() == 0",
+                               "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                               ,0x3c0);
+                }
+                (*DAT_0451ec80)(iVar6,0x8624,piVar19 + 1);
+                iVar7 = glGetError();
+                if (iVar7 != 0) {
+                  FUN_0400a810("glGetError() == 0",
+                               "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                               ,0x3c2);
+                }
+                if (local_978 == -1) {
+                  local_978 = piVar19[1];
+                  bVar22 = false;
+                }
+                else {
+                  bVar22 = piVar19[1] != local_978;
+                }
+                (*DAT_0451ec80)(iVar6,0x8625,piVar19 + 2);
+                iVar7 = glGetError();
+                if (iVar7 != 0) {
+                  FUN_0400a810("glGetError() == 0",
+                               "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                               ,0x3ca);
+                }
+                (*DAT_0451ec80)(iVar6,0x886a,&local_24);
+                iVar7 = glGetError();
+                if (iVar7 != 0) {
+                  FUN_0400a810("glGetError() == 0",
+                               "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                               ,0x3cc);
+                }
+                *(bool *)((int)piVar19 + 0x19) = local_24 != 0;
+                (*DAT_0451ec8c)(iVar6,0x8645,local_20);
+                iVar7 = glGetError();
+                if (iVar7 != 0) {
+                  FUN_0400a810("glGetError() == 0",
+                               "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                               ,0x3cf);
+                }
+                piVar19[4] = local_20[0];
+                if (local_970 == -1) {
+                  local_970 = (&DAT_044dac40)[iVar6];
+                  bVar3 = bVar22;
+                }
+                else {
+                  bVar3 = true;
+                  if ((&DAT_044dac40)[iVar6] == local_970) {
+                    bVar3 = bVar22;
+                  }
+                }
+                piVar19[5] = local_20[0] - (&DAT_044dac40)[iVar6];
+                (*DAT_0451ec80)(iVar6,0x88fd,&local_24);
+                iVar7 = glGetError();
+                if (iVar7 != 0) {
+                  FUN_0400a810("glGetError() == 0",
+                               "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                               ,0x3d9);
+                }
+                *(bool *)(piVar19 + 6) = local_24 != 0;
+                (*DAT_0451ec80)(iVar6,0x88fe,&local_24);
+                iVar7 = glGetError();
+                if (iVar7 != 0) {
+                  FUN_0400a810("glGetError() == 0",
+                               "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                               ,0x3dd);
+                }
+                if (1 < local_24) {
+                  printf("Vertex array buffer %d has non-typical divisor: %d\n",param_1,local_24);
+                }
+                *(bool *)((int)piVar19 + 0x1b) = local_24 != 0;
+                uVar8 = (uint)(local_24 != 0);
+                uVar20 = uVar8;
+                if (((local_954 != 0xffffffff) && (uVar20 = local_954, uVar8 != local_954)) ||
+                   (local_954 = uVar20, sVar9 = local_958 + 1, bVar3)) {
+                  local_958 = local_958 + 1;
+                  bVar2 = false;
+                  sVar9 = local_958;
+                }
+              }
+            }
+            local_958 = sVar9;
+            iVar6 = iVar6 + 1;
+          } while (iVar6 < local_28);
+          if (local_958 != 0) {
+            qsort(__ptr,local_958,0x1c,FUN_040cc450);
+            if ((local_954 == 1) && (DAT_044dac20 != 0)) {
+              local_988 = DAT_044dac20;
+              local_97c = 0;
+            }
+            else {
+              local_97c = DAT_044dac2c;
+              local_988 = DAT_044dac28;
+            }
+            piVar19 = operator_new(0xc);
+            *piVar19 = (int)&PTR_OpenGLDebugWriter_File__Write_04308e88;
+            piVar19[1] = 0;
+            piVar19[2] = 0;
+            sVar9 = strlen(param_2);
+            pvVar10 = malloc(sVar9 + 1);
+            piVar19[1] = (int)pvVar10;
+            memcpy(pvVar10,param_2,sVar9 + 1);
+            (**(code **)*piVar19)
+                      (piVar19,
+                       "Vertex buffer %d, size %u, start vertex for the draw within buffer %u, vertex count for the draw %d:\n"
+                       ,param_1,local_2c,local_97c,local_988);
+            if (!bVar2) {
+              (**(code **)*piVar19)
+                        (piVar19,
+                         "(different attributes of the same buffer are placed under different offset, or with different stride, so it\'s impossible to determine unused parts of vertex)\n"
+                        );
+            }
+            (**(code **)*piVar19)
+                      (piVar19,
+                       "============================ VERTEX BUFFER INFO SET UP IN VERTEX ATTRIBS =======================================\n"
+                      );
+            local_970 = 0;
+            local_96c = 0;
+            pvVar10 = __ptr;
+            do {
+              *(undefined1 *)((int)pvVar10 + 0x1a) = 0;
+              iVar6 = *(int *)((int)pvVar10 + 0x14);
+              if (bVar2) {
+                if (local_96c < iVar6) {
+                  (**(code **)*piVar19)(piVar19,"\tOffset: %d - %d unidentified bytes\n",iVar6);
+                  iVar6 = *(int *)((int)pvVar10 + 0x14);
+                }
+                else if (iVar6 < local_96c) {
+                  (**(code **)*piVar19)
+                            (piVar19,"\t\t%d BYTES ARE SHARED WITH THE FOLLOWING ATTRIBUTE!\n",
+                             local_96c - iVar6);
+                  iVar6 = *(int *)((int)pvVar10 + 0x14);
+                }
+              }
+              ppuVar11 = &PTR_DAT_04302ae3;
+              if (*(char *)((int)pvVar10 + 0x19) == '\0') {
+                ppuVar11 = (undefined **)&DAT_04302ae7;
+              }
+              uVar20 = *(int *)((int)pvVar10 + 8) - 0x1401;
+              pcVar16 = "!!!unknown!!!";
+              if (uVar20 < 0xb) {
+                pcVar16 = (&PTR_s_GL_UNSIGNED_BYTE_04308c60)[uVar20];
+              }
+              (**(code **)*piVar19)
+                        (piVar19,
+                         "\tOffset: %d (in buffer: %d ), Size: %d, type: %s, stride: %d, normalized: %s\n"
+                         ,iVar6,*(undefined4 *)((int)pvVar10 + 0x10),
+                         *(undefined4 *)((int)pvVar10 + 0xc),pcVar16,
+                         *(undefined4 *)((int)pvVar10 + 4),ppuVar11);
+              if (*(char *)((int)pvVar10 + 0x18) == '\0') {
+                uVar20 = *(uint *)((int)pvVar10 + 0x14);
+                uVar8 = *(uint *)((int)pvVar10 + 4);
+                if (uVar8 < uVar20) goto LAB_040d768f;
+              }
+              else {
+                (**(code **)*piVar19)
+                          (piVar19,
+                           "\t\tThis attribute has integer values, which are currently not handled or listed. Add code if you need them.\n"
+                          );
+                uVar20 = *(uint *)((int)pvVar10 + 0x14);
+                *(undefined1 *)((int)pvVar10 + 0x1a) = 1;
+                uVar8 = *(uint *)((int)pvVar10 + 4);
+                if (uVar8 < uVar20) {
+LAB_040d768f:
+                  (**(code **)*piVar19)
+                            (piVar19,
+                             "\t\tTHIS ATTRIBUTE STARTS BEYOND THE END OF VERTEX DATA (OFFSET %d, VERTEX STRIDE %d)! IT WILL BE SKIPPED.\n"
+                             ,uVar20);
+                  printf("Vertex array buffer %d, vertex attrib at offset %d starts beyond end of vertex data (stride %d)!\n"
+                         ,param_1,*(undefined4 *)((int)pvVar10 + 0x14));
+                  *(undefined1 *)((int)pvVar10 + 0x1a) = 1;
+                  uVar20 = *(uint *)((int)pvVar10 + 0x14);
+                  uVar8 = *(uint *)((int)pvVar10 + 4);
+                }
+              }
+              local_954 = 0;
+              uVar15 = *(int *)((int)pvVar10 + 8) - 0x1401;
+              if (uVar15 < 0xb) {
+                local_954 = *(int *)((int)pvVar10 + 0xc) * *(int *)(&DAT_04308ca0 + uVar15 * 4);
+              }
+              local_96c = local_954 + uVar20;
+              if ((int)uVar8 < local_96c) {
+                (**(code **)*piVar19)
+                          (piVar19,
+                           "\t\tTHIS ATTRIBUTE ENDS BEYOND THE END OF VERTEX DATA (OFFSET %d, SIZE %d, VERTEX STRIDE %d)! IT WILL BE SKIPPED.\n"
+                           ,uVar20);
+                printf("Vertex array buffer %d, vertex attrib at offset %d ends beyond end of vertex data (stride %d)!\n"
+                       ,param_1,*(undefined4 *)((int)pvVar10 + 0x14));
+                *(undefined1 *)((int)pvVar10 + 0x1a) = 1;
+                uVar8 = *(uint *)((int)pvVar10 + 4);
+              }
+              if (local_2c < local_97c * uVar8 + *(int *)((int)pvVar10 + 0x10)) {
+                (**(code **)*piVar19)
+                          (piVar19,
+                           "\t\tVALUES FROM THIS ATTRIBUTE SUBMITTED FOR OPENGL TO DRAW START BEYOND BUFFER END! IT WILL BE SKIPPED.\n"
+                          );
+                *(undefined1 *)((int)pvVar10 + 0x1a) = 1;
+                printf("Vertex array buffer %d, vertex attrib at offset %d - values from it submitted for OpenGL to draw start beyond buffer end!\n"
+                       ,param_1,*(undefined4 *)((int)pvVar10 + 0x14));
+              }
+              else if (local_2c <
+                       uVar8 * (local_97c + -1 + local_988) +
+                       *(int *)((int)pvVar10 + 0x10) + local_954) {
+                (**(code **)*piVar19)
+                          (piVar19,
+                           "\t\tVALUES FROM THIS ATTRIBUTE SUBMITTED FOR OPENGL TO DRAW EXTEND BEYOND BUFFER END! IT WILL BE SKIPPED.\n"
+                          );
+                printf("Vertex array buffer %d, vertex attrib at offset %d - values from it submitted for OpenGL to draw extend beyond buffer end!\n"
+                       ,param_1,*(undefined4 *)((int)pvVar10 + 0x14));
+                *(undefined1 *)((int)pvVar10 + 0x1a) = 1;
+              }
+              local_970 = local_970 + 1;
+              pvVar10 = (void *)((int)pvVar10 + 0x1c);
+              if (local_970 == local_958) {
+                (**(code **)*piVar19)
+                          (piVar19,
+                           "================================= INTERPRETED VERTEX BUFFER CONTENTS ===========================================\n"
+                          );
+                if (0 < local_988) {
+                  local_95c = 0;
+                  do {
+                    local_94c[0]._0_1_ = '\0';
+                    sVar9 = 0;
+                    pvVar10 = __ptr;
+                    do {
+                      if (*(char *)((int)pvVar10 + 0x1a) == '\0') {
+                        if ((char)local_94c[0] == '\0') {
+                          sprintf((char *)local_94c,"%08d: ",local_95c);
+                        }
+                        else {
+                          puVar14 = local_94c;
+                          do {
+                            puVar13 = puVar14;
+                            uVar8 = *puVar13 + 0xfefefeff & ~*puVar13;
+                            uVar20 = uVar8 & 0x80808080;
+                            puVar14 = puVar13 + 1;
+                          } while (uVar20 == 0);
+                          if ((uVar8 & 0x8080) == 0) {
+                            puVar14 = (uint *)((int)puVar13 + 6);
+                            uVar20 = uVar20 >> 0x10;
+                          }
+                          puVar17 = (undefined2 *)
+                                    ((int)puVar14 + (-3 - (uint)CARRY1((byte)uVar20,(byte)uVar20)));
+                          *puVar17 = 0x202c;
+                          *(undefined1 *)(puVar17 + 1) = 0;
+                        }
+                        iVar21 = 0;
+                        iVar6 = *(int *)((int)pvVar10 + 0xc);
+                        uVar20 = *(int *)((int)pvVar10 + 8) - 0x1401;
+                        iVar7 = (local_95c + local_97c) * *(int *)((int)pvVar10 + 4) +
+                                *(int *)((int)pvVar10 + 0x10);
+                        if (uVar20 < 0xb) {
+                          iVar21 = *(int *)(&DAT_04308ca0 + uVar20 * 4) * iVar6;
+                        }
+                        if (local_2c < (uint)(iVar21 + iVar7)) {
+                          local_14c[0] = 0x79656228;
+                          local_14c[1] = 0x20646e6f;
+                          local_14c[2] = 0x20646e65;
+                          local_14c[3] = 0x6220666f;
+                          local_14c[4] = 0x65666675;
+                          local_138 = (undefined *)CONCAT13(local_138._3_1_,0x2972);
+                        }
+                        else {
+                          pfVar12 = (float *)(iVar7 + iVar5);
+                          switch(uVar20) {
+                          case 0:
+                            if (iVar6 == 1) {
+LAB_040d809e:
+                              sprintf((char *)local_14c,"%u");
+                            }
+                            else if (iVar6 == 2) {
+                              uVar8 = (uint)*(byte *)((int)pfVar12 + 1);
+                              uVar20 = (uint)*(byte *)pfVar12;
+LAB_040d81b7:
+                              sprintf((char *)local_14c,"{ %u, %u }",uVar20,uVar8);
+                            }
+                            else if (iVar6 == 3) {
+                              uVar8 = (uint)*(byte *)((int)pfVar12 + 1);
+                              uVar20 = (uint)*(byte *)pfVar12;
+LAB_040d822b:
+                              sprintf((char *)local_14c,"{ %u, %u, %u }",uVar20,uVar8);
+                            }
+                            else if (iVar6 == 4) {
+                              uVar8 = (uint)*(byte *)((int)pfVar12 + 1);
+                              uVar20 = (uint)*(byte *)pfVar12;
+LAB_040d8001:
+                              sprintf((char *)local_14c,"{ %u, %u, %u, %u }",uVar20,uVar8);
+                            }
+                            else {
+                              local_14c[0] = 0x686e7528;
+                              local_14c[1] = 0x6c646e61;
+                              local_14c[2] = 0x75206465;
+                              local_14c[3] = 0x6769736e;
+                              local_14c[4] = 0x2064656e;
+                              local_138 = (undefined *)0x72616863;
+                              local_134 = 0x756f6320;
+                              local_130 = &DAT_0029746e;
+                            }
+                            break;
+                          case 1:
+                            if (iVar6 == 1) {
+                              sprintf((char *)local_14c,"%d",(int)(short)*(ushort *)pfVar12);
+                            }
+                            else if (iVar6 == 2) {
+                              sprintf((char *)local_14c,"{ %d, %d }",(int)(short)*(ushort *)pfVar12,
+                                      (int)(short)*(ushort *)((int)pfVar12 + 2));
+                            }
+                            else if (iVar6 == 3) {
+                              sprintf((char *)local_14c,"{ %d, %d, %d }",
+                                      (int)(short)*(ushort *)pfVar12,
+                                      (int)(short)*(ushort *)((int)pfVar12 + 2),
+                                      (int)(short)*(ushort *)(pfVar12 + 1));
+                            }
+                            else if (iVar6 == 4) {
+                              sprintf((char *)local_14c,"{ %d, %d, %d, %d }",
+                                      (int)(short)*(ushort *)pfVar12,
+                                      (int)(short)*(ushort *)((int)pfVar12 + 2),
+                                      (int)(short)*(ushort *)(pfVar12 + 1),
+                                      (int)(short)*(ushort *)((int)pfVar12 + 6));
+                            }
+                            else {
+                              local_14c[0] = 0x686e7528;
+                              local_14c[1] = 0x6c646e61;
+                              local_14c[2] = 0x73206465;
+                              local_14c[3] = 0x74726f68;
+                              local_14c[4] = 0x756f6320;
+                              local_138 = &DAT_0029746e;
+                            }
+                            break;
+                          case 2:
+                            if (iVar6 == 1) goto LAB_040d809e;
+                            if (iVar6 == 2) {
+                              uVar8 = (uint)*(ushort *)((int)pfVar12 + 2);
+                              uVar20 = (uint)*(ushort *)pfVar12;
+                              goto LAB_040d81b7;
+                            }
+                            if (iVar6 == 3) {
+                              uVar8 = (uint)*(ushort *)((int)pfVar12 + 2);
+                              uVar20 = (uint)*(ushort *)pfVar12;
+                              goto LAB_040d822b;
+                            }
+                            if (iVar6 == 4) {
+                              uVar8 = (uint)*(ushort *)((int)pfVar12 + 2);
+                              uVar20 = (uint)*(ushort *)pfVar12;
+                              goto LAB_040d8001;
+                            }
+                            local_14c[0] = 0x686e7528;
+                            local_14c[1] = 0x6c646e61;
+                            local_14c[2] = 0x75206465;
+                            local_14c[3] = 0x6769736e;
+                            local_14c[4] = 0x2064656e;
+                            local_138 = (undefined *)0x726f6873;
+                            local_134 = 0x6f632074;
+                            local_130 = (undefined *)0x29746e75;
+                            local_12c = 0;
+                            break;
+                          default:
+                            local_14c[0] = 0x686e7528;
+                            local_14c[1] = 0x6c646e61;
+                            local_14c[2] = 0x74206465;
+                            local_14c[3] = 0x29657079;
+                            local_14c[4] = local_14c[4] & 0xffffff00;
+                            break;
+                          case 5:
+                            if (iVar6 == 1) {
+                              fVar18 = *pfVar12;
+LAB_040d80f5:
+                              sprintf((char *)local_14c,"%f",(double)fVar18);
+                            }
+                            else {
+                              if (iVar6 == 2) {
+                                fVar24 = *pfVar12;
+                                fVar18 = pfVar12[1];
+                                goto LAB_040d813d;
+                              }
+                              if (iVar6 == 3) {
+                                fVar25 = *pfVar12;
+                                fVar18 = pfVar12[1];
+                                fVar24 = pfVar12[2];
+                                goto LAB_040d82c3;
+                              }
+                              if (iVar6 != 4) goto LAB_040d7c01;
+                              fVar23 = *pfVar12;
+                              fVar18 = pfVar12[1];
+                              fVar24 = pfVar12[2];
+                              fVar25 = pfVar12[3];
+LAB_040d7cda:
+                              sprintf((char *)local_14c,"{ %f, %f, %f, %f }",(double)fVar23,
+                                      (double)fVar18,(double)fVar24,(double)fVar25);
+                            }
+                            break;
+                          case 10:
+                            iVar7 = 0;
+                            if (0 < iVar6) {
+                              do {
+                                uVar1 = *(ushort *)((int)pfVar12 + iVar7 * 2);
+                                uVar20 = uVar1 & 0x3ff;
+                                uVar8 = (uint)(uVar1 >> 0xf);
+                                uVar15 = (int)(uint)uVar1 >> 10 & 0x1f;
+                                if (uVar15 == 0) {
+                                  fVar18 = (float)(uVar8 << 0x1f);
+                                  uVar4 = uVar15;
+                                  if ((uVar1 & 0x3ff) != 0) {
+                                    do {
+                                      uVar15 = uVar4;
+                                      uVar20 = uVar20 * 2;
+                                      uVar4 = uVar15 - 1;
+                                    } while ((uVar20 & 0x400) == 0);
+                                    uVar20 = uVar20 & 0xfffffbff;
+LAB_040d7c5f:
+                                    fVar18 = (float)(uVar20 << 0xd | uVar8 << 0x1f |
+                                                    (uVar15 + 0x70) * 0x800000);
+                                  }
+                                }
+                                else {
+                                  if (uVar15 != 0x1f) goto LAB_040d7c5f;
+                                  uVar8 = uVar8 << 0x1f;
+                                  if ((uVar1 & 0x3ff) != 0) {
+                                    uVar8 = uVar8 | uVar20 << 0xd;
+                                  }
+                                  fVar18 = (float)(uVar8 | 0x7f800000);
+                                }
+                                local_4c[iVar7] = fVar18;
+                                iVar7 = iVar7 + 1;
+                              } while (iVar7 != iVar6);
+                              fVar18 = local_4c[0];
+                              if (iVar7 == 1) goto LAB_040d80f5;
+                            }
+                            fVar24 = local_4c[0];
+                            fVar18 = local_4c[1];
+                            if (iVar6 == 2) {
+LAB_040d813d:
+                              sprintf((char *)local_14c,"{ %f, %f }",(double)fVar24,(double)fVar18);
+                            }
+                            else {
+                              fVar25 = local_4c[0];
+                              fVar24 = local_4c[2];
+                              if (iVar6 == 3) {
+LAB_040d82c3:
+                                sprintf((char *)local_14c,"{ %f, %f, %f }",(double)fVar25,
+                                        (double)fVar18,(double)fVar24);
+                              }
+                              else {
+                                fVar23 = local_4c[0];
+                                fVar25 = local_4c[3];
+                                if (iVar6 == 4) goto LAB_040d7cda;
+LAB_040d7c01:
+                                local_14c[0] = 0x686e7528;
+                                local_14c[1] = 0x6c646e61;
+                                local_14c[2] = 0x66206465;
+                                local_14c[3] = 0x74616f6c;
+                                local_14c[4] = 0x756f6320;
+                                local_138 = &DAT_0029746e;
+                              }
+                            }
+                          }
+                        }
+                        puVar14 = local_14c;
+                        do {
+                          puVar13 = puVar14;
+                          uVar8 = *puVar13 + 0xfefefeff & ~*puVar13;
+                          uVar20 = uVar8 & 0x80808080;
+                          puVar14 = puVar13 + 1;
+                        } while (uVar20 == 0);
+                        if ((uVar8 & 0x8080) == 0) {
+                          puVar14 = (uint *)((int)puVar13 + 6);
+                          uVar20 = uVar20 >> 0x10;
+                        }
+                        if (0xff < (int)puVar14 +
+                                   ((-3 - (uint)CARRY1((byte)uVar20,(byte)uVar20)) - (int)local_14c)
+                           ) {
+                          FUN_0400a810("strlen(valueBuffer) < sizeof(valueBuffer)",
+                                       "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                                      );
+                        }
+                        strcat((char *)local_94c,(char *)local_14c);
+                      }
+                      sVar9 = sVar9 + 1;
+                      pvVar10 = (void *)((int)pvVar10 + 0x1c);
+                    } while (sVar9 != local_958);
+                    puVar14 = local_94c;
+                    do {
+                      puVar13 = puVar14;
+                      uVar8 = *puVar13 + 0xfefefeff & ~*puVar13;
+                      uVar20 = uVar8 & 0x80808080;
+                      puVar14 = puVar13 + 1;
+                    } while (uVar20 == 0);
+                    if ((uVar8 & 0x8080) == 0) {
+                      puVar14 = (uint *)((int)puVar13 + 6);
+                      uVar20 = uVar20 >> 0x10;
+                    }
+                    uVar20 = (int)puVar14 +
+                             ((-3 - (uint)CARRY1((byte)uVar20,(byte)uVar20)) - (int)local_94c);
+                    if (0x7ff < uVar20) {
+                      FUN_0400a810("strlen( lineBuffer ) < sizeof( lineBuffer)",
+                                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                                  );
+                      puVar14 = local_94c;
+                      do {
+                        puVar13 = puVar14;
+                        uVar8 = *puVar13 + 0xfefefeff & ~*puVar13;
+                        uVar20 = uVar8 & 0x80808080;
+                        puVar14 = puVar13 + 1;
+                      } while (uVar20 == 0);
+                      if ((uVar8 & 0x8080) == 0) {
+                        puVar14 = (uint *)((int)puVar13 + 6);
+                        uVar20 = uVar20 >> 0x10;
+                      }
+                      uVar20 = (int)puVar14 +
+                               ((-3 - (uint)CARRY1((byte)uVar20,(byte)uVar20)) - (int)local_94c);
+                    }
+                    *(undefined2 *)((int)local_94c + uVar20) = 10;
+                    (**(code **)*piVar19)(piVar19,local_94c);
+                    local_94c[0]._0_1_ = 0;
+                    local_95c = local_95c + 1;
+                  } while (local_95c != local_988);
+                }
+                (**(code **)*piVar19)
+                          (piVar19,
+                           "================================================================================================================\n"
+                          );
+                (**(code **)(*piVar19 + 0xc))(piVar19);
+                (*DAT_0451ecf0)(0x8892);
+                iVar5 = glGetError();
+                if (iVar5 != 0) {
+                  FUN_0400a810("glGetError() == 0",
+                               "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                               ,0x4cb,
+                               "void OpenGL_InterpretCurrentVertexBufferWithVertexAttribInfo(GLint, const char*)"
+                              );
+                }
+                free(__ptr);
+                return;
+              }
+            } while( true );
+          }
+        }
+        (*DAT_0451ecf0)(0x8892);
+        iVar5 = glGetError();
+        if (iVar5 != 0) {
+          FUN_0400a810("glGetError() == 0",
+                       "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                       ,0x3f0,
+                       "void OpenGL_InterpretCurrentVertexBufferWithVertexAttribInfo(GLint, const char*)"
+                      );
+        }
+        free(__ptr);
+        printf("Vertex array buffer %d isn\'t bound to any vertex attribs, so can\'t interpret it!\n"
+               ,param_1);
+        return;
+      }
+      (*DAT_0451ecf0)(0x8892);
+      iVar5 = glGetError();
+      if (iVar5 != 0) {
+        FUN_0400a810("glGetError() == 0",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                     ,0x3a2,
+                     "void OpenGL_InterpretCurrentVertexBufferWithVertexAttribInfo(GLint, const char*)"
+                    );
+      }
+      puts("Failed to allocate memory for vertex attrib info table!");
+    }
+  }
+  return;
+}
+

@@ -1,0 +1,196 @@
+
+/* source: mem_vm */
+
+void __regparm3 custom_munmap(int param_1,void *param_2,uint param_3)
+
+{
+  void *pvVar1;
+  int iVar2;
+  void *pvVar3;
+  uint uVar4;
+  uint uVar5;
+  uint uVar6;
+  uint *puVar7;
+  uint uVar8;
+  uint uVar9;
+  uint uVar10;
+  uint uVar11;
+  uint *local_24;
+  
+  if (*(int *)(param_1 + 0x20) == -1) {
+    uVar11 = (int)param_2 - *(int *)(param_1 + 8);
+    pvVar1 = *(void **)(param_1 + 0x24);
+    uVar4 = uVar11 >> 0xc;
+    uVar8 = (param_3 >> 0xc) + uVar4;
+    if (uVar4 < uVar8) {
+      puVar7 = (uint *)((int)pvVar1 + (uVar11 >> 0x11) * 4);
+      uVar11 = uVar4;
+      do {
+        while( true ) {
+          uVar9 = 1 << ((byte)uVar11 & 0x1f);
+          if ((uVar9 & *puVar7) == 0) break;
+          uVar11 = uVar11 + 1;
+          *puVar7 = ~uVar9 & *puVar7;
+          if ((uVar11 & 0x1f) == 0) {
+            puVar7 = puVar7 + 1;
+          }
+          if (uVar8 <= uVar11) goto LAB_0413cdcd;
+        }
+        if ((uVar4 < uVar11) &&
+           (pvVar3 = (void *)(uVar4 * 0x1000 + *(int *)(param_1 + 8)),
+           pvVar1 = mmap64(pvVar3,(uVar11 - uVar4) * 0x1000,0,0x32,0,0), pvVar3 != pvVar1)) {
+          FUN_0400a810("mmap( address, size, 0x0, 0x10|0x02|0x20, 0, 0 ) == address",
+                       "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/mem_vm.cpp"
+                       ,0x164,"void custom_munmap(void*, size_t)");
+        }
+        uVar4 = uVar11 + 1;
+        if ((uVar4 & 0x1f) == 0) {
+          puVar7 = puVar7 + 1;
+        }
+        uVar11 = uVar4;
+      } while (uVar4 < uVar8);
+LAB_0413cdcd:
+      if ((uVar4 < uVar8) &&
+         (pvVar3 = (void *)(uVar4 * 0x1000 + *(int *)(param_1 + 8)),
+         pvVar1 = mmap64(pvVar3,(uVar8 - uVar4) * 0x1000,0,0x32,0,0), pvVar3 != pvVar1)) {
+        FUN_0400a810("mmap( address, size, 0x0, 0x10|0x02|0x20, 0, 0 ) == address",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/mem_vm.cpp"
+                     ,0x164,"void custom_munmap(void*, size_t)");
+      }
+      pvVar1 = *(void **)(param_1 + 0x24);
+    }
+    iVar2 = FUN_0413a7d0();
+    *(int *)(param_1 + 0x20) = iVar2;
+    if (iVar2 != -1) {
+      free(pvVar1);
+      *(undefined4 *)(param_1 + 0x24) = 0;
+      return;
+    }
+  }
+  else {
+    iVar2 = *(int *)(param_1 + 8);
+    pvVar1 = (void *)(*(int *)(param_1 + 0x20) * 0x1000 + iVar2);
+    if (param_2 < pvVar1) {
+      if ((void *)((int)param_2 + param_3) < pvVar1) {
+        if (*(int *)(param_1 + 0x24) != 0) {
+          FUN_0400a810("!region->CommitTable",
+                       "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/mem_vm.cpp"
+                       ,0x52e,"void vmm_DecommitRegion(ReservedRegion*, PVOID, SIZE_T)");
+          iVar2 = *(int *)(param_1 + 8);
+        }
+        uVar8 = *(uint *)(param_1 + 0xc) >> 0xc;
+        local_24 = malloc((*(uint *)(param_1 + 0xc) - 1 >> 0x11) * 4 + 4);
+        uVar9 = 1;
+        *(uint **)(param_1 + 0x24) = local_24;
+        uVar10 = (uint)((int)param_2 - iVar2) >> 0xc;
+        uVar4 = (param_3 >> 0xc) + uVar10;
+        uVar11 = 1;
+        if (uVar10 == 0) {
+          uVar10 = 0;
+          uVar11 = 0;
+          uVar9 = 0;
+        }
+        else {
+          while (uVar11 < uVar10) {
+            uVar5 = uVar11 + 1;
+            uVar6 = uVar11 & 0x1f;
+            uVar9 = uVar9 | 1 << (sbyte)uVar6;
+            uVar11 = uVar5;
+            if (uVar6 == 0x1f) {
+              uVar6 = uVar10 - uVar5 >> 5;
+              *local_24 = uVar9;
+              local_24 = local_24 + 1;
+              uVar9 = 0;
+              if (uVar6 != 0) {
+                memset(local_24,0xff,uVar6 * 4);
+                uVar11 = uVar5 + uVar6 * 0x20;
+                local_24 = local_24 + uVar6;
+              }
+            }
+          }
+          uVar10 = uVar11 & 0x1f;
+        }
+        uVar6 = uVar11;
+        if (uVar11 < uVar4) {
+          do {
+            uVar6 = uVar11 + 1;
+            if ((uVar11 & 0x1f) == 0x1f) {
+              *local_24 = uVar9;
+              local_24 = local_24 + 1;
+              uVar9 = 0;
+              uVar11 = uVar4 - uVar6 >> 5;
+              if (uVar11 != 0) {
+                uVar6 = uVar6 + uVar11 * 0x20;
+                bzero(local_24,uVar11 * 4);
+                local_24 = local_24 + uVar11;
+              }
+            }
+            uVar11 = uVar6;
+          } while (uVar6 < uVar4);
+          uVar10 = uVar6 & 0x1f;
+        }
+        uVar11 = *(uint *)(param_1 + 0x20);
+        uVar4 = uVar6;
+        if (uVar6 < uVar11) {
+          do {
+            uVar4 = uVar6 + 1;
+            uVar9 = uVar9 | 1 << (sbyte)(uVar6 & 0x1f);
+            if ((uVar6 & 0x1f) == 0x1f) {
+              uVar10 = uVar11 - uVar4 >> 5;
+              *local_24 = uVar9;
+              local_24 = local_24 + 1;
+              uVar9 = 0;
+              if (uVar10 != 0) {
+                memset(local_24,0xff,uVar10 * 4);
+                uVar4 = uVar4 + uVar10 * 0x20;
+                local_24 = local_24 + uVar10;
+              }
+            }
+            uVar6 = uVar4;
+          } while (uVar4 < uVar11);
+          uVar10 = uVar4 & 0x1f;
+        }
+        if (uVar4 < uVar8) {
+          do {
+            uVar10 = uVar4 + 1;
+            if ((uVar4 & 0x1f) == 0x1f) {
+              *local_24 = uVar9;
+              local_24 = local_24 + 1;
+              uVar9 = 0;
+              uVar11 = uVar8 - uVar10 >> 5;
+              if (uVar11 != 0) {
+                bzero(local_24,uVar11 * 4);
+                uVar10 = uVar10 + uVar11 * 0x20;
+                local_24 = local_24 + uVar11;
+              }
+            }
+            uVar4 = uVar10;
+          } while (uVar10 < uVar8);
+          uVar10 = uVar10 & 0x1f;
+        }
+        if (uVar10 != 0) {
+          *local_24 = uVar9;
+        }
+        *(undefined4 *)(param_1 + 0x20) = 0xffffffff;
+        pvVar1 = mmap64(param_2,param_3,0,0x32,0,0);
+        if (param_2 != pvVar1) {
+          FUN_0400a810("mmap( address, size, 0x0, 0x10|0x02|0x20, 0, 0 ) == address",
+                       "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/mem_vm.cpp"
+                       ,0x164,"void custom_munmap(void*, size_t)");
+        }
+      }
+      else {
+        pvVar3 = mmap64(param_2,(int)pvVar1 - (int)param_2,0,0x32,0,0);
+        if (param_2 != pvVar3) {
+          FUN_0400a810("mmap( address, size, 0x0, 0x10|0x02|0x20, 0, 0 ) == address",
+                       "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/mem_vm.cpp"
+                       ,0x164,"void custom_munmap(void*, size_t)");
+        }
+        *(int *)(param_1 + 0x20) =
+             *(int *)(param_1 + 0x20) - ((uint)((int)pvVar1 - (int)param_2) >> 0xc);
+      }
+    }
+  }
+  return;
+}
+

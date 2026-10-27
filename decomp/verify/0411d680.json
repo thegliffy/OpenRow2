@@ -1,0 +1,81 @@
+
+/* source: gdi32 */
+
+undefined4 eON_DeleteObject(undefined1 *param_1)
+
+{
+  int iVar1;
+  void *pvVar2;
+  undefined4 uVar3;
+  
+  eON_FontCache_EnsureInitialized();
+  if (param_1 == (undefined1 *)0x0) {
+    FUN_0402cd10(10,
+                 "eON_DeleteObject called for hGDIObj equal NULL. Make sure that object was properly initialized."
+                );
+    return 0;
+  }
+  if (param_1 + 0x68686869 < (undefined1 *)0x80) {
+    uVar3 = HDC_FreeDC(param_1);
+    return uVar3;
+  }
+  if (param_1[1] != '\0') {
+    return 0;
+  }
+  if (*(int *)(param_1 + 4) != 0) {
+    param_1[2] = 1;
+    return 0;
+  }
+  switch(*param_1) {
+  default:
+    FUN_0402cd10(5,"DeleteObject not written for this GDI object type! Add it.");
+    return 1;
+  case 1:
+  case 2:
+    goto switchD_0411d6f3_caseD_1;
+  case 3:
+  case 10:
+    return 0;
+  case 5:
+    pvVar2 = *(void **)(param_1 + 0xc);
+    break;
+  case 6:
+    iVar1 = *(int *)(param_1 + 100);
+    if (iVar1 == 0) {
+      FUN_0400a810("font->FontFace",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/gdi32/gdi32.cpp",
+                   0x669,"WINBOOL eON_DeleteObject(HGDIOBJ)");
+      iVar1 = *(int *)(param_1 + 100);
+    }
+    FT_Done_Face(iVar1);
+    pvVar2 = *(void **)(param_1 + 0x8c);
+    break;
+  case 7:
+    pvVar2 = *(void **)(param_1 + 0x20);
+    if (pvVar2 != (void *)0x0) {
+      if (*(void **)((int)pvVar2 + 0x14) != (void *)0x0) {
+        free(*(void **)((int)pvVar2 + 0x14));
+        pvVar2 = *(void **)(param_1 + 0x20);
+      }
+      free(pvVar2);
+    }
+    if (*(void **)(param_1 + 0x24) != (void *)0x0) {
+      free(*(void **)(param_1 + 0x24));
+    }
+    pvVar2 = *(void **)(param_1 + 0x1c);
+    goto joined_r0x0411d775;
+  case 8:
+    pvVar2 = *(void **)(param_1 + 0x10);
+joined_r0x0411d775:
+    if (pvVar2 == (void *)0x0) goto switchD_0411d6f3_caseD_1;
+    goto LAB_0411d71d;
+  }
+  if (pvVar2 != (void *)0x0) {
+LAB_0411d71d:
+    free(pvVar2);
+  }
+switchD_0411d6f3_caseD_1:
+  free(param_1);
+  return 1;
+}
+

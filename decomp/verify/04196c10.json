@@ -1,0 +1,69 @@
+
+/* source: winsock */
+
+int eON_getnameinfo(void *param_1,socklen_t param_2,char *param_3,socklen_t param_4,char *param_5,
+                   socklen_t param_6,uint param_7)
+
+{
+  void *__src;
+  socklen_t __n;
+  char *__host;
+  socklen_t __hostlen;
+  char *__serv;
+  socklen_t __servlen;
+  uint __flags;
+  int iVar1;
+  sockaddr local_60 [4];
+  undefined4 *local_18;
+  
+  __flags = param_7;
+  __servlen = param_6;
+  __serv = param_5;
+  __hostlen = param_4;
+  __host = param_3;
+  __n = param_2;
+  __src = param_1;
+  local_18 = &param_1;
+  if (((int)param_2 < 0x10) || (param_1 == (void *)0x0)) {
+    iVar1 = 0x271e;
+  }
+  else {
+    if (0x40 < (int)param_2) {
+      FUN_0400a810("salen <= 64",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/winsock/winsock.cpp"
+                   ,0xe5c,
+                   "INT eON_getnameinfo(const eON_sockaddr*, eON_socklen_t, CHAR*, DWORD, CHAR*, DWORD, INT)"
+                  );
+    }
+    memcpy(local_60,__src,__n);
+    iVar1 = getnameinfo(local_60,__n,__host,__hostlen,__serv,__servlen,__flags);
+    if (iVar1 != 0) {
+      switch(iVar1) {
+      case -10:
+        eON_SetLastError(8);
+        break;
+      default:
+        FUN_0402cd10(10,
+                     "EAI error not mentioned in Windows docs encountered from call of getnameinfo()"
+                    );
+        break;
+      case -6:
+        eON_SetLastError(0x273f);
+        break;
+      case -4:
+        eON_SetLastError(0x2afb);
+        break;
+      case -3:
+        eON_SetLastError(0x2afa);
+        break;
+      case -2:
+        eON_SetLastError(0x2af9);
+        break;
+      case -1:
+        eON_SetLastError(0x2726);
+      }
+    }
+  }
+  return iVar1;
+}
+

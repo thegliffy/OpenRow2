@@ -1,0 +1,704 @@
+
+/* source: openGlDebugFunctions */
+
+void __regparm3 OGLC_DumpBuffer(char *param_1,char *param_2,int param_3)
+
+{
+  float *pfVar1;
+  float *pfVar2;
+  float *pfVar3;
+  float fVar4;
+  ushort **ppuVar5;
+  long lVar6;
+  uint uVar7;
+  uint uVar8;
+  uint uVar9;
+  float *pfVar10;
+  int *piVar11;
+  void *pvVar12;
+  int iVar13;
+  uint *puVar14;
+  uint uVar15;
+  char *pcVar16;
+  code *pcVar17;
+  uint uVar18;
+  undefined2 *puVar19;
+  uint *puVar20;
+  char *pcVar21;
+  int iVar22;
+  undefined1 uVar23;
+  bool bVar24;
+  byte bVar25;
+  uint local_570;
+  uint local_56c;
+  int *local_568;
+  uint *local_564;
+  uint local_55c [256];
+  uint local_15c [64];
+  char local_5c [32];
+  uint local_3c [3];
+  uint local_30;
+  uint local_2c;
+  int local_28;
+  int local_24;
+  undefined4 local_20 [4];
+  
+  bVar25 = 0;
+  uVar23 = DAT_044daca0 == '\0';
+  if ((bool)uVar23) {
+    strcpy((char *)local_55c,param_2);
+  }
+  else {
+    strcpy((char *)local_55c,&DAT_044daca0);
+    strcat((char *)local_55c,param_2);
+  }
+  local_564 = local_55c;
+  FUN_0401a1d0(local_564);
+  iVar13 = 2;
+  pcVar16 = param_1;
+  pcVar21 = "V";
+  do {
+    if (iVar13 == 0) break;
+    iVar13 = iVar13 + -1;
+    uVar23 = *pcVar16 == *pcVar21;
+    pcVar16 = pcVar16 + (uint)bVar25 * -2 + 1;
+    pcVar21 = pcVar21 + (uint)bVar25 * -2 + 1;
+  } while ((bool)uVar23);
+  if ((bool)uVar23) {
+    glGetIntegerv(0x8894,local_3c + 2);
+    iVar13 = glGetError();
+    if (iVar13 != 0) {
+      FUN_0400a810("glGetError() == 0",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                   ,0x1240,"void OGLC_DumpBuffer(const char*, const char*, int)");
+    }
+    if (local_3c[2] == 0) {
+      if (DAT_04408c90 == '\0') {
+        return;
+      }
+      puts("No valid OpenGL buffer bound to vertex buffer binding point!.");
+      return;
+    }
+    OpenGL_InterpretCurrentVertexBufferWithVertexAttribInfo();
+    return;
+  }
+  iVar13 = 2;
+  bVar24 = false;
+  pcVar16 = param_1;
+  pcVar21 = "E";
+  do {
+    if (iVar13 == 0) break;
+    iVar13 = iVar13 + -1;
+    bVar24 = *pcVar16 == *pcVar21;
+    pcVar16 = pcVar16 + (uint)bVar25 * -2 + 1;
+    pcVar21 = pcVar21 + (uint)bVar25 * -2 + 1;
+  } while (bVar24);
+  if (bVar24) {
+    glGetIntegerv(0x8895,local_3c + 2);
+    iVar13 = glGetError();
+    if (iVar13 != 0) {
+      FUN_0400a810("glGetError() == 0",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                   ,0x124e,"void OGLC_DumpBuffer(const char*, const char*, int)");
+    }
+    if (local_3c[2] == 0) {
+      if (DAT_04408c90 == '\0') {
+        return;
+      }
+      puts("No valid OpenGL buffer bound to element buffer binding point!.");
+      return;
+    }
+    (*DAT_0451ed14)(0x8893,0x88bc,&local_30);
+    iVar13 = glGetError();
+    if (iVar13 != 0) {
+      FUN_0400a810("glGetError() == 0",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                   ,0x1258,"void OGLC_DumpBuffer(const char*, const char*, int)");
+    }
+    if (local_30 != 0) {
+      printf("Can\'t map element buffer %d, as it\'s currently mapped!.\n",local_3c[2]);
+      return;
+    }
+    local_2c = 0;
+    if (DAT_0451cad3 == '\0') {
+      (*DAT_0451ed14)(0x8893,0x8764,&local_2c);
+      iVar13 = glGetError();
+      if (iVar13 != 0) {
+        FUN_0400a810("glGetError() == 0",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                     ,0x126c,"void OGLC_DumpBuffer(const char*, const char*, int)");
+      }
+    }
+    else {
+      local_3c[0] = 0;
+      local_3c[1] = 0;
+      (*DAT_0451ea70)(0x8893,0x8764,local_3c);
+      iVar13 = glGetError();
+      if (iVar13 != 0) {
+        FUN_0400a810("glGetError() == 0",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                     ,0x1266,"void OGLC_DumpBuffer(const char*, const char*, int)");
+      }
+      local_2c = local_3c[0];
+    }
+    if (DAT_0451ca55 == '\0') {
+      return;
+    }
+    iVar13 = (*DAT_0451e520)(0x8893,0,local_2c,1);
+    iVar22 = glGetError();
+    if (iVar22 != 0) {
+      FUN_0400a810("glGetError() == 0",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                   ,0x1272,"void OGLC_DumpBuffer(const char*, const char*, int)");
+    }
+    if (iVar13 == 0) {
+      printf("Failed to map element buffer %d through gl3MapBufferRange()!.\n",local_3c[2]);
+      return;
+    }
+    if (param_3 != 0) {
+      local_570 = local_2c >> 2;
+      local_568 = operator_new(0xc);
+      *local_568 = (int)&PTR_OpenGLDebugWriter_File__Write_04308e88;
+      local_568[1] = 0;
+      local_568[2] = 0;
+      puVar20 = local_564;
+      do {
+        puVar14 = puVar20;
+        uVar7 = *puVar14 + 0xfefefeff & ~*puVar14;
+        uVar15 = uVar7 & 0x80808080;
+        puVar20 = puVar14 + 1;
+      } while (uVar15 == 0);
+      if ((uVar7 & 0x8080) == 0) {
+        puVar20 = (uint *)((int)puVar14 + 6);
+        uVar15 = uVar15 >> 0x10;
+      }
+      pcVar16 = (char *)((int)puVar20 +
+                        (-(int)local_564 - (uint)CARRY1((byte)uVar15,(byte)uVar15)) + -2);
+      pvVar12 = malloc((size_t)pcVar16);
+      local_568[1] = (int)pvVar12;
+      memcpy(pvVar12,local_564,(size_t)pcVar16);
+      pcVar17 = *(code **)*local_568;
+      pcVar16 = "32-bit";
+    }
+    else {
+      local_570 = local_2c >> 1;
+      local_568 = operator_new(0xc);
+      *local_568 = (int)&PTR_OpenGLDebugWriter_File__Write_04308e88;
+      local_568[1] = 0;
+      local_568[2] = 0;
+      puVar20 = local_564;
+      do {
+        puVar14 = puVar20;
+        uVar7 = *puVar14 + 0xfefefeff & ~*puVar14;
+        uVar15 = uVar7 & 0x80808080;
+        puVar20 = puVar14 + 1;
+      } while (uVar15 == 0);
+      if ((uVar7 & 0x8080) == 0) {
+        puVar20 = (uint *)((int)puVar14 + 6);
+        uVar15 = uVar15 >> 0x10;
+      }
+      pcVar16 = (char *)((int)puVar20 +
+                        (-(int)local_564 - (uint)CARRY1((byte)uVar15,(byte)uVar15)) + -2);
+      pvVar12 = malloc((size_t)pcVar16);
+      local_568[1] = (int)pvVar12;
+      memcpy(pvVar12,local_564,(size_t)pcVar16);
+      pcVar17 = *(code **)*local_568;
+      pcVar16 = "16-bit";
+    }
+    local_56c = 0xffffffff;
+    (*pcVar17)(local_568,"Index buffer %d, size %u, element count %d, %s\n\n",local_3c[2],local_2c,
+               local_570,pcVar16);
+    (**(code **)*local_568)
+              (local_568,
+               "=========================================================================\n");
+    puVar20 = local_15c;
+    for (iVar22 = 0x40; iVar22 != 0; iVar22 = iVar22 + -1) {
+      *puVar20 = 0;
+      puVar20 = puVar20 + (uint)bVar25 * -2 + 1;
+    }
+    uVar15 = 0;
+    if (local_570 != 0) {
+      local_56c = 0xffffffff;
+      iVar22 = 0;
+      pcVar16 = "\t";
+      uVar7 = 0;
+      if (param_3 != 0) {
+        while( true ) {
+          strcat((char *)local_15c,pcVar16);
+          uVar8 = *(uint *)(iVar13 + uVar7 * 4);
+          if (uVar8 < local_56c) {
+            local_56c = uVar8;
+          }
+          if (uVar15 < uVar8) {
+            uVar15 = uVar8;
+          }
+          iVar22 = iVar22 + 1;
+          sprintf(local_5c,"%u",uVar8);
+          strcat((char *)local_15c,local_5c);
+          if (0x13 < iVar22) {
+            puVar20 = local_15c;
+            do {
+              puVar14 = puVar20;
+              uVar8 = *puVar14 + 0xfefefeff & ~*puVar14;
+              uVar9 = uVar8 & 0x80808080;
+              puVar20 = puVar14 + 1;
+            } while (uVar9 == 0);
+            uVar18 = uVar9 >> 0x10;
+            puVar20 = (uint *)((int)puVar14 + 6);
+            if ((uVar8 & 0x8080) != 0) {
+              puVar20 = puVar14 + 1;
+              uVar18 = uVar9;
+            }
+            puVar19 = (undefined2 *)((int)puVar20 + (-3 - (uint)CARRY1((byte)uVar18,(byte)uVar18)));
+            iVar22 = 0;
+            *puVar19 = 0xa2c;
+            *(undefined1 *)(puVar19 + 1) = 0;
+            (**(code **)*local_568)(local_568,local_15c);
+            local_15c[0]._0_1_ = 0;
+          }
+          uVar7 = uVar7 + 1;
+          if (uVar7 == local_570) break;
+          pcVar16 = "\t";
+          if (iVar22 != 0) {
+            pcVar16 = ", ";
+          }
+        }
+      }
+      else {
+        while( true ) {
+          strcat((char *)local_15c,pcVar16);
+          uVar8 = (uint)*(ushort *)(iVar13 + uVar7 * 2);
+          if (uVar8 < local_56c) {
+            local_56c = uVar8;
+          }
+          if (uVar15 < uVar8) {
+            uVar15 = uVar8;
+          }
+          iVar22 = iVar22 + 1;
+          sprintf(local_5c,"%u",uVar8);
+          strcat((char *)local_15c,local_5c);
+          if (0x13 < iVar22) {
+            puVar20 = local_15c;
+            do {
+              puVar14 = puVar20;
+              uVar8 = *puVar14 + 0xfefefeff & ~*puVar14;
+              uVar9 = uVar8 & 0x80808080;
+              puVar20 = puVar14 + 1;
+            } while (uVar9 == 0);
+            uVar18 = uVar9 >> 0x10;
+            puVar20 = (uint *)((int)puVar14 + 6);
+            if ((uVar8 & 0x8080) != 0) {
+              puVar20 = puVar14 + 1;
+              uVar18 = uVar9;
+            }
+            puVar19 = (undefined2 *)((int)puVar20 + (-3 - (uint)CARRY1((byte)uVar18,(byte)uVar18)));
+            iVar22 = 0;
+            *puVar19 = 0xa2c;
+            *(undefined1 *)(puVar19 + 1) = 0;
+            (**(code **)*local_568)(local_568,local_15c);
+            local_15c[0]._0_1_ = 0;
+          }
+          uVar7 = uVar7 + 1;
+          if (uVar7 == local_570) break;
+          pcVar16 = "\t";
+          if (iVar22 != 0) {
+            pcVar16 = ", ";
+          }
+        }
+      }
+      if (iVar22 != 0) {
+        puVar20 = local_15c;
+        do {
+          puVar14 = puVar20;
+          uVar7 = *puVar14 + 0xfefefeff & ~*puVar14;
+          uVar8 = uVar7 & 0x80808080;
+          puVar20 = puVar14 + 1;
+        } while (uVar8 == 0);
+        uVar9 = uVar8 >> 0x10;
+        puVar20 = (uint *)((int)puVar14 + 6);
+        if ((uVar7 & 0x8080) != 0) {
+          puVar20 = puVar14 + 1;
+          uVar9 = uVar8;
+        }
+        *(undefined2 *)((int)puVar20 + (-3 - (uint)CARRY1((byte)uVar9,(byte)uVar9))) = 10;
+        (**(code **)*local_568)(local_568,local_15c);
+      }
+    }
+    (**(code **)*local_568)
+              (local_568,
+               "=========================================================================\n");
+    (**(code **)*local_568)(local_568,"Lowest value in buffer: %u, highest: %u\n",local_56c,uVar15);
+    (**(code **)(*local_568 + 0xc))(local_568);
+    (*DAT_0451ecf0)(0x8893);
+    iVar13 = glGetError();
+    if (iVar13 == 0) {
+      return;
+    }
+    FUN_0400a810("glGetError() == 0",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                 ,0x12ae,"void OGLC_DumpBuffer(const char*, const char*, int)");
+    return;
+  }
+  if (*param_1 == 'V') {
+    if ((param_1[1] == 'A') &&
+       (ppuVar5 = __ctype_b_loc(), (*(byte *)((int)*ppuVar5 + param_1[2] * 2 + 1) & 8) != 0)) {
+      lVar6 = strtol(param_1 + 2,(char **)0x0,10);
+      glGetIntegerv(0x8869,&local_2c);
+      iVar13 = glGetError();
+      if (iVar13 != 0) {
+        FUN_0400a810("glGetError() == 0",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                     ,0x12b7,"void OGLC_DumpBuffer(const char*, const char*, int)");
+      }
+      if ((int)local_2c <= lVar6) {
+        printf("Vertex attribute index (%d) higher than maximum available (%d)!\n",lVar6,
+               local_2c - 1);
+        return;
+      }
+      (*DAT_0451ec80)(lVar6,0x889f,&local_30);
+      iVar13 = glGetError();
+      if (iVar13 != 0) {
+        FUN_0400a810("glGetError() == 0",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                     ,0x12c0,"void OGLC_DumpBuffer(const char*, const char*, int)");
+      }
+      if (local_30 == 0) {
+        if (DAT_04408c90 == '\0') {
+          return;
+        }
+        puts("No valid OpenGL buffer bound to this vertex attribute binding point!.");
+        return;
+      }
+      glGetIntegerv(0x8894,local_3c + 2);
+      iVar13 = glGetError();
+      if (iVar13 != 0) {
+        FUN_0400a810("glGetError() == 0",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                     ,0x12ca,"void OGLC_DumpBuffer(const char*, const char*, int)");
+      }
+      if (local_30 != local_3c[2]) {
+        (*DAT_0451ed34)(0x8892,local_30);
+        iVar13 = glGetError();
+        if (iVar13 != 0) {
+          FUN_0400a810("glGetError() == 0",
+                       "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                       ,0x12cf,"void OGLC_DumpBuffer(const char*, const char*, int)");
+        }
+      }
+      OpenGL_InterpretCurrentVertexBufferWithVertexAttribInfo();
+      if (local_30 == local_3c[2]) {
+        return;
+      }
+      (*DAT_0451ed34)(0x8892,local_3c[2]);
+      iVar13 = glGetError();
+      if (iVar13 == 0) {
+        return;
+      }
+      FUN_0400a810("glGetError() == 0",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                   ,0x12d7,"void OGLC_DumpBuffer(const char*, const char*, int)");
+      return;
+    }
+LAB_040d85bc:
+    printf("Unrecognized OpenGL buffer binding point \'%s\'.\n",param_1);
+    return;
+  }
+  if (((*param_1 != 'U') || (param_1[1] != 'B')) ||
+     (ppuVar5 = __ctype_b_loc(), (*(byte *)((int)*ppuVar5 + param_1[2] * 2 + 1) & 8) == 0))
+  goto LAB_040d85bc;
+  lVar6 = strtol(param_1 + 2,(char **)0x0,10);
+  if (DAT_0451ca01 == '\0') {
+    return;
+  }
+  glGetIntegerv(0x8a2f,local_3c + 2);
+  iVar13 = glGetError();
+  if (iVar13 != 0) {
+    FUN_0400a810("glGetError() == 0",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                 ,0x12e3,"void OGLC_DumpBuffer(const char*, const char*, int)");
+  }
+  if ((int)local_3c[2] <= lVar6) {
+    printf("Uniform buffer index (%d) higher than maximum available (%d)!\n",lVar6,local_3c[2] - 1);
+    return;
+  }
+  (*DAT_0451e0b8)(0x8a28,lVar6,&local_30);
+  iVar13 = glGetError();
+  if (iVar13 != 0) {
+    FUN_0400a810("glGetError() == 0",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                 ,0x12ec,"void OGLC_DumpBuffer(const char*, const char*, int)");
+  }
+  if (local_30 == 0) {
+    if (DAT_04408c90 == '\0') {
+      return;
+    }
+    printf("No valid OpenGL buffer bound to uniform binding point %d.\n",lVar6);
+    return;
+  }
+  if (10 < lVar6) {
+    printf("Don\'t know how to interpret uniform binding point %d.\n",lVar6);
+    return;
+  }
+  glGetIntegerv(0x8a28,&local_2c);
+  iVar13 = glGetError();
+  if (iVar13 != 0) {
+    FUN_0400a810("glGetError() == 0",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                 ,0x12fc,"void OGLC_DumpBuffer(const char*, const char*, int)");
+  }
+  if (local_30 != local_2c) {
+    (*DAT_0451ed34)(0x8a11,local_30);
+    iVar13 = glGetError();
+    if (iVar13 != 0) {
+      FUN_0400a810("glGetError() == 0",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                   ,0x1301,"void OGLC_DumpBuffer(const char*, const char*, int)");
+    }
+  }
+  (*DAT_0451ed14)(0x8a11,0x88bc,&local_28);
+  iVar13 = glGetError();
+  if (iVar13 != 0) {
+    FUN_0400a810("glGetError() == 0",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                 ,0x1307,"void OGLC_DumpBuffer(const char*, const char*, int)");
+  }
+  if (local_28 != 0) {
+    printf("Uniform buffer %d already mapped!!.\n",local_30);
+    goto LAB_040d901a;
+  }
+  (*DAT_0451e0b8)(0x8a2a,lVar6,&local_24);
+  iVar13 = glGetError();
+  if (iVar13 != 0) {
+    FUN_0400a810("glGetError() == 0",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                 ,0x130e,"void OGLC_DumpBuffer(const char*, const char*, int)");
+  }
+  (*DAT_0451e0b8)(0x8a29,lVar6,local_20);
+  iVar13 = glGetError();
+  if (iVar13 != 0) {
+    FUN_0400a810("glGetError() == 0",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                 ,0x1311,"void OGLC_DumpBuffer(const char*, const char*, int)");
+  }
+  if (local_24 < 1) goto LAB_040d901a;
+  pfVar10 = (float *)(*DAT_0451e520)(0x8a11,local_20[0],local_24,1);
+  iVar13 = glGetError();
+  if (iVar13 != 0) {
+    FUN_0400a810("glGetError() == 0",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                 ,0x1316,"void OGLC_DumpBuffer(const char*, const char*, int)");
+  }
+  if (pfVar10 == (float *)0x0) {
+    printf("Failed to map uniform buffer %d through gl3MapBufferRange()!.\n",local_30);
+    goto LAB_040d901a;
+  }
+  piVar11 = operator_new(0xc);
+  uVar15 = 0xffffffff;
+  *piVar11 = (int)&PTR_OpenGLDebugWriter_File__Write_04308e88;
+  piVar11[1] = 0;
+  piVar11[2] = 0;
+  puVar20 = local_564;
+  do {
+    if (uVar15 == 0) break;
+    uVar15 = uVar15 - 1;
+    uVar7 = *puVar20;
+    puVar20 = (uint *)((int)puVar20 + (uint)bVar25 * -2 + 1);
+  } while ((char)uVar7 != '\0');
+  pvVar12 = malloc(~uVar15);
+  piVar11[1] = (int)pvVar12;
+  memcpy(pvVar12,local_564,~uVar15);
+  if (local_24 == 0x100) {
+    iVar13 = 0;
+    do {
+      pfVar1 = pfVar10 + 3;
+      pfVar2 = pfVar10 + 2;
+      pfVar3 = pfVar10 + 1;
+      fVar4 = *pfVar10;
+      iVar22 = iVar13 + 1;
+      pfVar10 = pfVar10 + 4;
+      (**(code **)*piVar11)
+                (piVar11,"%04d: ( %d, %d, %d, %d )\n",iVar13,fVar4,*pfVar3,*pfVar2,*pfVar1);
+      iVar13 = iVar22;
+    } while (iVar22 != 0x10);
+  }
+  else if (local_24 < 0x101) {
+    if (local_24 == 0x40) {
+      iVar13 = 0;
+      do {
+        pcVar16 = "TRUE";
+        if (pfVar10[iVar13] == 0.0) {
+          pcVar16 = "FALSE";
+        }
+        iVar22 = iVar13 + 1;
+        (**(code **)*piVar11)(piVar11,"%04d: %d (%s)\n",iVar13,pfVar10[iVar13],pcVar16);
+        iVar13 = iVar22;
+      } while (iVar22 != 0x10);
+    }
+    else if (local_24 == 0x90) {
+      iVar13 = 0;
+      (**(code **)*piVar11)(piVar11,"PositionFix: ");
+      FUN_040090a0();
+      (**(code **)*piVar11)(piVar11,"OpenGL_FogColor: ");
+      FUN_040090a0();
+      (**(code **)*piVar11)(piVar11,"OpenGL_FogDensity: %f\n",(double)pfVar10[8]);
+      (**(code **)*piVar11)(piVar11,"OpenGL_FogEnd: %f\n",(double)pfVar10[9]);
+      (**(code **)*piVar11)(piVar11,"OpenGL_FogScale: %f\n",(double)pfVar10[10]);
+      (**(code **)*piVar11)(piVar11,"AlphaRef: %f\n",(double)pfVar10[0xb]);
+      do {
+        (**(code **)*piVar11)(piVar11,"OpenGL_ClipPlanes[%d]: ",iVar13);
+        iVar13 = iVar13 + 1;
+        FUN_040090a0();
+      } while (iVar13 != 6);
+    }
+    else {
+      if (local_24 != 0x18) goto LAB_040d92d7;
+      (**(code **)*piVar11)(piVar11,"BumpEnvMatrix: ");
+      FUN_040090a0();
+      (**(code **)*piVar11)(piVar11,"LuminanceScale: %f\n",(double)pfVar10[4]);
+      (**(code **)*piVar11)(piVar11,"LuminanceOffset: %f\n",(double)pfVar10[5]);
+    }
+  }
+  else if (local_24 == 400) {
+    iVar13 = 0;
+    do {
+      (**(code **)*piVar11)(piVar11,"TextureStageConstant[%d]: ",iVar13);
+      iVar13 = iVar13 + 1;
+      FUN_040090a0();
+    } while (iVar13 != 8);
+    iVar13 = 0;
+    (**(code **)*piVar11)(piVar11,"TextureFactor: ");
+    FUN_040090a0();
+    do {
+      (**(code **)*piVar11)(piVar11,"LuminanceScaleOffset[%d]: ",iVar13);
+      iVar13 = iVar13 + 1;
+      FUN_040090a0();
+    } while (iVar13 != 8);
+    iVar13 = 0;
+    do {
+      (**(code **)*piVar11)(piVar11,"BumpEnvMap[%d]: ",iVar13);
+      iVar13 = iVar13 + 1;
+      FUN_040090a0();
+    } while (iVar13 != 8);
+  }
+  else if (local_24 < 0x191) {
+    if (local_24 == 0x140) {
+      (**(code **)*piVar11)(piVar11,"OpenGL_ModelViewMatrix:\n");
+      FUN_040090e2();
+      (**(code **)*piVar11)(piVar11,"OpenGL_ProjectionMatrix:\n");
+      FUN_040090e2();
+      (**(code **)*piVar11)(piVar11,"OpenGL_ModelViewProjectionMatrix:\n");
+      FUN_040090e2();
+      (**(code **)*piVar11)(piVar11,"ViewTransform:\n");
+      FUN_040090e2();
+      (**(code **)*piVar11)(piVar11,"ViewportSizes: ");
+      FUN_040090a0();
+      (**(code **)*piVar11)(piVar11,"OpenGL_NormalMatrix:\n");
+      (**(code **)*piVar11)
+                (piVar11,"\t{ %f, %f, %f, %f }\n",(double)pfVar10[0x44],(double)pfVar10[0x45],
+                 (double)pfVar10[0x46],(double)pfVar10[0x47]);
+      (**(code **)*piVar11)
+                (piVar11,"\t{ %f, %f, %f, %f }\n",(double)pfVar10[0x48],(double)pfVar10[0x49],
+                 (double)pfVar10[0x4a],(double)pfVar10[0x4b]);
+      (**(code **)*piVar11)
+                (piVar11,"\t{ %f, %f, %f, %f }\n",(double)pfVar10[0x4c],(double)pfVar10[0x4d],
+                 (double)pfVar10[0x4e],(double)pfVar10[0x4f]);
+    }
+    else {
+LAB_040d92d7:
+      printf("Unrecognized size of uniform buffer: %d! Can\'t interpret it.\n",local_24);
+    }
+  }
+  else if (local_24 == 0x660) {
+    iVar13 = 0;
+    do {
+      (**(code **)*piVar11)(piVar11,"OpenGL_TextureMatrix[%d]:\n",iVar13);
+      iVar13 = iVar13 + 1;
+      FUN_040090e2();
+    } while (iVar13 != 8);
+    iVar13 = 0;
+    do {
+      (**(code **)*piVar11)(piVar11,"WorldTransforms[%d]:\n",iVar13);
+      iVar13 = iVar13 + 1;
+      FUN_040090e2();
+    } while (iVar13 != 4);
+    iVar13 = 0;
+    do {
+      (**(code **)*piVar11)(piVar11,"OpenGL_LightSource[%d]:\n",iVar13);
+      iVar22 = iVar13 + 1;
+      (**(code **)*piVar11)(piVar11,"\tAmbient: ");
+      FUN_040090a0();
+      (**(code **)*piVar11)(piVar11,"\tDiffuse: ");
+      FUN_040090a0();
+      (**(code **)*piVar11)(piVar11,"\tSpecular: ");
+      FUN_040090a0();
+      (**(code **)*piVar11)(piVar11,"\tPosition: ");
+      FUN_040090a0();
+      (**(code **)*piVar11)(piVar11,"\tSpotDirection: ");
+      (**(code **)*piVar11)
+                (piVar11,"{ %f, %f, %f }\n",(double)pfVar10[iVar13 * 0x18 + 0xd0],
+                 (double)pfVar10[iVar13 * 0x18 + 0xd1],(double)pfVar10[iVar13 * 0x18 + 0xd2]);
+      (**(code **)*piVar11)(piVar11,"\tSpotExponent: %f\n",(double)pfVar10[iVar13 * 0x18 + 0xd3]);
+      (**(code **)*piVar11)(piVar11,"\tSpotCosCutoff: %f\n",(double)pfVar10[iVar13 * 0x18 + 0xd4]);
+      (**(code **)*piVar11)
+                (piVar11,"\tConstantAttenuation: %f\n",(double)pfVar10[iVar13 * 0x18 + 0xd5]);
+      (**(code **)*piVar11)
+                (piVar11,"\tLinearAttenuation: %f\n",(double)pfVar10[iVar13 * 0x18 + 0xd6]);
+      (**(code **)*piVar11)
+                (piVar11,"\tQuadraticAttenuation: %f\n",(double)pfVar10[iVar13 * 0x18 + 0xd7]);
+      iVar13 = iVar22;
+    } while (iVar22 != 8);
+    (**(code **)*piVar11)(piVar11,"OpenGL_LightModelAmbient: ");
+    FUN_040090a0();
+    (**(code **)*piVar11)(piVar11,"OpenGL_Material:\n");
+    (**(code **)*piVar11)(piVar11,"\tEmission: ");
+    FUN_040090a0();
+    (**(code **)*piVar11)(piVar11,"\tAmbient: ");
+    FUN_040090a0();
+    (**(code **)*piVar11)(piVar11,"\tDiffuse: ");
+    FUN_040090a0();
+    (**(code **)*piVar11)(piVar11,"\tSpecular: ");
+    FUN_040090a0();
+    (**(code **)*piVar11)(piVar11,"\tShininess: %f\n",(double)pfVar10[0x194]);
+    (**(code **)*piVar11)
+              (piVar11,"\tpadding (unused): %f, %f, %f\n",(double)pfVar10[0x195],
+               (double)pfVar10[0x196],(double)pfVar10[0x197]);
+  }
+  else {
+    if (local_24 != 0x1000) goto LAB_040d92d7;
+    iVar13 = 0;
+    do {
+      pfVar1 = pfVar10 + 3;
+      pfVar2 = pfVar10 + 2;
+      pfVar3 = pfVar10 + 1;
+      fVar4 = *pfVar10;
+      iVar22 = iVar13 + 1;
+      pfVar10 = pfVar10 + 4;
+      (**(code **)*piVar11)
+                (piVar11,"%04d: ( %f, %f, %f, %f )\n",iVar13,(double)fVar4,(double)*pfVar3,
+                 (double)*pfVar2,(double)*pfVar1);
+      iVar13 = iVar22;
+    } while (iVar22 != 0x100);
+  }
+  (**(code **)(*piVar11 + 0xc))(piVar11);
+  (*DAT_0451ecf0)(0x8a11);
+  iVar13 = glGetError();
+  if (iVar13 != 0) {
+    FUN_0400a810("glGetError() == 0",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+                 ,0x1351,"void OGLC_DumpBuffer(const char*, const char*, int)");
+  }
+LAB_040d901a:
+  if (local_30 == local_2c) {
+    return;
+  }
+  (*DAT_0451ed34)(0x8a11,local_2c);
+  iVar13 = glGetError();
+  if (iVar13 == 0) {
+    return;
+  }
+  FUN_0400a810("glGetError() == 0",
+               "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlDebugFunctions.cpp"
+               ,0x1359,"void OGLC_DumpBuffer(const char*, const char*, int)");
+  return;
+}
+

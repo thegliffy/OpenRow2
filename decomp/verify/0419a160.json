@@ -1,0 +1,26 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+bool _glewInit_GL_ARB_program_interface_query(void)
+
+{
+  int iVar1;
+  bool bVar2;
+  bool bVar3;
+  bool bVar4;
+  bool bVar5;
+  
+  iVar1 = glXGetProcAddressARB("glGetProgramInterfaceiv");
+  _DAT_0451e434 = iVar1;
+  _DAT_0451e430 = glXGetProcAddressARB("glGetProgramResourceIndex");
+  bVar2 = _DAT_0451e430 == 0;
+  _DAT_0451e42c = glXGetProcAddressARB("glGetProgramResourceLocation");
+  bVar3 = _DAT_0451e42c == 0;
+  _DAT_0451e428 = glXGetProcAddressARB("glGetProgramResourceLocationIndex");
+  bVar4 = _DAT_0451e428 == 0;
+  _DAT_0451e424 = glXGetProcAddressARB("glGetProgramResourceName");
+  bVar5 = _DAT_0451e424 == 0;
+  _DAT_0451e420 = glXGetProcAddressARB("glGetProgramResourceiv");
+  return _DAT_0451e420 == 0 || (bVar5 || (bVar4 || (bVar3 || (bVar2 || iVar1 == 0))));
+}
+

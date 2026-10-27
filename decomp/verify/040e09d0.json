@@ -1,0 +1,123 @@
+
+void OGLC_PrintHelp(void)
+
+{
+  int iVar1;
+  
+  puts("OpenGL debugging commands for eON:\n");
+  printf("Current log target: ");
+  if (DAT_044dac80 == (int *)0x0) {
+    FUN_040d9ba0();
+  }
+  iVar1 = (**(code **)(*DAT_044dac80 + 4))(DAT_044dac80);
+  if (iVar1 == 0) {
+    puts("GDB console.\n");
+  }
+  else {
+    printf("%s\n\n",iVar1);
+  }
+  printf("Current root save path: \'%s\'",&DAT_044daca0);
+  puts(" - OGLC_LogToConsole() - log all logs from now on to console (default setting).");
+  puts(
+      " - OGLC_LogToFile( \"/full/path/to/file\" ) - log all logs from now on to named file. For some reason files aren\'t created by relative paths.\n"
+      );
+  puts(
+      " - OGLC_SetRootSavePath( path ) - path added by default to all saved image paths. You\'ll probably edit openGlDebugFunctions.mm file to set your own chosen path as default anyway.\n"
+      );
+  puts(
+      " - OGLC_State( fullStateForDraw, eventText = 0 ) - log all OpenGL state for current context."
+      );
+  puts(" - OGLC_Binds() - log shared OpenGL objects bound to current context.");
+  puts(" - OGLC_Error() - log current OpenGL error.");
+  puts(
+      " - OGLC_Framebuffer( ID ) - log current state of framebuffer identified by ID ( 0 means the screen one )"
+      );
+  puts(" - OGLC_Renderbuffer( ID ) - log current state of renderbuffer identified by ID");
+  puts(" - OGLC_Texture( tex stage number ) - log current state of textures bound to given stage");
+  puts(" - OGLC_Program( ID ) - log current state of program identified by ID");
+  puts(" - OGLC_Shader( ID ) - log current state of shader identified by ID");
+  puts(" - OGLC_Buffer( bind place ) - log current state of buffer bound to given bind place");
+  puts(
+      "        posssible bind points: V(vertex), VAx(vertex array x), E(element), U(uniform), UBx(uniform bind x)"
+      );
+  putchar(10);
+  puts(
+      " - OGLC_DumpTexture( textureID, level (0-based), face(0-5 for Cube tex), \"path to file, relative to root save path\", flipVert (0/non0) )"
+      );
+  puts(
+      "         - dump content of given face/level of texture into given file. If texture isn\'t bound to some stage, this will fail. Most textures need flipping."
+      );
+  puts(
+      " - OGLC_DumpTex( textureID ) - shortcut. Dumps texture with name \"tex<textureID>.tiff\" with lvl 0, face 0, flip."
+      );
+  putchar(10);
+  puts(
+      " - OGLC_DumpFramebufferColor( framebufferID, attachmentIndex ( 0-3 ), \"path to file, relative to root save path\", flipVert (0/non0) )"
+      );
+  puts("         - dump content of selected color attachment of given framebuffer into given file.")
+  ;
+  puts(
+      " - OGLC_DumpFramebufferDepth( framebufferID, \"path to file, relative to root save path\", flipVert (0/non0) )"
+      );
+  puts("         - dump content of depth attachment of given framebuffer into given file.");
+  puts(
+      " - OGLC_DumpFramebufferStencil( framebufferID, \"path to file, relative to root save path\", flipVert (0/non0) )"
+      );
+  puts("         - dump content of stencil attachment of given framebuffer into given file.");
+  puts(
+      " - OGLC_DumpFB() - shortcut. Dumps all attachments of currently bound draw framebuffer with names \"fb<attachmentCounterOrTypeName>.tiff\", with flip."
+      );
+  puts(
+      " - OGLC_DumpBB() - shortcut. Dumps all attachments of backbuffer with names \"bb<attachmentCounterOrTypeName>.tiff\", with flip."
+      );
+  putchar(10);
+  puts(
+      " - OGLC_DumpBuffer( bind place, \"path to file, relative to root ave path\", additionalData ) - log current contents of buffer bound to given bind place, into given text file"
+      );
+  puts(
+      "        posssible bind points: V(vertex), VAx(vertex array x), E(element), UBx(uniform bind x). For E provide zero in additionalData if it\'s 16-bit, non-zero for 32-bit"
+      );
+  puts(
+      " - OGLC_DumpUniforms() - shortcut. Dumps all uniform buffers with names starting with \"uniformBuffer\"."
+      );
+  puts(
+      " - OGLC_DumpBuffers() - shortcut. Dumps all attached vertex, element, uniform buffers. Vertex and element buffers only make sense in addition to draw information, so they\'re dumped only before/after draws."
+      );
+  putchar(10);
+  puts(
+      " - OGLC_DumpState( eventText, isDraw ) - shortcut. Dumps all OpenGL state to file \"state.txt\"."
+      );
+  puts(
+      " - OGLC_DumpBoundTexturesInStage( i ) - shortcut. Dumps all textures bound in the given stage to appropriately named files."
+      );
+  puts(
+      " - OGLC_DumpBoundTextures() - shortcut. Dumps all textures bound in all stages to appropriately named files."
+      );
+  puts(
+      " - OGLC_DumpDraw( \"folder\", eventType = 0, eventText = 0 ) - shortcut. Dumps entire relevant OpenGL state into appropriately named files in given folder."
+      );
+  putchar(10);
+  puts(" - OGLC_Continue() - don\'t stop on anything from now on");
+  puts(" - OGLC_StopOnPresent() - stop in d3ddevice9\'s Present() call");
+  puts(
+      " - OGLC_StopOnDrawPresent( int32_t eventsToSkip = 0 ) - stop in d3ddevice9\'s draws and Present() calls"
+      );
+  puts(
+      " - OGLC_StopOnDrawClearPresent( int32_t eventsToSkip = 0 ) - stop in d3ddevice9\'s draws, clears and Present() calls"
+      );
+  puts(
+      " - OGLC_StopOnProgramUpdatePresent( int32_t eventsToSkip = 0 ) - stop in d3ddevice9\'s first draw after program update and Present() calls"
+      );
+  puts(
+      " - OGLC_DumpNextFrame() - run until Present(), log all draws until next Present() to subfolder \"frameDump\", then continue"
+      );
+  putchar(10);
+  puts(
+      "Textures and buffers can\'t be examined freely by ID because they need to be bound to something to be examined,"
+      );
+  puts(
+      "OpenGL offers no way to determine their type, and binding may irrevocably set a type to generated, untyped ID, causing OpenGL errors later."
+      );
+  return;
+}
+

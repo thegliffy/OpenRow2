@@ -1,0 +1,22 @@
+
+void DumpTextureStageToTIFF(undefined4 param_1)
+
+{
+  int iVar1;
+  char local_40c [1024];
+  
+  iVar1 = eON_Int_GL_NoteCurrentContext();
+  if (iVar1 == 0) {
+    puts("No valid OpenGL context in calling thread!.");
+  }
+  else {
+    if (DAT_044dac80 == 0) {
+      FUN_040d9ba0();
+    }
+    sprintf(local_40c,"%stex%d.tiff",&DAT_044daca0,param_1);
+    FUN_0401a1d0(local_40c);
+    DumpTextureDataByIDBoundInTextureStages(0,0);
+  }
+  return;
+}
+

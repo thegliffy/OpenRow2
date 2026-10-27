@@ -1,0 +1,47 @@
+
+/* source: openGlContextCache */
+
+void OpenGLContextCache____glewBindFramebuffer(int param_1,int param_2,int param_3)
+
+{
+  if (param_2 == 0x8d40) {
+    if ((*(int *)(param_1 + 0x358) != param_3) || (param_3 != *(int *)(param_1 + 0x354))) {
+      (*DAT_0451e694)(0x8d40,param_3);
+      *(int *)(param_1 + 0x358) = param_3;
+      *(int *)(param_1 + 0x354) = param_3;
+      *(undefined4 *)(param_1 + 0x33c) = 0xffffffff;
+      *(undefined4 *)(param_1 + 0x340) = 0xffffffff;
+      *(undefined4 *)(param_1 + 0x344) = 0xffffffff;
+      *(undefined4 *)(param_1 + 0x348) = 0xffffffff;
+      *(undefined1 *)(param_1 + 0x34c) = 0;
+      *(undefined4 *)(param_1 + 0x350) = 0xffffffff;
+      return;
+    }
+  }
+  else if (param_2 == 0x8ca9) {
+    if (*(int *)(param_1 + 0x358) != param_3) {
+      (*DAT_0451e694)(0x8ca9,param_3);
+      *(int *)(param_1 + 0x358) = param_3;
+      *(undefined4 *)(param_1 + 0x33c) = 0xffffffff;
+      *(undefined4 *)(param_1 + 0x340) = 0xffffffff;
+      *(undefined4 *)(param_1 + 0x344) = 0xffffffff;
+      *(undefined4 *)(param_1 + 0x348) = 0xffffffff;
+      *(undefined1 *)(param_1 + 0x34c) = 0;
+      return;
+    }
+  }
+  else {
+    if (param_2 != 0x8ca8) {
+      FUN_0400a810("target == 0x8CA8",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlContextCache.cpp"
+                   ,0x202,"void OpenGLContextCache::__glewBindFramebuffer(GLenum, GLuint)");
+    }
+    if (*(int *)(param_1 + 0x354) != param_3) {
+      (*DAT_0451e694)(0x8ca8,param_3);
+      *(int *)(param_1 + 0x354) = param_3;
+      *(undefined4 *)(param_1 + 0x350) = 0xffffffff;
+    }
+  }
+  return;
+}
+

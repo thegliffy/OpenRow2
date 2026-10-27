@@ -1,0 +1,89 @@
+
+undefined4 Direct3DQuery9Imp__Issue(int *param_1,int param_2)
+
+{
+  int iVar1;
+  char cVar2;
+  undefined4 uVar3;
+  int iVar4;
+  int *local_10;
+  
+  iVar4 = param_1[8];
+  if (iVar4 == 8) {
+    if (param_2 != 1) {
+      return 0x8876086c;
+    }
+    if (param_1[7] != 0) {
+      direct3ddevice9imp_040803c0(param_1[7] + 0x40);
+    }
+    *(undefined1 *)((int)param_1 + 0x3d) = 0;
+    *(undefined1 *)(param_1 + 0xf) = 0;
+                    /* try { // try from 040a5770 to 040a578c has its CatchHandler @ 040a5852 */
+    D3D9CommandQueue__GetNextCommandPointer(param_1[7] + 0xec40,param_1,0x37,0);
+    (**(code **)(*param_1 + 0xc))(param_1);
+    D3D9CommandQueue__CommandSubmitted(param_1[7] + 0xec40);
+    iVar4 = *(int *)(param_1[7] + 0xec80);
+    param_1[10] = *(int *)(param_1[7] + 0xec84);
+    param_1[9] = iVar4;
+  }
+  else {
+    if (iVar4 != 9) {
+      if (iVar4 != 5) {
+        FUN_0402cd10(10,"Query type %u wanted in Issue()!",iVar4);
+        return 0;
+      }
+      uVar3 = 0x8876086c;
+      if (param_2 == 1) {
+        uVar3 = 0;
+      }
+      return uVar3;
+    }
+    cVar2 = FUN_0401f1e0();
+    if (cVar2 != '\0') {
+      return 1;
+    }
+    if (param_2 == 2) {
+      iVar4 = 0;
+      if (param_1[7] != 0) {
+        direct3ddevice9imp_040803c0(param_1[7] + 0x40);
+        iVar4 = param_1[7];
+      }
+                    /* try { // try from 040a5829 to 040a5845 has its CatchHandler @ 040a5876 */
+      D3D9CommandQueue__GetNextCommandPointer(iVar4 + 0xec40,param_1,0x38,0);
+      (**(code **)(*param_1 + 0xc))(param_1);
+      D3D9CommandQueue__CommandSubmitted(param_1[7] + 0xec40);
+      param_1[0x10] = 1;
+    }
+    else {
+      if (param_2 != 1) {
+        return 0;
+      }
+      if (param_1[0x10] == 0) {
+        return 0;
+      }
+      if (param_1[0x10] - 2U < 2) {
+        return 0;
+      }
+      if (param_1[7] != 0) {
+        direct3ddevice9imp_040803c0(param_1[7] + 0x40);
+      }
+      *(undefined1 *)(param_1 + 0x13) = 1;
+                    /* try { // try from 040a56e7 to 040a5703 has its CatchHandler @ 040a5864 */
+      D3D9CommandQueue__GetNextCommandPointer(param_1[7] + 0xec40,param_1,0x39,0);
+      (**(code **)(*param_1 + 0xc))(param_1);
+      D3D9CommandQueue__CommandSubmitted(param_1[7] + 0xec40);
+      iVar4 = *(int *)(param_1[7] + 0xec84);
+      iVar1 = *(int *)(param_1[7] + 0xec80);
+      param_1[0x10] = 2;
+      param_1[10] = iVar4;
+      param_1[9] = iVar1;
+    }
+  }
+  local_10 = param_1 + 7;
+  if (*local_10 == 0) {
+    return 0;
+  }
+  direct3ddevice9imp_04080490(*local_10 + 0x40);
+  return 0;
+}
+

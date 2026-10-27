@@ -1,0 +1,40 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+bool _glewInit_GL_NV_vdpau_interop(void)
+
+{
+  int iVar1;
+  bool bVar2;
+  bool bVar3;
+  bool bVar4;
+  bool bVar5;
+  bool bVar6;
+  bool bVar7;
+  bool bVar8;
+  bool bVar9;
+  
+  iVar1 = glXGetProcAddressARB("glVDPAUFiniNV");
+  _DAT_0451cf4c = iVar1;
+  _DAT_0451cf48 = glXGetProcAddressARB("glVDPAUGetSurfaceivNV");
+  bVar2 = _DAT_0451cf48 == 0;
+  _DAT_0451cf44 = glXGetProcAddressARB("glVDPAUInitNV");
+  bVar3 = _DAT_0451cf44 == 0;
+  _DAT_0451cf40 = glXGetProcAddressARB("glVDPAUIsSurfaceNV");
+  bVar4 = _DAT_0451cf40 == 0;
+  _DAT_0451cf3c = glXGetProcAddressARB("glVDPAUMapSurfacesNV");
+  bVar5 = _DAT_0451cf3c == 0;
+  _DAT_0451cf38 = glXGetProcAddressARB("glVDPAURegisterOutputSurfaceNV");
+  bVar6 = _DAT_0451cf38 == 0;
+  _DAT_0451cf34 = glXGetProcAddressARB("glVDPAURegisterVideoSurfaceNV");
+  bVar7 = _DAT_0451cf34 == 0;
+  _DAT_0451cf30 = glXGetProcAddressARB("glVDPAUSurfaceAccessNV");
+  bVar8 = _DAT_0451cf30 == 0;
+  _DAT_0451cf2c = glXGetProcAddressARB("glVDPAUUnmapSurfacesNV");
+  bVar9 = _DAT_0451cf2c == 0;
+  _DAT_0451cf28 = glXGetProcAddressARB("glVDPAUUnregisterSurfaceNV");
+  return _DAT_0451cf28 == 0 ||
+         (bVar9 || (bVar8 || (bVar7 || (bVar6 || (bVar5 || (bVar4 || (bVar3 || (bVar2 || iVar1 == 0)
+                                                                     )))))));
+}
+

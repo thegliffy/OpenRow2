@@ -1,0 +1,16 @@
+
+/* WARNING: Function: __i686.get_pc_thunk.bx replaced with injection: get_pc_thunk_bx */
+
+void google_breakpad__MinidumpFileWriter__SetFile(int *param_1,int param_2)
+
+{
+  if (*param_1 == -1) {
+    *(undefined1 *)(param_1 + 1) = 0;
+    *param_1 = param_2;
+    return;
+  }
+                    /* WARNING: Subroutine does not return */
+  __assert_fail("file_ == -1","src/client/minidump_file_writer.cc",0x4b,
+                "void google_breakpad::MinidumpFileWriter::SetFile(int)");
+}
+

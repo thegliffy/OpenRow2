@@ -1,0 +1,31 @@
+
+/* source: fs_files */
+
+bool fs_files_04131860(undefined4 param_1)
+
+{
+  undefined4 uVar1;
+  char cVar2;
+  int iVar3;
+  __off64_t __length;
+  int local_18 [2];
+  undefined4 *local_10;
+  
+  uVar1 = param_1;
+  local_10 = &param_1;
+  cVar2 = FUN_0403c420(param_1);
+  if (cVar2 != '\0') {
+    FUN_0400a810("!SplitFile_IsHandleToSplitFile( (size_t) hFile )",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/fs_files.cpp"
+                 ,0xa03,"WINBOOL fs_SetEndOfFile(HANDLE)");
+  }
+  iVar3 = Synchronisation_GetObjectInfo(uVar1,local_18);
+  if (iVar3 != 0) {
+    __length = lseek64(*(int *)(local_18[0] + 4),0,1);
+    iVar3 = ftruncate64(*(int *)(local_18[0] + 4),__length);
+    return iVar3 == 0;
+  }
+  eON_SetLastError(6);
+  return false;
+}
+

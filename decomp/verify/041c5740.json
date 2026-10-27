@@ -1,0 +1,32 @@
+
+/* source: tinyxml */
+
+void TiXmlAttributeSet___TiXmlAttributeSet(undefined4 *param_1)
+
+{
+  undefined4 *puVar1;
+  
+  if ((undefined4 *)param_1[8] != param_1) {
+                    /* try { // try from 041c576f to 041c579c has its CatchHandler @ 041c57dc */
+    FUN_0400a810("sentinel.next == &sentinel",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxml.cpp"
+                 ,0x5e5,"TiXmlAttributeSet::~TiXmlAttributeSet()");
+  }
+  if (param_1 != (undefined4 *)param_1[7]) {
+    FUN_0400a810("sentinel.prev == &sentinel",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/thirdParty/tinyxml/tinyxml.cpp"
+                 ,0x5e6,"TiXmlAttributeSet::~TiXmlAttributeSet()");
+  }
+  puVar1 = (undefined4 *)param_1[6];
+  *param_1 = &PTR_FUN_043629f8;
+  if ((puVar1 != &DAT_0451eee4) && (puVar1 != (undefined4 *)0x0)) {
+    operator_delete__(puVar1);
+  }
+  puVar1 = (undefined4 *)param_1[5];
+  if ((puVar1 != &DAT_0451eee4) && (puVar1 != (undefined4 *)0x0)) {
+    operator_delete__(puVar1);
+  }
+  *param_1 = &PTR_FUN_04362158;
+  return;
+}
+

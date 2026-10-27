@@ -1,0 +1,120 @@
+
+undefined4 png_image_read_composite(int *param_1)
+
+{
+  char cVar1;
+  undefined4 *puVar2;
+  int iVar3;
+  uint uVar4;
+  int iVar5;
+  int iVar6;
+  int iVar7;
+  byte bVar8;
+  byte *pbVar9;
+  byte bVar10;
+  byte *pbVar11;
+  uint uVar12;
+  uint uVar13;
+  uint uVar14;
+  uint uVar15;
+  uint uVar16;
+  int iVar17;
+  uint local_5c;
+  uint local_54;
+  int local_50;
+  int local_4c;
+  int local_44;
+  uint local_34;
+  int local_30;
+  int local_2c;
+  int local_28;
+  
+  local_28 = 1;
+  puVar2 = (undefined4 *)*param_1;
+  iVar3 = *(int *)*puVar2;
+  cVar1 = *(char *)(iVar3 + 0x1b0);
+  if (cVar1 != '\0') {
+    if (cVar1 != '\x01') {
+                    /* WARNING: Subroutine does not return */
+      png_error(iVar3,"unknown interlace type");
+    }
+    local_28 = 7;
+  }
+  uVar4 = puVar2[3];
+  local_30 = 1;
+  local_34 = 0;
+  iVar5 = puVar2[2];
+  iVar6 = param_1[7];
+  uVar12 = -(uint)((puVar2[4] & 2) == 0) & 0xfffffffe;
+  uVar13 = uVar12 + 3;
+  if (cVar1 == '\x01') goto LAB_042adee2;
+LAB_042add68:
+  local_54 = 0;
+  local_4c = 1;
+  local_2c = local_30;
+  local_44 = 0;
+  local_5c = uVar13;
+  do {
+    if (local_54 < uVar4) {
+      local_50 = local_54 * iVar6;
+      do {
+        iVar17 = param_1[5];
+        png_read_row(iVar3,iVar17,0);
+        iVar7 = param_1[6];
+        for (pbVar9 = (byte *)(local_50 + iVar7 + local_44);
+            pbVar9 < (byte *)(uVar13 * iVar5 + local_50 + iVar7); pbVar9 = pbVar9 + local_5c) {
+          bVar10 = *(byte *)(iVar17 + uVar13);
+          if (bVar10 != 0) {
+            uVar14 = 0;
+            pbVar11 = pbVar9;
+            do {
+              bVar8 = *(byte *)(iVar17 + uVar14);
+              if (bVar10 != 0xff) {
+                uVar16 = (uint)(ushort)(&DAT_04399720)[*pbVar11] * (0xff - (uint)bVar10) +
+                         (uint)bVar8 * 0xffff;
+                uVar15 = uVar16 >> 0xf;
+                bVar8 = (byte)(((uint)(byte)(&DAT_04399120)[uVar15] * (uVar16 & 0x7fff) >> 0xc) +
+                               (uint)*(ushort *)(&DAT_04399320 + uVar15 * 2) >> 8);
+              }
+              *pbVar11 = bVar8;
+              uVar14 = uVar14 + 1;
+              pbVar11 = pbVar11 + 1;
+            } while (uVar14 < uVar13);
+          }
+          iVar17 = iVar17 + uVar12 + 4;
+        }
+        local_54 = local_54 + local_4c;
+        local_50 = local_50 + local_4c * iVar6;
+      } while (local_54 < uVar4);
+    }
+    do {
+      local_34 = local_34 + 1;
+      local_30 = local_2c + 1;
+      if (local_28 <= local_2c) {
+        return 1;
+      }
+      if (*(char *)(iVar3 + 0x1b0) != '\x01') goto LAB_042add68;
+LAB_042adee2:
+      cVar1 = (char)(local_30 >> 1);
+      if ((int)local_34 < 2) {
+        uVar15 = (local_34 & 1) << (3U - cVar1 & 0x1f);
+        uVar14 = ~uVar15 & 7;
+        bVar10 = 3;
+      }
+      else {
+        uVar15 = (local_34 & 1) << (3U - cVar1 & 0x1f);
+        bVar10 = (byte)((int)(7 - local_34) >> 1);
+        uVar14 = ((1 << (bVar10 & 0x1f)) + -1) - (uVar15 & 7);
+      }
+      local_2c = local_30;
+    } while (uVar14 + iVar5 >> (bVar10 & 0x1f) == 0);
+    local_44 = (uVar15 & 7) * uVar13;
+    local_5c = uVar13 << ((byte)((int)(7 - local_34) >> 1) & 0x1f);
+    local_54 = (local_34 & 1 ^ 1) << (3U - (char)((int)local_34 >> 1) & 0x1f) & 7;
+    local_4c = 8;
+    if (2 < (int)local_34) {
+      local_4c = 8 >> ((byte)((int)(local_34 - 1) >> 1) & 0x1f);
+    }
+  } while( true );
+}
+

@@ -1,0 +1,47 @@
+
+/* source: vpfs */
+
+void __regparm2
+TransferBufferSet(void *param_1,int param_2,void *param_3,void *param_4,size_t param_5,int param_6)
+
+{
+  uint uVar1;
+  uint uVar2;
+  void *__dest;
+  size_t __n;
+  
+  uVar1 = (uint)param_3 >> 0xc | (int)param_4 << 0x14;
+  uVar2 = (uint)param_3 & 0xfff;
+  if (0x1000 < param_5) {
+    FUN_0400a810("byteCount <= pageSize",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/vpfs/vpfs.cpp",0xe74,
+                 "void TransferBufferSet(uint8_t*, void*, VPFSFileSize, DWORD, WINBOOL)");
+  }
+  if (uVar2 + param_5 < 0x1001) {
+    param_4 = (void *)(uVar2 + *(int *)(param_2 + uVar1 * 8));
+    param_3 = param_1;
+    if (param_6 == 0) {
+      param_3 = param_4;
+      param_4 = param_1;
+    }
+  }
+  else {
+    __n = 0x1000 - uVar2;
+    __dest = (void *)(uVar2 + *(int *)(param_2 + uVar1 * 8));
+    if (param_6 == 0) {
+      memcpy(__dest,param_1,__n);
+      param_5 = param_5 - __n;
+      param_4 = (void *)(__n + (int)param_1);
+      param_3 = *(void **)(param_2 + 8 + uVar1 * 8);
+    }
+    else {
+      memcpy(param_1,__dest,__n);
+      param_4 = *(void **)(param_2 + 8 + uVar1 * 8);
+      param_5 = param_5 - __n;
+      param_3 = (void *)((int)param_1 + __n);
+    }
+  }
+  memcpy(param_3,param_4,param_5);
+  return;
+}
+

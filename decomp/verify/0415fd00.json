@@ -1,0 +1,20 @@
+
+/* source: rtlbitmap */
+
+undefined4 eON_RtlNumberOfClearBits(int param_1)
+
+{
+  undefined4 uVar1;
+  
+  if (param_1 == 0) {
+    FUN_0400a810("BitMapHeader",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/ntdll/rtlbitmap.cpp"
+                 ,0xb3,"ULONG eON_RtlNumberOfClearBits(PCRTL_BITMAP)");
+    uVar1 = 0;
+  }
+  else {
+    uVar1 = FUN_0402e550(param_1);
+  }
+  return uVar1;
+}
+

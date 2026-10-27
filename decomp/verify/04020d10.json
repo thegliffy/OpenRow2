@@ -1,0 +1,72 @@
+
+/* source: opengl_objects */
+
+void TestSurfaceCompatibility
+               (undefined4 param_1,undefined4 param_2,undefined4 param_3,undefined4 param_4,
+               undefined4 param_5,undefined4 param_6,char param_7)
+
+{
+  int iVar1;
+  int local_28;
+  int local_24;
+  undefined4 local_20 [4];
+  
+  glGetError();
+  local_28 = 0;
+  glGenTextures(1,&local_28);
+  if (local_28 == 0) {
+    FUN_0400a810("texColor",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/linux/opengl_objects.cpp"
+                 ,0x43b,
+                 "void TestSurfaceCompatibility(GLenum, GLenum, GLenum, GLenum, GLenum, GLenum, bool)"
+                );
+  }
+  local_24 = 0;
+  glGenTextures(1,&local_24);
+  if (local_24 == 0) {
+    FUN_0400a810("texDepthStencil",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/linux/opengl_objects.cpp"
+                 ,0x43f,
+                 "void TestSurfaceCompatibility(GLenum, GLenum, GLenum, GLenum, GLenum, GLenum, bool)"
+                );
+  }
+  (*DAT_0451eeac)(0x84c0);
+  glBindTexture(0xde1,local_28);
+  glTexImage2D(0xde1,0,param_1,0x20,0x20,0,param_2,param_3,0);
+  glBindTexture(0xde1,local_24);
+  glTexImage2D(0xde1,0,param_4,0x20,0x20,0,param_5,param_6,0);
+  glBindTexture(0xde1,0);
+  local_20[0] = 0;
+  (*DAT_0451e668)(1,local_20);
+  (*DAT_0451e694)(0x8d40,local_20[0]);
+  (*DAT_0451ea74)(0x8d40,0x8ce0,local_28,0);
+  (*DAT_0451ea74)(0x8d40,(-(uint)(param_7 == '\0') & 0xae6) + 0x821a,local_24,0);
+  (*DAT_0451eed0)(0x8ce0);
+  (*DAT_0451eed4)(0x8ce0);
+  iVar1 = (*DAT_0451e688)(0x8d40);
+  FUN_0402cd10(0x14,"Complete result: %#x",iVar1);
+  if (iVar1 != 0x8cd5) {
+    FUN_0400a810("completeResult == 0x8CD5",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/linux/opengl_objects.cpp"
+                 ,0x455,
+                 "void TestSurfaceCompatibility(GLenum, GLenum, GLenum, GLenum, GLenum, GLenum, bool)"
+                );
+  }
+  (*DAT_0451e694)(0x8d40,0);
+  (*DAT_0451eed0)(0x405);
+  (*DAT_0451eed4)(0x405);
+  (*DAT_0451e684)(1,local_20);
+  glDeleteTextures(1,&local_28);
+  glDeleteTextures(1,&local_24);
+  iVar1 = glGetError();
+  if (iVar1 != 0) {
+    FUN_0400a810("glGetError() == 0",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/linux/opengl_objects.cpp"
+                 ,0x45f,
+                 "void TestSurfaceCompatibility(GLenum, GLenum, GLenum, GLenum, GLenum, GLenum, bool)"
+                );
+  }
+  FUN_0402cd10(0x14,"Test done.");
+  return;
+}
+

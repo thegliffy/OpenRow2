@@ -1,0 +1,44 @@
+
+/* source: xaudio2voiceimpl */
+
+void XAudio2VoiceImp__Real_SetEffectParameters
+               (int param_1,int param_2,undefined4 param_3,undefined4 param_4)
+
+{
+  undefined4 *puVar1;
+  int iVar2;
+  int *local_14;
+  int *local_10;
+  
+  if (param_2 < 0) {
+    FUN_0400a810("EffectIndex >= 0",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/xaudio2_full/xaudio2voiceimpl.cpp"
+                 ,0xad,
+                 "void XAudio2VoiceImp::Real_SetEffectParameters(int, long unsigned int, void*)");
+  }
+  if ((*(int *)(param_1 + 0x10c) - *(int *)(param_1 + 0x108) >> 2) * -0x55555555 <= param_2) {
+    return;
+  }
+  puVar1 = *(undefined4 **)(*(int *)(param_1 + 0x108) + param_2 * 0xc);
+  local_14 = (int *)0x0;
+  iVar2 = (**(code **)*puVar1)(puVar1,&DAT_042dafc8,&local_14);
+  if ((iVar2 < 0) || (local_14 == (int *)0x0)) {
+    FUN_0400a810("((HRESULT)(result) >= 0) && xapoEffect",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/xaudio2_full/xaudio2voiceimpl.cpp"
+                 ,0xb8,
+                 "void XAudio2VoiceImp::Real_SetEffectParameters(int, long unsigned int, void*)");
+  }
+  local_10 = (int *)0x0;
+  iVar2 = (**(code **)*puVar1)(puVar1,&DAT_042dafb8,&local_10);
+  if ((iVar2 < 0) || (local_10 == (int *)0x0)) {
+    FUN_0400a810("((HRESULT)(result) >= 0) && xapoParameters",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/xaudio2_full/xaudio2voiceimpl.cpp"
+                 ,0xbc,
+                 "void XAudio2VoiceImp::Real_SetEffectParameters(int, long unsigned int, void*)");
+  }
+  (**(code **)(*local_10 + 0xc))(local_10,param_4,param_3);
+  (**(code **)(*local_10 + 8))(local_10);
+  (**(code **)(*local_14 + 8))(local_14);
+  return;
+}
+

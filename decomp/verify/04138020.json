@@ -1,0 +1,102 @@
+
+/* source: heapImplementation */
+
+undefined4 Heap_Destroy(int *param_1)
+
+{
+  int *piVar1;
+  int iVar2;
+  int *piVar3;
+  int *piVar4;
+  undefined4 *puVar5;
+  int *piVar6;
+  bool bVar7;
+  undefined4 local_38;
+  int *local_34;
+  int *local_30;
+  int *local_2c;
+  char *local_28;
+  undefined4 local_24;
+  char *local_20;
+  
+  if (((param_1 == (int *)0x0) || (*param_1 != 0x59372851)) || (param_1 == DAT_04515b5c)) {
+    return 0;
+  }
+  if (DAT_04515b5c == (int *)0x0) {
+    local_20 = "WINBOOL Heap_Destroy(HANDLE)";
+    local_24 = 0x4e4;
+    local_28 = 
+    "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/heapImplementation.cpp"
+    ;
+    local_2c = (int *)0x432b47a;
+    local_30 = (int *)0x413819f;
+    FUN_0400a810();
+  }
+  local_2c = DAT_04515b5c + 0xa00;
+  local_30 = (int *)0x4138068;
+  EnterCriticalSection();
+  if (DAT_04515b58 != 0) {
+    iVar2 = 0;
+    piVar3 = (int *)*DAT_04515b54;
+    puVar5 = DAT_04515b54;
+    while (param_1 != piVar3) {
+      puVar5 = puVar5 + 1;
+      iVar2 = iVar2 + 1;
+      if (iVar2 == DAT_04515b58) goto LAB_041380a5;
+      piVar3 = (int *)*puVar5;
+    }
+    DAT_04515b58 = DAT_04515b58 + -1;
+    *puVar5 = DAT_04515b54[DAT_04515b58];
+  }
+LAB_041380a5:
+  local_30 = DAT_04515b5c;
+  *param_1 = 0;
+  local_30 = local_30 + 0xa00;
+  local_34 = (int *)0x41380bd;
+  LeaveCriticalSection();
+  local_34 = param_1 + 0xa00;
+  local_38 = 0x41380ce;
+  eON_DeleteCriticalSection();
+  piVar6 = &local_38;
+  piVar4 = &local_38;
+  if (param_1[4] != 0) {
+    piVar3 = (int *)(param_1[4] + 8);
+    do {
+      piVar1 = (int *)piVar3[1];
+      *piVar1 = *piVar3;
+      *(int **)(*piVar3 + 4) = piVar1;
+      piVar4[2] = 0x8000;
+      piVar4[1] = 0;
+      *piVar4 = (int)(piVar3 + -2);
+      piVar4[-1] = 0x4138109;
+      eON_VirtualFree();
+      piVar6 = piVar4 + -3;
+      piVar4 = piVar4 + -3;
+      bVar7 = piVar1 != piVar3;
+      piVar3 = piVar1;
+    } while (bVar7);
+  }
+  piVar3 = (int *)param_1[3];
+  puVar5 = piVar6;
+  if ((int *)param_1[3] != (int *)0x0) {
+    do {
+      piVar1 = (int *)piVar3[1];
+      *piVar1 = *piVar3;
+      *(int **)(*piVar3 + 4) = piVar1;
+      puVar5[2] = 0x8000;
+      puVar5[1] = 0;
+      *puVar5 = piVar3;
+      puVar5[-1] = 0x4138146;
+      eON_VirtualFree();
+      piVar6 = puVar5 + -3;
+      puVar5 = puVar5 + -3;
+      bVar7 = piVar1 != piVar3;
+      piVar3 = piVar1;
+    } while (bVar7);
+  }
+  *piVar6 = (int)param_1;
+  piVar6[-1] = 0x4138155;
+  free((void *)*piVar6);
+  return 1;
+}
+

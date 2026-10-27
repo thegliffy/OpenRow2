@@ -1,0 +1,621 @@
+
+/* source: vpfs */
+
+undefined4 __regparm3 VPFS_OpenFolderOnDisk(char *param_1,int param_2,char *param_3)
+
+{
+  byte bVar1;
+  int *piVar2;
+  bool bVar3;
+  bool bVar4;
+  char cVar5;
+  int iVar6;
+  int *piVar7;
+  void *pvVar8;
+  size_t sVar9;
+  char *pcVar10;
+  int *piVar11;
+  uint *puVar12;
+  int iVar13;
+  int iVar14;
+  undefined4 uVar15;
+  int *piVar16;
+  int iVar17;
+  uint *puVar18;
+  uint uVar19;
+  int *piVar20;
+  byte *pbVar21;
+  uint uVar22;
+  uint uVar23;
+  uint uVar24;
+  int *piVar25;
+  int iVar26;
+  bool bVar27;
+  int aiStackY_db0 [5];
+  int local_d74;
+  undefined4 *local_d60;
+  int local_d5c;
+  int local_d58;
+  undefined1 local_d44 [1023];
+  char cStack_945;
+  undefined4 local_944;
+  uint local_544 [256];
+  int local_144;
+  int local_140;
+  int local_13c;
+  int local_138;
+  int local_134;
+  int local_130;
+  int local_12c;
+  int local_128;
+  int local_124;
+  int local_120;
+  uint local_11c [67];
+  
+  piVar16 = (int *)&stack0xfffff264;
+  aiStackY_db0[4] = 0x4040fa9;
+  iVar6 = VPFS_PathToPathInArchive();
+  local_d74 = -1;
+  if (iVar6 != 0) {
+    aiStackY_db0[4] = 0x4041cdb;
+    local_d74 = VPFS_FindInVirtualFilesystem();
+  }
+  aiStackY_db0[4] = 0x4040fc9;
+  piVar7 = malloc(0xc);
+  piVar7[1] = 0;
+  piVar7[2] = 0x100;
+  aiStackY_db0[4] = 0x4040fe9;
+  pvVar8 = malloc(0x400);
+  *piVar7 = (int)pvVar8;
+  pcVar10 = param_3;
+  if (param_3 == (char *)0x0) {
+    pcVar10 = param_1;
+  }
+  aiStackY_db0[4] = 0x404100e;
+  sVar9 = strlen(pcVar10);
+  aiStackY_db0[4] = 0x4041028;
+  strcpy((char *)&local_944,pcVar10);
+  if ((1 < sVar9) && (((&cStack_945)[sVar9] != '/' || ((&cStack_945)[sVar9] = '\0', sVar9 != 2)))) {
+    aiStackY_db0[4] = 0x4041051;
+    VPFS_OpenFolder_AddToBuffer();
+    aiStackY_db0[4] = 0x4041067;
+    pcVar10 = strrchr((char *)&local_944,0x2f);
+    if (pcVar10 != (char *)0x0) {
+      if (pcVar10 == (char *)&local_944) {
+        local_944._1_1_ = 0;
+      }
+      else {
+        *pcVar10 = '\0';
+      }
+    }
+    aiStackY_db0[4] = 0x4041090;
+    VPFS_OpenFolder_AddToBuffer();
+  }
+  local_d5c = 0;
+  if (iVar6 != 0) {
+    aiStackY_db0[4] = 0x4041d06;
+    iVar6 = FUN_0404c040();
+    if (iVar6 != 0) {
+      aiStackY_db0[4] = 0x4041d18;
+      local_d5c = FUN_0404c340();
+      aiStackY_db0[4] = 0x4041d26;
+      VPFSDB_ReleaseObject();
+    }
+  }
+  if (local_d74 != -1) {
+    piVar11 = (int *)(local_d74 + 0x24 + (uint)*(ushort *)(DAT_04468a94 + 2 + local_d74) +
+                     DAT_04468a94);
+    iVar6 = *piVar11;
+    if (iVar6 != 0) {
+      local_d58 = 0;
+      iVar17 = 0;
+      if (local_d5c == 0) {
+        do {
+          iVar26 = piVar11[local_d58 + 1];
+          iVar17 = DAT_04468a94 + 0x24;
+          pbVar21 = (byte *)(DAT_04468a94 + iVar26);
+          aiStackY_db0[4] = 0x404116d;
+          puVar12 = malloc(300);
+          bVar1 = *pbVar21;
+          uVar22 = (uint)*(ushort *)(pbVar21 + 2);
+          uVar19 = *(uint *)(pbVar21 + 0xc);
+          *puVar12 = (uint)bVar1;
+          puVar12[1] = uVar22;
+          uVar23 = *(uint *)(pbVar21 + 8);
+          puVar12[3] = uVar19;
+          uVar19 = *(uint *)(pbVar21 + 0x14);
+          puVar12[2] = uVar23;
+          uVar23 = *(uint *)(pbVar21 + 0x10);
+          puVar12[5] = uVar19;
+          uVar19 = *(uint *)(pbVar21 + 0x1c);
+          puVar12[4] = uVar23;
+          uVar23 = *(uint *)(pbVar21 + 0x18);
+          puVar12[7] = uVar19;
+          puVar12[6] = uVar23;
+          uVar19 = *(uint *)(pbVar21 + 0x20);
+          puVar12[9] = 0;
+          puVar12[10] = 0;
+          puVar12[8] = uVar19;
+          if (bVar1 - 1 < 2) {
+            iVar13 = DAT_04468a94 + uVar22 + piVar11[local_d58 + 1];
+            uVar19 = *(uint *)(iVar13 + 0x24);
+            puVar12[10] = *(uint *)(iVar13 + 0x28);
+            puVar12[9] = uVar19;
+          }
+          aiStackY_db0[4] = 0x4041119;
+          memcpy(puVar12 + 0xb,(void *)(iVar17 + iVar26),uVar22);
+          aiStackY_db0[4] = 0x4041126;
+          TemporaryDirElemList_Add();
+          local_d58 = local_d58 + 1;
+        } while (local_d58 != iVar6);
+      }
+      else {
+        do {
+          iVar14 = DAT_04468a94;
+          iVar13 = piVar11[iVar17 + 1];
+          iVar26 = DAT_04468a94 + 0x24;
+          aiStackY_db0[4] = 0x4041277;
+          cVar5 = FUN_0404c420();
+          if (cVar5 == '\0') {
+            pbVar21 = (byte *)(iVar13 + iVar14);
+            aiStackY_db0[4] = 0x4041289;
+            puVar12 = malloc(300);
+            bVar1 = *pbVar21;
+            uVar22 = (uint)*(ushort *)(pbVar21 + 2);
+            *puVar12 = (uint)bVar1;
+            puVar12[1] = uVar22;
+            uVar19 = *(uint *)(pbVar21 + 0xc);
+            puVar12[2] = *(uint *)(pbVar21 + 8);
+            uVar23 = *(uint *)(pbVar21 + 0x10);
+            puVar12[3] = uVar19;
+            uVar19 = *(uint *)(pbVar21 + 0x14);
+            puVar12[4] = uVar23;
+            uVar23 = *(uint *)(pbVar21 + 0x18);
+            puVar12[5] = uVar19;
+            uVar19 = *(uint *)(pbVar21 + 0x1c);
+            puVar12[6] = uVar23;
+            uVar23 = *(uint *)(pbVar21 + 0x20);
+            puVar12[7] = uVar19;
+            puVar12[9] = 0;
+            puVar12[10] = 0;
+            puVar12[8] = uVar23;
+            if (bVar1 - 1 < 2) {
+              iVar14 = uVar22 + DAT_04468a94 + piVar11[iVar17 + 1];
+              uVar19 = *(uint *)(iVar14 + 0x24);
+              puVar12[10] = *(uint *)(iVar14 + 0x28);
+              puVar12[9] = uVar19;
+            }
+            aiStackY_db0[4] = 0x404122f;
+            memcpy(puVar12 + 0xb,(void *)(iVar26 + iVar13),uVar22);
+            aiStackY_db0[4] = 0x404123c;
+            TemporaryDirElemList_Add();
+          }
+          iVar17 = iVar17 + 1;
+        } while (iVar17 != iVar6);
+      }
+    }
+  }
+  aiStackY_db0[4] = 0x40412f5;
+  uVar15 = eON_GetLastError();
+  aiStackY_db0[4] = 0x4041313;
+  iVar6 = VPFS_EnumerateDiskFolderEntries();
+  if (iVar6 != 0) {
+    do {
+      if (local_d5c == 0) {
+LAB_0404135a:
+        local_d58 = local_144;
+        if (local_144 != 3) {
+          uVar23 = 0;
+          uVar19 = piVar7[1];
+          uVar22 = uVar19;
+          uVar24 = uVar23;
+          if (uVar19 != 0) {
+            do {
+              while( true ) {
+                uVar23 = uVar22 + uVar24 >> 1;
+                aiStackY_db0[4] = 0x40413b2;
+                iVar6 = FUN_0403cd80();
+                if (uVar22 - uVar24 == 1) {
+                  uVar23 = uVar24;
+                  if (0 < iVar6) {
+                    uVar23 = uVar22;
+                  }
+                  goto joined_r0x04041ae5;
+                }
+                if (iVar6 < 0) break;
+                if ((iVar6 == 0) || (uVar24 = uVar23, uVar23 == uVar22)) goto joined_r0x04041ae5;
+              }
+              uVar22 = uVar23;
+            } while (uVar23 != uVar24);
+          }
+joined_r0x04041ae5:
+          if (uVar23 < uVar19) {
+            piVar16 = *(int **)(*piVar7 + uVar23 * 4);
+            aiStackY_db0[4] = 0x4041b06;
+            iVar6 = FUN_0403cd80();
+            if ((iVar6 != 0) || (piVar16 == (int *)0x0)) goto LAB_040413e4;
+            aiStackY_db0[4] = 0x4041b28;
+            iVar6 = strcasecmp((char *)(piVar16 + 0xb),(char *)local_11c);
+            if (iVar6 != 0) {
+              aiStackY_db0[4] = 0x4041c74;
+              FUN_0400a810();
+            }
+            puVar12 = local_11c;
+            do {
+              puVar18 = puVar12;
+              uVar23 = *puVar18 + 0xfefefeff & ~*puVar18;
+              uVar19 = uVar23 & 0x80808080;
+              puVar12 = puVar18 + 1;
+            } while (uVar19 == 0);
+            if ((uVar23 & 0x8080) == 0) {
+              puVar12 = (uint *)((int)puVar18 + 6);
+              uVar19 = uVar19 >> 0x10;
+            }
+            if (piVar16[1] !=
+                (int)puVar12 + (-(int)local_11c - (uint)CARRY1((byte)uVar19,(byte)uVar19)) + -2) {
+              aiStackY_db0[4] = 0x4041b96;
+              FUN_0400a810();
+            }
+            local_d58 = local_144;
+            bVar27 = false;
+          }
+          else {
+LAB_040413e4:
+            aiStackY_db0[4] = 0x40413f0;
+            piVar16 = malloc(300);
+            bVar27 = true;
+          }
+          *piVar16 = local_d58;
+          piVar16[2] = local_140;
+          piVar16[3] = local_13c;
+          piVar16[4] = local_138;
+          piVar16[5] = local_134;
+          piVar16[6] = local_130;
+          piVar16[7] = local_12c;
+          piVar16[9] = 0;
+          piVar16[10] = 0;
+          piVar16[8] = local_128;
+          if (local_d58 - 1U < 2) {
+            piVar16[9] = local_124;
+            piVar16[10] = local_120;
+          }
+          if (bVar27) {
+            puVar12 = local_11c;
+            do {
+              puVar18 = puVar12;
+              uVar23 = *puVar18 + 0xfefefeff & ~*puVar18;
+              uVar19 = uVar23 & 0x80808080;
+              puVar12 = puVar18 + 1;
+            } while (uVar19 == 0);
+            if ((uVar23 & 0x8080) == 0) {
+              puVar12 = (uint *)((int)puVar18 + 6);
+              uVar19 = uVar19 >> 0x10;
+            }
+            sVar9 = (int)puVar12 + (-(int)local_11c - (uint)CARRY1((byte)uVar19,(byte)uVar19)) + -2;
+            piVar16[1] = sVar9;
+            aiStackY_db0[4] = 0x4041c09;
+            memcpy(piVar16 + 0xb,local_11c,sVar9);
+            aiStackY_db0[4] = 0x4041c16;
+            TemporaryDirElemList_Add();
+          }
+        }
+      }
+      else {
+        aiStackY_db0[4] = 0x4041352;
+        cVar5 = FUN_0404c420();
+        if (cVar5 == '\0') goto LAB_0404135a;
+      }
+      aiStackY_db0[4] = 0x4041487;
+      iVar6 = FUN_04040950();
+    } while (iVar6 != 0);
+    aiStackY_db0[4] = 0x404149d;
+    eON_FindClose();
+    piVar16 = aiStackY_db0 + 4;
+  }
+  *piVar16 = uVar15;
+  piVar16[-1] = 0x40414ae;
+  eON_SetLastError();
+  piVar20 = piVar16 + -1;
+  if (param_3 == (char *)0x0) {
+    piVar16[-1] = local_d5c;
+    piVar16[-2] = 0x4041cae;
+    free((void *)piVar16[-1]);
+    uVar15 = 4;
+  }
+  else {
+    piVar16[-2] = 0x40414c4;
+    uVar15 = eON_GetLastError();
+    *piVar16 = (int)&local_144;
+    piVar16[-1] = (int)param_3;
+    piVar16[-2] = 0x40414e2;
+    iVar6 = VPFS_EnumerateDiskFolderEntries();
+    if (iVar6 != 0) {
+      do {
+        bVar27 = false;
+        if (local_d5c != 0) {
+          *piVar16 = (int)local_11c;
+          piVar16[-1] = local_d5c;
+          piVar16[-2] = 0x4041529;
+          cVar5 = FUN_0404c420();
+          bVar27 = cVar5 != '\0';
+        }
+        bVar3 = false;
+        local_d58 = local_144;
+        if (local_144 != 3) {
+          uVar23 = 0;
+          uVar19 = piVar7[1];
+          uVar22 = uVar19;
+          uVar24 = uVar23;
+          if (uVar19 != 0) {
+            do {
+              while( true ) {
+                uVar23 = uVar22 + uVar24 >> 1;
+                piVar16[-2] = 0x4041592;
+                iVar17 = FUN_0403cd80();
+                if (uVar22 - uVar24 == 1) {
+                  uVar23 = uVar24;
+                  if (0 < iVar17) {
+                    uVar23 = uVar22;
+                  }
+                  goto joined_r0x040419ed;
+                }
+                if (iVar17 < 0) break;
+                if ((iVar17 == 0) || (uVar24 = uVar23, uVar23 == uVar22)) goto joined_r0x040419ed;
+              }
+              uVar22 = uVar23;
+            } while (uVar23 != uVar24);
+          }
+joined_r0x040419ed:
+          if (uVar23 < uVar19) {
+            piVar11 = *(int **)(*piVar7 + uVar23 * 4);
+            piVar16[-2] = 0x4041a0e;
+            iVar17 = FUN_0403cd80();
+            if ((iVar17 != 0) || (piVar11 == (int *)0x0)) goto LAB_040415c4;
+            piVar16[-1] = (int)(piVar11 + 0xb);
+            *piVar16 = (int)local_11c;
+            piVar16[-2] = 0x4041a30;
+            iVar17 = strcasecmp((char *)piVar16[-1],(char *)*piVar16);
+            if (iVar17 != 0) {
+              piVar16[2] = (int)"int VPFS_OpenFolderOnDisk(const char*, VPFSHandle, const char*)";
+              piVar16[1] = 0x897;
+              *piVar16 = (int)
+                         "/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/vpfs/vpfs.cpp";
+              piVar16[-1] = (int)"!strcasecmp( newElem->ElementName, element.ElementName )";
+              piVar16[-2] = 0x4041c44;
+              FUN_0400a810();
+            }
+            puVar12 = local_11c;
+            do {
+              puVar18 = puVar12;
+              uVar23 = *puVar18 + 0xfefefeff & ~*puVar18;
+              uVar19 = uVar23 & 0x80808080;
+              puVar12 = puVar18 + 1;
+            } while (uVar19 == 0);
+            if ((uVar23 & 0x8080) == 0) {
+              puVar12 = (uint *)((int)puVar18 + 6);
+              uVar19 = uVar19 >> 0x10;
+            }
+            if (piVar11[1] !=
+                (int)puVar12 + (-(int)local_11c - (uint)CARRY1((byte)uVar19,(byte)uVar19)) + -2) {
+              piVar16[2] = (int)"int VPFS_OpenFolderOnDisk(const char*, VPFSHandle, const char*)";
+              piVar16[1] = 0x898;
+              *piVar16 = (int)
+                         "/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/vpfs/vpfs.cpp";
+              piVar16[-1] = (int)
+                            "newElem->Data.ElementNameLength == (uint32_t)strlen(element.ElementName)+1"
+              ;
+              piVar16[-2] = 0x4041a9e;
+              FUN_0400a810();
+            }
+            local_d58 = local_144;
+            bVar4 = false;
+          }
+          else {
+LAB_040415c4:
+            piVar16[-1] = 300;
+            piVar16[-2] = 0x40415d0;
+            piVar11 = malloc(piVar16[-1]);
+            bVar4 = true;
+          }
+          *piVar11 = local_d58;
+          piVar11[2] = local_140;
+          piVar11[3] = local_13c;
+          piVar11[4] = local_138;
+          piVar11[5] = local_134;
+          piVar11[6] = local_130;
+          piVar11[7] = local_12c;
+          piVar11[9] = 0;
+          piVar11[10] = 0;
+          piVar11[8] = local_128;
+          bVar3 = local_d58 - 1U < 2;
+          if (bVar3) {
+            piVar11[9] = local_124;
+            piVar11[10] = local_120;
+          }
+          bVar3 = !bVar3;
+          if (bVar4) {
+            puVar12 = local_11c;
+            do {
+              puVar18 = puVar12;
+              uVar23 = *puVar18 + 0xfefefeff & ~*puVar18;
+              uVar19 = uVar23 & 0x80808080;
+              puVar12 = puVar18 + 1;
+            } while (uVar19 == 0);
+            if ((uVar23 & 0x8080) == 0) {
+              puVar12 = (uint *)((int)puVar18 + 6);
+              uVar19 = uVar19 >> 0x10;
+            }
+            iVar17 = (int)puVar12 + (-(int)local_11c - (uint)CARRY1((byte)uVar19,(byte)uVar19)) + -2
+            ;
+            piVar11[1] = iVar17;
+            piVar16[1] = iVar17;
+            *piVar16 = (int)local_11c;
+            piVar16[-1] = (int)(piVar11 + 0xb);
+            piVar16[-2] = 0x40418a9;
+            memcpy((void *)piVar16[-1],(void *)*piVar16,piVar16[1]);
+            piVar16[-2] = 0x40418b6;
+            TemporaryDirElemList_Add();
+          }
+        }
+        if (bVar27) {
+          *piVar16 = (int)local_d44;
+          piVar16[-1] = (int)&local_944;
+          piVar16[-2] = 0x40418e0;
+          strcpy((char *)piVar16[-1],(char *)*piVar16);
+          puVar12 = &local_944;
+          do {
+            puVar18 = puVar12;
+            uVar23 = *puVar18 + 0xfefefeff & ~*puVar18;
+            uVar19 = uVar23 & 0x80808080;
+            puVar12 = puVar18 + 1;
+          } while (uVar19 == 0);
+          if ((uVar23 & 0x8080) == 0) {
+            puVar12 = (uint *)((int)puVar18 + 6);
+            uVar19 = uVar19 >> 0x10;
+          }
+          *(undefined2 *)((int)puVar12 + (-3 - (uint)CARRY1((byte)uVar19,(byte)uVar19))) = 0x2f;
+          *piVar16 = (int)local_11c;
+          piVar16[-1] = (int)&local_944;
+          piVar16[-2] = 0x4041931;
+          strcat((char *)piVar16[-1],(char *)*piVar16);
+          *piVar16 = 0;
+          piVar16[-1] = (int)&local_944;
+          piVar16[-2] = 0x4041947;
+          iVar17 = FUN_0404c040();
+          if (iVar17 != 0) {
+            piVar16[-1] = iVar17;
+            piVar16[-2] = 0x4041957;
+            FUN_0404c310();
+            if (bVar3) {
+              piVar16[-1] = (int)local_544;
+              *piVar16 = (int)param_1;
+              piVar16[-2] = 0x4041977;
+              strcpy((char *)piVar16[-1],(char *)*piVar16);
+              puVar12 = local_544;
+              do {
+                puVar18 = puVar12;
+                uVar23 = *puVar18 + 0xfefefeff & ~*puVar18;
+                uVar19 = uVar23 & 0x80808080;
+                puVar12 = puVar18 + 1;
+              } while (uVar19 == 0);
+              if ((uVar23 & 0x8080) == 0) {
+                puVar12 = (uint *)((int)puVar18 + 6);
+                uVar19 = uVar19 >> 0x10;
+              }
+              *(undefined2 *)((int)puVar12 + (-3 - (uint)CARRY1((byte)uVar19,(byte)uVar19))) = 0x2f;
+              *piVar16 = (int)local_11c;
+              piVar16[-1] = (int)local_544;
+              piVar16[-2] = 0x40419c8;
+              strcat((char *)piVar16[-1],(char *)*piVar16);
+              piVar16[-2] = 0x40419d9;
+              VPFS_SetAllFolderContentsAsDeleted();
+            }
+          }
+        }
+        *piVar16 = (int)&local_144;
+        piVar16[-1] = iVar6;
+        piVar16[-2] = 0x4041679;
+        iVar17 = FUN_04040950();
+      } while (iVar17 != 0);
+      piVar16[-1] = iVar6;
+      piVar16[-2] = 0x404168f;
+      eON_FindClose();
+      piVar20 = piVar16 + -2;
+    }
+    *piVar20 = uVar15;
+    piVar20[-1] = 0x40416a0;
+    eON_SetLastError();
+    piVar20[-1] = local_d5c;
+    piVar20[-2] = 0x40416b1;
+    free((void *)piVar20[-1]);
+    uVar15 = 6;
+    piVar16 = piVar20;
+  }
+  param_2 = param_2 * 0x20;
+  local_d60 = (undefined4 *)(&DAT_04418260 + param_2);
+  *local_d60 = uVar15;
+  piVar16[-1] = (int)param_1;
+  piVar16[-2] = 0x40416e0;
+  sVar9 = strlen((char *)piVar16[-1]);
+  piVar16[-1] = sVar9 + 1;
+  piVar16[-2] = 0x40416eb;
+  pvVar8 = malloc(piVar16[-1]);
+  *(void **)(&DAT_04418264 + param_2) = pvVar8;
+  *piVar16 = (int)param_1;
+  piVar16[-1] = (int)pvVar8;
+  piVar16[-2] = 0x4041706;
+  strcpy((char *)piVar16[-1],(char *)*piVar16);
+  iVar6 = piVar7[1];
+  if (iVar6 == 0) {
+    piVar16[-1] = 8;
+    piVar16[-2] = 0x4041d54;
+    piVar11 = malloc(piVar16[-1]);
+    piVar11[1] = 8;
+    *piVar11 = local_d74;
+    iVar6 = *piVar7;
+    *(int **)(&DAT_04418268 + param_2) = piVar11;
+    *(undefined4 *)(&DAT_0441826c + param_2) = 0;
+    *(undefined4 *)(&DAT_04418270 + param_2) = 0;
+  }
+  else {
+    iVar17 = 8;
+    iVar26 = *piVar7;
+    iVar13 = 0;
+    do {
+      iVar14 = iVar13 * 4;
+      iVar13 = iVar13 + 1;
+      iVar17 = iVar17 + 0x2c + *(int *)(*(int *)(iVar26 + iVar14) + 4);
+    } while (iVar13 != iVar6);
+    piVar16[-1] = iVar17;
+    piVar16[-2] = 0x404174b;
+    piVar11 = malloc(piVar16[-1]);
+    piVar11[1] = iVar17;
+    *piVar11 = local_d74;
+    piVar25 = piVar11 + 2;
+    iVar17 = 0;
+    do {
+      piVar2 = *(int **)(iVar26 + iVar17 * 4);
+      iVar17 = iVar17 + 1;
+      *piVar25 = *piVar2;
+      piVar25[1] = piVar2[1];
+      piVar25[2] = piVar2[2];
+      piVar25[3] = piVar2[3];
+      piVar25[4] = piVar2[4];
+      piVar25[5] = piVar2[5];
+      piVar25[6] = piVar2[6];
+      piVar25[7] = piVar2[7];
+      piVar25[8] = piVar2[8];
+      piVar25[9] = piVar2[9];
+      piVar25[10] = piVar2[10];
+      iVar13 = piVar2[1];
+      piVar16[-1] = (int)(piVar25 + 0xb);
+      *piVar16 = (int)(piVar2 + 0xb);
+      piVar16[1] = iVar13;
+      piVar16[-2] = 0x40417d5;
+      memcpy((void *)piVar16[-1],(void *)*piVar16,piVar16[1]);
+      piVar25 = (int *)((int)(piVar25 + 0xb) + piVar2[1]);
+    } while (iVar17 != iVar6);
+    uVar19 = 0;
+    *(undefined4 *)(&DAT_0441826c + param_2) = 0;
+    *(int **)(&DAT_04418268 + param_2) = piVar11;
+    *(undefined4 *)(&DAT_04418270 + param_2) = 0;
+    while( true ) {
+      iVar6 = uVar19 * 4;
+      uVar19 = uVar19 + 1;
+      piVar16[-1] = *(undefined4 *)(iVar26 + iVar6);
+      piVar16[-2] = 0x4041820;
+      free((void *)piVar16[-1]);
+      if ((uint)piVar7[1] <= uVar19) break;
+      iVar26 = *piVar7;
+    }
+    iVar6 = *piVar7;
+  }
+  piVar16[-1] = iVar6;
+  piVar16[-2] = 0x4041835;
+  free((void *)piVar16[-1]);
+  piVar16[-1] = (int)piVar7;
+  piVar16[-2] = 0x4041843;
+  free((void *)piVar16[-1]);
+  return 1;
+}
+

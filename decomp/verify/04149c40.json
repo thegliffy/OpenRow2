@@ -1,0 +1,84 @@
+
+void eON_WaitTimers_Event(void)
+
+{
+  longlong lVar1;
+  uint uVar2;
+  int iVar3;
+  uint uVar4;
+  int iVar5;
+  int *piVar6;
+  int in_FS_OFFSET;
+  int local_30;
+  uint local_2c;
+  uint local_28;
+  timespec local_24 [2];
+  
+  pthread_mutex_lock((pthread_mutex_t *)&DAT_04516c7c);
+  eON_SetThreadName("E.WaitTimers");
+  piVar6 = DAT_04516c60;
+  *(undefined4 *)(*(int *)(*(int *)(in_FS_OFFSET + 0x18) + 0x130) + 0x4c) = 1;
+LAB_04149c80:
+  do {
+    iVar3 = DAT_04516c64 - (int)piVar6;
+    for (; uVar2 = iVar3 >> 2, uVar2 != 0; iVar3 = iVar3 - (int)DAT_04516c60) {
+      local_30 = *piVar6;
+      local_2c = *(uint *)(local_30 + 0x14);
+      local_28 = *(uint *)(local_30 + 0x18);
+      if (1 < uVar2) {
+        uVar4 = 1;
+        do {
+          while( true ) {
+            iVar3 = piVar6[uVar4];
+            if (local_28 <= *(uint *)(iVar3 + 0x18)) break;
+LAB_04149cb0:
+            local_30 = DAT_04516c60[uVar4];
+            local_28 = *(uint *)(iVar3 + 0x18);
+            local_2c = *(uint *)(iVar3 + 0x14);
+LAB_04149cd0:
+            uVar4 = uVar4 + 1;
+            if (uVar4 == uVar2) goto LAB_04149d03;
+          }
+          if (*(uint *)(iVar3 + 0x18) != local_28) goto LAB_04149cd0;
+          if (*(uint *)(iVar3 + 0x14) < local_2c) goto LAB_04149cb0;
+          uVar4 = uVar4 + 1;
+        } while (uVar4 != uVar2);
+      }
+LAB_04149d03:
+      eON_Int_FileTimeToTimespec(&local_2c,local_24);
+      iVar3 = pthread_cond_timedwait
+                        ((pthread_cond_t *)&DAT_04516ca0,(pthread_mutex_t *)&DAT_04516c7c,local_24);
+      piVar6 = DAT_04516c60;
+      if ((iVar3 != 0x6e) || (iVar3 = DAT_04516c64 - (int)DAT_04516c60 >> 2, iVar3 == 0))
+      goto LAB_04149c80;
+      iVar5 = 0;
+      while (((DAT_04516c60[iVar5] != local_30 || (*(uint *)(local_30 + 0x14) != local_2c)) ||
+             (*(uint *)(local_30 + 0x18) != local_28))) {
+        iVar5 = iVar5 + 1;
+        if (iVar5 == iVar3) goto LAB_04149c80;
+      }
+      if (iVar5 == -1) goto LAB_04149c80;
+      *(undefined4 *)(local_30 + 0x28) = 1;
+      SignalObject();
+      if (*(int *)(local_30 + 0x1c) != 0) {
+        FUN_04145870(*(int *)(local_30 + 0x1c),*(undefined4 *)(local_30 + 0x10),
+                     *(undefined4 *)(local_30 + 0xc),local_2c,local_28);
+        Synchronisation_SignalAPCOnThread(*(undefined4 *)(local_30 + 0x10));
+      }
+      if (*(int *)(local_30 + 0x20) == 0) {
+        DAT_04516c60[iVar5] = DAT_04516c60[(DAT_04516c64 - (int)DAT_04516c60 >> 2) + -1];
+        DAT_04516c64 = DAT_04516c64 + -4;
+        piVar6 = DAT_04516c60;
+        goto LAB_04149c80;
+      }
+      lVar1 = (longlong)*(int *)(local_30 + 0x20) * 10000 + CONCAT44(local_28,local_2c);
+      *(int *)(local_30 + 0x14) = (int)lVar1;
+      iVar3 = DAT_04516c64;
+      *(int *)(local_30 + 0x18) = (int)((ulonglong)lVar1 >> 0x20);
+      piVar6 = DAT_04516c60;
+    }
+    pthread_cond_wait((pthread_cond_t *)&DAT_04516ca0,(pthread_mutex_t *)&DAT_04516c7c);
+    piVar6 = DAT_04516c60;
+  } while( true );
+}
+

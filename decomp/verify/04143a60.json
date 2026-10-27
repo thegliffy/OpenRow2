@@ -1,0 +1,127 @@
+
+undefined4
+eON_CompareStringA(undefined4 param_1,uint param_2,char *param_3,size_t param_4,char *param_5,
+                  size_t param_6)
+
+{
+  int iVar1;
+  undefined4 uVar2;
+  undefined *puVar3;
+  undefined4 *puVar4;
+  undefined4 *puVar5;
+  undefined4 *puVar6;
+  undefined *puVar7;
+  undefined1 local_a8 [20];
+  undefined4 local_94;
+  undefined4 local_78;
+  undefined4 local_74;
+  char *local_70;
+  size_t local_6c;
+  undefined4 local_68;
+  undefined4 local_64;
+  
+  if ((param_5 == (char *)0x0) || (param_3 == (char *)0x0)) {
+    local_64 = 0x4143cd6;
+    eON_SetLastError();
+    return 0;
+  }
+  if (param_4 == 0xffffffff) {
+    local_64 = 0x4143cbb;
+    param_4 = strlen(param_3);
+  }
+  if (param_6 == 0xffffffff) {
+    local_64 = 0x4143ca6;
+    param_6 = strlen(param_5);
+  }
+  if (((param_2 & 0x40000000) == 0) && (DAT_044109c8 != 0)) {
+    local_64 = 0x4143d07;
+    FUN_0402cd10();
+    DAT_044109c8 = 0;
+  }
+  puVar7 = &DAT_04515c20;
+  local_64 = 0x4143afa;
+  iVar1 = eON_MultiByteToWideChar();
+  puVar4 = &local_78;
+  if (iVar1 == 0) {
+    local_64 = 0;
+    local_68 = 0;
+    local_74 = 0;
+    local_78 = 0;
+    local_70 = param_3;
+    local_6c = param_4;
+    iVar1 = eON_MultiByteToWideChar();
+    local_94 = 0x4143b43;
+    puVar7 = malloc(iVar1 * 2);
+    puVar6 = (undefined4 *)&stack0xffffff70;
+    if (puVar7 == (undefined *)0x0) goto LAB_04143d30;
+    local_94 = 0x4143b77;
+    eON_MultiByteToWideChar();
+    puVar4 = (undefined4 *)local_a8;
+  }
+  puVar4[5] = 0x400;
+  puVar4[4] = &DAT_04516420;
+  puVar4[3] = param_6;
+  puVar4[1] = 0;
+  puVar4[2] = param_5;
+  *puVar4 = 0;
+  puVar4[-1] = 0x4143ba9;
+  iVar1 = eON_MultiByteToWideChar();
+  puVar3 = &DAT_04516420;
+  puVar5 = puVar4 + -6;
+  if (iVar1 == 0) {
+    puVar4[-1] = 0;
+    puVar4[-2] = 0;
+    puVar4[-3] = param_6;
+    puVar4[-5] = 0;
+    puVar4[-4] = param_5;
+    puVar4[-6] = 0;
+    puVar4[-7] = 0x4143be4;
+    iVar1 = eON_MultiByteToWideChar();
+    puVar4[-0xc] = iVar1 * 2;
+    puVar4[-0xd] = 0x4143bf7;
+    puVar3 = malloc(puVar4[-0xc]);
+    if (puVar3 == (undefined *)0x0) {
+      puVar6 = puVar4 + -0xc;
+      if (puVar7 != &DAT_04515c20) {
+        puVar4[-0xc] = puVar7;
+        puVar4[-0xd] = 0x4143d30;
+        free((void *)puVar4[-0xc]);
+        puVar6 = puVar4 + -0xc;
+      }
+LAB_04143d30:
+      *puVar6 = 8;
+      puVar6[-1] = 0x4143d3e;
+      eON_SetLastError();
+      return 0;
+    }
+    puVar4[-8] = puVar3;
+    puVar4[-7] = iVar1;
+    puVar4[-9] = param_6;
+    puVar4[-10] = param_5;
+    puVar4[-0xb] = 0;
+    puVar4[-0xc] = 0;
+    puVar4[-0xd] = 0x4143c2e;
+    eON_MultiByteToWideChar();
+    puVar5 = puVar4 + -0x12;
+  }
+  puVar5[4] = puVar3;
+  puVar5[3] = param_4;
+  puVar5[5] = param_6;
+  puVar5[1] = param_2;
+  puVar5[2] = puVar7;
+  *puVar5 = param_1;
+  puVar5[-1] = 0x4143c59;
+  uVar2 = eON_CompareStringW();
+  if (puVar7 != &DAT_04515c20) {
+    puVar5[-6] = puVar7;
+    puVar5[-7] = 0x4143c71;
+    free((void *)puVar5[-6]);
+  }
+  if (puVar3 != &DAT_04516420) {
+    puVar5[-6] = puVar3;
+    puVar5[-7] = 0x4143c84;
+    free((void *)puVar5[-6]);
+  }
+  return uVar2;
+}
+

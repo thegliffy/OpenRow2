@@ -1,0 +1,94 @@
+
+undefined4 eON_SetThreadPriority(int param_1,int param_2)
+
+{
+  int iVar1;
+  int *piVar2;
+  char *pcVar3;
+  int iVar4;
+  undefined *puVar5;
+  undefined *puVar6;
+  undefined *puVar7;
+  int __prio;
+  int in_FS_OFFSET;
+  undefined *local_24;
+  uint local_18;
+  int local_14;
+  
+  if (param_1 == 0) {
+    *(undefined4 *)(*(int *)(in_FS_OFFSET + 0x18) + 0x34) = 6;
+    return 0;
+  }
+  if (0x1e < param_2 + 0xfU) {
+    *(undefined4 *)(*(int *)(in_FS_OFFSET + 0x18) + 0x34) = 0x57;
+    return 0;
+  }
+  if (param_1 + 2U < 2) {
+    iVar4 = *(int *)(*(int *)(in_FS_OFFSET + 0x18) + 0x130);
+    goto LAB_0415ca3d;
+  }
+  iVar4 = Synchronisation_GetObjectInfo(param_1,&local_18,&local_14);
+  if ((iVar4 == 0) || (local_14 != 2)) {
+    *(undefined4 *)(*(int *)(in_FS_OFFSET + 0x18) + 0x34) = 6;
+    return 0;
+  }
+  puVar7 = &DAT_0451bd38;
+  puVar6 = DAT_0451bd3c;
+  if (DAT_0451bd3c == (undefined *)0x0) {
+LAB_0415cc25:
+    FUN_0415af30();
+    puVar7 = local_24;
+  }
+  else {
+    do {
+      if (*(uint *)(puVar6 + 0x10) < local_18) {
+        puVar5 = *(undefined **)(puVar6 + 0xc);
+      }
+      else {
+        puVar5 = *(undefined **)(puVar6 + 8);
+        puVar7 = puVar6;
+      }
+      puVar6 = puVar5;
+    } while (puVar5 != (undefined *)0x0);
+    if ((puVar7 == &DAT_0451bd38) || (local_18 < *(uint *)(puVar7 + 0x10))) goto LAB_0415cc25;
+  }
+  iVar4 = *(int *)(puVar7 + 0x14);
+LAB_0415ca3d:
+  *(int *)(iVar4 + 0x8c) = param_2;
+  switch(param_2 + 0xfU) {
+  case 0:
+    __prio = 10;
+    break;
+  default:
+    FUN_0402cd10(10,"SetThreadPriority() - unhandled priority %d",param_2);
+  case 0xf:
+    __prio = 0;
+    break;
+  case 0xd:
+    __prio = 4;
+    break;
+  case 0xe:
+    __prio = 2;
+    break;
+  case 0x10:
+    __prio = -2;
+    break;
+  case 0x11:
+    __prio = -4;
+    break;
+  case 0x1e:
+    __prio = -10;
+  }
+  FUN_0402cd10(0x14,
+               "SYNCHRO: SetThreadPriority( hThread = %p, nPriority = %d ), setting niceness %d",
+               param_1,param_2,__prio);
+  iVar1 = setpriority(PRIO_PROCESS,*(id_t *)(iVar4 + 0x88),__prio);
+  if (iVar1 == -1) {
+    piVar2 = __errno_location();
+    pcVar3 = strerror(*piVar2);
+    FUN_0402cd10(10,"SetThreadPriority() - setpriority( PRIO_PROCESS, %d, %d ) failed - (%d) %s",
+                 *(undefined4 *)(iVar4 + 0x88),__prio,*piVar2,pcVar3);
+  }
+  return 1;
+}
+

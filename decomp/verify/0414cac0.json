@@ -1,0 +1,275 @@
+
+/* source: synchronisationPrimitives */
+
+int Synchronisation_WaitForMultipleObjects
+              (int param_1,int param_2,uint param_3,int param_4,int param_5,uint param_6)
+
+{
+  char cVar1;
+  undefined4 uVar2;
+  int iVar3;
+  int *piVar4;
+  pthread_cond_t *__cond;
+  __time_t _Var5;
+  undefined4 *puVar6;
+  int iVar7;
+  int iVar8;
+  int iVar9;
+  int iVar10;
+  int in_FS_OFFSET;
+  undefined4 local_16c;
+  undefined4 local_15c;
+  int local_158;
+  uint local_154;
+  int local_150;
+  int local_14c;
+  undefined4 local_148;
+  uint local_144;
+  int local_140 [65];
+  pthread_cond_t *local_3c;
+  timespec local_38;
+  timeval local_30;
+  undefined4 *local_28;
+  undefined4 *local_24;
+  pthread_cond_t *local_20;
+  
+  eON_Int_MsgQueue_PumpSend();
+  iVar9 = *(int *)(*(int *)(in_FS_OFFSET + 0x18) + 0x130);
+  if (param_5 != 0) {
+    cVar1 = DispatchQueuedAPC();
+    if (cVar1 != '\0') {
+      return 0xc0;
+    }
+  }
+  if ((short)param_6 == 0) {
+LAB_0414cafe:
+    pthread_mutex_lock((pthread_mutex_t *)&DAT_04516c7c);
+    local_16c = 0;
+    if (param_1 == 0) goto LAB_0414cbc1;
+  }
+  else {
+    uVar2 = eON_GetCurrentThreadId();
+    cVar1 = eON_Int_ThreadHasQueuedInputMatchingFilter(uVar2,param_6 & 0xffff);
+    if (cVar1 == '\0') goto LAB_0414cafe;
+    if (param_4 == 0) {
+      return param_1;
+    }
+    if (param_1 == 0) {
+      return 0;
+    }
+    pthread_mutex_lock((pthread_mutex_t *)&DAT_04516c7c);
+    local_16c = 1;
+  }
+  iVar7 = 0;
+  do {
+    iVar8 = *(int *)(param_2 + iVar7 * 4);
+    if ((((DAT_04516c6c == '\0') || (iVar8 < 0)) || (DAT_04516c74 - DAT_04516c70 >> 2 <= iVar8)) ||
+       (iVar8 = *(int *)(DAT_04516c70 + iVar8 * 4), iVar8 == 0)) {
+      pthread_mutex_unlock((pthread_mutex_t *)&DAT_04516c7c);
+      return iVar7 + 0x80;
+    }
+    if ((param_4 != 0) && (iVar7 != 0)) {
+      if (iVar8 == local_140[1]) {
+LAB_0414cc68:
+        pthread_mutex_unlock((pthread_mutex_t *)&DAT_04516c7c);
+        eON_SetLastError(0x57);
+        return -1;
+      }
+      iVar10 = 0;
+      while (iVar10 + 1 != iVar7) {
+        iVar3 = iVar10 + 2;
+        iVar10 = iVar10 + 1;
+        if (local_140[iVar3] == iVar8) goto LAB_0414cc68;
+      }
+    }
+    local_140[iVar7 + 1] = iVar8;
+    iVar7 = iVar7 + 1;
+  } while (iVar7 != param_1);
+LAB_0414cbc1:
+  uVar2 = *(undefined4 *)(*(int *)(*(int *)(in_FS_OFFSET + 0x18) + 0x130) + 0xc);
+  if (param_4 == 0) {
+    iVar7 = 0;
+    if (param_1 != 0) {
+      do {
+        cVar1 = SignalledFor();
+        if (cVar1 != '\0') {
+          ThreadReleasedOnObject();
+          pthread_mutex_unlock((pthread_mutex_t *)&DAT_04516c7c);
+          return iVar7;
+        }
+        iVar7 = iVar7 + 1;
+      } while (iVar7 != param_1);
+    }
+LAB_0414cd1b:
+    iVar7 = DAT_04518d48;
+    if (param_3 == 0) {
+      pthread_mutex_unlock((pthread_mutex_t *)&DAT_04516c7c);
+      sched_yield();
+      local_140[0] = 0x102;
+    }
+    else {
+      if (param_1 != 0) {
+        iVar8 = param_1;
+        iVar10 = DAT_04518d4c;
+        do {
+          iVar3 = iVar10 - iVar7 >> 2;
+          if (iVar3 == 0) {
+            piVar4 = malloc(0xc);
+          }
+          else {
+            iVar10 = iVar10 + -4;
+            piVar4 = *(int **)(iVar7 + -4 + iVar3 * 4);
+            DAT_04518d4c = iVar10;
+          }
+          iVar3 = iVar8 + -1;
+          iVar8 = local_140[iVar8];
+          *piVar4 = (int)&local_15c;
+          piVar4[2] = iVar3;
+          piVar4[1] = *(int *)(iVar8 + 8);
+          *(int **)(iVar8 + 8) = piVar4;
+          iVar8 = iVar3;
+        } while (iVar3 != 0);
+      }
+      if (param_5 != 0) {
+        local_28 = &local_15c;
+        if (DAT_04518d58 == DAT_04518d5c) {
+          FUN_0414d490(&DAT_04518d54,DAT_04518d58,&local_28);
+        }
+        else {
+          if (DAT_04518d58 != (int *)0x0) {
+            *DAT_04518d58 = (int)local_28;
+          }
+          DAT_04518d58 = DAT_04518d58 + 1;
+        }
+      }
+      if (param_6 != 0) {
+        local_24 = &local_15c;
+        if (DAT_04518d64 == DAT_04518d68) {
+          FUN_0414d490(&DAT_04518d60,DAT_04518d64,&local_24);
+        }
+        else {
+          if (DAT_04518d64 != (int *)0x0) {
+            *DAT_04518d64 = (int)local_24;
+          }
+          DAT_04518d64 = DAT_04518d64 + 1;
+        }
+      }
+      local_158 = param_1;
+      local_154 = param_3;
+      local_150 = param_4;
+      local_14c = param_5;
+      local_144 = param_6;
+      local_148 = local_16c;
+      iVar7 = (int)DAT_04518d70 - DAT_04518d6c >> 2;
+      local_15c = uVar2;
+      if (iVar7 == 0) {
+        __cond = malloc(0x30);
+        pthread_cond_init(__cond,(pthread_condattr_t *)0x0);
+      }
+      else {
+        DAT_04518d70 = DAT_04518d70 + -1;
+        __cond = *(pthread_cond_t **)(DAT_04518d6c + -4 + iVar7 * 4);
+      }
+      local_140[0] = -2;
+      local_3c = __cond;
+      if (param_3 == 0xffffffff) {
+        *(undefined4 *)(iVar9 + 0x4c) = 1;
+        do {
+          pthread_cond_wait(local_3c,(pthread_mutex_t *)&DAT_04516c7c);
+        } while (local_140[0] == -2);
+      }
+      else {
+        gettimeofday(&local_30,(__timezone_ptr_t)0x0);
+        local_38.tv_sec = local_30.tv_sec + param_3 / 1000;
+        local_38.tv_nsec = local_30.tv_usec * 1000 + (param_3 % 1000) * 1000000;
+        if (1000000000 < local_38.tv_nsec) {
+          local_38.tv_nsec = local_38.tv_nsec + -1000000000;
+          local_38.tv_sec = local_38.tv_sec + 1;
+        }
+        *(undefined4 *)(iVar9 + 0x4c) = 1;
+        while (iVar7 = pthread_cond_timedwait(local_3c,(pthread_mutex_t *)&DAT_04516c7c,&local_38),
+              iVar7 != 0x6e) {
+          if (local_140[0] != -2) goto LAB_0414cf0b;
+          gettimeofday(&local_30,(__timezone_ptr_t)0x0);
+          iVar7 = local_30.tv_usec * 1000;
+          _Var5 = local_30.tv_sec;
+          if (1000000000 < iVar7) {
+            iVar7 = iVar7 + -1000000000;
+            _Var5 = local_30.tv_sec + 1;
+          }
+          if ((local_38.tv_sec < _Var5) || (local_38.tv_nsec <= (int)(&DAT_000186a0 + iVar7)))
+          break;
+        }
+        if (local_140[0] == -2) {
+          FUN_04147f30();
+          if (param_5 != 0) {
+            FUN_0414d240(&local_15c);
+          }
+          if (local_144 != 0) {
+            FUN_0414d2a0(&local_15c);
+          }
+          local_20 = local_3c;
+          if (DAT_04518d70 == DAT_04518d74) {
+            FUN_041480e0();
+          }
+          else {
+            if (DAT_04518d70 != (undefined4 *)0x0) {
+              *DAT_04518d70 = local_3c;
+            }
+            DAT_04518d70 = DAT_04518d70 + 1;
+          }
+          *(undefined4 *)(iVar9 + 0x4c) = 0;
+          pthread_mutex_unlock((pthread_mutex_t *)&DAT_04516c7c);
+          thread_SuspendPoint(iVar9);
+          sched_yield();
+          return 0x102;
+        }
+      }
+LAB_0414cf0b:
+      local_20 = local_3c;
+      if (DAT_04518d70 == DAT_04518d74) {
+        FUN_041480e0();
+      }
+      else {
+        puVar6 = (undefined4 *)0x0;
+        if (DAT_04518d70 != (undefined4 *)0x0) {
+          *DAT_04518d70 = local_3c;
+          puVar6 = DAT_04518d70;
+        }
+        DAT_04518d70 = puVar6 + 1;
+      }
+      *(undefined4 *)(iVar9 + 0x4c) = 0;
+      pthread_mutex_unlock((pthread_mutex_t *)&DAT_04516c7c);
+      if (local_140[0] == 0xc0) {
+        if (local_14c == 0) {
+          FUN_0400a810("twi.AlertableWait",
+                       "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/synchronisationPrimitives.cpp"
+                       ,0x5b8,
+                       "HRESULT Synchronisation_WaitForMultipleObjects(DWORD, void* const*, DWORD, WINBOOL, WINBOOL, DWORD)"
+                      );
+        }
+        DispatchQueuedAPC();
+      }
+      thread_SuspendPoint(iVar9);
+    }
+  }
+  else {
+    if (param_1 != 0) {
+      iVar7 = 0;
+      do {
+        cVar1 = SignalledFor();
+        if (cVar1 == '\0') goto LAB_0414cd1b;
+        iVar7 = iVar7 + 1;
+      } while (iVar7 != param_1);
+      iVar9 = 0;
+      do {
+        iVar9 = iVar9 + 1;
+        ThreadReleasedOnObject();
+      } while (iVar9 != param_1);
+    }
+    pthread_mutex_unlock((pthread_mutex_t *)&DAT_04516c7c);
+    local_140[0] = 0;
+  }
+  return local_140[0];
+}
+

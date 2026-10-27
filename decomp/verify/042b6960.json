@@ -1,0 +1,69 @@
+
+void png_handle_IHDR(int param_1,undefined4 param_2,int param_3)
+
+{
+  char cVar1;
+  byte bVar2;
+  int iVar3;
+  undefined4 uVar4;
+  uint uVar5;
+  undefined1 local_29 [4];
+  undefined1 local_25 [4];
+  char local_21;
+  char local_20;
+  undefined1 local_1f;
+  undefined1 local_1e;
+  undefined1 local_1d;
+  
+  if ((*(uint *)(param_1 + 0xd0) & 1) != 0) {
+                    /* WARNING: Subroutine does not return */
+    png_chunk_error(param_1,"out of place");
+  }
+  if (param_3 != 0xd) {
+                    /* WARNING: Subroutine does not return */
+    png_chunk_error(param_1,"invalid");
+  }
+  *(uint *)(param_1 + 0xd0) = *(uint *)(param_1 + 0xd0) | 1;
+  png_crc_read(param_1,local_29,0xd);
+  png_crc_finish(param_1,0);
+  iVar3 = png_get_uint_31(param_1,local_29);
+  uVar4 = png_get_uint_31(param_1,local_25);
+  *(int *)(param_1 + 0x15c) = iVar3;
+  *(undefined4 *)(param_1 + 0x160) = uVar4;
+  *(char *)(param_1 + 0x1b3) = local_20;
+  *(char *)(param_1 + 0x1b4) = local_21;
+  *(undefined1 *)(param_1 + 0x1b0) = local_1d;
+  *(undefined1 *)(param_1 + 0x2c8) = local_1e;
+  *(undefined1 *)(param_1 + 0x2e8) = local_1f;
+  if (local_20 == '\x04') {
+    *(undefined1 *)(param_1 + 0x1b7) = 2;
+    cVar1 = '\x02';
+  }
+  else if (local_20 == '\x06') {
+    *(undefined1 *)(param_1 + 0x1b7) = 4;
+    cVar1 = '\x04';
+  }
+  else {
+    if (local_20 == '\x02') {
+      bVar2 = local_21 * '\x03';
+      *(undefined1 *)(param_1 + 0x1b7) = 3;
+      *(byte *)(param_1 + 0x1b6) = bVar2;
+      goto joined_r0x042b6ae0;
+    }
+    *(undefined1 *)(param_1 + 0x1b7) = 1;
+    cVar1 = '\x01';
+  }
+  bVar2 = cVar1 * local_21;
+  *(byte *)(param_1 + 0x1b6) = bVar2;
+joined_r0x042b6ae0:
+  if (bVar2 < 8) {
+    uVar5 = (uint)bVar2 * iVar3 + 7 >> 3;
+  }
+  else {
+    uVar5 = (uint)(bVar2 >> 3) * iVar3;
+  }
+  *(uint *)(param_1 + 0x16c) = uVar5;
+  FUN_042bb260(param_1,param_2,iVar3,uVar4,local_21,local_20,local_1d,local_1f,local_1e);
+  return;
+}
+

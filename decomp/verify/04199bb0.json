@@ -1,0 +1,26 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+bool _glewInit_GL_ARB_invalidate_subdata(void)
+
+{
+  int iVar1;
+  bool bVar2;
+  bool bVar3;
+  bool bVar4;
+  bool bVar5;
+  
+  iVar1 = glXGetProcAddressARB("glInvalidateBufferData");
+  _DAT_0451e53c = iVar1;
+  _DAT_0451e538 = glXGetProcAddressARB("glInvalidateBufferSubData");
+  bVar2 = _DAT_0451e538 == 0;
+  _DAT_0451e534 = glXGetProcAddressARB("glInvalidateFramebuffer");
+  bVar3 = _DAT_0451e534 == 0;
+  _DAT_0451e530 = glXGetProcAddressARB("glInvalidateSubFramebuffer");
+  bVar4 = _DAT_0451e530 == 0;
+  _DAT_0451e52c = glXGetProcAddressARB("glInvalidateTexImage");
+  bVar5 = _DAT_0451e52c == 0;
+  _DAT_0451e528 = glXGetProcAddressARB("glInvalidateTexSubImage");
+  return _DAT_0451e528 == 0 || (bVar5 || (bVar4 || (bVar3 || (bVar2 || iVar1 == 0))));
+}
+

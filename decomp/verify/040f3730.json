@@ -1,0 +1,23 @@
+
+undefined4 DirectInputGamepadDeviceImp__Acquire(int param_1)
+
+{
+  int iVar1;
+  undefined4 uVar2;
+  
+  GamepadControl__SetInitialMinMaxValues();
+  iVar1 = FUN_04010e80(param_1 + 0x20);
+  if (iVar1 == 0) {
+    uVar2 = 0x8007001e;
+  }
+  else {
+    uVar2 = 1;
+    if (*(char *)(param_1 + 0x30) == '\0') {
+      FUN_0402cd10(5,"DirectInput 7/8 gamepad acquired.");
+      *(undefined1 *)(param_1 + 0x30) = 1;
+      uVar2 = 0;
+    }
+  }
+  return uVar2;
+}
+

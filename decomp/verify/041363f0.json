@@ -1,0 +1,56 @@
+
+undefined4
+eON_GetDiskFreeSpaceExW(short *param_1,undefined4 *param_2,undefined4 *param_3,undefined4 *param_4)
+
+{
+  undefined4 *puVar1;
+  undefined4 *puVar2;
+  undefined4 *puVar3;
+  int iVar4;
+  int *piVar5;
+  undefined4 uVar6;
+  statvfs64 local_80;
+  undefined4 *local_18;
+  
+  puVar3 = param_4;
+  puVar2 = param_3;
+  puVar1 = param_2;
+  local_18 = &param_1;
+  if (param_1 == (short *)0x0) {
+    eON_SetLastError(3);
+    uVar6 = 0;
+  }
+  else {
+    uVar6 = 0;
+    if (((*param_1 == 0x43) && (param_1[1] == 0x3a)) &&
+       ((param_1[2] == 0x5c || ((param_1[2] == 0x2e && (param_1[3] == 0)))))) {
+      iVar4 = statvfs64("/",&local_80);
+      if (iVar4 == -1) {
+        piVar5 = __errno_location();
+        FUN_0402cd10(5,"eON_GetDiskFreeSpaceExW: statvfs() for / failed, errno %d",*piVar5);
+        eON_SetLastError(0x54f);
+        uVar6 = 0;
+      }
+      else {
+        if (puVar1 != (undefined4 *)0x0) {
+          *puVar1 = (int)((ulonglong)local_80.f_frsize * (ulonglong)(uint)local_80.f_bavail);
+          puVar1[1] = (int)((ulonglong)local_80.f_frsize * (ulonglong)(uint)local_80.f_bavail >>
+                           0x20) + local_80.f_bavail._4_4_ * local_80.f_frsize;
+        }
+        if (puVar3 != (undefined4 *)0x0) {
+          *puVar3 = (int)((ulonglong)local_80.f_frsize * (ulonglong)(uint)local_80.f_bfree);
+          puVar3[1] = (int)((ulonglong)local_80.f_frsize * (ulonglong)(uint)local_80.f_bfree >> 0x20
+                           ) + local_80.f_bfree._4_4_ * local_80.f_frsize;
+        }
+        uVar6 = 1;
+        if (puVar2 != (undefined4 *)0x0) {
+          *puVar2 = (int)((ulonglong)local_80.f_frsize * (ulonglong)(uint)local_80.f_blocks);
+          puVar2[1] = (int)((ulonglong)local_80.f_frsize * (ulonglong)(uint)local_80.f_blocks >>
+                           0x20) + local_80.f_blocks._4_4_ * local_80.f_frsize;
+        }
+      }
+    }
+  }
+  return uVar6;
+}
+

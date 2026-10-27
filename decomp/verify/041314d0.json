@@ -1,0 +1,101 @@
+
+undefined4 vpfs_GetFileAttributesExA(int param_1,int param_2,undefined4 *param_3)
+
+{
+  undefined4 *puVar1;
+  char cVar2;
+  int iVar3;
+  undefined4 uVar4;
+  int iVar5;
+  int *piVar6;
+  int *piVar7;
+  undefined8 uVar8;
+  undefined4 auStack_40 [3];
+  undefined4 uStack_34;
+  int local_30;
+  char *local_2c;
+  undefined4 *local_28;
+  undefined4 *local_24;
+  undefined4 *local_14;
+  
+  puVar1 = param_3;
+  iVar3 = param_1;
+  local_14 = &param_1;
+  piVar7 = &local_30;
+  piVar6 = &local_30;
+  if (param_2 != 0) {
+    local_2c = "vpfs_GetFileAttributesExA called with invalid fInfoLevelId param";
+    local_30 = 10;
+    uStack_34 = 0x41315dc;
+    FUN_0402cd10();
+  }
+  local_30 = iVar3;
+  uStack_34 = 0x4131501;
+  cVar2 = FUN_04132d70();
+  if (cVar2 == '\0') {
+    local_30 = iVar3;
+    local_28 = (undefined4 *)&DAT_00120089;
+    local_2c = (char *)0x0;
+    uStack_34 = 0x4131521;
+    iVar3 = FUN_04042f10();
+    if (iVar3 == 0) {
+      local_30 = 3;
+      uStack_34 = 0x4131594;
+      eON_SetLastError();
+      uVar4 = 0;
+    }
+    else {
+      uStack_34 = 0x413152f;
+      local_30 = iVar3;
+      uVar4 = VPFS_GetFileAttributes();
+      *puVar1 = uVar4;
+      uStack_34 = 0x4131539;
+      local_30 = iVar3;
+      iVar5 = FUN_04042870();
+      if (iVar5 == 0) {
+        local_24 = puVar1 + 5;
+        local_28 = puVar1 + 3;
+        local_2c = (char *)(puVar1 + 1);
+        uStack_34 = 0x4131605;
+        local_30 = iVar3;
+        iVar5 = FUN_04131330();
+        piVar6 = auStack_40;
+        piVar7 = auStack_40;
+      }
+      else {
+        local_24 = puVar1 + 3;
+        local_28 = puVar1 + 5;
+        local_2c = (char *)(puVar1 + 1);
+        uStack_34 = 0x413155e;
+        local_30 = iVar3;
+        iVar5 = VPFS_GetDateTime();
+      }
+      if (iVar5 == 0) {
+        piVar6[1] = (int)
+                    "Internal error in vpfs_GetFileAttributesExA - file or dir can be opened but has no file times!"
+        ;
+        *piVar6 = 0xf;
+        piVar6[-1] = 0x4131624;
+        FUN_0402cd10();
+        piVar7 = piVar6;
+      }
+      *piVar7 = iVar3;
+      piVar7[-1] = 0x413156e;
+      uVar8 = VPFS_GetSize();
+      puVar1[8] = (int)uVar8;
+      puVar1[7] = (int)((ulonglong)uVar8 >> 0x20);
+      *piVar7 = iVar3;
+      piVar7[-1] = 0x413157c;
+      eON_VPFS_Close();
+      uVar4 = 1;
+    }
+  }
+  else {
+    local_30 = 0x7b;
+    uStack_34 = 0x41315bc;
+    eON_SetLastError();
+    uVar4 = 0;
+  }
+  return uVar4;
+}
+

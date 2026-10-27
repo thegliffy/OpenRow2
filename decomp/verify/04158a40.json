@@ -1,0 +1,366 @@
+
+undefined4 __regparm3
+EnumResourceNames(uint param_1,short *param_2,code *param_3,size_t param_4,char param_5)
+
+{
+  ushort uVar1;
+  undefined *puVar2;
+  undefined *puVar3;
+  undefined *puVar4;
+  short *psVar5;
+  uint uVar6;
+  uint uVar7;
+  short *psVar8;
+  short *psVar9;
+  int iVar10;
+  undefined4 *puVar11;
+  undefined4 *puVar12;
+  size_t *psVar13;
+  int iVar14;
+  uint *puVar15;
+  uint uVar16;
+  ushort *puVar17;
+  uint *puVar18;
+  byte bVar19;
+  undefined4 local_b0;
+  undefined4 local_ac [9];
+  void *local_88;
+  uint *local_84;
+  size_t local_80;
+  code *local_7c;
+  int local_78;
+  char local_71;
+  ushort *local_70;
+  short *local_6c;
+  uint local_68;
+  short *local_64;
+  uint local_60;
+  short local_58 [20];
+  uint local_30 [8];
+  
+  bVar19 = 0;
+  puVar12 = local_ac;
+  local_71 = param_5;
+  local_7c = param_3;
+  local_6c = param_2;
+  local_68 = param_1;
+  if (param_1 == 0) {
+    local_ac[0] = 0;
+    local_b0 = 0x4158ce7;
+    param_1 = windll_041531d0();
+    puVar12 = &local_b0;
+  }
+  *puVar12 = &DAT_0451add4;
+  puVar12[-1] = 0x4158a72;
+  pthread_mutex_lock((pthread_mutex_t *)*puVar12);
+  if (DAT_0451adf4 == (undefined *)0x0) {
+LAB_04158b80:
+    *puVar12 = &DAT_0451add4;
+    puVar12[-1] = 0x4158b8c;
+    pthread_mutex_unlock((pthread_mutex_t *)*puVar12);
+    puVar12[1] = 
+    "EnumResourceNames() is trying to get resources from a module that was never loaded!";
+    *puVar12 = 0xf;
+    puVar12[-1] = 0x4158ba0;
+    FUN_0402cd10();
+    return 0;
+  }
+  puVar3 = &DAT_0451adf0;
+  puVar2 = DAT_0451adf4;
+  do {
+    while (puVar4 = puVar2, *(uint *)(puVar4 + 0x10) < param_1) {
+      puVar11 = (undefined4 *)(puVar4 + 0xc);
+      puVar4 = puVar3;
+      puVar2 = (undefined *)*puVar11;
+      if ((undefined *)*puVar11 == (undefined *)0x0) goto LAB_04158aa5;
+    }
+    puVar3 = puVar4;
+    puVar2 = *(undefined **)(puVar4 + 8);
+  } while (*(undefined **)(puVar4 + 8) != (undefined *)0x0);
+LAB_04158aa5:
+  if ((puVar4 == &DAT_0451adf0) || (param_1 < *(uint *)(puVar4 + 0x10))) goto LAB_04158b80;
+  iVar14 = *(int *)(puVar4 + 0x518);
+  local_78 = *(int *)(puVar4 + 0x528);
+  *puVar12 = &DAT_0451add4;
+  puVar12[-1] = 0x4158ad4;
+  pthread_mutex_unlock((pthread_mutex_t *)*puVar12);
+  if (iVar14 == 1) {
+    puVar12[1] = "EnumResourceNames() is trying to get resources from an internal library!";
+    *puVar12 = 0xf;
+    puVar12[-1] = 0x4158cd4;
+    FUN_0402cd10();
+    return 0;
+  }
+  if (local_78 == 0) {
+    puVar12[1] = "EnumResourceNames() returning NULL. No resource section in module.";
+    *puVar12 = 0xf;
+    puVar12[-1] = 0x4159051;
+    FUN_0402cd10();
+    return 0;
+  }
+  psVar5 = local_6c;
+  if (local_71 == '\0') {
+    psVar8 = local_6c;
+    puVar11 = puVar12;
+    if ((uint)local_6c >> 0x10 != 0) {
+      puVar12[2] = local_6c;
+      puVar12[5] = 0;
+      puVar12[4] = 0;
+      puVar12[3] = 0xffffffff;
+      puVar12[1] = 0;
+      *puVar12 = 0;
+      puVar12[-1] = 0x4158bda;
+      iVar14 = eON_MultiByteToWideChar();
+      puVar12[-6] = iVar14 * 2;
+      puVar12[-7] = 0x4158bea;
+      psVar5 = malloc(puVar12[-6]);
+      puVar12[-1] = iVar14;
+      puVar12[-2] = psVar5;
+      puVar12[-3] = 0xffffffff;
+      puVar12[-5] = 0;
+      puVar12[-4] = local_6c;
+      puVar12[-6] = 0;
+      puVar12[-7] = 0x4158c17;
+      eON_MultiByteToWideChar();
+      puVar12 = puVar12 + -0xc;
+      goto LAB_04158c1a;
+    }
+LAB_04158b04:
+    puVar12 = puVar11;
+    if ((short)psVar8 == -1) {
+LAB_04158c31:
+      *puVar12 = psVar5;
+      puVar12[-1] = 0x4158c39;
+      local_60 = FUN_0415a040();
+      psVar13 = puVar12 + -1;
+      uVar7 = (uint)*(ushort *)(local_78 + 0xe);
+      uVar6 = (uint)*(ushort *)(local_78 + 0xc);
+      puVar15 = (uint *)(local_78 + 0x10);
+      if (uVar7 + uVar6 != 0) {
+        uVar16 = 0;
+        local_64 = psVar5;
+        do {
+          if (((*(char *)((int)puVar15 + 7) < '\0') && (*(char *)((int)puVar15 + 3) < '\0')) &&
+             (puVar17 = (ushort *)((*puVar15 & 0x7fffffff) + local_78), local_60 == *puVar17)) {
+            *puVar12 = puVar17 + 1;
+            puVar12[1] = local_60;
+            puVar12[-1] = local_64;
+            puVar12[-2] = 0x4159071;
+            iVar14 = FUN_04159dd0();
+            if (iVar14 == 0) {
+              psVar9 = (short *)((puVar15[1] & 0x7fffffff) + local_78);
+              psVar5 = local_64;
+              if (psVar9 != (short *)0x0) goto LAB_04158d8c;
+              local_64 = (short *)0x0;
+              break;
+            }
+            uVar7 = (uint)*(ushort *)(local_78 + 0xe);
+            uVar6 = (uint)*(ushort *)(local_78 + 0xc);
+          }
+          uVar16 = uVar16 + 1;
+          puVar15 = puVar15 + 2;
+          psVar5 = local_64;
+        } while (uVar16 < uVar7 + uVar6);
+      }
+      puVar12[1] = psVar5;
+      *puVar12 = "EnumResourceNames() returning NULL. Type \'%ls\' not found in module %p";
+      puVar12[-1] = 10;
+      puVar12[2] = local_68;
+      puVar12[-2] = 0x4158cb2;
+      FUN_0402cd10();
+      local_64 = (short *)0x0;
+      psVar13 = puVar12 + -1;
+      psVar9 = local_64;
+      goto LAB_04158d8c;
+    }
+  }
+  else {
+LAB_04158c1a:
+    psVar8 = psVar5;
+    puVar11 = puVar12;
+    if ((uint)psVar5 >> 0x10 == 0) goto LAB_04158b04;
+    if (*psVar5 != 0x23) goto LAB_04158c31;
+    *puVar12 = psVar5;
+    puVar12[-1] = 0x4158cf9;
+    iVar14 = FUN_0415a040();
+    puVar11 = puVar12 + -1;
+    if (1 < iVar14) {
+      if ((ushort)(psVar5[1] - 0x30U) < 10) {
+        iVar10 = 1;
+        psVar8 = (short *)((ushort)psVar5[1] - 0x30);
+        do {
+          iVar10 = iVar10 + 1;
+          puVar11 = puVar12 + -1;
+          if (iVar10 == iVar14) goto LAB_04158b04;
+        } while (((ushort)(psVar5[iVar10] - 0x30U) < 10) &&
+                (psVar8 = (short *)(((ushort)psVar5[iVar10] - 0x30) + (int)psVar8 * 10),
+                psVar8 < &DAT_00010000));
+      }
+      if (psVar5 != local_6c) {
+        puVar12[-1] = psVar5;
+        puVar12[-2] = 0x4158d5f;
+        free((void *)puVar12[-1]);
+      }
+      puVar12[-1] = 0x57;
+      puVar12[-2] = 0x4158d6b;
+      eON_SetLastError();
+      return 0;
+    }
+    psVar8 = (short *)0x0;
+  }
+  psVar9 = (short *)(local_78 + 0x10);
+  iVar14 = (uint)*(ushort *)(local_78 + 0xe) + (uint)*(ushort *)(local_78 + 0xc);
+  psVar13 = puVar11;
+  if (iVar14 != 0) {
+    iVar10 = 0;
+    do {
+      if (((*(char *)((int)psVar9 + 7) < '\0') && (-1 < *(char *)((int)psVar9 + 3))) &&
+         (*psVar9 == (short)psVar8)) {
+        local_64 = (short *)((*(uint *)(psVar9 + 2) & 0x7fffffff) + local_78);
+        psVar9 = local_64;
+        if (local_64 != (short *)0x0) goto LAB_04158d8c;
+        break;
+      }
+      iVar10 = iVar10 + 1;
+      psVar9 = psVar9 + 4;
+    } while (iVar10 != iVar14);
+  }
+  puVar11[1] = "EnumResourceNames() returning NULL. Type with id %u not found in module %p";
+  puVar11[2] = (uint)psVar8 & 0xffff;
+  *puVar11 = 10;
+  puVar11[3] = local_68;
+  puVar11[-1] = 0x4158b71;
+  FUN_0402cd10();
+  local_64 = (short *)0x0;
+  psVar9 = local_64;
+LAB_04158d8c:
+  local_64 = psVar9;
+  if (psVar5 != local_6c) {
+    *psVar13 = (size_t)psVar5;
+    psVar13[-1] = 0x4158d99;
+    free((void *)*psVar13);
+  }
+  if (local_64 == (short *)0x0) {
+    return 0;
+  }
+  local_84 = (uint *)(local_64 + 8);
+  if ((uint)(ushort)local_64[7] + (uint)(ushort)local_64[6] == 0) {
+    return 1;
+  }
+  local_60 = 0;
+  while( true ) {
+    if (*(char *)((int)local_84 + 3) < '\0') {
+      puVar17 = (ushort *)((*local_84 & 0x7fffffff) + local_78);
+      if (local_71 == '\0') {
+        local_70 = puVar17 + 1;
+        psVar13[7] = 0;
+        psVar13[6] = 0;
+        psVar13[5] = 0;
+        psVar13[4] = 0;
+        uVar1 = *puVar17;
+        psVar13[1] = 0;
+        *psVar13 = 0;
+        psVar13[3] = (uint)uVar1;
+        psVar13[2] = (size_t)local_70;
+        psVar13[-1] = 0x4158ed9;
+        local_80 = eON_WideCharToMultiByte();
+        psVar13[-8] = local_80 + 1;
+        psVar13[-9] = 0x4158eea;
+        local_88 = malloc(psVar13[-8]);
+        psVar13[-1] = 0;
+        psVar13[-2] = 0;
+        psVar13[-4] = (size_t)local_88;
+        psVar13[-3] = local_80;
+        uVar1 = *puVar17;
+        psVar13[-7] = 0;
+        psVar13[-8] = 0;
+        psVar13[-5] = (uint)uVar1;
+        psVar13[-6] = (size_t)local_70;
+        psVar13[-9] = 0x4158f2f;
+        eON_WideCharToMultiByte();
+        psVar13[-0xd] = param_4;
+        psVar13[-0xe] = (size_t)local_88;
+        psVar13[-0xf] = (size_t)local_6c;
+        psVar13 = psVar13 + -0x10;
+      }
+      else {
+        *psVar13 = (uint)*puVar17 * 2 + 2;
+        psVar13[-1] = 0x4158dea;
+        local_88 = malloc(*psVar13);
+        uVar1 = *puVar17;
+        *psVar13 = (size_t)local_88;
+        psVar13[2] = (uint)uVar1 * 2;
+        psVar13[1] = (size_t)(puVar17 + 1);
+        psVar13[-1] = 0x4158e0a;
+        memcpy((void *)*psVar13,(void *)psVar13[1],psVar13[2]);
+        *(undefined2 *)((int)local_88 + (uint)*puVar17 * 2) = 0;
+        psVar13[3] = param_4;
+        psVar13[2] = (size_t)local_88;
+        psVar13[1] = (size_t)local_6c;
+      }
+      *psVar13 = local_68;
+      psVar13[-1] = 0x4158e34;
+      iVar14 = (*local_7c)();
+      psVar13[-4] = (size_t)local_88;
+      psVar13[-5] = 0x4158e47;
+      free((void *)psVar13[-4]);
+      psVar13 = psVar13 + -4;
+    }
+    else {
+      local_30[0] = 0;
+      local_30[1] = 0;
+      local_30[2] = 0;
+      local_30[3] = 0;
+      local_30[4] = 0;
+      uVar7 = *local_84;
+      psVar13[1] = (size_t)&PTR_DAT_0433e9d3;
+      *psVar13 = (size_t)local_30;
+      psVar13[2] = (uint)(ushort)uVar7;
+      psVar13[-1] = 0x4158f8d;
+      sprintf((char *)*psVar13,(char *)psVar13[1]);
+      if (local_71 == '\0') {
+        psVar13[2] = (size_t)local_30;
+        psVar13[3] = param_4;
+      }
+      else {
+        psVar5 = local_58;
+        for (iVar14 = 10; puVar15 = local_30, iVar14 != 0; iVar14 = iVar14 + -1) {
+          psVar5[0] = 0;
+          psVar5[1] = 0;
+          psVar5 = psVar5 + ((uint)bVar19 * -2 + 1) * 2;
+        }
+        do {
+          puVar18 = puVar15;
+          uVar6 = *puVar18 + 0xfefefeff & ~*puVar18;
+          uVar7 = uVar6 & 0x80808080;
+          puVar15 = puVar18 + 1;
+        } while (uVar7 == 0);
+        if ((uVar6 & 0x8080) == 0) {
+          puVar15 = (uint *)((int)puVar18 + 6);
+          uVar7 = uVar7 >> 0x10;
+        }
+        uVar6 = 0;
+        do {
+          local_58[uVar6] = (short)*(char *)((int)local_30 + uVar6);
+          uVar6 = uVar6 + 1;
+        } while (uVar6 <= (int)puVar15 +
+                          ((-3 - (uint)CARRY1((byte)uVar7,(byte)uVar7)) - (int)local_30));
+        psVar13[2] = (size_t)local_58;
+        psVar13[3] = param_4;
+      }
+      psVar13[1] = (size_t)local_6c;
+      *psVar13 = local_68;
+      psVar13[-1] = 0x415900e;
+      iVar14 = (*local_7c)();
+      psVar13 = psVar13 + -4;
+    }
+    if (iVar14 == 0) break;
+    local_84 = local_84 + 2;
+    local_60 = local_60 + 1;
+    if ((uint)(ushort)local_64[6] + (uint)(ushort)local_64[7] <= local_60) {
+      return 1;
+    }
+  }
+  return 1;
+}
+

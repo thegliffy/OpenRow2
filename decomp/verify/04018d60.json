@@ -1,0 +1,37 @@
+
+undefined4 eON_GetVPFSRegistryPath(char param_1)
+
+{
+  int iVar1;
+  char *pcVar2;
+  undefined4 uVar3;
+  
+  if (DAT_04411318 == '\0') {
+    iVar1 = __cxa_guard_acquire(&DAT_04411318);
+    if (iVar1 != 0) {
+                    /* try { // try from 04018db7 to 04018dbb has its CatchHandler @ 04018e98 */
+      std::string::string((string *)&DAT_04411320,(string *)&DAT_044112d8);
+      uVar3 = 0x14;
+      pcVar2 = "VPFS_registry.vpfsdb";
+                    /* try { // try from 04018dd3 to 04018dd7 has its CatchHandler @ 04018e76 */
+      std::string::append((char *)&DAT_04411320,0x42dcae6);
+      __cxa_guard_release(&DAT_04411318,pcVar2,uVar3);
+      __cxa_atexit(std::string::~string,&DAT_04411320,&DAT_04408b44);
+    }
+  }
+  if (DAT_04411328 == '\0') {
+    iVar1 = __cxa_guard_acquire(&DAT_04411328);
+    if (iVar1 != 0) {
+                    /* try { // try from 04018e2b to 04018e2f has its CatchHandler @ 04018e60 */
+      FUN_0400f6e0(&DAT_04411330,&DAT_04411320);
+      __cxa_guard_release(&DAT_04411328);
+      __cxa_atexit(std::string::~string,&DAT_04411330,&DAT_04408b44);
+    }
+  }
+  uVar3 = DAT_04411330;
+  if (param_1 == '\0') {
+    uVar3 = DAT_04411320;
+  }
+  return uVar3;
+}
+

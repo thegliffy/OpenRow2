@@ -1,0 +1,121 @@
+
+/* source: D3DBytecodeToGLSLText */
+
+void convert_texldd(int *param_1)
+
+{
+  int iVar1;
+  uint uVar2;
+  char cVar3;
+  int iVar4;
+  undefined4 uVar5;
+  uint uVar6;
+  uint uVar7;
+  uint uVar8;
+  undefined4 uVar9;
+  char *local_3c4;
+  undefined1 local_3b2 [128];
+  undefined1 local_332 [128];
+  undefined1 local_2b2 [128];
+  undefined1 local_232 [128];
+  undefined1 local_1b2 [128];
+  undefined1 local_132 [128];
+  undefined1 local_b2 [128];
+  undefined1 local_32 [16];
+  undefined1 local_22 [18];
+  
+  local_b2[0] = 0;
+  local_32[0] = 0;
+  iVar1 = param_1[0xe];
+  eON_ShaderData__InputRegisterIsColor(local_b2);
+  iVar4 = ShaderData_AppendDestMask();
+  if (iVar4 != 0) {
+    eON_AppendShaderCompileMessage
+              (iVar1,"%s%s = %s(",local_b2,local_32,
+               (&PTR_DAT_042eb360)[*(byte *)((int)param_1 + 0xf) & 0xf]);
+  }
+  ShaderData_AppendSwizzle(local_22,*(undefined1 *)(*param_1 + 0x10));
+  uVar8 = param_1[7] & 0x7ff;
+  uVar2 = *(uint *)(*param_1 + 0xd4 + uVar8 * 4);
+  iVar1 = *(int *)(*param_1 + 0x114 + uVar8 * 4);
+  uVar7 = uVar2 & 0x78000000;
+  cVar3 = FUN_04021ee0();
+  local_3c4 = "texture";
+  if (cVar3 == '\0') {
+    uVar6 = uVar2 & 0x38000000;
+    if ((uVar2 & 0x40000000) == 0) {
+      local_3c4 = "textureCube";
+      if (((uVar6 != 0x18000000) && (local_3c4 = "texture3D", uVar6 != 0x20000000)) &&
+         (local_3c4 = "texture2D", uVar6 != 0x10000000)) {
+        FUN_0402cd10(0xf,"Unknown sampler type in GetSampleFunction()!");
+        local_3c4 = "";
+      }
+    }
+    else {
+      local_3c4 = "shadow1D";
+      if ((uVar6 != 0x8000000) && (local_3c4 = "shadow2D", uVar6 != 0x10000000)) {
+        FUN_0402cd10(0xf,"Unknown depth sampler type in GetSampleFunction_OpenGLCore()!");
+        local_3c4 = "";
+      }
+    }
+  }
+  if (uVar7 == 0x20000000) {
+LAB_04053548:
+    uVar9 = 3;
+    uVar5 = 3;
+  }
+  else {
+    uVar9 = 2;
+    if (uVar7 < 0x20000001) {
+      uVar5 = 2;
+      if (uVar7 == 0x10000000) goto LAB_04053287;
+      if (uVar7 == 0x18000000) goto LAB_04053548;
+      uVar9 = 1;
+      uVar5 = 1;
+      if (uVar7 == 0x8000000) goto LAB_04053287;
+    }
+    else {
+      uVar5 = 3;
+      if (uVar7 == 0x50000000) goto LAB_04053287;
+      uVar9 = 3;
+      uVar5 = 4;
+      if (uVar7 == 0x58000000) goto LAB_04053287;
+      uVar9 = 1;
+      uVar5 = 3;
+      if (uVar7 == 0x48000000) goto LAB_04053287;
+    }
+    uVar9 = 2;
+    FUN_0400a810("false",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/D3DBytecodeToGLSLText.cpp"
+                 ,0x7a8,"void convert_texldd(ConversionState*)");
+    uVar5 = 2;
+  }
+LAB_04053287:
+  eON_ShaderData_ApplySourceModifier(uVar5,local_3b2);
+  eON_ShaderData_ApplySourceModifier(uVar9,local_2b2);
+  eON_ShaderData_ApplySourceModifier(uVar9,local_1b2);
+  cVar3 = (-(*(char *)(*param_1 + 0x10) == '\0') & 6U) + 0x50;
+  if (iVar1 == 2) {
+    eON_AppendShaderCompileMessage
+              (param_1[0xe],"vec4( %sGrad( %cSampler%u, %s, %s, %s ).rrr, 1.0 )%s );\n",local_3c4,
+               cVar3,uVar8,local_332,local_232,local_132,local_22);
+    return;
+  }
+  if (iVar1 == 3) {
+    eON_AppendShaderCompileMessage
+              (param_1[0xe],"vec4( %sGrad( %cSampler%u, %s, %s, %s ).rrrg )%s );\n",local_3c4,cVar3,
+               uVar8,local_332,local_232,local_132,local_22);
+    return;
+  }
+  if (iVar1 == 1) {
+    eON_AppendShaderCompileMessage
+              (param_1[0xe],"vec4( 1.0, 1.0, 1.0, %sGrad( %cSampler%u, %s, %s, %s ).r )%s );\n",
+               local_3c4,cVar3,uVar8,local_332,local_232,local_132,local_22);
+    return;
+  }
+  eON_AppendShaderCompileMessage
+            (param_1[0xe],"%sGrad( %cSampler%u, %s, %s, %s )%s );\n",local_3c4,cVar3,uVar8,local_332
+             ,local_232,local_132,local_22);
+  return;
+}
+

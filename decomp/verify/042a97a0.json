@@ -1,0 +1,31 @@
+
+void png_warning(int param_1,char *param_2)
+
+{
+  char *pcVar1;
+  int iVar2;
+  
+  pcVar1 = param_2;
+  if (param_1 != 0) {
+    if (*param_2 == '#') {
+      iVar2 = 1;
+      do {
+        pcVar1 = pcVar1 + 1;
+        if (*pcVar1 == ' ') goto LAB_042a97b5;
+        iVar2 = iVar2 + 1;
+      } while (iVar2 != 0xf);
+      pcVar1 = param_2 + 0xf;
+    }
+LAB_042a97b5:
+    if (*(code **)(param_1 + 0xac) != (code *)0x0) {
+                    /* WARNING: Could not recover jumptable at 0x042a97cb. Too many branches */
+                    /* WARNING: Treating indirect jump as call */
+      (**(code **)(param_1 + 0xac))();
+      return;
+    }
+  }
+  fprintf(stderr,"libpng warning: %s",pcVar1);
+  fputc(10,stderr);
+  return;
+}
+

@@ -1,0 +1,80 @@
+
+/* source: gdi32 */
+
+undefined4 TEXTMETRIC_ConvertWToA(undefined4 param_1,undefined4 *param_2)
+
+{
+  undefined4 *puVar1;
+  ushort uVar2;
+  int iVar3;
+  undefined4 uVar4;
+  undefined4 local_4c;
+  undefined4 local_48;
+  undefined4 local_44;
+  undefined4 local_40;
+  undefined4 local_3c;
+  undefined4 local_38;
+  undefined4 local_34;
+  undefined4 local_30;
+  undefined4 local_2c;
+  undefined4 local_28;
+  undefined4 local_24;
+  ushort local_1e;
+  ushort local_1c;
+  ushort local_1a;
+  undefined1 local_18;
+  undefined1 local_17;
+  undefined1 local_16;
+  undefined1 local_15;
+  char local_14;
+  undefined4 *local_10;
+  
+  puVar1 = param_2;
+  local_10 = &param_1;
+  iVar3 = eON_GetTextMetrics(param_1,&local_4c);
+  uVar4 = 0;
+  if (iVar3 != 0) {
+    if (0xff < local_1a) {
+      FUN_0400a810("tmw->tmBreakChar <= 255",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/gdi32/gdi32.cpp",
+                   0xdc1,"void TEXTMETRIC_ConvertWToA(const TEXTMETRICW*, TEXTMETRICA*)");
+    }
+    if (0xff < local_1c) {
+      FUN_0400a810("tmw->tmDefaultChar <= 255",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/gdi32/gdi32.cpp",
+                   0xdc2,"void TEXTMETRIC_ConvertWToA(const TEXTMETRICW*, TEXTMETRICA*)");
+    }
+    *(char *)((int)puVar1 + 0x2e) = (char)local_1c;
+    puVar1[8] = local_2c;
+    *puVar1 = local_4c;
+    *(undefined1 *)((int)puVar1 + 0x32) = local_16;
+    puVar1[7] = local_30;
+    *(undefined1 *)((int)puVar1 + 0x2f) = (undefined1)local_1a;
+    puVar1[1] = local_48;
+    *(undefined1 *)((int)puVar1 + 0x31) = local_17;
+    *(undefined1 *)(puVar1 + 0xc) = local_18;
+    puVar1[6] = local_34;
+    puVar1[2] = local_44;
+    puVar1[5] = local_38;
+    *(char *)(puVar1 + 0xd) = local_14;
+    *(undefined1 *)((int)puVar1 + 0x33) = local_15;
+    puVar1[3] = local_40;
+    puVar1[4] = local_3c;
+    puVar1[9] = local_28;
+    puVar1[10] = local_24;
+    if (local_14 != '\x02') {
+      *(char *)(puVar1 + 0xb) = (char)local_1c + -1;
+      uVar2 = 0xffff;
+      if (local_1e < 0xff) {
+        uVar2 = local_1e;
+      }
+      *(char *)((int)puVar1 + 0x2d) = (char)uVar2;
+      return 1;
+    }
+    *(undefined1 *)(puVar1 + 0xb) = 0x1e;
+    uVar4 = 1;
+    *(undefined1 *)((int)puVar1 + 0x2d) = 0xff;
+  }
+  return uVar4;
+}
+

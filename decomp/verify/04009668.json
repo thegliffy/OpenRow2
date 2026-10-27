@@ -1,0 +1,13 @@
+
+/* WARNING: Function: __i686.get_pc_thunk.bx replaced with injection: get_pc_thunk_bx */
+/* source: minidump_file_writer-inl */
+
+void minidump_file_writer_inl_04009668(void)
+
+{
+                    /* WARNING: Subroutine does not return */
+  __assert_fail("count && length","./src/client/minidump_file_writer-inl.h",0x42,
+                "bool google_breakpad::TypedMDRVA<MDType>::AllocateObjectAndArray(size_t, size_t) [with MDType = MDString; size_t = unsigned int]"
+               );
+}
+

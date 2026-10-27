@@ -1,0 +1,87 @@
+
+/* source: comobjects */
+
+undefined4 xaudio2_full_DllGetClassObject(void *param_1,void *param_2,int *param_3)
+
+{
+  void *__s1;
+  void *__s1_00;
+  int *piVar1;
+  int iVar2;
+  undefined4 *puVar3;
+  code *pcVar4;
+  undefined4 local_34;
+  int *local_24 [3];
+  undefined4 *local_18;
+  
+  piVar1 = param_3;
+  __s1_00 = param_2;
+  __s1 = param_1;
+  local_18 = &param_1;
+  iVar2 = memcmp(param_2,&DAT_042db038,0x10);
+  if (iVar2 == 0) {
+    iVar2 = memcmp(__s1,&DAT_042db028,0x10);
+    if ((iVar2 == 0) || (iVar2 = memcmp(__s1,&DAT_042db018,0x10), iVar2 == 0)) {
+      puVar3 = operator_new(0xb0);
+      *puVar3 = &PTR_FUN_0430f748;
+                    /* try { // try from 04101f52 to 04101f56 has its CatchHandler @ 041021ff */
+      XAudio2Imp__XAudio2Imp(puVar3 + 1,puVar3);
+      *piVar1 = (int)puVar3;
+      FUN_0402cd10(5,"xaudio2_full__DllGetClassObject() - creating XAudio2 2.2 object ( %p )",puVar3
+                  );
+      return 0;
+    }
+    iVar2 = memcmp(__s1,&DAT_042db008,0x10);
+    if ((iVar2 == 0) || (iVar2 = memcmp(__s1,&DAT_042daff8,0x10), iVar2 == 0)) {
+      puVar3 = operator_new(0xb0);
+      *puVar3 = &PTR_FUN_0430f748;
+                    /* try { // try from 04102116 to 0410211a has its CatchHandler @ 04102211 */
+      XAudio2Imp__XAudio2Imp(puVar3 + 1,puVar3);
+      *piVar1 = (int)puVar3;
+      FUN_0402cd10(5,"xaudio2_full__DllGetClassObject() - creating XAudio2 2.7 object ( %p )",puVar3
+                  );
+      return 0;
+    }
+  }
+  iVar2 = memcmp(__s1_00,&DAT_042dac68,0x10);
+  if ((iVar2 == 0) && (iVar2 = memcmp(__s1,&DAT_042dac48,0x10), iVar2 == 0)) {
+    iVar2 = windll_041531d0("xactengine3_2.dll");
+    if (iVar2 == 0) {
+      FUN_0400a810("xactDll",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/xaudio2_full/comobjects.cpp"
+                   ,0x4a,"HRESULT xaudio2_full_DllGetClassObject(REFCLSID, EON_REFIID, void**)");
+    }
+    pcVar4 = (code *)GetProcAddress(iVar2,"DllGetClassObject");
+    if (pcVar4 == (code *)0x0) {
+      FUN_0400a810("getClassObjectFunctionAddress",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/xaudio2_full/comobjects.cpp"
+                   ,0x4d,"HRESULT xaudio2_full_DllGetClassObject(REFCLSID, EON_REFIID, void**)");
+    }
+    local_24[0] = (int *)0x0;
+    iVar2 = (*pcVar4)(__s1,&DAT_042dbc18,local_24);
+    if (iVar2 != 0) {
+      FUN_0400a810("result == 0",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/xaudio2_full/comobjects.cpp"
+                   ,0x54,"HRESULT xaudio2_full_DllGetClassObject(REFCLSID, EON_REFIID, void**)");
+    }
+    iVar2 = (**(code **)(*local_24[0] + 0xc))(local_24[0],0,__s1_00,piVar1);
+    if (iVar2 != 0) {
+      FUN_0400a810("result == 0",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/xaudio2_full/comobjects.cpp"
+                   ,0x57,"HRESULT xaudio2_full_DllGetClassObject(REFCLSID, EON_REFIID, void**)");
+    }
+    local_34 = 0;
+    if (*piVar1 == 0) {
+      local_34 = 0;
+      FUN_0400a810(&DAT_0430f63b,
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/xaudio2_full/comobjects.cpp"
+                   ,0x58,"HRESULT xaudio2_full_DllGetClassObject(REFCLSID, EON_REFIID, void**)");
+    }
+  }
+  else {
+    *piVar1 = 0;
+    local_34 = 0x80040154;
+  }
+  return local_34;
+}
+

@@ -1,0 +1,68 @@
+
+/* WARNING: Type propagation algorithm not settling */
+
+undefined4 EnumDisplayMonitors(int param_1,int param_2,code *param_3,uint param_4)
+
+{
+  code *pcVar1;
+  int iVar2;
+  uint uVar3;
+  uint uVar4;
+  uint *puVar5;
+  uint auStack_64 [2];
+  char *local_5c;
+  uint local_58 [8];
+  undefined4 local_38;
+  uint local_34;
+  undefined1 local_30 [4];
+  undefined1 local_2c [4];
+  undefined1 local_28 [4];
+  undefined1 local_24 [12];
+  undefined4 *local_18;
+  
+  pcVar1 = param_3;
+  local_18 = &param_1;
+  puVar5 = auStack_64 + 1;
+  local_34 = param_4;
+  if (param_1 != 0) {
+    local_5c = "EnumDisplayMonitors() doesnt handle hdc yet";
+    auStack_64[1] = 10;
+    FUN_0402cd10();
+    return 0;
+  }
+  if (param_2 == 0) {
+    uVar4 = 0;
+    while( true ) {
+      puVar5[-1] = 0x41701c6;
+      uVar3 = OpenGLDisplay_GetCount();
+      if (uVar3 <= uVar4) {
+        return 1;
+      }
+      *puVar5 = uVar4;
+      puVar5[-1] = 0x4170178;
+      local_38 = OpenGLDisplay_GetByIndex();
+      puVar5[1] = (uint)local_30;
+      puVar5[4] = (uint)local_24;
+      puVar5[3] = (uint)local_28;
+      puVar5[2] = (uint)local_2c;
+      *puVar5 = local_38;
+      puVar5[-1] = 0x417019c;
+      OpenGLDisplayWorkArea();
+      puVar5[1] = 0;
+      puVar5[2] = (uint)local_30;
+      puVar5[3] = local_34;
+      *puVar5 = local_38;
+      puVar5[-1] = 0x41701b7;
+      iVar2 = (*pcVar1)();
+      puVar5 = puVar5 + -4;
+      if (iVar2 == 0) break;
+      uVar4 = uVar4 + 1;
+    }
+    return 1;
+  }
+  local_5c = "EnumDisplayMonitors() doesnt handle lprcClip yet";
+  auStack_64[1] = 10;
+  FUN_0402cd10();
+  return 0;
+}
+

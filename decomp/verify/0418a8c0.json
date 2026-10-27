@@ -1,0 +1,53 @@
+
+void GetAudioDevices(uint *param_1,undefined4 *param_2,char param_3,char param_4)
+
+{
+  char cVar1;
+  size_t __size;
+  undefined4 *puVar2;
+  char *pcVar3;
+  uint uVar4;
+  
+  if (DAT_0451c0f5 == '\0') {
+    cVar1 = FUN_0400dd30();
+    if (cVar1 != '\0') {
+      puVar2 = malloc(0x20);
+      *puVar2 = 0xffffffff;
+      puVar2[1] = 0;
+      puVar2[7] = 2;
+      puVar2[3] = 0x4c4c554e;
+      *(undefined2 *)(puVar2 + 4) = 0x52;
+      pcVar3 = strdup("Default audio device");
+      puVar2[2] = pcVar3;
+      DAT_0451c0f0 = puVar2;
+    }
+    OpenALSoft_Shutdown();
+    DAT_0451c0f5 = '\x01';
+  }
+  if ((param_4 != '\0') && (DAT_0451c0f4 == '\0')) {
+    FUN_0402cd10(0xf,
+                 "Game is asking for capture devices. As on Linux presently their support is not coded, we return no capture devices. This error will be reported only once per game launch."
+                );
+    DAT_0451c0f4 = '\x01';
+  }
+  if (param_3 == '\0') {
+    __size = 0;
+    uVar4 = 0;
+  }
+  else {
+    __size = ~-(uint)(DAT_0451c0f0 == (undefined4 *)0x0) & 4;
+    uVar4 = (uint)(DAT_0451c0f0 != (undefined4 *)0x0);
+  }
+  *param_1 = uVar4;
+  if (param_2 != (undefined4 *)0x0) {
+    if (uVar4 != 0) {
+      puVar2 = malloc(__size);
+      *param_2 = puVar2;
+      *puVar2 = DAT_0451c0f0;
+      return;
+    }
+    *param_2 = 0;
+  }
+  return;
+}
+

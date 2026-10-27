@@ -1,0 +1,36 @@
+
+void eON_ShaderData_convert_math(int param_1)
+
+{
+  int iVar1;
+  undefined4 uVar2;
+  undefined1 local_2ac [128];
+  undefined1 local_22c [128];
+  undefined1 local_1ac [128];
+  undefined1 local_12c [128];
+  undefined1 local_ac [128];
+  undefined1 local_2c [28];
+  
+  local_ac[0] = 0;
+  local_2c[0] = 0;
+  uVar2 = *(undefined4 *)(param_1 + 0x38);
+  eON_ShaderData__InputRegisterIsColor(local_ac);
+  iVar1 = ShaderData_AppendDestMask();
+  if (iVar1 != 0) {
+    eON_AppendShaderCompileMessage
+              (uVar2,"%s%s = %s(",local_ac,local_2c,
+               (&PTR_DAT_042eb360)[*(byte *)(param_1 + 0xf) & 0xf]);
+  }
+  eON_ShaderData_ApplySourceModifier(iVar1,local_2ac);
+  eON_ShaderData_ApplySourceModifier(iVar1,local_1ac);
+  iVar1 = **(int **)(param_1 + 4);
+  uVar2 = 0x2d;
+  if (((iVar1 != 3) && (uVar2 = 0x2a, iVar1 != 5)) && (uVar2 = 0x2b, iVar1 != 2)) {
+    FUN_0402cd10(0xf,"Unhandled opcode in convert_math!");
+    uVar2 = 0;
+  }
+  eON_AppendShaderCompileMessage
+            (*(undefined4 *)(param_1 + 0x38),"%s %c %s);\n",local_22c,uVar2,local_12c);
+  return;
+}
+

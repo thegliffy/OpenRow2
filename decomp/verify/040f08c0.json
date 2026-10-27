@@ -1,0 +1,67 @@
+
+undefined4 DirectInput8Create(undefined4 param_1,int param_2,void *param_3,int *param_4,int param_5)
+
+{
+  int iVar1;
+  int *piVar2;
+  undefined1 local_38 [44];
+  
+  if (param_2 == 0x800) {
+    iVar1 = memcmp(param_3,&DAT_042dbaa8,0x10);
+    if (iVar1 == 0) {
+      piVar2 = operator_new(0x1c);
+                    /* try { // try from 040f0a51 to 040f0a55 has its CatchHandler @ 040f0b00 */
+      DirectInputImp__DirectInputImp(piVar2,0,0);
+    }
+    else {
+      iVar1 = memcmp(param_3,&DAT_042dba98,0x10);
+      if (iVar1 != 0) {
+        GUID_FormatLower(param_3,local_38);
+        FUN_0402cd10(10,
+                     "DirectInput8Create - requested DirectInput version 0x800, but unrecognized object GUID = %s"
+                     ,local_38);
+        return 0xffffffff;
+      }
+      piVar2 = operator_new(0x1c);
+                    /* try { // try from 040f0a25 to 040f0a29 has its CatchHandler @ 040f0b02 */
+      DirectInputImp__DirectInputImp(piVar2,1,0);
+    }
+  }
+  else {
+    if (param_2 != 0x700) {
+      FUN_0402cd10(10,
+                   "DirectInput8Create - requested DirectInput version %#x, which is not supported",
+                   param_2);
+      return 0xffffffff;
+    }
+    iVar1 = memcmp(param_3,&DAT_042dbac8,0x10);
+    if (iVar1 == 0) {
+      piVar2 = operator_new(0x1c);
+                    /* try { // try from 040f0989 to 040f098d has its CatchHandler @ 040f0aec */
+      DirectInputImp__DirectInputImp(piVar2,0,1);
+    }
+    else {
+      iVar1 = memcmp(param_3,&DAT_042dbab8,0x10);
+      if (iVar1 != 0) {
+        GUID_FormatLower(param_3,local_38);
+        FUN_0402cd10(10,
+                     "DirectInput8Create - requested DirectInput version 0x700, but unrecognized object GUID = %s"
+                     ,local_38);
+        return 0xffffffff;
+      }
+      piVar2 = operator_new(0x1c);
+                    /* try { // try from 040f0944 to 040f0948 has its CatchHandler @ 040f0afe */
+      DirectInputImp__DirectInputImp(piVar2,1,1);
+    }
+  }
+  if (param_5 == 0) {
+    *param_4 = piVar2[3];
+    return 0;
+  }
+  if (piVar2 != (int *)0x0) {
+    (**(code **)(*piVar2 + 0x10))(piVar2);
+  }
+  FUN_0402cd10(0xf,"DirectInput8Create - unhandled parameter value!");
+  return 0xffffffff;
+}
+

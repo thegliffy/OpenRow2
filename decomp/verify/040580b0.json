@@ -1,0 +1,387 @@
+
+undefined4 ShaderData__PreparseBytecode(int param_1,uint *param_2,char param_3)
+
+{
+  uint uVar1;
+  void *__dest;
+  undefined *puVar2;
+  char *pcVar3;
+  uint uVar4;
+  uint uVar5;
+  uint *puVar6;
+  uint *puVar7;
+  bool bVar8;
+  undefined4 *local_40;
+  uint *local_34;
+  uint local_30;
+  undefined4 local_28;
+  undefined4 local_24;
+  undefined4 local_20;
+  
+  if (*(void **)(param_1 + 0x18) != (void *)0x0) {
+    free(*(void **)(param_1 + 0x18));
+    *(undefined4 *)(param_1 + 0x18) = 0;
+  }
+  if (*(void **)(param_1 + 0x2b4) != (void *)0x0) {
+    free(*(void **)(param_1 + 0x2b4));
+    *(undefined4 *)(param_1 + 0x2b4) = 0;
+  }
+  if (*(void **)(param_1 + 700) != (void *)0x0) {
+    free(*(void **)(param_1 + 700));
+    *(undefined4 *)(param_1 + 700) = 0;
+  }
+  if (*(void **)(param_1 + 0x2c4) != (void *)0x0) {
+    free(*(void **)(param_1 + 0x2c4));
+    *(undefined4 *)(param_1 + 0x2c4) = 0;
+  }
+  *(undefined4 *)(param_1 + 0x14) = 0;
+  *(undefined4 *)(param_1 + 4) = 0;
+  *(undefined4 *)(param_1 + 8) = 0;
+  *(undefined4 *)(param_1 + 0xc) = 0;
+  *(undefined4 *)(param_1 + 0x2e0) = 0xffffffff;
+  *(undefined4 *)(param_1 + 0x2e4) = 0xffffffff;
+  *(undefined4 *)(param_1 + 0x2e8) = 0xffffffff;
+  *(undefined4 *)(param_1 + 0x2ec) = 0xffffffff;
+  *(undefined4 *)(param_1 + 0x2f0) = 0xffffffff;
+  bzero((void *)(param_1 + 0x224),0x90);
+  bzero((void *)(param_1 + 0x164),0xc0);
+  local_28 = 0;
+  local_24 = 0;
+  local_20 = 0;
+  if (param_2 == (uint *)0x0) {
+    if (param_3 != '\0') {
+      eON_AppendShaderCompileMessage(&local_28,"Shader empty; use fixed function pipeline.\n");
+    }
+LAB_04058276:
+    local_40 = &local_28;
+    FUN_0402f590(local_40);
+    return 1;
+  }
+  if (param_3 != '\0') {
+    eON_AppendShaderCompileMessage(&local_28,"Preparsing bytecode...\n");
+  }
+  local_40 = &local_28;
+  local_30 = *param_2;
+  local_34 = param_2;
+LAB_040581e8:
+  while (local_30 != 0xffff) {
+    while (1 < (local_30 >> 0x10) - 0xfffe) {
+      uVar1 = local_30 & 0xffff;
+      if (uVar1 != 0xfffe) {
+        puVar6 = *(uint **)(param_1 + 0x2d8);
+        if (*(char *)(*(uint **)(param_1 + 0x2d8))[1] != '\0') goto LAB_040582b7;
+        goto LAB_04058528;
+      }
+      if (param_3 != '\0') {
+        eON_AppendShaderCompileMessage(local_40,"; %s\n",local_34 + 1);
+      }
+      local_34 = (uint *)(((local_30 & 0x7fff0000) >> 0xe) + (int)(local_34 + 1));
+      local_30 = *local_34;
+      if (local_30 == 0xffff) goto LAB_0405823f;
+    }
+    bVar8 = local_30 >> 0x10 == 0xffff;
+    *(uint *)(param_1 + 4) = local_30;
+    uVar1 = local_30 >> 8 & 0xff;
+    puVar2 = &DAT_042ea5e0;
+    *(bool *)(param_1 + 0x10) = bVar8;
+    if (!bVar8) {
+      puVar2 = &DAT_042eada0;
+    }
+    *(uint *)(param_1 + 8) = uVar1;
+    *(uint *)(param_1 + 0xc) = local_30 & 0xff;
+    *(undefined **)(param_1 + 0x2d8) = puVar2;
+    if (param_3 == '\0') {
+      local_30 = local_34[1];
+      local_34 = local_34 + 1;
+    }
+    else {
+      pcVar3 = "pixel";
+      if (!bVar8) {
+        pcVar3 = "vertex";
+      }
+      eON_AppendShaderCompileMessage(local_40,"Shader is %s shader version %d.%d\n",pcVar3,uVar1);
+      local_30 = local_34[1];
+      local_34 = local_34 + 1;
+    }
+  }
+LAB_0405823f:
+  uVar1 = (int)local_34 + (4 - (int)param_2) & 0xfffffffc;
+  *(uint *)(param_1 + 0x14) = uVar1;
+  __dest = malloc(uVar1);
+  *(void **)(param_1 + 0x18) = __dest;
+  memcpy(__dest,param_2,uVar1);
+  if (param_3 != '\0') {
+    FUN_0402cd10(5,"===== Decoded bytecode ===========");
+    FUN_0402cd10(5,local_28);
+    FUN_0402cd10(5,"==================================");
+  }
+  goto LAB_04058276;
+LAB_040582b7:
+  if (uVar1 != *puVar6) goto LAB_040582a8;
+  if (puVar6[5] != 0) {
+    uVar5 = *(uint *)(param_1 + 4);
+    if (puVar6[5] <= uVar5) {
+      uVar4 = puVar6[6];
+      goto LAB_040582d0;
+    }
+    goto LAB_040582a8;
+  }
+  uVar4 = puVar6[6];
+  if (uVar4 != 0) {
+    uVar5 = *(uint *)(param_1 + 4);
+LAB_040582d0:
+    if (uVar4 < uVar5) goto LAB_040582a8;
+  }
+  puVar7 = local_34 + 1;
+  if (puVar6 == (uint *)0x0) goto LAB_04058557;
+  uVar1 = *puVar6;
+  if (uVar1 == 0x2f) {
+    if (param_3 != '\0') {
+      pcVar3 = "true";
+      if (local_34[2] == 0) {
+        pcVar3 = "false";
+      }
+      eON_AppendShaderCompileMessage(local_40,"defb b%u = %s",local_34[1] & 0x7ff,pcVar3);
+    }
+LAB_04058509:
+    local_34 = local_34 + 3;
+  }
+  else if (uVar1 < 0x30) {
+    if (uVar1 == 0x1f) {
+      if (param_3 != '\0') {
+        eON_AppendShaderCompileMessage(local_40,&PTR_DAT_042e7f76);
+        if (((local_34[2] & 0x1800) >> 8 | (local_34[2] & 0x70000000) >> 0x1c) == 10) {
+          uVar1 = local_34[1] & 0x78000000;
+          if (uVar1 == 0x18000000) {
+            eON_AppendShaderCompileMessage(local_40,"_cube");
+          }
+          else if (uVar1 == 0x20000000) {
+            eON_AppendShaderCompileMessage(local_40,"_volume");
+          }
+          else if (uVar1 == 0x10000000) {
+            eON_AppendShaderCompileMessage(local_40,&PTR_DAT_042e7f7a);
+          }
+          else {
+            eON_AppendShaderCompileMessage(local_40,"_unknown!(%x)",uVar1);
+          }
+        }
+        else if ((*(char *)(param_1 + 0x10) == '\0') || (0xffff02ff < *(uint *)(param_1 + 4))) {
+          uVar1 = local_34[1] & 0xf;
+          switch(uVar1) {
+          default:
+            uVar5 = (local_34[1] & 0xf0000) >> 0x10;
+            switch(uVar1) {
+            case 0:
+              eON_AppendShaderCompileMessage(local_40,"_position%d",uVar5);
+              break;
+            default:
+              eON_AppendShaderCompileMessage(local_40,"_unknown!(%x)%d",uVar1,uVar5);
+              break;
+            case 3:
+              eON_AppendShaderCompileMessage(local_40,"_normal%d",uVar5);
+              break;
+            case 5:
+              eON_AppendShaderCompileMessage(local_40,"_texcoord%d",uVar5);
+              break;
+            case 9:
+              eON_AppendShaderCompileMessage(local_40,"_positiont%d",uVar5);
+              break;
+            case 10:
+              if (uVar5 == 0) {
+                eON_AppendShaderCompileMessage(local_40,"_color");
+              }
+              else {
+                eON_AppendShaderCompileMessage(local_40,"_specular%d",uVar5);
+              }
+            }
+            break;
+          case 1:
+            eON_AppendShaderCompileMessage(local_40,"_weight");
+            break;
+          case 2:
+            eON_AppendShaderCompileMessage(local_40,"_blend");
+            break;
+          case 4:
+            eON_AppendShaderCompileMessage(local_40,"_psize");
+            break;
+          case 6:
+            eON_AppendShaderCompileMessage(local_40,"_tangent");
+            break;
+          case 7:
+            eON_AppendShaderCompileMessage(local_40,"_binormal");
+            break;
+          case 8:
+            eON_AppendShaderCompileMessage(local_40,"_tessfactor");
+            break;
+          case 0xb:
+            eON_AppendShaderCompileMessage(local_40,"_fog");
+            break;
+          case 0xc:
+            eON_AppendShaderCompileMessage(local_40,"_depth");
+            break;
+          case 0xd:
+            eON_AppendShaderCompileMessage(local_40,"_sample");
+          }
+        }
+        ShaderData_DispatchOpcodeHandler();
+        eON_AppendShaderCompileMessage(local_40,&DAT_043025f3);
+        eON_ShaderData_FormatSourceRegister(param_1,local_40,local_34[2]);
+      }
+      goto LAB_04058509;
+    }
+LAB_040582fc:
+    if (param_3 != '\0') {
+      if ((local_30 & 0x10000000) != 0) {
+        eON_AppendShaderCompileMessage(local_40,"(");
+        eON_ShaderData_FormatSourceRegister(param_1,local_40,local_34[3]);
+        eON_AppendShaderCompileMessage(local_40,&DAT_042e8043);
+      }
+      if ((local_30 & 0x40000000) != 0) {
+                    /* try { // try from 04058326 to 04058cd5 has its CatchHandler @ 04058cdb */
+        eON_AppendShaderCompileMessage(local_40,&DAT_04344465);
+      }
+      eON_AppendShaderCompileMessage(local_40,puVar6[1]);
+      uVar1 = *puVar6;
+      if ((uVar1 == 0x2d) || (uVar1 == 0x29)) {
+        switch(*(undefined1 *)((int)local_34 + 6)) {
+        default:
+          eON_AppendShaderCompileMessage(local_40,"_unknown(%x)",*(undefined1 *)((int)local_34 + 6))
+          ;
+          break;
+        case 1:
+          eON_AppendShaderCompileMessage(local_40,&PTR_DAT_042e8046);
+          break;
+        case 2:
+          eON_AppendShaderCompileMessage(local_40,&PTR_DAT_042e804a);
+          break;
+        case 3:
+          eON_AppendShaderCompileMessage(local_40,&PTR_DAT_042e804e);
+          break;
+        case 4:
+          eON_AppendShaderCompileMessage(local_40,&PTR_DAT_042e8052);
+          break;
+        case 5:
+          eON_AppendShaderCompileMessage(local_40,&PTR_DAT_042e8056);
+          break;
+        case 6:
+          eON_AppendShaderCompileMessage(local_40,&PTR_DAT_042e805a);
+        }
+      }
+      else if (((uVar1 == 0x42) && (0xffff01ff < *(uint *)(param_1 + 4))) &&
+              ((local_30 & 0x10000) != 0)) {
+        eON_AppendShaderCompileMessage(local_40,&DAT_04361ca0);
+      }
+    }
+    if ((char)puVar6[2] != '\0') {
+      uVar1 = local_34[1];
+      puVar7 = local_34 + 2;
+      if ((1 < *(int *)(param_1 + 8)) && ((uVar1 & 0x2000) != 0)) {
+        puVar7 = local_34 + 3;
+      }
+      if (param_3 != '\0') {
+        ShaderData_DispatchOpcodeHandler();
+        eON_AppendShaderCompileMessage(local_40,&DAT_043025f3);
+        eON_ShaderData_FormatSourceRegister(param_1,local_40,uVar1);
+      }
+    }
+    local_34 = puVar7;
+    if ((local_30 & 0x10000000) != 0) {
+      local_34 = puVar7 + 1;
+    }
+    if (puVar6[3] != 0) {
+      local_30 = 0;
+      if (param_3 == '\0') {
+        uVar1 = 0;
+        do {
+          puVar7 = local_34 + 1;
+          if ((1 < *(int *)(param_1 + 8)) && (puVar7 = local_34 + 2, (*local_34 & 0x2000) == 0)) {
+            puVar7 = local_34 + 1;
+          }
+          local_34 = puVar7;
+          uVar1 = uVar1 + 1;
+        } while (uVar1 != puVar6[3]);
+        goto LAB_04058517;
+      }
+      do {
+        uVar1 = *local_34;
+        puVar7 = local_34 + 1;
+        if ((1 < *(int *)(param_1 + 8)) && ((uVar1 & 0x2000) != 0)) {
+          puVar7 = local_34 + 2;
+        }
+        local_34 = puVar7;
+        puVar2 = &DAT_042e7ad2;
+        if ((local_30 == 0) && ((char)puVar6[2] == '\0')) {
+          puVar2 = &DAT_043025f3;
+        }
+        eON_AppendShaderCompileMessage(local_40,puVar2);
+        eON_ShaderData_FormatSourceRegister(param_1,local_40,uVar1);
+        local_30 = local_30 + 1;
+      } while (local_30 < puVar6[3]);
+    }
+  }
+  else {
+    if (uVar1 == 0x30) {
+      if (param_3 != '\0') {
+        eON_AppendShaderCompileMessage
+                  (local_40,"defi i%u = %d, %d, %d, %d",local_34[1] & 0x7ff,local_34[2],local_34[3],
+                   local_34[4],local_34[5]);
+      }
+    }
+    else {
+      if (uVar1 != 0x51) goto LAB_040582fc;
+      if (param_3 != '\0') {
+        uVar1 = local_34[1];
+        uVar5 = uVar1 & 0x7ff;
+        uVar1 = (uVar1 & 0x1800) >> 8 | (uVar1 & 0x70000000) >> 0x1c;
+        if (uVar1 == 0xb) {
+          uVar5 = uVar5 + 0x800;
+        }
+        else if (uVar1 < 0xc) {
+          if (uVar1 != 2) {
+LAB_04058846:
+            FUN_0402cd10(0xf,"Unsupported register type for constant offset calculation! : %d",uVar1
+                        );
+            uVar5 = 0;
+          }
+        }
+        else if (uVar1 == 0xc) {
+          uVar5 = uVar5 + 0x1000;
+        }
+        else {
+          if (uVar1 != 0xd) goto LAB_04058846;
+          uVar5 = uVar5 + 0x1800;
+        }
+        eON_AppendShaderCompileMessage(local_40,"def c%u = %.9f, %.9f, %.9f, %.9f",uVar5);
+      }
+    }
+    local_34 = local_34 + 6;
+  }
+  if (param_3 == '\0') {
+LAB_04058517:
+    local_30 = *local_34;
+  }
+  else {
+    eON_AppendShaderCompileMessage(local_40,"\n");
+    local_30 = *local_34;
+  }
+  goto LAB_040581e8;
+LAB_040582a8:
+  puVar7 = puVar6 + 8;
+  puVar6 = puVar6 + 7;
+  if (*(char *)*puVar7 == '\0') goto LAB_04058528;
+  goto LAB_040582b7;
+LAB_04058528:
+  FUN_0402cd10(0xf,
+               "Unsupported asm opcode in ShaderData::IdentifyInstruction() !!!. Opcode %#x, shader version %#x"
+               ,uVar1,*(undefined4 *)(param_1 + 4));
+LAB_04058557:
+  puVar6 = local_34 + 1;
+  FUN_0402cd10(0xf,"Unrecognized instruction when parsing bytecode\n");
+  local_30 = local_34[1];
+  while (local_34 = puVar6, (int)local_30 < 0) {
+    puVar6 = puVar6 + 1;
+    local_30 = *puVar6;
+  }
+  goto LAB_040581e8;
+}
+

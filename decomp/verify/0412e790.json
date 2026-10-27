@@ -1,0 +1,39 @@
+
+/* source: fs_files */
+
+undefined4
+vpfs_WriteFile(undefined4 param_1,undefined4 param_2,undefined4 param_3,undefined4 *param_4,
+              int param_5)
+
+{
+  char cVar1;
+  int iVar2;
+  undefined4 uVar3;
+  undefined4 local_18;
+  int local_14;
+  
+  iVar2 = FUN_04042870(param_1);
+  if (((iVar2 != 0) || (cVar1 = FUN_0403c420(param_1), cVar1 != '\0')) ||
+     (Synchronisation_GetObjectInfo(param_1,0,&local_14), local_14 != 3)) {
+    if (param_4 != (undefined4 *)0x0) {
+      *param_4 = 0;
+      uVar3 = vpfs_04046fb0(param_1,param_3,param_2,param_5,&local_18);
+      *param_4 = local_18;
+      return uVar3;
+    }
+    uVar3 = vpfs_04046fb0(param_1,param_3,param_2,param_5,&local_18);
+    return uVar3;
+  }
+  if (param_5 != 0) {
+    FUN_0400a810("!lpOverlapped",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/fs_files.cpp"
+                 ,0x206,"WINBOOL vpfs_WriteFile(HANDLE, LPCVOID, DWORD, PDWORD, LPOVERLAPPED)");
+  }
+  eON_LogGameStdout();
+  if (param_4 == (undefined4 *)0x0) {
+    return 1;
+  }
+  *param_4 = param_3;
+  return 1;
+}
+

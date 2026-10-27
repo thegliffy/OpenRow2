@@ -1,0 +1,12 @@
+
+void DirectInputEffectImp__DirectInputEffectImp(undefined4 *param_1)
+
+{
+  IUnknownImp__IUnknownImp(param_1,param_1 + 4);
+  *param_1 = &PTR_FUN_0430bbe8;
+  param_1[4] = &PTR_FUN_04408da0;
+  param_1[5] = param_1;
+  param_1[1] = "DirectInputEffectImp";
+  return;
+}
+

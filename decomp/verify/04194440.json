@@ -1,0 +1,38 @@
+
+int eON_setsockopt(int param_1,int param_2,int param_3,uint *param_4,size_t param_5)
+
+{
+  int iVar1;
+  int *piVar2;
+  uint *__dest;
+  socklen_t local_24;
+  uint local_1c;
+  int local_18;
+  uint local_14;
+  
+  local_14 = 0;
+  if ((int)param_5 < 4) {
+    __dest = &local_14;
+    memcpy(__dest,param_4,param_5);
+    local_24 = 4;
+  }
+  else if (param_3 - 0x1005U < 2) {
+    local_24 = 8;
+    __dest = &local_1c;
+    local_1c = *param_4 / 1000;
+    local_18 = (*param_4 % 1000) * 1000;
+  }
+  else {
+    local_24 = param_5;
+    __dest = param_4;
+  }
+  iVar1 = eON_MapSocketOptname_WinToPosix(param_3);
+  iVar1 = setsockopt(param_1,(uint)(param_2 == 0xffff),iVar1,__dest,local_24);
+  if (iVar1 == -1) {
+    piVar2 = __errno_location();
+    FUN_0402cd10(10,"setsockopt( s = %d, level = %d, optname = %d ) returns -1, errno is %d",param_1
+                 ,param_2,param_3,*piVar2);
+  }
+  return iVar1;
+}
+

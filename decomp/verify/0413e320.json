@@ -1,0 +1,135 @@
+
+/* source: mem_vm */
+
+void * eON_VirtualAllocEx(int param_1,uint param_2,uint param_3,uint param_4,uint param_5)
+
+{
+  uint uVar1;
+  uint uVar2;
+  uint uVar3;
+  int iVar4;
+  uint uVar5;
+  uint uVar6;
+  undefined4 uVar7;
+  void *__addr;
+  void *local_38;
+  int local_24 [3];
+  undefined4 *local_18;
+  
+  uVar3 = param_5;
+  uVar2 = param_4;
+  uVar1 = param_3;
+  uVar6 = param_2;
+  local_18 = &param_1;
+  if (param_1 != -1) {
+    FUN_0402cd10(0xf,"VirtualAllocEx() called with hProcess %p !!",param_1);
+    eON_SetLastError(6);
+    return (void *)0x0;
+  }
+  if ((param_4 & 0x200000) != 0) {
+    FUN_0402cd10(10,"\tVirtualAlloc with MEM_WRITE_WATCH!");
+  }
+  if ((uVar1 == 0) || ((uVar3 & 0xfffff800) != 0)) {
+LAB_0413e366:
+    eON_SetLastError(0x57);
+    return (void *)0x0;
+  }
+  if ((uVar2 & 0x80000) != 0) {
+    if (uVar2 == 0x80000) {
+      if (((uVar6 | uVar1) & 0xfff) == 0) {
+        __addr = (void *)(uVar6 & 0xfffff000);
+        pthread_mutex_lock((pthread_mutex_t *)&DAT_04515bf4);
+        iVar4 = FUN_0413c980();
+        if (iVar4 != 0) {
+          madvise(__addr,(uVar6 + 0xfff + uVar1 & 0xfffff000) - (int)__addr,4);
+          pthread_mutex_unlock((pthread_mutex_t *)&DAT_04515bf4);
+          return __addr;
+        }
+LAB_0413e70f:
+        pthread_mutex_unlock((pthread_mutex_t *)&DAT_04515bf4);
+        eON_SetLastError(0x1e7);
+        return (void *)0x0;
+      }
+LAB_0413e5f0:
+      eON_SetLastError(0x1e7);
+      return (void *)0x0;
+    }
+    goto LAB_0413e366;
+  }
+  local_24[0] = 0;
+  if (((uVar2 & 0x2000) == 0) && (uVar6 != 0)) {
+    uVar5 = 0;
+    local_38 = (void *)0x0;
+    iVar4 = 0;
+  }
+  else {
+    if (uVar6 == 0) {
+      uVar5 = uVar1 + 0xfff & 0xfffff000;
+    }
+    else {
+      uVar5 = (uVar6 + 0xfff + uVar1 & 0xfffff000) + (uVar6 >> 0x10) * -0x10000;
+    }
+    pthread_mutex_lock((pthread_mutex_t *)&DAT_04515bf4);
+    iVar4 = vmm_ReserveRegion(1,0,local_24);
+    if (iVar4 == 0) {
+      pthread_mutex_unlock((pthread_mutex_t *)&DAT_04515bf4);
+      return (void *)0x0;
+    }
+    iVar4 = 1;
+    *(uint *)(local_24[0] + 0x28) = uVar3;
+    *(uint *)(local_24[0] + 0x2c) = uVar3;
+    local_38 = (void *)(*(int *)(local_24[0] + 8) + 0xffffU & 0xffff0000);
+  }
+  if ((uVar2 & 0x1000) == 0) goto LAB_0413e576;
+  if (local_24[0] == 0) {
+    local_38 = (void *)(uVar6 & 0xfffff000);
+    uVar5 = (uVar6 + 0xfff + uVar1 & 0xfffff000) - (int)local_38;
+    pthread_mutex_lock((pthread_mutex_t *)&DAT_04515bf4);
+    local_24[0] = FUN_0413c980();
+    if (local_24[0] == 0) goto LAB_0413e70f;
+    iVar4 = 1;
+  }
+  if ((*(byte *)(local_24[0] + 0x1c) & 3) != 0) {
+    pthread_mutex_unlock((pthread_mutex_t *)&DAT_04515bf4);
+    goto LAB_0413e5f0;
+  }
+  if ((uVar3 & 0x100) != 0) {
+    FUN_0402cd10(10,"Warning: VirtualAlloc() with PAGE_GUARD protection flag. Handle it.");
+  }
+  *(uint *)(local_24[0] + 0x2c) = uVar3;
+  uVar7 = 2;
+  uVar6 = uVar3 & 0xff;
+  if (uVar6 != 8) {
+    if (uVar6 < 9) {
+      uVar7 = 1;
+      if (((uVar6 != 2) && (uVar7 = 3, uVar6 != 4)) && (uVar7 = 0, uVar6 != 1)) goto LAB_0413e62b;
+    }
+    else {
+      uVar7 = 5;
+      if (uVar6 != 0x20) {
+        if (uVar6 < 0x21) {
+          uVar7 = 4;
+          if (uVar6 != 0x10) {
+LAB_0413e62b:
+            FUN_0402cd10(10,"Win32ToPosixProtectFlags: unhandled flags %x !!",uVar3);
+            uVar7 = 7;
+          }
+        }
+        else {
+          uVar7 = 7;
+          if ((uVar6 != 0x40) && (uVar7 = 6, uVar6 != 0x80)) goto LAB_0413e62b;
+        }
+      }
+    }
+  }
+  vmm_CommitRegion(uVar7);
+LAB_0413e576:
+  if (iVar4 == 0) {
+    FUN_0400a810("locked",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/mem_vm.cpp"
+                 ,0x8d9,"void* eON_VirtualAllocEx(HANDLE, PVOID, SIZE_T, DWORD, DWORD)",0,uVar5);
+  }
+  pthread_mutex_unlock((pthread_mutex_t *)&DAT_04515bf4);
+  return local_38;
+}
+

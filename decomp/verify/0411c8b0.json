@@ -1,0 +1,23 @@
+
+/* source: gdi32 */
+
+void HDC_AddRef(int param_1)
+
+{
+  uint uVar1;
+  
+  if (param_1 == 0) {
+    uVar1 = 0xffffffff;
+  }
+  else {
+    uVar1 = param_1 + 0x68686869;
+    if (uVar1 < 0x80) goto LAB_0411c8c9;
+  }
+  FUN_0400a810("number < 128",
+               "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/gdi32/gdi32.cpp",
+               0x230,"void HDC_AddRef(HDC)");
+LAB_0411c8c9:
+  *(int *)(&DAT_04512aa4 + uVar1 * 0x60) = *(int *)(&DAT_04512aa4 + uVar1 * 0x60) + 1;
+  return;
+}
+

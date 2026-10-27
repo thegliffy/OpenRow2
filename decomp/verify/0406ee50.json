@@ -1,0 +1,56 @@
+
+/* source: direct3dcubetexture9imp */
+
+undefined4 Direct3DCubeTexture9Imp__GetLevelDesc(int param_1,uint param_2,char *param_3)
+
+{
+  undefined4 uVar1;
+  int iVar2;
+  int **ppiVar3;
+  undefined1 local_34 [4];
+  undefined4 uStack_30;
+  int *local_2c;
+  char *local_28;
+  undefined4 local_24;
+  char *local_20;
+  int *local_10;
+  
+  ppiVar3 = &local_2c;
+  local_10 = (int *)(param_1 + 0x1c);
+  if (*(int *)(param_1 + 0x1c) != 0) {
+    local_2c = (int *)(*(int *)(param_1 + 0x1c) + 0x40);
+    uStack_30 = 0x406ee76;
+    direct3ddevice9imp_040803c0();
+  }
+  iVar2 = *(int *)(param_1 + 0x1bc);
+  if (iVar2 != (iVar2 / 6) * 6) {
+    local_20 = "virtual HRESULT Direct3DCubeTexture9Imp::GetLevelDesc(UINT, D3DSURFACE_DESC*)";
+    local_24 = 0x6f;
+    local_28 = 
+    "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3dcubetexture9imp.cpp"
+    ;
+    local_2c = (int *)0x42efa18;
+                    /* try { // try from 0406eeff to 0406ef03 has its CatchHandler @ 0406ef17 */
+    uStack_30 = 0x406ef04;
+    FUN_0400a810();
+    iVar2 = *(int *)(param_1 + 0x1bc);
+  }
+  if (param_2 < (uint)(iVar2 / 6)) {
+    local_2c = *(int **)(param_1 + 0x3c + param_2 * 0x18);
+    local_28 = param_3;
+                    /* try { // try from 0406eeba to 0406eebc has its CatchHandler @ 0406ef17 */
+    uStack_30 = 0x406eebd;
+    uVar1 = (**(code **)(*local_2c + 0x30))();
+    ppiVar3 = (int **)local_34;
+  }
+  else {
+    uVar1 = 0x8876086c;
+  }
+  if (*local_10 != 0) {
+    *ppiVar3 = (int *)(*local_10 + 0x40);
+    ppiVar3[-1] = (int *)0x406eed6;
+    direct3ddevice9imp_04080490();
+  }
+  return uVar1;
+}
+

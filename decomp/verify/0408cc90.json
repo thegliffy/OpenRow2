@@ -1,0 +1,317 @@
+
+/* source: openGlContextCache */
+
+void OpenGLContextCache__PointAttenuation(int param_1)
+
+{
+  byte bVar1;
+  int iVar2;
+  int iVar3;
+  int iVar4;
+  uint uVar5;
+  char cVar6;
+  undefined4 uVar7;
+  uint uVar8;
+  int iVar9;
+  int iVar10;
+  bool bVar11;
+  float fVar12;
+  double dVar13;
+  float fVar14;
+  double dVar15;
+  float fVar16;
+  float fVar17;
+  
+  uVar8 = *(uint *)(param_1 + 0xea04);
+  if ((uVar8 & 4) == 0) {
+    iVar10 = *(int *)(param_1 + 0xeb48);
+  }
+  else {
+    if (*(char *)(param_1 + 0xeb4c) == '\0') {
+      iVar10 = *(int *)(param_1 + 0xeb48);
+      uVar5 = *(uint *)(param_1 + 0x7a60);
+      if (DAT_0451c9c8 == '\0') {
+        cVar6 = (char)(uVar5 & 0xf);
+        if ((((cVar6 != *(char *)(iVar10 + 0x424)) || (cVar6 != *(char *)(iVar10 + 0x425))) ||
+            (cVar6 != *(char *)(iVar10 + 0x426))) || (cVar6 != *(char *)(iVar10 + 0x427))) {
+          glColorMask(uVar5 & 1,(uVar5 & 2) != 0,(uVar5 & 4) != 0,(uVar5 & 0xf) >> 3);
+          *(char *)(iVar10 + 0x424) = cVar6;
+          *(char *)(iVar10 + 0x425) = cVar6;
+          *(char *)(iVar10 + 0x426) = cVar6;
+          *(char *)(iVar10 + 0x427) = cVar6;
+          iVar10 = *(int *)(param_1 + 0xeb48);
+          goto LAB_0408d523;
+        }
+      }
+      else {
+        if ((uVar5 & 0xf) != (uint)*(byte *)(iVar10 + 0x424)) {
+          (*DAT_0451d894)(0,uVar5 & 1,(uVar5 & 2) != 0,(uVar5 & 4) != 0,(uVar5 & 8) != 0);
+          *(char *)(iVar10 + 0x424) = (char)(uVar5 & 0xf);
+          iVar10 = *(int *)(param_1 + 0xeb48);
+        }
+        uVar8 = *(uint *)(param_1 + 0x7a64);
+        if ((uVar8 & 0xf) != (uint)*(byte *)(iVar10 + 0x425)) {
+          (*DAT_0451d894)(1,uVar8 & 1,(uVar8 & 2) != 0,(uVar8 & 4) != 0,(uVar8 & 8) != 0);
+          *(char *)(iVar10 + 0x425) = (char)(uVar8 & 0xf);
+          iVar10 = *(int *)(param_1 + 0xeb48);
+        }
+        uVar8 = *(uint *)(param_1 + 0x7a68);
+        if ((uVar8 & 0xf) != (uint)*(byte *)(iVar10 + 0x426)) {
+          (*DAT_0451d894)(2,uVar8 & 1,(uVar8 & 2) != 0,(uVar8 & 4) != 0,(uVar8 & 8) != 0);
+          *(char *)(iVar10 + 0x426) = (char)(uVar8 & 0xf);
+          iVar10 = *(int *)(param_1 + 0xeb48);
+        }
+        uVar8 = *(uint *)(param_1 + 0x7a6c);
+        if ((uVar8 & 0xf) == (uint)*(byte *)(iVar10 + 0x427)) {
+LAB_0408d523:
+          uVar8 = *(uint *)(param_1 + 0xea04);
+        }
+        else {
+          (*DAT_0451d894)(3,uVar8 & 1,(uVar8 & 2) != 0,(uVar8 & 4) != 0,(uVar8 & 8) != 0);
+          *(char *)(iVar10 + 0x427) = (char)(uVar8 & 0xf);
+          iVar10 = *(int *)(param_1 + 0xeb48);
+          uVar8 = *(uint *)(param_1 + 0xea04);
+        }
+      }
+    }
+    else {
+      FUN_040c7380(*(undefined4 *)(param_1 + 0xeb48),0,*(undefined4 *)(param_1 + 0x7a60));
+      FUN_040c7380(*(undefined4 *)(param_1 + 0xeb48),1,*(undefined4 *)(param_1 + 0x7a64));
+      FUN_040c7380(*(undefined4 *)(param_1 + 0xeb48),2,*(undefined4 *)(param_1 + 0x7a68));
+      FUN_040c7380(*(undefined4 *)(param_1 + 0xeb48),3,*(undefined4 *)(param_1 + 0x7a6c));
+      iVar10 = *(int *)(param_1 + 0xeb48);
+      uVar8 = *(uint *)(param_1 + 0xea04);
+    }
+    uVar8 = uVar8 & 0xfffffffb;
+    *(uint *)(param_1 + 0xea04) = uVar8;
+  }
+  if ((uVar8 & 2) == 0) {
+    if (*(int *)(param_1 + 0xc66c) != 0) goto joined_r0x0408cff8;
+  }
+  else if (*(int *)(param_1 + 0xc66c) == 0) {
+    if ((uVar8 & 0x10) == 0) {
+      if (*(char *)(iVar10 + 0xa8c) != '\0') {
+        glDisable(0xb71);
+        *(undefined1 *)(iVar10 + 0xa8c) = 0;
+        iVar10 = *(int *)(param_1 + 0xeb48);
+      }
+      if (*(char *)(iVar10 + 0x42e) != '\0') {
+        glDepthMask(0);
+        *(undefined1 *)(iVar10 + 0x42e) = 0;
+        iVar10 = *(int *)(param_1 + 0xeb48);
+      }
+      if (*(char *)(iVar10 + 0xa8d) != '\0') {
+        glDisable(0xb90);
+        *(undefined1 *)(iVar10 + 0xa8d) = 0;
+      }
+      cVar6 = FUN_04021f90();
+      iVar10 = *(int *)(param_1 + 0xeb48);
+      if ((cVar6 != '\0') && (*(char *)(iVar10 + 0xa8e) != '\0')) {
+        if (*(char *)(iVar10 + 0x218) != '\0') {
+          FUN_0400a810("!mUsingOpenGLCore",
+                       "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlContextCache.h"
+                       ,0x159,"void OpenGLContextCache::EnableTwoSideStencilTest(bool)");
+        }
+        glDisable(0x8910);
+        *(undefined1 *)(iVar10 + 0xa8e) = 0;
+        iVar10 = *(int *)(param_1 + 0xeb48);
+      }
+      uVar8 = *(uint *)(param_1 + 0xea04) | 0x18;
+      *(uint *)(param_1 + 0xea04) = uVar8;
+    }
+  }
+  else {
+joined_r0x0408cff8:
+    if ((uVar8 & 8) != 0) {
+      bVar11 = *(int *)(param_1 + 0x7a50) != 0;
+      if (bVar11 != (bool)*(char *)(iVar10 + 0xa8c)) {
+        if (bVar11) {
+          glEnable();
+        }
+        else {
+          glDisable(0xb71);
+        }
+        *(bool *)(iVar10 + 0xa8c) = bVar11;
+        iVar10 = *(int *)(param_1 + 0xeb48);
+      }
+      bVar11 = *(int *)(param_1 + 0x7a54) != 0;
+      if (bVar11 != (bool)*(char *)(iVar10 + 0x42e)) {
+        glDepthMask(bVar11);
+        *(bool *)(iVar10 + 0x42e) = bVar11;
+        iVar10 = *(int *)(param_1 + 0xeb48);
+      }
+      iVar2 = *(int *)(param_1 + 0x7a88);
+      if (iVar2 != *(int *)(iVar10 + 0x430)) {
+        glStencilMask(iVar2);
+        cVar6 = FUN_04021f90();
+        if (cVar6 != '\0') {
+          (*DAT_0451d648)(0x405);
+          glStencilMask(iVar2);
+          (*DAT_0451d648)(0x404);
+        }
+        *(int *)(iVar10 + 0x430) = iVar2;
+        iVar10 = *(int *)(param_1 + 0xeb48);
+      }
+      bVar11 = *(int *)(param_1 + 0x7a7c) != 0;
+      if (bVar11 != (bool)*(char *)(iVar10 + 0xa8d)) {
+        if (bVar11) {
+          glEnable();
+        }
+        else {
+          glDisable(0xb90);
+        }
+        *(bool *)(iVar10 + 0xa8d) = bVar11;
+      }
+      cVar6 = FUN_04021f90();
+      iVar10 = *(int *)(param_1 + 0xeb48);
+      if (cVar6 != '\0') {
+        bVar11 = *(int *)(param_1 + 0x7a8c) != 0;
+        if (bVar11 != (bool)*(char *)(iVar10 + 0xa8e)) {
+          if (*(char *)(iVar10 + 0x218) != '\0') {
+            FUN_0400a810("!mUsingOpenGLCore",
+                         "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlContextCache.h"
+                         ,0x159,"void OpenGLContextCache::EnableTwoSideStencilTest(bool)");
+          }
+          if (bVar11) {
+            glEnable(0x8910);
+          }
+          else {
+            glDisable();
+          }
+          *(bool *)(iVar10 + 0xa8e) = bVar11;
+          iVar10 = *(int *)(param_1 + 0xeb48);
+        }
+      }
+      uVar8 = *(uint *)(param_1 + 0xea04) & 0xffffffe7;
+      *(uint *)(param_1 + 0xea04) = uVar8;
+    }
+  }
+  if ((uVar8 & 3) == 0) {
+    FUN_040c5250(iVar10 + 0x1f8,*(undefined4 *)(param_1 + 0xea08));
+    bVar1 = *(byte *)(param_1 + 0xea05);
+  }
+  else {
+    uVar7 = FramebufferCache__GetFramebufferHash
+                      (iVar10 + 0x1f8,*(undefined4 *)(param_1 + 0xc65c),
+                       *(undefined4 *)(param_1 + 0xc660),*(undefined4 *)(param_1 + 0xc664),
+                       *(undefined4 *)(param_1 + 0xc668),*(undefined4 *)(param_1 + 0xc66c),
+                       *(undefined4 *)(param_1 + 0xc66c));
+    bVar1 = *(byte *)(param_1 + 0xea05);
+    *(undefined4 *)(param_1 + 0xea08) = uVar7;
+  }
+  if ((bVar1 & 1) != 0) {
+    iVar10 = *(int *)(param_1 + 0xe9bc);
+    iVar9 = *(int *)(param_1 + 0xeb48);
+    iVar2 = *(int *)(param_1 + 0xe9c8);
+    iVar3 = *(int *)(param_1 + 0xe9c4);
+    iVar4 = *(int *)(param_1 + 0xe9c0);
+    if (((iVar10 != *(int *)(iVar9 + 0x3f8)) || (iVar4 != *(int *)(iVar9 + 0x3fc))) ||
+       ((iVar3 != *(int *)(iVar9 + 0x400) || (iVar2 != *(int *)(iVar9 + 0x404))))) {
+      glViewport(iVar10,iVar4,iVar3,iVar2);
+      *(int *)(iVar9 + 0x3f8) = iVar10;
+      *(int *)(iVar9 + 0x3fc) = iVar4;
+      *(int *)(iVar9 + 0x400) = iVar3;
+      *(int *)(iVar9 + 0x404) = iVar2;
+      iVar9 = *(int *)(param_1 + 0xeb48);
+    }
+    dVar13 = (double)*(float *)(param_1 + 0xe9cc);
+    dVar15 = (double)*(float *)(param_1 + 0xe9d0);
+    if ((dVar13 != *(double *)(iVar9 + 0x408)) || (dVar15 != *(double *)(iVar9 + 0x410))) {
+      glDepthRange(dVar13,dVar15);
+      *(double *)(iVar9 + 0x408) = dVar13;
+      *(double *)(iVar9 + 0x410) = dVar15;
+    }
+  }
+  if (*(char *)(param_1 + 0x7ad4) == '\0') {
+    return;
+  }
+  iVar10 = *(int *)(param_1 + 0xeb48);
+  fVar12 = *(float *)(param_1 + 0x7aa4);
+  fVar16 = *(float *)(iVar10 + 0xa80);
+  fVar17 = *(float *)(iVar10 + 0xa84);
+  if (*(int *)(param_1 + 0x7aac) == 0) {
+    if (fVar16 <= fVar12) {
+      cVar6 = *(char *)(param_1 + 0xeb4c);
+      if (fVar17 < fVar12) {
+        fVar12 = fVar17;
+      }
+    }
+    else {
+      cVar6 = *(char *)(param_1 + 0xeb4c);
+      fVar12 = fVar16;
+    }
+    *(float *)(param_1 + 0x7ac4) = fVar12;
+    if (cVar6 == '\0') goto LAB_0408d1cb;
+LAB_0408ce70:
+    fVar16 = *(float *)(param_1 + 0x7abc);
+    if (fVar12 < fVar16) {
+      *(float *)(param_1 + 0x7ac4) = fVar16;
+      fVar12 = fVar16;
+    }
+    fVar16 = *(float *)(param_1 + 0x7ac0);
+    if (fVar12 <= fVar16) goto LAB_0408d1cb;
+    *(float *)(param_1 + 0x7ac4) = fVar16;
+    bVar11 = fVar16 == *(float *)(iVar10 + 0x4e0);
+    fVar12 = fVar16;
+    if (NAN(fVar16) || NAN(*(float *)(iVar10 + 0x4e0))) goto LAB_0408ceb8;
+  }
+  else {
+    uVar8 = *(uint *)(*(int *)(param_1 + 0xc65c) + 0x8c);
+    if (fVar16 <= fVar12) {
+      fVar14 = DAT_042dbf3c;
+      if (fVar17 < fVar12) {
+        fVar14 = fVar12 / fVar17;
+        fVar12 = fVar17;
+      }
+    }
+    else {
+      fVar14 = fVar12 / fVar16;
+      fVar12 = fVar16;
+    }
+    fVar14 = ((float)(uVar8 >> 0x10) * DAT_042dbf34 + (float)(uVar8 & 0xffff)) * fVar14;
+    fVar14 = fVar14 * fVar14;
+    fVar16 = *(float *)(param_1 + 0x7ab0) * fVar14;
+    fVar17 = *(float *)(param_1 + 0x7ab4) * fVar14;
+    fVar14 = fVar14 * *(float *)(param_1 + 0x7ab8);
+    *(float *)(param_1 + 0x7ac8) = fVar16;
+    *(float *)(param_1 + 0x7acc) = fVar17;
+    *(float *)(param_1 + 0x7ad0) = fVar14;
+    if (*(char *)(param_1 + 0xeb4c) != '\0') {
+      *(float *)(param_1 + 0x7ac4) = fVar12;
+      goto LAB_0408ce70;
+    }
+    if (((fVar16 == *(float *)(iVar10 + 0x4d4)) && (fVar17 == *(float *)(iVar10 + 0x4d8))) &&
+       (fVar14 == *(float *)(iVar10 + 0x4dc))) {
+      *(float *)(param_1 + 0x7ac4) = fVar12;
+    }
+    else {
+      if (*(char *)(iVar10 + 0x218) != '\0') {
+        FUN_0400a810("!mUsingOpenGLCore",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/openGlContextCache.h"
+                     ,0x2e7,"void OpenGLContextCache::PointAttenuation(const GLfloat*)");
+      }
+      (*DAT_0451edc8)(0x8129,param_1 + 0x7ac8);
+      *(undefined4 *)(iVar10 + 0x4d4) = *(undefined4 *)(param_1 + 0x7ac8);
+      *(undefined4 *)(iVar10 + 0x4d8) = *(undefined4 *)(param_1 + 0x7acc);
+      *(undefined4 *)(iVar10 + 0x4dc) = *(undefined4 *)(param_1 + 0x7ad0);
+      iVar10 = *(int *)(param_1 + 0xeb48);
+      *(float *)(param_1 + 0x7ac4) = fVar12;
+      if (*(char *)(param_1 + 0xeb4c) != '\0') goto LAB_0408ce70;
+    }
+LAB_0408d1cb:
+    bVar11 = fVar12 == *(float *)(iVar10 + 0x4e0);
+    fVar16 = fVar12;
+    if (NAN(fVar12) || NAN(*(float *)(iVar10 + 0x4e0))) goto LAB_0408ceb8;
+  }
+  fVar16 = fVar12;
+  if (bVar11) {
+    *(undefined1 *)(param_1 + 0x7ad4) = 0;
+    return;
+  }
+LAB_0408ceb8:
+  glPointSize(fVar16);
+  *(float *)(iVar10 + 0x4e0) = fVar16;
+  *(undefined1 *)(param_1 + 0x7ad4) = 0;
+  return;
+}
+

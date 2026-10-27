@@ -1,0 +1,72 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+bool _glewInit_GL_ARB_gpu_shader_fp64(void)
+
+{
+  int iVar1;
+  bool bVar2;
+  bool bVar3;
+  bool bVar4;
+  bool bVar5;
+  bool bVar6;
+  bool bVar7;
+  bool bVar8;
+  bool bVar9;
+  bool bVar10;
+  bool bVar11;
+  bool bVar12;
+  bool bVar13;
+  bool bVar14;
+  bool bVar15;
+  bool bVar16;
+  bool bVar17;
+  
+  iVar1 = glXGetProcAddressARB("glGetUniformdv");
+  _DAT_0451e620 = iVar1;
+  _DAT_0451e61c = glXGetProcAddressARB("glUniform1d");
+  bVar2 = _DAT_0451e61c == 0;
+  _DAT_0451e618 = glXGetProcAddressARB("glUniform1dv");
+  bVar3 = _DAT_0451e618 == 0;
+  _DAT_0451e614 = glXGetProcAddressARB("glUniform2d");
+  bVar4 = _DAT_0451e614 == 0;
+  _DAT_0451e610 = glXGetProcAddressARB("glUniform2dv");
+  bVar5 = _DAT_0451e610 == 0;
+  _DAT_0451e60c = glXGetProcAddressARB("glUniform3d");
+  bVar6 = _DAT_0451e60c == 0;
+  _DAT_0451e608 = glXGetProcAddressARB("glUniform3dv");
+  bVar7 = _DAT_0451e608 == 0;
+  _DAT_0451e604 = glXGetProcAddressARB("glUniform4d");
+  bVar8 = _DAT_0451e604 == 0;
+  _DAT_0451e600 = glXGetProcAddressARB("glUniform4dv");
+  bVar9 = _DAT_0451e600 == 0;
+  _DAT_0451e5fc = glXGetProcAddressARB("glUniformMatrix2dv");
+  bVar10 = _DAT_0451e5fc == 0;
+  _DAT_0451e5f8 = glXGetProcAddressARB("glUniformMatrix2x3dv");
+  bVar11 = _DAT_0451e5f8 == 0;
+  _DAT_0451e5f4 = glXGetProcAddressARB("glUniformMatrix2x4dv");
+  bVar12 = _DAT_0451e5f4 == 0;
+  _DAT_0451e5f0 = glXGetProcAddressARB("glUniformMatrix3dv");
+  bVar13 = _DAT_0451e5f0 == 0;
+  _DAT_0451e5ec = glXGetProcAddressARB("glUniformMatrix3x2dv");
+  bVar14 = _DAT_0451e5ec == 0;
+  _DAT_0451e5e8 = glXGetProcAddressARB("glUniformMatrix3x4dv");
+  bVar15 = _DAT_0451e5e8 == 0;
+  _DAT_0451e5e4 = glXGetProcAddressARB("glUniformMatrix4dv");
+  bVar16 = _DAT_0451e5e4 == 0;
+  _DAT_0451e5e0 = glXGetProcAddressARB("glUniformMatrix4x2dv");
+  bVar17 = _DAT_0451e5e0 == 0;
+  _DAT_0451e5dc = glXGetProcAddressARB("glUniformMatrix4x3dv");
+  return _DAT_0451e5dc == 0 ||
+         (bVar17 ||
+         (bVar16 ||
+         (bVar15 ||
+         (bVar14 ||
+         (bVar13 ||
+         (bVar12 ||
+         (bVar11 ||
+         (bVar10 ||
+         (bVar9 || (bVar8 || (bVar7 || (bVar6 || (bVar5 || (bVar4 || (bVar3 || (bVar2 || iVar1 == 0)
+                                                                     )))))))))))))));
+}
+

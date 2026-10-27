@@ -1,0 +1,84 @@
+
+char * SocketOptionToString(int param_1)
+
+{
+  char *pcVar1;
+  
+  pcVar1 = "SO_OOBINLINE";
+  if (param_1 != 0x100) {
+    if (param_1 < 0x101) {
+      if (param_1 == 8) {
+        return "SO_KEEPALIVE";
+      }
+      if (param_1 < 9) {
+        if (param_1 == 2) {
+          return "SO_ACCEPTCONN";
+        }
+        if (param_1 == 4) {
+          return "SO_REUSEADDR";
+        }
+        if (param_1 == 1) {
+          return "SO_DEBUG";
+        }
+      }
+      else {
+        if (param_1 == 0x20) {
+          return "SO_BROADCAST";
+        }
+        if (param_1 < 0x21) {
+          if (param_1 == 0x10) {
+            return "SO_DONTROUTE";
+          }
+        }
+        else {
+          if (param_1 == 0x40) {
+            return "SO_USELOOPBACK";
+          }
+          if (param_1 == 0x80) {
+            return "SO_LINGER";
+          }
+        }
+      }
+    }
+    else {
+      if (param_1 == 0x1005) {
+        return "SO_SNDTIMEO";
+      }
+      if (param_1 < 0x1006) {
+        if (param_1 == 0x1002) {
+          return "SO_RCVBUF";
+        }
+        if (param_1 < 0x1003) {
+          if (param_1 == 0x1001) {
+            return "SO_SNDBUF";
+          }
+        }
+        else {
+          if (param_1 == 0x1003) {
+            return "SO_SNDLOWAT";
+          }
+          if (param_1 == 0x1004) {
+            return "SO_RCVLOWAT";
+          }
+        }
+      }
+      else {
+        if (param_1 == 0x1007) {
+          return "SO_ERROR";
+        }
+        if (param_1 < 0x1007) {
+          return "SO_RCVTIMEO";
+        }
+        if (param_1 == 0x1008) {
+          return "SO_TYPE";
+        }
+        if (param_1 == 0x2003) {
+          return "SO_MAX_MSG_SIZE";
+        }
+      }
+    }
+    pcVar1 = "(unknown option, check #defines on Win and Mac, or DONTLINER - handle it)";
+  }
+  return pcVar1;
+}
+

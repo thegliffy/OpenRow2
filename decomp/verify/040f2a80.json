@@ -1,0 +1,170 @@
+
+undefined4 DirectInputGamepadDeviceImp__SetProperty(int param_1,int param_2,int param_3)
+
+{
+  int iVar1;
+  int iVar2;
+  int *piVar3;
+  uint uVar4;
+  uint uVar5;
+  undefined4 local_28;
+  int local_20;
+  
+  GamepadControl__SetInitialMinMaxValues();
+  iVar2 = FUN_04010e80(param_1 + 0x20);
+  if (iVar2 == 0) {
+    local_28 = 0x8007001e;
+  }
+  else if (param_2 == 0x16) {
+    if ((*(int *)(param_3 + 8) != 0) || (local_28 = 0x80070057, *(int *)(param_3 + 0xc) != 0)) {
+      *(undefined4 *)(param_1 + 0x34) = *(undefined4 *)(param_3 + 0x10);
+      return 0;
+    }
+  }
+  else if (param_2 == 9) {
+    FUN_0402cd10(10,"DIPROP_AUTOCENTER %d %d %d",*(undefined4 *)(param_3 + 0xc),
+                 *(undefined4 *)(param_3 + 8),*(undefined4 *)(param_3 + 0x10));
+    local_28 = 0;
+  }
+  else if (param_2 == 2) {
+    FUN_0402cd10(10,"DIPROP_AXISMODE %d %d",*(undefined4 *)(param_3 + 0xc),
+                 *(undefined4 *)(param_3 + 8));
+    local_28 = 0;
+  }
+  else if (param_2 == 1) {
+    local_28 = 0;
+    if (*(int *)(param_3 + 0x10) != 0) {
+      local_28 = 0;
+      FUN_0402cd10(10,"DIPROP_BUFFERSIZE %d %d %d",*(undefined4 *)(param_3 + 0xc),
+                   *(undefined4 *)(param_3 + 8),*(int *)(param_3 + 0x10));
+    }
+  }
+  else if (param_2 == 0xb) {
+    FUN_0402cd10(10,"DIPROP_CALIBRATION %d %d",*(undefined4 *)(param_3 + 0xc),
+                 *(undefined4 *)(param_3 + 8));
+    local_28 = 0;
+  }
+  else if (param_2 == 10) {
+    FUN_0402cd10(10,"DIPROP_CALIBRATIONMODE %d %d",*(undefined4 *)(param_3 + 0xc),
+                 *(undefined4 *)(param_3 + 8));
+    local_28 = 0;
+  }
+  else if (param_2 == 0x15) {
+    FUN_0402cd10(10,"DIPROP_CPOINTS %d %d",*(undefined4 *)(param_3 + 0xc),
+                 *(undefined4 *)(param_3 + 8));
+    local_28 = 0;
+  }
+  else {
+    if (param_2 == 5) {
+      local_20 = *(int *)(param_1 + 0x58);
+      iVar2 = *(int *)(param_1 + 0x54);
+      if (local_20 - iVar2 >> 5 == 0) {
+        return 0;
+      }
+      uVar5 = 0;
+      do {
+        iVar1 = *(int *)(param_3 + 0xc);
+        if (iVar1 == 1) {
+          piVar3 = (int *)(uVar5 * 0x20 + iVar2);
+          if (piVar3[3] == *(int *)(param_3 + 8)) {
+LAB_040f2b98:
+            iVar2 = *(int *)(param_3 + 0x10);
+            piVar3[7] = iVar2;
+            FUN_0402cd10(5,"Setting dead zone %d to element %u",iVar2,uVar5);
+            return 0;
+          }
+        }
+        else if (iVar1 == 2) {
+          uVar4 = 0;
+          piVar3 = (int *)(uVar5 * 0x20 + iVar2);
+          if (*piVar3 == 0) {
+            uVar4 = 2;
+            if (piVar3[2] - 1U < 5) {
+              uVar4 = *(uint *)(&DAT_0430c170 + (piVar3[2] - 1U) * 4) | 2;
+            }
+          }
+          if (*(uint *)(param_3 + 8) == uVar4) goto LAB_040f2b98;
+        }
+        else if (iVar1 == 3) {
+          FUN_0402cd10(10,"DIPROP_DEADZONE - DIPH_BYUSAGE not supported");
+          local_20 = *(int *)(param_1 + 0x58);
+          iVar2 = *(int *)(param_1 + 0x54);
+        }
+        uVar5 = uVar5 + 1;
+      } while (uVar5 < (uint)(local_20 - iVar2 >> 5));
+    }
+    else {
+      if (param_2 == 7) {
+        if (*(int *)(param_3 + 0xc) != 0) {
+          return 0x80070057;
+        }
+        if (10000 < *(uint *)(param_3 + 0x10)) {
+          return 0x80070057;
+        }
+        *(uint *)(param_1 + 0x38) = *(uint *)(param_3 + 0x10);
+        return 0;
+      }
+      if (param_2 == 0xd) {
+        FUN_0402cd10(10,"DIPROP_INSTANCENAME %d %d",*(undefined4 *)(param_3 + 0xc),
+                     *(undefined4 *)(param_3 + 8));
+        return 0;
+      }
+      if (param_2 == 0xe) {
+        FUN_0402cd10(10,"DIPROP_PRODUCTNAME %d %d",*(undefined4 *)(param_3 + 0xc),
+                     *(undefined4 *)(param_3 + 8));
+        return 0;
+      }
+      if (param_2 == 4) {
+        local_20 = *(int *)(param_1 + 0x58);
+        iVar2 = *(int *)(param_1 + 0x54);
+        if (local_20 - iVar2 >> 5 == 0) {
+          return 0;
+        }
+        uVar5 = 0;
+        do {
+          iVar1 = *(int *)(param_3 + 0xc);
+          if (iVar1 == 1) {
+            piVar3 = (int *)(uVar5 * 0x20 + iVar2);
+            if (piVar3[3] == *(int *)(param_3 + 8)) {
+LAB_040f2d5c:
+              iVar2 = *(int *)(param_3 + 0x10);
+              iVar1 = *(int *)(param_3 + 0x14);
+              piVar3[5] = iVar2;
+              piVar3[6] = iVar1;
+              FUN_0402cd10(5,"Setting ranges ( %d, %d ) to element %u",iVar2,iVar1,uVar5);
+              return 0;
+            }
+          }
+          else if (iVar1 == 2) {
+            uVar4 = 0;
+            piVar3 = (int *)(uVar5 * 0x20 + iVar2);
+            if (*piVar3 == 0) {
+              uVar4 = 2;
+              if (piVar3[2] - 1U < 5) {
+                uVar4 = *(uint *)(&DAT_0430c170 + (piVar3[2] - 1U) * 4) | 2;
+              }
+            }
+            if (*(uint *)(param_3 + 8) == uVar4) goto LAB_040f2d5c;
+          }
+          else if (iVar1 == 3) {
+            FUN_0402cd10(10,"DIPROP_RANGE - DIPH_BYUSAGE not supported");
+            local_20 = *(int *)(param_1 + 0x58);
+            iVar2 = *(int *)(param_1 + 0x54);
+          }
+          uVar5 = uVar5 + 1;
+        } while (uVar5 < (uint)(local_20 - iVar2 >> 5));
+      }
+      else {
+        if (param_2 != 6) {
+          FUN_0402cd10(10,"unknown property %p",param_2);
+          return 0;
+        }
+        FUN_0402cd10(10,"DIPROP_SATURATION %d %d %d",*(undefined4 *)(param_3 + 0xc),
+                     *(undefined4 *)(param_3 + 8),*(undefined4 *)(param_3 + 0x10));
+      }
+    }
+    local_28 = 0;
+  }
+  return local_28;
+}
+

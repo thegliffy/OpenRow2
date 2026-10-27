@@ -1,0 +1,201 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+void DumpVertexAttributes
+               (int param_1,undefined4 param_2,uint param_3,float *param_4,int param_5,int param_6)
+
+{
+  byte *pbVar1;
+  byte *pbVar2;
+  byte *pbVar3;
+  short *psVar4;
+  float *pfVar5;
+  short *psVar6;
+  byte bVar7;
+  short sVar8;
+  ushort *puVar9;
+  ushort *puVar10;
+  float *pfVar11;
+  float fVar12;
+  float fVar13;
+  float fVar14;
+  float fVar15;
+  float *local_128;
+  int local_124;
+  uint local_11c [12];
+  undefined1 local_ec;
+  
+  if (param_5 != 0) {
+    local_124 = 0;
+    local_128 = param_4;
+    do {
+      FUN_0402cd10(param_2,"  Vertex %u:",local_124);
+      pfVar11 = local_128;
+      puVar10 = *(ushort **)(param_1 + 0x3c);
+      while( true ) {
+        puVar9 = puVar10;
+        if (*puVar9 == 0xff) break;
+        puVar10 = puVar9 + 4;
+        if (*puVar9 == param_3) {
+          local_11c[0] = local_11c[0] & 0xffffff00;
+          switch((char)puVar9[2]) {
+          case '\0':
+            fVar15 = *pfVar11;
+            pfVar11 = pfVar11 + 1;
+            sprintf((char *)local_11c,"%f",(double)fVar15);
+            break;
+          case '\x01':
+            pfVar5 = pfVar11 + 1;
+            fVar15 = *pfVar11;
+            pfVar11 = pfVar11 + 2;
+            sprintf((char *)local_11c,"( %f, %f )",(double)fVar15,(double)*pfVar5);
+            break;
+          case '\x02':
+            pfVar5 = pfVar11 + 1;
+            fVar15 = *pfVar11;
+            pfVar11 = pfVar11 + 3;
+            sprintf((char *)local_11c,"( %f, %f, %f )",(double)fVar15,(double)*pfVar5);
+            break;
+          case '\x03':
+            pfVar5 = pfVar11 + 1;
+            fVar15 = *pfVar11;
+            pfVar11 = pfVar11 + 4;
+            sprintf((char *)local_11c,"( %f, %f, %f, %f )",(double)fVar15,(double)*pfVar5);
+            break;
+          case '\x04':
+            fVar15 = *pfVar11;
+            pfVar11 = pfVar11 + 1;
+            sprintf((char *)local_11c,"%#x",fVar15);
+            break;
+          case '\x05':
+            pbVar1 = (byte *)((int)pfVar11 + 3);
+            pbVar2 = (byte *)((int)pfVar11 + 2);
+            pbVar3 = (byte *)((int)pfVar11 + 1);
+            bVar7 = *(byte *)pfVar11;
+            pfVar11 = pfVar11 + 1;
+            sprintf((char *)local_11c,"( %#x(%u), %#x(%u), %#x(%u), %#x(%u) )",(uint)bVar7,
+                    (uint)bVar7,(uint)*pbVar3,(uint)*pbVar3,(uint)*pbVar2,(uint)*pbVar2,
+                    (uint)*pbVar1,(uint)*pbVar1);
+            break;
+          case '\x06':
+            psVar4 = (short *)((int)pfVar11 + 2);
+            sVar8 = *(short *)pfVar11;
+            pfVar11 = pfVar11 + 1;
+            sprintf((char *)local_11c,"( %d, %d )",(int)sVar8,(int)*psVar4);
+            break;
+          case '\a':
+            psVar4 = (short *)((int)pfVar11 + 6);
+            pfVar5 = pfVar11 + 1;
+            psVar6 = (short *)((int)pfVar11 + 2);
+            sVar8 = *(short *)pfVar11;
+            pfVar11 = pfVar11 + 2;
+            sprintf((char *)local_11c,"( %d, %d, %d, %d )",(int)sVar8,(int)*psVar6,
+                    (int)*(short *)pfVar5,(int)*psVar4);
+            break;
+          case '\b':
+            pbVar1 = (byte *)((int)pfVar11 + 3);
+            pbVar2 = (byte *)((int)pfVar11 + 2);
+            pbVar3 = (byte *)((int)pfVar11 + 1);
+            bVar7 = *(byte *)pfVar11;
+            pfVar11 = pfVar11 + 1;
+            sprintf((char *)local_11c,"( %f, %f, %f, %f )",(double)((float)bVar7 / _DAT_042dc5a0),
+                    (double)((float)*pbVar3 / _DAT_042dc5a0),
+                    (double)((float)*pbVar2 / _DAT_042dc5a0),
+                    (double)((float)*pbVar1 / _DAT_042dc5a0));
+            break;
+          case '\t':
+            fVar15 = (float)(int)*(short *)((int)pfVar11 + 2) / _DAT_042f9f44;
+            fVar14 = (float)(int)*(short *)pfVar11 / _DAT_042f9f44;
+            goto LAB_040b3672;
+          case '\n':
+            fVar12 = (float)(int)*(short *)((int)pfVar11 + 6) / _DAT_042f9f44;
+            fVar13 = (float)(int)*(short *)(pfVar11 + 1) / _DAT_042f9f44;
+            fVar14 = (float)(int)*(short *)((int)pfVar11 + 2) / _DAT_042f9f44;
+            fVar15 = (float)(int)*(short *)pfVar11 / _DAT_042f9f44;
+            goto LAB_040b3629;
+          case '\v':
+            fVar15 = (float)*(ushort *)((int)pfVar11 + 2) / _DAT_042e09f0;
+            fVar14 = (float)*(ushort *)pfVar11 / _DAT_042e09f0;
+LAB_040b3672:
+            pfVar11 = pfVar11 + 1;
+            sprintf((char *)local_11c,"( %f, %f )",(double)fVar14,(double)fVar15);
+            break;
+          case '\f':
+            fVar12 = (float)*(ushort *)((int)pfVar11 + 6) / _DAT_042e09f0;
+            fVar13 = (float)*(ushort *)(pfVar11 + 1) / _DAT_042e09f0;
+            fVar14 = (float)*(ushort *)((int)pfVar11 + 2) / _DAT_042e09f0;
+            fVar15 = (float)*(ushort *)pfVar11 / _DAT_042e09f0;
+LAB_040b3629:
+            pfVar11 = pfVar11 + 2;
+            sprintf((char *)local_11c,"( %f, %f, %f, %f )",(double)fVar15,(double)fVar14,
+                    (double)fVar13,(double)fVar12);
+            break;
+          case '\r':
+            local_11c[0] = 0x45445528;
+            local_11c[1] = 0x75203343;
+            goto LAB_040b3532;
+          case '\x0e':
+            local_11c[0] = 0x43454428;
+            local_11c[1] = 0x75204e33;
+LAB_040b3532:
+            local_11c[2] = 0x6e61686e;
+            pfVar11 = (float *)((int)pfVar11 + 6);
+            local_11c[3] = 0x64656c64;
+            local_11c[4] = 0x61202d20;
+            local_11c[5] = 0x63206464;
+            local_11c[6] = 0x2065646f;
+            local_11c[7] = 0x6c206e69;
+            local_11c[8] = 0x6620676f;
+            local_11c[9] = 0x74636e75;
+            local_11c[10] = 0x296e6f69;
+            local_11c[0xb] = local_11c[0xb] & 0xffffff00;
+            break;
+          case '\x0f':
+            local_ec = 0;
+            pfVar11 = pfVar11 + 1;
+            local_11c[0] = 0x4f4c4628;
+            local_11c[1] = 0x36315441;
+            local_11c[2] = 0x7520325f;
+            local_11c[3] = 0x6e61686e;
+            local_11c[4] = 0x64656c64;
+            local_11c[5] = 0x61202d20;
+            local_11c[6] = 0x63206464;
+            local_11c[7] = 0x2065646f;
+            local_11c[8] = 0x6c206e69;
+            local_11c[9] = 0x6620676f;
+            local_11c[10] = 0x74636e75;
+            local_11c[0xb] = 0x296e6f69;
+            break;
+          case '\x10':
+            local_ec = 0;
+            pfVar11 = pfVar11 + 2;
+            local_11c[0] = 0x4f4c4628;
+            local_11c[1] = 0x36315441;
+            local_11c[2] = 0x7520345f;
+            local_11c[3] = 0x6e61686e;
+            local_11c[4] = 0x64656c64;
+            local_11c[5] = 0x61202d20;
+            local_11c[6] = 0x63206464;
+            local_11c[7] = 0x2065646f;
+            local_11c[8] = 0x6c206e69;
+            local_11c[9] = 0x6620676f;
+            local_11c[10] = 0x74636e75;
+            local_11c[0xb] = 0x296e6f69;
+            break;
+          default:
+            local_11c[0] = 0x6b6e7528;
+            local_11c[1] = 0x6e776f6e;
+            local_11c[2] = 0x63656420;
+            local_11c[3] = 0x2921216c;
+            local_11c[4] = local_11c[4] & 0xffffff00;
+          }
+          FUN_0402cd10(param_2,"    %s (usage index %u): %s");
+        }
+      }
+      local_124 = local_124 + 1;
+      local_128 = (float *)((int)local_128 + param_6);
+    } while (local_124 != param_5);
+  }
+  return;
+}
+

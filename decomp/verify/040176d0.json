@@ -1,0 +1,92 @@
+
+void ThreadBlocked(undefined4 param_1,undefined4 param_2)
+
+{
+  int iVar1;
+  undefined4 *puVar2;
+  undefined4 uVar3;
+  int iVar4;
+  undefined4 *puVar5;
+  undefined4 *puVar6;
+  int iVar7;
+  pthread_cond_t *__cond;
+  
+  if (DAT_04411260 == '\0') {
+    FUN_0400a810("SynchroRegionInitialized",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/linux/executionOnMainThread.cpp"
+                 ,0x9f,"void ExecuteOnMainThread(MainThreadExecutionFunction, void*)");
+  }
+  pthread_mutex_lock((pthread_mutex_t *)&DAT_04411264);
+  if (DAT_044112c4 == (undefined4 *)0x0) {
+    puVar5 = calloc(1,0x3c);
+    __cond = (pthread_cond_t *)(puVar5 + 2);
+    pthread_cond_init(__cond,(pthread_condattr_t *)0x0);
+  }
+  else {
+    __cond = (pthread_cond_t *)(DAT_044112c4 + 2);
+    puVar5 = DAT_044112c4;
+    DAT_044112c4 = (undefined4 *)DAT_044112c4[0xe];
+  }
+  puVar2 = DAT_044112c8;
+  puVar5[1] = param_2;
+  puVar5[0xe] = 0;
+  *puVar5 = param_1;
+  puVar6 = puVar5;
+  if (puVar2 != (undefined4 *)0x0) {
+    do {
+      puVar6 = puVar2;
+      puVar2 = (undefined4 *)puVar6[0xe];
+    } while (puVar2 != (undefined4 *)0x0);
+    puVar6[0xe] = puVar5;
+    puVar6 = DAT_044112c8;
+  }
+  DAT_044112c8 = puVar6;
+  uVar3 = FUN_0415b750();
+  if (0xf < DAT_044112c0) {
+    FUN_0400a810("ThreadIDsCount < 16",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/linux/executionOnMainThread.cpp"
+                 ,0x36,"void ThreadBlocked()");
+  }
+  (&DAT_04411280)[DAT_044112c0] = uVar3;
+  DAT_044112c0 = DAT_044112c0 + 1;
+  iVar4 = pthread_cond_wait(__cond,(pthread_mutex_t *)&DAT_04411264);
+  if (iVar4 != 0) {
+    FUN_0400a810("pthread_cond_wait( &dffc->CompletionCheck, &SynchroRegion ) == 0",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/linux/executionOnMainThread.cpp"
+                 ,0xbc,"void ExecuteOnMainThread(MainThreadExecutionFunction, void*)");
+  }
+  iVar4 = FUN_0415b750();
+  if (DAT_044112c0 != 0) {
+    iVar7 = 0;
+    iVar1 = DAT_04411280;
+    while (iVar4 != iVar1) {
+      iVar7 = iVar7 + 1;
+      if (iVar7 == DAT_044112c0) goto LAB_040177b0;
+      iVar1 = (&DAT_04411280)[iVar7];
+    }
+    DAT_044112c0 = DAT_044112c0 + -1;
+    (&DAT_04411280)[iVar7] = (&DAT_04411280)[DAT_044112c0];
+  }
+LAB_040177b0:
+  puVar2 = DAT_044112cc;
+  if (DAT_044112cc == puVar5) {
+    DAT_044112cc = (undefined4 *)puVar5[0xe];
+  }
+  else {
+    do {
+      puVar6 = puVar2;
+      puVar2 = (undefined4 *)puVar6[0xe];
+      if (puVar2 == (undefined4 *)0x0) {
+        FUN_0400a810(&PTR_DAT_042dc67e,
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/core/linux/executionOnMainThread.cpp"
+                     ,200,"void ExecuteOnMainThread(MainThreadExecutionFunction, void*)");
+      }
+    } while (puVar2 != puVar5);
+    puVar6[0xe] = puVar5[0xe];
+  }
+  puVar5[0xe] = DAT_044112c4;
+  DAT_044112c4 = puVar5;
+  pthread_mutex_unlock((pthread_mutex_t *)&DAT_04411264);
+  return;
+}
+

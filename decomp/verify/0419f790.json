@@ -1,0 +1,36 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+bool _glewInit_GL_NV_evaluators(void)
+
+{
+  int iVar1;
+  bool bVar2;
+  bool bVar3;
+  bool bVar4;
+  bool bVar5;
+  bool bVar6;
+  bool bVar7;
+  bool bVar8;
+  
+  iVar1 = glXGetProcAddressARB("glEvalMapsNV");
+  _DAT_0451d318 = iVar1;
+  _DAT_0451d314 = glXGetProcAddressARB("glGetMapAttribParameterfvNV");
+  bVar2 = _DAT_0451d314 == 0;
+  _DAT_0451d310 = glXGetProcAddressARB("glGetMapAttribParameterivNV");
+  bVar3 = _DAT_0451d310 == 0;
+  _DAT_0451d30c = glXGetProcAddressARB("glGetMapControlPointsNV");
+  bVar4 = _DAT_0451d30c == 0;
+  _DAT_0451d308 = glXGetProcAddressARB("glGetMapParameterfvNV");
+  bVar5 = _DAT_0451d308 == 0;
+  _DAT_0451d304 = glXGetProcAddressARB("glGetMapParameterivNV");
+  bVar6 = _DAT_0451d304 == 0;
+  _DAT_0451d300 = glXGetProcAddressARB("glMapControlPointsNV");
+  bVar7 = _DAT_0451d300 == 0;
+  _DAT_0451d2fc = glXGetProcAddressARB("glMapParameterfvNV");
+  bVar8 = _DAT_0451d2fc == 0;
+  _DAT_0451d2f8 = glXGetProcAddressARB("glMapParameterivNV");
+  return _DAT_0451d2f8 == 0 ||
+         (bVar8 || (bVar7 || (bVar6 || (bVar5 || (bVar4 || (bVar3 || (bVar2 || iVar1 == 0)))))));
+}
+

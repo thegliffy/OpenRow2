@@ -1,0 +1,51 @@
+
+/* WARNING: Removing unreachable block (ram,0x04010b8c) */
+
+void ApplySDLGamepadConfigEnv(void)
+
+{
+  int *piVar1;
+  char cVar2;
+  char *pcVar3;
+  int iVar4;
+  char *local_14 [2];
+  
+  if (DAT_04411210 == '\0') {
+    DAT_04411209 = FUN_0400cbc0("log_gamepads");
+    DAT_04411208 = FUN_0400cbc0("calibrate_gamepads");
+    local_14[0] = &DAT_04410d0c;
+                    /* try { // try from 04010aa7 to 04010b74 has its CatchHandler @ 04010b7a */
+    cVar2 = FUN_0400ccf0("gamepad_mapping",local_14);
+    if (((cVar2 != '\0') && (local_14[0] != (char *)0x0)) && (*local_14[0] != '\0')) {
+      FUN_04010740();
+    }
+    pcVar3 = getenv("SDL_GAMECONTROLLERCONFIG");
+    if (pcVar3 != (char *)0x0) {
+      FUN_0402cd10(0x14,"Gamepads: SDL_GAMECONTROLLERCONFIG - %s",pcVar3);
+      if (*pcVar3 != '\0') {
+        FUN_04010740();
+      }
+    }
+    AppendGameMappingsFromSDLGamepadConfigFile();
+    iVar4 = 0;
+    do {
+      GamepadMapping__RegisterMappingString();
+      iVar4 = iVar4 + 1;
+    } while (*(int *)(&UNK_042da080 + iVar4 * 4) != 0);
+    FUN_0401c970();
+    DAT_04411210 = '\x01';
+    if ((allocator *)(local_14[0] + -0xc) != (allocator *)&std::string::_Rep::_S_empty_rep_storage)
+    {
+      LOCK();
+      piVar1 = (int *)(local_14[0] + -4);
+      iVar4 = *piVar1;
+      *piVar1 = *piVar1 + -1;
+      UNLOCK();
+      if (iVar4 < 1) {
+        std::string::_Rep::_M_destroy((allocator *)(local_14[0] + -0xc));
+      }
+    }
+  }
+  return;
+}
+

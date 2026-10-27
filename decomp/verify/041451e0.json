@@ -1,0 +1,40 @@
+
+/* source: processor */
+
+int seh_RaiseException(int *param_1,undefined4 param_2,int param_3)
+
+{
+  int iVar1;
+  int iVar2;
+  
+  if (param_3 != 0) {
+    if (*param_1 == -0x7ffffffd) {
+      FUN_04144de0(param_2);
+    }
+    iVar1 = FUN_04159b30(param_1,param_2);
+    iVar2 = 0;
+    if (iVar1 != -1) {
+      iVar2 = Exception_DispatchHandlers(param_1,param_2);
+      if (iVar2 == -0x3ffffebc) goto LAB_04145230;
+    }
+    return iVar2;
+  }
+LAB_04145230:
+  if ((param_1[1] & 8U) == 0) {
+    if (*param_1 == -0x3fffffdb) {
+      FUN_0402cd10(0xf,"Process attempted to continue execution after noncontinuable exception.\n");
+    }
+    else {
+      FUN_0402cd10(0xf,"Unhandled exception code %x flags %x addr %p\n",*param_1,param_1[1],
+                   param_1[3]);
+    }
+  }
+  else {
+    FUN_0402cd10(0xf,"Exception frame is not in stack limits => unable to dispatch exception.\n");
+  }
+  FUN_0400a810("false",
+               "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/processor.cpp"
+               ,0x55,"NTSTATUS seh_RaiseException(EXCEPTION_RECORD*, CONTEXT*, WINBOOL)");
+  return 0;
+}
+

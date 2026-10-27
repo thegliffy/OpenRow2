@@ -1,0 +1,52 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+bool _glewInit_GL_EXT_convolution(void)
+
+{
+  int iVar1;
+  bool bVar2;
+  bool bVar3;
+  bool bVar4;
+  bool bVar5;
+  bool bVar6;
+  bool bVar7;
+  bool bVar8;
+  bool bVar9;
+  bool bVar10;
+  bool bVar11;
+  bool bVar12;
+  
+  iVar1 = glXGetProcAddressARB("glConvolutionFilter1DEXT");
+  _DAT_0451dc5c = iVar1;
+  _DAT_0451dc58 = glXGetProcAddressARB("glConvolutionFilter2DEXT");
+  bVar2 = _DAT_0451dc58 == 0;
+  _DAT_0451dc54 = glXGetProcAddressARB("glConvolutionParameterfEXT");
+  bVar3 = _DAT_0451dc54 == 0;
+  _DAT_0451dc50 = glXGetProcAddressARB("glConvolutionParameterfvEXT");
+  bVar4 = _DAT_0451dc50 == 0;
+  _DAT_0451dc4c = glXGetProcAddressARB("glConvolutionParameteriEXT");
+  bVar5 = _DAT_0451dc4c == 0;
+  _DAT_0451dc48 = glXGetProcAddressARB("glConvolutionParameterivEXT");
+  bVar6 = _DAT_0451dc48 == 0;
+  _DAT_0451dc44 = glXGetProcAddressARB("glCopyConvolutionFilter1DEXT");
+  bVar7 = _DAT_0451dc44 == 0;
+  _DAT_0451dc40 = glXGetProcAddressARB("glCopyConvolutionFilter2DEXT");
+  bVar8 = _DAT_0451dc40 == 0;
+  _DAT_0451dc3c = glXGetProcAddressARB("glGetConvolutionFilterEXT");
+  bVar9 = _DAT_0451dc3c == 0;
+  _DAT_0451dc38 = glXGetProcAddressARB("glGetConvolutionParameterfvEXT");
+  bVar10 = _DAT_0451dc38 == 0;
+  _DAT_0451dc34 = glXGetProcAddressARB("glGetConvolutionParameterivEXT");
+  bVar11 = _DAT_0451dc34 == 0;
+  _DAT_0451dc30 = glXGetProcAddressARB("glGetSeparableFilterEXT");
+  bVar12 = _DAT_0451dc30 == 0;
+  _DAT_0451dc2c = glXGetProcAddressARB("glSeparableFilter2DEXT");
+  return _DAT_0451dc2c == 0 ||
+         (bVar12 ||
+         (bVar11 ||
+         (bVar10 ||
+         (bVar9 || (bVar8 || (bVar7 || (bVar6 || (bVar5 || (bVar4 || (bVar3 || (bVar2 || iVar1 == 0)
+                                                                     ))))))))));
+}
+

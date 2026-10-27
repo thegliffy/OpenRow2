@@ -1,0 +1,46 @@
+
+/* WARNING: Function: __i686.get_pc_thunk.bx replaced with injection: get_pc_thunk_bx */
+
+int google_breakpad__MinidumpFileWriter__Allocate(int *param_1,int param_2)
+
+{
+  uint uVar1;
+  int iVar2;
+  uint uVar3;
+  int iVar4;
+  int __length;
+  uint uVar5;
+  
+  if (param_2 == 0) {
+                    /* WARNING: Subroutine does not return */
+    __assert_fail("size","src/client/minidump_file_writer.cc",0xdd,
+                  "MDRVA google_breakpad::MinidumpFileWriter::Allocate(size_t)");
+  }
+  iVar4 = *param_1;
+  if (iVar4 != -1) {
+    iVar2 = param_1[2];
+    uVar1 = param_1[3];
+    uVar5 = param_2 + 7U & 0xfffffff8;
+    uVar3 = uVar5 + iVar2;
+    if (uVar1 < uVar3) {
+      uVar3 = getpagesize();
+      if (uVar3 < uVar5) {
+        uVar3 = uVar5;
+      }
+      __length = uVar1 + uVar3;
+      iVar4 = ftruncate(iVar4,__length);
+      if (iVar4 != 0) {
+        return -1;
+      }
+      iVar2 = param_1[2];
+      param_1[3] = __length;
+      uVar3 = uVar5 + iVar2;
+    }
+    param_1[2] = uVar3;
+    return iVar2;
+  }
+                    /* WARNING: Subroutine does not return */
+  __assert_fail("file_ != -1","src/client/minidump_file_writer.cc",0xde,
+                "MDRVA google_breakpad::MinidumpFileWriter::Allocate(size_t)");
+}
+

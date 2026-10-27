@@ -1,0 +1,13 @@
+
+char * SocketDomainToString(int param_1)
+
+{
+  char *pcVar1;
+  
+  pcVar1 = "(warning - different socket domain on Windows than on Unix)";
+  if (param_1 < 0x11) {
+    pcVar1 = (&PTR_s_AF_UNSPEC_04350120)[param_1];
+  }
+  return pcVar1;
+}
+

@@ -1,0 +1,33 @@
+
+void GamepadMapping_ParsePlatformBinding(undefined4 param_1,byte *param_2,char *param_3)
+
+{
+  int iVar1;
+  byte *pbVar2;
+  bool bVar3;
+  bool bVar4;
+  
+  iVar1 = 9;
+  bVar3 = &stack0xfffffffc < (undefined1 *)0x38;
+  bVar4 = &stack0x00000000 == (undefined1 *)0x3c;
+  pbVar2 = (byte *)"platform";
+  do {
+    if (iVar1 == 0) break;
+    iVar1 = iVar1 + -1;
+    bVar3 = *param_2 < *pbVar2;
+    bVar4 = *param_2 == *pbVar2;
+    param_2 = param_2 + 1;
+    pbVar2 = pbVar2 + 1;
+  } while (bVar4);
+  if ((!bVar3 && !bVar4) != bVar3) {
+    GamepadMapping__ApplyControlBinding();
+    return;
+  }
+  iVar1 = strcasecmp(param_3,"Linux");
+  if (iVar1 == 0) {
+    return;
+  }
+  FUN_0402cd10();
+  return;
+}
+

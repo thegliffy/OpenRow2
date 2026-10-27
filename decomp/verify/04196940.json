@@ -1,0 +1,119 @@
+
+int getaddrinfo(char *__name,char *__service,addrinfo *__req,addrinfo **__pai)
+
+{
+  socklen_t sVar1;
+  char *__service_00;
+  addrinfo **ppaVar2;
+  int iVar3;
+  size_t sVar4;
+  sockaddr *psVar5;
+  char *pcVar6;
+  addrinfo *paVar7;
+  addrinfo *paVar8;
+  addrinfo *paVar9;
+  addrinfo *local_38;
+  addrinfo *local_34;
+  addrinfo *local_24 [3];
+  char **local_18;
+  
+  ppaVar2 = __pai;
+  paVar8 = __req;
+  __service_00 = __service;
+  pcVar6 = __name;
+  local_18 = &__name;
+  if ((__req != (addrinfo *)0x0) &&
+     ((((__req->ai_addrlen != 0 || (__req->ai_addr != (sockaddr *)0x0)) ||
+       (__req->ai_canonname != (char *)0x0)) || (__req->ai_next != (addrinfo *)0x0)))) {
+    FUN_0402cd10(10,"getaddrinfo problem: hints member not NULL and should be");
+  }
+  local_24[0] = (addrinfo *)0x0;
+  iVar3 = getaddrinfo(pcVar6,__service_00,paVar8,local_24);
+  if (iVar3 == 0) {
+    local_34 = (addrinfo *)0x0;
+    paVar8 = (addrinfo *)0x0;
+    if (local_24[0] != (addrinfo *)0x0) {
+      local_38 = (addrinfo *)0x0;
+      local_34 = (addrinfo *)0x0;
+      paVar9 = local_24[0];
+      do {
+        paVar7 = malloc(0x20);
+        pcVar6 = paVar9->ai_canonname;
+        paVar7->ai_flags = paVar9->ai_flags;
+        paVar7->ai_family = paVar9->ai_family;
+        paVar7->ai_socktype = paVar9->ai_socktype;
+        paVar7->ai_protocol = paVar9->ai_protocol;
+        sVar1 = paVar9->ai_addrlen;
+        paVar7->ai_next = (addrinfo *)0x0;
+        paVar7->ai_addrlen = sVar1;
+        if (pcVar6 == (char *)0x0) {
+          psVar5 = paVar9->ai_addr;
+          paVar7->ai_addr = (sockaddr *)0x0;
+          if (psVar5 == (sockaddr *)0x0) goto LAB_04196acd;
+LAB_04196a35:
+          pcVar6 = malloc(0x10);
+          *(undefined4 *)pcVar6 = *(undefined4 *)psVar5;
+          *(undefined4 *)(pcVar6 + 4) = *(undefined4 *)(psVar5->sa_data + 2);
+          *(undefined4 *)(pcVar6 + 8) = *(undefined4 *)(psVar5->sa_data + 6);
+          *(undefined4 *)(pcVar6 + 0xc) = *(undefined4 *)(psVar5->sa_data + 10);
+          paVar7->ai_canonname = pcVar6;
+        }
+        else {
+          sVar4 = strlen(pcVar6);
+          psVar5 = malloc(sVar4 + 1);
+          paVar7->ai_addr = psVar5;
+          strcpy((char *)psVar5,pcVar6);
+          psVar5 = paVar9->ai_addr;
+          if (psVar5 != (sockaddr *)0x0) goto LAB_04196a35;
+LAB_04196acd:
+          paVar7->ai_canonname = (char *)0x0;
+        }
+        if (local_34 == (addrinfo *)0x0) {
+          local_34 = paVar7;
+        }
+        if (local_38 != (addrinfo *)0x0) {
+          local_38->ai_next = paVar7;
+        }
+        paVar9 = paVar9->ai_next;
+        paVar8 = local_24[0];
+        local_38 = paVar7;
+      } while (paVar9 != (addrinfo *)0x0);
+    }
+    freeaddrinfo(paVar8);
+    *ppaVar2 = local_34;
+  }
+  else {
+    switch(iVar3) {
+    case -10:
+      eON_SetLastError(8);
+      break;
+    default:
+      FUN_0402cd10(10,
+                   "EAI error not mentioned in Windows docs encountered from call of getaddrinfo()")
+      ;
+      break;
+    case -8:
+      eON_SetLastError(0x277d);
+      break;
+    case -7:
+      eON_SetLastError(0x273c);
+      break;
+    case -6:
+      eON_SetLastError(0x273f);
+      break;
+    case -4:
+      eON_SetLastError(0x2afb);
+      break;
+    case -3:
+      eON_SetLastError(0x2afa);
+      break;
+    case -2:
+      eON_SetLastError(0x2af9);
+      break;
+    case -1:
+      eON_SetLastError(0x2726);
+    }
+  }
+  return iVar3;
+}
+

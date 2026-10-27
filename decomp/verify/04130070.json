@@ -1,0 +1,111 @@
+
+undefined4
+fs_SetFilePointerEx(undefined4 param_1,undefined4 param_2,undefined4 param_3,__off64_t *param_4,
+                   int param_5)
+
+{
+  undefined4 uVar1;
+  undefined4 uVar2;
+  __off64_t *p_Var3;
+  char cVar4;
+  int iVar5;
+  int iVar6;
+  int *piVar7;
+  undefined4 uVar8;
+  __off64_t _Var9;
+  char *pcVar10;
+  FILE *local_28;
+  int local_24 [3];
+  undefined4 *local_18;
+  
+  iVar5 = param_5;
+  p_Var3 = param_4;
+  uVar2 = param_3;
+  uVar1 = param_2;
+  uVar8 = param_1;
+  local_18 = &param_1;
+  cVar4 = FUN_0403c420(param_1);
+  if (cVar4 == '\0') {
+    iVar6 = Synchronisation_GetObjectInfo(uVar8,&local_28,local_24);
+    if (iVar6 != 0) {
+      iVar6 = 1;
+      if (iVar5 != 1) {
+        iVar6 = (uint)(iVar5 == 2) * 2;
+      }
+      if (local_24[0] == 3) {
+        FUN_0402cd10(10,"WARNING! fs_SetFilePointerEx called with handle type %u",3);
+        fseeko64(local_28,CONCAT44(uVar2,uVar1),iVar6);
+        if (p_Var3 == (__off64_t *)0x0) {
+          return 1;
+        }
+        _Var9 = ftello64(local_28);
+        goto LAB_04130198;
+      }
+      if (local_24[0] == 1) {
+        _Var9 = lseek64((int)local_28->_IO_read_ptr,CONCAT44(uVar2,uVar1),iVar6);
+        if (_Var9 != -1) {
+          eON_SetLastError(0);
+          if (p_Var3 == (__off64_t *)0x0) {
+            return 1;
+          }
+          *p_Var3 = _Var9;
+          return 1;
+        }
+        piVar7 = __errno_location();
+        iVar5 = *piVar7;
+        if (iVar5 == 0x16) {
+          FUN_0402cd10(0xf,"Error EINVAL in lseek in fs_SetFilePointerEx!");
+          eON_SetLastError(0x83);
+          return 0;
+        }
+        if (iVar5 < 0x17) {
+          if (iVar5 == 9) {
+            pcVar10 = "Error EBADF in lseek in fs_SetFilePointerEx!";
+            goto LAB_04130227;
+          }
+        }
+        else {
+          if (iVar5 == 0x1d) {
+            pcVar10 = "Error ESPIPE in lseek in fs_SetFilePointerEx!";
+            goto LAB_04130227;
+          }
+          if (iVar5 == 0x4b) {
+            pcVar10 = "Error EOVERFLOW in lseek in fs_SetFilePointerEx!";
+            goto LAB_04130227;
+          }
+        }
+        pcVar10 = "Unknown error in lseek in fs_SetFilePointerEx!";
+LAB_04130227:
+        FUN_0402cd10(0xf,pcVar10);
+        eON_SetLastError(0x54f);
+        return 0;
+      }
+    }
+    uVar8 = 0;
+    eON_SetLastError(6);
+  }
+  else {
+    cVar4 = '\x01';
+    if (iVar5 != 1) {
+      cVar4 = (iVar5 == 2) * '\x02';
+    }
+    iVar5 = FUN_0403c4f0(uVar8,uVar1,uVar2,cVar4);
+    if (iVar5 != 0) {
+      if (iVar5 < 2) {
+        return 0;
+      }
+      eON_SetLastError(0x83);
+      return 0;
+    }
+    _Var9 = FUN_0403c500(uVar8);
+    eON_SetLastError(0);
+    if (p_Var3 == (__off64_t *)0x0) {
+      return 1;
+    }
+LAB_04130198:
+    uVar8 = 1;
+    *p_Var3 = _Var9;
+  }
+  return uVar8;
+}
+
