@@ -1,0 +1,224 @@
+[
+ {
+  "entry": "0x432f0a4",
+  "name": "ReadFile",
+  "fn": "0x4131f00",
+  "live": "eON_ReadFile"
+ },
+ {
+  "entry": "0x432f0b0",
+  "name": "WriteFile",
+  "fn": "0x41320a0",
+  "live": "eON_WriteFile"
+ },
+ {
+  "entry": "0x432f0bc",
+  "name": "SetFileTime",
+  "fn": "0x41329c0",
+  "live": "FUN_041329c0"
+ },
+ {
+  "entry": "0x432f0c8",
+  "name": "LocalFileTimeToFileTime",
+  "fn": "0x415e790",
+  "live": "eON_LocalFileTimeToFileTime"
+ },
+ {
+  "entry": "0x432f0d4",
+  "name": "FindClose",
+  "fn": "0x412bad0",
+  "live": "FUN_0412bad0"
+ },
+ {
+  "entry": "0x432f0e0",
+  "name": "GetFileInformationByHandle",
+  "fn": "0x41328b0",
+  "live": "eON_GetFileInformationByHandle"
+ },
+ {
+  "entry": "0x432f0ec",
+  "name": "SetFileInformationByHandle",
+  "fn": "0x4132900",
+  "live": "eON_SetFileInformationByHandle"
+ },
+ {
+  "entry": "0x432f0f8",
+  "name": "LockFile",
+  "fn": "0x4134990",
+  "live": "eON_LockFile"
+ },
+ {
+  "entry": "0x432f104",
+  "name": "SetFilePointer",
+  "fn": "0x4132110",
+  "live": "FUN_04132110"
+ },
+ {
+  "entry": "0x432f110",
+  "name": "FlushFileBuffers",
+  "fn": "0x4132b70",
+  "live": "eON_FlushFileBuffers"
+ },
+ {
+  "entry": "0x432f11c",
+  "name": "FileTimeToSystemTime",
+  "fn": "0x415e4a0",
+  "live": "eON_FileTimeToSystemTime"
+ },
+ {
+  "entry": "0x432f128",
+  "name": "FileTimeToLocalFileTime",
+  "fn": "0x415e700",
+  "live": "eON_FileTimeToLocalFileTime"
+ },
+ {
+  "entry": "0x432f134",
+  "name": "FindFirstFileA",
+  "fn": "0x412b660",
+  "live": "eON_FindFirstFileA"
+ },
+ {
+  "entry": "0x432f140",
+  "name": "FindNextFileA",
+  "fn": "0x412b970",
+  "live": "eON_FindNextFileA"
+ },
+ {
+  "entry": "0x432f14c",
+  "name": "GetDiskFreeSpaceA",
+  "fn": "0x41362c0",
+  "live": "eON_GetDiskFreeSpaceA"
+ },
+ {
+  "entry": "0x432f158",
+  "name": "GetLogicalDrives",
+  "fn": "0x4135d10",
+  "live": "eON_GetLogicalDrives"
+ },
+ {
+  "entry": "0x432f164",
+  "name": "FindFirstFileW",
+  "fn": "0x412b690",
+  "live": "eON_FindFirstFileW"
+ },
+ {
+  "entry": "0x432f170",
+  "name": "FindNextFileW",
+  "fn": "0x412b9a0",
+  "live": "eON_FindNextFileW"
+ },
+ {
+  "entry": "0x432f17c",
+  "name": "GetFileAttributesA",
+  "fn": "0x41322f0",
+  "live": "FUN_041322f0"
+ },
+ {
+  "entry": "0x432f188",
+  "name": "SetFileAttributesA",
+  "fn": "0x4132670",
+  "live": "FUN_04132670"
+ },
+ {
+  "entry": "0x432f194",
+  "name": "GetFullPathNameA",
+  "fn": "0x4134a90",
+  "live": "eON_GetFullPathNameA"
+ },
+ {
+  "entry": "0x432f1a0",
+  "name": "GetDriveTypeA",
+  "fn": "0x4135bf0",
+  "live": "eON_GetDriveTypeA"
+ },
+ {
+  "entry": "0x432f1ac",
+  "name": "CreateDirectoryA",
+  "fn": "0x412c630",
+  "live": "FUN_0412c630"
+ },
+ {
+  "entry": "0x432f1b8",
+  "name": "RemoveDirectoryA",
+  "fn": "0x412c770",
+  "live": "eON_RemoveDirectoryA"
+ },
+ {
+  "entry": "0x432f1c4",
+  "name": "DeleteFileA",
+  "fn": "0x4134010",
+  "live": "FUN_04134010"
+ },
+ {
+  "entry": "0x432f1d0",
+  "name": "GetFileAttributesW",
+  "fn": "0x41323d0",
+  "live": "eON_GetFileAttributesW"
+ },
+ {
+  "entry": "0x432f1dc",
+  "name": "SetFileAttributesW",
+  "fn": "0x4132730",
+  "live": "eON_SetFileAttributesW"
+ },
+ {
+  "entry": "0x432f1e8",
+  "name": "GetFullPathNameW",
+  "fn": "0x4134d00",
+  "live": "eON_GetFullPathNameW"
+ },
+ {
+  "entry": "0x432f1f4",
+  "name": "CreateDirectoryW",
+  "fn": "0x412c660",
+  "live": "eON_CreateDirectoryW"
+ },
+ {
+  "entry": "0x432f200",
+  "name": "DeleteFileW",
+  "fn": "0x41340d0",
+  "live": "FUN_041340d0"
+ },
+ {
+  "entry": "0x432f20c",
+  "name": "CreateFileW",
+  "fn": "0x4131d80",
+  "live": "eON_CreateFileW"
+ },
+ {
+  "entry": "0x432f218",
+  "name": "RemoveDirectoryW",
+  "fn": "0x412c830",
+  "live": "eON_DeleteFileW"
+ },
+ {
+  "entry": "0x432f224",
+  "name": "GetDriveTypeW",
+  "fn": "0x4135ca0",
+  "live": "eON_GetDriveTypeW"
+ },
+ {
+  "entry": "0x432f230",
+  "name": "CreateFileA",
+  "fn": "0x4131d10",
+  "live": "eON_CreateFileA"
+ },
+ {
+  "entry": "0x432f23c",
+  "name": "GetFileType",
+  "fn": "0x4132830",
+  "live": "FUN_04132830"
+ },
+ {
+  "entry": "0x432f248",
+  "name": "SetEndOfFile",
+  "fn": "0x4132a50",
+  "live": "fs_files_04132a50"
+ },
+ {
+  "entry": "0x432f254",
+  "name": "UnlockFile",
+  "fn": "0x41349b0",
+  "live": "eON_UnlockFile"
+ }
+]
