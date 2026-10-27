@@ -4,6 +4,7 @@ Full history of naming waves. The README scoreboard keeps only the latest 12 row
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
+| 220 | Checker-lane review (manual tier): pngerror.c cluster resolved from vendor source — 042a95f0→png_safecat, 042a9510→png_format_buffer, 042a9a30→png_chunk_warning, 042a9ea0→png_benign_error; 2 checker names were one slot off; call graph closes both ways; read-back verified (`tools/decomp_notes_wave220_pngerror_cluster.md`). | 4 | 2 |
 | 219 | ICC csstatics: relaxed matcher, all applied names body-verified individually; malloc family split by error/warning/NULL-base paths; 042a95f0 safecat-duplicate reverted to checker lane (`tools/decomp_notes_wave219_icc_malloc.md`). | 12 | 12 |
 | 218 | colorspace/ICC statics district: rebuilt matcher over unnamed seed owners, both tags; ascii pair split by control flow (`tools/decomp_notes_wave218_colorspace_district.md`). | 12 | 12 |
 | 217 | held png_set_* family body-matched vs vendor source; 042a6070 corrected to png_convert_to_rfc1123; +042a5e30 png_convert_to_rfc1123_buffer (`tools/decomp_notes_wave217_pngset_family.md`). | 12 | 11 |

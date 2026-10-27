@@ -18,6 +18,7 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
+| 220 | Checker-lane review, pngerror.c formatter cluster: 042a95f0→png_safecat (wave-219 held), 042a9510→png_format_buffer, 042a9a30→png_chunk_warning, FUN_042a9ea0→png_benign_error; all bodies verbatim vs pinned tags, call graph closes, seeds re-synced (`tools/decomp_notes_wave220_pngerror_cluster.md`). | 4 | 2 |
 | 219 | ICC csstatics: relaxed matcher (body-verified individually); malloc family split by error/warning/NULL-base paths (`tools/decomp_notes_wave219_icc_malloc.md`). | 12 | 12 |
 | 218 | colorspace/ICC statics district, matcher across both tags + pair split by control flow (`tools/decomp_notes_wave218_colorspace_district.md`). | 12 | 12 |
 | 217 | held png_set_* family body-matched; 042a6070 corrected to png_convert_to_rfc1123 (`tools/decomp_notes_wave217_pngset_family.md`). | 12 | 11 |

@@ -16003,8 +16003,8 @@ libpng error: %s,png_error,042a9b90
 bad longjmp: ,png_set_strip_error_numbers,042a9f60
 0123456789ABCDEF,png_format_number,042a9640
 0123456789ABCDEF,png_format_number,042a9640
-0123456789ABCDEF,png_safecat,042a9510
-0123456789ABCDEF,png_safecat,042a9510
+0123456789ABCDEF,png_format_buffer,042a9510
+0123456789ABCDEF,png_format_buffer,042a9510
 Libpng jmp_buf still allocated,png_set_longjmp_fn,042a9c00
 Application jmp_buf size changed,png_set_longjmp_fn,042a9c00
 internal error: array alloc,png_malloc_array,042aa150

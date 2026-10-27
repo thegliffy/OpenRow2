@@ -8171,15 +8171,15 @@ entry,name
 042a9400,FUN_042a9400
 042a9490,FUN_042a9490
 042a94d0,FUN_042a94d0
-042a9510,png_safecat
-042a95f0,FUN_042a95f0
+042a9510,png_format_buffer
+042a95f0,png_safecat
 042a9640,png_format_number
 042a97a0,png_warning
 042a9830,FUN_042a9830
 042a9870,FUN_042a9870
 042a98c0,FUN_042a98c0
 042a9940,FUN_042a9940
-042a9a30,png_benign_error
+042a9a30,png_chunk_warning
 042a9aa0,FUN_042a9aa0
 042a9b50,png_longjmp
 042a9b90,png_error
@@ -8190,7 +8190,7 @@ entry,name
 042a9df0,FUN_042a9df0
 042a9e20,FUN_042a9e20
 042a9e50,FUN_042a9e50
-042a9ea0,FUN_042a9ea0
+042a9ea0,png_benign_error
 042a9f10,FUN_042a9f10
 042a9f40,FUN_042a9f40
 042a9f60,png_set_strip_error_numbers
