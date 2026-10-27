@@ -16,6 +16,20 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 **5,197 / 9,221 functions carry a project name (56.4%).** A name is kept when that function references a matching assert signature, a single source file, or a D3D9 vtable slot locked by those signatures. Module prefixes name the file, not the function. Message-style strings do not replace a signature name. Convention `thunk_*` names (graph-unique wrapper pairing, wave 248) are real names but count as auto-named by scoreboard design.
 
+### Current status (parked at wave 251, 2026-10-27)
+
+**PARKED by decision:** descriptive (analyst-chosen) naming was proposed at the wave-251
+decision point and declined — every name on the board stays traceable to body/source/
+assert/runtime/game-table evidence. All mechanical lanes are closed: vendor joins (zlib ×2,
+libpng, tinyxml, gcc/libstdc++, pinned GLEW), source-graph closure (converged wave 236),
+bipartite call-set matching (wave 241), dispatch/name-tables (waves 226–229), import
+lookup (wave 229), wrapper pairing (waves 248–250, 21 `thunk_*` names), RTTI/`_Z` (wave
+238), CrashReporter cross-binary (wave 243). ~4,024 unnamed functions remain — game/eon2
+code over dynamic libc with no remaining name source. Infrastructure ready for any future
+evidence: MCP server (`set_return_type`, `bulk_reseed`, persisted `DomainFile.save`), gdb
+probe harness (`tools/gdb_probe247.py`), full-DB body corpus (`agent/w233_bodies.jsonl`),
+197 wave notes in `tools/`.
+
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
 | 251 | Deep-cluster reconnaissance: clusters confirmed game code over dynamic libc (no joinable static libs); no new static-library sources in binary (FreeType/freetype dynamic, pcre/ogg noise); libsupc++ canonical shape match dry (zero corpus bodies match `__cxa_throw` shape); free canonical ABI names have no evidenced targets — DRY; descriptive-naming policy decision queued (`tools/decomp_notes_wave251_deep_clusters_dry.md`) | 0 | 0 |
