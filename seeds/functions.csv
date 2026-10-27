@@ -9234,3 +9234,10 @@ entry,name
 0412c630,thunk_eON_CreateDirectoryA
 0412d2a0,thunk_eON_GetCurrentDirectoryA
 04132bf0,thunk_VPFS_CancelIo
+04133790,thunk_eON_CopyFileA
+04177040,thunk_eON_WaitMessage
+04177bc0,thunk_eON_GetDoubleClickTime
+041c9d9e,thunk_modf
+041c9dc6,thunk_fmod
+041ca073,thunk_log
+041ca0bc,thunk_tzset
