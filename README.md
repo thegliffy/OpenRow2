@@ -14,10 +14,11 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 ## Scoreboard
 
-**5,078 / 9,221 functions carry a project name (55.1%).** A name is kept when that function references a matching assert signature, a single source file, or a D3D9 vtable slot locked by those signatures. Module prefixes name the file, not the function. Message-style strings do not replace a signature name.
+**5,125 / 9,221 functions carry a project name (55.6%).** A name is kept when that function references a matching assert signature, a single source file, or a D3D9 vtable slot locked by those signatures. Module prefixes name the file, not the function. Message-style strings do not replace a signature name.
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
+| 228 | Dispatch-lane extended whole-file: whole-file scan for {name_ptr, fn_ptr, 0} stride-12 entries (2,237 found; wave-227 scope was a subset); 47 applied — user32 (DeferWindowPos, Escape, keybd_event, mouse_event, wsprintf/wvsprintf A/W), winmm (aux*, mci*, midiOut*, mmio*), ws2_32 (InetPton/Ntop A/W, canonical spelling chosen over aliases), shell32 (ILFree, Shell_NotifyIconA/W, SHGetFolderPathAndSubDirW), ole32/oleaut32/rpcrt4/imagehlp singletons, D3DPERF_*, XInput*, SelectClipRgn, CreateDirectoryExA/W; 106 held (44 names checker-parked elsewhere, rest multi-implementation names per DLL); 1,918/1,918 cross-lane exact matches zero conflicts; lane exhausted; board 5078->5125 (`tools/decomp_notes_wave228_dispatch_lane.md`, `decomp/wave228_full_dispatch_inventory.json`). | 47 | 47 |
 | 227 | Full Win32-emulation name-table harvest: whole-file scan for the game's own {name_ptr, fn_ptr, 0} export-table entries (820 across ~28 runs); 100% cross-lane agreement, zero conflicts; 71 entries renamed to eON_<name> on 65 unique slots (six ANSI macro alias pairs) after body-semantics checks incl. intra-table cross-references; families: _l* file API, lstr*, console I/O, FLS, heap, locale/collation, process/system, interlocked; board 5000->5078 cumulative (`tools/decomp_notes_wave227_name_table_harvest.md`, `decomp/wave227_win32_name_tables.json`). | 65 | 65 |
 | 226 | kernel32-emulation name-table lane: game's own {name_ptr, fn_ptr, 0} dispatch table (vaddr 0x0432f0a4, 37 entries, multiple parallel copies); 100% agreement with checker names on all overlaps + 2 runtime corroborations (wave 225); 12 body-verified renames applied (FindFirstFileA/W, FindNextFileA/W, GetFileAttributesW, SetFileAttributesW, RemoveDirectoryA, FlushFileBuffers, SetFileInformationByHandle, LockFile, UnlockFile, GetLogicalDrives); 9 name-pool entries held (names already parked by checker lane); GetLogicalDrives returns 0xc bitmask (`tools/decomp_notes_wave226_name_table_lane.md`, `decomp/wave226_kernel32_name_table.json`). | 12 | 12 |
 | 225 | gdb runtime lane on the live process: emulated Win32 file-API chain `eON_CreateFileA/W -> vpfs_CreateFileA -> VPFS_Open -> VPFS_OpenFileOnDisk -> fs_CreateFileA -> open64` runtime-corroborated for all file opens; create-vs-read path split pinned (create dispatches via `vpfs_04047220`); `.bbsave` filenames encode wall-clock save time (both saves match mtime to the second); Double Fusion ad middleware alive (5-min retries, dead DNS) (`tools/decomp_notes_wave225_runtime_gdb_lane.md`, artifacts `decomp/wave225/`). | 0 | 0 |
@@ -29,7 +30,6 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 | 219 | ICC csstatics: relaxed matcher (body-verified individually); malloc family split by error/warning/NULL-base paths (`tools/decomp_notes_wave219_icc_malloc.md`). | 12 | 12 |
 | 218 | colorspace/ICC statics district, matcher across both tags + pair split by control flow (`tools/decomp_notes_wave218_colorspace_district.md`). | 12 | 12 |
 | 217 | held png_set_* family body-matched; 042a6070 corrected to png_convert_to_rfc1123 (`tools/decomp_notes_wave217_pngset_family.md`). | 12 | 11 |
-| 216 | full-ledger audit: 0 contradictions, 1,500 body-confirmed (`tools/decomp_notes_wave216_full_audit.md`). | 0 | 0 |
 
 …and 186 earlier waves in [`tools/SCOREBOARD.md`](tools/SCOREBOARD.md).
 
