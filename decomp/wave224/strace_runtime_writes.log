@@ -1,0 +1,101 @@
+672044 08:09:48.617373 openat(AT_FDCWD, "/home/gliffy/sr2-run//eon.txt", O_WRONLY|O_CREAT|O_TRUNC|O_LARGEFILE, 0666) = 7
+672044 08:09:49.290366 openat(AT_FDCWD, "/home/gliffy/sr2-run/VPFS_registry.vpfsdb", O_RDONLY|O_LARGEFILE) = 11
+672044 08:09:49.290598 unlink("/home/gliffy/sr2-run/VPFS_registry.vpfsdb.backup") = -1 ENOENT (No such file or directory)
+672080 08:09:50.778424 openat(AT_FDCWD, "/home/gliffy/.local/share/volition/saintsrow2/EonRegistry.xml", O_WRONLY|O_CREAT|O_TRUNC|O_LARGEFILE, 0666) = 12
+672080 08:10:11.674379 openat(AT_FDCWD, "/dev/null", O_WRONLY|O_LARGEFILE) = 16
+672080 08:10:11.682072 openat(AT_FDCWD, "/dev/null", O_WRONLY|O_LARGEFILE) = 17
+672080 08:10:12.673441 access("/home/gliffy/sr2-run/preload.tbl", F_OK) = 0
+672080 08:10:12.673492 stat64("/home/gliffy/sr2-run/preload.tbl", {st_mode=S_IFREG|0775, st_size=22408, ...}) = 0
+672080 08:10:12.673547 stat64("/home/gliffy/sr2-run/preload.tbl", {st_mode=S_IFREG|0775, st_size=22408, ...}) = 0
+672080 08:10:12.673608 openat(AT_FDCWD, "/home/gliffy/sr2-run/preload.tbl", O_RDONLY|O_LARGEFILE) = 46
+672080 08:10:12.673948 access("/home/gliffy/sr2-run/preload.tbl", F_OK) = 0
+672080 08:10:12.673980 stat64("/home/gliffy/sr2-run/preload.tbl", {st_mode=S_IFREG|0775, st_size=22408, ...}) = 0
+672080 08:10:12.674028 stat64("/home/gliffy/sr2-run/preload.tbl", {st_mode=S_IFREG|0775, st_size=22408, ...}) = 0
+672080 08:10:12.674072 openat(AT_FDCWD, "/home/gliffy/sr2-run/preload.tbl", O_RDONLY|O_LARGEFILE) = 46
+672080 08:10:16.699198 access("/home/gliffy/sr2-run/preload_anim.tbl", F_OK) = 0
+672080 08:10:16.699230 stat64("/home/gliffy/sr2-run/preload_anim.tbl", {st_mode=S_IFREG|0775, st_size=82127, ...}) = 0
+672080 08:10:16.699274 stat64("/home/gliffy/sr2-run/preload_anim.tbl", {st_mode=S_IFREG|0775, st_size=82127, ...}) = 0
+672080 08:10:16.699310 openat(AT_FDCWD, "/home/gliffy/sr2-run/preload_anim.tbl", O_RDONLY|O_LARGEFILE) = 46
+672080 08:10:16.699695 access("/home/gliffy/sr2-run/preload_anim.tbl", F_OK) = 0
+672080 08:10:16.699739 stat64("/home/gliffy/sr2-run/preload_anim.tbl", {st_mode=S_IFREG|0775, st_size=82127, ...}) = 0
+672080 08:10:16.699785 stat64("/home/gliffy/sr2-run/preload_anim.tbl", {st_mode=S_IFREG|0775, st_size=82127, ...}) = 0
+672080 08:10:16.699818 openat(AT_FDCWD, "/home/gliffy/sr2-run/preload_anim.tbl", O_RDONLY|O_LARGEFILE) = 46
+672075 08:10:20.890445 <... rename resumed>) = 0
+672080 08:10:22.336479 access("/home/gliffy/sr2-run/data/DFEngine", F_OK) = 0
+672080 08:10:22.336519 stat64("/home/gliffy/sr2-run/data/DFEngine", {st_mode=S_IFDIR|0775, st_size=4096, ...}) = 0
+672080 08:10:22.339969 openat(AT_FDCWD, "/home/gliffy/.local/share/volition/saintsrow2/AppDataLocal/THQ/Saints Row 2/ads/engine_log.html", O_WRONLY|O_LARGEFILE) = 46
+672080 08:10:22.342045 openat(AT_FDCWD, "/home/gliffy/.local/share/volition/saintsrow2/AppDataLocal/THQ/Saints Row 2/ads/engine_log.html", O_WRONLY|O_LARGEFILE) = 46
+672080 08:10:22.344157 openat(AT_FDCWD, "/home/gliffy/.local/share/volition/saintsrow2/AppDataLocal/THQ/Saints Row 2/ads/engine_log.html", O_WRONLY|O_LARGEFILE) = 46
+672080 08:10:22.346326 openat(AT_FDCWD, "/home/gliffy/.local/share/volition/saintsrow2/AppDataLocal/THQ/Saints Row 2/ads/engine_log.html", O_WRONLY|O_LARGEFILE) = 46
+672080 08:10:22.348397 openat(AT_FDCWD, "/home/gliffy/.local/share/volition/saintsrow2/AppDataLocal/THQ/Saints Row 2/ads/engine_log.html", O_WRONLY|O_LARGEFILE) = 46
+672080 08:10:22.350792 openat(AT_FDCWD, "/home/gliffy/.local/share/volition/saintsrow2/AppDataLocal/THQ/Saints Row 2/ads/engine_log.html", O_WRONLY|O_LARGEFILE) = 46
+672080 08:10:22.353009 openat(AT_FDCWD, "/home/gliffy/.local/share/volition/saintsrow2/AppDataLocal/THQ/Saints Row 2/ads/engine_log.html", O_WRONLY|O_LARGEFILE) = 46
+672080 08:10:22.354031 access("/home/gliffy/sr2-run/data/DFEngine", F_OK) = 0
+672080 08:10:22.354068 openat(AT_FDCWD, "/home/gliffy/sr2-run/data/DFEngine/", O_RDONLY|O_NONBLOCK|O_LARGEFILE|O_CLOEXEC|O_DIRECTORY) = 46
+672080 08:10:22.354252 access("/home/gliffy/sr2-run/data/DFEngine/engine.var", F_OK) = 0
+672080 08:10:22.354293 stat64("/home/gliffy/sr2-run/data/DFEngine/engine.var", {st_mode=S_IFREG|0775, st_size=528, ...}) = 0
+672080 08:10:22.354340 stat64("/home/gliffy/sr2-run/data/DFEngine/engine.var", {st_mode=S_IFREG|0775, st_size=528, ...}) = 0
+672080 08:10:22.354382 openat(AT_FDCWD, "/home/gliffy/sr2-run/data/DFEngine/engine.var", O_RDONLY|O_LARGEFILE) = 46
+672080 08:10:22.354602 access("/home/gliffy/sr2-run/data/DFEngine", F_OK) = 0
+672080 08:10:22.354645 access("/home/gliffy/sr2-run/data/DFEngine/engine.var", F_OK) = 0
+672080 08:10:22.354690 stat64("/home/gliffy/sr2-run/data/DFEngine/engine.var", {st_mode=S_IFREG|0775, st_size=528, ...}) = 0
+672080 08:10:22.356642 openat(AT_FDCWD, "/home/gliffy/.local/share/volition/saintsrow2/AppDataLocal/THQ/Saints Row 2/ads/engine_log.html", O_WRONLY|O_LARGEFILE) = 46
+672080 08:10:22.359893 access("/home/gliffy/sr2-run/data/DFEngine", F_OK) = 0
+672080 08:10:22.359933 access("/home/gliffy/sr2-run/data/DFEngine/cache", F_OK) = 0
+672080 08:10:22.359984 openat(AT_FDCWD, "/home/gliffy/sr2-run/data/DFEngine/cache/", O_RDONLY|O_NONBLOCK|O_LARGEFILE|O_CLOEXEC|O_DIRECTORY) = 46
+672080 08:10:22.360187 access("/home/gliffy/sr2-run/data/DFEngine/cache/objects.dfo", F_OK) = 0
+672080 08:10:22.360234 stat64("/home/gliffy/sr2-run/data/DFEngine/cache/objects.dfo", {st_mode=S_IFREG|0775, st_size=488, ...}) = 0
+672080 08:10:22.360293 stat64("/home/gliffy/sr2-run/data/DFEngine/cache/objects.dfo", {st_mode=S_IFREG|0775, st_size=488, ...}) = 0
+672080 08:10:22.360333 openat(AT_FDCWD, "/home/gliffy/sr2-run/data/DFEngine/cache/objects.dfo", O_RDONLY|O_LARGEFILE) = 46
+672080 08:10:22.360550 access("/home/gliffy/sr2-run/data/DFEngine", F_OK) = 0
+672080 08:10:22.360596 access("/home/gliffy/sr2-run/data/DFEngine/cache", F_OK) = 0
+672080 08:10:22.360638 access("/home/gliffy/sr2-run/data/DFEngine/cache/objects.dfo", F_OK) = 0
+672080 08:10:22.360686 stat64("/home/gliffy/sr2-run/data/DFEngine/cache/objects.dfo", {st_mode=S_IFREG|0775, st_size=488, ...}) = 0
+672080 08:10:22.392454 openat(AT_FDCWD, "/home/gliffy/.local/share/volition/saintsrow2/AppDataLocal/THQ/Saints Row 2/ads/dftm.dat", O_WRONLY|O_LARGEFILE) = 46
+672080 08:10:22.394138 unlink("/home/gliffy/.local/share/volition/saintsrow2/AppDataLocal/THQ/Saints Row 2/ads/dfts.dat") = 0
+672080 08:10:22.395884 openat(AT_FDCWD, "/home/gliffy/.local/share/volition/saintsrow2/AppDataLocal/THQ/Saints Row 2/ads/engine_log.html", O_WRONLY|O_LARGEFILE) = 46
+672080 08:10:22.397963 openat(AT_FDCWD, "/home/gliffy/.local/share/volition/saintsrow2/AppDataLocal/THQ/Saints Row 2/ads/engine_log.html", O_WRONLY|O_LARGEFILE) = 47
+672080 08:10:22.399884 openat(AT_FDCWD, "/home/gliffy/.local/share/volition/saintsrow2/AppDataLocal/THQ/Saints Row 2/ads/engine_log.html", O_WRONLY|O_LARGEFILE) = 46
+672080 08:10:22.404445 openat(AT_FDCWD, "/home/gliffy/.local/share/volition/saintsrow2/AppDataLocal/THQ/Saints Row 2/ads/engine_log.html", O_WRONLY|O_LARGEFILE) = 47
+672080 08:10:22.406488 openat(AT_FDCWD, "/home/gliffy/.local/share/volition/saintsrow2/AppDataLocal/THQ/Saints Row 2/ads/engine_log.html", O_WRONLY|O_LARGEFILE) = 46
+672080 08:10:22.408796 openat(AT_FDCWD, "/home/gliffy/.local/share/volition/saintsrow2/AppDataLocal/THQ/Saints Row 2/ads/engine_log.html", O_WRONLY|O_LARGEFILE) = 46
+672080 08:10:22.411049 openat(AT_FDCWD, "/home/gliffy/.local/share/volition/saintsrow2/AppDataLocal/THQ/Saints Row 2/ads/engine_log.html", O_WRONLY|O_LARGEFILE) = 47
+672080 08:10:22.413419 openat(AT_FDCWD, "/home/gliffy/.local/share/volition/saintsrow2/AppDataLocal/THQ/Saints Row 2/ads/engine_log.html", O_WRONLY|O_LARGEFILE) = 46
+672080 08:10:22.417622 openat(AT_FDCWD, "/home/gliffy/.local/share/volition/saintsrow2/AppDataLocal/THQ/Saints Row 2/ads/engine_log.html", O_WRONLY|O_LARGEFILE) = 47
+672080 08:10:22.419703 openat(AT_FDCWD, "/home/gliffy/.local/share/volition/saintsrow2/AppDataLocal/THQ/Saints Row 2/ads/engine_log.html", O_WRONLY|O_LARGEFILE) = 46
+672080 08:20:28.844696 openat(AT_FDCWD, "/home/gliffy/.local/share/volition/saintsrow2/AppDataLocal/THQ/Saints Row 2/ads/dfts.dat", O_WRONLY|O_CREAT|O_EXCL|O_TRUNC|O_LARGEFILE, 0664) = 46
+672080 08:20:28.845318 openat(AT_FDCWD, "/home/gliffy/.local/share/volition/saintsrow2/AppDataLocal/THQ/Saints Row 2/ads/dfts.dat", O_WRONLY|O_LARGEFILE) = 46
+672080 08:20:28.847502 openat(AT_FDCWD, "/home/gliffy/.local/share/volition/saintsrow2/AppDataLocal/THQ/Saints Row 2/ads/engine_log.html", O_WRONLY|O_LARGEFILE) = 47
+672080 08:20:28.850250 openat(AT_FDCWD, "/home/gliffy/.local/share/volition/saintsrow2/AppDataLocal/THQ/Saints Row 2/ads/engine_log.html", O_WRONLY|O_LARGEFILE) = 46
+672075 08:20:31.651907 <... rename resumed>) = 0
+672075 08:20:33.500894 <... rename resumed>) = 0
+672075 08:20:37.847033 <... rename resumed>) = 0
+672075 08:20:40.828637 <... rename resumed>) = 0
+672075 08:20:47.756344 <... rename resumed>) = 0
+672075 08:21:27.753615 <... rename resumed>) = 0
+672080 08:25:29.301152 openat(AT_FDCWD, "/home/gliffy/.local/share/volition/saintsrow2/AppDataLocal/THQ/Saints Row 2/ads/dfts.dat", O_WRONLY|O_LARGEFILE) = 46
+672080 08:25:29.316332 openat(AT_FDCWD, "/home/gliffy/.local/share/volition/saintsrow2/AppDataLocal/THQ/Saints Row 2/ads/engine_log.html", O_WRONLY|O_LARGEFILE) = 47
+672080 08:25:29.325589 openat(AT_FDCWD, "/home/gliffy/.local/share/volition/saintsrow2/AppDataLocal/THQ/Saints Row 2/ads/engine_log.html", O_WRONLY|O_LARGEFILE) = 46
+672080 08:26:21.002154 openat(AT_FDCWD, "/home/gliffy/.local/share/volition/saintsrow2/AppData/Saints Row 2/profile.dat", O_WRONLY|O_LARGEFILE) = 46
+672080 08:26:21.002882 openat(AT_FDCWD, "/home/gliffy/.local/share/volition/saintsrow2/AppData/Saints Row 2/profile.dat", O_WRONLY|O_LARGEFILE) = 47
+672080 08:30:44.960471 openat(AT_FDCWD, "/home/gliffy/.local/share/volition/saintsrow2/AppDataLocal/THQ/Saints Row 2/ads/dfts.dat", O_WRONLY|O_LARGEFILE) = 47
+672080 08:30:44.962815 openat(AT_FDCWD, "/home/gliffy/.local/share/volition/saintsrow2/AppDataLocal/THQ/Saints Row 2/ads/engine_log.html", O_WRONLY|O_LARGEFILE) = 48
+672080 08:30:44.964756 openat(AT_FDCWD, "/home/gliffy/.local/share/volition/saintsrow2/AppDataLocal/THQ/Saints Row 2/ads/engine_log.html", O_WRONLY|O_LARGEFILE) = 47
+672080 08:40:06.057955 openat(AT_FDCWD, "/home/gliffy/.local/share/volition/saintsrow2/AppDataLocal/THQ/Saints Row 2/ads/dfts.dat", O_WRONLY|O_LARGEFILE) = 47
+672080 08:40:06.060241 openat(AT_FDCWD, "/home/gliffy/.local/share/volition/saintsrow2/AppDataLocal/THQ/Saints Row 2/ads/engine_log.html", O_WRONLY|O_LARGEFILE) = 48
+672080 08:40:06.062672 openat(AT_FDCWD, "/home/gliffy/.local/share/volition/saintsrow2/AppDataLocal/THQ/Saints Row 2/ads/engine_log.html", O_WRONLY|O_LARGEFILE) = 47
+672080 08:45:06.282710 openat(AT_FDCWD, "/home/gliffy/.local/share/volition/saintsrow2/AppDataLocal/THQ/Saints Row 2/ads/dfts.dat", O_WRONLY|O_LARGEFILE) = 47
+672080 08:45:06.292548 openat(AT_FDCWD, "/home/gliffy/.local/share/volition/saintsrow2/AppDataLocal/THQ/Saints Row 2/ads/engine_log.html", O_WRONLY|O_LARGEFILE) = 48
+672080 08:45:06.296778 openat(AT_FDCWD, "/home/gliffy/.local/share/volition/saintsrow2/AppDataLocal/THQ/Saints Row 2/ads/engine_log.html", O_WRONLY|O_LARGEFILE) = 47
+672080 08:50:07.189419 openat(AT_FDCWD, "/home/gliffy/.local/share/volition/saintsrow2/AppDataLocal/THQ/Saints Row 2/ads/dfts.dat", O_WRONLY|O_LARGEFILE) = 47
+672080 08:50:07.194085 openat(AT_FDCWD, "/home/gliffy/.local/share/volition/saintsrow2/AppDataLocal/THQ/Saints Row 2/ads/engine_log.html", O_WRONLY|O_LARGEFILE) = 48
+672080 08:50:07.201670 openat(AT_FDCWD, "/home/gliffy/.local/share/volition/saintsrow2/AppDataLocal/THQ/Saints Row 2/ads/engine_log.html", O_WRONLY|O_LARGEFILE) = 47
+672080 08:56:09.570093 openat(AT_FDCWD, "/home/gliffy/.local/share/volition/saintsrow2/AppDataLocal/THQ/Saints Row 2/ads/dfts.dat", O_WRONLY|O_LARGEFILE) = 47
+672080 08:56:09.581309 openat(AT_FDCWD, "/home/gliffy/.local/share/volition/saintsrow2/AppDataLocal/THQ/Saints Row 2/ads/engine_log.html", O_WRONLY|O_LARGEFILE) = 48
+672080 08:56:09.585856 openat(AT_FDCWD, "/home/gliffy/.local/share/volition/saintsrow2/AppDataLocal/THQ/Saints Row 2/ads/engine_log.html", O_WRONLY|O_LARGEFILE) = 47
+672080 09:20:38.564549 openat(AT_FDCWD, "/home/gliffy/.local/share/volition/saintsrow2/AppData/Saints Row 2/profile.dat", O_WRONLY|O_LARGEFILE) = 47
+672080 09:20:38.565058 openat(AT_FDCWD, "/home/gliffy/.local/share/volition/saintsrow2/AppData/Saints Row 2/profile.dat", O_WRONLY|O_LARGEFILE) = 48
+672080 09:20:38.567988 openat(AT_FDCWD, "/home/gliffy/.local/share/volition/saintsrow2/AppData/Saints Row 2/_108-100000000000000041102726092038.bbsave", O_WRONLY|O_CREAT|O_EXCL|O_TRUNC|O_LARGEFILE, 0664) = 48
+672080 09:20:38.568424 openat(AT_FDCWD, "/home/gliffy/.local/share/volition/saintsrow2/AppData/Saints Row 2/_108-100000000000000041102726092038.bbsave", O_WRONLY|O_LARGEFILE) = 48
+672080 09:20:40.519719 openat(AT_FDCWD, "/home/gliffy/.local/share/volition/saintsrow2/AppData/Saints Row 2/profile.dat", O_WRONLY|O_LARGEFILE) = 48
+672080 09:20:40.520314 openat(AT_FDCWD, "/home/gliffy/.local/share/volition/saintsrow2/AppData/Saints Row 2/profile.dat", O_WRONLY|O_LARGEFILE) = 49
