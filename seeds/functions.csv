@@ -9222,3 +9222,15 @@ entry,name
 04526848,__pthread_key_create
 041340d0,fs_DeleteFileW
 041a5dd0,glewContextInit
+04015a30,thunk_SDL_SetCursor
+0401f910,thunk_SDL_GL_SwapWindow
+04040a90,thunk_eON_FindClose
+04082340,thunk_glFlush
+040b8ea0,thunk_RetainVolumeData
+040b8ec0,thunk_LockBox
+040fa0a0,thunk_alSourcePause
+040feea0,thunk_DSoundBackend_SourceSet3DProperties
+04129d50,thunk_eON_GlobalFindAtomW
+0412c630,thunk_eON_CreateDirectoryA
+0412d2a0,thunk_eON_GetCurrentDirectoryA
+04132bf0,thunk_VPFS_CancelIo

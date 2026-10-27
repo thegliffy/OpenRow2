@@ -14,10 +14,11 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 ## Scoreboard
 
-**5,196 / 9,221 functions carry a project name (56.3%).** A name is kept when that function references a matching assert signature, a single source file, or a D3D9 vtable slot locked by those signatures. Module prefixes name the file, not the function. Message-style strings do not replace a signature name.
+**5,197 / 9,221 functions carry a project name (56.4%).** A name is kept when that function references a matching assert signature, a single source file, or a D3D9 vtable slot locked by those signatures. Module prefixes name the file, not the function. Message-style strings do not replace a signature name. Convention `thunk_*` names (graph-unique wrapper pairing, wave 248) are real names but count as auto-named by scoreboard design.
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
+| 248 | Hand-read batch via new graph-unique wrapper pairing (unnamed body calls exactly one named fn, callee called by exactly one unnamed body corpus-wide, hand-read): 12 `thunk_*` names applied (SDL/al/GL forwarders + eON_/VPFS_/LockBox/RetainVolumeData wrappers — board-neutral by scoreboard design); seed-repair applied `0410f860 -> vector<bool>::_M_insert_aux` (wave-221 row, lost to bulk_reseed `<`-skip) — board 5196->5197; 12 held (`tools/decomp_notes_wave248_wrapper_pairing.md`) | 12 (+1 repair) | 1 |
 | 247 | Targeted gdb live probe on top render anchors: `041a5dd0` fired exactly once at startup from GLEW init master `04021050` (DetermineMaxSamplesForFormat) → named `glewContextInit` (matches generated mega-function in GLEW 1.5.2 source, ~390 extension-resolver call sites); `0419cb30` checker name `_glewInit_GL_EXT_direct_state_access` confirmed by structure (215≈214; no runtime hit = extension absent, correct); game GLEW is patched (assert strings absent from all upstream tags); off-board rename — GLEW TU outside 9,221 denominator (`tools/decomp_notes_wave247_gdb_probe_render_anchors.md`) | 1 | 0 |
 | 246 | Behavioral-lane closure from wave-225 runtime evidence: `041340d0 -> fs_DeleteFileW` — true DeleteFileW entry (WideCharToMultiByte chain, VPFS_IsFile/VPFS_Delete, Win32-exact SetLastError(2)/(5)); verified on disk (`tools/decomp_notes_wave246_deletefilew_rename.md`) | 1 | 0 |
 | 245 | Architecture consolidation: `ARCHITECTURE.md` — subsystem call-volume map refreshed via `tools/subsystem_map.py`, runtime-verified asset/save pipeline, naming-infrastructure state; all claims trace to wave notes | 0 | 0 |
