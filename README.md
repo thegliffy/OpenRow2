@@ -18,6 +18,7 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
+| 225 | gdb runtime lane on the live process: emulated Win32 file-API chain `eON_CreateFileA/W -> vpfs_CreateFileA -> VPFS_Open -> VPFS_OpenFileOnDisk -> fs_CreateFileA -> open64` runtime-corroborated for all file opens; create-vs-read path split pinned (create dispatches via `vpfs_04047220`); `.bbsave` filenames encode wall-clock save time (both saves match mtime to the second); Double Fusion ad middleware alive (5-min retries, dead DNS) (`tools/decomp_notes_wave225_runtime_gdb_lane.md`, artifacts `decomp/wave225/`). | 0 | 0 |
 | 224 | Runtime write path demonstrated live on this box: game booted on Xvfb to main menu, new game -> character creator -> world (Jailbreak, HUD live); pause menu -> SAVE GAME -> engine created `_108-…bbsave` (240 KB) + updated `profile.dat`/`EonRegistry.xml`/ads cache through its emulated Win32 layer; boot-time DFEngine cache scan + vpfsdb backup dance observed; clean kernel32 shutdown (`tools/decomp_notes_wave224_runtime_write_demo.md`, artifacts `decomp/wave224/`). | 0 | 0 |
 | 223 | Lead closures, no renames: done.tsv audit (13 rule-passers, all already named live); anim-hash lead re-derived from seed CSV (only 14-hit hash eb147447 = data table in glxewInit/glewInit, no functions); engine single-owner Class::Method string scan dry (`tools/decomp_notes_wave223_lead_closures.md`). | 0 | 0 |
 | 222 | Matcher re-scan, single-owner strings vs both libpng tags (100 scanned, 12 raw hits, verified to 2): 042a5350→png_user_version_check, 042c12c0→png_deflate_claim, both verbatim source bodies; 042a9940 hold (digit-table substring artifact); seeds re-synced (`tools/decomp_notes_wave222_png_source_pair.md`). | 2 | 2 |
@@ -29,7 +30,6 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 | 216 | full-ledger audit: 0 contradictions, 1,500 body-confirmed (`tools/decomp_notes_wave216_full_audit.md`). | 0 | 0 |
 | 215 | per-function source sets + body-string verification; 10 held for control-flow (`tools/decomp_notes_wave215_perfunction_source_match.md`). | 22 | 22 |
 | 214 | zlib district probe: dead end, documented (`tools/decomp_notes_wave214_zlib_dead_end.md`). | 0 | 0 |
-| 213 | v1.6.40-only string matches + compression-setter struct-field split (`tools/decomp_notes_wave213_v1640_stragglers.md`). | 8 | 8 |
 
 …and 186 earlier waves in [`tools/SCOREBOARD.md`](tools/SCOREBOARD.md).
 
