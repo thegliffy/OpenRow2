@@ -5600,11 +5600,11 @@ entry,name
 04170960,eON_Int_MsgMatchesInputFilter
 04170a80,eON_Int_ThreadHasQueuedInputMatchingFilter
 04170e20,eON_Int_Thread_AdjustMsgQueueCounter
-04170e70,eON_GetQueueStatus_Flags
+04170e70,eON_GetQueueStatus
 041712a0,eON_GetMessageExtraInfo
 041712f0,eON_Int_ThreadKeyStateBit
 04171340,eON_GetKeyboardState
-04171430,eON_GetQueueStatus
+04171430,eON_GetMessagePos
 04171490,eON_WaitMessage
 041714e0,eON_TranslateMessage
 04171520,eON_DefWindowProcA
@@ -5877,7 +5877,7 @@ entry,name
 041810b0,eON_Int_ClassAtomTable_Lookup
 041810e0,eON_Int_ClassAtom_GetStyle
 04181130,eON_ShowWindow_Checked
-041811b0,eON_Int_Wnd_QueryIsVisible
+041811b0,eON_IsWindowVisible
 04181220,eON_GetFocus_Thunk
 04181230,eON_SetFocus_Checked
 041812e0,eON_UpdateWindow
@@ -5921,7 +5921,7 @@ entry,name
 04182870,eON_SetParent
 04182910,eON_GetDialogBaseUnits
 04182920,eON_GetParent
-041829a0,eON_GetActiveWindow_Thunk
+041829a0,eON_GetForegroundWindow
 041829b0,eON_GetWindowThreadProcessId
 04182a40,eON_GetDesktopWindow
 04182a50,eON_GetActiveWindow
@@ -5934,8 +5934,8 @@ entry,name
 04182c50,eON_GetLastActivePopup
 04182c60,FUN_04182c60
 04182c70,eON_ScrollWindowEx
-04182c80,eON_SetForegroundWindow
-04182db0,eON_GetForegroundWindow
+04182c80,eON_SetCapture
+04182db0,eON_GetCapture
 04182dc0,eON_Int_FlushPendingForegroundSendMessageA
 04182ea0,eON_BeginPaint
 04182fc0,eON_EndPaint
@@ -5977,8 +5977,8 @@ entry,name
 04184670,eON_ValidateRect
 04184700,eON_IsChild
 041847f0,eON_SetMenu
-04184800,eON_IsWindowEnabled
-04184870,eON_IsWindowVisible
+04184800,eON_SetForegroundWindow
+04184870,eON_IsWindowEnabled
 041848e0,eON_GetDlgCtrlID
 04184950,FUN_04184950
 04184960,eON_ShowOwnedPopups
@@ -6182,8 +6182,8 @@ entry,name
 0418bfa0,eON_mixerGetNumDevs
 0418bfb0,eON_mixerOpen
 0418c040,eON_mixerClose
-0418c080,MMDevice_GetMainVolume
-0418c390,eON_mixerGetLineInfoA
+0418c080,eON_mixerGetLineInfoA
+0418c390,eON_mixerGetLineControlsA
 0418c500,eON_mixerGetControlDetailsA
 0418c510,eON_mixerSetControlDetails
 0418c520,FUN_0418c520

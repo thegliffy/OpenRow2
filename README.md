@@ -16,7 +16,7 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 **5,197 / 9,221 functions carry a project name (56.4%).** A name is kept when that function references a matching assert signature, a single source file, or a D3D9 vtable slot locked by those signatures. Module prefixes name the file, not the function. Message-style strings do not replace a signature name. Convention `thunk_*` names (graph-unique wrapper pairing, wave 248) are real names but count as auto-named by scoreboard design.
 
-### Current status (parked at wave 251, 2026-10-27)
+### Current status (parked at wave 252, 2026-10-27)
 
 **PARKED by decision:** descriptive (analyst-chosen) naming was proposed at the wave-251
 decision point and declined — every name on the board stays traceable to body/source/
@@ -30,8 +30,17 @@ evidence: MCP server (`set_return_type`, `bulk_reseed`, persisted `DomainFile.sa
 probe harness (`tools/gdb_probe247.py`), full-DB body corpus (`agent/w233_bodies.jsonl`),
 197 wave notes in `tools/`.
 
+**Wave 252 close (this parking spot):** the wave-205 backlog (GetCapture /
+SetMessageExtraInfo / InSendMessage / GetMessagePos, accelerator trio,
+DialogBoxParamW, Ellipse, mixer/waveOut) is CLOSED — 10 game-name-table
+permutation renames applied through MCP (board-neutral: every contested slot's
+checker name displaced onto the displaced name's own pool slot, chain closed,
+4 descriptive variants retired in favor of canonical names); seeds updated
+1:1; board unchanged 5,197 / 9,221 (`tools/decomp_notes_wave252_w205_backlog_close.md`).
+
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
+| 252 | Wave-205 backlog close: game-name-table permutation closed via MCP body-lock adjudication — GetMessagePos/GetQueueStatus/mixerGetLineInfoA/mixerGetLineControlsA/GetCapture/SetCapture/GetForegroundWindow/SetForegroundWindow/IsWindowEnabled/IsWindowVisible each landed on their own pool slot; 4 descriptive checker variants retired in favor of canonical names; seeds updated 1:1; board-neutral permutation (`tools/decomp_notes_wave252_w205_backlog_close.md`) | 10 (renames) | 0 |
 | 251 | Deep-cluster reconnaissance: clusters confirmed game code over dynamic libc (no joinable static libs); no new static-library sources in binary (FreeType/freetype dynamic, pcre/ogg noise); libsupc++ canonical shape match dry (zero corpus bodies match `__cxa_throw` shape); free canonical ABI names have no evidenced targets — DRY; descriptive-naming policy decision queued (`tools/decomp_notes_wave251_deep_clusters_dry.md`) | 0 | 0 |
 | 250 | Wrapper-pairing relaxed-tier sweep (header self-call bug fixed; 30 unique-unique + 48 multi-wrapper surfaced, all hand-read): 2 applied (`thunk_VPFS_SetCurrentDirectory`, `thunk_OpenGLDebugMessageCallback`), 14 newly read all held (loops/predicates/state), multi-wrapper callees structurally unnameable — LANE EXHAUSTED at 21 applied total (`tools/decomp_notes_wave250_wrapper_final.md`) | 2 | 0 |
 | 249 | Wrapper-pairing lane continued: 7 strict pure forwarders named (`thunk_eON_CopyFileA`, `thunk_eON_WaitMessage`, `thunk_eON_GetDoubleClickTime`, `thunk_modf`, `thunk_fmod`, `thunk_log`, `thunk_tzset` — x87 shims included); 9 newly read, held; lane exhausted for strict forwarders (`tools/decomp_notes_wave249_wrapper_batch2.md`) | 7 | 0 |
