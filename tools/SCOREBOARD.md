@@ -4,6 +4,8 @@ Full history of naming waves. The README scoreboard keeps only the latest 12 row
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
+| 223 | Lead closures, no renames: done.tsv audit (13 rule-passers all already named live); anim-hash lead re-derived = data table inside glxewInit/glewInit; engine single-owner string scan dry (`tools/decomp_notes_wave223_lead_closures.md`). | 0 | 0 |
+| 222 | Matcher re-scan single-owner strings vs both libpng tags: 042a5350→png_user_version_check, 042c12c0→png_deflate_claim; 042a9940 hold (`tools/decomp_notes_wave222_png_source_pair.md`). | 2 | 2 |
 | 221 | libstdc++ lane (wave-215 Next) closed: 04101c50→vector::_M_range_insert, 0410f860→vector<bool>::_M_insert_aux — single-owner strings physically inline in body, control flow verbatim vs vendor/gcc 4.3.4; 0400bfd0 hold confirmed (multi-string game function) (`tools/decomp_notes_wave221_libstdcxx_lane.md`). | 2 | 2 |
 | 220 | Checker-lane review (manual tier): pngerror.c cluster resolved from vendor source — 042a95f0→png_safecat, 042a9510→png_format_buffer, 042a9a30→png_chunk_warning, 042a9ea0→png_benign_error; 2 checker names were one slot off; call graph closes both ways; read-back verified (`tools/decomp_notes_wave220_pngerror_cluster.md`). | 4 | 2 |
 | 219 | ICC csstatics: relaxed matcher, all applied names body-verified individually; malloc family split by error/warning/NULL-base paths; 042a95f0 safecat-duplicate reverted to checker lane (`tools/decomp_notes_wave219_icc_malloc.md`). | 12 | 12 |

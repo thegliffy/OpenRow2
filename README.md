@@ -14,10 +14,12 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 ## Scoreboard
 
-**4,994 / 9,221 functions carry a project name (54.2%).** A name is kept when that function references a matching assert signature, a single source file, or a D3D9 vtable slot locked by those signatures. Module prefixes name the file, not the function. Message-style strings do not replace a signature name.
+**5,000 / 9,221 functions carry a project name (54.2%).** A name is kept when that function references a matching assert signature, a single source file, or a D3D9 vtable slot locked by those signatures. Module prefixes name the file, not the function. Message-style strings do not replace a signature name.
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
+| 223 | Lead closures, no renames: done.tsv audit (13 rule-passers, all already named live); anim-hash lead re-derived from seed CSV (only 14-hit hash eb147447 = data table in glxewInit/glewInit, no functions); engine single-owner Class::Method string scan dry (`tools/decomp_notes_wave223_lead_closures.md`). | 0 | 0 |
+| 222 | Matcher re-scan, single-owner strings vs both libpng tags (100 scanned, 12 raw hits, verified to 2): 042a5350→png_user_version_check, 042c12c0→png_deflate_claim, both verbatim source bodies; 042a9940 hold (digit-table substring artifact); seeds re-synced (`tools/decomp_notes_wave222_png_source_pair.md`). | 2 | 2 |
 | 221 | libstdc++ lane from wave-215 Next: vector::_M_range_insert + vector<bool>::_M_insert_aux body-verified vs vendor/gcc 4.3.4 (throw-site strings inline); basic_string::substr hold stands (0400bfd0 not pure — 3 inlined sites + game strings) (`tools/decomp_notes_wave221_libstdcxx_lane.md`). | 2 | 2 |
 | 220 | Checker-lane review, pngerror.c formatter cluster: 042a95f0→png_safecat (wave-219 held), 042a9510→png_format_buffer, 042a9a30→png_chunk_warning, FUN_042a9ea0→png_benign_error; all bodies verbatim vs pinned tags, call graph closes, seeds re-synced (`tools/decomp_notes_wave220_pngerror_cluster.md`). | 4 | 2 |
 | 219 | ICC csstatics: relaxed matcher (body-verified individually); malloc family split by error/warning/NULL-base paths (`tools/decomp_notes_wave219_icc_malloc.md`). | 12 | 12 |
@@ -28,14 +30,6 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 | 214 | zlib district probe: dead end, documented (`tools/decomp_notes_wave214_zlib_dead_end.md`). | 0 | 0 |
 | 213 | v1.6.40-only string matches + compression-setter struct-field split (`tools/decomp_notes_wave213_v1640_stragglers.md`). | 8 | 8 |
 | 212 | png_crc_error + png_default_read_data body matches (`tools/decomp_notes_wave212_crc_error_and_default_read.md`). | 2 | 2 |
-| 211 | png.c/pngerror.c helper bodies line-by-line (`tools/decomp_notes_wave211_helper_bodies.md`). | 4 | 4 |
-| 210 | pngwriter side + simple-API reader sweep vs v1.6.0 (`tools/decomp_notes_wave210_pngwriter_side.md`). | 33 | 33 |
-| 209 | Libpng reader district completion: pngrutil handler bodies vs v1.6.0 via call-graph anchors + distinctive-string locks (`tools/decomp_notes_wave209_pngrutil_completion.md`). | 18 | 18 |
-| 208 | Libpng reader district source match vs v1.6.0: 6 chunk handlers + 7 pngset setters + 8 error/crc helpers vs v1.6.0 (`tools/decomp_notes_wave208_libpng_chunk_district.md`). | 21 | 21 |
-| 207 | Vtable aligner unfreeze: dumps refreshed from live, MM*/AudioRenderClient lanes re-gated, 7 slots (`tools/decomp_notes_wave207_vtable_unfreeze.md`). | 7 | 7 |
-| 206 | XAudio2 MANUAL_ORDER pinned to eON observed layout; aligner shift-0 fits named the 4 gap slots (`tools/decomp_notes_wave206_xaudio2_pinned.md`). | 4 | 4 |
-| 205 | Loader name-table mega-batch: static-binary dispatch tables, single-ref gates, ~420 checker-name agreements (`tools/decomp_notes_wave205_loader_name_table.md`). | 1,166 | 1,166 |
-| 204 | TranslateAccelerator + DeleteTimerQueue (`tools/decomp_notes_wave204_accel_timerqueue.md`). | 8 | 8 |
 
 …and 186 earlier waves in [`tools/SCOREBOARD.md`](tools/SCOREBOARD.md).
 
@@ -77,6 +71,8 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 `python3 tools/test_llm_work.py` runs the checker against the seeds.
 
 ## Next
+
+Wave 223: no renames — all three open leads closed with evidence. `done.tsv` audit: 13 rows pass the checker's rules but every one is already named live. The anim-hash lead re-derived from the seed CSV resolves to a 14-hit data table (`eb147447` = `ro04_01_SWRD2_67.anim_pc`) inside the huge named GLEW functions — not function boundaries. Engine single-owner `Class::Method` string scan: 0 candidates. Assert queue 0, vtable align 0 proposals, both vendor joins dry. Only the hand-read tier remains (AES wrappers would be names invented from call mix; rule says they stay unnamed). See `tools/decomp_notes_wave223_lead_closures.md`.
 
 Wave 215 applied (4,959): matcher upgraded to per-function parsed source sets with body-string verification before apply — the libpng lane was NOT dry after all (column-parsing bug in earlier joins). 22 names. See `tools/decomp_notes_wave215_perfunction_source_match.md`.
 
