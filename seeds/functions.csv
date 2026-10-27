@@ -8130,7 +8130,7 @@ entry,name
 042a60f0,FUN_042a60f0
 042a6100,FUN_042a6100
 042a6110,FUN_042a6110
-042a6160,FUN_042a6160
+042a6160,png_handle_as_unknown
 042a61f0,png_chunk_unknown_handling
 042a6240,zstream_reset
 042a6260,FUN_042a6260
@@ -8184,7 +8184,7 @@ entry,name
 042a9b50,png_longjmp
 042a9b90,png_error
 042a9c00,png_set_longjmp_fn
-042a9ce0,FUN_042a9ce0
+042a9ce0,png_fixed_error
 042a9d70,png_chunk_error
 042a9dc0,png_chunk_benign_error
 042a9df0,png_app_error
@@ -8196,14 +8196,14 @@ entry,name
 042a9f60,png_set_strip_error_numbers
 042aa000,FUN_042aa000
 042aa050,FUN_042aa050
-042aa110,FUN_042aa110
+042aa110,png_malloc_base
 042aa150,png_malloc_array
 042aa1c0,png_realloc_array
 042aa2c0,png_malloc
-042aa300,FUN_042aa300
+042aa300,png_calloc
 042aa350,png_malloc_default
 042aa3a0,png_malloc_warn
-042aa3f0,FUN_042aa3f0
+042aa3f0,png_free_default
 042aa410,png_free
 042aa450,FUN_042aa450
 042aa530,FUN_042aa530
