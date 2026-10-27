@@ -1,0 +1,5742 @@
+[
+ {
+  "entry": "0x432e9e4",
+  "name": "InitializeSListHead",
+  "fn": "0x4146d10",
+  "live": "eON_InitializeSListHead",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432e9f0",
+  "name": "QueryDepthSList",
+  "fn": "0x4146d30",
+  "live": "eON_QueryDepthSList",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432e9fc",
+  "name": "InterlockedPushEntrySList",
+  "fn": "0x4146d50",
+  "live": "eON_InterlockedPushEntrySList",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432ea08",
+  "name": "InterlockedPopEntrySList",
+  "fn": "0x4146db0",
+  "live": "eON_InterlockedPopEntrySList",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432ea14",
+  "name": "InterlockedFlushSList",
+  "fn": "0x4146e00",
+  "live": "eON_InterlockedFlushSList",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432ea20",
+  "name": "InterlockedPushListSList",
+  "fn": "0x4146e80",
+  "live": "eON_InterlockedPushListSList",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432ea2c",
+  "name": "InterlockedPushListSListEx",
+  "fn": "0x4146ef0",
+  "live": "eON_InterlockedPushListSListEx",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432ea38",
+  "name": "InterlockedCompareExchange",
+  "fn": "0x41467c0",
+  "live": "eON_InterlockedCompareExchange",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432ea44",
+  "name": "InterlockedExchange",
+  "fn": "0x4146810",
+  "live": "eON_InterlockedExchange",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432ea50",
+  "name": "InterlockedExchangeAdd",
+  "fn": "0x4146820",
+  "live": "eON_InterlockedExchangeAdd",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432ea5c",
+  "name": "InterlockedIncrement",
+  "fn": "0x4146840",
+  "live": "eON_InterlockedIncrement",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432ea68",
+  "name": "InterlockedDecrement",
+  "fn": "0x4146860",
+  "live": "eON_InterlockedDecrement",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432ea74",
+  "name": "InterlockedCompareExchange64",
+  "fn": "0x41467e0",
+  "live": "eON_InterlockedCompareExchange64",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432eab0",
+  "name": "EncodePointer",
+  "fn": "0x41398c0",
+  "live": "eON_EncodePointer",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432eabc",
+  "name": "DecodePointer",
+  "fn": "0x41398d0",
+  "live": "eON_DecodePointer",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432eae4",
+  "name": "GetLocalTime",
+  "fn": "0x415df80",
+  "live": "eON_GetLocalTime",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432eaf0",
+  "name": "SetLocalTime",
+  "fn": "0x415e120",
+  "live": "eON_SetLocalTime",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432eafc",
+  "name": "GetTickCount",
+  "fn": "0x415eaf0",
+  "live": "eON_timeGetTime",
+  "verdict": "named-other-tier"
+ },
+ {
+  "entry": "0x432eb08",
+  "name": "GetSystemInfo",
+  "fn": "0x414d890",
+  "live": "eON_GetSystemInfo",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432eb14",
+  "name": "GetVersionExW",
+  "fn": "0x414d730",
+  "live": "eON_GetVersionExW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432eb20",
+  "name": "GetTimeZoneInformation",
+  "fn": "0x415e150",
+  "live": "eON_GetTimeZoneInformation",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432eb2c",
+  "name": "SystemTimeToFileTime",
+  "fn": "0x415e1e0",
+  "live": "eON_SystemTimeToFileTime",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432eb38",
+  "name": "GetSystemTimeAsFileTime",
+  "fn": "0x415e020",
+  "live": "eON_GetSystemTimeAsFileTime",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432eb64",
+  "name": "DeleteCriticalSection",
+  "fn": "0x4146030",
+  "live": "eON_DeleteCriticalSection",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432eb70",
+  "name": "WaitForSingleObject",
+  "fn": "0x415d620",
+  "live": "eON_WaitForSingleObject",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432eb7c",
+  "name": "InitializeCriticalSectionEx",
+  "fn": "0x4145ed0",
+  "live": "synch_criticalsection_04145ed0",
+  "verdict": "named-other-tier"
+ },
+ {
+  "entry": "0x432eb88",
+  "name": "EnterCriticalSection",
+  "fn": "0x4146210",
+  "live": "EnterCriticalSection",
+  "verdict": "named-other-tier"
+ },
+ {
+  "entry": "0x432eb94",
+  "name": "LeaveCriticalSection",
+  "fn": "0x41463f0",
+  "live": "LeaveCriticalSection",
+  "verdict": "named-other-tier"
+ },
+ {
+  "entry": "0x432ebc4",
+  "name": "MultiByteToWideChar",
+  "fn": "0x415ed30",
+  "live": "eON_MultiByteToWideChar",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432ebd0",
+  "name": "GetStringTypeW",
+  "fn": "0x4143120",
+  "live": "eON_GetStringTypeW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432ebdc",
+  "name": "CompareStringW",
+  "fn": "0x41433f0",
+  "live": "eON_CompareStringW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432ebe8",
+  "name": "WideCharToMultiByte",
+  "fn": "0x415f0f0",
+  "live": "eON_WideCharToMultiByte",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432ec0c",
+  "name": "QueryPerformanceCounter",
+  "fn": "0x415eb10",
+  "live": "eON_QueryPerformanceCounter",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432ec44",
+  "name": "TerminateProcess",
+  "fn": "0x4156880",
+  "live": "eON_TerminateProcess",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432ec50",
+  "name": "CreateThread",
+  "fn": "0x415c090",
+  "live": "eON_CreateThread",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432ec5c",
+  "name": "ResumeThread",
+  "fn": "0x415c7e0",
+  "live": "eON_ResumeThread",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432ec68",
+  "name": "ExitThread",
+  "fn": "0x415c420",
+  "live": "eON_ExitThread",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432ec74",
+  "name": "GetCurrentThread",
+  "fn": "0x415c8f0",
+  "live": "eON_GetCurrentThread",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432ec80",
+  "name": "GetCurrentThreadId",
+  "fn": "0x415c900",
+  "live": "eON_GetCurrentThreadId",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432ec8c",
+  "name": "GetCurrentProcess",
+  "fn": "0x4156900",
+  "live": "FUN_04156900",
+  "verdict": "unnamed-slot"
+ },
+ {
+  "entry": "0x432ec98",
+  "name": "GetStartupInfoA",
+  "fn": "0x41566f0",
+  "live": "eON_GetStartupInfoA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432eca4",
+  "name": "GetStartupInfoW",
+  "fn": "0x4156720",
+  "live": "eON_GetStartupInfoW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432ecb0",
+  "name": "ExitProcess",
+  "fn": "0x4156770",
+  "live": "eON_ExitProcess",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432ecbc",
+  "name": "GetCurrentProcessId",
+  "fn": "0x4156910",
+  "live": "FUN_04156910",
+  "verdict": "unnamed-slot"
+ },
+ {
+  "entry": "0x432ecc8",
+  "name": "GetExitCodeProcess",
+  "fn": "0x4156e10",
+  "live": "eON_GetExitCodeProcess",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432ecd4",
+  "name": "CreateProcessA",
+  "fn": "0x4156950",
+  "live": "eON_CreateProcessA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432ece0",
+  "name": "CreateProcessW",
+  "fn": "0x41569d0",
+  "live": "eON_CreateProcessW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432ecec",
+  "name": "SetThreadStackGuarantee",
+  "fn": "0x415d800",
+  "live": "eON_SetThreadStackGuarantee",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432ed24",
+  "name": "GetCurrentDirectoryW",
+  "fn": "0x412d2d0",
+  "live": "eON_GetCurrentDirectoryW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432ed30",
+  "name": "SetCurrentDirectoryW",
+  "fn": "0x412d490",
+  "live": "eON_SetCurrentDirectoryW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432ed3c",
+  "name": "GetStdHandle",
+  "fn": "0x4129e20",
+  "live": "eON_GetStdHandle",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432ed48",
+  "name": "SetStdHandle",
+  "fn": "0x4129ec0",
+  "live": "eON_IgnoreInvalidStdOutputHandle",
+  "verdict": "named-other-tier"
+ },
+ {
+  "entry": "0x432ed54",
+  "name": "FreeEnvironmentStringsW",
+  "fn": "0x4157500",
+  "live": "eON_FreeEnvironmentStringsW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432ed60",
+  "name": "GetEnvironmentStringsW",
+  "fn": "0x4157380",
+  "live": "eON_GetEnvironmentStringsW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432ed6c",
+  "name": "GetCommandLineW",
+  "fn": "0x4156760",
+  "live": "eON_GetCommandLineW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432ed78",
+  "name": "SetCurrentDirectoryA",
+  "fn": "0x412d470",
+  "live": "eON_SetCurrentDirectoryA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432ed84",
+  "name": "GetCommandLineA",
+  "fn": "0x4156750",
+  "live": "eON_GetCommandLineA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432ed90",
+  "name": "SetEnvironmentVariableA",
+  "fn": "0x4157170",
+  "live": "eON_SetEnvironmentVariableA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432ed9c",
+  "name": "GetCurrentDirectoryA",
+  "fn": "0x412d2a0",
+  "live": "FUN_0412d2a0",
+  "verdict": "unnamed-slot"
+ },
+ {
+  "entry": "0x432eda8",
+  "name": "SetEnvironmentVariableW",
+  "fn": "0x41571c0",
+  "live": "eON_SetEnvironmentVariableW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432ede4",
+  "name": "CreatePipe",
+  "fn": "0x4139480",
+  "live": "eON_CreatePipe",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432edf0",
+  "name": "PeekNamedPipe",
+  "fn": "0x4139550",
+  "live": "eON_PeekNamedPipe",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432ee24",
+  "name": "SetHandleCount",
+  "fn": "0x4134a70",
+  "live": "eON_SetHandleCount",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432ee30",
+  "name": "Sleep",
+  "fn": "0x415d720",
+  "live": "eON_Sleep",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432ee3c",
+  "name": "EnumSystemLocalesA",
+  "fn": "0x41428e0",
+  "live": "eON_EnumSystemLocalesA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432ee64",
+  "name": "VirtualAlloc",
+  "fn": "0x413e740",
+  "live": "eON_VirtualAlloc",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432ee70",
+  "name": "VirtualProtect",
+  "fn": "0x413ea10",
+  "live": "eON_VirtualProtect",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432ee7c",
+  "name": "VirtualQuery",
+  "fn": "0x413eff0",
+  "live": "eON_VirtualQuery",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432ee88",
+  "name": "VirtualQueryEx",
+  "fn": "0x413f350",
+  "live": "eON_VirtualQueryEx",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432ee94",
+  "name": "VirtualFree",
+  "fn": "0x413e9d0",
+  "live": "eON_VirtualFree",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432eec4",
+  "name": "GetModuleHandleW",
+  "fn": "0x4153730",
+  "live": "windll_04153730",
+  "verdict": "named-other-tier"
+ },
+ {
+  "entry": "0x432eed0",
+  "name": "GetModuleHandleA",
+  "fn": "0x41531d0",
+  "live": "windll_041531d0",
+  "verdict": "named-other-tier"
+ },
+ {
+  "entry": "0x432eedc",
+  "name": "LoadLibraryExW",
+  "fn": "0x4152080",
+  "live": "eON_LoadLibraryExW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432eee8",
+  "name": "LoadLibraryExA",
+  "fn": "0x4151a30",
+  "live": "eON_LoadLibraryEx",
+  "verdict": "named-other-tier"
+ },
+ {
+  "entry": "0x432eef4",
+  "name": "FreeLibrary",
+  "fn": "0x4150590",
+  "live": "eON_FreeLibrary",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432ef00",
+  "name": "GetModuleFileNameW",
+  "fn": "0x4153620",
+  "live": "eON_GetModuleFileNameW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432ef0c",
+  "name": "GetModuleFileNameA",
+  "fn": "0x4153380",
+  "live": "windll_04153380",
+  "verdict": "named-other-tier"
+ },
+ {
+  "entry": "0x432ef18",
+  "name": "GetProcAddress",
+  "fn": "0x41506e0",
+  "live": "GetProcAddress",
+  "verdict": "named-other-tier"
+ },
+ {
+  "entry": "0x432ef44",
+  "name": "GetCPInfo",
+  "fn": "0x413ffc0",
+  "live": "eON_GetCPInfo",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432ef50",
+  "name": "GetACP",
+  "fn": "0x413ff90",
+  "live": "eON_GetACP",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432ef5c",
+  "name": "GetOEMCP",
+  "fn": "0x413ffa0",
+  "live": "eON_GetOEMCP",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432ef68",
+  "name": "GetLocaleInfoW",
+  "fn": "0x4142b80",
+  "live": "eON_GetLocaleInfoW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432ef74",
+  "name": "LCMapStringW",
+  "fn": "0x4142ef0",
+  "live": "eON_LCMapStringW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432ef80",
+  "name": "GetUserDefaultLCID",
+  "fn": "0x41428b0",
+  "live": "eON_GetUserDefaultLCID",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432ef8c",
+  "name": "IsValidLocale",
+  "fn": "0x4142dd0",
+  "live": "eON_IsValidLocale",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432ef98",
+  "name": "IsValidCodePage",
+  "fn": "0x413ffb0",
+  "live": "eON_IsValidCodePage",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432efc4",
+  "name": "HeapCreate",
+  "fn": "0x413a2a0",
+  "live": "eON_HeapCreate",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432efd0",
+  "name": "HeapDestroy",
+  "fn": "0x413a2d0",
+  "live": "eON_HeapDestroy",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432efdc",
+  "name": "HeapValidate",
+  "fn": "0x413a3e0",
+  "live": "eON_HeapValidate",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432efe8",
+  "name": "HeapCompact",
+  "fn": "0x413a410",
+  "live": "eON_HeapCompact",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432eff4",
+  "name": "HeapAlloc",
+  "fn": "0x413a130",
+  "live": "HeapAlloc",
+  "verdict": "named-other-tier"
+ },
+ {
+  "entry": "0x432f000",
+  "name": "HeapFree",
+  "fn": "0x413a240",
+  "live": "eON_HeapFree",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f00c",
+  "name": "GetProcessHeap",
+  "fn": "0x413a490",
+  "live": "eON_GetProcessHeap",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f018",
+  "name": "HeapWalk",
+  "fn": "0x413a430",
+  "live": "eON_HeapWalk",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f024",
+  "name": "HeapReAlloc",
+  "fn": "0x413a1b0",
+  "live": "HeapRealloc",
+  "verdict": "named-other-tier"
+ },
+ {
+  "entry": "0x432f030",
+  "name": "HeapSize",
+  "fn": "0x413a270",
+  "live": "eON_HeapSize",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f03c",
+  "name": "HeapSetInformation",
+  "fn": "0x413a2f0",
+  "live": "eON_HeapSetInformation",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f064",
+  "name": "DuplicateHandle",
+  "fn": "0x41366d0",
+  "live": "eON_DuplicateHandle",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f070",
+  "name": "CloseHandle",
+  "fn": "0x4136760",
+  "live": "eON_CloseHandle",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f0a4",
+  "name": "ReadFile",
+  "fn": "0x4131f00",
+  "live": "eON_ReadFile",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f0b0",
+  "name": "WriteFile",
+  "fn": "0x41320a0",
+  "live": "eON_WriteFile",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f0bc",
+  "name": "SetFileTime",
+  "fn": "0x41329c0",
+  "live": "FUN_041329c0",
+  "verdict": "unnamed-slot"
+ },
+ {
+  "entry": "0x432f0c8",
+  "name": "LocalFileTimeToFileTime",
+  "fn": "0x415e790",
+  "live": "eON_LocalFileTimeToFileTime",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f0d4",
+  "name": "FindClose",
+  "fn": "0x412bad0",
+  "live": "FUN_0412bad0",
+  "verdict": "unnamed-slot"
+ },
+ {
+  "entry": "0x432f0e0",
+  "name": "GetFileInformationByHandle",
+  "fn": "0x41328b0",
+  "live": "eON_GetFileInformationByHandle",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f0ec",
+  "name": "SetFileInformationByHandle",
+  "fn": "0x4132900",
+  "live": "eON_SetFileInformationByHandle",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f0f8",
+  "name": "LockFile",
+  "fn": "0x4134990",
+  "live": "eON_LockFile",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f104",
+  "name": "SetFilePointer",
+  "fn": "0x4132110",
+  "live": "FUN_04132110",
+  "verdict": "unnamed-slot"
+ },
+ {
+  "entry": "0x432f110",
+  "name": "FlushFileBuffers",
+  "fn": "0x4132b70",
+  "live": "eON_FlushFileBuffers",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f11c",
+  "name": "FileTimeToSystemTime",
+  "fn": "0x415e4a0",
+  "live": "eON_FileTimeToSystemTime",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f128",
+  "name": "FileTimeToLocalFileTime",
+  "fn": "0x415e700",
+  "live": "eON_FileTimeToLocalFileTime",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f134",
+  "name": "FindFirstFileA",
+  "fn": "0x412b660",
+  "live": "eON_FindFirstFileA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f140",
+  "name": "FindNextFileA",
+  "fn": "0x412b970",
+  "live": "eON_FindNextFileA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f14c",
+  "name": "GetDiskFreeSpaceA",
+  "fn": "0x41362c0",
+  "live": "eON_GetDiskFreeSpaceA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f158",
+  "name": "GetLogicalDrives",
+  "fn": "0x4135d10",
+  "live": "eON_GetLogicalDrives",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f164",
+  "name": "FindFirstFileW",
+  "fn": "0x412b690",
+  "live": "eON_FindFirstFileW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f170",
+  "name": "FindNextFileW",
+  "fn": "0x412b9a0",
+  "live": "eON_FindNextFileW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f17c",
+  "name": "GetFileAttributesA",
+  "fn": "0x41322f0",
+  "live": "FUN_041322f0",
+  "verdict": "unnamed-slot"
+ },
+ {
+  "entry": "0x432f188",
+  "name": "SetFileAttributesA",
+  "fn": "0x4132670",
+  "live": "FUN_04132670",
+  "verdict": "unnamed-slot"
+ },
+ {
+  "entry": "0x432f194",
+  "name": "GetFullPathNameA",
+  "fn": "0x4134a90",
+  "live": "eON_GetFullPathNameA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f1a0",
+  "name": "GetDriveTypeA",
+  "fn": "0x4135bf0",
+  "live": "eON_GetDriveTypeA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f1ac",
+  "name": "CreateDirectoryA",
+  "fn": "0x412c630",
+  "live": "FUN_0412c630",
+  "verdict": "unnamed-slot"
+ },
+ {
+  "entry": "0x432f1b8",
+  "name": "RemoveDirectoryA",
+  "fn": "0x412c770",
+  "live": "eON_RemoveDirectoryA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f1c4",
+  "name": "DeleteFileA",
+  "fn": "0x4134010",
+  "live": "FUN_04134010",
+  "verdict": "unnamed-slot"
+ },
+ {
+  "entry": "0x432f1d0",
+  "name": "GetFileAttributesW",
+  "fn": "0x41323d0",
+  "live": "eON_GetFileAttributesW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f1dc",
+  "name": "SetFileAttributesW",
+  "fn": "0x4132730",
+  "live": "eON_SetFileAttributesW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f1e8",
+  "name": "GetFullPathNameW",
+  "fn": "0x4134d00",
+  "live": "eON_GetFullPathNameW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f1f4",
+  "name": "CreateDirectoryW",
+  "fn": "0x412c660",
+  "live": "eON_CreateDirectoryW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f200",
+  "name": "DeleteFileW",
+  "fn": "0x41340d0",
+  "live": "FUN_041340d0",
+  "verdict": "unnamed-slot"
+ },
+ {
+  "entry": "0x432f20c",
+  "name": "CreateFileW",
+  "fn": "0x4131d80",
+  "live": "eON_CreateFileW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f218",
+  "name": "RemoveDirectoryW",
+  "fn": "0x412c830",
+  "live": "eON_DeleteFileW",
+  "verdict": "named-other-tier"
+ },
+ {
+  "entry": "0x432f224",
+  "name": "GetDriveTypeW",
+  "fn": "0x4135ca0",
+  "live": "eON_GetDriveTypeW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f230",
+  "name": "CreateFileA",
+  "fn": "0x4131d10",
+  "live": "eON_CreateFileA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f23c",
+  "name": "GetFileType",
+  "fn": "0x4132830",
+  "live": "FUN_04132830",
+  "verdict": "unnamed-slot"
+ },
+ {
+  "entry": "0x432f248",
+  "name": "SetEndOfFile",
+  "fn": "0x4132a50",
+  "live": "fs_files_04132a50",
+  "verdict": "named-other-tier"
+ },
+ {
+  "entry": "0x432f254",
+  "name": "UnlockFile",
+  "fn": "0x41349b0",
+  "live": "eON_UnlockFile",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f284",
+  "name": "FlsSetValue",
+  "fn": "0x4156000",
+  "live": "eON_FlsSetValue",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f290",
+  "name": "FlsGetValue",
+  "fn": "0x4155f80",
+  "live": "eON_FlsGetValue",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f29c",
+  "name": "FlsFree",
+  "fn": "0x4155eb0",
+  "live": "eON_FlsFree",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f2a8",
+  "name": "FlsAlloc",
+  "fn": "0x4155d10",
+  "live": "eON_FlsAlloc",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f2e4",
+  "name": "SetUnhandledExceptionFilter",
+  "fn": "0x4145300",
+  "live": "eON_SetUnhandledExceptionFilter",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f2f0",
+  "name": "UnhandledExceptionFilter",
+  "fn": "0x4145320",
+  "live": "eON_UnhandledExceptionFilter",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f2fc",
+  "name": "SetErrorMode",
+  "fn": "0x4154ea0",
+  "live": "FUN_04154ea0",
+  "verdict": "unnamed-slot"
+ },
+ {
+  "entry": "0x432f320",
+  "name": "RaiseException",
+  "fn": "0x4144f10",
+  "live": "eON_RaiseException",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f344",
+  "name": "OutputDebugStringA",
+  "fn": "0x41560e0",
+  "live": "eON_OutputDebugStringA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f350",
+  "name": "OutputDebugStringW",
+  "fn": "0x41560f0",
+  "live": "eON_OutputDebugStringW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f35c",
+  "name": "DebugBreak",
+  "fn": "0x4156160",
+  "live": "eON_DebugBreak",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f384",
+  "name": "GetTimeFormatA",
+  "fn": "0x4140970",
+  "live": "eON_GetTimeFormatA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f390",
+  "name": "GetTimeFormatW",
+  "fn": "0x4140980",
+  "live": "eON_GetTimeFormatW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f39c",
+  "name": "GetDateFormatA",
+  "fn": "0x4141040",
+  "live": "eON_GetDateFormatA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f3a8",
+  "name": "GetDateFormatW",
+  "fn": "0x4141050",
+  "live": "eON_GetDateFormatW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f3e4",
+  "name": "GetNumberOfConsoleInputEvents",
+  "fn": "0x412a290",
+  "live": "eON_GetNumberOfConsoleInputEvents",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f3f0",
+  "name": "ReadConsoleInputA",
+  "fn": "0x412a1f0",
+  "live": "eON_ReadConsoleInputA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f3fc",
+  "name": "WriteConsoleW",
+  "fn": "0x412a1e0",
+  "live": "eON_WriteConsoleW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f408",
+  "name": "GetConsoleMode",
+  "fn": "0x412a190",
+  "live": "eON_GetConsoleMode",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f414",
+  "name": "SetConsoleMode",
+  "fn": "0x412a1a0",
+  "live": "eON_SetConsoleMode",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f420",
+  "name": "SetConsoleCtrlHandler",
+  "fn": "0x4129f00",
+  "live": "eON_SetConsoleCtrlHandler",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f42c",
+  "name": "GetConsoleCP",
+  "fn": "0x412a140",
+  "live": "eON_GetConsoleCP",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f438",
+  "name": "ReadConsoleInputW",
+  "fn": "0x412a200",
+  "live": "eON_ReadConsoleInputW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f444",
+  "name": "ReadConsoleW",
+  "fn": "0x412a1c0",
+  "live": "eON_ReadConsoleW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f450",
+  "name": "PeekConsoleInputA",
+  "fn": "0x412a210",
+  "live": "eON_PeekConsoleInputA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f474",
+  "name": "GetLocaleInfoA",
+  "fn": "0x41429a0",
+  "live": "eON_GetLocaleInfoA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f4a4",
+  "name": "RtlCompareMemory",
+  "fn": "0x4139790",
+  "live": "eON_RtlCompareMemory",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f4b0",
+  "name": "RtlCopyMemory",
+  "fn": "0x41397c0",
+  "live": "eON_RtlCopyMemory",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f4bc",
+  "name": "RtlFillMemory",
+  "fn": "0x41397f0",
+  "live": "eON_RtlFillMemory",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f4c8",
+  "name": "RtlMoveMemory",
+  "fn": "0x4139820",
+  "live": "eON_RtlMoveMemory",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f4d4",
+  "name": "RtlZeroMemory",
+  "fn": "0x4139850",
+  "live": "eON_RtlZeroMemory",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f4e0",
+  "name": "IsBadReadPtr",
+  "fn": "0x4139870",
+  "live": "eON_IsBadReadPtr",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f4ec",
+  "name": "IsBadWritePtr",
+  "fn": "0x4139880",
+  "live": "eON_IsBadWritePtr",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f4f8",
+  "name": "IsBadCodePtr",
+  "fn": "0x4139890",
+  "live": "eON_IsBadCodePtr",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f504",
+  "name": "IsBadStringPtrA",
+  "fn": "0x41398a0",
+  "live": "eON_IsBadStringPtrA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f510",
+  "name": "IsBadStringPtrW",
+  "fn": "0x41398b0",
+  "live": "eON_IsBadStringPtrW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f51c",
+  "name": "EncodePointer",
+  "fn": "0x41398c0",
+  "live": "eON_EncodePointer",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f528",
+  "name": "DecodePointer",
+  "fn": "0x41398d0",
+  "live": "eON_DecodePointer",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f534",
+  "name": "EncodeSystemPointer",
+  "fn": "0x41398e0",
+  "live": "eON_EncodeSystemPointer",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f540",
+  "name": "DecodeSystemPointer",
+  "fn": "0x41398f0",
+  "live": "eON_DecodeSystemPointer",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f54c",
+  "name": "GetNativeSystemInfo",
+  "fn": "0x4139900",
+  "live": "eON_GetNativeSystemInfo",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f558",
+  "name": "InitOnceExecuteOnce",
+  "fn": "0x4139930",
+  "live": "eON_InitOnceExecuteOnce",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f564",
+  "name": "CreateActCtxA",
+  "fn": "0x41293f0",
+  "live": "eON_CreateActCtxA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f570",
+  "name": "CreateActCtxW",
+  "fn": "0x4129400",
+  "live": "eON_CreateActCtxW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f57c",
+  "name": "ActivateActCtx",
+  "fn": "0x4129410",
+  "live": "eON_ActivateActCtx",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f588",
+  "name": "DeactivateActCtx",
+  "fn": "0x4129430",
+  "live": "eON_DeactivateActCtx",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f594",
+  "name": "ReleaseActCtx",
+  "fn": "0x4129440",
+  "live": "eON_ReleaseActCtx",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f5a0",
+  "name": "FindActCtxSectionStringA",
+  "fn": "0x4129450",
+  "live": "eON_FindActCtxSectionStringA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f5ac",
+  "name": "FindActCtxSectionStringW",
+  "fn": "0x4129460",
+  "live": "eON_FindActCtxSectionStringW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f5b8",
+  "name": "FindActCtxSectionGuid",
+  "fn": "0x41294b0",
+  "live": "eON_FindActCtxSectionGuid",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f5c4",
+  "name": "AddRefActCtx",
+  "fn": "0x41294c0",
+  "live": "eON_AddRefActCtx",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f5d0",
+  "name": "GetCurrentActCtx",
+  "fn": "0x41294d0",
+  "live": "eON_GetCurrentActCtx",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f5dc",
+  "name": "ZombifyActCtx",
+  "fn": "0x41294e0",
+  "live": "eON_ZombifyActCtx",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f5e8",
+  "name": "QueryActCtxW",
+  "fn": "0x41294f0",
+  "live": "eON_QueryActCtxW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f5f4",
+  "name": "QueryActCtxSettingsW",
+  "fn": "0x4129500",
+  "live": "eON_QueryActCtxSettingsW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f600",
+  "name": "AddAtomA",
+  "fn": "0x4129510",
+  "live": "eON_Atom_Intern",
+  "verdict": "named-other-tier"
+ },
+ {
+  "entry": "0x432f60c",
+  "name": "FindAtomA",
+  "fn": "0x4129730",
+  "live": "eON_GlobalFindAtomA",
+  "verdict": "named-other-tier"
+ },
+ {
+  "entry": "0x432f618",
+  "name": "FindAtomW",
+  "fn": "0x4129820",
+  "live": "eON_GlobalFindAtomW",
+  "verdict": "named-other-tier"
+ },
+ {
+  "entry": "0x432f624",
+  "name": "GetAtomNameA",
+  "fn": "0x41299c0",
+  "live": "eON_GetAtomNameA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f630",
+  "name": "GetAtomNameW",
+  "fn": "0x4129b00",
+  "live": "eON_GetAtomNameW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f63c",
+  "name": "DeleteAtom",
+  "fn": "0x4129b10",
+  "live": "eON_GlobalDeleteAtom",
+  "verdict": "named-other-tier"
+ },
+ {
+  "entry": "0x432f648",
+  "name": "GlobalAddAtomA",
+  "fn": "0x4129b90",
+  "live": "eON_GlobalAddAtom",
+  "verdict": "named-other-tier"
+ },
+ {
+  "entry": "0x432f654",
+  "name": "GlobalAddAtomW",
+  "fn": "0x4129bf0",
+  "live": "eON_GlobalAddAtomW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f660",
+  "name": "GlobalGetAtomNameA",
+  "fn": "0x4129c00",
+  "live": "eON_GlobalGetAtomNameA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f66c",
+  "name": "GlobalGetAtomNameW",
+  "fn": "0x4129c50",
+  "live": "eON_GlobalGetAtomNameW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f678",
+  "name": "GlobalFindAtomA",
+  "fn": "0x4129c60",
+  "live": "eON_FindAtomA",
+  "verdict": "named-other-tier"
+ },
+ {
+  "entry": "0x432f684",
+  "name": "GlobalFindAtomW",
+  "fn": "0x4129d50",
+  "live": "FUN_04129d50",
+  "verdict": "unnamed-slot"
+ },
+ {
+  "entry": "0x432f690",
+  "name": "GlobalDeleteAtom",
+  "fn": "0x4129d80",
+  "live": "FUN_04129d80",
+  "verdict": "unnamed-slot"
+ },
+ {
+  "entry": "0x432f69c",
+  "name": "GetStdHandle",
+  "fn": "0x4129e20",
+  "live": "eON_GetStdHandle",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f6a8",
+  "name": "SetStdHandle",
+  "fn": "0x4129ec0",
+  "live": "eON_IgnoreInvalidStdOutputHandle",
+  "verdict": "named-other-tier"
+ },
+ {
+  "entry": "0x432f6b4",
+  "name": "SetConsoleCtrlHandler",
+  "fn": "0x4129f00",
+  "live": "eON_SetConsoleCtrlHandler",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f6c0",
+  "name": "GetConsoleCP",
+  "fn": "0x412a140",
+  "live": "eON_GetConsoleCP",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f6cc",
+  "name": "GetConsoleOutputCP",
+  "fn": "0x412a150",
+  "live": "eON_GetConsoleOutputCP",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f6d8",
+  "name": "AllocConsole",
+  "fn": "0x412a160",
+  "live": "eON_AllocConsole",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f6e4",
+  "name": "FreeConsole",
+  "fn": "0x412a170",
+  "live": "eON_FreeConsole",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f6f0",
+  "name": "AttachConsole",
+  "fn": "0x412a180",
+  "live": "eON_AttachConsole",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f6fc",
+  "name": "GetConsoleMode",
+  "fn": "0x412a190",
+  "live": "eON_GetConsoleMode",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f708",
+  "name": "SetConsoleMode",
+  "fn": "0x412a1a0",
+  "live": "eON_SetConsoleMode",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f714",
+  "name": "ReadConsoleA",
+  "fn": "0x412a1b0",
+  "live": "eON_ReadConsoleA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f720",
+  "name": "ReadConsoleW",
+  "fn": "0x412a1c0",
+  "live": "eON_ReadConsoleW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f72c",
+  "name": "WriteConsoleA",
+  "fn": "0x412a1d0",
+  "live": "eON_WriteConsoleA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f738",
+  "name": "WriteConsoleW",
+  "fn": "0x412a1e0",
+  "live": "eON_WriteConsoleW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f744",
+  "name": "ReadConsoleInputA",
+  "fn": "0x412a1f0",
+  "live": "eON_ReadConsoleInputA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f750",
+  "name": "ReadConsoleInputW",
+  "fn": "0x412a200",
+  "live": "eON_ReadConsoleInputW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f75c",
+  "name": "PeekConsoleInputA",
+  "fn": "0x412a210",
+  "live": "eON_PeekConsoleInputA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f768",
+  "name": "PeekConsoleInputW",
+  "fn": "0x412a220",
+  "live": "eON_PeekConsoleInputW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f774",
+  "name": "WriteConsoleOutputCharacterA",
+  "fn": "0x412a230",
+  "live": "eON_WriteConsoleOutputCharacterA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f780",
+  "name": "WriteConsoleOutputCharacterW",
+  "fn": "0x412a240",
+  "live": "eON_WriteConsoleOutputCharacterW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f78c",
+  "name": "SetConsoleTitleA",
+  "fn": "0x412a250",
+  "live": "eON_SetConsoleTitleA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f798",
+  "name": "SetConsoleTitleW",
+  "fn": "0x412a260",
+  "live": "eON_SetConsoleTitleW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f7a4",
+  "name": "SetConsoleTextAttribute",
+  "fn": "0x412a270",
+  "live": "eON_SetConsoleTextAttribute",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f7b0",
+  "name": "FlushConsoleInputBuffer",
+  "fn": "0x412a280",
+  "live": "eON_FlushConsoleInputBuffer",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f7bc",
+  "name": "GetNumberOfConsoleInputEvents",
+  "fn": "0x412a290",
+  "live": "eON_GetNumberOfConsoleInputEvents",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f7c8",
+  "name": "GetConsoleWindow",
+  "fn": "0x412a2e0",
+  "live": "eON_GetConsoleWindow",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f7d4",
+  "name": "GetConsoleScreenBufferInfo",
+  "fn": "0x412a2f0",
+  "live": "eON_GetConsoleScreenBufferInfo",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f7e0",
+  "name": "GetConsoleCursorInfo",
+  "fn": "0x412a300",
+  "live": "eON_GetConsoleCursorInfo",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f7ec",
+  "name": "SetConsoleScreenBufferSize",
+  "fn": "0x412a310",
+  "live": "eON_SetConsoleScreenBufferSize",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f7f8",
+  "name": "CreateConsoleScreenBuffer",
+  "fn": "0x412a320",
+  "live": "eON_CreateConsoleScreenBuffer",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f804",
+  "name": "SetConsoleActiveScreenBuffer",
+  "fn": "0x412a330",
+  "live": "eON_SetConsoleActiveScreenBuffer",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f810",
+  "name": "SetConsoleWindowInfo",
+  "fn": "0x412a340",
+  "live": "eON_SetConsoleWindowInfo",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f81c",
+  "name": "CreateFiber",
+  "fn": "0x4155970",
+  "live": "eON_CreateFiber",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f828",
+  "name": "CreateFiberEx",
+  "fn": "0x4155870",
+  "live": "eON_CreateFiberEx",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f834",
+  "name": "DeleteFiber",
+  "fn": "0x41559c0",
+  "live": "eON_DeleteFiber",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f840",
+  "name": "ConvertThreadToFiber",
+  "fn": "0x4155b60",
+  "live": "eON_ConvertThreadToFiber",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f84c",
+  "name": "ConvertThreadToFiberEx",
+  "fn": "0x4155a90",
+  "live": "eON_ConvertThreadToFiberEx",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f858",
+  "name": "ConvertFiberToThread",
+  "fn": "0x4155b90",
+  "live": "eON_ConvertFiberToThread",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f864",
+  "name": "SwitchToFiber",
+  "fn": "0x4155bf0",
+  "live": "eON_SwitchToFiber",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f870",
+  "name": "IsThreadAFiber",
+  "fn": "0x4155cf0",
+  "live": "eON_IsThreadAFiber",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f87c",
+  "name": "FlsAlloc",
+  "fn": "0x4155d10",
+  "live": "eON_FlsAlloc",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f888",
+  "name": "FlsFree",
+  "fn": "0x4155eb0",
+  "live": "eON_FlsFree",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f894",
+  "name": "FlsGetValue",
+  "fn": "0x4155f80",
+  "live": "eON_FlsGetValue",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f8a0",
+  "name": "FlsSetValue",
+  "fn": "0x4156000",
+  "live": "eON_FlsSetValue",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f8ac",
+  "name": "CreateDirectoryA",
+  "fn": "0x412c630",
+  "live": "FUN_0412c630",
+  "verdict": "unnamed-slot"
+ },
+ {
+  "entry": "0x432f8b8",
+  "name": "CreateDirectoryW",
+  "fn": "0x412c660",
+  "live": "eON_CreateDirectoryW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f8dc",
+  "name": "RemoveDirectoryA",
+  "fn": "0x412c770",
+  "live": "eON_RemoveDirectoryA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f8e8",
+  "name": "RemoveDirectoryW",
+  "fn": "0x412c830",
+  "live": "eON_DeleteFileW",
+  "verdict": "named-other-tier"
+ },
+ {
+  "entry": "0x432f8f4",
+  "name": "ReadDirectoryChangesW",
+  "fn": "0x412c970",
+  "live": "eON_ReadDirectoryChangesW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f900",
+  "name": "FindFirstChangeNotificationA",
+  "fn": "0x412d260",
+  "live": "eON_FindFirstChangeNotificationA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f90c",
+  "name": "FindFirstChangeNotificationW",
+  "fn": "0x412d270",
+  "live": "eON_FindFirstChangeNotificationW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f918",
+  "name": "FindNextChangeNotification",
+  "fn": "0x412d280",
+  "live": "eON_FindNextChangeNotification",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f924",
+  "name": "FindCloseChangeNotification",
+  "fn": "0x412d290",
+  "live": "eON_FindCloseChangeNotification",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f930",
+  "name": "GetCurrentDirectoryA",
+  "fn": "0x412d2a0",
+  "live": "FUN_0412d2a0",
+  "verdict": "unnamed-slot"
+ },
+ {
+  "entry": "0x432f93c",
+  "name": "GetCurrentDirectoryW",
+  "fn": "0x412d2d0",
+  "live": "eON_GetCurrentDirectoryW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f948",
+  "name": "SetCurrentDirectoryA",
+  "fn": "0x412d470",
+  "live": "eON_SetCurrentDirectoryA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f954",
+  "name": "SetCurrentDirectoryW",
+  "fn": "0x412d490",
+  "live": "eON_SetCurrentDirectoryW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f960",
+  "name": "FindFirstFileA",
+  "fn": "0x412b660",
+  "live": "eON_FindFirstFileA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f96c",
+  "name": "FindFirstFileW",
+  "fn": "0x412b690",
+  "live": "eON_FindFirstFileW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f978",
+  "name": "FindFirstFileExA",
+  "fn": "0x412b850",
+  "live": "eON_FindFirstFileExA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f984",
+  "name": "FindFirstFileExW",
+  "fn": "0x412b8e0",
+  "live": "eON_FindFirstFileExW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f990",
+  "name": "FindNextFileA",
+  "fn": "0x412b970",
+  "live": "eON_FindNextFileA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f99c",
+  "name": "FindNextFileW",
+  "fn": "0x412b9a0",
+  "live": "eON_FindNextFileW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f9a8",
+  "name": "FindClose",
+  "fn": "0x412bad0",
+  "live": "FUN_0412bad0",
+  "verdict": "unnamed-slot"
+ },
+ {
+  "entry": "0x432f9b4",
+  "name": "CreateFileA",
+  "fn": "0x4131d10",
+  "live": "eON_CreateFileA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f9c0",
+  "name": "CreateFileW",
+  "fn": "0x4131d80",
+  "live": "eON_CreateFileW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f9cc",
+  "name": "ReadFile",
+  "fn": "0x4131f00",
+  "live": "eON_ReadFile",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f9d8",
+  "name": "ReadFileEx",
+  "fn": "0x4131f40",
+  "live": "fs_files_04131f40",
+  "verdict": "named-other-tier"
+ },
+ {
+  "entry": "0x432f9e4",
+  "name": "ReadFileScatter",
+  "fn": "0x4131ff0",
+  "live": "fs_files_04131ff0",
+  "verdict": "named-other-tier"
+ },
+ {
+  "entry": "0x432f9f0",
+  "name": "WriteFile",
+  "fn": "0x41320a0",
+  "live": "eON_WriteFile",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432f9fc",
+  "name": "WriteFileEx",
+  "fn": "0x4132100",
+  "live": "eON_WriteFileEx",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432fa14",
+  "name": "SetFilePointer",
+  "fn": "0x4132110",
+  "live": "FUN_04132110",
+  "verdict": "unnamed-slot"
+ },
+ {
+  "entry": "0x432fa20",
+  "name": "SetFilePointerEx",
+  "fn": "0x41321d0",
+  "live": "FUN_041321d0",
+  "verdict": "unnamed-slot"
+ },
+ {
+  "entry": "0x432fa2c",
+  "name": "GetFileSize",
+  "fn": "0x4132290",
+  "live": "FUN_04132290",
+  "verdict": "unnamed-slot"
+ },
+ {
+  "entry": "0x432fa38",
+  "name": "GetFileSizeEx",
+  "fn": "0x41322c0",
+  "live": "FUN_041322c0",
+  "verdict": "unnamed-slot"
+ },
+ {
+  "entry": "0x432fa44",
+  "name": "GetFileAttributesA",
+  "fn": "0x41322f0",
+  "live": "FUN_041322f0",
+  "verdict": "unnamed-slot"
+ },
+ {
+  "entry": "0x432fa50",
+  "name": "GetFileAttributesW",
+  "fn": "0x41323d0",
+  "live": "eON_GetFileAttributesW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432fa5c",
+  "name": "GetFileAttributesExA",
+  "fn": "0x4132540",
+  "live": "eON_GetFileAttributesExA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432fa68",
+  "name": "GetFileAttributesExW",
+  "fn": "0x4132580",
+  "live": "eON_GetFileAttributesExW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432fa74",
+  "name": "SetFileAttributesA",
+  "fn": "0x4132670",
+  "live": "FUN_04132670",
+  "verdict": "unnamed-slot"
+ },
+ {
+  "entry": "0x432fa80",
+  "name": "SetFileAttributesW",
+  "fn": "0x4132730",
+  "live": "eON_SetFileAttributesW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432fa8c",
+  "name": "GetFileType",
+  "fn": "0x4132830",
+  "live": "FUN_04132830",
+  "verdict": "unnamed-slot"
+ },
+ {
+  "entry": "0x432fa98",
+  "name": "GetFileInformationByHandle",
+  "fn": "0x41328b0",
+  "live": "eON_GetFileInformationByHandle",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432faa4",
+  "name": "GetFileInformationByHandleEx",
+  "fn": "0x41328e0",
+  "live": "eON_GetFileInformationByHandleEx",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432fab0",
+  "name": "GetFileInformationByHandleExW",
+  "fn": "0x41328f0",
+  "live": "eON_GetFileInformationByHandleExW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432fabc",
+  "name": "SetFileInformationByHandle",
+  "fn": "0x4132900",
+  "live": "eON_SetFileInformationByHandle",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432fac8",
+  "name": "SetFileInformationByHandleW",
+  "fn": "0x4132910",
+  "live": "eON_SetFileInformationByHandleW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432fad4",
+  "name": "OpenFileById",
+  "fn": "0x4132920",
+  "live": "eON_OpenFileById",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432fae0",
+  "name": "GetFileTime",
+  "fn": "0x4132930",
+  "live": "FUN_04132930",
+  "verdict": "unnamed-slot"
+ },
+ {
+  "entry": "0x432faec",
+  "name": "SetFileTime",
+  "fn": "0x41329c0",
+  "live": "FUN_041329c0",
+  "verdict": "unnamed-slot"
+ },
+ {
+  "entry": "0x432faf8",
+  "name": "SetEndOfFile",
+  "fn": "0x4132a50",
+  "live": "fs_files_04132a50",
+  "verdict": "named-other-tier"
+ },
+ {
+  "entry": "0x432fb04",
+  "name": "FlushFileBuffers",
+  "fn": "0x4132b70",
+  "live": "eON_FlushFileBuffers",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432fb10",
+  "name": "CancelIo",
+  "fn": "0x4132bf0",
+  "live": "FUN_04132bf0",
+  "verdict": "unnamed-slot"
+ },
+ {
+  "entry": "0x432fb1c",
+  "name": "CancelIoEx",
+  "fn": "0x4132c10",
+  "live": "eON_CancelIoEx",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432fb28",
+  "name": "OpenFile",
+  "fn": "0x4132c90",
+  "live": "eON_OpenFile",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432fb34",
+  "name": "AreFileApisANSI",
+  "fn": "0x4132d30",
+  "live": "eON_AreFileApisANSI",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432fb4c",
+  "name": "_lcreat",
+  "fn": "0x4132cd0",
+  "live": "eON__lcreat",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432fb58",
+  "name": "_lclose",
+  "fn": "0x4132cf0",
+  "live": "eON__lclose",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432fb64",
+  "name": "_llseek",
+  "fn": "0x4132d20",
+  "live": "eON__llseek",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432fb70",
+  "name": "_lopen",
+  "fn": "0x4132ce0",
+  "live": "eON__lopen",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432fb7c",
+  "name": "_lread",
+  "fn": "0x4132d00",
+  "live": "eON__lread",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432fb88",
+  "name": "_lwrite",
+  "fn": "0x4132d10",
+  "live": "eON__lwrite",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432fb94",
+  "name": "CreateSymbolicLinkA",
+  "fn": "0x4132d50",
+  "live": "eON_CreateSymbolicLinkA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432fba0",
+  "name": "CreateSymbolicLinkW",
+  "fn": "0x4132d60",
+  "live": "eON_CreateSymbolicLinkW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432fbac",
+  "name": "SearchPathA",
+  "fn": "0x4135b90",
+  "live": "eON_SearchPathA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432fbb8",
+  "name": "SearchPathW",
+  "fn": "0x4135be0",
+  "live": "eON_SearchPathW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432fbc4",
+  "name": "CreateFileMappingA",
+  "fn": "0x412e110",
+  "live": "eON_CreateFileMappingA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432fbd0",
+  "name": "CreateFileMappingW",
+  "fn": "0x412e180",
+  "live": "eON_CreateFileMappingW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432fbdc",
+  "name": "OpenFileMappingA",
+  "fn": "0x412e2d0",
+  "live": "eON_OpenFileMappingA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432fbe8",
+  "name": "OpenFileMappingW",
+  "fn": "0x412e2f0",
+  "live": "eON_OpenFileMappingW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432fbf4",
+  "name": "MapViewOfFile",
+  "fn": "0x412e300",
+  "live": "eON_MapViewOfFile",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432fc00",
+  "name": "MapViewOfFileEx",
+  "fn": "0x412e3d0",
+  "live": "FUN_0412e3d0",
+  "verdict": "unnamed-slot"
+ },
+ {
+  "entry": "0x432fc0c",
+  "name": "UnmapViewOfFile",
+  "fn": "0x412e4b0",
+  "live": "eON_UnmapViewOfFile",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432fc18",
+  "name": "FlushViewOfFile",
+  "fn": "0x412e4d0",
+  "live": "eON_FlushViewOfFile",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432fc24",
+  "name": "GetFullPathNameA",
+  "fn": "0x4134a90",
+  "live": "eON_GetFullPathNameA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432fc30",
+  "name": "GetFullPathNameW",
+  "fn": "0x4134d00",
+  "live": "eON_GetFullPathNameW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432fc3c",
+  "name": "GetLongPathNameA",
+  "fn": "0x4134e80",
+  "live": "RemapImportDllName",
+  "verdict": "named-other-tier"
+ },
+ {
+  "entry": "0x432fc48",
+  "name": "GetLongPathNameW",
+  "fn": "0x4134f50",
+  "live": "eON_GetLongPathNameW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432fc54",
+  "name": "GetShortPathNameA",
+  "fn": "0x41351a0",
+  "live": "eON_GetLongPathNameA",
+  "verdict": "named-other-tier"
+ },
+ {
+  "entry": "0x432fc60",
+  "name": "GetShortPathNameW",
+  "fn": "0x41351f0",
+  "live": "eON_CopyWideStringBounded",
+  "verdict": "named-other-tier"
+ },
+ {
+  "entry": "0x432fc6c",
+  "name": "GetTempPathA",
+  "fn": "0x4135260",
+  "live": "eON_GetTempPathA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432fc78",
+  "name": "GetTempPathW",
+  "fn": "0x41352d0",
+  "live": "eON_GetTempPathW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432fc84",
+  "name": "GetTempFileNameA",
+  "fn": "0x4135670",
+  "live": "eON_GetTempFileNameA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432fc90",
+  "name": "GetTempFileNameW",
+  "fn": "0x41353a0",
+  "live": "eON_GetTempFileNameW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432fc9c",
+  "name": "GetWindowsDirectoryA",
+  "fn": "0x41358b0",
+  "live": "eON_GetWindowsDirectoryA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432fca8",
+  "name": "GetWindowsDirectoryW",
+  "fn": "0x41358e0",
+  "live": "eON_GetWindowsDirectoryW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432fcb4",
+  "name": "GetSystemDirectoryA",
+  "fn": "0x4135950",
+  "live": "eON_GetSystemDirectoryA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432fcc0",
+  "name": "GetSystemDirectoryW",
+  "fn": "0x41359a0",
+  "live": "eON_GetSystemDirectoryW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432fccc",
+  "name": "GetSystemWindowsDirectoryA",
+  "fn": "0x4135a10",
+  "live": "eON_GetSystemWindowsDirectoryA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432fcd8",
+  "name": "GetSystemWindowsDirectoryW",
+  "fn": "0x4135a40",
+  "live": "eON_GetSystemWindowsDirectoryW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432fce4",
+  "name": "GetSystemWow64DirectoryA",
+  "fn": "0x4135ab0",
+  "live": "eON_GetSystemWow64DirectoryA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432fcf0",
+  "name": "GetSystemWow64DirectoryW",
+  "fn": "0x4135ae0",
+  "live": "eON_GetSystemWow64DirectoryW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432fcfc",
+  "name": "GetDllDirectoryA",
+  "fn": "0x4135b50",
+  "live": "eON_GetDllDirectoryA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432fd08",
+  "name": "GetDllDirectoryW",
+  "fn": "0x4135b60",
+  "live": "eON_GetDllDirectoryW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432fd14",
+  "name": "SetDllDirectoryA",
+  "fn": "0x4135b70",
+  "live": "eON_SetDllDirectoryA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432fd20",
+  "name": "SetDllDirectoryW",
+  "fn": "0x4135b80",
+  "live": "eON_SetDllDirectoryW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432fd2c",
+  "name": "GetDriveTypeA",
+  "fn": "0x4135bf0",
+  "live": "eON_GetDriveTypeA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432fd38",
+  "name": "GetDriveTypeW",
+  "fn": "0x4135ca0",
+  "live": "eON_GetDriveTypeW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432fd44",
+  "name": "GetLogicalDrives",
+  "fn": "0x4135d10",
+  "live": "eON_GetLogicalDrives",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432fd50",
+  "name": "GetLogicalDriveStringsA",
+  "fn": "0x4135d20",
+  "live": "GetLogicalDriveStringsA",
+  "verdict": "named-other-tier"
+ },
+ {
+  "entry": "0x432fd5c",
+  "name": "GetLogicalDriveStringsW",
+  "fn": "0x4135d80",
+  "live": "eON_GetLogicalDriveStringsW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432fd68",
+  "name": "GetVolumeInformationA",
+  "fn": "0x4135d90",
+  "live": "eON_GetVolumeInformationA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432fd74",
+  "name": "GetVolumeInformationW",
+  "fn": "0x4136040",
+  "live": "eON_GetVolumeInformationW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432fd80",
+  "name": "SetVolumeLabelA",
+  "fn": "0x4136120",
+  "live": "eON_SetVolumeLabelA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432fd8c",
+  "name": "SetVolumeLabelW",
+  "fn": "0x4136150",
+  "live": "eON_SetVolumeLabelW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432fd98",
+  "name": "GetDiskFreeSpaceA",
+  "fn": "0x41362c0",
+  "live": "eON_GetDiskFreeSpaceA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432fda4",
+  "name": "GetDiskFreeSpaceW",
+  "fn": "0x4136180",
+  "live": "eON_GetDiskFreeSpaceW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432fdb0",
+  "name": "GetDiskFreeSpaceExA",
+  "fn": "0x4136530",
+  "live": "eON_GetDiskFreeSpaceExA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432fdbc",
+  "name": "GetDiskFreeSpaceExW",
+  "fn": "0x41363f0",
+  "live": "eON_GetDiskFreeSpaceExW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432fdc8",
+  "name": "QueryDosDeviceA",
+  "fn": "0x4136650",
+  "live": "eON_QueryDosDeviceA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432fdd4",
+  "name": "QueryDosDeviceW",
+  "fn": "0x4136680",
+  "live": "eON_QueryDosDeviceW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432fde0",
+  "name": "CopyFileA",
+  "fn": "0x4133790",
+  "live": "FUN_04133790",
+  "verdict": "unnamed-slot"
+ },
+ {
+  "entry": "0x432fdec",
+  "name": "CopyFileW",
+  "fn": "0x41337d0",
+  "live": "eON_CopyFileW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432fdf8",
+  "name": "CopyFileExA",
+  "fn": "0x4133950",
+  "live": "eON_CopyFileExA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432fe04",
+  "name": "CopyFileExW",
+  "fn": "0x4133960",
+  "live": "eON_CopyFileExW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432fe10",
+  "name": "MoveFileA",
+  "fn": "0x4133970",
+  "live": "FUN_04133970",
+  "verdict": "unnamed-slot"
+ },
+ {
+  "entry": "0x432fe1c",
+  "name": "MoveFileW",
+  "fn": "0x4133a30",
+  "live": "eON_MoveFileW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432fe28",
+  "name": "MoveFileExA",
+  "fn": "0x4133c20",
+  "live": "eON_MoveFileExA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432fe34",
+  "name": "MoveFileExW",
+  "fn": "0x4133d80",
+  "live": "eON_MoveFileExW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432fe40",
+  "name": "DeleteFileA",
+  "fn": "0x4134010",
+  "live": "FUN_04134010",
+  "verdict": "unnamed-slot"
+ },
+ {
+  "entry": "0x432fe4c",
+  "name": "DeleteFileW",
+  "fn": "0x41340d0",
+  "live": "FUN_041340d0",
+  "verdict": "unnamed-slot"
+ },
+ {
+  "entry": "0x432fe58",
+  "name": "ReplaceFileA",
+  "fn": "0x4134210",
+  "live": "eON_ReplaceFileA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432fe64",
+  "name": "ReplaceFileW",
+  "fn": "0x41344d0",
+  "live": "eON_ReplaceFileW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432fe70",
+  "name": "CreateHardLinkA",
+  "fn": "0x4134970",
+  "live": "eON_CreateHardLinkA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432fe7c",
+  "name": "CreateHardLinkW",
+  "fn": "0x4134980",
+  "live": "eON_CreateHardLinkW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432fe88",
+  "name": "LockFile",
+  "fn": "0x4134990",
+  "live": "eON_LockFile",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432fe94",
+  "name": "LockFileEx",
+  "fn": "0x41349a0",
+  "live": "eON_LockFileEx",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432fea0",
+  "name": "UnlockFile",
+  "fn": "0x41349b0",
+  "live": "eON_UnlockFile",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432feac",
+  "name": "UnlockFileEx",
+  "fn": "0x41349c0",
+  "live": "eON_UnlockFileEx",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432feb8",
+  "name": "CreateIoCompletionPort",
+  "fn": "0x41349d0",
+  "live": "eON_CreateIoCompletionPort",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432fec4",
+  "name": "GetQueuedCompletionStatus",
+  "fn": "0x41349e0",
+  "live": "eON_GetQueuedCompletionStatus",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432fed0",
+  "name": "GetQueuedCompletionStatusEx",
+  "fn": "0x41349f0",
+  "live": "eON_GetQueuedCompletionStatusEx",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432fedc",
+  "name": "PostQueuedCompletionStatus",
+  "fn": "0x4134a00",
+  "live": "eON_PostQueuedCompletionStatus",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432fee8",
+  "name": "GetBinaryTypeA",
+  "fn": "0x4134a10",
+  "live": "CheckApplicationA",
+  "verdict": "named-other-tier"
+ },
+ {
+  "entry": "0x432fef4",
+  "name": "GetBinaryTypeW",
+  "fn": "0x4134a40",
+  "live": "CheckApplicationW",
+  "verdict": "named-other-tier"
+ },
+ {
+  "entry": "0x432ff00",
+  "name": "SetHandleCount",
+  "fn": "0x4134a70",
+  "live": "eON_SetHandleCount",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432ff0c",
+  "name": "DeviceIoControl",
+  "fn": "0x4134a80",
+  "live": "eON_DeviceIoControl",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432ff18",
+  "name": "GetHandleInformation",
+  "fn": "0x41366b0",
+  "live": "eON_GetHandleInformation",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432ff24",
+  "name": "SetHandleInformation",
+  "fn": "0x41366c0",
+  "live": "eON_SetHandleInformation",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432ff30",
+  "name": "DuplicateHandle",
+  "fn": "0x41366d0",
+  "live": "eON_DuplicateHandle",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432ff3c",
+  "name": "CloseHandle",
+  "fn": "0x4136760",
+  "live": "eON_CloseHandle",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432ff48",
+  "name": "CreateMailslotA",
+  "fn": "0x4139440",
+  "live": "eON_CreateMailslotA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432ff54",
+  "name": "CreateMailslotW",
+  "fn": "0x4139450",
+  "live": "eON_CreateMailslotW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432ff60",
+  "name": "GetMailslotInfo",
+  "fn": "0x4139460",
+  "live": "eON_GetMailslotInfo",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432ff6c",
+  "name": "SetMailslotInfo",
+  "fn": "0x4139470",
+  "live": "eON_SetMailslotInfo",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432ff78",
+  "name": "CreatePipe",
+  "fn": "0x4139480",
+  "live": "eON_CreatePipe",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432ff84",
+  "name": "CreateNamedPipeA",
+  "fn": "0x4139490",
+  "live": "eON_CreateNamedPipeA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432ff90",
+  "name": "CreateNamedPipeW",
+  "fn": "0x41394a0",
+  "live": "eON_CreateNamedPipeW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432ff9c",
+  "name": "ConnectNamedPipe",
+  "fn": "0x41394b0",
+  "live": "eON_ConnectNamedPipe",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432ffa8",
+  "name": "DisconnectNamedPipe",
+  "fn": "0x41394c0",
+  "live": "eON_DisconnectNamedPipe",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432ffb4",
+  "name": "CallNamedPipeA",
+  "fn": "0x41394d0",
+  "live": "eON_CallNamedPipeA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432ffc0",
+  "name": "CallNamedPipeW",
+  "fn": "0x41394e0",
+  "live": "eON_CallNamedPipeW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432ffcc",
+  "name": "GetNamedPipeHandleStateA",
+  "fn": "0x41394f0",
+  "live": "eON_GetNamedPipeHandleStateA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432ffd8",
+  "name": "GetNamedPipeHandleStateW",
+  "fn": "0x4139500",
+  "live": "eON_GetNamedPipeHandleStateW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432ffe4",
+  "name": "SetNamedPipeHandleState",
+  "fn": "0x4139510",
+  "live": "eON_SetNamedPipeHandleState",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432fff0",
+  "name": "TransactNamedPipe",
+  "fn": "0x4139520",
+  "live": "eON_TransactNamedPipe",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x432fffc",
+  "name": "WaitNamedPipeA",
+  "fn": "0x4139530",
+  "live": "eON_WaitNamedPipeA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330008",
+  "name": "WaitNamedPipeW",
+  "fn": "0x4139540",
+  "live": "eON_WaitNamedPipeW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330014",
+  "name": "PeekNamedPipe",
+  "fn": "0x4139550",
+  "live": "eON_PeekNamedPipe",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330020",
+  "name": "VirtualAlloc",
+  "fn": "0x413e740",
+  "live": "eON_VirtualAlloc",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x433002c",
+  "name": "VirtualFree",
+  "fn": "0x413e9d0",
+  "live": "eON_VirtualFree",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330038",
+  "name": "VirtualAllocEx",
+  "fn": "0x413e320",
+  "live": "eON_VirtualAllocEx",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330044",
+  "name": "VirtualFreeEx",
+  "fn": "0x413e790",
+  "live": "eON_VirtualFreeEx",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330050",
+  "name": "VirtualProtect",
+  "fn": "0x413ea10",
+  "live": "eON_VirtualProtect",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x433005c",
+  "name": "VirtualLock",
+  "fn": "0x413ef10",
+  "live": "eON_VirtualLock",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330068",
+  "name": "VirtualUnlock",
+  "fn": "0x413ef80",
+  "live": "eON_VirtualUnlock",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330074",
+  "name": "VirtualQuery",
+  "fn": "0x413eff0",
+  "live": "eON_VirtualQuery",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330080",
+  "name": "VirtualQueryEx",
+  "fn": "0x413f350",
+  "live": "eON_VirtualQueryEx",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x433008c",
+  "name": "LocalAlloc",
+  "fn": "0x4139e30",
+  "live": "eON_LocalAlloc",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330098",
+  "name": "LocalFree",
+  "fn": "0x4139e60",
+  "live": "eON_LocalFree",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43300a4",
+  "name": "LocalReAlloc",
+  "fn": "0x4139e90",
+  "live": "eON_LocalReAlloc",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43300b0",
+  "name": "LocalHandle",
+  "fn": "0x4139ec0",
+  "live": "eON_LocalHandle",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43300bc",
+  "name": "LocalSize",
+  "fn": "0x4139f80",
+  "live": "eON_LocalSize",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43300c8",
+  "name": "LocalLock",
+  "fn": "0x4139ef0",
+  "live": "eON_LocalLock",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43300d4",
+  "name": "LocalUnlock",
+  "fn": "0x4139f20",
+  "live": "eON_LocalUnlock",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43300e0",
+  "name": "LocalDiscard",
+  "fn": "0x4139f50",
+  "live": "eON_LocalDiscard",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43300ec",
+  "name": "GlobalAlloc",
+  "fn": "0x4139fb0",
+  "live": "eON_GlobalAlloc",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43300f8",
+  "name": "GlobalFree",
+  "fn": "0x4139fe0",
+  "live": "eON_GlobalFree",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330104",
+  "name": "GlobalReAlloc",
+  "fn": "0x413a010",
+  "live": "eON_GlobalReAlloc",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330110",
+  "name": "GlobalHandle",
+  "fn": "0x413a100",
+  "live": "eON_GlobalHandle",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x433011c",
+  "name": "GlobalFlags",
+  "fn": "0x413a070",
+  "live": "eON_GlobalFlags",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330128",
+  "name": "GlobalSize",
+  "fn": "0x413a040",
+  "live": "eON_GlobalSize",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330134",
+  "name": "GlobalLock",
+  "fn": "0x413a0a0",
+  "live": "eON_GlobalLock",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330140",
+  "name": "GlobalUnlock",
+  "fn": "0x413a0d0",
+  "live": "eON_GlobalUnlock",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x433014c",
+  "name": "HeapAlloc",
+  "fn": "0x413a130",
+  "live": "HeapAlloc",
+  "verdict": "named-other-tier"
+ },
+ {
+  "entry": "0x4330158",
+  "name": "HeapReAlloc",
+  "fn": "0x413a1b0",
+  "live": "HeapRealloc",
+  "verdict": "named-other-tier"
+ },
+ {
+  "entry": "0x4330164",
+  "name": "HeapFree",
+  "fn": "0x413a240",
+  "live": "eON_HeapFree",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330170",
+  "name": "HeapSize",
+  "fn": "0x413a270",
+  "live": "eON_HeapSize",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x433017c",
+  "name": "HeapCreate",
+  "fn": "0x413a2a0",
+  "live": "eON_HeapCreate",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330188",
+  "name": "HeapDestroy",
+  "fn": "0x413a2d0",
+  "live": "eON_HeapDestroy",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330194",
+  "name": "HeapSetInformation",
+  "fn": "0x413a2f0",
+  "live": "eON_HeapSetInformation",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43301a0",
+  "name": "HeapQueryInformation",
+  "fn": "0x413a3a0",
+  "live": "eON_HeapQueryInformation",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43301ac",
+  "name": "HeapValidate",
+  "fn": "0x413a3e0",
+  "live": "eON_HeapValidate",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43301b8",
+  "name": "HeapCompact",
+  "fn": "0x413a410",
+  "live": "eON_HeapCompact",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43301c4",
+  "name": "HeapWalk",
+  "fn": "0x413a430",
+  "live": "eON_HeapWalk",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43301d0",
+  "name": "HeapLock",
+  "fn": "0x413a450",
+  "live": "eON_HeapLock",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43301dc",
+  "name": "HeapUnlock",
+  "fn": "0x413a470",
+  "live": "eON_HeapUnlock",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43301e8",
+  "name": "GetProcessHeap",
+  "fn": "0x413a490",
+  "live": "eON_GetProcessHeap",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43301f4",
+  "name": "GetProcessHeaps",
+  "fn": "0x413a4a0",
+  "live": "eON_GetProcessHeaps",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330200",
+  "name": "GlobalMemoryStatus",
+  "fn": "0x413a690",
+  "live": "eON_GlobalMemoryStatus",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x433020c",
+  "name": "GlobalMemoryStatusEx",
+  "fn": "0x413a4c0",
+  "live": "GlobalMemoryStatus",
+  "verdict": "named-other-tier"
+ },
+ {
+  "entry": "0x4330218",
+  "name": "GetACP",
+  "fn": "0x413ff90",
+  "live": "eON_GetACP",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330224",
+  "name": "GetOEMCP",
+  "fn": "0x413ffa0",
+  "live": "eON_GetOEMCP",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330230",
+  "name": "IsValidCodePage",
+  "fn": "0x413ffb0",
+  "live": "eON_IsValidCodePage",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x433023c",
+  "name": "GetCPInfo",
+  "fn": "0x413ffc0",
+  "live": "eON_GetCPInfo",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330248",
+  "name": "GetCPInfoExA",
+  "fn": "0x41400d0",
+  "live": "eON_GetCPInfoExA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330254",
+  "name": "GetCPInfoExW",
+  "fn": "0x41400e0",
+  "live": "eON_GetCPInfoExW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330260",
+  "name": "EnumSystemCodePagesA",
+  "fn": "0x41400f0",
+  "live": "eON_EnumSystemCodePagesA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x433026c",
+  "name": "EnumSystemCodePagesW",
+  "fn": "0x4140100",
+  "live": "eON_EnumSystemCodePagesW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330278",
+  "name": "GetCurrencyFormatA",
+  "fn": "0x4140110",
+  "live": "eON_GetCurrencyFormatA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330284",
+  "name": "GetCurrencyFormatW",
+  "fn": "0x4140120",
+  "live": "eON_GetCurrencyFormatW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330290",
+  "name": "GetTimeFormatA",
+  "fn": "0x4140970",
+  "live": "eON_GetTimeFormatA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x433029c",
+  "name": "GetTimeFormatW",
+  "fn": "0x4140980",
+  "live": "eON_GetTimeFormatW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43302a8",
+  "name": "GetTimeFormatEx",
+  "fn": "0x4141030",
+  "live": "eON_GetTimeFormatEx",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43302b4",
+  "name": "GetDateFormatA",
+  "fn": "0x4141040",
+  "live": "eON_GetDateFormatA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43302c0",
+  "name": "GetDateFormatW",
+  "fn": "0x4141050",
+  "live": "eON_GetDateFormatW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43302cc",
+  "name": "GetDateFormatEx",
+  "fn": "0x4141720",
+  "live": "eON_GetDateFormatEx",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43302d8",
+  "name": "EnumCalendarInfoA",
+  "fn": "0x4141730",
+  "live": "eON_EnumCalendarInfoA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43302e4",
+  "name": "EnumCalendarInfoW",
+  "fn": "0x4141740",
+  "live": "eON_EnumCalendarInfoW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43302f0",
+  "name": "EnumCalendarInfoExA",
+  "fn": "0x4141750",
+  "live": "eON_EnumCalendarInfoExA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43302fc",
+  "name": "EnumCalendarInfoExW",
+  "fn": "0x4141760",
+  "live": "eON_EnumCalendarInfoExW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330308",
+  "name": "GetGeoInfoA",
+  "fn": "0x4141770",
+  "live": "eON_GetGeoInfoA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330314",
+  "name": "GetGeoInfoW",
+  "fn": "0x4141780",
+  "live": "eON_GetGeoInfoW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330320",
+  "name": "GetUserGeoID",
+  "fn": "0x4141790",
+  "live": "eON_GetUserGeoID",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x433032c",
+  "name": "SetUserGeoID",
+  "fn": "0x41417a0",
+  "live": "eON_SetUserGeoID",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330338",
+  "name": "EnumSystemGeoID",
+  "fn": "0x41417b0",
+  "live": "eON_EnumSystemGeoID",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330344",
+  "name": "GetSystemDefaultUILanguage",
+  "fn": "0x41417c0",
+  "live": "eON_GetSystemDefaultUILanguage",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330350",
+  "name": "GetUserDefaultUILanguage",
+  "fn": "0x41417d0",
+  "live": "eON_GetUserDefaultUILanguage",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x433035c",
+  "name": "GetSystemDefaultLangID",
+  "fn": "0x41417e0",
+  "live": "eON_GetSystemDefaultLangID",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330368",
+  "name": "GetUserDefaultLangID",
+  "fn": "0x41417f0",
+  "live": "eON_GetUserDefaultLangID",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330374",
+  "name": "VerLanguageNameA",
+  "fn": "0x4141800",
+  "live": "eON_VerLanguageNameA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330380",
+  "name": "VerLanguageNameW",
+  "fn": "0x4141810",
+  "live": "eON_VerLanguageNameW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x433038c",
+  "name": "GetUserDefaultLCID",
+  "fn": "0x41428b0",
+  "live": "eON_GetUserDefaultLCID",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330398",
+  "name": "GetSystemDefaultLCID",
+  "fn": "0x41428c0",
+  "live": "eON_GetSystemDefaultLCID",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43303a4",
+  "name": "GetUserDefaultLocaleName",
+  "fn": "0x41428d0",
+  "live": "eON_GetUserDefaultLocaleName",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43303b0",
+  "name": "EnumSystemLocalesA",
+  "fn": "0x41428e0",
+  "live": "eON_EnumSystemLocalesA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43303bc",
+  "name": "EnumSystemLocalesW",
+  "fn": "0x4142990",
+  "live": "eON_EnumSystemLocalesW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43303c8",
+  "name": "GetLocaleInfoA",
+  "fn": "0x41429a0",
+  "live": "eON_GetLocaleInfoA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43303d4",
+  "name": "GetLocaleInfoW",
+  "fn": "0x4142b80",
+  "live": "eON_GetLocaleInfoW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43303e0",
+  "name": "GetLocaleInfoEx",
+  "fn": "0x4142dc0",
+  "live": "eON_GetLocaleInfoEx",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43303ec",
+  "name": "IsValidLocale",
+  "fn": "0x4142dd0",
+  "live": "eON_IsValidLocale",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43303f8",
+  "name": "IsValidLocaleName",
+  "fn": "0x4142e70",
+  "live": "eON_IsValidLocaleName",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330404",
+  "name": "ConvertDefaultLocale",
+  "fn": "0x4142e80",
+  "live": "eON_ConvertDefaultLocale",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330410",
+  "name": "LCMapStringA",
+  "fn": "0x4142ee0",
+  "live": "eON_LCMapStringA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x433041c",
+  "name": "LCMapStringW",
+  "fn": "0x4142ef0",
+  "live": "eON_LCMapStringW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330428",
+  "name": "LCMapStringEx",
+  "fn": "0x4143020",
+  "live": "eON_LCMapStringEx",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330434",
+  "name": "GetStringTypeA",
+  "fn": "0x4143110",
+  "live": "eON_GetStringTypeA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330440",
+  "name": "GetStringTypeW",
+  "fn": "0x4143120",
+  "live": "eON_GetStringTypeW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x433044c",
+  "name": "GetStringTypeExA",
+  "fn": "0x41433d0",
+  "live": "eON_GetStringTypeExA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330458",
+  "name": "GetStringTypeExW",
+  "fn": "0x41433e0",
+  "live": "eON_GetStringTypeExW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330464",
+  "name": "CompareStringA",
+  "fn": "0x4143a60",
+  "live": "eON_CompareStringA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330470",
+  "name": "CompareStringW",
+  "fn": "0x41433f0",
+  "live": "eON_CompareStringW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x433047c",
+  "name": "CompareStringEx",
+  "fn": "0x4143d60",
+  "live": "eON_CompareStringEx",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330488",
+  "name": "FoldStringA",
+  "fn": "0x4143d70",
+  "live": "eON_FoldStringA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330494",
+  "name": "FoldStringW",
+  "fn": "0x4143d80",
+  "live": "eON_FoldStringW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43304a0",
+  "name": "EnumSystemLocalesEx",
+  "fn": "0x4142b70",
+  "live": "eON_EnumSystemLocalesEx",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43304ac",
+  "name": "GetNumberFormatA",
+  "fn": "0x4143d90",
+  "live": "eON_GetNumberFormatA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43304b8",
+  "name": "GetNumberFormatW",
+  "fn": "0x4143da0",
+  "live": "eON_GetNumberFormatW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43304c4",
+  "name": "lstrcatA",
+  "fn": "0x415a090",
+  "live": "eON_lstrcatA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43304d0",
+  "name": "lstrcatW",
+  "fn": "0x415a0b0",
+  "live": "eON_lstrcatW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43304dc",
+  "name": "lstrcmpA",
+  "fn": "0x415a250",
+  "live": "eON_lstrcmpA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43304e8",
+  "name": "lstrcmpW",
+  "fn": "0x415a2a0",
+  "live": "eON_lstrcmpW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43304f4",
+  "name": "lstrcmpiA",
+  "fn": "0x415a300",
+  "live": "eON_lstrcmpiA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330500",
+  "name": "lstrcmpiW",
+  "fn": "0x415a3a0",
+  "live": "eON_lstrcmpiW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x433050c",
+  "name": "lstrcpyA",
+  "fn": "0x415a130",
+  "live": "eON_lstrcpyA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330518",
+  "name": "lstrcpyW",
+  "fn": "0x415a150",
+  "live": "eON_lstrcpyW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330524",
+  "name": "lstrcpynA",
+  "fn": "0x415a190",
+  "live": "eON_lstrcpynA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330530",
+  "name": "lstrcpynW",
+  "fn": "0x415a1f0",
+  "live": "eON_lstrcpynW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x433053c",
+  "name": "lstrlenA",
+  "fn": "0x4159ff0",
+  "live": "eON_lstrlenA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330548",
+  "name": "lstrlenW",
+  "fn": "0x415a040",
+  "live": "eON_lstrlenW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330554",
+  "name": "lstrcat",
+  "fn": "0x415a090",
+  "live": "eON_lstrcatA",
+  "verdict": "named-other-tier"
+ },
+ {
+  "entry": "0x4330560",
+  "name": "lstrcmp",
+  "fn": "0x415a250",
+  "live": "eON_lstrcmpA",
+  "verdict": "named-other-tier"
+ },
+ {
+  "entry": "0x433056c",
+  "name": "lstrcmpi",
+  "fn": "0x415a300",
+  "live": "eON_lstrcmpiA",
+  "verdict": "named-other-tier"
+ },
+ {
+  "entry": "0x4330578",
+  "name": "lstrcpy",
+  "fn": "0x415a130",
+  "live": "eON_lstrcpyA",
+  "verdict": "named-other-tier"
+ },
+ {
+  "entry": "0x4330584",
+  "name": "lstrcpyn",
+  "fn": "0x415a190",
+  "live": "eON_lstrcpynA",
+  "verdict": "named-other-tier"
+ },
+ {
+  "entry": "0x4330590",
+  "name": "lstrlen",
+  "fn": "0x4159ff0",
+  "live": "eON_lstrlenA",
+  "verdict": "named-other-tier"
+ },
+ {
+  "entry": "0x433059c",
+  "name": "QueueUserAPC",
+  "fn": "0x4145bb0",
+  "live": "eON_QueueUserAPC",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43305a8",
+  "name": "InitializeCriticalSection",
+  "fn": "0x4145d20",
+  "live": "eON_InitializeCriticalSection",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43305c0",
+  "name": "InitializeCriticalSectionEx",
+  "fn": "0x4145ed0",
+  "live": "synch_criticalsection_04145ed0",
+  "verdict": "named-other-tier"
+ },
+ {
+  "entry": "0x43305cc",
+  "name": "SetCriticalSectionSpinCount",
+  "fn": "0x4145fb0",
+  "live": "eON_SetCriticalSectionSpinCount",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43305d8",
+  "name": "DeleteCriticalSection",
+  "fn": "0x4146030",
+  "live": "eON_DeleteCriticalSection",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43305e4",
+  "name": "EnterCriticalSection",
+  "fn": "0x4146210",
+  "live": "EnterCriticalSection",
+  "verdict": "named-other-tier"
+ },
+ {
+  "entry": "0x43305f0",
+  "name": "TryEnterCriticalSection",
+  "fn": "0x4146130",
+  "live": "TryEnterCriticalSection",
+  "verdict": "named-other-tier"
+ },
+ {
+  "entry": "0x43305fc",
+  "name": "LeaveCriticalSection",
+  "fn": "0x41463f0",
+  "live": "LeaveCriticalSection",
+  "verdict": "named-other-tier"
+ },
+ {
+  "entry": "0x4330608",
+  "name": "InitializeConditionVariable",
+  "fn": "0x4145ce0",
+  "live": "eON_InitializeConditionVariable",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330614",
+  "name": "WakeAllConditionVariable",
+  "fn": "0x4145cf0",
+  "live": "eON_WakeAllConditionVariable",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330620",
+  "name": "SleepConditionVariableCS",
+  "fn": "0x4145d00",
+  "live": "eON_SleepConditionVariableCS",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x433062c",
+  "name": "WakeConditionVariable",
+  "fn": "0x4145d10",
+  "live": "eON_WakeConditionVariable",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330638",
+  "name": "CreateEventA",
+  "fn": "0x4146540",
+  "live": "eON_CreateEventA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330644",
+  "name": "CreateEventW",
+  "fn": "0x4146590",
+  "live": "eON_CreateEventW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330650",
+  "name": "CreateEventExA",
+  "fn": "0x41466b0",
+  "live": "eON_CreateEventExA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x433065c",
+  "name": "CreateEventExW",
+  "fn": "0x41466c0",
+  "live": "eON_CreateEventExW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330680",
+  "name": "PulseEvent",
+  "fn": "0x4146770",
+  "live": "eON_PulseEvent",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x433068c",
+  "name": "OpenEventA",
+  "fn": "0x4146510",
+  "live": "eON_OpenEventA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330698",
+  "name": "OpenEventW",
+  "fn": "0x4146530",
+  "live": "eON_OpenEventW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43306a4",
+  "name": "InterlockedCompareExchange",
+  "fn": "0x41467c0",
+  "live": "eON_InterlockedCompareExchange",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43306b0",
+  "name": "InterlockedExchange",
+  "fn": "0x4146810",
+  "live": "eON_InterlockedExchange",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43306bc",
+  "name": "InterlockedExchangeAdd",
+  "fn": "0x4146820",
+  "live": "eON_InterlockedExchangeAdd",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43306c8",
+  "name": "InterlockedIncrement",
+  "fn": "0x4146840",
+  "live": "eON_InterlockedIncrement",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43306d4",
+  "name": "InterlockedDecrement",
+  "fn": "0x4146860",
+  "live": "eON_InterlockedDecrement",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43306e0",
+  "name": "InterlockedCompareExchange64",
+  "fn": "0x41467e0",
+  "live": "eON_InterlockedCompareExchange64",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43306ec",
+  "name": "CreateMutexA",
+  "fn": "0x4146880",
+  "live": "eON_CreateMutexA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43306f8",
+  "name": "CreateMutexW",
+  "fn": "0x41468f0",
+  "live": "eON_CreateMutexW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330704",
+  "name": "CreateMutexExA",
+  "fn": "0x4146a60",
+  "live": "eON_CreateMutexExA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330710",
+  "name": "CreateMutexExW",
+  "fn": "0x4146a70",
+  "live": "eON_CreateMutexExW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x433071c",
+  "name": "ReleaseMutex",
+  "fn": "0x4146a80",
+  "live": "eON_ReleaseMutex",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330728",
+  "name": "OpenMutexA",
+  "fn": "0x4146aa0",
+  "live": "eON_OpenMutexA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330734",
+  "name": "OpenMutexW",
+  "fn": "0x4146ac0",
+  "live": "eON_OpenMutexW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330740",
+  "name": "CreateSemaphoreA",
+  "fn": "0x4146af0",
+  "live": "eON_CreateSemaphoreA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x433074c",
+  "name": "CreateSemaphoreW",
+  "fn": "0x4146b40",
+  "live": "eON_CreateSemaphoreW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330758",
+  "name": "CreateSemaphoreExA",
+  "fn": "0x4146ca0",
+  "live": "eON_CreateSemaphoreExA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330764",
+  "name": "CreateSemaphoreExW",
+  "fn": "0x4146cb0",
+  "live": "eON_CreateSemaphoreExW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330770",
+  "name": "ReleaseSemaphore",
+  "fn": "0x4146cc0",
+  "live": "eON_ReleaseSemaphore",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x433077c",
+  "name": "OpenSemaphoreA",
+  "fn": "0x4146cf0",
+  "live": "eON_OpenSemaphoreA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330788",
+  "name": "OpenSemaphoreW",
+  "fn": "0x4146d00",
+  "live": "eON_OpenSemaphoreW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330794",
+  "name": "InitializeSListHead",
+  "fn": "0x4146d10",
+  "live": "eON_InitializeSListHead",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43307a0",
+  "name": "QueryDepthSList",
+  "fn": "0x4146d30",
+  "live": "eON_QueryDepthSList",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43307ac",
+  "name": "InterlockedPushEntrySList",
+  "fn": "0x4146d50",
+  "live": "eON_InterlockedPushEntrySList",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43307b8",
+  "name": "InterlockedPopEntrySList",
+  "fn": "0x4146db0",
+  "live": "eON_InterlockedPopEntrySList",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43307c4",
+  "name": "InterlockedFlushSList",
+  "fn": "0x4146e00",
+  "live": "eON_InterlockedFlushSList",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43307d0",
+  "name": "InterlockedPushListSList",
+  "fn": "0x4146e80",
+  "live": "eON_InterlockedPushListSList",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43307dc",
+  "name": "InterlockedPushListSListEx",
+  "fn": "0x4146ef0",
+  "live": "eON_InterlockedPushListSListEx",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43307e8",
+  "name": "CreateTimerQueue",
+  "fn": "0x4147370",
+  "live": "eON_CreateTimerQueue",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43307f4",
+  "name": "DeleteTimerQueue",
+  "fn": "0x4147490",
+  "live": "eON_DeleteTimerQueue",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330800",
+  "name": "DeleteTimerQueueEx",
+  "fn": "0x4147530",
+  "live": "eON_DeleteTimerQueueEx",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x433080c",
+  "name": "CreateTimerQueueTimer",
+  "fn": "0x4147600",
+  "live": "eON_CreateTimerQueueTimer",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330818",
+  "name": "DeleteTimerQueueTimer",
+  "fn": "0x4147780",
+  "live": "eON_DeleteTimerQueueTimer",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330824",
+  "name": "ChangeTimerQueueTimer",
+  "fn": "0x4147a90",
+  "live": "eON_ChangeTimerQueueTimer",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330830",
+  "name": "CreateWaitableTimerA",
+  "fn": "0x4147ba0",
+  "live": "eON_CreateWaitableTimerA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x433083c",
+  "name": "CreateWaitableTimerW",
+  "fn": "0x4147be0",
+  "live": "eON_CreateWaitableTimerW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330848",
+  "name": "SetWaitableTimer",
+  "fn": "0x4147cf0",
+  "live": "eON_Int_WaitForSingleObject_AlertableUnsupported",
+  "verdict": "named-other-tier"
+ },
+ {
+  "entry": "0x4330854",
+  "name": "CancelWaitableTimer",
+  "fn": "0x4147d70",
+  "live": "eON_CancelWaitableTimer",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330860",
+  "name": "CreateThreadpoolTimer",
+  "fn": "0x4146f60",
+  "live": "eON_CreateThreadpoolTimer",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x433086c",
+  "name": "SetThreadpoolTimer",
+  "fn": "0x4146f70",
+  "live": "eON_SetThreadpoolTimer",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330884",
+  "name": "CloseThreadpoolTimer",
+  "fn": "0x4146f90",
+  "live": "eON_CloseThreadpoolTimer",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330890",
+  "name": "CreateThreadpoolWait",
+  "fn": "0x4146fa0",
+  "live": "eON_CreateThreadpoolWait",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x433089c",
+  "name": "SetThreadpoolWait",
+  "fn": "0x4146fb0",
+  "live": "eON_SetThreadpoolWait",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43308b4",
+  "name": "CloseThreadpoolWait",
+  "fn": "0x4146fd0",
+  "live": "eON_CloseThreadpoolWait",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43308c0",
+  "name": "GetComputerNameA",
+  "fn": "0x4139c80",
+  "live": "eON_GetComputerNameA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43308cc",
+  "name": "GetComputerNameW",
+  "fn": "0x4139cc0",
+  "live": "eON_GetComputerNameW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43308d8",
+  "name": "GetComputerNameExA",
+  "fn": "0x4139940",
+  "live": "GetComputerNameExA",
+  "verdict": "named-other-tier"
+ },
+ {
+  "entry": "0x43308e4",
+  "name": "GetComputerNameExW",
+  "fn": "0x4139aa0",
+  "live": "eON_GetComputerNameExW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43308f0",
+  "name": "IsDebuggerPresent",
+  "fn": "0x414d620",
+  "live": "eON_IsDebuggerPresent",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43308fc",
+  "name": "GetVersion",
+  "fn": "0x414d630",
+  "live": "FUN_0414d630",
+  "verdict": "unnamed-slot"
+ },
+ {
+  "entry": "0x4330908",
+  "name": "GetVersionExA",
+  "fn": "0x414d640",
+  "live": "eON_GetVersionExA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330914",
+  "name": "GetVersionExW",
+  "fn": "0x414d730",
+  "live": "eON_GetVersionExW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330920",
+  "name": "VerSetConditionMask",
+  "fn": "0x414d830",
+  "live": "eON_VerSetConditionMask",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x433092c",
+  "name": "VerifyVersionInfoA",
+  "fn": "0x414d840",
+  "live": "eON_VerifyVersionInfoA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330938",
+  "name": "VerifyVersionInfoW",
+  "fn": "0x414d850",
+  "live": "eON_VerifyVersionInfoW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330944",
+  "name": "GetSystemInfo",
+  "fn": "0x414d890",
+  "live": "eON_GetSystemInfo",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330950",
+  "name": "GetSystemPowerStatus",
+  "fn": "0x414d860",
+  "live": "eON_GetSystemPowerStatus",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x433095c",
+  "name": "IsProcessorFeaturePresent",
+  "fn": "0x414d910",
+  "live": "eON_IsProcessorFeaturePresent",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330974",
+  "name": "GetMaximumProcessorCount",
+  "fn": "0x414ddd0",
+  "live": "eON_GetMaximumProcessorCount",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330980",
+  "name": "GetMaximumProcessorGroupCount",
+  "fn": "0x414dde0",
+  "live": "eON_GetMaximumProcessorGroupCount",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x433098c",
+  "name": "CreateToolhelp32Snapshot",
+  "fn": "0x414ddf0",
+  "live": "eON_CreateToolhelp32Snapshot",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330998",
+  "name": "CloseToolhelp32Snapshot",
+  "fn": "0x414de00",
+  "live": "eON_CloseToolhelp32Snapshot",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43309a4",
+  "name": "Toolhelp32ReadProcessMemory",
+  "fn": "0x414de10",
+  "live": "eON_Toolhelp32ReadProcessMemory",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43309b0",
+  "name": "Process32First",
+  "fn": "0x414de20",
+  "live": "eON_Process32First",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43309bc",
+  "name": "Process32FirstW",
+  "fn": "0x414de30",
+  "live": "eON_Process32FirstW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43309c8",
+  "name": "Process32Next",
+  "fn": "0x414de40",
+  "live": "eON_Process32Next",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43309d4",
+  "name": "Process32NextW",
+  "fn": "0x414de50",
+  "live": "eON_Process32NextW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43309e0",
+  "name": "Thread32First",
+  "fn": "0x414de60",
+  "live": "eON_Thread32First",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43309ec",
+  "name": "Thread32Next",
+  "fn": "0x414de70",
+  "live": "eON_Thread32Next",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43309f8",
+  "name": "Module32First",
+  "fn": "0x414de80",
+  "live": "eON_Module32First",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330a04",
+  "name": "Module32Next",
+  "fn": "0x414de90",
+  "live": "eON_Module32Next",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330a10",
+  "name": "Heap32First",
+  "fn": "0x414dea0",
+  "live": "eON_Heap32First",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330a1c",
+  "name": "Heap32Next",
+  "fn": "0x414ded0",
+  "live": "eON_Heap32Next",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330a28",
+  "name": "Heap32ListFirst",
+  "fn": "0x414df00",
+  "live": "eON_Heap32ListFirst",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330a34",
+  "name": "Heap32ListNext",
+  "fn": "0x414df30",
+  "live": "eON_Heap32ListNext",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330a40",
+  "name": "WaitCommEvent",
+  "fn": "0x414df60",
+  "live": "eON_WaitCommEvent",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330a4c",
+  "name": "SetCommMask",
+  "fn": "0x414df70",
+  "live": "eON_SetCommMask",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330a58",
+  "name": "PurgeComm",
+  "fn": "0x414df80",
+  "live": "eON_PurgeComm",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330a64",
+  "name": "SetCommState",
+  "fn": "0x414df90",
+  "live": "eON_SetCommState",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330a70",
+  "name": "GetCommState",
+  "fn": "0x414dfa0",
+  "live": "eON_GetCommState",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330a7c",
+  "name": "SetCommConfig",
+  "fn": "0x414dfb0",
+  "live": "eON_SetCommConfig",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330a88",
+  "name": "GetCommConfig",
+  "fn": "0x414dfc0",
+  "live": "eON_GetCommConfig",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330a94",
+  "name": "SetCommTimeouts",
+  "fn": "0x414dfd0",
+  "live": "eON_SetCommTimeouts",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330aa0",
+  "name": "SetupComm",
+  "fn": "0x414dfe0",
+  "live": "eON_SetupComm",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330aac",
+  "name": "LoadLibraryA",
+  "fn": "0x4152170",
+  "live": "eON_LoadLibraryA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330ab8",
+  "name": "LoadLibraryW",
+  "fn": "0x4153ae0",
+  "live": "eON_LoadLibraryW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330ac4",
+  "name": "LoadLibraryExA",
+  "fn": "0x4151a30",
+  "live": "eON_LoadLibraryEx",
+  "verdict": "named-other-tier"
+ },
+ {
+  "entry": "0x4330ad0",
+  "name": "LoadLibraryExW",
+  "fn": "0x4152080",
+  "live": "eON_LoadLibraryExW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330adc",
+  "name": "FreeLibrary",
+  "fn": "0x4150590",
+  "live": "eON_FreeLibrary",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330ae8",
+  "name": "FreeLibraryAndExitThread",
+  "fn": "0x4150630",
+  "live": "eON_FreeLibraryAndExitThread",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330af4",
+  "name": "GetModuleFileNameA",
+  "fn": "0x4153380",
+  "live": "windll_04153380",
+  "verdict": "named-other-tier"
+ },
+ {
+  "entry": "0x4330b00",
+  "name": "GetModuleFileNameW",
+  "fn": "0x4153620",
+  "live": "eON_GetModuleFileNameW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330b0c",
+  "name": "GetModuleHandleA",
+  "fn": "0x41531d0",
+  "live": "windll_041531d0",
+  "verdict": "named-other-tier"
+ },
+ {
+  "entry": "0x4330b18",
+  "name": "GetModuleHandleW",
+  "fn": "0x4153730",
+  "live": "windll_04153730",
+  "verdict": "named-other-tier"
+ },
+ {
+  "entry": "0x4330b24",
+  "name": "GetModuleHandleExA",
+  "fn": "0x4153230",
+  "live": "eON_GetModuleHandleExA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330b30",
+  "name": "GetModuleHandleExW",
+  "fn": "0x4153890",
+  "live": "eON_GetModuleHandleExW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330b3c",
+  "name": "GetProcAddress",
+  "fn": "0x41506e0",
+  "live": "GetProcAddress",
+  "verdict": "named-other-tier"
+ },
+ {
+  "entry": "0x4330b48",
+  "name": "DisableThreadLibraryCalls",
+  "fn": "0x4150cd0",
+  "live": "eON_DisableThreadLibraryCalls",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330b60",
+  "name": "SetDefaultDllDirectories",
+  "fn": "0x4150d40",
+  "live": "eON_SetDefaultDllDirectories",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330b6c",
+  "name": "GetErrorMode",
+  "fn": "0x4154e90",
+  "live": "eON_GetErrorMode",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330b78",
+  "name": "SetErrorMode",
+  "fn": "0x4154ea0",
+  "live": "FUN_04154ea0",
+  "verdict": "unnamed-slot"
+ },
+ {
+  "entry": "0x4330b84",
+  "name": "FormatMessageA",
+  "fn": "0x4154ec0",
+  "live": "eON_FormatMessageA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330b90",
+  "name": "FormatMessageW",
+  "fn": "0x4155330",
+  "live": "eON_FormatMessageW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330b9c",
+  "name": "OutputDebugStringA",
+  "fn": "0x41560e0",
+  "live": "eON_OutputDebugStringA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330ba8",
+  "name": "OutputDebugStringW",
+  "fn": "0x41560f0",
+  "live": "eON_OutputDebugStringW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330bb4",
+  "name": "FlushInstructionCache",
+  "fn": "0x4156110",
+  "live": "eON_FlushInstructionCache",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330bc0",
+  "name": "GetCurrentPackageId",
+  "fn": "0x4156100",
+  "live": "eON_GetCurrentPackageId",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330bd8",
+  "name": "DebugBreak",
+  "fn": "0x4156160",
+  "live": "eON_DebugBreak",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330be4",
+  "name": "MulDiv",
+  "fn": "0x4156170",
+  "live": "eON_MulDiv",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330bf0",
+  "name": "GetStartupInfoA",
+  "fn": "0x41566f0",
+  "live": "eON_GetStartupInfoA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330bfc",
+  "name": "GetStartupInfoW",
+  "fn": "0x4156720",
+  "live": "eON_GetStartupInfoW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330c08",
+  "name": "GetCommandLineA",
+  "fn": "0x4156750",
+  "live": "eON_GetCommandLineA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330c14",
+  "name": "GetCommandLineW",
+  "fn": "0x4156760",
+  "live": "eON_GetCommandLineW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330c20",
+  "name": "ExitProcess",
+  "fn": "0x4156770",
+  "live": "eON_ExitProcess",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330c2c",
+  "name": "TerminateProcess",
+  "fn": "0x4156880",
+  "live": "eON_TerminateProcess",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330c38",
+  "name": "FatalExit",
+  "fn": "0x41567a0",
+  "live": "eON_FatalExit",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330c44",
+  "name": "FatalAppExitA",
+  "fn": "0x41567e0",
+  "live": "FatalAppExitA",
+  "verdict": "named-other-tier"
+ },
+ {
+  "entry": "0x4330c50",
+  "name": "FatalAppExitW",
+  "fn": "0x4156830",
+  "live": "FatalAppExitW",
+  "verdict": "named-other-tier"
+ },
+ {
+  "entry": "0x4330c5c",
+  "name": "GetCurrentProcess",
+  "fn": "0x4156900",
+  "live": "FUN_04156900",
+  "verdict": "unnamed-slot"
+ },
+ {
+  "entry": "0x4330c68",
+  "name": "GetCurrentProcessId",
+  "fn": "0x4156910",
+  "live": "FUN_04156910",
+  "verdict": "unnamed-slot"
+ },
+ {
+  "entry": "0x4330c74",
+  "name": "GetProcessId",
+  "fn": "0x4156920",
+  "live": "eON_GetCurrentProcessId",
+  "verdict": "named-other-tier"
+ },
+ {
+  "entry": "0x4330c80",
+  "name": "CreateProcessA",
+  "fn": "0x4156950",
+  "live": "eON_CreateProcessA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330c8c",
+  "name": "CreateProcessW",
+  "fn": "0x41569d0",
+  "live": "eON_CreateProcessW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330c98",
+  "name": "ReadProcessMemory",
+  "fn": "0x4156c80",
+  "live": "eON_ReadProcessMemory",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330ca4",
+  "name": "WriteProcessMemory",
+  "fn": "0x4156cb0",
+  "live": "eON_WriteProcessMemory",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330cb0",
+  "name": "GetProcessTimes",
+  "fn": "0x4156ce0",
+  "live": "GetProcessTimes",
+  "verdict": "named-other-tier"
+ },
+ {
+  "entry": "0x4330cbc",
+  "name": "GetProcessWorkingSetSize",
+  "fn": "0x4156da0",
+  "live": "eON_GetProcessWorkingSetSize",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330cc8",
+  "name": "SetProcessWorkingSetSize",
+  "fn": "0x4156db0",
+  "live": "eON_SetProcessWorkingSetSize",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330cd4",
+  "name": "IsWow64Process",
+  "fn": "0x4156df0",
+  "live": "eON_IsWow64Process",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330ce0",
+  "name": "OpenProcess",
+  "fn": "0x4156e00",
+  "live": "eON_OpenProcess",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330cec",
+  "name": "GetExitCodeProcess",
+  "fn": "0x4156e10",
+  "live": "eON_GetExitCodeProcess",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330cf8",
+  "name": "GetProcessAffinityMask",
+  "fn": "0x4156ee0",
+  "live": "eON_GetProcessAffinityMask",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330d04",
+  "name": "SetProcessAffinityMask",
+  "fn": "0x4156e20",
+  "live": "SetProcessAffinityMask",
+  "verdict": "named-other-tier"
+ },
+ {
+  "entry": "0x4330d10",
+  "name": "GetProcessVersion",
+  "fn": "0x4156f60",
+  "live": "eON_GetVersion",
+  "verdict": "named-other-tier"
+ },
+ {
+  "entry": "0x4330d1c",
+  "name": "FlushProcessWriteBuffers",
+  "fn": "0x4156f70",
+  "live": "eON_FlushProcessWriteBuffers",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330d28",
+  "name": "WinExec",
+  "fn": "0x4156c00",
+  "live": "eON_WinExec",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330d34",
+  "name": "GetPriorityClass",
+  "fn": "0x4156f80",
+  "live": "eON_GetCurrentProcess",
+  "verdict": "named-other-tier"
+ },
+ {
+  "entry": "0x4330d40",
+  "name": "SetPriorityClass",
+  "fn": "0x4156fc0",
+  "live": "eON_SetPriorityClass",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330d4c",
+  "name": "GetEnvironmentStrings",
+  "fn": "0x41571d0",
+  "live": "eON_GetEnvironmentStringsA",
+  "verdict": "named-other-tier"
+ },
+ {
+  "entry": "0x4330d58",
+  "name": "GetEnvironmentStringsA",
+  "fn": "0x4157290",
+  "live": "FUN_04157290",
+  "verdict": "unnamed-slot"
+ },
+ {
+  "entry": "0x4330d64",
+  "name": "GetEnvironmentStringsW",
+  "fn": "0x4157380",
+  "live": "eON_GetEnvironmentStringsW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330d70",
+  "name": "FreeEnvironmentStringsA",
+  "fn": "0x4157350",
+  "live": "eON_FreeEnvironmentStringsA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330d7c",
+  "name": "FreeEnvironmentStringsW",
+  "fn": "0x4157500",
+  "live": "eON_FreeEnvironmentStringsW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330d88",
+  "name": "ExpandEnvironmentStringsA",
+  "fn": "0x4157530",
+  "live": "eON_ExpandEnvironmentStringsA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330d94",
+  "name": "ExpandEnvironmentStringsW",
+  "fn": "0x4157540",
+  "live": "eON_ExpandEnvironmentStringsW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330da0",
+  "name": "GetEnvironmentVariableA",
+  "fn": "0x4157080",
+  "live": "eON_GetEnvironmentVariableA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330dac",
+  "name": "GetEnvironmentVariableW",
+  "fn": "0x4157160",
+  "live": "eON_GetEnvironmentVariableW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330db8",
+  "name": "SetEnvironmentVariableA",
+  "fn": "0x4157170",
+  "live": "eON_SetEnvironmentVariableA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330dc4",
+  "name": "SetEnvironmentVariableW",
+  "fn": "0x41571c0",
+  "live": "eON_SetEnvironmentVariableW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330dd0",
+  "name": "OpenThread",
+  "fn": "0x415c070",
+  "live": "eON_OpenThread",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330ddc",
+  "name": "CreateThread",
+  "fn": "0x415c090",
+  "live": "eON_CreateThread",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330de8",
+  "name": "ExitThread",
+  "fn": "0x415c420",
+  "live": "eON_ExitThread",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330df4",
+  "name": "GetExitCodeThread",
+  "fn": "0x415c460",
+  "live": "eON_GetExitCodeThread",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330e00",
+  "name": "TerminateThread",
+  "fn": "0x415c590",
+  "live": "eON_TerminateThread",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330e0c",
+  "name": "SuspendThread",
+  "fn": "0x415c5d0",
+  "live": "eON_SuspendThread",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330e18",
+  "name": "ResumeThread",
+  "fn": "0x415c7e0",
+  "live": "eON_ResumeThread",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330e24",
+  "name": "SwitchToThread",
+  "fn": "0x415c8d0",
+  "live": "eON_SwitchToThread",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330e30",
+  "name": "GetCurrentThread",
+  "fn": "0x415c8f0",
+  "live": "eON_GetCurrentThread",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330e3c",
+  "name": "GetCurrentThreadId",
+  "fn": "0x415c900",
+  "live": "eON_GetCurrentThreadId",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330e48",
+  "name": "GetThreadId",
+  "fn": "0x415c910",
+  "live": "eON_GetThreadId",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330e54",
+  "name": "GetThreadPriority",
+  "fn": "0x415c920",
+  "live": "eON_GetThreadPriority",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330e60",
+  "name": "SetThreadPriority",
+  "fn": "0x415c9f0",
+  "live": "eON_SetThreadPriority",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330e6c",
+  "name": "GetThreadPriorityBoost",
+  "fn": "0x415cc50",
+  "live": "eON_GetThreadPriorityBoost",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330e78",
+  "name": "SetThreadPriorityBoost",
+  "fn": "0x415cc70",
+  "live": "eON_SetThreadPriorityBoost",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330e84",
+  "name": "SetThreadAffinityMask",
+  "fn": "0x415cc90",
+  "live": "eON_GetExitCodeThread_Stub",
+  "verdict": "named-other-tier"
+ },
+ {
+  "entry": "0x4330e90",
+  "name": "SetThreadIdealProcessor",
+  "fn": "0x415cd00",
+  "live": "eON_SetThreadPriority_Stub",
+  "verdict": "named-other-tier"
+ },
+ {
+  "entry": "0x4330e9c",
+  "name": "GetThreadContext",
+  "fn": "0x415cd80",
+  "live": "fillContextForThread",
+  "verdict": "named-other-tier"
+ },
+ {
+  "entry": "0x4330ea8",
+  "name": "SetThreadContext",
+  "fn": "0x415cea0",
+  "live": "eON_SetThreadContext",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330ecc",
+  "name": "TlsAlloc",
+  "fn": "0x415cee0",
+  "live": "eON_TlsAlloc",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330ed8",
+  "name": "TlsFree",
+  "fn": "0x415d080",
+  "live": "eON_TlsFree",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330ee4",
+  "name": "TlsGetValue",
+  "fn": "0x415d1e0",
+  "live": "eON_TlsGetValue",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330ef0",
+  "name": "TlsSetValue",
+  "fn": "0x415d260",
+  "live": "eON_TlsSetValue",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330efc",
+  "name": "GetThreadLocale",
+  "fn": "0x415d360",
+  "live": "eON_GetThreadLocale",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330f08",
+  "name": "SetThreadLocale",
+  "fn": "0x415d370",
+  "live": "eON_SetThreadLocale",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330f14",
+  "name": "GetThreadTimes",
+  "fn": "0x415d380",
+  "live": "eON_GetThreadTimes",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330f20",
+  "name": "SignalObjectAndWait",
+  "fn": "0x415d610",
+  "live": "eON_SignalObjectAndWait",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330f2c",
+  "name": "WaitForSingleObject",
+  "fn": "0x415d620",
+  "live": "eON_WaitForSingleObject",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330f38",
+  "name": "WaitForSingleObjectEx",
+  "fn": "0x415d660",
+  "live": "eON_WaitForSingleObjectEx",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330f5c",
+  "name": "Sleep",
+  "fn": "0x415d720",
+  "live": "eON_Sleep",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330f68",
+  "name": "SleepEx",
+  "fn": "0x415d760",
+  "live": "eON_SleepEx",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330f74",
+  "name": "QueueUserWorkItem",
+  "fn": "0x415d7e0",
+  "live": "eON_QueueUserWorkItem",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330f80",
+  "name": "SetThreadExecutionState",
+  "fn": "0x415d7c0",
+  "live": "eON_SetErrorMode",
+  "verdict": "named-other-tier"
+ },
+ {
+  "entry": "0x4330f8c",
+  "name": "GetThreadSelectorEntry",
+  "fn": "0x415d7f0",
+  "live": "eON_GetThreadSelectorEntry",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330f98",
+  "name": "GetCurrentProcessorNumber",
+  "fn": "0x415d810",
+  "live": "eON_GetCurrentProcessorNumber",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330fa4",
+  "name": "SetThreadStackGuarantee",
+  "fn": "0x415d800",
+  "live": "eON_SetThreadStackGuarantee",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330fb0",
+  "name": "GetPrivateProfileSectionA",
+  "fn": "0x4158830",
+  "live": "eON_GetPrivateProfileSectionA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330fbc",
+  "name": "GetPrivateProfileSectionW",
+  "fn": "0x4158840",
+  "live": "eON_GetPrivateProfileSectionW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330fc8",
+  "name": "GetPrivateProfileStringA",
+  "fn": "0x41576d0",
+  "live": "eON_GetPrivateProfileStringA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330fd4",
+  "name": "GetPrivateProfileStringW",
+  "fn": "0x4158810",
+  "live": "eON_GetPrivateProfileStringW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330fe0",
+  "name": "WritePrivateProfileStringA",
+  "fn": "0x4157d70",
+  "live": "eON_WritePrivateProfileStringA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330fec",
+  "name": "WritePrivateProfileStringW",
+  "fn": "0x4158820",
+  "live": "eON_WritePrivateProfileStringW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4330ff8",
+  "name": "GetPrivateProfileIntA",
+  "fn": "0x4157ca0",
+  "live": "eON_GetPrivateProfileIntA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4331004",
+  "name": "GetPrivateProfileIntW",
+  "fn": "0x4157d60",
+  "live": "eON_GetPrivateProfileIntW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4331010",
+  "name": "GetProfileStringA",
+  "fn": "0x4158850",
+  "live": "eON_GetProfileStringA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x433101c",
+  "name": "GetProfileStringW",
+  "fn": "0x4158880",
+  "live": "eON_GetProfileStringW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4331028",
+  "name": "WriteProfileStringA",
+  "fn": "0x4158890",
+  "live": "eON_WriteProfileStringA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4331034",
+  "name": "WriteProfileStringW",
+  "fn": "0x41588a0",
+  "live": "eON_WriteProfileStringW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4331040",
+  "name": "GetProfileIntA",
+  "fn": "0x41588b0",
+  "live": "eON_GetProfileIntA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x433104c",
+  "name": "GetProfileIntW",
+  "fn": "0x41588c0",
+  "live": "eON_GetProfileIntW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4331058",
+  "name": "FindResourceA",
+  "fn": "0x41597c0",
+  "live": "FindResourceA",
+  "verdict": "named-other-tier"
+ },
+ {
+  "entry": "0x4331064",
+  "name": "FindResourceW",
+  "fn": "0x4159810",
+  "live": "FindResourceW",
+  "verdict": "named-other-tier"
+ },
+ {
+  "entry": "0x4331070",
+  "name": "FindResourceExA",
+  "fn": "0x4159600",
+  "live": "FindResourceExA",
+  "verdict": "named-other-tier"
+ },
+ {
+  "entry": "0x433107c",
+  "name": "FindResourceExW",
+  "fn": "0x41590b0",
+  "live": "FindResourceExW",
+  "verdict": "named-other-tier"
+ },
+ {
+  "entry": "0x4331088",
+  "name": "LoadResource",
+  "fn": "0x4159860",
+  "live": "LoadResource",
+  "verdict": "named-other-tier"
+ },
+ {
+  "entry": "0x4331094",
+  "name": "LockResource",
+  "fn": "0x41599a0",
+  "live": "eON_LockResource",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43310a0",
+  "name": "FreeResource",
+  "fn": "0x41599b0",
+  "live": "eON_FreeResource",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43310ac",
+  "name": "SizeofResource",
+  "fn": "0x41599c0",
+  "live": "eON_SizeofResource",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43310b8",
+  "name": "BeginUpdateResourceA",
+  "fn": "0x41599f0",
+  "live": "eON_BeginUpdateResourceA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43310c4",
+  "name": "BeginUpdateResourceW",
+  "fn": "0x4159a00",
+  "live": "eON_BeginUpdateResourceW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43310d0",
+  "name": "EndUpdateResourceA",
+  "fn": "0x4159a10",
+  "live": "eON_EndUpdateResourceA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43310dc",
+  "name": "EndUpdateResourceW",
+  "fn": "0x4159a20",
+  "live": "eON_EndUpdateResourceW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43310e8",
+  "name": "EnumResourceNamesA",
+  "fn": "0x4159a30",
+  "live": "EnumResourceNamesA",
+  "verdict": "named-other-tier"
+ },
+ {
+  "entry": "0x43310f4",
+  "name": "EnumResourceNamesW",
+  "fn": "0x4159a60",
+  "live": "EnumResourceNamesW",
+  "verdict": "named-other-tier"
+ },
+ {
+  "entry": "0x4331100",
+  "name": "EnumResourceNamesExA",
+  "fn": "0x4159a90",
+  "live": "eON_EnumResourceNamesExA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x433110c",
+  "name": "EnumResourceNamesExW",
+  "fn": "0x4159aa0",
+  "live": "eON_EnumResourceNamesExW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4331118",
+  "name": "EnumResourceLanguagesA",
+  "fn": "0x4159ab0",
+  "live": "eON_EnumResourceLanguagesA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4331124",
+  "name": "EnumResourceLanguagesW",
+  "fn": "0x4159ac0",
+  "live": "eON_EnumResourceLanguagesW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4331130",
+  "name": "EnumResourceLanguagesExA",
+  "fn": "0x4159ad0",
+  "live": "eON_EnumResourceLanguagesExA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x433113c",
+  "name": "EnumResourceLanguagesExW",
+  "fn": "0x4159ae0",
+  "live": "eON_EnumResourceLanguagesExW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4331148",
+  "name": "EnumResourceTypesA",
+  "fn": "0x4159af0",
+  "live": "eON_EnumResourceTypesA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4331154",
+  "name": "EnumResourceTypesW",
+  "fn": "0x4159b00",
+  "live": "eON_EnumResourceTypesW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4331160",
+  "name": "EnumResourceTypesExA",
+  "fn": "0x4159b10",
+  "live": "eON_EnumResourceTypesExA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x433116c",
+  "name": "EnumResourceTypesExW",
+  "fn": "0x4159b20",
+  "live": "eON_EnumResourceTypesExW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4331178",
+  "name": "GetSystemTime",
+  "fn": "0x415dee0",
+  "live": "eON_GetSystemTime",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4331184",
+  "name": "GetLocalTime",
+  "fn": "0x415df80",
+  "live": "eON_GetLocalTime",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4331190",
+  "name": "GetSystemTimeAsFileTime",
+  "fn": "0x415e020",
+  "live": "eON_GetSystemTimeAsFileTime",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x433119c",
+  "name": "GetSystemTimeAdjustment",
+  "fn": "0x415e0c0",
+  "live": "eON_GetSystemTimeAdjustment",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43311a8",
+  "name": "SetSystemTime",
+  "fn": "0x415e0f0",
+  "live": "eON_SetSystemTime",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43311b4",
+  "name": "SetLocalTime",
+  "fn": "0x415e120",
+  "live": "eON_SetLocalTime",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43311c0",
+  "name": "GetTimeZoneInformation",
+  "fn": "0x415e150",
+  "live": "eON_GetTimeZoneInformation",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43311cc",
+  "name": "SystemTimeToFileTime",
+  "fn": "0x415e1e0",
+  "live": "eON_SystemTimeToFileTime",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43311d8",
+  "name": "FileTimeToSystemTime",
+  "fn": "0x415e4a0",
+  "live": "eON_FileTimeToSystemTime",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43311e4",
+  "name": "FileTimeToLocalFileTime",
+  "fn": "0x415e700",
+  "live": "eON_FileTimeToLocalFileTime",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43311f0",
+  "name": "LocalFileTimeToFileTime",
+  "fn": "0x415e790",
+  "live": "eON_LocalFileTimeToFileTime",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43311fc",
+  "name": "DosDateTimeToFileTime",
+  "fn": "0x415e820",
+  "live": "eON_DosDateTimeToFileTime",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4331220",
+  "name": "CompareFileTime",
+  "fn": "0x415ea40",
+  "live": "eON_CompareFileTime",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x433122c",
+  "name": "GetTickCount",
+  "fn": "0x415eaf0",
+  "live": "eON_timeGetTime",
+  "verdict": "named-other-tier"
+ },
+ {
+  "entry": "0x4331238",
+  "name": "GetTickCount64",
+  "fn": "0x415eb00",
+  "live": "eON_GetTickCount_Thunk",
+  "verdict": "named-other-tier"
+ },
+ {
+  "entry": "0x4331244",
+  "name": "QueryPerformanceCounter",
+  "fn": "0x415eb10",
+  "live": "eON_QueryPerformanceCounter",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4331250",
+  "name": "QueryPerformanceFrequency",
+  "fn": "0x415eb70",
+  "live": "eON_QueryPerformanceFrequency",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x433125c",
+  "name": "IsDBCSLeadByte",
+  "fn": "0x415ed10",
+  "live": "eON_IsDBCSLeadByte",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4331268",
+  "name": "IsDBCSLeadByteEx",
+  "fn": "0x415ed20",
+  "live": "eON_IsDBCSLeadByteEx",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4331274",
+  "name": "MultiByteToWideChar",
+  "fn": "0x415ed30",
+  "live": "eON_MultiByteToWideChar",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4331280",
+  "name": "WideCharToMultiByte",
+  "fn": "0x415f0f0",
+  "live": "eON_WideCharToMultiByte",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x433128c",
+  "name": "GetNumaAvailableMemoryNode",
+  "fn": "0x4156240",
+  "live": "eON_GetNumaAvailableMemoryNode",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4331298",
+  "name": "GetNumaHighestNodeNumber",
+  "fn": "0x4156270",
+  "live": "eON_GetNumaHighestNodeNumber",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43312a4",
+  "name": "GetNumaNodeProcessorMask",
+  "fn": "0x41562a0",
+  "live": "eON_GetNumaNodeProcessorMask",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43312b0",
+  "name": "GetNumaProcessorNode",
+  "fn": "0x41562d0",
+  "live": "eON_GetNumaProcessorNode",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43312bc",
+  "name": "AllocateUserPhysicalPagesNuma",
+  "fn": "0x4156300",
+  "live": "eON_AllocateUserPhysicalPagesNuma",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43312c8",
+  "name": "VirtualAllocExNuma",
+  "fn": "0x4156330",
+  "live": "eON_VirtualAllocExNuma",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43312d4",
+  "name": "GetNumaProximityNode",
+  "fn": "0x4156360",
+  "live": "eON_GetNumaProximityNode",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43312e0",
+  "name": "CreateFileMappingNumaA",
+  "fn": "0x4156390",
+  "live": "eON_CreateFileMappingNumaA",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43312ec",
+  "name": "CreateFileMappingNumaW",
+  "fn": "0x41563c0",
+  "live": "eON_CreateFileMappingNumaW",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x43312f8",
+  "name": "MapViewOfFileExNuma",
+  "fn": "0x41563f0",
+  "live": "eON_MapViewOfFileExNuma",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4331304",
+  "name": "RtlRaiseException",
+  "fn": "0x4144668",
+  "live": "eON_RtlRaiseException",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4331310",
+  "name": "RtlUnwind",
+  "fn": "0x4144678",
+  "live": "",
+  "verdict": "unnamed-slot"
+ },
+ {
+  "entry": "0x433131c",
+  "name": "RtlCaptureContext",
+  "fn": "0x41445e8",
+  "live": "eON_RtlCaptureContext",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4331328",
+  "name": "RaiseException",
+  "fn": "0x4144f10",
+  "live": "eON_RaiseException",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4331334",
+  "name": "SetUnhandledExceptionFilter",
+  "fn": "0x4145300",
+  "live": "eON_SetUnhandledExceptionFilter",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4331340",
+  "name": "UnhandledExceptionFilter",
+  "fn": "0x4145320",
+  "live": "eON_UnhandledExceptionFilter",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x433134c",
+  "name": "RtlCaptureStackBackTrace",
+  "fn": "0x4144e00",
+  "live": "eON_RtlCaptureStackBackTrace",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4331358",
+  "name": "RtlCaptureContext",
+  "fn": "0x41445e8",
+  "live": "eON_RtlCaptureContext",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4331364",
+  "name": "AddVectoredExceptionHandler",
+  "fn": "0x4159c30",
+  "live": "eON_AddVectoredExceptionHandler",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4331370",
+  "name": "AddVectoredContinueHandler",
+  "fn": "0x4159d90",
+  "live": "eON_AddVectoredContinueHandler",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4331388",
+  "name": "RemoveVectoredContinueHandler",
+  "fn": "0x4159da0",
+  "live": "eON_RemoveVectoredContinueHandler",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x4331394",
+  "name": "DbgUiRemoteBreakin",
+  "fn": "0x414dff0",
+  "live": "",
+  "verdict": "unnamed-slot"
+ },
+ {
+  "entry": "0x433f904",
+  "name": "NtQueryInformationThread",
+  "fn": "0x415f5d0",
+  "live": "eON_NtQueryInformationThread",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x433f910",
+  "name": "NtQueryInformationProcess",
+  "fn": "0x415f640",
+  "live": "eON_NtQueryInformationProcess",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x433f91c",
+  "name": "NtQuerySystemInformation",
+  "fn": "0x415f650",
+  "live": "eON_NtQuerySystemInformation",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x433f928",
+  "name": "RtlGetNtVersionNumbers",
+  "fn": "0x415f660",
+  "live": "eON_RtlGetNtVersionNumbers",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x433f934",
+  "name": "RtlCaptureStackBackTrace",
+  "fn": "0x4144e00",
+  "live": "eON_RtlCaptureStackBackTrace",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x433f940",
+  "name": "RtlUnwind",
+  "fn": "0x4144678",
+  "live": "",
+  "verdict": "unnamed-slot"
+ },
+ {
+  "entry": "0x433f94c",
+  "name": "RtlInitAnsiString",
+  "fn": "0x415f690",
+  "live": "eON_RtlInitAnsiString",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x433f958",
+  "name": "RtlFreeAnsiString",
+  "fn": "0x415f6a0",
+  "live": "eON_RtlFreeAnsiString",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x433f964",
+  "name": "RtlInitUnicodeString",
+  "fn": "0x415f6b0",
+  "live": "eON_RtlInitUnicodeString",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x433f970",
+  "name": "RtlFreeUnicodeString",
+  "fn": "0x415f6c0",
+  "live": "eON_RtlFreeUnicodeString",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x433f97c",
+  "name": "RtlUnicodeStringToAnsiString",
+  "fn": "0x415f6d0",
+  "live": "eON_RtlUnicodeStringToAnsiString",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x433f988",
+  "name": "RtlAnsiStringToUnicodeString",
+  "fn": "0x415f6e0",
+  "live": "eON_RtlAnsiStringToUnicodeString",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x433f994",
+  "name": "LdrLockLoaderLock",
+  "fn": "0x415f6f0",
+  "live": "eON_LdrLockLoaderLock",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x433f9a0",
+  "name": "LdrUnlockLoaderLock",
+  "fn": "0x415f750",
+  "live": "eON_LdrUnlockLoaderLock",
+  "verdict": "match"
+ },
+ {
+  "entry": "0x433fc60",
+  "name": "9StreamImp",
+  "fn": "0x42e2ac4",
+  "live": "",
+  "verdict": "unnamed-slot"
+ },
+ {
+  "entry": "0x433fdcc",
+  "name": "9MallocImp",
+  "fn": "0x42e2ac4",
+  "live": "",
+  "verdict": "unnamed-slot"
+ }
+]
