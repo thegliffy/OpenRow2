@@ -70,7 +70,9 @@ def find_func(target):
 
 
 def save():
-    PROJECT.save()
+    # PyGhidra never auto-flushes and Project.save() is a no-op on
+    # non-versioned files; the DomainFile save is the only path that persists.
+    _df.save(TaskMonitor.DUMMY)
 
 
 mcp = FastMCP("openrow2")
@@ -139,6 +141,26 @@ def set_comment(target: str, comment: str) -> dict:
             PROGRAM.getListing().setComment(a, CodeUnit.EOL_COMMENT, comment)
         save()
         return {"ok": True, "addr": str(a)}
+
+
+@mcp.tool()
+def set_return_type(target: str, typename: str) -> dict:
+    """Set a function's return type from a data type resolvable in the program data type
+    manager (e.g. '/int', '/ulong'). Saves the project."""
+    with LOCK:
+        from ghidra.program.model.symbol import SourceType
+        f = find_func(target)
+        if f is None:
+            return {"error": f"no function at {target}"}
+        dtm = PROGRAM.getDataTypeManager()
+        path = typename if typename.startswith("/") else "/" + typename
+        dt = dtm.getDataType(path)
+        if dt is None:
+            return {"error": f"data type {path} not resolvable"}
+        with pyghidra.transaction(PROGRAM, f"return type {target}"):
+            f.setReturnType(dt, SourceType.USER_DEFINED)
+        save()
+        return {"ok": True, "addr": str(f.getEntryPoint()), "return_type": str(dt.getName())}
 
 
 STRINGS = []  # [(addr, text)] built once by the cache thread
@@ -213,6 +235,66 @@ def scoreboard() -> dict:
             else:
                 named += 1
         return {"named": named, "unnamed": unnamed, "total": named + unnamed}
+
+
+@mcp.tool()
+def bulk_reseed(csv_path: str = "/project/functions.csv") -> dict:
+    """Re-apply every name from the canonical seed CSV (entry,name). Only renames
+    auto-named (FUN_/thunk_) functions; rows whose name contains '<' (mangled
+    templates) are skipped; one save at the end."""
+    import csv as _csv
+    with LOCK:
+        from ghidra.program.model.symbol import SourceType
+        applied = skipped = missing = 0
+        with open(csv_path, newline="") as fh:
+            rows = list(_csv.reader(fh))
+        for r in rows:
+            if len(r) < 2 or not r[1].strip():
+                continue
+            a, name = r[0].strip(), r[1].strip()
+            if a.lower() == "entry" or "<" in name:
+                skipped += 1
+                continue
+            f = func_at(addr(a))
+            if f is None:
+                missing += 1
+                continue
+            cur = str(f.getName())
+            if cur != name and not (cur.startswith("FUN_") or cur.startswith("thunk_")):
+                skipped += 1
+                continue
+            if cur == name:
+                skipped += 1
+                continue
+            with pyghidra.transaction(PROGRAM, f"reseed {name}"):
+                f.setName(name, SourceType.USER_DEFINED)
+            applied += 1
+        save()
+        return {"applied": applied, "skipped": skipped, "addr_not_function": missing,
+                "named_rows": applied + skipped}
+
+
+@mcp.tool()
+def flush() -> dict:
+    """Force pending domain-object changes to disk (persistence probe)."""
+    with LOCK:
+        out = {}
+        try:
+            m = TaskMonitor.DUMMY
+        except Exception as e:
+            m = None
+            out["monitor"] = str(e)[:100]
+        try:
+            PROGRAM.save(m)
+            out["program.save"] = "ok"
+        except Exception as e:
+            out["program.save"] = str(e)[:150]
+        try:
+            _df.save(m)
+            out["df.save"] = "ok"
+        except Exception as e:
+            out["df.save"] = str(e)[:150]
+        return out
 
 
 if __name__ == "__main__":

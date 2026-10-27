@@ -18,6 +18,7 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
+| 244 | Type application via `set_return_type` MCP tool; CRITICAL PyGhidra persistence fix (`DomainFile.save`) — rebuild had wiped ~2,950 RAM-only renames; `bulk_reseed` restored board to exact 5,195 (verified on disk), 20 zlib entries carry applied return types + verbatim pinned-tag prototypes (`tools/decomp_notes_wave244_types_and_persistence_fix.md`) | 0 | 0 |
 | 240 | FINAL CLOSURE: scoreboard/live/seeds all consistent (5,195); vtable 0 proposals, PLT 18 anchors, queue 0; all naming lanes closed or converged; run total +189 (`tools/decomp_notes_wave240_final_closure.md`) | 0 | 0 |
 | 236 | Closure iteration #2 — FIXED POINT: 3 gated hits, all rejected (checked=malloc_base body contradiction, png_write_chunk stub unprovable); closure lane CONVERGED; board unchanged 5195 (`tools/decomp_notes_wave236_closure_converged.md`) | 0 | 0 |
 | 235 | Closure iter #1 (PNG_FUNCTION macro defs parsed; REV direction fixed): 7 gated hits hand-read; +5 (handle_as_unknown, calloc, malloc_base, free_default, fixed_error — each body-verified vs pinned-tag source verbatim or dead-code-equivalent; cross-checks: free_default<->wave234 png_free, malloc_base 14-caller consensus); 2 gate-hits resolved as allocators; board 5190->5195 (`tools/decomp_notes_wave235_closure_iter1.md`) | 5 | 0 |
