@@ -9220,3 +9220,4 @@ entry,name
 04526840,bind
 04526844,ftell
 04526848,__pthread_key_create
+041340d0,fs_DeleteFileW

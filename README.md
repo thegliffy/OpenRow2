@@ -14,10 +14,12 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 ## Scoreboard
 
-**5,195 / 9,221 functions carry a project name (56.3%).** A name is kept when that function references a matching assert signature, a single source file, or a D3D9 vtable slot locked by those signatures. Module prefixes name the file, not the function. Message-style strings do not replace a signature name.
+**5,196 / 9,221 functions carry a project name (56.3%).** A name is kept when that function references a matching assert signature, a single source file, or a D3D9 vtable slot locked by those signatures. Module prefixes name the file, not the function. Message-style strings do not replace a signature name.
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
+| 246 | Behavioral-lane closure from wave-225 runtime evidence: `041340d0 -> fs_DeleteFileW` — true DeleteFileW entry (WideCharToMultiByte chain, VPFS_IsFile/VPFS_Delete, Win32-exact SetLastError(2)/(5)); verified on disk (`tools/decomp_notes_wave246_deletefilew_rename.md`) | 1 | 0 |
+| 245 | Architecture consolidation: `ARCHITECTURE.md` — subsystem call-volume map refreshed via `tools/subsystem_map.py`, runtime-verified asset/save pipeline, naming-infrastructure state; all claims trace to wave notes | 0 | 0 |
 | 244 | Type application via `set_return_type` MCP tool; CRITICAL PyGhidra persistence fix (`DomainFile.save`) — rebuild had wiped ~2,950 RAM-only renames; `bulk_reseed` restored board to exact 5,195 (verified on disk), 20 zlib entries carry applied return types + verbatim pinned-tag prototypes (`tools/decomp_notes_wave244_types_and_persistence_fix.md`) | 0 | 0 |
 | 240 | FINAL CLOSURE: scoreboard/live/seeds all consistent (5,195); vtable 0 proposals, PLT 18 anchors, queue 0; all naming lanes closed or converged; run total +189 (`tools/decomp_notes_wave240_final_closure.md`) | 0 | 0 |
 | 236 | Closure iteration #2 — FIXED POINT: 3 gated hits, all rejected (checked=malloc_base body contradiction, png_write_chunk stub unprovable); closure lane CONVERGED; board unchanged 5195 (`tools/decomp_notes_wave236_closure_converged.md`) | 0 | 0 |
