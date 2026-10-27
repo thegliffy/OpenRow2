@@ -2973,7 +2973,7 @@ entry,name
 040faf00,backendOpenALSoft_040faf00
 040fb490,FUN_040fb490
 040fb620,FUN_040fb620
-040fb630,FUN_040fb630
+040fb630,dsound_DllGetClassObject
 040fb730,DirectSound3DBuffer8Imp::GetConeAngles
 040fb760,DirectSound3DBuffer8Imp::GetConeOrientation
 040fb790,DirectSound3DBuffer8Imp::GetConeOutsideVolume
