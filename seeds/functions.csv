@@ -8110,7 +8110,7 @@ entry,name
 042a4fb0,is_ICC_signature_char
 042a4fe0,png_icc_profile_error
 042a51e0,png_set_sig_bytes
-042a5220,FUN_042a5220
+042a5220,png_sig_cmp
 042a52b0,png_reset_crc
 042a52e0,png_calculate_crc
 042a5350,png_user_version_check
@@ -8131,7 +8131,7 @@ entry,name
 042a6100,FUN_042a6100
 042a6110,FUN_042a6110
 042a6160,FUN_042a6160
-042a61f0,FUN_042a61f0
+042a61f0,png_chunk_unknown_handling
 042a6240,zstream_reset
 042a6260,FUN_042a6260
 042a6270,png_zstream_error
@@ -8145,8 +8145,8 @@ entry,name
 042a6e00,FUN_042a6e00
 042a6e60,png_ascii_from_fp
 042a7430,png_ascii_from_fixed
-042a7550,FUN_042a7550
-042a75f0,FUN_042a75f0
+042a7550,png_fixed
+042a75f0,png_muldiv
 042a76e0,png_colorspace_set_rgb_coefficients
 042a78c0,FUN_042a78c0
 042a7a80,FUN_042a7a80
@@ -8187,8 +8187,8 @@ entry,name
 042a9ce0,FUN_042a9ce0
 042a9d70,png_chunk_error
 042a9dc0,png_chunk_benign_error
-042a9df0,FUN_042a9df0
-042a9e20,FUN_042a9e20
+042a9df0,png_app_error
+042a9e20,png_app_warning
 042a9e50,png_chunk_report
 042a9ea0,png_benign_error
 042a9f10,FUN_042a9f10
@@ -8204,7 +8204,7 @@ entry,name
 042aa350,png_malloc_default
 042aa3a0,png_malloc_warn
 042aa3f0,FUN_042aa3f0
-042aa410,FUN_042aa410
+042aa410,png_free
 042aa450,FUN_042aa450
 042aa530,FUN_042aa530
 042aa560,FUN_042aa560
@@ -8366,7 +8366,7 @@ entry,name
 042bcdd0,FUN_042bcdd0
 042bce00,FUN_042bce00
 042bce20,FUN_042bce20
-042bce50,FUN_042bce50
+042bce50,png_set_interlace_handling
 042bce80,png_set_filler
 042bcf40,FUN_042bcf40
 042bcf80,FUN_042bcf80
@@ -8382,7 +8382,7 @@ entry,name
 042bd6a0,FUN_042bd6a0
 042bd6c0,FUN_042bd6c0
 042bd6e0,FUN_042bd6e0
-042bd700,FUN_042bd700
+042bd700,png_reset_filter_heuristics
 042bd780,FUN_042bd780
 042bd800,FUN_042bd800
 042bdcd0,png_init_filter_heuristics
@@ -8432,12 +8432,12 @@ entry,name
 042c1870,FUN_042c1870
 042c1890,FUN_042c1890
 042c1910,FUN_042c1910
-042c1940,FUN_042c1940
+042c1940,png_write_chunk_data
 042c19b0,png_write_compressed_data_out
 042c1a20,FUN_042c1a20
 042c1a80,png_write_complete_chunk
 042c1af0,FUN_042c1af0
-042c1b30,FUN_042c1b30
+042c1b30,png_free_buffer_list
 042c1b70,png_write_IHDR
 042c1ee0,png_write_PLTE
 042c1fe0,png_compress_IDAT
