@@ -5547,7 +5547,7 @@ entry,name
 0416e690,eON_CountClipboardFormats
 0416e6a0,FUN_0416e6a0
 0416e6c0,eON_LoadCursorW
-0416e8e0,eON_LoadCursor
+0416e8e0,eON_LoadCursorA
 0416e9c0,eON_SetCursor
 0416eab0,eON_GetClipCursor
 0416eb70,eON_ClipCursor
@@ -5556,7 +5556,7 @@ entry,name
 0416ecf0,eON_GetCursor
 0416ed20,eON_DestroyCursor
 0416eee0,eON_CreateCursor
-0416ef60,eON_LoadCursorFromFile
+0416ef60,eON_LoadCursorFromFileA
 0416efc0,eON_LoadCursorFromFileW
 0416efd0,eON_SetSystemCursor
 0416efe0,eON_GetCursorInfo

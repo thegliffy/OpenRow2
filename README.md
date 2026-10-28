@@ -16,7 +16,7 @@ Decompilation of the **Saints Row 2** PC executable — continuation of the orig
 
 **5,197 / 9,221 functions carry a project name (56.4%).** A name is kept when that function references a matching assert signature, a single source file, or a D3D9 vtable slot locked by those signatures. Module prefixes name the file, not the function. Message-style strings do not replace a signature name. Convention `thunk_*` names (graph-unique wrapper pairing, wave 248) are real names but count as auto-named by scoreboard design.
 
-### Current status (parked at wave 252, 2026-10-27)
+### Current status (parked at wave 253, 2026-10-27)
 
 **PARKED by decision:** descriptive (analyst-chosen) naming was proposed at the wave-251
 decision point and declined — every name on the board stays traceable to body/source/
@@ -40,6 +40,7 @@ checker name displaced onto the displaced name's own pool slot, chain closed,
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
+| 253 | Shared-helper tier (README Open) closed via unique body lock: 0416e8e0 canonicalized to eON_LoadCursorA and 0416ef60 to eON_LoadCursorFromFileA per game name table (bodies confirm ANSI direct paths; W variants separate); GetLongPathNameA pool row adjudicated (target body IS RemapImportDllName, checker names correct); clipboard/heap/global/setforced/sample-function clusters verified consistent; hand-read tier EXHAUSTED (`tools/decomp_notes_wave253_shared_helpers_closed.md`) | 2 (renames) | 0 |
 | 252 | Wave-205 backlog close: game-name-table permutation closed via MCP body-lock adjudication — GetMessagePos/GetQueueStatus/mixerGetLineInfoA/mixerGetLineControlsA/GetCapture/SetCapture/GetForegroundWindow/SetForegroundWindow/IsWindowEnabled/IsWindowVisible each landed on their own pool slot; 4 descriptive checker variants retired in favor of canonical names; seeds updated 1:1; board-neutral permutation (`tools/decomp_notes_wave252_w205_backlog_close.md`) | 10 (renames) | 0 |
 | 251 | Deep-cluster reconnaissance: clusters confirmed game code over dynamic libc (no joinable static libs); no new static-library sources in binary (FreeType/freetype dynamic, pcre/ogg noise); libsupc++ canonical shape match dry (zero corpus bodies match `__cxa_throw` shape); free canonical ABI names have no evidenced targets — DRY; descriptive-naming policy decision queued (`tools/decomp_notes_wave251_deep_clusters_dry.md`) | 0 | 0 |
 | 250 | Wrapper-pairing relaxed-tier sweep (header self-call bug fixed; 30 unique-unique + 48 multi-wrapper surfaced, all hand-read): 2 applied (`thunk_VPFS_SetCurrentDirectory`, `thunk_OpenGLDebugMessageCallback`), 14 newly read all held (loops/predicates/state), multi-wrapper callees structurally unnameable — LANE EXHAUSTED at 21 applied total (`tools/decomp_notes_wave250_wrapper_final.md`) | 2 | 0 |
