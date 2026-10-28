@@ -4,6 +4,7 @@ Full history of naming waves. The README scoreboard keeps only the latest 12 row
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
+| 257 | runtime probe: 27/60 named anchors executed live across 6 TUs, zero contradictions, 21/40 attached helpers ran (callers unnamed) | 0 (board held 5,197) |
 | 256 | recovered tree completed: all 132 TUs / 776 members, 40 attached helpers, 344/344 MCP comments (816/816 total) | 0 (board held 5,197) |
 | 255 | source-recovery skeletons: 20 TUs (>=10 members), 447 members + 25 attached helpers, 472/472 MCP comments | 0 (board held 5,197) |
 | 254 | Source recovery tier started for named shim districts: source-path assert strings (2,052 string-ref rows) mapped 172 named shim fns across 51 recovered source files (machine map `agent/w254_source_files.csv`); original tree root recovered from baked paths (`/home/peterm/Development/Projects/eon2-sr2/eon2/src/...`); no renames (`tools/decomp_notes_wave254_source_recovery_shim.md`) | 0 | 0 |
