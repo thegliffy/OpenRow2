@@ -1,7 +1,267 @@
-// Recovered source skeleton: eon2/src/dlls/directx/d3d9/direct3d9imp.cpp
-// Source path from baked debug strings (seeds/string_refs.csv); members are
-// functions that reference it. Not compiled — membership ledger only.
+// Recovered source: eon2/src/dlls/directx/d3d9/direct3d9imp.cpp
+// Bodies: Ghidra decompile (live MCP) for named members; corpus decompile
+// for call-graph-attached unnamed helpers. Not compiled — recovery draft.
 
-// === members (2) ===
-//   Direct3D9Imp::EnumAdapterModes  @0x040663e0
-//   Direct3D9Imp::GetDeviceCaps  @0x04065b20
+// --- Direct3D9Imp::EnumAdapterModes @0x040663e0 ---
+/* source: direct3d9imp */
+
+undefined4
+Direct3D9Imp__EnumAdapterModes
+          (undefined4 param_1,uint param_2,int param_3,int param_4,undefined4 *param_5)
+
+{
+  uint uVar1;
+  int iVar2;
+  int iVar3;
+  undefined4 uVar4;
+  int iVar5;
+  int local_4c;
+  int local_48;
+  undefined4 local_34;
+  undefined4 local_30;
+  int local_24;
+  undefined4 local_20;
+  
+  local_4c = 0x16;
+  if (((param_3 != 0x19) && (param_3 != 0x18)) && (local_4c = 0x16, param_3 != 0x17)) {
+    local_4c = param_3;
+  }
+  uVar1 = OpenGLDisplay_GetCount();
+  uVar4 = 0x8876086c;
+  if (param_2 < uVar1) {
+    uVar4 = OpenGLDisplay_GetByIndex(param_2);
+    iVar2 = OpenGLDisplay_GetModeCount(uVar4);
+    if (iVar2 != 0) {
+      iVar5 = 0;
+      local_48 = 0;
+      do {
+        while( true ) {
+          OpenGLDisplay_GetMode(uVar4,iVar5,&local_34);
+          *param_5 = local_34;
+          param_5[1] = local_30;
+          iVar3 = local_24;
+          if (local_24 == 0) {
+            iVar3 = 0x4b;
+          }
+          param_5[2] = iVar3;
+          switch(local_20) {
+          default:
+            param_5[3] = 0;
+            iVar3 = 0;
+            break;
+          case 1:
+            param_5[3] = 0x16;
+            iVar3 = 0x16;
+            break;
+          case 2:
+            param_5[3] = 0x18;
+            iVar3 = 0x18;
+            break;
+          case 3:
+            param_5[3] = 0x1b;
+            iVar3 = 0x1b;
+            break;
+          case 4:
+            param_5[3] = 0x23;
+            iVar3 = 0x23;
+            break;
+          case 5:
+            param_5[3] = 0x14;
+            if (local_4c == 0x14) goto LAB_040664c0;
+            goto LAB_04066465;
+          }
+          if (iVar3 == local_4c) break;
+LAB_04066465:
+          iVar5 = iVar5 + 1;
+          if (iVar5 == iVar2) goto LAB_040664d8;
+        }
+LAB_040664c0:
+        if (local_48 == param_4) {
+          param_5[3] = param_3;
+          return 0;
+        }
+        local_48 = local_48 + 1;
+        iVar5 = iVar5 + 1;
+      } while (iVar5 != iVar2);
+    }
+LAB_040664d8:
+    FUN_0400a810("false",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3d9imp.cpp"
+                 ,0x1e1,
+                 "virtual HRESULT Direct3D9Imp::EnumAdapterModes(UINT, D3DFORMAT, UINT, D3DDISPLAYMODE*)"
+                );
+    uVar4 = 0x8876086a;
+  }
+  return uVar4;
+}
+
+// --- Direct3D9Imp::GetDeviceCaps @0x04065b20 ---
+/* source: direct3d9imp */
+
+undefined4
+Direct3D9Imp__GetDeviceCaps(undefined4 param_1,uint param_2,uint param_3,undefined4 *param_4)
+
+{
+  undefined1 uVar1;
+  undefined2 uVar2;
+  undefined4 *puVar3;
+  undefined4 *puVar4;
+  char cVar5;
+  uint uVar6;
+  int iVar7;
+  uint uVar8;
+  undefined4 uVar9;
+  bool bVar10;
+  byte bVar11;
+  undefined4 *local_20 [4];
+  
+  bVar11 = 0;
+  uVar6 = OpenGLDisplay_GetCount();
+  uVar9 = 0x8876086c;
+  if ((param_2 < uVar6) && (uVar9 = 0x8876086b, param_3 < 5)) {
+    iVar7 = OpenGLDisplay_GetByIndex(param_2);
+    if (iVar7 == 0) {
+      FUN_0400a810("display",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3d9imp.cpp"
+                   ,0x3d2,"virtual HRESULT Direct3D9Imp::GetDeviceCaps(UINT, D3DDEVTYPE, D3DCAPS9*)"
+                  );
+    }
+    local_20[0] = (undefined4 *)0x0;
+    OpenGLDisplay_GetD3DCAPS9(iVar7,local_20);
+    if (local_20[0] == (undefined4 *)0x0) {
+      local_20[0] = calloc(1,0x130);
+      local_20[0][2] = 0x20000;
+      local_20[0][3] = 0x60020000;
+      local_20[0][4] = 800;
+      local_20[0][6] = 1;
+      local_20[0][7] = &DAT_001bbef0;
+      local_20[0][8] = &DAT_000fcef2;
+      local_20[0][9] = 0x7732191;
+      local_20[0][10] = 0xff;
+      local_20[0][0xb] = 0x3fff;
+      local_20[0][0xc] = 0x3fff;
+      local_20[0][0xd] = 0xff;
+      local_20[0][0xe] = &DAT_00084208;
+      local_20[0][0xf] = &DAT_0001ecc5;
+      local_20[0][0x10] = &DAT_03030700;
+      local_20[0][0x11] = &DAT_03030300;
+      local_20[0][0x12] = &DAT_03030300;
+      local_20[0][0x13] = 0x1f;
+      local_20[0][0x14] = 0x1f;
+      local_20[0][0x15] = 0x1f;
+      local_20[0][0x22] = 0xff;
+      local_20[0][0x23] = &DAT_00180008;
+      local_20[0][0x24] = &DAT_03feffff;
+      local_20[0][0x27] = 0x13b;
+      local_20[0][0x35] = 0x51;
+      local_20[0][0x3b] = 0x30f;
+      local_20[0][0x3d] = &DAT_03000300;
+      local_20[0][0x3e] = 1;
+      local_20[0][0x3f] = 0x18;
+      local_20[0][0x40] = 0x20;
+      local_20[0][0x41] = 4;
+      local_20[0][0x42] = 0x1f;
+      local_20[0][0x43] = 0x18;
+      local_20[0][0x44] = 0x20;
+      local_20[0][0x45] = 4;
+      local_20[0][0x46] = 0x200;
+      local_20[0][0x47] = &DAT_01010100;
+      local_20[0][0x18] = 0x800;
+      local_20[0][0x19] = 0x2000;
+      local_20[0][0x1a] = 0x2000;
+      local_20[0][0x1b] = 0x10;
+      local_20[0][0x1c] = 0x501502f9;
+      local_20[0][0x1d] = 0xccbebc20;
+      local_20[0][0x1e] = 0xccbebc20;
+      local_20[0][0x1f] = 0x4cbebc20;
+      local_20[0][0x20] = 0x4cbebc20;
+      local_20[0][0x21] = 0;
+      local_20[0][0x25] = 8;
+      local_20[0][0x28] = 8;
+      local_20[0][0x2a] = 4;
+      local_20[0][0x2b] = 0;
+      local_20[0][0x2c] = 0x46000000;
+      local_20[0][0x2d] = 0x7fffff;
+      local_20[0][0x2e] = 0xffffff;
+      local_20[0][0x2f] = 0x10;
+      local_20[0][0x30] = 0xff;
+      local_20[0][0x31] = 0xfffe0300;
+      local_20[0][0x32] = 0x100;
+      local_20[0][0x33] = 0xffff0300;
+      local_20[0][0x34] = 0x477fe000;
+      local_20[0][0x38] = 0;
+      local_20[0][0x39] = 0;
+      local_20[0][0x3a] = 1;
+      local_20[0][0x3c] = 4;
+      local_20[0][0x48] = 0xffff;
+      local_20[0][0x49] = 0xffff;
+      local_20[0][0x4a] = 0x1000;
+      local_20[0][0x4b] = 0x1000;
+      *local_20[0] = 1;
+      local_20[0][5] = 0x80000001;
+      local_20[0][1] = param_2;
+      local_20[0][0x29] = 6;
+      local_20[0][0x26] = 8;
+      cVar5 = FUN_04021f80();
+      if ((cVar5 != '\0') || (cVar5 = FUN_04021f90(), cVar5 != '\0')) {
+        local_20[0][0x22] = local_20[0][0x22] | 0x100;
+      }
+      cVar5 = FUN_04021f30();
+      if (cVar5 == '\0') {
+        FUN_0402cd10(0x14,
+                     "This OpenGL driver in this OpenGL context version has no support for texture mirror clamp, and thus may not simulate MIRRORONCE sampling mode!"
+                    );
+      }
+      else {
+        local_20[0][0x13] = local_20[0][0x13] | 0x20;
+        local_20[0][0x14] = local_20[0][0x14] | 0x20;
+      }
+      puVar4 = local_20[0];
+      uVar9 = FUN_04021ff0();
+      puVar3 = local_20[0];
+      puVar4[0x17] = uVar9;
+      puVar4[0x16] = uVar9;
+      uVar9 = ShaderData_GetDefaultConstLimit();
+      puVar3[0x32] = uVar9;
+      if (8 < (uint)local_20[0][0x26]) {
+        local_20[0][0x26] = 8;
+      }
+      local_20[0][7] = local_20[0][7] | 0x191300;
+      local_20[0][0x31] = 0xfffe0300;
+      local_20[0][0x33] = 0xffff0300;
+      OpenGLDisplay_SetD3DCAPS9(iVar7,local_20[0]);
+    }
+    uVar6 = 0x130;
+    bVar10 = ((uint)param_4 & 1) != 0;
+    if (bVar10) {
+      uVar1 = *(undefined1 *)local_20[0];
+      local_20[0] = (undefined4 *)((int)local_20[0] + 1);
+      *(undefined1 *)param_4 = uVar1;
+      param_4 = (undefined4 *)((int)param_4 + 1);
+      uVar6 = 0x12f;
+    }
+    if (((uint)param_4 & 2) != 0) {
+      uVar2 = *(undefined2 *)local_20[0];
+      uVar6 = uVar6 - 2;
+      local_20[0] = (undefined4 *)((int)local_20[0] + 2);
+      *(undefined2 *)param_4 = uVar2;
+      param_4 = (undefined4 *)((int)param_4 + 2);
+    }
+    iVar7 = 0;
+    for (uVar8 = uVar6 >> 2; uVar8 != 0; uVar8 = uVar8 - 1) {
+      *param_4 = *local_20[0];
+      local_20[0] = local_20[0] + (uint)bVar11 * -2 + 1;
+      param_4 = param_4 + (uint)bVar11 * -2 + 1;
+    }
+    if ((uVar6 & 2) != 0) {
+      *(undefined2 *)param_4 = *(undefined2 *)local_20[0];
+      iVar7 = 2;
+    }
+    if (bVar10) {
+      *(undefined1 *)((int)param_4 + iVar7) = *(undefined1 *)((int)local_20[0] + iVar7);
+    }
+    uVar9 = 0;
+  }
+  return uVar9;
+}
+

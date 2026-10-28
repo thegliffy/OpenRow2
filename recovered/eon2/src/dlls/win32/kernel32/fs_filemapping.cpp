@@ -1,11 +1,575 @@
-// Recovered source skeleton: eon2/src/dlls/win32/kernel32/fs_filemapping.cpp
-// Source path from baked debug strings (seeds/string_refs.csv); members are
-// functions that reference it. Not compiled — membership ledger only.
+// Recovered source: eon2/src/dlls/win32/kernel32/fs_filemapping.cpp
+// Bodies: Ghidra decompile (live MCP) for named members; corpus decompile
+// for call-graph-attached unnamed helpers. Not compiled — recovery draft.
 
-// === members (3) ===
-//   fs_CreateFileMappingA  @0x0412d5c0
-//   fs_MapViewOfFileEx  @0x0412de20
-//   vpfs_CreateFileMappingA  @0x0412dab0
+// --- fs_CreateFileMappingA @0x0412d5c0 ---
+/* source: fs_filemapping */
 
-// === unnamed helpers attached (call-graph exclusive to this TU: 1) ===
-//   FUN_000412e3d0@0412e3d0
+byte * fs_CreateFileMappingA
+                 (byte *param_1,int param_2,uint param_3,int param_4,int param_5,byte *param_6)
+
+{
+  undefined4 uVar1;
+  char cVar2;
+  int iVar3;
+  int iVar4;
+  undefined4 *puVar5;
+  byte *pbVar6;
+  byte **ppbVar7;
+  byte **ppbVar8;
+  uint uVar9;
+  uint uVar10;
+  byte **ppbVar11;
+  size_t *psVar12;
+  byte **ppbVar13;
+  char *__dest;
+  byte *pbVar14;
+  bool bVar15;
+  bool bVar16;
+  bool bVar17;
+  byte bVar18;
+  byte *local_8b8;
+  byte *local_8b4;
+  undefined4 local_8b0;
+  undefined4 local_8ac;
+  undefined4 uStack_8a8;
+  byte *local_8a4;
+  int local_8a0;
+  undefined4 *local_89c;
+  undefined4 local_898;
+  undefined4 uStack_88c;
+  byte **local_888;
+  undefined4 local_884;
+  undefined4 local_880;
+  undefined4 local_87c;
+  undefined1 *local_878;
+  undefined **local_874;
+  byte *local_870;
+  byte **local_86c;
+  undefined4 local_868;
+  char *local_864;
+  byte *local_848;
+  int local_844;
+  byte *local_840;
+  uint local_83c;
+  byte *local_838;
+  byte **local_834;
+  undefined1 local_830 [1024];
+  byte *local_430 [256];
+  byte *local_30;
+  int local_2c;
+  int local_28;
+  int local_24 [3];
+  undefined4 *local_18;
+  
+  iVar4 = param_2;
+  bVar18 = 0;
+  local_18 = &param_1;
+  ppbVar11 = &local_870;
+  local_838 = param_1;
+  local_840 = param_6;
+  local_83c = param_3;
+  local_844 = param_5;
+  local_870 = param_1;
+  local_874 = (undefined **)0x412d60d;
+  cVar2 = FUN_0403c420();
+  if (cVar2 != '\0') {
+    local_864 = 
+    "void* fs_CreateFileMappingA(HANDLE, LPSECURITY_ATTRIBUTES, DWORD, DWORD, DWORD, LPCSTR)";
+    local_868 = 0xca;
+    local_86c = (byte **)0x43283e8;
+    local_870 = (byte *)0x4328444;
+    local_874 = (undefined **)0x412d734;
+    FUN_0400a810();
+  }
+  pbVar6 = (byte *)0x0;
+  if (local_838 != (byte *)0xffffffff) {
+    pbVar6 = local_838;
+  }
+  local_838 = pbVar6;
+  if (local_840 != (byte *)0x0) {
+    local_86c = &local_30;
+    local_870 = local_840;
+    local_874 = (undefined **)0x412d64d;
+    iVar3 = Synchronisation_ObjectExistsForName();
+    if (iVar3 != 0) {
+      if (local_30 != (byte *)0x0) {
+        return local_30;
+      }
+      local_870 = (byte *)0x6;
+      local_874 = (undefined **)0x412da1b;
+      eON_SetLastError();
+      return (byte *)0x0;
+    }
+  }
+  if (iVar4 != 0) {
+    local_86c = (byte **)0x4328478;
+    local_870 = (byte *)0xa;
+    local_874 = (undefined **)0x412d688;
+    FUN_0402cd10();
+  }
+  if ((local_83c & 0x1000000) != 0) {
+    return (byte *)0x0;
+  }
+  uVar10 = local_83c | 0x8000000;
+  if ((local_83c & 0x1d800000) != 0) {
+    uVar10 = local_83c;
+  }
+  __dest = (char *)0x0;
+  pbVar6 = local_838;
+  local_83c = uVar10;
+  if (local_838 != (byte *)0x0) {
+LAB_0412d6c8:
+    *ppbVar11 = pbVar6;
+    ppbVar11[2] = (byte *)&local_28;
+    ppbVar11[1] = (byte *)&local_2c;
+    ppbVar11[-1] = (byte *)0x412d6de;
+    iVar4 = Synchronisation_GetObjectInfo();
+    if ((iVar4 == 0) || (local_28 != 1)) {
+      *ppbVar11 = (byte *)__dest;
+      ppbVar11[-1] = (byte *)0x412d6ec;
+      free(*ppbVar11);
+      ppbVar11[1] = (byte *)"fs_CreateFileMappingA() fail - invalid file handle passed";
+      *ppbVar11 = (byte *)0xa;
+      ppbVar11[-1] = (byte *)0x412d700;
+      FUN_0402cd10();
+      return (byte *)0x0;
+    }
+    psVar12 = (size_t *)ppbVar11;
+    if (local_838 != (byte *)0x0) {
+      local_24[0] = 0;
+      ppbVar11[1] = (byte *)local_24;
+      *ppbVar11 = local_838;
+      ppbVar11[-1] = (byte *)0x412d76c;
+      iVar4 = FUN_041303e0();
+      psVar12 = (size_t *)(ppbVar11 + -2);
+      if (iVar4 == -1) {
+        ppbVar11[-2] = (byte *)__dest;
+        ppbVar11[-3] = (byte *)0x412da7b;
+        free(ppbVar11[-2]);
+        ppbVar11[-2] = local_838;
+        ppbVar11[-3] = (byte *)0x412da89;
+        eON_CloseHandle();
+        return (byte *)0x0;
+      }
+      if ((iVar4 == 0) && (local_24[0] == 0)) {
+        ppbVar11[-2] = (byte *)__dest;
+        ppbVar11[-3] = (byte *)0x412da43;
+        free(ppbVar11[-2]);
+        ppbVar11[-2] = (byte *)0x3ee;
+        ppbVar11[-3] = (byte *)0x412da4f;
+        eON_SetLastError();
+        return (byte *)0x0;
+      }
+      if (local_844 == 0 && param_4 == 0) {
+        param_4 = local_24[0];
+        local_844 = iVar4;
+      }
+      ppbVar11[-2] = local_838;
+      ppbVar11[-3] = (byte *)0x412d7ac;
+      Synchronisation_AddRefHandle();
+    }
+    *psVar12 = 0x18;
+    psVar12[-1] = 0x412d7b8;
+    puVar5 = malloc(*psVar12);
+    *puVar5 = pbVar6;
+    puVar5[3] = local_844;
+    puVar5[4] = param_4;
+    uVar1 = *(undefined4 *)(local_2c + 4);
+    puVar5[5] = __dest;
+    puVar5[1] = uVar1;
+    puVar5[2] = local_83c;
+    psVar12[1] = (size_t)puVar5;
+    *psVar12 = 6;
+    psVar12[-1] = 0x412d7ee;
+    pbVar6 = (byte *)synchronisationPrimitives_0414a7f0();
+    if (local_840 == (byte *)0x0) {
+      return pbVar6;
+    }
+    *psVar12 = (size_t)pbVar6;
+    psVar12[1] = (size_t)local_840;
+    psVar12[-1] = 0x412d810;
+    synchronisationPrimitives_0414a4a0();
+    return pbVar6;
+  }
+  if (local_844 == 0 && param_4 == 0) {
+    local_870 = (byte *)0x3ee;
+    local_874 = (undefined **)0x412da63;
+    eON_SetLastError();
+    return local_838;
+  }
+  bVar15 = false;
+  bVar17 = local_840 == (byte *)0x0;
+  if (!bVar17) {
+    iVar4 = 5;
+    pbVar6 = local_840;
+    pbVar14 = (byte *)"Local";
+    do {
+      if (iVar4 == 0) break;
+      iVar4 = iVar4 + -1;
+      bVar15 = *pbVar6 < *pbVar14;
+      bVar17 = *pbVar6 == *pbVar14;
+      pbVar6 = pbVar6 + (uint)bVar18 * -2 + 1;
+      pbVar14 = pbVar14 + (uint)bVar18 * -2 + 1;
+    } while (bVar17);
+    bVar16 = (!bVar15 && !bVar17) < bVar15;
+    if ((!bVar15 && !bVar17) == bVar15) {
+      return (byte *)0x0;
+    }
+    iVar4 = 6;
+    bVar15 = false;
+    pbVar6 = local_840;
+    pbVar14 = (byte *)0x4340421;
+    do {
+      if (iVar4 == 0) break;
+      iVar4 = iVar4 + -1;
+      bVar16 = *pbVar6 < *pbVar14;
+      bVar15 = *pbVar6 == *pbVar14;
+      pbVar6 = pbVar6 + (uint)bVar18 * -2 + 1;
+      pbVar14 = pbVar14 + (uint)bVar18 * -2 + 1;
+    } while (bVar15);
+    if ((!bVar16 && !bVar15) == bVar16) {
+      return (byte *)0x0;
+    }
+  }
+  local_870 = (byte *)0x400;
+  local_874 = (undefined **)0x412d89d;
+  local_86c = (byte **)local_830;
+  iVar4 = eON_GetTempPathA();
+  if (iVar4 == 0) {
+    return (byte *)0x0;
+  }
+  local_86c = local_430;
+  local_870 = (byte *)0x0;
+  local_874 = &PTR_DAT_0438b764;
+  local_87c = 0x412d8d0;
+  local_878 = local_830;
+  local_834 = local_86c;
+  iVar4 = eON_GetTempFileNameA();
+  if (iVar4 == 0) {
+    return (byte *)0x0;
+  }
+  local_888 = local_430;
+  local_870 = (byte *)0x0;
+  local_874 = (undefined **)0x0;
+  local_878 = (undefined1 *)0x3;
+  local_87c = 0;
+  local_880 = 3;
+  local_884 = 0xc0000000;
+  uStack_88c = 0x412d919;
+  local_8a4 = (byte *)fs_CreateFileA();
+  if (local_8a4 == (byte *)0xffffffff) {
+    return (byte *)0x0;
+  }
+  local_89c = &param_4;
+  local_898 = 0;
+  local_8a0 = local_844;
+  uStack_8a8 = 0x412d952;
+  local_848 = local_8a4;
+  iVar4 = fs_SetFilePointer();
+  ppbVar13 = &local_8b4;
+  local_8b4 = local_848;
+  if (iVar4 != -1) {
+    local_8b8 = (byte *)0x412d96c;
+    iVar4 = fs_files_04131860();
+    ppbVar13 = &local_8b8;
+    if (iVar4 != 0) {
+      local_8ac = 0;
+      local_8b0 = 0;
+      local_8b4 = (byte *)0x0;
+      local_8b8 = local_848;
+      iVar4 = fs_SetFilePointer();
+      ppbVar11 = (byte **)&stack0xfffff738;
+      ppbVar8 = local_430;
+      if (iVar4 == -1) {
+        FUN_04131a90();
+        return (byte *)0x0;
+      }
+      do {
+        ppbVar7 = ppbVar8;
+        uVar9 = (uint)(*ppbVar7 + -0x1010101) & ~(uint)*ppbVar7;
+        uVar10 = uVar9 & 0x80808080;
+        ppbVar8 = ppbVar7 + 1;
+      } while (uVar10 == 0);
+      if ((uVar9 & 0x8080) == 0) {
+        ppbVar8 = (byte **)((int)ppbVar7 + 6);
+        uVar10 = uVar10 >> 0x10;
+      }
+      __dest = malloc((int)ppbVar8 +
+                      (-(int)local_834 - (uint)CARRY1((byte)uVar10,(byte)uVar10)) + -2);
+      strcpy(__dest,(char *)local_430);
+      pbVar6 = local_848;
+      goto LAB_0412d6c8;
+    }
+    local_8b8 = local_848;
+  }
+  *(undefined4 *)((int)ppbVar13 + -4) = 0x412da31;
+  FUN_04131a90();
+  return (byte *)0x0;
+}
+
+// --- fs_MapViewOfFileEx @0x0412de20 ---
+/* source: fs_filemapping */
+
+int fs_MapViewOfFileEx(undefined4 param_1,uint param_2,int param_3,uint param_4,int param_5,
+                      undefined4 param_6)
+
+{
+  char cVar1;
+  undefined4 uVar2;
+  uint uVar3;
+  uint uVar4;
+  undefined4 uVar5;
+  int iVar6;
+  undefined *puVar7;
+  int iVar8;
+  int iVar9;
+  int *local_28;
+  int local_24 [3];
+  undefined4 *local_18;
+  
+  uVar5 = param_6;
+  iVar9 = param_5;
+  uVar4 = param_4;
+  iVar8 = param_3;
+  uVar3 = param_2;
+  uVar2 = param_1;
+  local_18 = &param_1;
+  iVar6 = Synchronisation_GetObjectInfo(param_1,&local_28,local_24);
+  if (iVar6 == 0) {
+    return 0;
+  }
+  if (local_24[0] != 6) {
+    return 0;
+  }
+  cVar1 = (char)local_28[2];
+  if (((((uVar3 & 0x20) != 0) && (cVar1 != ' ')) && (cVar1 != -0x80)) && (cVar1 != '@')) {
+    return 0;
+  }
+  puVar7 = (undefined *)(uVar3 & 0xffffffdf);
+  if (puVar7 == (undefined *)0x2) {
+LAB_0412dfa0:
+    if (*local_28 != -1) {
+      FUN_0402cd10(10,
+                   "Game wants to map a real file with write enabled! We should be able to handle it, but it seems rare..."
+                  );
+    }
+    if ((cVar1 != '\x04') && (cVar1 != '@')) {
+      return 0;
+    }
+LAB_0412def8:
+    if (iVar8 != 0) {
+      FUN_0400a810("!dwFileOffsetHigh",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/fs_filemapping.cpp"
+                   ,0x1c1,"void* fs_MapViewOfFileEx(HANDLE, DWORD, DWORD, DWORD, SIZE_T, PVOID)");
+    }
+    if (iVar9 == 0) {
+      iVar9 = local_28[3];
+    }
+    if ((uVar4 & 0xffff) == 0) {
+      iVar8 = FUN_0413df00(uVar5,iVar9,uVar3,uVar2,uVar4,iVar8);
+      if (iVar8 == -1) {
+        iVar8 = 0;
+      }
+    }
+    else {
+      eON_SetLastError(0x57);
+      iVar8 = 0;
+    }
+  }
+  else {
+    if (puVar7 < (undefined *)0x3) {
+      if (((puVar7 == (undefined *)0x1) && (cVar1 != '\x10')) && (cVar1 != '\x01'))
+      goto LAB_0412def8;
+    }
+    else {
+      if (puVar7 == (undefined *)0x4) {
+        if (((cVar1 != '\x04') && (cVar1 != '@')) && ((cVar1 != '\x02' && (cVar1 != ' ')))) {
+          return 0;
+        }
+        goto LAB_0412def8;
+      }
+      if (puVar7 == &DAT_000f001f) goto LAB_0412dfa0;
+    }
+    iVar8 = 0;
+  }
+  return iVar8;
+}
+
+// --- vpfs_CreateFileMappingA @0x0412dab0 ---
+/* source: fs_filemapping */
+
+int vpfs_CreateFileMappingA
+              (char *param_1,undefined4 param_2,undefined4 param_3,undefined4 param_4,char *param_5,
+              char *param_6)
+
+{
+  char *pcVar1;
+  char *pcVar2;
+  int iVar3;
+  void *__ptr;
+  int iVar4;
+  char *__ptr_00;
+  char *pcVar5;
+  char *pcVar6;
+  char **ppcVar7;
+  char **ppcVar8;
+  char *local_b8;
+  char *local_b4;
+  undefined4 local_b0;
+  char *local_ac;
+  char *local_a8;
+  char *local_a4;
+  undefined4 local_a0;
+  undefined4 local_9c;
+  undefined4 uStack_98;
+  char *local_94;
+  char *local_90;
+  undefined4 *local_8c;
+  undefined4 local_88;
+  undefined4 uStack_7c;
+  
+  pcVar2 = param_6;
+  pcVar1 = param_5;
+  if ((param_1 == (char *)0xffffffff) || (param_1 == (char *)0x0)) {
+    iVar3 = fs_CreateFileMappingA();
+  }
+  else {
+    iVar3 = VPFS_GetDiskFileHandle();
+    if (iVar3 == -1) {
+      iVar3 = 0;
+      __ptr = malloc(0x400);
+      iVar4 = eON_GetTempPathA();
+      if (iVar4 != 0) {
+        __ptr_00 = malloc(0x400);
+        iVar4 = eON_GetTempFileNameA();
+        if (iVar4 == 0) {
+          uStack_7c = 0x412ddd5;
+          free(__ptr);
+          uStack_7c = 0x412dde0;
+          free(__ptr_00);
+        }
+        else {
+          uStack_7c = 0x412dbbc;
+          free(__ptr);
+          uStack_7c = 0x412dbf7;
+          pcVar5 = (char *)vpfs_CreateFileA();
+          ppcVar8 = &local_94;
+          if (pcVar5 != (char *)0xffffffff) {
+            local_8c = &param_4;
+            local_88 = 0;
+            local_90 = pcVar1;
+            uStack_98 = 0x412dc27;
+            local_94 = pcVar5;
+            iVar3 = eON_SetFilePointer();
+            ppcVar8 = &local_a4;
+            local_a4 = pcVar5;
+            if (iVar3 != -1) {
+              local_a8 = (char *)0x412dc3e;
+              iVar3 = fs_files_0412eaa0();
+              ppcVar7 = &local_a8;
+              if (iVar3 != 0) {
+                local_9c = 0;
+                local_a0 = 0;
+                local_a4 = (char *)0x0;
+                local_ac = (char *)0x412dc6c;
+                local_a8 = pcVar5;
+                iVar3 = eON_SetFilePointer();
+                ppcVar7 = &local_b8;
+                if (iVar3 != -1) {
+                  local_b8 = param_1;
+                  local_b4 = pcVar5;
+                  iVar3 = VPFS_UnpackArchivedFile();
+                  local_b8 = pcVar5;
+                  if (iVar3 == 0) {
+                    eON_VPFS_Close();
+                    local_b8 = __ptr_00;
+                    FUN_04134010();
+                    free(__ptr_00);
+                    return -1;
+                  }
+                  pcVar6 = (char *)VPFS_GetDiskFileHandle();
+                  if (pcVar6 == (char *)0x0) {
+                    local_ac = 
+                    "void* vpfs_CreateFileMappingA(HANDLE, LPSECURITY_ATTRIBUTES, DWORD, DWORD, DWORD, LPCSTR)"
+                    ;
+                    local_b0 = 0x96;
+                    local_b4 = 
+                    "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/fs_filemapping.cpp"
+                    ;
+                    local_b8 = "handle";
+                    FUN_0400a810();
+                  }
+                  local_a4 = pcVar2;
+                  local_a8 = pcVar1;
+                  local_ac = (char *)param_4;
+                  local_b0 = param_3;
+                  local_b4 = (char *)param_2;
+                  local_b8 = pcVar6;
+                  iVar3 = fs_CreateFileMappingA();
+                  if (iVar3 == -1) {
+                    return -1;
+                  }
+                  if (*(int *)(iVar3 + 0x14) != 0) {
+                    FUN_0400a810("fileMapping->TempFilePath == __null",
+                                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/fs_filemapping.cpp"
+                                 ,0x9d,
+                                 "void* vpfs_CreateFileMappingA(HANDLE, LPSECURITY_ATTRIBUTES, DWORD, DWORD, DWORD, LPCSTR)"
+                                );
+                  }
+                  *(char **)(iVar3 + 0x14) = __ptr_00;
+                  eON_VPFS_Close(pcVar5);
+                  return iVar3;
+                }
+              }
+              *ppcVar7 = pcVar5;
+              ppcVar7[-1] = (char *)0x412dd30;
+              eON_VPFS_Close();
+              *ppcVar7 = __ptr_00;
+              ppcVar7[-1] = (char *)0x412dd3b;
+              free(*ppcVar7);
+              return -1;
+            }
+            local_a8 = (char *)0x412dd85;
+            eON_VPFS_Close();
+          }
+          iVar3 = -1;
+          *ppcVar8 = __ptr_00;
+          ppcVar8[-1] = (char *)0x412dd95;
+          free(*ppcVar8);
+        }
+      }
+    }
+    else {
+      iVar3 = fs_CreateFileMappingA();
+    }
+  }
+  return iVar3;
+}
+
+// --- attached helper FUN_0012e3d0 @0x0412e3d0 (call-graph exclusive to this TU) ---
+undefined4
+FUN_0412e3d0(undefined4 param_1,undefined4 param_2,undefined4 param_3,undefined4 param_4,
+            undefined4 param_5,undefined4 param_6)
+
+{
+  int iVar1;
+  undefined4 uVar2;
+  
+  iVar1 = FUN_04042870(param_1);
+  if (iVar1 == 0) {
+    uVar2 = fs_MapViewOfFileEx(param_1,param_2,param_3,param_4,param_5,param_6);
+  }
+  else {
+    iVar1 = VPFS_GetDiskFileHandle(param_1);
+    if (iVar1 == -1) {
+      FUN_0402cd10(0xf,"Tried to map view of file, existing only in VPFS archive!");
+      uVar2 = 0;
+    }
+    else {
+      uVar2 = fs_MapViewOfFileEx(iVar1,param_2,param_3,param_4,param_5,param_6);
+    }
+  }
+  return uVar2;
+}
+

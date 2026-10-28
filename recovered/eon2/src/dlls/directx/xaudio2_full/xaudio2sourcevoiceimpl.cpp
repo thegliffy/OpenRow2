@@ -1,7 +1,1029 @@
-// Recovered source skeleton: eon2/src/dlls/directx/xaudio2_full/xaudio2sourcevoiceimpl.cpp
-// Source path from baked debug strings (seeds/string_refs.csv); members are
-// functions that reference it. Not compiled — membership ledger only.
+// Recovered source: eon2/src/dlls/directx/xaudio2_full/xaudio2sourcevoiceimpl.cpp
+// Bodies: Ghidra decompile (live MCP) for named members; corpus decompile
+// for call-graph-attached unnamed helpers. Not compiled — recovery draft.
 
-// === members (2) ===
-//   XAudio2SourceVoiceImp::CopyPcm  @0x04109ad0
-//   XAudio2SourceVoiceImp::XAudio2SourceVoiceImp  @0x041095d0
+// --- XAudio2SourceVoiceImp::CopyPcm @0x04109ad0 ---
+/* source: audioallocator, xaudio2helpers, xaudio2sourcevoiceimpl */
+
+void XAudio2SourceVoiceImp__CopyPcm(int *param_1)
+
+{
+  uint *puVar1;
+  code *pcVar2;
+  int iVar3;
+  undefined4 *puVar4;
+  undefined4 *puVar5;
+  int *piVar6;
+  int *piVar7;
+  int *piVar8;
+  uint uVar9;
+  int *piVar10;
+  int *piVar11;
+  int iVar12;
+  int *piVar13;
+  int iVar14;
+  int **ppiVar15;
+  uint *puVar16;
+  undefined4 *puVar17;
+  int iVar18;
+  undefined1 local_a4 [4];
+  undefined4 local_a0;
+  int *local_9c;
+  undefined4 local_98;
+  int *local_8c;
+  int *local_88;
+  uint local_84;
+  int *local_80;
+  int *local_7c;
+  int *local_78;
+  int *local_74;
+  uint local_70;
+  int *local_6c;
+  int local_68;
+  int *local_64;
+  uint local_60;
+  int *local_5c;
+  undefined4 **local_58;
+  int *local_54;
+  int *local_50;
+  int local_40;
+  int local_3c;
+  undefined4 local_38;
+  int *local_34;
+  int *local_30;
+  int local_2c;
+  undefined4 *local_28;
+  undefined4 *local_24;
+  int local_20;
+  
+  ppiVar15 = &local_9c;
+  if (param_1[0x52] == param_1[0x4e]) {
+    if ((char)param_1[0x5e] == '\0') {
+      return;
+    }
+    local_9c = (int *)param_1[0x5c];
+    *(undefined1 *)(param_1 + 0x5e) = 0;
+    if (local_9c == (int *)0x0) {
+      return;
+    }
+    local_a0 = 0x410a609;
+    (**(code **)(*local_9c + 8))();
+    return;
+  }
+  piVar7 = (int *)param_1[0x5c];
+  if (piVar7 != (int *)0x0) {
+    local_98 = 0;
+    local_a0 = 0x4109b0a;
+    local_9c = piVar7;
+    (**(code **)*piVar7)();
+    ppiVar15 = (int **)local_a4;
+  }
+  iVar12 = *param_1;
+  *ppiVar15 = param_1;
+  pcVar2 = *(code **)(iVar12 + 0x54);
+  ppiVar15[-1] = (int *)0x4109b15;
+  local_60 = (*pcVar2)();
+  piVar7 = (int *)param_1[0x57];
+  piVar13 = (int *)param_1[0x56];
+  local_68 = param_1[0x4e];
+  if (piVar7 == piVar13) {
+    iVar12 = param_1[0x4b];
+    if (iVar12 == 0) {
+      local_5c = (int *)0x0;
+      uVar9 = *(uint *)(local_68 + 4);
+      iVar12 = *(int *)(local_68 + 8);
+      piVar7 = (int *)ppiVar15;
+    }
+    else {
+      ppiVar15[3] = (int *)*(int *)(local_68 + 4);
+      iVar14 = *(int *)(local_68 + 8);
+      ppiVar15[1] = (int *)iVar12;
+      *ppiVar15 = &local_40;
+      ppiVar15[2] = (int *)iVar14;
+      ppiVar15[-1] = (int *)0x410a63c;
+      AudioConverter__Convert();
+      iVar14 = local_3c;
+      iVar12 = local_40;
+      local_38 = 0;
+      local_40 = 0;
+      local_3c = 0;
+      local_5c = (int *)iVar12;
+      uVar9 = iVar14 - iVar12;
+      piVar7 = (int *)(ppiVar15 + -1);
+    }
+    iVar14 = param_1[0x32];
+    piVar7[2] = uVar9 >> 1;
+    piVar7[1] = iVar12;
+    *piVar7 = (int)&local_34;
+    piVar7[3] = iVar14;
+                    /* try { // try from 0410a679 to 0410a67d has its CatchHandler @ 0410ac7d */
+    piVar7[-1] = 0x410a67e;
+    FUN_04103d50();
+    piVar13 = (int *)param_1[0x56];
+    ppiVar15 = (int **)(piVar7 + -1);
+    piVar6 = (int *)param_1[0x57];
+    if (piVar13 != piVar6) {
+      local_50 = param_1;
+      piVar10 = piVar13;
+      do {
+        if (*piVar10 != 0) {
+          piVar7[-1] = *piVar10;
+          piVar7[-2] = 0x410a6ae;
+          free((void *)piVar7[-1]);
+        }
+        piVar10 = piVar10 + 3;
+        param_1 = local_50;
+      } while (piVar6 != piVar10);
+    }
+    piVar6 = (int *)param_1[0x56];
+    param_1[0x56] = (int)local_34;
+    param_1[0x57] = (int)local_30;
+    iVar12 = param_1[0x58];
+    param_1[0x58] = local_2c;
+    local_30 = piVar13;
+    local_34 = piVar6;
+    local_2c = iVar12;
+    for (; piVar13 != piVar6; piVar6 = piVar6 + 3) {
+      if (*piVar6 != 0) {
+        piVar7[-1] = *piVar6;
+        piVar7[-2] = 0x410a6fe;
+        free((void *)piVar7[-1]);
+      }
+    }
+    if (local_34 != (int *)0x0) {
+      piVar7[-1] = (int)local_34;
+      piVar7[-2] = 0x410a714;
+      operator_delete((void *)piVar7[-1]);
+    }
+    if (local_5c != (int *)0x0) {
+      piVar7[-1] = (int)local_5c;
+      piVar7[-2] = 0x410a726;
+      operator_delete((void *)piVar7[-1]);
+    }
+    piVar13 = (int *)param_1[0x56];
+    piVar7 = (int *)param_1[0x57];
+  }
+  iVar12 = *(int *)(local_68 + 0x14);
+  if (iVar12 == 0) {
+    iVar12 = *(int *)(local_68 + 0xc);
+  }
+  if (((int)piVar7 - (int)piVar13 >> 2) * -0x55555555 == 0) {
+    ppiVar15[3] = (int *)"int GetNumOfSamples(const PcmData&)";
+    ppiVar15[2] = (int *)0x13;
+    ppiVar15[1] = (int *)
+                  "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/xaudio2_full/xaudio2helpers.h"
+    ;
+    *ppiVar15 = (int *)"pcm.channels.size() > 0";
+    ppiVar15[-1] = (int *)0x4109b73;
+    FUN_0400a810();
+    piVar13 = (int *)param_1[0x56];
+  }
+  local_5c = (int *)(piVar13[1] - *piVar13 >> 2);
+  piVar7 = *(int **)(local_68 + 0x18);
+  piVar6 = (int *)ppiVar15;
+  if (piVar7 == (int *)0x0) {
+    piVar7 = *(int **)(local_68 + 0x10);
+    if (piVar7 == (int *)0x0) {
+      iVar14 = param_1[0x5d];
+    }
+    else {
+      if ((param_1[0x57] - (int)piVar13 >> 2) * -0x55555555 == 0) {
+        ppiVar15[3] = (int *)"int GetNumOfSamples(const PcmData&)";
+        ppiVar15[2] = (int *)0x13;
+        ppiVar15[1] = (int *)
+                      "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/xaudio2_full/xaudio2helpers.h"
+        ;
+        *ppiVar15 = (int *)"pcm.channels.size() > 0";
+        ppiVar15[-1] = (int *)0x410a499;
+        FUN_0400a810();
+        local_5c = (int *)(((int *)param_1[0x56])[1] - *(int *)param_1[0x56] >> 2);
+      }
+      if ((int)piVar7 <= (int)local_5c) goto LAB_0410a06a;
+      ppiVar15[1] = (int *)"XAUDIO2: PlayLength > BufferSize - playing whole buffer instead";
+LAB_0410a4bd:
+      *ppiVar15 = (int *)0xa;
+      ppiVar15[-1] = (int *)0x410a4c9;
+      FUN_0402cd10();
+      piVar7 = (int *)param_1[0x56];
+      if ((param_1[0x57] - (int)piVar7 >> 2) * -0x55555555 == 0) {
+        ppiVar15[3] = (int *)"int GetNumOfSamples(const PcmData&)";
+        ppiVar15[2] = (int *)0x13;
+        ppiVar15[1] = (int *)
+                      "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/xaudio2_full/xaudio2helpers.h"
+        ;
+        *ppiVar15 = (int *)"pcm.channels.size() > 0";
+        ppiVar15[-1] = (int *)0x410a508;
+        FUN_0400a810();
+        piVar7 = (int *)param_1[0x56];
+      }
+      iVar14 = param_1[0x5d];
+      local_5c = (int *)(piVar7[1] - *piVar7 >> 2);
+    }
+    if (iVar14 != 0) goto LAB_04109bad;
+LAB_04109fa8:
+    piVar7 = (int *)param_1[0x5c];
+    if (piVar7 == (int *)0x0) goto LAB_04109bad;
+    iVar14 = *piVar7;
+    iVar18 = *(int *)(local_68 + 0x20);
+    *ppiVar15 = piVar7;
+    ppiVar15[1] = (int *)iVar18;
+    pcVar2 = *(code **)(iVar14 + 0xc);
+    ppiVar15[-1] = (int *)0x4109fc8;
+    (*pcVar2)();
+    param_1[0x5d] = iVar12;
+    puVar16 = (uint *)(ppiVar15 + -2);
+    iVar14 = iVar12;
+    piVar6 = (int *)(ppiVar15 + -2);
+    if (iVar12 < (int)local_5c) goto LAB_04109bad;
+    ppiVar15[-1] = (int *)"XAUDIO2: PlayBegin >= PlayEnd (or BufferSize)";
+    ppiVar15[-2] = (int *)0xa;
+    ppiVar15[-3] = (int *)0x4109ff0;
+    FUN_0402cd10();
+    local_70 = 0;
+    param_1[0x5d] = (int)local_5c;
+  }
+  else {
+    if ((param_1[0x57] - (int)piVar13 >> 2) * -0x55555555 == 0) {
+      ppiVar15[3] = (int *)"int GetNumOfSamples(const PcmData&)";
+      ppiVar15[2] = (int *)0x13;
+      ppiVar15[1] = (int *)
+                    "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/xaudio2_full/xaudio2helpers.h"
+      ;
+      *ppiVar15 = (int *)"pcm.channels.size() > 0";
+      ppiVar15[-1] = (int *)0x410a5b0;
+      FUN_0400a810();
+      local_5c = (int *)(((int *)param_1[0x56])[1] - *(int *)param_1[0x56] >> 2);
+    }
+    if ((int)local_5c < (int)piVar7) {
+      ppiVar15[1] = (int *)"XAUDIO2: LoopEnd > BufferSize - looping whole buffer instead";
+      goto LAB_0410a4bd;
+    }
+LAB_0410a06a:
+    iVar14 = param_1[0x5d];
+    local_5c = piVar7;
+    if (iVar14 == 0) goto LAB_04109fa8;
+LAB_04109bad:
+    puVar16 = (uint *)piVar6;
+    if ((int)local_5c < iVar14) {
+      puVar16[3] = (uint)"void XAudio2SourceVoiceImp::UpdateBuffers()";
+      puVar16[2] = 0x151;
+      puVar16[1] = (uint)
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/xaudio2_full/xaudio2sourcevoiceimpl.cpp"
+      ;
+      *puVar16 = (uint)"mBufferPosition <= endSample";
+      puVar16[-1] = 0x410a034;
+      FUN_0400a810();
+      local_70 = (int)local_5c - param_1[0x5d];
+    }
+    else {
+      local_70 = (int)local_5c - iVar14;
+    }
+  }
+  local_6c = (int *)param_1[0x32];
+  iVar12 = local_60 + 8;
+  if (param_1[0x34] != param_1[0x33]) {
+    puVar16[3] = (uint)"void XAudio2SourceVoiceImp::ResizePcm(PcmData&, int, int)";
+    puVar16[2] = 0x1b1;
+    puVar16[1] = (uint)
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/xaudio2_full/xaudio2sourcevoiceimpl.cpp"
+    ;
+    *puVar16 = (uint)"target.channels.empty()";
+    puVar16[-1] = 0x4109bff;
+    FUN_0400a810();
+  }
+  puVar17 = (undefined4 *)0x0;
+  local_50 = (undefined4 *)0x0;
+  if (iVar12 != 0) {
+    *puVar16 = 0x10;
+    puVar16[1] = iVar12 * 4;
+    puVar16[-1] = 0x4109c23;
+    local_50 = (int *)memalign();
+    if (local_50 == (undefined4 *)0x0) {
+      puVar16[3] = (uint)
+                   "T* AudioAllocator<T>::allocate(AudioAllocator<T>::size_type, const void*) [with T = float, AudioAllocator<T>::pointer = float*, AudioAllocator<T>::size_type = unsigned int]"
+      ;
+      puVar16[2] = 0x4b;
+      puVar16[1] = (uint)
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/xaudio2_full/audioallocator.h"
+      ;
+      *puVar16 = (uint)"memory";
+      puVar16[-1] = 0x410a7a5;
+      FUN_0400a810();
+    }
+    puVar16[1] = iVar12 * 4;
+    *puVar16 = (uint)local_50;
+    puVar16[-1] = 0x4109c3a;
+    bzero((void *)*puVar16,puVar16[1]);
+    puVar17 = local_50 + iVar12;
+    piVar7 = local_50;
+    do {
+      if (piVar7 != (undefined4 *)0x0) {
+        *piVar7 = 0;
+      }
+      piVar7 = piVar7 + 1;
+      iVar12 = iVar12 + -1;
+    } while (iVar12 != 0);
+  }
+  piVar7 = (int *)param_1[0x34];
+  iVar12 = (int)piVar7 - param_1[0x33] >> 2;
+  piVar13 = (int *)(iVar12 * -0x55555555);
+  local_64 = piVar7;
+  if (local_6c <= piVar13) {
+    if (local_6c < piVar13) {
+      piVar13 = (int *)(param_1[0x33] + (int)local_6c * 0xc);
+      for (piVar6 = piVar13; piVar7 != piVar6; piVar6 = piVar6 + 3) {
+        local_54 = param_1;
+        if (*piVar6 != 0) {
+          *puVar16 = *piVar6;
+          puVar16[-1] = 0x410a55e;
+          free((void *)*puVar16);
+        }
+        param_1 = local_54;
+      }
+      param_1[0x34] = (int)piVar13;
+    }
+    goto LAB_04109c7b;
+  }
+  local_7c = (int *)((int)local_6c + iVar12 * 0x55555555);
+  if (local_7c == (int *)0x0) goto LAB_04109c7b;
+  if (local_7c <= (int *)((param_1[0x35] - (int)piVar7 >> 2) * -0x55555555)) {
+    local_28 = (undefined4 *)0x0;
+    local_24 = (undefined4 *)0x0;
+    local_20 = 0;
+    iVar12 = (int)puVar17 - (int)local_50 >> 2;
+    if (iVar12 == 0) {
+      local_54 = (int *)0x0;
+      local_74 = (int *)0x0;
+      puVar4 = (undefined4 *)0x0;
+      local_6c = piVar7;
+    }
+    else {
+      local_54 = (int *)(iVar12 << 2);
+      *puVar16 = 0x10;
+      puVar16[1] = (uint)local_54;
+      puVar16[-1] = 0x410a7e8;
+      puVar4 = (undefined4 *)memalign();
+      if (puVar4 == (undefined4 *)0x0) {
+        puVar16[3] = (uint)
+                     "T* AudioAllocator<T>::allocate(AudioAllocator<T>::size_type, const void*) [with T = float, AudioAllocator<T>::pointer = float*, AudioAllocator<T>::size_type = unsigned int]"
+        ;
+        puVar16[2] = 0x4b;
+        puVar16[1] = (uint)
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/xaudio2_full/audioallocator.h"
+        ;
+        *puVar16 = (uint)"memory";
+                    /* try { // try from 0410abbc to 0410abe5 has its CatchHandler @ 0410acb9 */
+        puVar16[-1] = 0x410abc1;
+        FUN_0400a810();
+      }
+      *puVar16 = (uint)puVar4;
+      puVar16[1] = (uint)local_54;
+      puVar16[-1] = 0x410a801;
+      bzero((void *)*puVar16,puVar16[1]);
+      local_74 = (int *)((param_1[0x34] - (int)local_64 >> 2) * -0x55555555);
+      local_6c = (int *)param_1[0x34];
+    }
+    local_28 = puVar4;
+    local_20 = (int)local_54 + (int)puVar4;
+    puVar5 = puVar4;
+    piVar7 = local_50;
+    if (puVar17 != local_50) {
+      do {
+        if (puVar5 != (undefined4 *)0x0) {
+          *puVar5 = *piVar7;
+        }
+        piVar7 = piVar7 + 1;
+        puVar5 = puVar5 + 1;
+      } while (puVar17 != piVar7);
+      puVar4 = (undefined4 *)((int)puVar4 + ((int)puVar17 - (int)(local_50 + 1) & 0xfffffffcU) + 4);
+    }
+    local_24 = puVar4;
+    if (local_7c < local_74) {
+      piVar6 = local_6c + (int)local_7c * -3;
+      piVar13 = local_6c;
+      for (piVar7 = piVar6; piVar7 != local_6c; piVar7 = piVar7 + 3) {
+        if (piVar13 != (int *)0x0) {
+          *piVar13 = 0;
+          piVar13[1] = 0;
+          piVar13[2] = 0;
+          *piVar13 = *piVar7;
+          piVar13[1] = piVar7[1];
+          piVar13[2] = piVar7[2];
+          *piVar7 = 0;
+          piVar7[1] = 0;
+          piVar7[2] = 0;
+        }
+        piVar13 = piVar13 + 3;
+      }
+      iVar12 = ((int)piVar6 - (int)local_64 >> 2) * -0x55555555;
+      param_1[0x34] = (int)(local_6c + (int)local_7c * 3);
+      piVar7 = local_6c;
+      if (0 < iVar12) {
+        do {
+          piVar13 = piVar7 + -3;
+          piVar10 = piVar6 + -3;
+          iVar12 = iVar12 + -1;
+          piVar7[-2] = *piVar13;
+          iVar14 = *piVar13;
+          *piVar13 = *piVar10;
+          *piVar10 = iVar14;
+          iVar14 = piVar7[-2];
+          piVar7[-2] = piVar6[-2];
+          piVar6[-2] = iVar14;
+          iVar14 = piVar7[-1];
+          piVar7[-1] = piVar6[-1];
+          piVar6[-1] = iVar14;
+          piVar7 = piVar13;
+          piVar6 = piVar10;
+          local_58 = (undefined4 **)param_1;
+        } while (iVar12 != 0);
+      }
+      local_54 = local_64 + (int)local_7c * 3;
+      if (local_64 != local_54) {
+        piVar7 = local_64;
+        do {
+          puVar16[1] = (uint)&local_28;
+          *puVar16 = (uint)piVar7;
+                    /* try { // try from 0410a957 to 0410aafb has its CatchHandler @ 0410ac22 */
+          puVar16[-1] = 0x410a95c;
+          audioallocator_04105980();
+          piVar7 = piVar7 + 3;
+        } while (local_54 != piVar7);
+      }
+    }
+    else {
+      local_7c = (int *)((int)local_7c - (int)local_74);
+      piVar7 = local_6c;
+      piVar13 = param_1;
+      piVar6 = local_7c;
+      if (local_7c != (int *)0x0) {
+        do {
+          local_54 = piVar6;
+          local_78 = piVar13;
+          if (piVar7 != (int *)0x0) {
+            local_58 = &local_28;
+            *piVar7 = 0;
+            piVar7[1] = 0;
+            piVar7[2] = 0;
+            iVar12 = (int)local_24 - (int)local_28 >> 2;
+            if (iVar12 == 0) {
+              uVar9 = 0;
+              piVar13 = (int *)0x0;
+            }
+            else {
+              uVar9 = iVar12 << 2;
+              *puVar16 = 0x10;
+              puVar16[1] = uVar9;
+              puVar16[-1] = 0x410a9f6;
+              piVar13 = (int *)memalign();
+              if (piVar13 == (int *)0x0) {
+                puVar16[3] = (uint)
+                             "T* AudioAllocator<T>::allocate(AudioAllocator<T>::size_type, const void*) [with T = float, AudioAllocator<T>::pointer = float*, AudioAllocator<T>::size_type = unsigned int]"
+                ;
+                puVar16[2] = 0x4b;
+                puVar16[1] = (uint)
+                             "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/xaudio2_full/audioallocator.h"
+                ;
+                *puVar16 = (uint)"memory";
+                    /* try { // try from 0410ab31 to 0410ab35 has its CatchHandler @ 0410abf8 */
+                puVar16[-1] = 0x410ab36;
+                FUN_0400a810();
+              }
+              puVar16[1] = uVar9;
+              *puVar16 = (uint)piVar13;
+              puVar16[-1] = 0x410aa0c;
+              bzero((void *)*puVar16,puVar16[1]);
+            }
+            *piVar7 = (int)piVar13;
+            piVar7[1] = (int)piVar13;
+            piVar7[2] = uVar9 + (int)piVar13;
+            piVar6 = *local_58;
+            piVar10 = local_58[1];
+            piVar8 = piVar13;
+            piVar11 = piVar6;
+            if (piVar10 != piVar6) {
+              do {
+                if (piVar8 != (int *)0x0) {
+                  *piVar8 = *piVar11;
+                }
+                piVar11 = piVar11 + 1;
+                piVar8 = piVar8 + 1;
+              } while (piVar10 != piVar11);
+              piVar13 = (int *)((int)piVar13 + ((int)piVar10 - (int)(piVar6 + 1) & 0xfffffffcU) + 4)
+              ;
+            }
+            piVar7[1] = (int)piVar13;
+            local_58 = (undefined4 **)piVar6;
+          }
+          piVar7 = piVar7 + 3;
+          piVar13 = local_78;
+          piVar6 = (int *)((int)local_54 + -1);
+        } while ((int *)((int)local_54 + -1) != (int *)0x0);
+        local_54 = (int *)0x0;
+        piVar7 = (int *)local_78[0x34];
+        param_1 = local_78;
+      }
+      piVar7 = piVar7 + (int)local_7c * 3;
+      param_1[0x34] = (int)piVar7;
+      piVar13 = piVar7;
+      piVar6 = local_64;
+      if (local_64 == local_6c) {
+        param_1[0x34] = (int)(piVar7 + (int)local_74 * 3);
+      }
+      else {
+        do {
+          if (piVar13 != (int *)0x0) {
+            *piVar13 = 0;
+            piVar13[1] = 0;
+            piVar13[2] = 0;
+            *piVar13 = *piVar6;
+            piVar13[1] = piVar6[1];
+            piVar13[2] = piVar6[2];
+            *piVar6 = 0;
+            piVar6[1] = 0;
+            piVar6[2] = 0;
+          }
+          piVar6 = piVar6 + 3;
+          piVar13 = piVar13 + 3;
+        } while (piVar6 != local_6c);
+        param_1[0x34] = (int)(piVar7 + (int)local_74 * 3);
+        piVar7 = local_64;
+        do {
+          puVar16[1] = (uint)&local_28;
+          *puVar16 = (uint)piVar7;
+          puVar16[-1] = 0x410aafc;
+          audioallocator_04105980();
+          piVar7 = piVar7 + 3;
+        } while (local_6c != piVar7);
+      }
+    }
+    if (local_28 != (undefined4 *)0x0) {
+      *puVar16 = (uint)local_28;
+      puVar16[-1] = 0x410a977;
+      free((void *)*puVar16);
+    }
+    goto LAB_04109c7b;
+  }
+  if ((int *)(iVar12 * 0x55555555 + 0x15555555) < local_7c) {
+    *puVar16 = (uint)"vector::_M_fill_insert";
+                    /* WARNING: Subroutine does not return */
+    puVar16[-1] = 0x410abe6;
+    std::__throw_length_error((char *)*puVar16);
+  }
+  iVar14 = -4;
+  local_84 = 0x15555555;
+  piVar7 = local_7c;
+  if (local_7c < piVar13) {
+    piVar7 = piVar13;
+  }
+  uVar9 = (int)piVar7 + (int)piVar13;
+  if ((CARRY4((uint)piVar7,(uint)piVar13)) || (0x15555555 < uVar9)) {
+LAB_0410a0e0:
+    *puVar16 = iVar14;
+                    /* try { // try from 0410a0e3 to 0410a0e7 has its CatchHandler @ 0410acb9 */
+    puVar16[-1] = 0x410a0e8;
+    local_80 = operator_new(*puVar16);
+  }
+  else {
+    if (uVar9 != 0) {
+      iVar14 = uVar9 * 0xc;
+      local_84 = uVar9;
+      goto LAB_0410a0e0;
+    }
+    local_80 = (int *)0x0;
+    local_84 = 0;
+  }
+  piVar7 = local_80 + iVar12;
+  local_74 = (int *)((int)puVar17 - (int)local_50 >> 2);
+  local_58 = (undefined4 **)((int)local_74 << 2);
+  local_54 = local_7c;
+  local_78 = (int *)((int)puVar17 - (int)(local_50 + 1));
+  local_8c = param_1;
+  local_88 = piVar7;
+  do {
+    if (piVar7 != (int *)0x0) {
+      *piVar7 = 0;
+      piVar7[1] = 0;
+      piVar7[2] = 0;
+      if (local_74 == (int *)0x0) {
+        puVar4 = (undefined4 *)0x0;
+      }
+      else {
+        *puVar16 = 0x10;
+        puVar16[1] = (uint)local_58;
+        puVar16[-1] = 0x410a162;
+        puVar4 = (undefined4 *)memalign();
+        if (puVar4 == (undefined4 *)0x0) {
+          puVar16[3] = (uint)
+                       "T* AudioAllocator<T>::allocate(AudioAllocator<T>::size_type, const void*) [with T = float, AudioAllocator<T>::pointer = float*, AudioAllocator<T>::size_type = unsigned int]"
+          ;
+          puVar16[2] = 0x4b;
+          puVar16[1] = (uint)
+                       "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/xaudio2_full/audioallocator.h"
+          ;
+          *puVar16 = (uint)"memory";
+                    /* try { // try from 0410a759 to 0410a75d has its CatchHandler @ 0410ac4d */
+          puVar16[-1] = 0x410a75e;
+          FUN_0400a810();
+        }
+        *puVar16 = (uint)puVar4;
+        puVar16[1] = (uint)local_58;
+        puVar16[-1] = 0x410a17b;
+        bzero((void *)*puVar16,puVar16[1]);
+      }
+      *piVar7 = (int)puVar4;
+      piVar7[1] = (int)puVar4;
+      piVar7[2] = (int)local_58 + (int)puVar4;
+      puVar5 = puVar4;
+      piVar13 = local_50;
+      if (puVar17 != local_50) {
+        do {
+          if (puVar5 != (undefined4 *)0x0) {
+            *puVar5 = *piVar13;
+          }
+          piVar13 = piVar13 + 1;
+          puVar5 = puVar5 + 1;
+        } while (puVar17 != piVar13);
+        puVar4 = (undefined4 *)((int)puVar4 + ((uint)local_78 & 0xfffffffc) + 4);
+      }
+      piVar7[1] = (int)puVar4;
+    }
+    param_1 = local_8c;
+    piVar7 = piVar7 + 3;
+    local_54 = (int *)((int)local_54 + -1);
+  } while (local_54 != (int *)0x0);
+  piVar7 = (int *)local_8c[0x33];
+  piVar13 = local_80;
+  local_54 = local_80;
+  piVar6 = piVar7;
+  if (local_64 != piVar7) {
+    do {
+      if (piVar13 != (int *)0x0) {
+        *piVar13 = 0;
+        piVar13[1] = 0;
+        piVar13[2] = 0;
+        *piVar13 = *piVar6;
+        piVar13[1] = piVar6[1];
+        piVar13[2] = piVar6[2];
+        *piVar6 = 0;
+        piVar6[1] = 0;
+        piVar6[2] = 0;
+      }
+      piVar6 = piVar6 + 3;
+      piVar13 = piVar13 + 3;
+    } while (local_64 != piVar6);
+    local_54 = (int *)((int)local_80 + ((int)local_64 - (int)(piVar7 + 3) & 0xfffffffcU) + 0xc);
+  }
+  piVar13 = (int *)local_8c[0x34];
+  local_54 = local_54 + (int)local_7c * 3;
+  piVar6 = local_54;
+  piVar10 = local_64;
+  if (local_64 != piVar13) {
+    do {
+      if (piVar6 != (int *)0x0) {
+        *piVar6 = 0;
+        piVar6[1] = 0;
+        piVar6[2] = 0;
+        *piVar6 = *piVar10;
+        piVar6[1] = piVar10[1];
+        piVar6[2] = piVar10[2];
+        *piVar10 = 0;
+        piVar10[1] = 0;
+        piVar10[2] = 0;
+      }
+      piVar10 = piVar10 + 3;
+      piVar6 = piVar6 + 3;
+    } while (piVar13 != piVar10);
+    local_54 = (int *)((int)local_54 + ((int)piVar13 - (int)(local_64 + 3) & 0xfffffffcU) + 0xc);
+  }
+  if (piVar7 != piVar13) {
+    do {
+      if (*piVar7 != 0) {
+        *puVar16 = *piVar7;
+        puVar16[-1] = 0x410a2de;
+        free((void *)*puVar16);
+      }
+      piVar7 = piVar7 + 3;
+    } while (piVar13 != piVar7);
+    piVar7 = (int *)param_1[0x33];
+  }
+  if (piVar7 != (int *)0x0) {
+    *puVar16 = (uint)piVar7;
+    puVar16[-1] = 0x410a2f7;
+    operator_delete((void *)*puVar16);
+  }
+  param_1[0x33] = (int)local_80;
+  param_1[0x34] = (int)local_54;
+  param_1[0x35] = (int)(local_80 + local_84 * 3);
+LAB_04109c7b:
+  if (local_50 != (undefined4 *)0x0) {
+    *puVar16 = (uint)local_50;
+    puVar16[-1] = 0x4109c8d;
+    free((void *)*puVar16);
+  }
+  if ((int)local_70 <= (int)local_60) {
+    local_60 = local_70;
+  }
+  iVar12 = param_1[0x5d];
+  iVar14 = iVar12 + -4;
+  if (iVar14 < 0) {
+    iVar14 = 0;
+  }
+  local_58 = (undefined4 **)0;
+  if (-1 < 4 - iVar12) {
+    local_58 = (undefined4 **)(4 - iVar12);
+  }
+  iVar18 = 4;
+  if (iVar12 < 5) {
+    iVar18 = iVar12;
+  }
+  iVar12 = (int)local_5c + (-iVar12 - local_60);
+  if (4 < iVar12) {
+    iVar12 = 4;
+  }
+  uVar9 = iVar12 + iVar18 + local_60;
+  local_50 = (int *)((int)local_5c - iVar14);
+  if ((int)uVar9 <= (int)local_5c - iVar14) {
+    local_50 = (int *)uVar9;
+  }
+  piVar7 = (int *)param_1[0x56];
+  local_54 = (int *)((int)local_50 + iVar14);
+  if ((param_1[0x57] - (int)piVar7 >> 2) * -0x55555555 == 0) {
+    puVar16[3] = (uint)"int GetNumOfSamples(const PcmData&)";
+    puVar16[2] = 0x13;
+    puVar16[1] = (uint)
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/xaudio2_full/xaudio2helpers.h"
+    ;
+    *puVar16 = (uint)"pcm.channels.size() > 0";
+    puVar16[-1] = 0x4109d25;
+    FUN_0400a810();
+    piVar7 = (int *)param_1[0x56];
+  }
+  if (piVar7[1] - *piVar7 >> 2 < (int)local_54) {
+    puVar16[3] = (uint)"void XAudio2SourceVoiceImp::UpdateBuffers()";
+    puVar16[2] = 0x15d;
+    puVar16[1] = (uint)
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/xaudio2_full/xaudio2sourcevoiceimpl.cpp"
+    ;
+    *puVar16 = (uint)"sourceOffset + toCopy <= GetNumOfSamples( currentPcm )";
+    puVar16[-1] = 0x410a374;
+    FUN_0400a810();
+  }
+  local_64 = (int *)((int)local_58 + (int)local_50);
+  piVar7 = (int *)param_1[0x33];
+  if ((param_1[0x34] - (int)piVar7 >> 2) * -0x55555555 == 0) {
+    puVar16[3] = (uint)"int GetNumOfSamples(const PcmData&)";
+    puVar16[2] = 0x13;
+    puVar16[1] = (uint)
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/xaudio2_full/xaudio2helpers.h"
+    ;
+    *puVar16 = (uint)"pcm.channels.size() > 0";
+    puVar16[-1] = 0x4109d84;
+    FUN_0400a810();
+    piVar7 = (int *)param_1[0x33];
+  }
+  if (piVar7[1] - *piVar7 >> 2 < (int)local_64) {
+    puVar16[3] = (uint)"void XAudio2SourceVoiceImp::UpdateBuffers()";
+    puVar16[2] = 0x15e;
+    puVar16[1] = (uint)
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/xaudio2_full/xaudio2sourcevoiceimpl.cpp"
+    ;
+    *puVar16 = (uint)"targetOffset + toCopy <= GetNumOfSamples( mAudioBuffer )";
+    puVar16[-1] = 0x410a344;
+    FUN_0400a810();
+    piVar7 = (int *)param_1[0x33];
+  }
+  piVar13 = (int *)param_1[0x56];
+  iVar12 = param_1[0x57] - (int)piVar13 >> 2;
+  if ((param_1[0x34] - (int)piVar7 >> 2) * -0x55555555 + iVar12 * 0x55555555 != 0) {
+    puVar16[3] = (uint)
+                 "void XAudio2SourceVoiceImp::CopyPcm(PcmData&, int, const PcmData&, int, int)";
+    puVar16[2] = 0x1a5;
+    puVar16[1] = (uint)
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/xaudio2_full/xaudio2sourcevoiceimpl.cpp"
+    ;
+    *puVar16 = (uint)"GetNumOfChannels( target ) == GetNumOfChannels( source )";
+    puVar16[-1] = 0x4109deb;
+    FUN_0400a810();
+    piVar13 = (int *)param_1[0x56];
+    iVar12 = param_1[0x57] - (int)piVar13 >> 2;
+  }
+  if (iVar12 * -0x55555555 == 0) {
+    puVar16[3] = (uint)"int GetNumOfSamples(const PcmData&)";
+    puVar16[2] = 0x13;
+    puVar16[1] = (uint)
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/xaudio2_full/xaudio2helpers.h"
+    ;
+    *puVar16 = (uint)"pcm.channels.size() > 0";
+    puVar16[-1] = 0x4109e2a;
+    FUN_0400a810();
+    piVar13 = (int *)param_1[0x56];
+  }
+  if (piVar13[1] - *piVar13 >> 2 < (int)local_54) {
+    puVar16[3] = (uint)
+                 "void XAudio2SourceVoiceImp::CopyPcm(PcmData&, int, const PcmData&, int, int)";
+    puVar16[2] = 0x1a6;
+    puVar16[1] = (uint)
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/xaudio2_full/xaudio2sourcevoiceimpl.cpp"
+    ;
+    *puVar16 = (uint)"sourceOffset + numOfSamples <= GetNumOfSamples( source )";
+    puVar16[-1] = 0x410a3a4;
+    FUN_0400a810();
+  }
+  piVar7 = (int *)param_1[0x33];
+  if ((param_1[0x34] - (int)piVar7 >> 2) * -0x55555555 == 0) {
+    puVar16[3] = (uint)"int GetNumOfSamples(const PcmData&)";
+    puVar16[2] = 0x13;
+    puVar16[1] = (uint)
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/xaudio2_full/xaudio2helpers.h"
+    ;
+    *puVar16 = (uint)"pcm.channels.size() > 0";
+    puVar16[-1] = 0x4109e80;
+    FUN_0400a810();
+    piVar7 = (int *)param_1[0x33];
+  }
+  if (piVar7[1] - *piVar7 >> 2 < (int)local_64) {
+    puVar16[3] = (uint)
+                 "void XAudio2SourceVoiceImp::CopyPcm(PcmData&, int, const PcmData&, int, int)";
+    puVar16[2] = 0x1a7;
+    puVar16[1] = (uint)
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/xaudio2_full/xaudio2sourcevoiceimpl.cpp"
+    ;
+    *puVar16 = (uint)"targetOffset + numOfSamples <= GetNumOfSamples( target )";
+    puVar16[-1] = 0x410a3d4;
+    FUN_0400a810();
+    piVar7 = (int *)param_1[0x33];
+  }
+  if (0xb < param_1[0x34] - (int)piVar7) {
+    local_54 = (int *)(iVar14 << 2);
+    iVar14 = 0;
+    local_50 = (int *)((int)local_50 << 2);
+    local_58 = (undefined4 **)((int)local_58 << 2);
+    iVar12 = 0;
+    do {
+      iVar14 = iVar14 + 1;
+      iVar18 = *(int *)((int)piVar7 + iVar12);
+      iVar3 = *(int *)(param_1[0x56] + iVar12);
+      puVar16[2] = (uint)local_50;
+      iVar12 = iVar12 + 0xc;
+      *puVar16 = (int)local_58 + iVar18;
+      puVar16[1] = iVar3 + (int)local_54;
+      puVar16[-1] = 0x4109eeb;
+      memcpy((void *)*puVar16,(void *)puVar16[1],puVar16[2]);
+      piVar7 = (int *)param_1[0x33];
+    } while (iVar14 < (param_1[0x34] - (int)piVar7 >> 2) * -0x55555555);
+  }
+  puVar1 = (uint *)(param_1 + 0x5a);
+  uVar9 = *puVar1;
+  *puVar1 = *puVar1 + local_60;
+  param_1[0x5b] = param_1[0x5b] + ((int)local_60 >> 0x1f) + (uint)CARRY4(uVar9,local_60);
+  iVar12 = param_1[0x5d];
+  param_1[0x5d] = local_60 + iVar12;
+  if ((int)local_5c <= (int)(local_60 + iVar12)) {
+    param_1[0x5d] = 0;
+    iVar12 = *(int *)(local_68 + 0x1c);
+    if (iVar12 == 0) {
+      piVar7 = (int *)param_1[0x5c];
+      if (piVar7 != (int *)0x0) {
+        iVar12 = *piVar7;
+        uVar9 = *(uint *)(local_68 + 0x20);
+        *puVar16 = (uint)piVar7;
+        puVar16[1] = uVar9;
+        pcVar2 = *(code **)(iVar12 + 0x10);
+        puVar16[-1] = 0x410a3fc;
+        (*pcVar2)();
+        puVar16 = puVar16 + -2;
+      }
+      if (param_1[0x4e] == param_1[0x50] + -0x24) {
+        *puVar16 = param_1[0x4f];
+        puVar16[-1] = 0x410ab49;
+        operator_delete((void *)*puVar16);
+        iVar12 = param_1[0x51];
+        param_1[0x51] = iVar12 + 4;
+        iVar12 = *(int *)(iVar12 + 4);
+        param_1[0x4f] = iVar12;
+        param_1[0x50] = iVar12 + 0x1f8;
+        param_1[0x4e] = iVar12;
+      }
+      else {
+        param_1[0x4e] = param_1[0x4e] + 0x24;
+      }
+      piVar13 = (int *)param_1[0x57];
+      piVar7 = (int *)param_1[0x56];
+      local_5c = piVar7;
+      for (; piVar7 != piVar13; piVar7 = piVar7 + 3) {
+        if (*piVar7 != 0) {
+          *puVar16 = *piVar7;
+          puVar16[-1] = 0x410a446;
+          free((void *)*puVar16);
+        }
+      }
+      param_1[0x57] = (int)local_5c;
+    }
+    else {
+      if (*(char *)((int)param_1 + 0x179) == '\0') {
+        if (iVar12 != 0xff) {
+          *(int *)(local_68 + 0x1c) = iVar12 + -1;
+        }
+      }
+      else {
+        *(undefined4 *)(local_68 + 0x1c) = 0;
+        *(undefined1 *)((int)param_1 + 0x179) = 0;
+      }
+      piVar7 = (int *)param_1[0x5c];
+      if (piVar7 == (int *)0x0) {
+        return;
+      }
+      iVar12 = *piVar7;
+      uVar9 = *(uint *)(local_68 + 0x20);
+      *puVar16 = (uint)piVar7;
+      puVar16[1] = uVar9;
+      pcVar2 = *(code **)(iVar12 + 0x14);
+      puVar16[-1] = 0x4109f9f;
+      (*pcVar2)();
+      puVar16 = puVar16 + -2;
+    }
+  }
+  piVar7 = (int *)param_1[0x5c];
+  if (piVar7 != (int *)0x0) {
+    iVar12 = *piVar7;
+    *puVar16 = (uint)piVar7;
+    pcVar2 = *(code **)(iVar12 + 4);
+    puVar16[-1] = 0x4109f40;
+    (*pcVar2)();
+  }
+  return;
+}
+
+// --- XAudio2SourceVoiceImp::XAudio2SourceVoiceImp @0x041095d0 ---
+/* WARNING: Removing unreachable block (ram,0x041096de) */
+/* WARNING: Removing unreachable block (ram,0x041097ab) */
+/* WARNING: Removing unreachable block (ram,0x041097b5) */
+/* WARNING: Removing unreachable block (ram,0x041097c0) */
+/* WARNING: Removing unreachable block (ram,0x041097d1) */
+/* WARNING: Removing unreachable block (ram,0x041097d9) */
+/* source: xaudio2sourcevoiceimpl */
+
+void XAudio2SourceVoiceImp__XAudio2SourceVoiceImp
+               (undefined4 *param_1,undefined4 param_2,undefined4 param_3,int param_4,
+               undefined4 param_5,undefined4 param_6,undefined4 param_7,undefined4 param_8)
+
+{
+  void *pvVar1;
+  char cVar2;
+  void *pvVar3;
+  
+  FUN_0410db50(param_1,param_2,param_3,param_6,param_7);
+  *param_1 = &PTR_FUN_04310ee8;
+  param_1[0x4b] = 0;
+                    /* try { // try from 0410965c to 04109660 has its CatchHandler @ 0410997a */
+  FUN_04109330();
+  param_1[0x4c] = 0;
+  param_1[0x4d] = 0;
+  param_1[0x4e] = 0;
+  param_1[0x4f] = 0;
+  param_1[0x50] = 0;
+  param_1[0x51] = 0;
+  param_1[0x52] = 0;
+  param_1[0x53] = 0;
+  param_1[0x54] = 0;
+  param_1[0x55] = 0;
+                    /* try { // try from 041096ce to 041096d2 has its CatchHandler @ 0410996b */
+  FUN_04109330();
+  *(undefined1 *)(param_1 + 0x5e) = 0;
+  param_1[0x56] = 0;
+  param_1[0x57] = 0;
+  param_1[0x58] = 0;
+  param_1[0x59] = param_5;
+  param_1[0x5a] = 0;
+  param_1[0x5b] = 0;
+  param_1[0x5d] = 0;
+  param_1[0x5c] = param_8;
+  *(undefined1 *)((int)param_1 + 0x179) = 0;
+  if (param_4 == 0) {
+    FUN_0400a810("pSourceFormat",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/xaudio2_full/xaudio2sourcevoiceimpl.cpp"
+                 ,0x1a,
+                 "XAudio2SourceVoiceImp::XAudio2SourceVoiceImp(IXAudio2Voice*, XAudio2*, const WAVEFORMATEX*, float, UINT32, const XAUDIO2_EFFECT_CHAIN*, IXAudio2VoiceCallback*)"
+                );
+  }
+  param_1[0x31] = *(undefined4 *)(param_4 + 4);
+  param_1[0x32] = (uint)*(ushort *)(param_4 + 2);
+                    /* try { // try from 04109857 to 0410987b has its CatchHandler @ 04109967 */
+  cVar2 = FUN_041018a0(param_4);
+  if (cVar2 != '\0') {
+    pvVar3 = operator_new(8);
+                    /* try { // try from 04109885 to 04109889 has its CatchHandler @ 041098e1 */
+    AudioConverter__AudioConverter(pvVar3,param_4);
+    pvVar1 = (void *)param_1[0x4b];
+    param_1[0x4b] = pvVar3;
+    if (pvVar1 != (void *)0x0) {
+                    /* try { // try from 0410989d to 041098db has its CatchHandler @ 04109967 */
+      FUN_041016f0(pvVar1);
+      operator_delete(pvVar1);
+      return;
+    }
+  }
+  return;
+}
+

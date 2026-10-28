@@ -1,6 +1,22 @@
-// Recovered source skeleton: eon2/src/dlls/win32/ole32/mallocimp.cpp
-// Source path from baked debug strings (seeds/string_refs.csv); members are
-// functions that reference it. Not compiled — membership ledger only.
+// Recovered source: eon2/src/dlls/win32/ole32/mallocimp.cpp
+// Bodies: Ghidra decompile (live MCP) for named members; corpus decompile
+// for call-graph-attached unnamed helpers. Not compiled — recovery draft.
 
-// === members (1) ===
-//   MallocImp::Alloc  @0x04161150
+// --- MallocImp::Alloc @0x04161150 ---
+/* source: mallocimp */
+
+void MallocImp__Alloc(undefined4 param_1,int param_2)
+
+{
+  undefined4 uVar1;
+  
+  if (param_2 == 0) {
+    FUN_0400a810(&DAT_0435e692,
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/ole32/mallocimp.cpp"
+                 ,0x35,"virtual void* MallocImp::Alloc(SIZE_T)");
+  }
+  uVar1 = eON_GetProcessHeap();
+  HeapAlloc(uVar1,0,param_2);
+  return;
+}
+

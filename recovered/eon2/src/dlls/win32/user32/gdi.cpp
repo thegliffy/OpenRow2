@@ -1,6 +1,38 @@
-// Recovered source skeleton: eon2/src/dlls/win32/user32/gdi.cpp
-// Source path from baked debug strings (seeds/string_refs.csv); members are
-// functions that reference it. Not compiled — membership ledger only.
+// Recovered source: eon2/src/dlls/win32/user32/gdi.cpp
+// Bodies: Ghidra decompile (live MCP) for named members; corpus decompile
+// for call-graph-attached unnamed helpers. Not compiled — recovery draft.
 
-// === members (1) ===
-//   eON_GetDC  @0x04175320
+// --- eON_GetDC @0x04175320 ---
+/* source: gdi */
+
+int eON_GetDC(int *param_1)
+
+{
+  char cVar1;
+  int iVar2;
+  int iVar3;
+  
+  if ((param_1 == (int *)0x0) || (param_1 == (int *)0x271a)) {
+    iVar2 = FUN_0411ca30();
+  }
+  else {
+    cVar1 = FUN_0404ecd0(param_1);
+    if (cVar1 == '\0') {
+      eON_SetLastError(0x578);
+      return 0;
+    }
+    iVar2 = eON_Gdi_GetDCForWindow(param_1);
+    if (iVar2 == 0) {
+      FUN_0400a810("dc",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/user32/gdi.cpp",
+                   0x34,"void* eON_GetDC(HWND)");
+    }
+    iVar3 = (**(code **)(*param_1 + 0xb8))(param_1);
+    if (iVar3 != 0) {
+      eON_Gdi_SetDCSelectedObject(iVar2,iVar3);
+    }
+  }
+  HDC_AddRef(iVar2);
+  return iVar2;
+}
+

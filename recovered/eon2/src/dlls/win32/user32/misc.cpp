@@ -1,6 +1,32 @@
-// Recovered source skeleton: eon2/src/dlls/win32/user32/misc.cpp
-// Source path from baked debug strings (seeds/string_refs.csv); members are
-// functions that reference it. Not compiled — membership ledger only.
+// Recovered source: eon2/src/dlls/win32/user32/misc.cpp
+// Bodies: Ghidra decompile (live MCP) for named members; corpus decompile
+// for call-graph-attached unnamed helpers. Not compiled — recovery draft.
 
-// === members (1) ===
-//   user32_DllMain  @0x04177cb0
+// --- user32_DllMain @0x04177cb0 ---
+/* source: misc */
+
+undefined4 user32_DllMain(undefined4 param_1,int param_2)
+
+{
+  int iVar1;
+  pthread_mutexattr_t local_14 [3];
+  
+  if (param_2 == 0) {
+    pthread_mutex_destroy((pthread_mutex_t *)&DAT_0451be20);
+  }
+  else if (param_2 == 1) {
+    pthread_mutexattr_init(local_14);
+    pthread_mutexattr_settype(local_14,1);
+    iVar1 = pthread_mutex_init((pthread_mutex_t *)&DAT_0451be20,local_14);
+    if (iVar1 != 0) {
+      FUN_0400a810("pthread_mutex_init( &gMessageQueueRegion, &attr ) == 0",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/user32/misc.cpp",
+                   0x10a,"DWORD user32_DllMain(HINSTANCE, DWORD, LPVOID)");
+    }
+    pthread_mutexattr_destroy(local_14);
+    eON_Clipboard_Init();
+    return 1;
+  }
+  return 1;
+}
+

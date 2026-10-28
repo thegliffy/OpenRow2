@@ -1,6 +1,43 @@
-// Recovered source skeleton: eon2/src/dlls/win32/ole32/guidfuncs.cpp
-// Source path from baked debug strings (seeds/string_refs.csv); members are
-// functions that reference it. Not compiled — membership ledger only.
+// Recovered source: eon2/src/dlls/win32/ole32/guidfuncs.cpp
+// Bodies: Ghidra decompile (live MCP) for named members; corpus decompile
+// for call-graph-attached unnamed helpers. Not compiled — recovery draft.
 
-// === members (1) ===
-//   eON_CoCreateGuid  @0x04160710
+// --- eON_CoCreateGuid @0x04160710 ---
+/* source: guidfuncs */
+
+undefined4 eON_CoCreateGuid(int *param_1)
+
+{
+  int iVar1;
+  
+  if (param_1 == (int *)0x0) {
+    FUN_0400a810("pguid",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/ole32/guidfuncs.cpp"
+                 ,0x99,"HRESULT eON_CoCreateGuid(GUID*)");
+  }
+  iVar1 = rand();
+  *param_1 = iVar1;
+  iVar1 = rand();
+  *(short *)(param_1 + 1) = (short)iVar1;
+  iVar1 = rand();
+  *(ushort *)((int)param_1 + 6) = (ushort)iVar1 & 0xfff | 0x4000;
+  iVar1 = rand();
+  *(char *)(param_1 + 2) = (char)iVar1;
+  iVar1 = rand();
+  *(char *)((int)param_1 + 9) = (char)iVar1;
+  iVar1 = rand();
+  *(char *)((int)param_1 + 10) = (char)iVar1;
+  iVar1 = rand();
+  *(char *)((int)param_1 + 0xb) = (char)iVar1;
+  iVar1 = rand();
+  *(char *)(param_1 + 3) = (char)iVar1;
+  iVar1 = rand();
+  *(char *)((int)param_1 + 0xd) = (char)iVar1;
+  iVar1 = rand();
+  *(char *)((int)param_1 + 0xe) = (char)iVar1;
+  iVar1 = rand();
+  *(char *)((int)param_1 + 0xf) = (char)iVar1;
+  *(byte *)(param_1 + 2) = *(byte *)(param_1 + 2) & 0x3f | 0x80;
+  return 0x720;
+}
+

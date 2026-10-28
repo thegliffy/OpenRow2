@@ -1,6 +1,832 @@
-// Recovered source skeleton: eon2/src/dlls/win32/user32/text.cpp
-// Source path from baked debug strings (seeds/string_refs.csv); members are
-// functions that reference it. Not compiled — membership ledger only.
+// Recovered source: eon2/src/dlls/win32/user32/text.cpp
+// Bodies: Ghidra decompile (live MCP) for named members; corpus decompile
+// for call-graph-attached unnamed helpers. Not compiled — recovery draft.
 
-// === members (1) ===
-//   eON_Int_GetCharWidth  @0x0417f130
+// --- eON_Int_GetCharWidth @0x0417f130 ---
+/* source: text */
+
+int eON_Int_GetCharWidth
+              (undefined4 param_1,short *param_2,void *param_3,int *param_4,void *param_5,
+              int *param_6)
+
+{
+  ushort uVar1;
+  int iVar2;
+  void *pvVar3;
+  int iVar4;
+  int *piVar5;
+  void *pvVar6;
+  int iVar7;
+  uint uVar8;
+  char **ppcVar9;
+  uint *puVar10;
+  undefined4 *puVar11;
+  char **ppcVar12;
+  wint_t *pwVar13;
+  void *pvVar14;
+  uint *puVar15;
+  uint uVar16;
+  int iVar17;
+  uint *puVar18;
+  void *pvVar19;
+  bool bVar20;
+  wint_t local_5ec [5];
+  char *local_5d8 [2];
+  uint local_5d0;
+  char *local_5cc [4];
+  int *local_5bc;
+  uint local_594;
+  wint_t local_590;
+  void *local_58c;
+  uint local_588;
+  int local_584;
+  int local_580;
+  uint local_57c;
+  uint local_578;
+  uint local_574;
+  void *local_570;
+  uint local_56c;
+  int local_568;
+  int local_564;
+  int *local_560;
+  uint *local_55c;
+  void *local_558;
+  void *local_554;
+  uint local_550;
+  uint local_54c;
+  uint *local_548;
+  void *local_544;
+  void *local_540;
+  int *local_53c;
+  void *local_538;
+  void *local_534;
+  uint local_530;
+  undefined4 local_52c;
+  uint *local_528;
+  short *local_524;
+  uint local_518;
+  void *local_514;
+  uint local_510 [298];
+  int local_68 [4];
+  int local_58;
+  int local_54;
+  int local_2c;
+  int local_28;
+  int local_24;
+  undefined4 *local_18;
+  
+  pvVar14 = param_5;
+  pvVar3 = param_3;
+  local_18 = &param_1;
+  local_52c = param_1;
+  local_524 = param_2;
+  local_53c = param_4;
+  local_560 = param_6;
+  if ((param_6 != (int *)0x0) && (local_564 = 0, *param_6 != 0x14)) {
+    return 0;
+  }
+  if (((uint)param_5 & 0x37e000) == 0) {
+    if (((uint)param_5 & 0x800) == 0) {
+      local_5bc = (int *)0x434a308;
+      local_5cc[3] = (char *)0xa;
+      local_5cc[2] = (char *)0x417f263;
+      FUN_0402cd10();
+    }
+    if (local_524 == (short *)0x0) {
+      return 0;
+    }
+    local_5bc = local_68;
+    local_5cc[3] = (char *)local_52c;
+    local_5cc[2] = (char *)0x417f1d7;
+    iVar2 = eON_GetTextMetrics();
+    if (iVar2 == 0) {
+      return 0;
+    }
+    local_564 = local_68[0] + local_58;
+    if (((uint)pvVar14 & 0x200) == 0) {
+      local_564 = local_68[0];
+    }
+    if (pvVar3 == (void *)0xffffffff) {
+      if (*local_524 == 0) goto LAB_0417f20a;
+      pvVar3 = (void *)0x0;
+      do {
+        pvVar3 = (void *)((int)pvVar3 + 1);
+      } while (local_524[(int)pvVar3] != 0);
+    }
+    if (pvVar3 == (void *)0x0) {
+LAB_0417f20a:
+      if (((uint)pvVar14 & 0x400) == 0) {
+        return local_564;
+      }
+      local_53c[2] = *local_53c;
+      local_53c[3] = local_53c[1];
+      if (((uint)pvVar14 & 0x20) != 0) {
+        local_53c[3] = local_53c[1] + local_564;
+        return local_564;
+      }
+      return local_564;
+    }
+    local_584 = 0;
+    local_580 = 0;
+    if (local_560 != (int *)0x0) {
+      local_580 = local_560[2];
+      local_584 = local_560[3];
+      local_560[4] = 0;
+    }
+    local_5bc = &local_2c;
+    local_5cc[3] = (char *)0x9;
+    local_5cc[2] = (char *)0x9;
+    local_5cc[1] = (char *)local_52c;
+    local_5cc[0] = (char *)0x417f2d6;
+    iVar2 = eON_GetCharABCWidthsW();
+    ppcVar12 = local_5d8;
+    ppcVar9 = local_5d8;
+    if (iVar2 != 1) {
+      local_5cc[0] = "INT eON_Int_GetCharWidth(HDC, WCHAR)";
+      local_5d0 = 0x2f4;
+      local_5d8[1] = 
+      "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/user32/text.cpp";
+      local_5d8[0] = "eON_GetCharABCWidthsW( hdc, c, c, &abc ) == 1";
+      FUN_0400a810();
+    }
+    if (((uint)pvVar14 & 0x40) == 0) {
+      local_554 = (void *)(local_2c + local_24 + local_28);
+    }
+    else {
+      if ((local_560 == (int *)0x0) || (((uint)pvVar14 & 0x80) == 0)) {
+        iVar2 = 8;
+      }
+      else {
+        iVar2 = local_560[1];
+      }
+      local_554 = (void *)(local_54 * iVar2);
+    }
+    bVar20 = ((uint)pvVar14 & 0x20) != 0;
+    uVar16 = (uint)local_540 >> 8;
+    local_540 = (void *)((uint)local_540 & 0xffffff00);
+    local_55c = (uint *)CONCAT31(local_55c._1_3_,bVar20);
+    if (!bVar20) {
+      local_540 = (void *)CONCAT31((int3)uVar16,((uint)pvVar14 & 0x10) != 0);
+    }
+    local_56c = 0;
+    puVar15 = pvVar14;
+    if (((uint)pvVar14 & 0x400) != 0) {
+      puVar15 = (uint *)((uint)pvVar14 | 0x100);
+      local_56c = (uint)pvVar14 & 0x400;
+    }
+    if (bVar20) {
+      local_518 = 0;
+      if ((int)pvVar3 < 1) {
+        local_514 = (void *)0x0;
+        local_510[0] = 0;
+        local_568 = 0;
+        iVar2 = *local_53c;
+        pvVar14 = (void *)0x0;
+      }
+      else {
+        pvVar19 = (void *)0x0;
+        pvVar14 = (void *)0x0;
+        ppcVar9 = local_5d8;
+        local_528 = puVar15;
+        do {
+          uVar1 = local_524[(int)pvVar19];
+          pvVar6 = local_554;
+          ppcVar12 = ppcVar9;
+          if (uVar1 != 9) {
+            ppcVar9[3] = (char *)&local_2c;
+            ppcVar9[2] = (char *)(uint)uVar1;
+            ppcVar9[1] = (char *)(uint)uVar1;
+            *ppcVar9 = (char *)local_52c;
+            ppcVar9[-1] = (char *)0x417fdb9;
+            iVar2 = eON_GetCharABCWidthsW();
+            ppcVar12 = ppcVar9 + -4;
+            if (iVar2 != 1) {
+              ppcVar9[-1] = "INT eON_Int_GetCharWidth(HDC, WCHAR)";
+              ppcVar9[-2] = (char *)0x2f4;
+              ppcVar9[-3] = 
+              "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/user32/text.cpp";
+              ppcVar9[-4] = "eON_GetCharABCWidthsW( hdc, c, c, &abc ) == 1";
+              ppcVar9[-5] = (char *)0x417fde5;
+              FUN_0400a810();
+            }
+            pvVar6 = (void *)(local_2c + local_24 + local_28);
+          }
+          pvVar19 = (void *)((int)pvVar19 + 1);
+          pvVar14 = (void *)((int)pvVar14 + (int)pvVar6);
+          ppcVar9 = ppcVar12;
+        } while (pvVar19 != pvVar3);
+        local_510[0] = (uint)pvVar19;
+        local_514 = pvVar14;
+        local_568 = 1;
+        iVar2 = *local_53c;
+        puVar15 = local_528;
+      }
+    }
+    else {
+      if (local_56c == 0) {
+        iVar2 = *local_53c;
+        iVar4 = local_53c[2];
+        ppcVar12 = local_5d8;
+      }
+      else {
+        pvVar14 = (void *)0x0;
+        if (0 < (int)pvVar3) {
+          pvVar14 = (void *)0x0;
+          local_528 = (void *)0x0;
+          local_534 = (void *)0x0;
+          ppcVar12 = local_5d8;
+          local_544 = puVar15;
+          local_538 = pvVar3;
+          do {
+            uVar1 = local_524[(int)pvVar14];
+            uVar16 = (uint)uVar1;
+            *ppcVar12 = (char *)uVar16;
+            ppcVar12[-1] = (char *)0x417f3cd;
+            iVar2 = iswspace((wint_t)*ppcVar12);
+            if (iVar2 != 0) {
+              if ((int)local_534 < (int)local_528) {
+                local_534 = local_528;
+              }
+              local_528 = (void *)0x0;
+            }
+            pvVar3 = local_554;
+            ppcVar9 = ppcVar12;
+            if (uVar1 != 9) {
+              ppcVar12[2] = (char *)uVar16;
+              ppcVar12[1] = (char *)uVar16;
+              ppcVar12[3] = (char *)&local_2c;
+              *ppcVar12 = (char *)local_52c;
+              ppcVar12[-1] = (char *)0x417f41e;
+              iVar2 = eON_GetCharABCWidthsW();
+              ppcVar9 = ppcVar12 + -4;
+              if (iVar2 != 1) {
+                ppcVar12[-1] = "INT eON_Int_GetCharWidth(HDC, WCHAR)";
+                ppcVar12[-2] = (char *)0x2f4;
+                ppcVar12[-3] = 
+                "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/user32/text.cpp";
+                ppcVar12[-4] = "eON_GetCharABCWidthsW( hdc, c, c, &abc ) == 1";
+                ppcVar12[-5] = (char *)0x417f44a;
+                FUN_0400a810();
+              }
+              pvVar3 = (void *)(local_2c + local_24 + local_28);
+            }
+            local_528 = (uint *)((int)local_528 + (int)pvVar3);
+            pvVar14 = (void *)((int)pvVar14 + 1);
+            ppcVar12 = ppcVar9;
+          } while (pvVar14 != local_538);
+          pvVar14 = local_534;
+          pvVar3 = local_538;
+          puVar15 = local_544;
+          if ((int)local_534 <= (int)local_528) {
+            pvVar14 = local_528;
+          }
+        }
+        iVar2 = *local_53c;
+        iVar7 = (int)pvVar14 + local_584 + local_580 + iVar2;
+        iVar4 = local_53c[2];
+        ppcVar12 = ppcVar9;
+        if (local_53c[2] < iVar7) {
+          local_53c[2] = iVar7;
+          iVar4 = iVar7;
+        }
+      }
+      local_548 = (uint *)(((iVar4 - iVar2) - local_580) - local_584);
+      if ((char)local_540 == '\0') {
+        local_518 = 0xffffffff;
+        pvVar14 = (void *)0x0;
+        local_568 = 0;
+        if (0 < (int)pvVar3) {
+          bVar20 = true;
+          pvVar19 = (void *)0x0;
+          local_544 = (void *)0x0;
+          local_528 = (void *)0x0;
+          local_534 = (void *)0x0;
+          local_538 = (void *)0x0;
+          local_540 = (void *)0x0;
+          iVar2 = 0;
+          puVar18 = pvVar14;
+          local_570 = puVar15;
+          local_558 = pvVar3;
+          do {
+            uVar1 = local_524[(int)pvVar19];
+            if (bVar20) {
+              (&local_518)[iVar2 * 3] = (uint)pvVar19;
+            }
+            if (uVar1 == 10) {
+              if (local_528 != (void *)0x0) {
+                local_544 = (void *)0x0;
+                local_538 = (void *)0x0;
+                puVar18 = (uint *)((int)puVar18 + (int)local_534 + (int)local_528);
+              }
+              pvVar3 = local_538;
+              local_528 = (void *)0x0;
+              local_534 = (void *)0x0;
+              if ((int)local_540 < (int)puVar18) {
+                local_540 = puVar18;
+              }
+              iVar4 = iVar2 + 1;
+              local_510[iVar2 * 3 + -1] = (uint)puVar18;
+              puVar18 = (void *)0x0;
+              local_538 = (void *)0x0;
+              local_510[iVar2 * 3] =
+                   (int)pvVar19 + ((-(int)local_544 - (int)pvVar3) - (&local_518)[iVar2 * 3]);
+              (&local_518)[iVar4 * 3] = 0xffffffff;
+              bVar20 = true;
+            }
+            else {
+              local_590 = (wint_t)uVar1;
+              *ppcVar12 = (char *)local_590;
+              ppcVar12[-1] = (char *)0x4180018;
+              local_58c = (void *)(uint)uVar1;
+              iVar7 = iswspace((wint_t)*ppcVar12);
+              iVar4 = iVar2;
+              if (iVar7 == 0) {
+                ppcVar12[2] = (char *)local_590;
+                ppcVar12[3] = (char *)&local_2c;
+                ppcVar12[1] = (char *)local_590;
+                *ppcVar12 = (char *)local_52c;
+                ppcVar12[-1] = (char *)0x41801ec;
+                iVar2 = eON_GetCharABCWidthsW();
+                if (iVar2 != 1) {
+                  ppcVar12[-1] = "INT eON_Int_GetCharWidth(HDC, WCHAR)";
+                  ppcVar12[-2] = (char *)0x2f4;
+                  ppcVar12[-3] = 
+                  "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/user32/text.cpp";
+                  ppcVar12[-4] = "eON_GetCharABCWidthsW( hdc, c, c, &abc ) == 1";
+                  ppcVar12[-5] = (char *)0x4180218;
+                  FUN_0400a810();
+                }
+                local_544 = (void *)((int)local_544 + 1);
+                local_528 = (uint *)((int)local_528 + local_2c + local_24 + local_28);
+                bVar20 = false;
+                ppcVar12 = ppcVar12 + -4;
+              }
+              else if (local_528 == (void *)0x0) {
+                pvVar3 = local_554;
+                pwVar13 = (wint_t *)ppcVar12;
+                if ((short)local_58c != 9) {
+                  ppcVar12[2] = (char *)local_590;
+                  ppcVar12[3] = (char *)&local_2c;
+                  ppcVar12[1] = (char *)local_590;
+                  *ppcVar12 = (char *)local_52c;
+                  ppcVar12[-1] = (char *)0x4180173;
+                  iVar2 = eON_GetCharABCWidthsW();
+                  pwVar13 = (wint_t *)(ppcVar12 + -4);
+                  if (iVar2 != 1) {
+                    ppcVar12[-1] = "INT eON_Int_GetCharWidth(HDC, WCHAR)";
+                    ppcVar12[-2] = (char *)0x2f4;
+                    ppcVar12[-3] = 
+                    "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/user32/text.cpp"
+                    ;
+                    ppcVar12[-4] = "eON_GetCharABCWidthsW( hdc, c, c, &abc ) == 1";
+                    ppcVar12[-5] = (char *)0x418019f;
+                    FUN_0400a810();
+                  }
+                  pvVar3 = (void *)(local_2c + local_24 + local_28);
+                }
+                local_534 = (void *)((int)local_534 + (int)pvVar3);
+                bVar20 = false;
+                local_538 = (void *)((int)local_538 + 1);
+                ppcVar12 = (char **)pwVar13;
+              }
+              else {
+                if ((int)local_548 < (int)local_534 + (int)puVar18 + (int)local_528) {
+                  if ((int)local_540 < (int)puVar18) {
+                    local_540 = puVar18;
+                  }
+                  local_534 = (void *)(iVar2 * 0xc);
+                  (&local_514)[iVar2 * 3] = puVar18;
+                  local_544 = (void *)((int)pvVar19 - (int)local_544);
+                  local_510[iVar2 * 3] =
+                       (int)local_544 + (-(&local_518)[iVar2 * 3] - (int)local_538);
+                  (&local_518)[(iVar2 + 1) * 3] = (uint)local_544;
+                  iVar2 = iVar2 + 1;
+                  puVar18 = local_528;
+                }
+                else {
+                  puVar18 = (uint *)((int)puVar18 + (int)local_534 + (int)local_528);
+                }
+                pvVar3 = local_554;
+                if ((short)local_58c != 9) {
+                  ppcVar12[2] = (char *)local_590;
+                  ppcVar12[3] = (char *)&local_2c;
+                  ppcVar12[1] = (char *)local_590;
+                  *ppcVar12 = (char *)local_52c;
+                  ppcVar12[-1] = (char *)0x41800e6;
+                  iVar4 = eON_GetCharABCWidthsW();
+                  if (iVar4 != 1) {
+                    ppcVar12[-1] = "INT eON_Int_GetCharWidth(HDC, WCHAR)";
+                    ppcVar12[-2] = (char *)0x2f4;
+                    ppcVar12[-3] = 
+                    "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/user32/text.cpp"
+                    ;
+                    ppcVar12[-4] = "eON_GetCharABCWidthsW( hdc, c, c, &abc ) == 1";
+                    ppcVar12[-5] = (char *)0x4180112;
+                    FUN_0400a810();
+                  }
+                  pvVar3 = (void *)(local_2c + local_24 + local_28);
+                  ppcVar12 = ppcVar12 + -4;
+                }
+                bVar20 = false;
+                local_544 = (void *)0x0;
+                local_528 = (void *)0x0;
+                local_538 = (void *)0x1;
+                iVar4 = iVar2;
+                local_534 = pvVar3;
+              }
+            }
+            pvVar19 = (void *)((int)pvVar19 + 1);
+            iVar2 = iVar4;
+          } while (pvVar19 != local_558);
+          pvVar14 = local_540;
+          local_568 = iVar4;
+          if ((&local_518)[iVar4 * 3] != 0xffffffff) {
+            if (local_528 != (void *)0x0) {
+              local_538 = (void *)0x0;
+              puVar18 = (uint *)((int)puVar18 + (int)local_528 + (int)local_534);
+            }
+            if ((int)local_540 <= (int)puVar18) {
+              pvVar14 = puVar18;
+            }
+            local_568 = iVar4 + 1;
+            uVar16 = (&local_518)[iVar4 * 3];
+            local_510[iVar4 * 3 + -1] = (uint)puVar18;
+            local_510[iVar4 * 3] = (int)local_558 + (-uVar16 - (int)local_538);
+          }
+          iVar2 = *local_53c;
+          puVar15 = local_570;
+        }
+      }
+      else {
+        local_518 = 0xffffffff;
+        local_568 = 0;
+        pvVar14 = (void *)0x0;
+        if (0 < (int)pvVar3) {
+          bVar20 = true;
+          uVar16 = 0;
+          local_538 = (void *)0x0;
+          iVar2 = 0;
+          local_534 = puVar15;
+          local_528 = pvVar3;
+          do {
+            uVar1 = local_524[uVar16];
+            if (bVar20) {
+              (&local_518)[iVar2 * 3] = uVar16;
+            }
+            if (uVar1 == 10) {
+              if ((int)local_538 < (int)pvVar14) {
+                local_538 = pvVar14;
+              }
+              iVar4 = iVar2 + 1;
+              local_510[iVar2 * 3 + -1] = (uint)pvVar14;
+              pvVar3 = (void *)0x0;
+              local_510[iVar2 * 3] = uVar16 - (&local_518)[iVar2 * 3];
+              (&local_518)[iVar4 * 3] = 0xffffffff;
+              bVar20 = true;
+            }
+            else {
+              pvVar3 = local_554;
+              puVar11 = ppcVar12;
+              if (uVar1 != 9) {
+                ppcVar12[3] = (char *)&local_2c;
+                ppcVar12[2] = (char *)(uint)uVar1;
+                ppcVar12[1] = (char *)(uint)uVar1;
+                *ppcVar12 = (char *)local_52c;
+                ppcVar12[-1] = (char *)0x417f570;
+                iVar4 = eON_GetCharABCWidthsW();
+                puVar11 = ppcVar12 + -4;
+                if (iVar4 != 1) {
+                  ppcVar12[-1] = "INT eON_Int_GetCharWidth(HDC, WCHAR)";
+                  ppcVar12[-2] = (char *)0x2f4;
+                  ppcVar12[-3] = 
+                  "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/user32/text.cpp";
+                  ppcVar12[-4] = "eON_GetCharABCWidthsW( hdc, c, c, &abc ) == 1";
+                  ppcVar12[-5] = (char *)0x417f59c;
+                  FUN_0400a810();
+                }
+                pvVar3 = (void *)(local_2c + local_24 + local_28);
+              }
+              pvVar3 = (void *)((int)pvVar3 + (int)pvVar14);
+              ppcVar12 = (char **)puVar11;
+              if ((int)local_548 < (int)pvVar3) {
+                if ((int)local_538 < (int)pvVar14) {
+                  local_538 = pvVar14;
+                }
+                uVar8 = uVar16 - (&local_518)[iVar2 * 3];
+                local_510[iVar2 * 3 + -1] = (uint)pvVar14;
+                uVar16 = uVar16 - 1;
+                pvVar3 = (void *)0x0;
+                local_510[iVar2 * 3] = uVar8;
+                (&local_518)[(iVar2 + 1) * 3] = 0xffffffff;
+                bVar20 = true;
+                iVar4 = iVar2 + 1;
+              }
+              else {
+                bVar20 = false;
+                iVar4 = iVar2;
+              }
+            }
+            uVar16 = uVar16 + 1;
+            pvVar14 = pvVar3;
+            iVar2 = iVar4;
+          } while ((int)uVar16 < (int)local_528);
+          pvVar14 = local_538;
+          puVar15 = local_534;
+          if ((&local_518)[iVar4 * 3] == 0xffffffff) {
+            iVar2 = *local_53c;
+            local_568 = iVar4;
+          }
+          else {
+            local_510[iVar4 * 3 + -1] = (uint)pvVar3;
+            if ((int)local_538 < (int)pvVar3) {
+              pvVar14 = pvVar3;
+            }
+            local_510[iVar4 * 3] = (int)local_528 - (&local_518)[iVar4 * 3];
+            iVar2 = *local_53c;
+            local_568 = iVar4 + 1;
+          }
+        }
+      }
+    }
+    iVar4 = local_53c[1];
+    if (local_56c != 0) {
+      if ((char)local_55c == '\0') {
+        if (local_568 == 0) {
+          local_564 = 0;
+        }
+        else {
+          iVar2 = iVar2 + (int)pvVar14;
+          if (local_560 != (int *)0x0) {
+            iVar2 = iVar2 + local_580 + local_584;
+          }
+          local_564 = local_564 * local_568;
+          iVar4 = iVar4 + local_564;
+        }
+      }
+      else {
+        iVar2 = iVar2 + (int)pvVar14;
+        if (local_560 != (int *)0x0) {
+          iVar2 = iVar2 + local_580 + local_584;
+        }
+        iVar4 = iVar4 + local_564;
+      }
+      local_53c[2] = iVar2;
+      local_53c[3] = iVar4;
+      return local_564;
+    }
+    if (((uint)puVar15 & 0x100) == 0) {
+      ppcVar12[1] = "Drawing clipped texts not supported in DrawTextW! Add it.";
+      *ppcVar12 = (char *)0xa;
+      ppcVar12[-1] = (char *)0x417f787;
+      FUN_0402cd10();
+      iVar4 = local_53c[1];
+    }
+    if (local_568 != 0) {
+      local_56c = (uint)puVar15 & 1;
+      local_570 = (void *)((uint)puVar15 & 0x20);
+      local_574 = (uint)puVar15 & 0x40;
+      local_578 = (uint)puVar15 & 2;
+      local_57c = (uint)puVar15 & 4;
+      local_588 = (uint)puVar15 & 8;
+      local_544 = (void *)(-(uint)(((uint)puVar15 & 0x100) == 0) & 4);
+      if (((uint)puVar15 & 0x20000) != 0) {
+        local_544 = (void *)((int)local_544 + 0x80);
+      }
+      local_558 = (void *)0x0;
+      puVar15 = (uint *)ppcVar12;
+      local_534 = (void *)iVar4;
+      do {
+        local_528 = &local_518 + (int)local_558 * 3;
+        if (local_56c == 0) {
+          if (local_578 == 0) {
+            local_538 = (void *)(local_580 + *local_53c);
+          }
+          else {
+            local_538 = (void *)((local_53c[2] - local_584) - local_510[(int)local_558 * 3 + -1]);
+          }
+        }
+        else {
+          local_538 = (void *)((int)((*local_53c + local_53c[2]) -
+                                    local_510[(int)local_558 * 3 + -1]) / 2);
+        }
+        if (local_570 != (void *)0x0) {
+          if (local_57c == 0) {
+            if (local_588 != 0) {
+              local_534 = (void *)(local_53c[3] - local_564);
+            }
+          }
+          else {
+            local_534 = (void *)(((local_53c[1] + local_53c[3]) - local_564) / 2);
+          }
+        }
+        if (local_574 == 0) {
+          puVar15[7] = 0;
+          puVar15[6] = local_510[(int)local_558 * 3];
+          uVar16 = *local_528;
+          puVar15[4] = (uint)local_53c;
+          puVar15[5] = (uint)(local_524 + uVar16);
+          puVar15[3] = (uint)local_544;
+          puVar15[2] = (uint)local_534;
+          puVar15[1] = (uint)local_538;
+          *puVar15 = local_52c;
+          puVar15[-1] = 0x417fbf2;
+          iVar2 = eON_ExtTextOutW_OptionsGate();
+          puVar18 = puVar15 + -8;
+          if (iVar2 == 0) {
+            puVar15[-7] = (uint)
+                          "Rendering part of text drawn with DrawTextW through ExtTextOut failed!";
+            puVar15[-8] = 10;
+            puVar15[-9] = 0x417fc11;
+            FUN_0402cd10();
+            puVar18 = puVar15 + -8;
+          }
+        }
+        else {
+          local_594 = local_510[(int)local_558 * 3];
+          if ((int)local_594 < 1) {
+            local_548 = (uint *)0x0;
+            uVar16 = 0;
+            local_540 = (void *)0x0;
+          }
+          else {
+            local_55c = (uint *)0x0;
+            iVar2 = 0;
+            uVar16 = 0;
+            local_548 = (uint *)0x0;
+            bVar20 = true;
+            local_540 = (void *)0x0;
+            puVar18 = puVar15;
+            do {
+              while( true ) {
+                puVar15 = puVar18;
+                uVar1 = local_524[iVar2 + *local_528];
+                if (uVar1 == 9) break;
+                if (bVar20) {
+                  local_530 = 1;
+                  local_550 = iVar2 + *local_528;
+                  local_54c = uVar16;
+                }
+                else {
+                  local_530 = local_530 + 1;
+                }
+                puVar15[3] = (uint)&local_2c;
+                puVar15[2] = (uint)uVar1;
+                puVar15[1] = (uint)uVar1;
+                *puVar15 = local_52c;
+                    /* try { // try from 0417f90a to 0417fad7 has its CatchHandler @ 04180329 */
+                puVar15[-1] = 0x417f90f;
+                iVar4 = eON_GetCharABCWidthsW();
+                puVar10 = puVar15 + -4;
+                if (iVar4 != 1) {
+                  puVar15[-1] = (uint)"INT eON_Int_GetCharWidth(HDC, WCHAR)";
+                  puVar15[-2] = 0x2f4;
+                  puVar15[-3] = (uint)
+                                "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/user32/text.cpp"
+                  ;
+                  puVar15[-4] = (uint)"eON_GetCharABCWidthsW( hdc, c, c, &abc ) == 1";
+                  puVar15[-5] = 0x417f93b;
+                  FUN_0400a810();
+                }
+                iVar2 = iVar2 + 1;
+                bVar20 = false;
+                local_594 = local_528[2];
+                uVar16 = uVar16 + local_2c + local_24 + local_28;
+                puVar15 = puVar15 + -4;
+                puVar18 = puVar10;
+                if ((int)local_594 <= iVar2) goto LAB_0417f9fd;
+              }
+              if (!bVar20) {
+                if (local_55c == local_548) {
+                  iVar4 = (int)local_55c - (int)local_540 >> 2;
+                  local_548 = (uint *)(iVar4 * -0x55555555);
+                  uVar8 = 1;
+                  if (local_548 == (uint *)0x0) {
+LAB_0417fc98:
+                    local_55c = (uint *)(uVar8 * 0xc);
+LAB_0417fca4:
+                    *puVar15 = (uint)local_55c;
+                    /* try { // try from 0417fcad to 0417fcb1 has its CatchHandler @ 04180329 */
+                    puVar15[-1] = 0x417fcb2;
+                    pvVar3 = operator_new(*puVar15);
+                  }
+                  else {
+                    local_55c = (uint *)0xfffffffc;
+                    uVar8 = iVar4 * 0x55555556;
+                    if ((uVar8 < local_548) || (0x15555555 < uVar8)) goto LAB_0417fca4;
+                    if (uVar8 != 0) goto LAB_0417fc98;
+                    local_55c = (uint *)0x0;
+                    pvVar3 = (void *)0x0;
+                  }
+                  puVar18 = (uint *)((int)pvVar3 + (int)local_548 * 0xc);
+                  if (puVar18 != (uint *)0x0) {
+                    *puVar18 = local_54c;
+                    puVar18[1] = local_550;
+                    puVar18[2] = local_530;
+                  }
+                  if (local_548 != (uint *)0x0) {
+                    puVar15[2] = (int)local_548 * 0xc;
+                    *puVar15 = (uint)pvVar3;
+                    puVar15[1] = (uint)local_540;
+                    puVar15[-1] = 0x417febd;
+                    local_58c = pvVar3;
+                    memmove((void *)*puVar15,(void *)puVar15[1],puVar15[2]);
+                    pvVar3 = local_58c;
+                  }
+                  local_548 = puVar18 + 3;
+                  if (local_540 != (void *)0x0) {
+                    *puVar15 = (uint)local_540;
+                    puVar15[-1] = 0x417fd15;
+                    local_58c = pvVar3;
+                    operator_delete((void *)*puVar15);
+                    pvVar3 = local_58c;
+                  }
+                  bVar20 = true;
+                  local_55c = (uint *)((int)local_55c + (int)pvVar3);
+                  local_594 = local_528[2];
+                  local_540 = pvVar3;
+                }
+                else {
+                  if (local_548 != (uint *)0x0) {
+                    *local_548 = local_54c;
+                    local_548[1] = local_550;
+                    local_548[2] = local_530;
+                  }
+                  local_548 = local_548 + 3;
+                  bVar20 = true;
+                }
+              }
+              iVar2 = iVar2 + 1;
+              uVar16 = uVar16 + (int)local_554;
+              puVar18 = puVar15;
+            } while (iVar2 < (int)local_594);
+          }
+LAB_0417f9fd:
+          if (local_528[1] != uVar16) {
+            puVar15[3] = (uint)
+                         "INT eON_DrawTextExW(HDC, LPWSTR, INT, LPRECT, UINT, LPDRAWTEXTPARAMS)";
+            puVar15[2] = 0x49d;
+            puVar15[1] = (uint)
+                         "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/user32/text.cpp"
+            ;
+            *puVar15 = (uint)"currentLineWidth == line.lineWidth";
+            puVar15[-1] = 0x417fa2c;
+            FUN_0400a810();
+          }
+          iVar4 = 0;
+          iVar7 = 0;
+          iVar17 = ((int)local_548 - (int)local_540 >> 2) * -0x55555555;
+          iVar2 = iVar17;
+          while (puVar11 = puVar15, iVar2 != 0) {
+            while( true ) {
+              puVar11[7] = 0;
+              piVar5 = (int *)((int)local_540 + iVar4);
+              puVar11[6] = piVar5[2];
+              puVar11[5] = local_524 + piVar5[1];
+              puVar11[3] = local_544;
+              puVar11[4] = local_53c;
+              puVar11[2] = local_534;
+              iVar2 = *piVar5;
+              *puVar11 = local_52c;
+              puVar11[1] = iVar2 + (int)local_538;
+              puVar11[-1] = 0x417fabd;
+              iVar2 = eON_ExtTextOutW_OptionsGate();
+              puVar15 = puVar11 + -8;
+              if (iVar2 != 0) break;
+              puVar11[-7] = "Rendering part of text drawn with DrawTextW through ExtTextOut failed!"
+              ;
+              puVar11[-8] = 10;
+              puVar11[-9] = 0x417fad8;
+              FUN_0402cd10();
+              iVar7 = iVar7 + 1;
+              iVar4 = iVar4 + 0xc;
+              puVar11 = puVar11 + -8;
+              if (iVar17 - iVar7 == 0) goto LAB_0417fae6;
+            }
+            iVar7 = iVar7 + 1;
+            iVar4 = iVar4 + 0xc;
+            puVar15 = puVar11 + -8;
+            iVar2 = iVar17 - iVar7;
+          }
+LAB_0417fae6:
+          puVar18 = puVar15;
+          if (local_540 != (void *)0x0) {
+            *puVar15 = (uint)local_540;
+            puVar15[-1] = 0x417fafe;
+            operator_delete((void *)*puVar15);
+          }
+        }
+        local_534 = (void *)((int)local_534 + local_564);
+        if (local_560 != (int *)0x0) {
+          local_560[4] = *local_528 + local_528[2];
+        }
+        local_558 = (void *)((int)local_558 + 1);
+        puVar15 = puVar18;
+        if (local_558 == (void *)local_568) {
+          return (int)local_534 - local_53c[1];
+        }
+      } while( true );
+    }
+  }
+  return 0;
+}
+

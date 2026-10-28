@@ -41,10 +41,21 @@ linked runtime/Mesa strings of the modern rebuild (binary is
 "for GNU/Linux 3.2.32", BuildID → rebuilt toolchain, not the 2006 one).
 
 Conclusion (consistent with wave 247): the game's GLEW generation state is
-1.3.1-era-complete but 1.5.x-incomplete — no single upstream tag fits
-exactly; combined with the engine-assert strings absent from every
-upstream version, the linked GLEW is a patched fork. No single upstream
-version is the source. No renames (off-board district anyway).
+1.3.x-era — 1.3.1's generated table is fully covered by the binary, and
+the only 1.5.x-era table entries missing from the binary (GL_NV_vertex/
+geometry/fragment_program4, GLX_NV_video_output) have git first-add dates
+of 2006-11-21 and 2008-11-03 — AFTER the game shipped (2006-10-24) — so
+1.5.x+ generation is excluded and the base cannot be pinned to a specific
+1.3.x point release (those tarballs are dead downloads; every
+1.3.2-through-1.5.0 addition that git can date pre-ship IS in the
+binary). Combined with the engine-assert strings absent from every
+upstream version (wave 247), the linked GLEW is a patched fork.
+
+(Note correction to Part-3 framing: string-level era-fit — base bound
+<=1.3.x generation, 1.5.x+ excluded — is what the missing-4 add dates
+prove; the binary's modern-toolchain rebuild (GNU/Linux 3.2.32, BuildID)
+means it was relinked, so exact provenance of GLEW objects can't be
+pinned further from the binary alone.)
 
 ## Part 3 — deeper gdb on attached helpers: SKIPPED, and why
 The held pool (`/tmp/w232_cands.json`) has exactly 8 candidates on hot-TU

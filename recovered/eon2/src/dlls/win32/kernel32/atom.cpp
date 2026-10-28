@@ -1,6 +1,63 @@
-// Recovered source skeleton: eon2/src/dlls/win32/kernel32/atom.cpp
-// Source path from baked debug strings (seeds/string_refs.csv); members are
-// functions that reference it. Not compiled — membership ledger only.
+// Recovered source: eon2/src/dlls/win32/kernel32/atom.cpp
+// Bodies: Ghidra decompile (live MCP) for named members; corpus decompile
+// for call-graph-attached unnamed helpers. Not compiled — recovery draft.
 
-// === members (1) ===
-//   eON_GetAtomNameA  @0x041299c0
+// --- eON_GetAtomNameA @0x041299c0 ---
+/* source: atom */
+
+char * eON_GetAtomNameA(ushort param_1,char *param_2,int param_3)
+
+{
+  undefined4 *puVar1;
+  uint *__s;
+  uint uVar2;
+  uint uVar3;
+  uint *puVar4;
+  uint *puVar5;
+  char *pcVar6;
+  uint local_110 [64];
+  
+  if (param_1 < 0xc000) {
+    if (param_1 == 0) {
+      return (char *)0x0;
+    }
+    __s = local_110;
+    sprintf((char *)__s,(char *)&PTR_DAT_0431b130,(uint)param_1);
+    puVar5 = __s;
+    do {
+      puVar4 = puVar5;
+      uVar2 = *puVar4 + 0xfefefeff & ~*puVar4;
+      uVar3 = uVar2 & 0x80808080;
+      puVar5 = puVar4 + 1;
+    } while (uVar3 == 0);
+    if ((uVar2 & 0x8080) == 0) {
+      puVar5 = (uint *)((int)puVar4 + 6);
+      uVar3 = uVar3 >> 0x10;
+    }
+    pcVar6 = (char *)((int)puVar5 + ((-3 - (uint)CARRY1((byte)uVar3,(byte)uVar3)) - (int)__s));
+  }
+  else {
+    if ((uint)(DAT_04515b24 - DAT_04515b20 >> 3) <= (uint)(ushort)(param_1 + 0x4000)) {
+      return (char *)0x0;
+    }
+    puVar1 = (undefined4 *)(DAT_04515b20 + (uint)(ushort)(param_1 + 0x4000) * 8);
+    if (puVar1[1] == 0) {
+      return (char *)0x0;
+    }
+    __s = (uint *)*puVar1;
+    if (__s == (uint *)0x0) {
+      FUN_0400a810("string",
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/kernel32/atom.cpp"
+                   ,0xb0,"UINT eON_GetAtomNameA(ATOM, LPSTR, INT)");
+    }
+    pcVar6 = (char *)strlen((char *)__s);
+  }
+  if ((int)pcVar6 < param_3) {
+    strcpy(param_2,(char *)__s);
+  }
+  else {
+    pcVar6 = (char *)0x0;
+  }
+  return pcVar6;
+}
+

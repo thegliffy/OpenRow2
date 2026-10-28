@@ -1,6 +1,24 @@
-// Recovered source skeleton: eon2/src/dlls/directx/d3d9/direct3dresource9imp.cpp
-// Source path from baked debug strings (seeds/string_refs.csv); members are
-// functions that reference it. Not compiled — membership ledger only.
+// Recovered source: eon2/src/dlls/directx/d3d9/direct3dresource9imp.cpp
+// Bodies: Ghidra decompile (live MCP) for named members; corpus decompile
+// for call-graph-attached unnamed helpers. Not compiled — recovery draft.
 
-// === members (1) ===
-//   Direct3DResource9Imp::InitializeInDevicePool  @0x040a6740
+// --- Direct3DResource9Imp::InitializeInDevicePool @0x040a6740 ---
+/* source: direct3dresource9imp */
+
+void Direct3DResource9Imp__InitializeInDevicePool(int param_1,undefined4 param_2)
+
+{
+  int iVar1;
+  
+  iVar1 = *(int *)(param_1 + 0x1c);
+  if (iVar1 == 0) {
+    FUN_0400a810("mDevice",
+                 "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3dresource9imp.cpp"
+                 ,0x4e,"void Direct3DResource9Imp::InitializeInDevicePool(D3DPOOL)");
+    iVar1 = *(int *)(param_1 + 0x1c);
+  }
+  d3dstructs_04080c30(iVar1 + 0x40,*(undefined4 *)(param_1 + 0xc),param_2);
+  *(undefined4 *)(param_1 + 0x34) = param_2;
+  return;
+}
+

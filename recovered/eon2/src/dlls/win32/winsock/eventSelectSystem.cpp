@@ -1,7 +1,232 @@
-// Recovered source skeleton: eon2/src/dlls/win32/winsock/eventSelectSystem.cpp
-// Source path from baked debug strings (seeds/string_refs.csv); members are
-// functions that reference it. Not compiled — membership ledger only.
+// Recovered source: eon2/src/dlls/win32/winsock/eventSelectSystem.cpp
+// Bodies: Ghidra decompile (live MCP) for named members; corpus decompile
+// for call-graph-attached unnamed helpers. Not compiled — recovery draft.
 
-// === members (2) ===
-//   EventSelect_AddEvent  @0x04191080
-//   EventSelect_ThreadRoutine  @0x04190d60
+// --- EventSelect_AddEvent @0x04191080 ---
+/* source: eventSelectSystem */
+
+void EventSelect_AddEvent(uint param_1,undefined4 param_2,undefined4 param_3)
+
+{
+  uint uVar1;
+  int iVar2;
+  int iVar3;
+  int iVar4;
+  bool bVar5;
+  
+  if (DAT_0451c300 == '\0') {
+    pthread_mutex_init((pthread_mutex_t *)&DAT_0451c304,(pthread_mutexattr_t *)0x0);
+    DAT_0451c300 = '\x01';
+  }
+  pthread_mutex_lock((pthread_mutex_t *)&DAT_0451c304);
+  iVar2 = DAT_0451c31c;
+  iVar4 = DAT_0451c31c;
+  if (DAT_0451c31c < 1) {
+LAB_041910f7:
+    DAT_0451c31c = iVar2 + 1;
+    bVar5 = DAT_0451c31c == 0;
+    (&DAT_0451c320)[iVar4 * 4] = param_1;
+    (&DAT_0451c328)[iVar4 * 4] = 0;
+    (&DAT_0451c324)[iVar4 * 4] = param_2;
+    (&DAT_0451c32c)[iVar4 * 4] = param_3;
+    if (bVar5) goto LAB_04191129;
+  }
+  else {
+    iVar3 = 0;
+    uVar1 = DAT_0451c320;
+    while (uVar1 < param_1) {
+      iVar3 = iVar3 + 1;
+      if (iVar3 == DAT_0451c31c) goto LAB_041910e6;
+      uVar1 = (&DAT_0451c320)[iVar3 * 4];
+    }
+    iVar4 = iVar3;
+    if (param_1 != uVar1) {
+LAB_041910e6:
+      if (0xf < DAT_0451c31c) {
+        FUN_0400a810("mNumObservedSockets < MAX_OBSERVED_SOCKETS",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/winsock/eventSelectSystem.cpp"
+                     ,0xc2,"void EventSelect_AddEvent(SOCKET, LONG, HANDLE)");
+        iVar2 = DAT_0451c31c;
+      }
+      if (iVar4 < iVar2) {
+        DAT_0451c31c = iVar2;
+        memmove(&DAT_0451c330 + iVar4 * 4,&DAT_0451c320 + iVar4 * 4,(iVar2 - iVar4) * 0x10);
+      }
+      goto LAB_041910f7;
+    }
+    (&DAT_0451c320)[iVar3 * 4] = param_1;
+    (&DAT_0451c328)[iVar3 * 4] = 0;
+    (&DAT_0451c324)[iVar3 * 4] = param_2;
+    (&DAT_0451c32c)[iVar3 * 4] = param_3;
+  }
+  if (DAT_0451c420 == '\0') {
+    iVar2 = eON_CreateThread(0,0x10000,EventSelect_ThreadRoutine,0,0,0);
+    if (iVar2 == 0) {
+      FUN_0400a810("eON_CreateThread( __null, 65536, EventSelect_ThreadRoutine, __null, 0, 0 ) != __null"
+                   ,
+                   "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/winsock/eventSelectSystem.cpp"
+                   ,0xd3,"void EventSelect_AddEvent(SOCKET, LONG, HANDLE)");
+    }
+    DAT_0451c420 = '\x01';
+  }
+LAB_04191129:
+  pthread_mutex_unlock((pthread_mutex_t *)&DAT_0451c304);
+  return;
+}
+
+// --- EventSelect_ThreadRoutine @0x04190d60 ---
+/* source: eventSelectSystem */
+
+undefined4 EventSelect_ThreadRoutine(void)
+
+{
+  undefined4 uVar1;
+  ushort uVar2;
+  uint *puVar3;
+  __useconds_t *p_Var4;
+  int iVar5;
+  __useconds_t _Var6;
+  int iVar7;
+  __useconds_t _Var8;
+  __useconds_t *p_Var9;
+  uint uVar10;
+  uint local_a0;
+  undefined4 local_9c;
+  undefined1 *local_18;
+  
+  local_18 = &stack0x00000004;
+  p_Var9 = (__useconds_t *)&stack0xffffff40;
+  pthread_mutex_lock((pthread_mutex_t *)&DAT_0451c304);
+  if (DAT_0451c420 == '\0') {
+    FUN_0400a810();
+  }
+  eON_SetThreadName();
+  iVar5 = DAT_0451c31c;
+joined_r0x04190dab:
+  do {
+    if (iVar5 == 0) {
+      *p_Var9 = (__useconds_t)&DAT_0451c304;
+      DAT_0451c420 = 0;
+      p_Var9[-1] = 0x4190fca;
+      pthread_mutex_unlock((pthread_mutex_t *)*p_Var9);
+      return 0;
+    }
+    if (iVar5 < 0) {
+      *p_Var9 = (__useconds_t)&DAT_0451c304;
+      p_Var9[-1] = 0x4190f8a;
+      pthread_mutex_unlock((pthread_mutex_t *)*p_Var9);
+    }
+    else {
+      iVar7 = 0;
+      _Var6 = 0;
+      do {
+        while( true ) {
+          *(undefined2 *)(&local_9c + _Var6 * 2) = 0;
+          uVar1 = (&DAT_0451c320)[iVar7 * 4];
+          *(undefined2 *)((int)&local_9c + _Var6 * 8 + 2) = 0;
+          (&local_9c)[_Var6 * 2 + -1] = uVar1;
+          uVar10 = ~(&DAT_0451c328)[iVar7 * 4] & (&DAT_0451c324)[iVar7 * 4];
+          uVar2 = 0;
+          if ((uVar10 & 0xffffffdc) != 0) {
+            p_Var9[1] = (__useconds_t)
+                        "WSAAsyncSelect() - game wants to observe events we don\'t have implemented! Handle them."
+            ;
+            *p_Var9 = 0xf;
+            p_Var9[-1] = 0x4190f42;
+            FUN_0402cd10();
+            uVar2 = *(ushort *)(&local_9c + _Var6 * 2);
+            iVar5 = DAT_0451c31c;
+          }
+          if ((uVar10 & 1) != 0) {
+            uVar2 = uVar2 | 1;
+            *(ushort *)(&local_9c + _Var6 * 2) = uVar2;
+          }
+          if ((uVar10 & 2) == 0) break;
+          *(ushort *)(&local_9c + _Var6 * 2) = uVar2 | 4;
+LAB_04190dc7:
+          iVar7 = iVar7 + 1;
+          _Var6 = _Var6 + 1;
+          if (iVar5 <= iVar7) goto LAB_04190e2d;
+        }
+        if (uVar2 != 0) goto LAB_04190dc7;
+        iVar7 = iVar7 + 1;
+      } while (iVar7 < iVar5);
+LAB_04190e2d:
+      *p_Var9 = (__useconds_t)&DAT_0451c304;
+      p_Var9[-1] = 0x4190e3b;
+      pthread_mutex_unlock((pthread_mutex_t *)*p_Var9);
+      if (_Var6 != 0) {
+        p_Var9[2] = 1;
+        p_Var9[1] = _Var6;
+        *p_Var9 = (__useconds_t)&local_a0;
+        p_Var9[-1] = 0x4190e5d;
+        iVar7 = poll((pollfd *)*p_Var9,p_Var9[1],p_Var9[2]);
+        *p_Var9 = (__useconds_t)&DAT_0451c304;
+        p_Var9[-1] = 0x4190e6b;
+        pthread_mutex_lock((pthread_mutex_t *)*p_Var9);
+        iVar5 = DAT_0451c31c;
+        if (iVar7 != 0) {
+          if (iVar7 == -1) {
+            p_Var9[-1] = 0x4191031;
+            p_Var4 = (__useconds_t *)__errno_location();
+            _Var6 = *p_Var4;
+            p_Var9[1] = (__useconds_t)"Socket error from poll: %d";
+            *p_Var9 = 0xf;
+            p_Var9[2] = _Var6;
+            p_Var9[-1] = 0x419104b;
+            FUN_0402cd10();
+            iVar5 = DAT_0451c31c;
+          }
+          else if (0 < (int)_Var6) {
+            iVar7 = 0;
+            _Var8 = 0;
+            do {
+              uVar2 = *(ushort *)((int)&local_9c + _Var8 * 8 + 2);
+              if (uVar2 != 0) {
+                uVar10 = (&local_9c)[_Var8 * 2 + -1];
+                if ((iVar7 < iVar5) && ((uint)(&DAT_0451c320)[iVar7 * 4] < uVar10)) {
+                  iVar7 = iVar7 + 1;
+                  puVar3 = &DAT_0451c320 + iVar7 * 4;
+                  while ((iVar7 < iVar5 && (*puVar3 < uVar10))) {
+                    iVar7 = iVar7 + 1;
+                    puVar3 = puVar3 + 4;
+                  }
+                }
+                if (iVar7 == iVar5) break;
+                if ((&DAT_0451c320)[iVar7 * 4] == uVar10) {
+                  if ((uVar2 & 1) != 0) {
+                    *p_Var9 = (&DAT_0451c32c)[iVar7 * 4];
+                    p_Var9[-1] = 0x4191010;
+                    eON_SetEvent();
+                    p_Var9 = p_Var9 + -1;
+                    (&DAT_0451c328)[iVar7 * 4] = (&DAT_0451c328)[iVar7 * 4] | 1;
+                    uVar2 = *(ushort *)((int)&local_9c + _Var8 * 8 + 2);
+                  }
+                  iVar5 = DAT_0451c31c;
+                  if ((uVar2 & 4) != 0) {
+                    *p_Var9 = (&DAT_0451c32c)[iVar7 * 4];
+                    p_Var9[-1] = 0x4190ff3;
+                    eON_SetEvent();
+                    (&DAT_0451c328)[iVar7 * 4] = (&DAT_0451c328)[iVar7 * 4] | 2;
+                    p_Var9 = p_Var9 + -1;
+                    iVar5 = DAT_0451c31c;
+                  }
+                }
+              }
+              _Var8 = _Var8 + 1;
+            } while (_Var8 != _Var6);
+          }
+        }
+        goto joined_r0x04190dab;
+      }
+    }
+    *p_Var9 = 1000;
+    p_Var9[-1] = 0x4190f9c;
+    usleep(*p_Var9);
+    *p_Var9 = (__useconds_t)&DAT_0451c304;
+    p_Var9[-1] = 0x4190fa8;
+    pthread_mutex_lock((pthread_mutex_t *)*p_Var9);
+    iVar5 = DAT_0451c31c;
+  } while( true );
+}
+

@@ -1,6 +1,16 @@
-// Recovered source skeleton: ./src/client/linux/minidump_writer/proc_cpuinfo_reader.h
-// Source path from baked debug strings (seeds/string_refs.csv); members are
-// functions that reference it. Not compiled — membership ledger only.
+// Recovered source: ./src/client/linux/minidump_writer/proc_cpuinfo_reader.h
+// Bodies: Ghidra decompile (live MCP) for named members; corpus decompile
+// for call-graph-attached unnamed helpers. Not compiled — recovery draft.
 
-// === members (1) ===
-//   google_breakpad::ProcCpuInfoReader::GetValueAndLen  @0x040092ee
+// --- google_breakpad::ProcCpuInfoReader::GetValueAndLen @0x040092ee ---
+/* WARNING: Function: __i686.get_pc_thunk.bx replaced with injection: get_pc_thunk_bx */
+/* source: proc_cpuinfo_reader */
+
+void google_breakpad__ProcCpuInfoReader__GetValueAndLen(void)
+
+{
+                    /* WARNING: Subroutine does not return */
+  __assert_fail("value_","./src/client/linux/minidump_writer/proc_cpuinfo_reader.h",0x74,
+                "const char* google_breakpad::ProcCpuInfoReader::GetValueAndLen(size_t*)");
+}
+

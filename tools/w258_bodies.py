@@ -35,6 +35,8 @@ for ln in open('agent/w233_bodies.jsonl'):
 # hot TUs validated live in wave 257
 HOT = ['synchronisationPrimitives.cpp','mem_vm.cpp','tinyxml.cpp','tinyxmlparser.cpp',
        'direct3ddevice9imp.cpp','vpfs.cpp','vpfsdb.cpp','winsock.cpp']
+if os.environ.get('HOT') == 'ALL':
+    HOT = list(byfile.keys())
 
 def live_addr(fn):
     addrs = byname.get(fn, [])

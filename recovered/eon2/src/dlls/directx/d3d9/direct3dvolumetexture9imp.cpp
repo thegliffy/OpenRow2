@@ -1,6 +1,151 @@
-// Recovered source skeleton: eon2/src/dlls/directx/d3d9/direct3dvolumetexture9imp.cpp
-// Source path from baked debug strings (seeds/string_refs.csv); members are
-// functions that reference it. Not compiled — membership ledger only.
+// Recovered source: eon2/src/dlls/directx/d3d9/direct3dvolumetexture9imp.cpp
+// Bodies: Ghidra decompile (live MCP) for named members; corpus decompile
+// for call-graph-attached unnamed helpers. Not compiled — recovery draft.
 
-// === members (1) ===
-//   Direct3DVolumeTexture9Imp::Initialize  @?
+// --- Direct3DVolumeTexture9Imp::Initialize @0x040b8660 ---
+/* source: direct3dvolumetexture9imp */
+
+undefined4
+direct3dvolumetexture9imp_040b8660
+          (int param_1,undefined4 param_2,uint param_3,uint param_4,uint param_5,uint param_6,
+          uint param_7,undefined4 param_8,undefined4 param_9)
+
+{
+  int iVar1;
+  int iVar2;
+  int iVar3;
+  undefined4 *puVar4;
+  uint uVar5;
+  uint uVar6;
+  bool bVar7;
+  uint local_28;
+  uint local_24;
+  uint local_20;
+  
+  *(undefined4 *)(param_1 + 0x224) = 3;
+  *(uint *)(param_1 + 0x20c) = param_7;
+  *(undefined4 *)(param_1 + 0x210) = param_8;
+  direct3dbasetexture9imp_0406d770(param_1,param_2,param_9);
+  if ((param_7 & 0x400) == 0) {
+    uVar6 = 1;
+    uVar5 = param_3;
+    if (param_3 <= param_4) {
+      uVar5 = param_4;
+    }
+    if (uVar5 < param_5) {
+      uVar5 = param_5;
+    }
+    while (uVar5 >> 1 != 0) {
+      uVar6 = uVar6 + 1;
+      uVar5 = uVar5 >> 1;
+    }
+    if (uVar6 < param_6) {
+      *(uint *)(param_1 + 0x228) = uVar6;
+    }
+    else {
+      if (param_6 != 0) {
+        uVar6 = param_6;
+      }
+      *(uint *)(param_1 + 0x228) = uVar6;
+    }
+  }
+  else {
+    *(undefined4 *)(param_1 + 0x228) = 1;
+  }
+  *(undefined4 *)(param_1 + 0x28c) = 0;
+  if (param_3 == 0) {
+    param_3 = 1;
+  }
+  *(undefined4 *)(param_1 + 0x290) = 0;
+  if (param_4 == 0) {
+    param_4 = 1;
+  }
+  *(undefined4 *)(param_1 + 0x29c) = 0;
+  if (param_5 == 0) {
+    param_5 = 1;
+  }
+  puVar4 = *(undefined4 **)(param_1 + 0x2a8);
+  *(uint *)(param_1 + 0x294) = param_3;
+  *(uint *)(param_1 + 0x298) = param_4;
+  *(uint *)(param_1 + 0x2a0) = param_5;
+  if (puVar4 == *(undefined4 **)(param_1 + 0x2ac)) {
+    FUN_040b90c0(param_1 + 0x2a4,puVar4,param_1 + 0x28c);
+  }
+  else {
+    if (puVar4 != (undefined4 *)0x0) {
+      *puVar4 = 0;
+      puVar4[1] = *(undefined4 *)(param_1 + 0x290);
+      puVar4[2] = *(undefined4 *)(param_1 + 0x294);
+      puVar4[3] = *(undefined4 *)(param_1 + 0x298);
+      puVar4[4] = *(undefined4 *)(param_1 + 0x29c);
+      puVar4[5] = *(undefined4 *)(param_1 + 0x2a0);
+    }
+    *(undefined4 **)(param_1 + 0x2a8) = puVar4 + 6;
+  }
+  *(uint *)(param_1 + 0x22c) = param_3;
+  *(undefined4 *)(param_1 + 0x2b0) = 0;
+  *(uint *)(param_1 + 0x230) = param_4;
+  *(uint *)(param_1 + 0x234) = param_5;
+  *(undefined4 *)(param_1 + 0x238) = 0;
+  iVar2 = D3D9_FormatToPixelSize(*(undefined4 *)(param_1 + 0x210));
+  if (*(int *)(param_1 + 0x228) == 0) {
+    iVar3 = *(int *)(param_1 + 0x2b0);
+  }
+  else {
+    local_28 = 0;
+    local_24 = param_4;
+    local_20 = param_3;
+    do {
+      *(int *)(param_1 + 0x238) = *(int *)(param_1 + 0x238) + local_20 * param_5 * iVar2 * local_24;
+      puVar4 = operator_new(0xa4);
+      *puVar4 = &PTR_FUN_042fa828;
+                    /* try { // try from 040b8871 to 040b8875 has its CatchHandler @ 040b899b */
+      Direct3DVolume9Imp__Direct3DVolume9Imp(puVar4 + 1,puVar4);
+      Direct3DDevice9Imp__UpdateMaxVolumeSize
+                (puVar4 + 1,*(undefined4 *)(param_1 + 0x1c),*(undefined4 *)(param_1 + 0xc),local_20,
+                 local_24,param_5,param_8,param_7,param_9,local_28);
+      iVar3 = *(int *)(param_1 + 0x200);
+      if (0xf < iVar3) {
+        FUN_0400a810("mD3DVolumesCount < 16",
+                     "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/directx/d3d9/direct3dvolumetexture9imp.cpp"
+                     ,0xde,
+                     "virtual bool Direct3DVolumeTexture9Imp::Initialize(IDirect3DDevice9*, UINT, UINT, UINT, UINT, DWORD, D3DFORMAT, D3DPOOL)"
+                    );
+        iVar3 = *(int *)(param_1 + 0x200);
+      }
+      iVar1 = puVar4[0x28];
+      *(undefined4 **)(param_1 + 0x1c0 + iVar3 * 4) = puVar4;
+      *(int *)(param_1 + 0x200) = iVar3 + 1;
+      iVar3 = puVar4[0x27];
+      if (iVar1 == 0) {
+        iVar3 = 0;
+      }
+      iVar3 = iVar3 + *(int *)(param_1 + 0x2b0);
+      uVar6 = local_20 >> 1;
+      bVar7 = 1 < local_20;
+      *(int *)(param_1 + 0x2b0) = iVar3;
+      local_20 = 1;
+      if (bVar7) {
+        local_20 = uVar6;
+      }
+      uVar6 = local_24 >> 1;
+      bVar7 = 1 < local_24;
+      local_24 = 1;
+      if (bVar7) {
+        local_24 = uVar6;
+      }
+      uVar6 = param_5 >> 1;
+      bVar7 = 1 < param_5;
+      param_5 = 1;
+      if (bVar7) {
+        param_5 = uVar6;
+      }
+      local_28 = local_28 + 1;
+    } while (local_28 < *(uint *)(param_1 + 0x228));
+  }
+  DAT_044a7ee0 = DAT_044a7ee0 + iVar3;
+  DAT_044a7edc = DAT_044a7edc + 1;
+  FUN_0406d840(param_1);
+  return 1;
+}
+

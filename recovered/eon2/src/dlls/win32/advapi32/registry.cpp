@@ -1,6 +1,120 @@
-// Recovered source skeleton: eon2/src/dlls/win32/advapi32/registry.cpp
-// Source path from baked debug strings (seeds/string_refs.csv); members are
-// functions that reference it. Not compiled — membership ledger only.
+// Recovered source: eon2/src/dlls/win32/advapi32/registry.cpp
+// Bodies: Ghidra decompile (live MCP) for named members; corpus decompile
+// for call-graph-attached unnamed helpers. Not compiled — recovery draft.
 
-// === members (1) ===
-//   eON_RegEnumValueA  @0x04119180
+// --- eON_RegEnumValueA @0x04119180 ---
+/* source: registry */
+
+int eON_RegEnumValueA(undefined4 param_1,undefined4 param_2,int param_3,uint *param_4,
+                     undefined4 param_5,int *param_6,int param_7,uint *param_8)
+
+{
+  uint *puVar1;
+  int *piVar2;
+  int iVar3;
+  uint *puVar4;
+  uint uVar5;
+  int *piVar6;
+  int *piVar7;
+  int iVar8;
+  bool bVar9;
+  void *local_38;
+  void *local_34;
+  uint local_28;
+  int local_24 [3];
+  undefined4 *local_18;
+  
+  puVar4 = param_8;
+  iVar3 = param_7;
+  piVar2 = param_6;
+  puVar1 = param_4;
+  local_18 = &param_1;
+  bVar9 = param_7 != 0;
+  if ((param_8 != (uint *)0x0) || (iVar8 = 0x57, !bVar9)) {
+    local_34 = (void *)0x0;
+    if (param_3 != 0) {
+      local_34 = malloc(0x10000);
+    }
+    local_28 = 0;
+    local_38 = (void *)0x0;
+    if ((puVar4 != (uint *)0x0) && (local_28 = *puVar4 * 2, bVar9)) {
+      local_38 = malloc(local_28);
+    }
+    iVar8 = eON_RegEnumValueW();
+    piVar6 = (int *)&stack0xffffff60;
+    piVar7 = (int *)&stack0xffffff60;
+    if (iVar8 < 0) {
+      if (local_34 != (void *)0x0) {
+        free(local_34);
+      }
+      if (local_38 == (void *)0x0) {
+        return iVar8;
+      }
+    }
+    else {
+      if (local_34 != (void *)0x0) {
+        uVar5 = eON_WideCharToMultiByte();
+        if (*puVar1 <= uVar5) {
+          FUN_0400a810();
+        }
+        *puVar1 = uVar5;
+        eON_WideCharToMultiByte();
+        piVar6 = (int *)&stack0xffffff20;
+        free(local_34);
+      }
+      if (local_38 == (void *)0x0) {
+        return iVar8;
+      }
+      if ((*piVar2 - 1U < 2) || (*piVar2 == 7)) {
+        uVar5 = local_28 >> 1;
+        if (*puVar4 < uVar5) {
+          piVar6[3] = (int)
+                      "LONG eON_RegEnumValueA(HKEY, DWORD, LPSTR, PDWORD, PDWORD, PDWORD, LPBYTE, PDWORD)"
+          ;
+          piVar6[2] = 0x4cc;
+          piVar6[1] = (int)
+                      "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/advapi32/registry.cpp"
+          ;
+          *piVar6 = (int)"length <= *lpcbData";
+          piVar6[-1] = 0x411945f;
+          FUN_0400a810();
+        }
+        *puVar4 = uVar5;
+        piVar6[5] = uVar5;
+        piVar6[3] = uVar5;
+        piVar6[7] = (int)local_24;
+        piVar6[6] = (int)&DAT_04313e9c;
+        piVar6[4] = iVar3;
+        piVar6[2] = (int)local_38;
+        piVar6[1] = 0;
+        *piVar6 = 0;
+        piVar6[-1] = 0x411938e;
+        eON_WideCharToMultiByte();
+        piVar7 = piVar6 + -8;
+        if (local_24[0] != 0) {
+          piVar6[-7] = (int)
+                       "Warning! Some characters couldn\'t be converted when converting Unicode string to ascii in RegEnumValueA"
+          ;
+          piVar6[-8] = 10;
+          piVar6[-9] = 0x41193ac;
+          FUN_0402cd10();
+          piVar7 = piVar6 + -8;
+        }
+      }
+      else {
+        *puVar4 = local_28;
+        piVar6[2] = local_28;
+        *piVar6 = iVar3;
+        piVar6[1] = (int)local_38;
+        piVar6[-1] = 0x41193dd;
+        memcpy((void *)*piVar6,(void *)piVar6[1],piVar6[2]);
+        piVar7 = piVar6;
+      }
+    }
+    *piVar7 = (int)local_38;
+    piVar7[-1] = 0x41193b7;
+    free((void *)*piVar7);
+  }
+  return iVar8;
+}
+

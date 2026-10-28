@@ -1,6 +1,130 @@
-// Recovered source skeleton: eon2/projects/saintsrow2/linux//../../../tools/breakpad/linux/include/breakpad/client/linux/handler/minidump_descriptor.h
-// Source path from baked debug strings (seeds/string_refs.csv); members are
-// functions that reference it. Not compiled — membership ledger only.
+// Recovered source: eon2/projects/saintsrow2/linux//../../../tools/breakpad/linux/include/breakpad/client/linux/handler/minidump_descriptor.h
+// Bodies: Ghidra decompile (live MCP) for named members; corpus decompile
+// for call-graph-attached unnamed helpers. Not compiled — recovery draft.
 
-// === members (1) ===
-//   minidump_descriptor_04014d80  @0x04014d80
+// --- minidump_descriptor_04014d80 @0x04014d80 ---
+/* WARNING: Removing unreachable block (ram,0x0401504a) */
+/* WARNING: Removing unreachable block (ram,0x040150af) */
+/* WARNING: Removing unreachable block (ram,0x040150ba) */
+/* WARNING: Removing unreachable block (ram,0x040150ca) */
+/* WARNING: Removing unreachable block (ram,0x0401503c) */
+/* source: minidump_descriptor */
+
+bool minidump_descriptor_04014d80(void)
+
+{
+  int iVar1;
+  bool bVar2;
+  char *pcVar3;
+  int *piVar4;
+  void *pvVar5;
+  int *piVar6;
+  undefined4 uVar7;
+  undefined4 local_3c;
+  undefined4 local_38;
+  int local_34;
+  undefined1 *local_30;
+  undefined4 local_2c;
+  undefined4 local_28;
+  undefined4 local_24;
+  int local_20;
+  int local_1c;
+  int local_18;
+  allocator local_13;
+  allocator local_12;
+  undefined1 local_11 [5];
+  
+  bVar2 = true;
+  if (DAT_04411218 == (void *)0x0) {
+    pcVar3 = (char *)FUN_04018ad0();
+    std::string::string((string *)&local_20,pcVar3,&local_13);
+    uVar7 = 0xd;
+                    /* try { // try from 04014dd6 to 04014dda has its CatchHandler @ 04015004 */
+    piVar4 = (int *)std::string::append((char *)&local_20,0x42dbfb9);
+    local_1c = *piVar4;
+    piVar6 = &local_1c;
+    *piVar4 = (int)&DAT_04410d0c;
+                    /* try { // try from 04014df4 to 04014df8 has its CatchHandler @ 04014fe4 */
+    std::string::swap((string *)&DAT_0441121c);
+    if ((allocator *)(local_1c + -0xc) != (allocator *)&std::string::_Rep::_S_empty_rep_storage) {
+      LOCK();
+      piVar4 = (int *)(local_1c + -4);
+      iVar1 = *piVar4;
+      *piVar4 = *piVar4 + -1;
+      UNLOCK();
+      if (iVar1 < 1) {
+        piVar6 = (int *)local_11;
+        std::string::_Rep::_M_destroy((allocator *)(local_1c + -0xc));
+      }
+    }
+    if ((allocator *)(local_20 + -0xc) != (allocator *)&std::string::_Rep::_S_empty_rep_storage) {
+      LOCK();
+      piVar4 = (int *)(local_20 + -4);
+      iVar1 = *piVar4;
+      *piVar4 = *piVar4 + -1;
+      UNLOCK();
+      if (iVar1 < 1) {
+        piVar6 = (int *)(local_11 + 1);
+        std::string::_Rep::_M_destroy((allocator *)(local_20 + -0xc));
+      }
+    }
+    pcVar3 = (char *)FUN_04019f50(0,piVar6,uVar7);
+    std::string::string((string *)&local_18,pcVar3,&local_12);
+    local_3c = 1;
+    local_38 = 0xffffffff;
+                    /* try { // try from 04014e57 to 04014e5b has its CatchHandler @ 040150c5 */
+    std::string::string((string *)&local_34,(string *)&local_18);
+    local_30 = &DAT_04410d0c;
+    local_2c = 0;
+    local_28 = 0xffffffff;
+    local_24 = 0xffffffff;
+    if (*(int *)(local_18 + -0xc) == 0) {
+                    /* WARNING: Subroutine does not return */
+      __assert_fail("!directory.empty()",
+                    "/home/peterm/Development/Projects/eon2-sr2/eon2/projects/saintsrow2/linux//../../../tools/breakpad/linux/include/breakpad/client/linux/handler/minidump_descriptor.h"
+                    ,0x3e,"google_breakpad::MinidumpDescriptor::MinidumpDescriptor(const string&)");
+    }
+    if ((allocator *)(local_18 + -0xc) != (allocator *)&std::string::_Rep::_S_empty_rep_storage) {
+      LOCK();
+      piVar6 = (int *)(local_18 + -4);
+      iVar1 = *piVar6;
+      *piVar6 = *piVar6 + -1;
+      UNLOCK();
+      if (iVar1 < 1) {
+        std::string::_Rep::_M_destroy((allocator *)(local_18 + -0xc));
+      }
+    }
+                    /* try { // try from 04014e9c to 04014ea0 has its CatchHandler @ 04014f8b */
+    pvVar5 = operator_new(0x48);
+                    /* try { // try from 04014ed5 to 04014ed9 has its CatchHandler @ 04014f60 */
+    FUN_042c7840(pvVar5,&local_3c,0,LaunchCrashReporter,0,1,0xffffffff);
+    DAT_04411218 = pvVar5;
+    if (pvVar5 == (void *)0x0) {
+                    /* try { // try from 04014f57 to 04014f5b has its CatchHandler @ 04014f8b */
+      FUN_0402cd10(0xf,"Initialising Breakpad failed!\n");
+    }
+    bVar2 = pvVar5 != (void *)0x0;
+    if ((allocator *)(local_30 + -0xc) != (allocator *)&std::string::_Rep::_S_empty_rep_storage) {
+      LOCK();
+      piVar6 = (int *)(local_30 + -4);
+      iVar1 = *piVar6;
+      *piVar6 = *piVar6 + -1;
+      UNLOCK();
+      if (iVar1 < 1) {
+        std::string::_Rep::_M_destroy((allocator *)(local_30 + -0xc));
+      }
+    }
+    if ((allocator *)(local_34 + -0xc) != (allocator *)&std::string::_Rep::_S_empty_rep_storage) {
+      LOCK();
+      piVar6 = (int *)(local_34 + -4);
+      iVar1 = *piVar6;
+      *piVar6 = *piVar6 + -1;
+      UNLOCK();
+      if (iVar1 < 1) {
+        std::string::_Rep::_M_destroy((allocator *)(local_34 + -0xc));
+      }
+    }
+  }
+  return bVar2;
+}
+

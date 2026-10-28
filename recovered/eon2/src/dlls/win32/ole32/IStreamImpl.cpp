@@ -1,6 +1,100 @@
-// Recovered source skeleton: eon2/src/dlls/win32/ole32/IStreamImpl.cpp
-// Source path from baked debug strings (seeds/string_refs.csv); members are
-// functions that reference it. Not compiled — membership ledger only.
+// Recovered source: eon2/src/dlls/win32/ole32/IStreamImpl.cpp
+// Bodies: Ghidra decompile (live MCP) for named members; corpus decompile
+// for call-graph-attached unnamed helpers. Not compiled — recovery draft.
 
-// === members (1) ===
-//   StreamImp::Write  @0x04160b90
+// --- StreamImp::Write @0x04160b90 ---
+/* source: IStreamImpl */
+
+undefined4 StreamImp__Write(int param_1,int param_2,uint param_3,uint *param_4)
+
+{
+  uint *puVar1;
+  undefined4 uVar2;
+  uint uVar3;
+  uint uVar4;
+  char **ppcVar5;
+  int iVar6;
+  char *local_5c;
+  char *local_58;
+  undefined4 local_54;
+  char *local_50;
+  uint local_4c;
+  undefined4 local_48;
+  uint local_3c;
+  uint local_38;
+  uint local_30;
+  uint local_2c;
+  uint local_28;
+  uint local_24;
+  int local_20;
+  
+  ppcVar5 = (char **)&local_4c;
+  if (param_2 == 0) {
+    local_30 = 0x80030009;
+  }
+  else {
+    local_3c = *(uint *)(param_1 + 0x28);
+    iVar6 = 0;
+    local_38 = *(uint *)(param_1 + 0x2c);
+    uVar4 = *(uint *)(param_1 + 0x18);
+    if (local_38 == 0 && local_3c == 0) {
+      local_30 = param_3;
+      local_50 = (char *)0x4160c6b;
+      local_4c = uVar4;
+      local_48 = eON_GlobalFlags();
+      local_4c = local_30;
+      local_50 = *(char **)(param_1 + 0x18);
+      local_54 = 0x4160c84;
+      uVar3 = eON_GlobalReAlloc();
+      uVar4 = *(uint *)(param_1 + 0x18);
+      ppcVar5 = &local_5c;
+      if (uVar3 != uVar4) {
+        local_50 = "virtual HRESULT StreamImp::Write(const void*, ULONG, ULONG*)";
+        local_54 = 0xad;
+        local_58 = 
+        "/home/peterm/Development/Projects/eon2-sr2/eon2/src/dlls/win32/ole32/IStreamImpl.cpp";
+        local_5c = "newHandle == mMemHandle";
+        FUN_0400a810();
+        uVar4 = *(uint *)(param_1 + 0x18);
+      }
+      *(uint *)(param_1 + 0x28) = param_3;
+      *(undefined4 *)(param_1 + 0x2c) = 0;
+      local_3c = param_3;
+      local_38 = 0;
+    }
+    local_24 = *(uint *)(param_1 + 0x20);
+    local_20 = *(int *)(param_1 + 0x24);
+    local_2c = local_24 + param_3;
+    local_28 = local_20 + (uint)CARRY4(local_24,param_3);
+    if ((local_28 < local_38) || ((local_28 <= local_38 && (local_2c <= local_3c)))) {
+      local_30 = 0;
+    }
+    else {
+      local_30 = 1;
+      param_3 = local_3c - local_24;
+      iVar6 = (local_38 - local_20) - (uint)(local_3c < local_24);
+    }
+    if (uVar4 != 0) {
+      *ppcVar5 = (char *)uVar4;
+      ppcVar5[-1] = (char *)0x4160bf3;
+      uVar2 = eON_GlobalLock();
+      ppcVar5[1] = (char *)param_3;
+      ppcVar5[-1] = (char *)uVar2;
+      *ppcVar5 = (char *)param_2;
+      ppcVar5[-2] = (char *)0x4160c09;
+      memcpy(ppcVar5[-1],*ppcVar5,(size_t)ppcVar5[1]);
+      ppcVar5[-1] = (char *)*(undefined4 *)(param_1 + 0x18);
+      ppcVar5[-2] = (char *)0x4160c14;
+      eON_GlobalUnlock();
+      puVar1 = (uint *)(param_1 + 0x20);
+      uVar4 = *puVar1;
+      *puVar1 = *puVar1 + param_3;
+      *(int *)(param_1 + 0x24) = *(int *)(param_1 + 0x24) + iVar6 + (uint)CARRY4(uVar4,param_3);
+    }
+    if (param_4 != (uint *)0x0) {
+      *param_4 = param_3;
+    }
+  }
+  return local_30;
+}
+
