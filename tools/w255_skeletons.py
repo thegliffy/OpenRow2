@@ -13,8 +13,9 @@ byfile = collections.defaultdict(list)
 for f, fn, n in rows:
     byfile[f].append(fn)
 
-# skeleton TUs: >=10 members
-tus = {f: fns for f, fns in byfile.items() if len(fns) >= 10}
+# skeleton TUs: >= MINTU members (default 10)
+MIN = int(os.environ.get('MINTU', '10'))
+tus = {f: fns for f, fns in byfile.items() if len(fns) >= MIN}
 print("TUs with >=10 members:", len(tus), "total members:", sum(len(v) for v in tus.values()))
 
 # corpus of unnamed bodies for call-graph attach
