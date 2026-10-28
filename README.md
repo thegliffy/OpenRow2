@@ -40,6 +40,7 @@ checker name displaced onto the displaced name's own pool slot, chain closed,
 
 | Wave | Method | Applied | New functions |
 |---|---|---|---|
+| 258 | body recovery: 8 hot TUs with real Ghidra bodies (238/238 named + 95 attached); GLEW patch-diff docs (no single upstream fits; <=1.3.1-gen + patch); gdb skipped (held-pool names all blocked by name-use) | 0 (board held 5,197) |
 | 257 | runtime probe: 27/60 named anchors executed live across 6 TUs, zero contradictions, 21/40 attached helpers ran (callers unnamed) | 0 (board held 5,197) |
 | 256 | recovered tree completed: all 132 TUs / 776 members, 40 attached helpers, 344/344 MCP comments (816/816 total) | 0 (board held 5,197) |
 | 255 | source-recovery skeletons: 20 TUs (>=10 members), 447 members + 25 attached helpers, 472/472 MCP comments | 0 (board held 5,197) |
